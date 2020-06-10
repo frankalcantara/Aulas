@@ -38,7 +38,7 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
-          <h2><b>Gestão de Configuração: SCM - Git</b></h2>
+          <h2><b>Gestão de Configuração:<br>SCM - Git</b></h2>
           <p>
             <b>Junho 2020</b>
           </p>
@@ -112,7 +112,7 @@ $ run output # on other machines too!
 
         <section>
           <p>
-            A <i>baseline</i> (linha base) é definida pelo <strong>IEEE 610.12 (1990)</strong>
+            A <i>baseline</i> (linha base) é definida pelo <strong>IEEE 610.12 (1990)</strong> como sendo:
           </p>
           <hr>
           <p>
@@ -124,48 +124,46 @@ $ run output # on other machines too!
         <section>
           <h3><b>Mudanças</b></h3>
           <p>
-            Controlamos tudo que pode afetar a qualidade do produto.
+            Controlamos tudo que pode afetar a qualidade do produto:
           </p>
           <hr>
           <p>
-            ✓	Especificação de projeto;
-            ✓	Modelo de dados;
-            ✓	Componentes; 
-            ✓Códigos-fonte;
-            ✓	Especificação de testes;
+            especificação de projeto; modelo de dados;
+            componentes; códigos-fonte; especificação de testes;
+            projetos de testes.
         </section>
 
         <section>
+          <h3><b>Controle de Versão</b></h3>
           <p>
-            <b>In a console environment</b> there are two main ways to run wasm today:
+            Procedimentos para o gerenciamento de versões de artefatos de código, teste e configuração criados durante 
+            os processos de desenvolvimento e manutenção de um software. 
           </p>
           <hr>
           <p>
-            <strong>Node.js</strong>: Popular VM built on the V8 JavaScript (JS)
-            engine which supports both JS and wasm.
+            Utiliza um sistema capaz de indicar, controlar e realizar alterações nestes artefatos independente do desenvolvedor.
+          </p>
+         </section>
+         <section>
+          <h3><b>Controle de Versão</b></h3>
+          <p>
+            Banco de dados para artefatos de desenvolvimento. 
           </p>
           <hr>
           <p>
-            <strong>Wasm VMs</strong>: A new family of runtimes including:
-            <a href="https://github.com/bytecodealliance/wasmtime">Wasmtime</a>,
-            <a href="https://github.com/wasmerio/wasmer">Wasmer</a>,
-            <a href="https://github.com/WAVM/WAVM">WAVM</a>,
-            <a href="https://github.com/wasm3/wasm3">wasm3</a>, etc.
+            Controle de acesso e histórico de modificações.
           </p>
           <hr>
           <p>
-            Which of those we use determines which APIs we can use.
+            Segurança, confiabilidade e disponibilidade.
           </p>
-        </section>
-
+         </section>
         <section>
-          <h3><b>Node.js: Node.js APIs</b></h3>
+          <h3><b>GIT</b></h3>
           <hr>
           <p>
-            Node.js APIs are a useful set of OS operations on things like
-            <a href="https://nodejs.org/api/fs.html">files</a> and
-            <a href="https://nodejs.org/api/child_process.html#child_process_child_process_fork_modulepath_args_options">processes</a> (spawn, fork, etc.).
-          </p>
+            <img src = "https://imgs.xkcd.com/comics/git.png"
+            alt = "imagem do XKCD brincando com o uso do git" /></p>
           <hr>
           <pre><code class="js" data-trim>
 // No special sandboxing model; like Python etc.,
