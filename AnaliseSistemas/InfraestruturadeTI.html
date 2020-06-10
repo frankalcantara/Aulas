@@ -1,0 +1,274 @@
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Aula - Introdução a Infraestrutura de Tecnologia da Informação</title>
+
+    <meta name="description" content="Introdução a Infraestrutura de Tecnologia da Informação">
+    <meta name="author" content="Frank de Alcantara">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      h2 b {
+        color: #048;
+      }
+      h3 b {
+        color: #369;
+      }
+      b {
+        color: #63a;
+      }
+      strong {
+        color: #c11;
+      }
+    </style>
+
+    <style type="text/css">
+    #wrap {
+       width:600px;
+       margin:0 auto;
+    }
+    #left_col {
+       float:left;
+       width:300px;
+    }
+    #right_col {
+       float:right;
+       width:300px;
+    }
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+<section>
+  <h2><b style="color: #f00">Infraestrutura de Tecnologia da Informação</b><br><br></h2>
+  <br>
+  <br>
+  <p><b>Frank de Alcantara</b> / <a style="color: #36f" href="http://twitter.com/depijama">@depijama</a></p>
+  <br>
+  <p><small>09 Junho 2020</small></p>
+</section>
+
+<section>
+  <a href="http://emscripten.org"><img src="emscripten_switch_logo.png"></a>
+  <br>
+  <p>an open source LLVM-based compiler from C and C++ to JavaScript</p>
+  <br>
+  <p style="background-color: black; padding: 1em; box-shadow: 8px 8px 8px rgba(0,0,0,0.6)"><b style="color: #f42">C++</b>&nbsp&nbsp<b style="color: #fff">&rArr;</b>&nbsp&nbsp<b style="color: #7af">LLVM</b>&nbsp&nbsp<b style="color: #fff">&rArr;</b>&nbsp&nbsp<b style="color: #8f5">Emscripten</b>&nbsp&nbsp<b style="color: #fff">&rArr;</b>&nbsp&nbsp<b style="color: #f58">JS</b></p>
+</section>
+
+<section>
+  <pre><code contenteditable>  float array[5000]; // C++
+  int main() {
+    for (int i = 0; i < 5000; ++i) {
+      array[i] += 1.0f;
+    }
+  }</code></pre>
+  <p><b>&rArr;</b> Emscripten <b>&rArr;</b></p>
+  <pre><code contenteditable>  function main() { // JavaScript
+    var a = 0, b = 0;
+    do {
+      a = (8 + (b << 2)) | 0;
+      HEAPF32[a >> 2] = +HEAPF32[a >> 2] + 1.0;
+      b = (b + 1) | 0;
+    } while ((b | 0) < 5000);
+  }</code></pre>
+  <p class="fragment">This is <a href="http://asmjs.org">asm.js</a></b>, a low-level subset of JavaScript</p>
+  <p class="fragment">Looks kind of hackish <b>;)</b> </p>
+</section>
+
+<section>
+  <center><table style="border-spacing: 10px 0px"><tr>
+    <td style="margin: 20px"><img src="wasm4.png" style="box-shadow: 12px 12px 8px rgba(0,0,0,0.6)" height=150></td>
+    <td><img src="wasm1.png" style="box-shadow: 4px 12px 8px rgba(0,0,0,0.6)" height=50></td>
+    <td><img src="wasm3.png" style="box-shadow: -4px 12px 8px rgba(0,0,0,0.6)" height=150 alt="webassembly"></td>
+    <td><img src="wasm2.png" style="box-shadow: -12px 12px 8px rgba(0,0,0,0.6)" height=50></td>
+  </tr></table></center>
+  <p><small>(no official logo yet!)</small></p>
+  <br>
+  <p><strong>WebAssembly</strong> = <b>asm.js done right</b></p>
+  <br>
+  <p class="fragment"><b>Binary executable format</b> for the web</p>
+  <br>
+  <p class="fragment"><b>New web standard</b>, multi-vendor cooperation</p>
+  <br>
+  <!--p class="fragment">Primary a <b>compiler target</b></p>
+  <br-->
+  <p class="fragment"><strong>Not</strong> limited by JavaScript, but <strong>does</strong> integrate properly with the Web</p>
+  <br>
+</section>
+
+<section>
+  <p>For WebAssembly to succeed we need <strong>two things</strong>:</p>
+  <br>
+  <p class="fragment">1. <b>Browsers</b> to support WebAssembly natively</p>
+  <br>
+  <p class="fragment">2. <b>Compilers</b> that emit WebAssembly</p>
+  <br>
+  <p class="fragment">I'll talk about the second of those</p>
+</section>
+
+<section>
+  <p>Already a few compilers in the works:</p>
+  <br>
+  <hr class="fragment">
+  <br>
+  <p class="fragment">New WebAssembly backend in <b>LLVM</b> by sunfish and others</p>
+  <br>
+  <p class="fragment"><a href="https://github.com/WebAssembly/ilwasm">ilwasm</a> for <b>.NET/CIL</b></p>
+  <br>
+  <hr class="fragment">
+  <br>
+  <p class="fragment">Longer-term efforts, and we want to test and launch WebAssembly <strong>ASAP</strong>. What to do?</p>
+</section>
+
+<section>
+  <p>A hack, of course! :)</p>
+  <br>
+  <br>
+  <p style="background-color: black; padding: 1em; box-shadow: 8px 8px 8px rgba(0,0,0,0.6)"><b style="color: #f42">C++</b>&nbsp&nbsp<b style="color: #fff">&rArr;</b>&nbsp&nbsp<b style="color: #7af">Emscripten</b>&nbsp&nbsp<b style="color: #fff">&rArr;</b>&nbsp&nbsp<b style="color: #8f5">asm.js</b></p>
+  <p><strong>+</strong></p>
+  <p class="fragment" style="background-color: black; padding: 1em; box-shadow: 8px 8px 8px rgba(0,0,0,0.6)"><b style="color: #8f5">asm.js</b>&nbsp&nbsp<b style="color: #fff">&rArr;</b>&nbsp&nbsp<b style="color: #7af">...</b>&nbsp&nbsp<b style="color: #fff">&rArr;</b>&nbsp&nbsp<b style="color: #f58">WebAssembly</b></p>
+</section>
+
+<section>
+  <p><b>...</b> = <b>asm2wasm</b>: Compile asm.js &rArr; WebAssembly</p>
+  <br>
+  <p class="fragment">Part of <strong>Binaryen</strong>: a <b>WebAssembly infrastructure library</b>, written in <b>C++</b><p>
+  <br>
+  <hr class="fragment">
+  <p class="fragment"><b>Parse and emit</b> WebAssembly</p>
+  <p class="fragment"><b>Represent and process</b> WebAssembly</p>
+  <p class="fragment"><b>Interpret</b> WebAssembly</p>
+  <p class="fragment"><b>wasm2asm</b>: Compile WebAssembly &rArr; asm.js (wip)</p>
+  <hr class="fragment">
+</section>
+
+<section>
+  <p>Binaryen is <b>extensible</b> and has a convenient <strong>commandline interface</strong></p>
+  <br>
+  <div class="fragment">
+    <center><img src="binaryen-colors.png" style="width: 75%"></center>
+  </div>
+  <br>
+  <p class="fragment"><a href="https://github.com/WebAssembly/binaryen">https://github.com/WebAssembly/binaryen</a></p>
+</section>
+
+<section>
+  <p><b>The name</b>: WebAssembly is a <strong>Binary-</strong> format, and we integrate with Emscript<strong>-en</strong> &rArr; <strong>Binaryen</strong></p>
+  <br>
+  <div class="fragment">
+    <p>Rhymes with <b><a href="https://en.wikipedia.org/wiki/List_of_A_Song_of_Ice_and_Fire_characters#House_Targaryen">Targaryen</a></b></p>
+    <center><img src="Daenerys3.jpg" style="width: 75%; box-shadow: 10px 10px 10px rgba(0,0,0,1)"></center>
+    <p><small>(only <a href="http://www.daystillgameofthrones.com/">122 days</a> until Game of Thrones returns)</small></p>
+  </div>
+</section>
+
+
+<section>
+  <p><strong>wasm.js</strong></p>
+  <br>
+  <p>wasm.js <b>ports Binaryen to JavaScript</b> using Emscripten</p>
+  <br>
+  <p class="fragment">For example, it can execute WebAssembly in the Binaryen interpreter in JavaScript, as a (slow) <b>polyfill</b></p>
+</section>
+
+<section>
+  <p><strong>wasm.js demo</strong></p>
+  <br>
+  <div class="fragment">
+    <hr>
+    <iframe src="hello_wasm/index.html" scrolling=no></iframe>
+    <hr>
+    <br>
+    <p>That's a C program <b>compiled to WebAssembly</b> &#151; including full libc, syscalls, etc. &#151; running in a <strong>WebAssembly interpreter</strong> written in C++, compiled to JavaScript, and embedded on this HTML page</p>
+  </div>
+</section>
+
+<section>
+  <p style="background-color: black; padding: 1em; box-shadow: 8px 8px 8px rgba(0,0,0,0.6)"><b style="color: #f42">C++</b>&nbsp&nbsp<b style="color: #fff">&rArr;</b>&nbsp&nbsp<b style="color: #7af">Emscripten+Binaryen</b>&nbsp&nbsp<b style="color: #fff">&rArr;</b>&nbsp&nbsp<b style="color: #8f5">wasm</b></p>
+  <br>
+  <p>Runnable <b>today</b>, using the wasm.js compiled interpreter</p>
+  <br>
+  <p class="fragment">And when browsers have <strong>native</strong> support for WebAssembly, the same build should just work</p>
+</section>
+
+<section>
+  <p>So Emscripten+Binaryen <strong>seems</strong> to work. How good is it?</p>
+  <br>
+  <p class="fragment"><b>Passes the Emscripten test suite</b>, which is very comprehensive</p>
+  <br>
+  <p class="fragment">Interpreter <b>passes the WebAssembly spec test suite</b></p>
+  <br>
+  <p class="fragment"><b>Relatively little new code here</b>, on top of a stable toolchain</p>
+  <br>
+</section>
+
+<section>
+  <h3><b>Summary</b></h3>
+  <br>
+  <hr>
+  <p>Emscripten+Binaryen provide a <b>C++ to WebAssembly</b> solution, <strong>today</strong></p>
+  <br>
+  <p class="fragment">Also helping with <b>experiments and prototyping</b> for the <strong>WebAssembly design process</strong></p>
+  <br>
+  <p class="fragment">Binaryen can help grow the WebAssembly <b>toolchain ecosystem</b></p>
+  <hr>
+  <br>
+  <p><a href="https://github.com/WebAssembly/binaryen">https://github.com/WebAssembly/binaryen</a></p>
+</section>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: 'sky', //Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
+
