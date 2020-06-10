@@ -17,16 +17,16 @@
 
     <style type="text/css">
       h2 b {
-        color: #55f;
+        color: #0808f3;
       }
       h3 b {
-        color: #bbb;
+        color: rgb(229, 226, 226);
       }
       b {
-        color: #bbf;
+        color: #2396e8;
       }
       strong {
-        color: #bfb;
+        color: rgb(88, 172, 250);
       }
       i{
         font-style: italic;
@@ -38,7 +38,7 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
-          <h2><b>Gestão de Configuração - SCM - Git</b></h2>
+          <h2><b>Gestão de Configuração: SCM - Git</b></h2>
           <p>
             <b>Junho 2020</b>
           </p>
@@ -97,10 +97,6 @@ $ run output # on other machines too!
           <h3><b>Maturidade: CMMI</b></h3>
           <hr>
           <p>
-            As atividades relacionadas ao SCM estão descritas no CMMI.
-          </p>
-          <hr>
-          <p>
             Construção ou fornecimento de especificações para construir produtos de trabalho a partir 
             do <strong>sistema de configuração</strong>.
           </p>
@@ -110,37 +106,33 @@ $ run output # on other machines too!
           </p>
           <hr>
           <p>
-            Fornecimento de dados precisos de status e configuração corrente a desenvolvedores, usuários finais e clientes.
-            Em fim, fornecimento de dados precisos para os <strong><i>stakeholders</i></strong>
+            Fornecimento de dados precisos de status e configuração corrente aos <strong><i>stakeholders</i></strong>,
           </p>
         </section>
 
         <section>
           <p>
-            <b>The Web</b> has one of the best CPU + OS portability stories. Browser-specific
-            bugs definitely exist, and are annoying, but given the scale of the Web
-            they are remarkably few!
+            A <i>baseline</i> (linha base) é definida pelo <strong>IEEE 610.12 (1990)</strong>
           </p>
           <hr>
           <p>
-            <strong>Node.js, Python, Java, .NET</strong>, and other virtual machines (VMs) provide full
-            CPU portability, and some amount of OS portability. Some operations
-            are OS-specific; less portable, but more power.
+            <i>“Uma especificação ou produto que foi formalmente revisada e acordada, 
+              que irá servir de base para o desenvolvimento e só pode ser mudada através de procedimentos formais de controle.”</i>
           </p>
-          <hr>
-          <p>
-            Off the Web, we should use one of those <strong>VMs</strong>.
-          </p>
-        </section>
+         </section>
 
         <section>
+          <h3><b>Mudanças</b></h3>
           <p>
-            If we have <b>C, C++, Rust, or Go</b>, what VMs can we compile to?
+            Controlamos tudo que pode afetar a qualidade do produto.
           </p>
           <hr>
           <p>
-            All those can compile to <b>WebAssembly</b> which solves CPU
-            portability! Now, where can we run it?
+            ✓	Especificação de projeto;
+            ✓	Modelo de dados;
+            ✓	Componentes; 
+            ✓Códigos-fonte;
+            ✓	Especificação de testes;
         </section>
 
         <section>
