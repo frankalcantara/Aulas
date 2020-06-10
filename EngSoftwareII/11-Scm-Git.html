@@ -126,16 +126,14 @@
         </section>
         <section>
           <h3><b>Mudanças</b></h3>
-          <hr />
+          
           <p>
             Controlamos tudo que pode afetar a qualidade do produto:
-          </p>
-          <p>
             especificação de projeto; modelo de dados; componentes;
             códigos-fonte; especificação de testes; projetos de testes.
           </p>
+          <hr />
         </section>
-
         <section>
           <section>
             <h3><b>Controle de Versão</b></h3>
@@ -179,11 +177,11 @@
             />
           </p>
           <p>
-            Hoje, usamos o <a href="https://git-scm.com/">GIT</a> muitas vezes
-            no <a href="https://github.com/">Github</a> algumas vezes com o
-            <a href="https://gitlab.com/">GitLab</a> e com uma forte tendência
-            do <a href="https://bitbucket.org/">BitBucket</a>
+            Hoje, usamos o <a href="https://git-scm.com/">GIT</a> geralmente
+            no <a href="https://github.com/">Github</a>, algumas vezes com no
+            <a href="https://gitlab.com/">GitLab</a> e possivelmente no <a href="https://bitbucket.org/">BitBucket</a>
           </p>
+          <hr>
         </section>
         <section>
           <section>
@@ -251,7 +249,7 @@
                 src="img/CtrlVersionDistribuido.jpg"
                 alt="diagrama de sistema de controle de versão distribuido"
                 width="80%"
-                style="padding-bottom: 10px;"
+                style="padding-bottom: 3px;"
               />
             </p>
             <hr />
@@ -260,16 +258,16 @@
             <h3><b>Repositório Local</b></h3>
             <hr />
             <p>
-              <i>Working tree</i> ou <i>Directory tree</i>. os arquivos não são
+              <strong><i>Working tree</i></strong> ou <i>Directory tree</i>. os arquivos não são
               controlados pelo GIT. podemos alterar qualquer coisa sem medo.
             </p>
             <p>
-              <i>Staging Area</i> estes são os arquivos que serão incluídos no
+              <strong></strong><i>Staging Area</i></strong> estes são os arquivos que serão incluídos no
               seu próximo <i>commit</i>. Estes são os arquivos que o GIT
               conhece.
             </p>
             <p>
-              <i>Repository</i> estes são os arquivos que você já comitou. Está
+              <strong></strong><i>Repository</i></strong> estes são os arquivos que você já comitou. Está
               no diretório <b><i>.git</i></b
               >.
             </p>
@@ -300,29 +298,144 @@
             </pre>
             <hr />
           </section>
+          <section>
+            <h3><b>Fluxo de Trabalho</b></h3>
+            <hr />
+            <p>
+              Crie e modifique tudo que quiser no seu <i>Working Directory</i>.
+            </p>
+            <p>
+              <i>Stage</i> seus arquivos para que o GIT tenha conhecimento deles. 
+            </p>
+            <p>
+              <i>Commit</i> do seus arquivos para que o GIT faça uma cópia destes arquivos diretamente 
+              no seu <b><i>.git</i></b>.
+            </p>
+            <hr />
+          </section>
         </section>
-
         <section>
-          <h3><b>GIT na Linha de Comando</b></h3>
-          <hr />
-          <p>
-            Para buscar ajuda:
-          </p>
+          <section>
+            <h3><b>GIT na Linha de Comando</b></h3>
+            <hr />
+            <p>
+              Para buscar ajuda:
+            </p>
+            <hr />
+            <pre>
+              <code class="bash" data-trim>
+                $ git help verbo
+                $ git verbo --help 
+                $ man git-verbo
+             </code>
+            </pre>
+            <hr />
+            <p>
+              Existe um
+              <a href="https://git-scm.com/book/en/v2/">Livro gratuito</a>
+              <i>online</i> que está em processo de tradução para o português.
+            </p>
+          </section>
+          <section>
+            <h3><b>Configurando seu ambiente</b></h3>
+            <hr />
+            <pre>
+              <code class="bash" data-trim>
+                $ git config --global user.name “Seu Nome”
+                $ git config --global user.email seu@email.com
+                $ git config –-list 
+             </code>
+            </pre>
+            <hr />
+            <p>
+              Estes valores serão ajustados globalmente para todos os seus projetos no GIT
+            </p>
+          </section>
+        </section>
+        <section>
+          <h3><b>Criando uma cópia local</b></h3>
           <hr />
           <pre>
             <code class="bash" data-trim>
-              $ git help verbo
-              $ git verbo --help 
-              $ man git-verbo
+              $ git clone &lt;url&gt; [nome do dir local]
+              $ exemplo:
+              $ git clone https://github.com/frankalcantara/learngo
            </code>
           </pre>
           <hr />
           <p>
-            Existe um
-            <a href="https://git-scm.com/book/en/v2/">Livro gratuito</a>
-            <i>online</i> que está em processo de tradução para o português.
+            Irá criar, no diretório onde você rodar este comando, um diretório chamado <i>learngo</i>
+            com um arquivo <b><i>.git</i></b> contendo o histórico do repositório do GitHub.
           </p>
         </section>
+        <section>
+          <h3><b>Para criar um repositório</b></h3>
+          <hr />
+          <pre>
+            <code class="bash" data-trim>
+              $ git init
+           </code>
+          </pre>
+          <hr />
+          <p>
+            Irá criar, um repositório, no diretório corrente com o respectivo <b><i>.git</i></b>. 
+            Uma vez que o diretório está criado você pode adicionar arquivos a este repositório.
+          </p>
+          <pre>
+            <code class="bash" data-trim>
+              $ git add teste1.c
+              $ git commit –m “primeiro commit neste repositorio para testes”
+           </code>
+          </pre>
+          <hr />
+        </section>
+        <section>
+          <h3><b>Comandos</b></h3>
+          <hr />
+          <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+            <thead>
+              <tr>
+                <th class="tg-0pky">Comando</th>
+                <th class="tg-0pky">Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-0pky"><code class="bash" data-trim>git clone url [dir]</code></td>
+                <td class="tg-0pky">Faz uma cópia de um repositório em um diretório local</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky"><code class="bash" data-trim>git add files</code></td>
+                <td class="tg-0pky">Adiciona arquivos ao controle de versão</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky"><code class="bash" data-trim> git commit</code></td>
+                <td class="tg-0pky">Grava uma imagem da <i>Staging Area</i></td>
+              </tr>
+              <tr>
+                <td class="tg-0pky"><code class="bash" data-trim>git status</code></td>
+                <td class="tg-0pky">Verifica o status dos seus arquivos na <i>Working Area</i> e na <i>Stage Area</i></td>
+              </tr>
+              <tr>
+                <td class="tg-0pky"><code class="bash" data-trim>git pull</code></td>
+                <td class="tg-0pky">Recupera arquivos de um repositório e tenta o <i>merge</i>no seu <i>branch</i> corrente.</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky"><code class="bash" data-trim>git push</code></td>
+                <td class="tg-0pky">Coloca suas modificações em um repositório remoto</td>
+              </tr>
+            </tbody>
+            </table>
+        </section>
+      </section>
       </div>
       <!--fecha slides-->
     </div>
