@@ -1,39 +1,23 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="pt">
   <head>
     <meta charset="utf-8">
-
     <title>Gestão de Configuração - SCM - Git</title>
-
-<!--
-WebAssembly and the Elusive Universal Binary
-
-Many software developers dream of a "universal binary" that would let us build
-once and ship everywhere. Of course such a thing would be impossible to do
-without some tradeoffs on speed or portability, but it's worth getting as close
-as we can! In this talk we'll see how WebAssembly can help here both today and
-in the future.
--->
-
-    <meta name="description" content="Wasm and the Elusive Universal Binary">
-    <meta name="author" content="Alon Zakai">
+    <meta name="description" content="Gestão de Configuração - SCM - Git">
+    <meta name="author" content="Frank de Alcantara">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
     <link rel="stylesheet" href="dist/theme/black.css" id="theme">
-
-    <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
 
     <style type="text/css">
       h2 b {
-        color: #f5f;
+        color: #55f;
       }
       h3 b {
         color: #bbb;
@@ -46,62 +30,51 @@ in the future.
       }
     </style>
   </head>
-
   <body>
-
     <div class="reveal">
-
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
-          <h2><b>WebAssembly and the Elusive Universal Binary</b></h2>
+          <h2><b>Gestão de Configuração - SCM - Git</b></h2>
           <p>
-            <b>June 2020</b>
+            <b>Junho 2020</b>
           </p>
           <p>
-            Alon Zakai (Google)
+            Frank de Alcantara
+          </p>
+        </section>
+        <section>
+          <p>
+            O termo "<b>Software Configuration Management (SCM)</b>" Engloba um conceito de controle
+            de modificações que podem ser feitas em um projeto de software durante o desenvolvimento.
+          </p>
+          <hr>
+          <p>
+            Ou durante a fase de manutenção do software. Considerando que este software tenha uma vida útil.
+          </p>
+          <hr>
+          <p>
+            Está diretamente ligado ao gerenciamento de mudanças e ao controle de versão.
+            Em português: <strong>Gerência / Gestão de Configuração de Software (GCS)</strong>
           </p>
         </section>
 
         <section>
+          <h3><b>Atividades Relacionadas</b></h3>
+          <hr>
           <p>
-            A "<b>Universal Binary</b>" is a single executable that
-            runs on any arch and any OS, and
-            runs at 100% of speed.
+            Identificar mudanças no código, processo de construção e testes.
+          </p>
+          <hr>
+            Controlar a realização de alterações no código, processo de construção e testes.
           </p>
           <hr>
           <p>
-            The dream is you build once instead of for each target, with no downsides.
-            [graphy]
-          </p>
-          <hr>
-          <p>
-            In fact, it doesn't need to actually be a <strong>binary</strong>, so long as it's
-            portable and fast.
+            Reportar todas as mudanças, alterações e correções de forma clara.
           </p>
         </section>
 
-        <section>
-          <h3><b>Example: My Use Case</b></h3>
-          <hr>
-          <p>
-            <a href="https://github.com/WebAssembly/binaryen#tools">wasm-opt</a>
-            (part of <a href="https://github.com/WebAssembly/binaryen/">binaryen</a>)
-            shrinks wasm files by around <b>20%</b> on average.
-          </p>
-          <hr>
-            Binary builds are used by toolchains like
-            <a href="https://emscripten.org/">Emscripten</a> (C++)
-            and <a href="https://github.com/rustwasm/wasm-pack">wasm-pack</a> (Rust).
-          </p>
-          <hr>
-          <p>
-            We have builds for <strong>Linux, Mac, and Windows</strong>, but some users can't use them (e.g. BSD).
-            And build infra takes work, sometimes tests only fail there, etc.
-          </p>
-        </section>
-
-        <section>
+       <!-- Exemplo de código com sintaxe bash <section>
           <p>
             It would be nice if we had this:
           </p>
@@ -117,22 +90,26 @@ $ run output # on other machines too!
             How close can we get today?
           </p>
         </section>
-
+-->
         <section>
-          <h3><b>Portability</b></h3>
+          <h3><b>Maturidade: CMMI</b></h3>
           <hr>
           <p>
-            First, let's distinguish two types of portability.
+            As atividades relacionadas ao SCM estão descritas no CMMI.
           </p>
           <hr>
           <p>
-            <b>CPU portability</b> concerns <strong>pure computation</strong>, lets you run your code no matter what the
-            CPU architecture is.
+            Construção ou fornecimento de especificações para construir produtos de trabalho a partir 
+            do sistema de <strong>sistema de configuração</strong>.
           </p>
           <hr>
           <p>
-            <b>OS portability</b> concerns <strong>APIs</strong>, and lets you do operations like
-            printing, file access, etc. no matter the operating system.
+            Manutenção da integridade das <i>baselines</i>.
+          </p>
+          <hr>
+          <p>
+            Fornecimento de dados precisos de status e configuração corrente a desenvolvedores, usuários finais e clientes.
+            Em fim, fornecimento de dados precisos para os <strong><i>stakeholders</i></strong>
           </p>
         </section>
 
