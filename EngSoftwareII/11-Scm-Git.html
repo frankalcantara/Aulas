@@ -38,7 +38,7 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
-          <h2><b>Gestão de Configuração:<br>SCM - Git</b></h2>
+          <h2><b>Gestão de Configuração<br>SCM - Git</b></h2>
           <p>
             <b>Junho 2020</b>
           </p>
@@ -60,7 +60,6 @@
             Em português: <strong>Gerência / Gestão de Configuração de Software (GCS)</strong>. 
           </p>
         </section>
-
         <section>
           <h3><b>Atividades Relacionadas</b></h3>
           <hr>
@@ -75,24 +74,6 @@
             Reportar todas as mudanças, alterações e correções de forma clara.
           </p>
         </section>
-
-       <!-- Exemplo de código com sintaxe bash <section>
-          <p>
-            It would be nice if we had this:
-          </p>
-          <hr>
-          <pre><code class="bash" data-trim>
-$ make output # or any other build system
-...
-$ run output # on other machines too!
-...
-</code></pre>
-          <hr>
-          <p>
-            How close can we get today?
-          </p>
-        </section>
--->
         <section>
           <h3><b>Maturidade: CMMI</b></h3>
           <hr>
@@ -111,6 +92,7 @@ $ run output # on other machines too!
         </section>
 
         <section>
+          <hr>
           <p>
             A <i>baseline</i> (linha base) é definida pelo <strong>IEEE 610.12 (1990)</strong> como sendo:
           </p>
@@ -123,6 +105,7 @@ $ run output # on other machines too!
 
         <section>
           <h3><b>Mudanças</b></h3>
+          <hr>
           <p>
             Controlamos tudo que pode afetar a qualidade do produto:
           </p>
@@ -135,6 +118,7 @@ $ run output # on other machines too!
 
         <section>
           <h3><b>Controle de Versão</b></h3>
+          <hr>
           <p>
             Procedimentos para o gerenciamento de versões de artefatos de código, teste e configuração criados durante 
             os processos de desenvolvimento e manutenção de um software. 
@@ -183,44 +167,45 @@ $ run output # on other machines too!
           <p>
             No GIT, cada usuário pode manter sua própria cópia do repositório. 
           </p>
+        <!--subseções-->
+              <section>
+                <h3><b>Repositório</b></h3>
+                <hr>
+                <p>
+                  Você precisa adicionar os arquivos que estão na sua <i>working tree</i> ao repositório.
+                </p>
+                <hr>
+                <p>
+                  Não deve incluir arquivos .obj e .exe. Ou outros que sejam derivados do código.
+                </p>
+                <hr>
+                <p>
+                  Deve incluir arquivos <i>Make</i> ou de configuração.
+                </p>
+              </section>
+
+              <section>
+                <h3><b>Repositório</b></h3>
+                <hr>
+                <p>
+                  Podemos criar repositórios em qualquer lugar. Até no computador de desenvolvimento. 
+                </p>
+                <hr>
+                <p>
+                  Coloque em computadores com <b>RAID</b> e que estejam disponívies 24h/7.
+                </p>
+                <hr>
+                <p>
+                  Considere: <a href="https://github.com/">Github</a>; <a href="https://gitlab.com/">GitLab</a>; <a href="https://bitbucket.org/">BitBucket</a>
+                </p>
+                <hr>
+                <p>
+                  Além da Amazon, Microsoft e Google. Todos têm serviços de <i>CI/CD</i>.
+                </p>
+              </section>
         </section>
 
-        <section>
-          <h3><b>Repositório</b></h3>
-          <hr>
-          <p>
-            Você precisa adicionar os arquivos que estão na sua <i>working tree</i> ao repositório.
-          </p>
-          <hr>
-          <p>
-            Não deve incluir arquivos .obj e .exe. Ou outros que sejam derivados do código.
-          </p>
-          <hr>
-          <p>
-            Deve incluir arquivos <i>Make</i> ou de configuração.
-          </p>
-        </section>
-
-        <section>
-          <h3><b>Repositório</b></h3>
-          <hr>
-          <p>
-            Podemos criar repositórios em qualquer lugar. Até no computador de desenvolvimento. 
-          </p>
-          <hr>
-          <p>
-            Coloque em computadores com <b>RAID</b> e que estejam disponívies 24h/7.
-          </p>
-          <hr>
-          <p>
-            Considere: <a href="https://github.com/">Github</a>; <a href="https://gitlab.com/">GitLab</a>; <a href="https://bitbucket.org/">BitBucket</a>
-          </p>
-          <hr>
-          <p>
-            Além da Amazon, Microsoft e Google. Todos têm serviços de <i>CI/CD</i>.
-          </p>
-        </section>
-
+        
         <section>
           <h3><b>GIT na Linha de Comando</b></h3>
           <hr>
