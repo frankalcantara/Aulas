@@ -1,19 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Gestão de Configuração - SCM - Git</title>
-    <meta name="description" content="Gestão de Configuração - SCM - Git">
-    <meta name="author" content="Frank de Alcantara">
+    <meta name="description" content="Gestão de Configuração - SCM - Git" />
+    <meta name="author" content="Frank de Alcantara" />
 
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="dist/reset.css">
-    <link rel="stylesheet" href="dist/reveal.css">
-    <link rel="stylesheet" href="dist/theme/black.css" id="theme">
-    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme" />
+    <link
+      rel="stylesheet"
+      href="plugin/highlight/monokai.css"
+      id="highlight-theme"
+    />
 
     <style type="text/css">
       h2 b {
@@ -28,7 +35,7 @@
       strong {
         color: rgb(88, 172, 250);
       }
-      i{
+      i {
         font-style: italic;
       }
     </style>
@@ -37,237 +44,271 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <h2><b>Gestão de Configuração<br>SCM - Git</b></h2>
-          <p>
-            <b>Junho 2020</b>
-          </p>
-          <p>
-            Frank de Alcantara
-          </p>
-        </section>
-        <section>
-          <h3><b>Software Configuration Management</b></h3>
-          <hr>
-          <p>
-            O termo "<b><i>Software Configuration Management</i> (SCM)</b>" Engloba um conceito de controle
-            de modificações em projetos de software durante o desenvolvimento.
-          </p>
-          <hr>
-          <p>
-            E na fase de manutenção durante toda vida útil do produto.
-          </p>
-          <hr>
-          <p>
-            Em português: <strong>Gerência / Gestão de Configuração de Software (GCS)</strong>. 
-          </p>
+          <section>
+            <h2>
+              <b>Gestão de Configuração<br />SCM - Git</b>
+            </h2>
+            <p>
+              <b>Junho 2020</b>
+            </p>
+            <p>
+              Frank de Alcantara
+            </p>
+          </section>
+          <section>
+            <h3><b>Software Configuration Management</b></h3>
+            <hr />
+            <p>
+              O termo "<b><i>Software Configuration Management</i> (SCM)</b>"
+              Engloba um conceito de controle de modificações em projetos de
+              software durante o desenvolvimento.
+            </p>
+            <hr />
+            <p>
+              E na fase de manutenção durante toda vida útil do produto.
+            </p>
+            <hr />
+            <p>
+              Em português:
+              <strong
+                >Gerência / Gestão de Configuração de Software (GCS)</strong
+              >.
+            </p>
+          </section>
         </section>
         <section>
           <h3><b>Atividades Relacionadas</b></h3>
-          <hr>
+          <hr />
           <p>
             Identificar mudanças no código, processo de construção e testes.
           </p>
-          <hr>
+          <hr />
           <p>
-            Controlar a realização de alterações no código, processo de construção e testes.
+            Controlar a realização de alterações no código, processo de
+            construção e testes.
           </p>
-          <hr>
+          <hr />
           <p>
             Reportar todas as mudanças, alterações e correções de forma clara.
           </p>
         </section>
         <section>
           <h3><b>Maturidade: CMMI</b></h3>
-          <hr>
+          <hr />
           <p>
-            Construção ou fornecimento de especificações para construir produtos de trabalho a partir 
-            do <strong>sistema de configuração</strong>.
+            Construção ou fornecimento de especificações para construir produtos
+            de trabalho a partir do <strong>sistema de configuração</strong>.
           </p>
-          <hr>
+          <hr />
+          <p>Manutenção da integridade das <i>baselines</i>.</p>
+          <hr />
           <p>
-            Manutenção da integridade das <i>baselines</i>.
-          </p>
-          <hr>
-          <p>
-            Fornecimento de dados precisos de status e configuração corrente aos <strong><i>stakeholders</i></strong>,
+            Fornecimento de dados precisos de status e configuração corrente aos
+            <strong><i>stakeholders</i></strong
+            >,
           </p>
         </section>
-
         <section>
           <h3><b>Baseline</b></h3>
-          <hr>
+          <hr />
           <p>
-            A <i>baseline</i> (linha base) é definida pelo <strong>IEEE 610.12 (1990)</strong> como sendo:
+            A <i>baseline</i> (linha base) é definida pelo
+            <strong>IEEE 610.12 (1990)</strong> como sendo:
           </p>
-          <hr>
+          <hr />
           <p>
-            <i>“Uma especificação ou produto que foi formalmente revisada e acordada, 
-              que irá servir de base para o desenvolvimento e só pode ser mudada através 
-              de procedimentos formais de controle.”</i>
+            <i
+              >“Uma especificação ou produto que foi formalmente revisada e
+              acordada, que irá servir de base para o desenvolvimento e só pode
+              ser mudada através de procedimentos formais de controle.”</i
+            >
           </p>
-         </section>
-
+        </section>
         <section>
           <h3><b>Mudanças</b></h3>
-          <hr>
+          <hr />
           <p>
             Controlamos tudo que pode afetar a qualidade do produto:
           </p>
           <p>
-            especificação de projeto; modelo de dados;
-            componentes; códigos-fonte; especificação de testes;
-            projetos de testes.
-        </section>
-        <sectio>
-        <section>
-        <section>
-          <h3><b>Controle de Versão</b></h3>
-          <hr>
-          <p>
-            Procedimentos para o gerenciamento de versões de artefatos de código, teste e configuração criados durante 
-            os processos de desenvolvimento e manutenção de um software. 
+            especificação de projeto; modelo de dados; componentes;
+            códigos-fonte; especificação de testes; projetos de testes.
           </p>
-          <hr>
-          <p>
-            Utiliza um sistema capaz de indicar, controlar e realizar alterações nestes artefatos independente do desenvolvedor.
-          </p>
-        </section>
-        <section>
-          <h3><b>Controle de Versão</b></h3>
-          <hr>
-          <p>
-            Banco de dados para artefatos de desenvolvimento. 
-          </p>
-          <hr>
-          <p>
-            Controle de acesso e histórico de modificações.
-          </p>
-          <hr>
-          <p>
-            Segurança, confiabilidade e disponibilidade.
-          </p>
-         </section>
         </section>
 
+        <section>
+          <section>
+            <h3><b>Controle de Versão</b></h3>
+            <hr />
+            <p>
+              Procedimentos para o gerenciamento de versões de artefatos de
+              código, teste e configuração criados durante os processos de
+              desenvolvimento e manutenção de um software.
+            </p>
+            <hr />
+            <p>
+              Utiliza um sistema capaz de indicar, controlar e realizar
+              alterações nestes artefatos independente do desenvolvedor.
+            </p>
+          </section>
+          <section>
+            <h3><b>Controle de Versão</b></h3>
+            <hr />
+            <p>
+              Banco de dados para artefatos de desenvolvimento.
+            </p>
+            <hr />
+            <p>
+              Controle de acesso e histórico de modificações.
+            </p>
+            <hr />
+            <p>
+              Segurança, confiabilidade e disponibilidade.
+            </p>
+          </section>
+        </section>
         <section>
           <h3><b>GIT</b></h3>
-          <hr>
+          <hr />
           <p>
-            <img style="float: left" src = "https://imgs.xkcd.com/comics/git.png"
-            alt = "imagem do XKCD brincando com o uso do git" width="30%" />
+            <img
+              style="float: left;"
+              src="https://imgs.xkcd.com/comics/git.png"
+              alt="imagem do XKCD brincando com o uso do git"
+              width="30%"
+            />
           </p>
-          <p>  
-            Hoje, usamos o <a href="https://git-scm.com/">GIT</a> muitas vezes no <a href="https://github.com/">Github</a> 
-            algumas vezes com o <a href="https://gitlab.com/">GitLab</a> e com uma forte tendência do <a href="https://bitbucket.org/">BitBucket</a>
+          <p>
+            Hoje, usamos o <a href="https://git-scm.com/">GIT</a> muitas vezes
+            no <a href="https://github.com/">Github</a> algumas vezes com o
+            <a href="https://gitlab.com/">GitLab</a> e com uma forte tendência
+            do <a href="https://bitbucket.org/">BitBucket</a>
           </p>
         </section>
-
         <section>
           <section>
             <h3><b>Repositório</b></h3>
-            <hr>
+            <hr />
             <p>
-              Localização preferencialmente segura para armazenar todos os artefatos de projeto. 
+              Localização preferencialmente segura para armazenar todos os
+              artefatos de projeto.
             </p>
-            <hr>
+            <hr />
             <p>
-              Edite seu arquivo localmente em uma <i>working tree</i> depois coloque seus arquivos em repositório
-              usando o comando <i>commit</i>.
+              Edite seu arquivo localmente em uma <i>working tree</i> depois
+              coloque seus arquivos em repositório usando o comando
+              <i>commit</i>.
             </p>
-            <hr>
+            <hr />
             <p>
-              No GIT, cada usuário pode manter sua própria cópia do repositório. 
+              No GIT, cada usuário pode manter sua própria cópia do repositório.
             </p>
           </section>
           <section>
-                <h3><b>Repositório</b></h3>
-                <hr>
-                <p>
-                  Você precisa adicionar os arquivos que estão na sua <i>working tree</i> ao repositório.
-                </p>
-                <hr>
-                <p>
-                  Não deve incluir arquivos .obj e .exe. Ou outros que sejam derivados do código.
-                </p>
-                <hr>
-                <p>
-                  Deve incluir arquivos <i>Make</i> ou de configuração.
-                </p>
+            <h3><b>Repositório</b></h3>
+            <hr />
+            <p>
+              Você precisa adicionar os arquivos que estão na sua
+              <i>working tree</i> ao repositório.
+            </p>
+            <hr />
+            <p>
+              Não deve incluir arquivos .obj e .exe. Ou outros que sejam
+              derivados do código.
+            </p>
+            <hr />
+            <p>Deve incluir arquivos <i>Make</i> ou de configuração.</p>
           </section>
           <section>
-                <h3><b>Repositório</b></h3>
-                <hr>
-                <p>
-                  Podemos criar repositórios em qualquer lugar. Até no computador de desenvolvimento. 
-                </p>
-                <hr>
-                <p>
-                  Coloque em computadores com <b>RAID</b> e que estejam disponívies 24h/7.
-                </p>
-                <hr>
-                <p>
-                  Considere: <a href="https://github.com/">Github</a>; <a href="https://gitlab.com/">GitLab</a>; <a href="https://bitbucket.org/">BitBucket</a>
-                </p>
-                <hr>
-                <p>
-                  Além da Amazon, Microsoft e Google. Todos têm serviços de <i>CI/CD</i>.
-                </p>
+            <h3><b>Repositório</b></h3>
+            <hr />
+            <p>
+              Podemos criar repositórios em qualquer lugar. Até no computador de
+              desenvolvimento.
+            </p>
+            <hr />
+            <p>
+              Coloque em computadores com <b>RAID</b> e que estejam disponívies
+              24h/7.
+            </p>
+            <hr />
+            <p>
+              Considere: <a href="https://github.com/">Github</a>;
+              <a href="https://gitlab.com/">GitLab</a>;
+              <a href="https://bitbucket.org/">BitBucket</a>
+            </p>
+            <hr />
+            <p>
+              Além da Amazon, Microsoft e Google. Todos têm serviços de
+              <i>CI/CD</i>.
+            </p>
           </section>
           <section>
             <h3><b>Estrutura de Repositórios</b></h3>
-            <hr>
+            <hr />
             <p>
-              <img src = "img/CtrlVersionDistribuido.jpg"
-              alt = "diagrama de sistema de controle de versão distribuido" width="80%" style="padding-bottom: 10px" />
+              <img
+                src="img/CtrlVersionDistribuido.jpg"
+                alt="diagrama de sistema de controle de versão distribuido"
+                width="80%"
+                style="padding-bottom: 10px;"
+              />
             </p>
-            <hr>
+            <hr />
           </section>
           <section>
             <h3><b>Repositório Local</b></h3>
-            <hr>
+            <hr />
             <p>
-              <i>Working tree</i> ou <i>Directory tree</i>. os arquivos não são controlados pelo GIT.
-              podemos alterar qualquer coisa sem medo. 
+              <i>Working tree</i> ou <i>Directory tree</i>. os arquivos não são
+              controlados pelo GIT. podemos alterar qualquer coisa sem medo.
             </p>
             <p>
-              <i>Staging Area</i> estes são os arquivos que serão incluídos no seu próximo <i>commit</i>. 
-              Estes são os arquivos que o GIT conhece. 
+              <i>Staging Area</i> estes são os arquivos que serão incluídos no
+              seu próximo <i>commit</i>. Estes são os arquivos que o GIT
+              conhece.
             </p>
             <p>
-              <i>Repository</i> estes são os arquivos que você já comitou. Está no diretório <b><i>.git</i></b>. 
+              <i>Repository</i> estes são os arquivos que você já comitou. Está
+              no diretório <b><i>.git</i></b
+              >.
             </p>
-            <hr>
+            <hr />
           </section>
           <section>
             <h3><b>Staging Area</b></h3>
-            <hr>
+            <hr />
             <p>
-              Contém uma cópia do seu último <i>commit</i>. Uma lista de arquivos e o <i>hash SHA1</i> dos arquivos
-              que fizeram parte do seu último <i>commit</i>.
+              Contém uma cópia do seu último <i>commit</i>. Uma lista de
+              arquivos e o <i>hash SHA1</i> dos arquivos que fizeram parte do
+              seu último <i>commit</i>.
             </p>
             <p>
-              Este índex é, na verdade, um arquivo binário no diretório <b><i>.git</i></b>.  
+              Este índex é, na verdade, um arquivo binário no diretório
+              <b><i>.git</i></b
+              >.
             </p>
             <p>
-              Sempre que você altera, renomeia, ou apaga arquivos o SHA1 deste arquivo muda. 
+              Sempre que você altera, renomeia, ou apaga arquivos o SHA1 deste
+              arquivo muda.
             </p>
-            <hr>
+            <hr />
             <pre>
               <code class="bash" data-trim>
                 $ git ls-files -s
               </code>
             </pre>
-          <hr>
+            <hr />
           </section>
         </section>
 
         <section>
           <h3><b>GIT na Linha de Comando</b></h3>
-          <hr>
+          <hr />
           <p>
             Para buscar ajuda:
           </p>
-          <hr>
+          <hr />
           <pre>
             <code class="bash" data-trim>
               $ git help verbo
@@ -275,14 +316,17 @@
               $ man git-verbo
            </code>
           </pre>
-          <hr>
+          <hr />
           <p>
-            Existe um <a href="https://git-scm.com/book/en/v2/">Livro gratuito</a> <i>online</i> que está em processo de tradução para o português.
+            Existe um
+            <a href="https://git-scm.com/book/en/v2/">Livro gratuito</a>
+            <i>online</i> que está em processo de tradução para o português.
           </p>
         </section>
-       
-      </div> <!--fecha slides-->
-    </div> <!--fecha reveal-->
+      </div>
+      <!--fecha slides-->
+    </div>
+    <!--fecha reveal-->
 
     <script src="dist/reveal.js"></script>
     <script src="plugin/zoom/zoom.js"></script>
@@ -291,7 +335,6 @@
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
     <script>
-
       // Also available as an ES module, see:
       // https://revealjs.com/initialization/
       Reveal.initialize({
@@ -301,10 +344,14 @@
         hash: true,
 
         // Learn about plugins: https://revealjs.com/plugins/
-        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
       });
-
     </script>
-
   </body>
 </html>
