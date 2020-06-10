@@ -162,100 +162,94 @@ $ run output # on other machines too!
           <h3><b>GIT</b></h3>
           <hr>
           <p>
-            <img style="float: right" src = "https://imgs.xkcd.com/comics/git.png"
+            <img style="float: left" src = "https://imgs.xkcd.com/comics/git.png"
             alt = "imagem do XKCD brincando com o uso do git" width="30%" /></p>
+            Hoje, usamos o <a href="https://git-scm.com/">GIT</a> muitas vezes no <a href="https://github.com/">Github</a> 
+            algumas vezes com o <a href="https://gitlab.com/">GitLab</a> e com uma forte tendência do <a href="https://bitbucket.org/">BitBucket</a>
           <hr>
-         
         </section>
 
         <section>
-          <h3><b>WASM Runtimes: WASI APIs</b></h3>
+          <h3><b>Repositório</b></h3>
           <hr>
           <p>
-            The <a href="https://hacks.mozilla.org/2019/03/standardizing-wasi-a-webassembly-system-interface/">WebAssembly System Interface</a>,
-            meant for non-Web environments.
+            Localização preferencialmente segura para armazenar todos os artefatos de projeto. 
           </p>
           <hr>
           <p>
-            WASI is <b>not</b> just a bunch of familiar APIs brought to wasm! It is a
-            new approach to writing an OS interface layer, a replacement for
-            something like POSIX.
+            Edite seu arquivo localmente em uma <i>working tree</i> depois coloque seus arquivos em repositório
+            usando o comando <i>commit</i>.
           </p>
           <hr>
           <p>
-            In particular WASI uses
-            <a href="https://en.wikipedia.org/wiki/Capability-based_security">capability-based security</a>
-            and has stricter portability as well.
-          </p>
-        </section>
-
-        <section>
-          <h3><b>The Big Picture for APIs</b></h3>
-          <hr>
-          <p>
-            WASI is supported on Node.js too, not just wasm VMs.
-          </p>
-          <hr>
-          <p>
-            In the long term
-            WASI will likely be the best option for the things it can support.
-          </p>
-          <hr>
-          <p>
-            But WASI is still fairly new, designing a new OS API takes time,
-            and the strict sandboxing will limit what can be done.
+            No GIT, cada usuário pode manter sua própria cópia do repositório. 
           </p>
         </section>
 
         <section>
-          <h3><b>Compiling to WASM VMs?</b></h3>
+          <h3><b>Repositório</b></h3>
           <hr>
           <p>
-            <b>wasm-opt</b> needs C++ exceptions or setjmp
-            (the optimizer uses an interpreter which has stack unwinding).
+            Você precisa adicionar os arquivos que estão na sua <i>working tree</i> ao repositório.
           </p>
           <hr>
           <p>
-            WASI doesn't support setjmp or C++ exceptions, so that's not an
-            option (yet!)
+            Não deve incluir arquivos .obj e .exe. Ou outros que sejam derivados do código.
+          </p>
+          <hr>
+          <p>
+            Deve incluir arquivos <i>Make</i> ou de configuração.
           </p>
         </section>
 
         <section>
-          <h3><b>Compiling to wasm on node.js</b></h3>
+          <h3><b>Repositório</b></h3>
           <hr>
           <p>
-            Emscripten supports setjmp and C++ exceptions when building to JS+wasm, and it's easy
-            to compile with it:
+            Podemos criar repositórios em qualquer lugar. Até no computador de desenvolvimento. 
           </p>
-          <pre><code class="bash" data-trim>
-$ emcmake cmake .
-$ make -j8 wasm-opt
-</code></pre>
           <hr>
           <p>
-            And so is running it:
+            Coloque em computadores com <b>RAID</b> e que estejam disponívies 24h/7.
           </p>
-          <pre><code class="bash" data-trim>
-$ node wasm-opt.js input.wasm -O -o output.wasm
-# (note the size improvement)
-$ ls -lh input.wasm output.wasm 
--rw-r--r-- 23K input.wasm
--rw-r--r-- 18K output.wasm
-</code></pre>
+          <hr>
+          <p>
+            Considere: <a href="https://github.com/">Github</a>; <a href="https://gitlab.com/">GitLab</a>; <a href="https://bitbucket.org/">BitBucket</a>
+          </p>
+          <hr>
+          <p>
+            Além da Amazon, Microsoft e Google. Todos têm serviços de <i>CI/CD</i>.
+          </p>
         </section>
 
         <section>
-          <p>
-            That mostly worked out of the box, but by default Emscripten's
-            output is designed to run in a browser, and is sandboxed. To get
-            direct local file access in node, we use <strong>-s NODERAWFS</strong>.
-          </p>
+          <h3><b>GIT na Linha de Comando</b></h3>
           <hr>
           <p>
-            That's it! Then <b>node wasm-opt.js</b> runs the same as a normal native
-            executable would.
+            Para buscar ajuda:
           </p>
+          <hr>
+          <pre>
+            <code class="bash" data-trim>
+              $ git help <verb> 
+              $ git <verb> --help 
+              $ man git-<verb>
+           </code>
+          </pre>
+          <hr>
+          <p>
+            Existe um <a href="https://git-scm.com/book/en/v2/">Livro gratuito</a> <i>online</i> que está em processo de tradução para o português.
+          </p>
+        </section>
+
+        <section>
+          <h3><b>GIT na Linha de Comando</b></h3>
+          <hr>
+          <p>
+            <img src = "dist/CtrlVersionDistribuido.jpg"
+            alt = "diagrama de sistema de controle de versão distribuido" width="30%" /></p>
+          </p>
+          <hr>
         </section>
 
         <section>
