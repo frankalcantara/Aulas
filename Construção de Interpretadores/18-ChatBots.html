@@ -7,13 +7,16 @@
     <meta name="author" content="Frank de Alcantara" />
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
-    
+
     <link rel="stylesheet" href="dist/theme/black.css" id="theme" />
     <link
       rel="stylesheet"
@@ -23,7 +26,7 @@
 
     <style type="text/css">
       h2 b {
-        color: #6c5ce7;
+        color: #fff;
       }
       h3 b {
         color: #dfe6e9;
@@ -37,16 +40,17 @@
       i {
         font-style: italic;
       }
-      p{
+      p {
         text-align: justify !important;
       }
-      h3{
+      h3 {
         text-align: left !important;
       }
       .print-pdf .reveal .slide-background {
         background-color: black !important;
       }
-      .slides, .reveal {
+      .slides,
+      .reveal {
         background-color: #000;
       }
     </style>
@@ -54,86 +58,126 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>
-          <section>
+        <section style="background-image: url('img/fundo1.jpg');" ;>
+          <section style="height: 300px;" ;>
             <h2>
-              <b>Chatbots<br />SCM - Git</b>
+              <b>Chatbots</b>
             </h2>
-            <p style="text-align: right !important;">
-              <br /><br />
-              <small>Frank de Alcantara - junho 2020</small>
-            </p>
+            <div style="position: absolute; bottom: 0; right: 0;">
+              <p style="text-align: right !important;">
+                <small>Frank de Alcantara - junho 2020</small>
+              </p>
+            </div>
           </section>
           <section>
             <h3><b>Chatbots </b></h3>
             <hr />
             <p>
-              Um artefato de código que, quando executado, permite a interação entre seres humanos e 
-              máquinas usando um conjunto diversificado de canais que podem incluir desde a voz até gestos. 
-              Conhecidos como: <i>conversational AI bot</i>, <i>>AI assistant</i>, <i>>intelligent virtual
-              assistant, <i>virtual customer assistant</i>, <i>digital assistant</i>, <i>conversational agent</i>, 
-              <i>virtual agent</i>, <i>conversational Interface</i>, ...
+              Um artefato de código que, quando executado, permite a interação
+              entre seres humanos e máquinas usando um conjunto diversificado de
+              canais que podem incluir desde a voz até gestos. Conhecidos como:
+              <i>conversational AI bot</i>, <i>>AI assistant</i>,
+              <i>>intelligent virtual assistant</i>,
+              <i>virtual customer assistant</i>, <i>digital assistant</i>,
+              <i>conversational agent</i>, <i>virtual agent</i>,
+              <i>conversational Interface</i>, ...
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Três conceitos importantes</b></h3>
+            <hr />
+            <p>
+              Processamento de Linguagem Natural (<strong>NLP</strong>)
+            </p>
+            <p>
+              Geração de Linguagem Natural (<strong>NLG</strong>)
+            </p>
+            <p>
+              Entendimento de Linguagem Natural (<strong>NLU</strong>)
             </p>
             <hr />
           </section>
         </section>
         <section>
-          <h3><b>Atividades Relacionadas</b></h3>
-          <hr />
-          <p>
-            Identificar mudanças no código, processo de construção e testes.
-          </p>
-          <hr />
-          <p>
-            Controlar a realização de alterações no código, processo de
-            construção e testes.
-          </p>
-          <hr />
-          <p>
-            Reportar todas as mudanças, alterações e correções de forma clara.
-          </p>
+          <section>
+            <h3><b>Processamento <br />de Linguagem Natural (<strong>NLP</strong>)</b></h3>
+            <hr />
+            <p>
+              Recebe um conjunto de informações em linguagem natural, divide
+              essa informação em componentes semânticos, produz um nível de
+              entendimento sobre estas informações e determina uma resposta
+              apropriada.
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Geração <br />de linguagem Natural (<strong>NLG</strong>)</b></h3>
+            <hr />
+            <p>
+              Engloba um conjunto de algoritmos e soluções tecnológicas que
+              permitem que máquinas transformem dados estruturados em linguagem
+              natural, escrita, vocalizada ou sinalizada.
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Entendimento <br />de linguagem Natural (<strong>NLU</strong>)</b></h3>
+            <hr />
+            <p>
+              Subconjunto do processamento de linguagem natural que inclui o
+              processamento de uma informação em linguagem natural e permite a
+              extração de sentido desta informação. Este entendimento irá
+              definir a ação a ser tomada.
+            </p>
+            <hr />
+          </section>
         </section>
         <section>
-          <h3><b>Maturidade: CMMI</b></h3>
-          <hr />
-          <p>
-            Construção ou fornecimento de especificações para construir produtos
-            de trabalho a partir do <strong>sistema de configuração</strong>.
-          </p>
-          <hr />
-          <p>Manutenção da integridade das <i>baselines</i>.</p>
-          <hr />
-          <p>
-            Fornecimento de dados precisos de status e configuração corrente aos
-            <strong><i>stakeholders</i></strong
-            >,
-          </p>
-        </section>
-        <section>
-          <h3><b>Baseline</b></h3>
-          <hr />
-          <p>
-            A <i>baseline</i> (linha base) é definida pelo
-            <strong>IEEE 610.12 (1990)</strong> como sendo:
-          </p>
-          <hr />
-          <p>
-            <i
-              >“Uma especificação ou produto que foi formalmente revisada e
-              acordada, que irá servir de base para o desenvolvimento e só pode
-              ser mudada através de procedimentos formais de controle.”</i
-            >
-          </p>
-        </section>
-        <section>
-          <h3><b>Mudanças</b></h3>
-          <hr />
-          <p>
-            Controlamos tudo que pode afetar a qualidade do produto:
-            especificação de projeto; modelo de dados; componentes;
-            códigos-fonte; especificação de testes; projetos de testes.
-          </p>
-          <hr />
+          <section>
+            <h3><b>Um pouco de história</b></h3>
+            <hr />
+            <p>
+              Em 1950 Alan Turing publicou um artigo denominado <b>Computing Machinery and Intelligence</b> onde
+              discutiu a possibilidade de, algum dia, uma máquina possuir inteligência. Neste artigo, propos um teste
+              para permitir a identificação de uma máquina inteligente. Mais tarde, este teste ficaria famoso como o 
+              <strong>Teste de Turing</strong>.
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>O Teste de Turing</b></h3>
+            <hr />
+            <p>
+              <a href="https://www.biography.com/scientist/alan-turing">
+                <img
+                  style="float: left; margin-right: 20px;"
+                  src="img/alan-turing-9512017-1-402.jpg"
+                  alt="Retrato de Alan Turing adulto"
+                  width="35%"
+              /></a>
+              Em 1950 Alan Turing publicou um artigo denominado <b>Computing Machinery and Intelligence</b> onde
+              discutiu a possibilidade de, algum dia, uma máquina possuir inteligência. Neste artigo, propôs um jogo,  
+              <b>o jogo da imitação</b>, para permitir a identificação da inteligência em máquinas por meio da avaliação 
+              de textos. Mais tarde, este jogo ficaria famoso como o <strong>Teste de Turing</strong>.
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>O Teste de Turing</b></h3>
+            <hr />
+            <p>
+              <img
+                  style="float: right; margin-left: 20px;"
+                  src="img/testedeturing.svg"
+                  alt="Um computador isolado e duas pessoas isoladas"
+                  width="40%"
+              />
+              Uma pessoa, <b>C</b>, faz perguntas a <b>A</b> e <b>B</b> e recebe destes respostas por escrito. Não há contato
+              entre <b>A</b>, <b>B</b> e <b>C</b> e caberá a <b>C</b> dizer se as respostas são originadas de uma máquina ou não.
+            </p>
+            <hr />
+          </section>
         </section>
         <section>
           <section>
@@ -170,11 +214,12 @@
           <h3><b>GIT</b></h3>
           <hr />
           <p>
-           <a href="https://xkcd.com/1597/"> <img
-              style="float: left; margin-right: 20px;"
-              src="img/XKCDgit.png"
-              alt="imagem do XKCD brincando com o uso do git"
-              width="30%"
+            <a href="https://xkcd.com/1597/">
+              <img
+                style="float: left; margin-right: 20px;"
+                src="img/XKCDgit.png"
+                alt="imagem do XKCD brincando com o uso do git"
+                width="30%"
             /></a>
           </p>
           <p>
@@ -184,8 +229,9 @@
             <a href="https://bitbucket.org/">BitBucket</a>.
           </p>
           <p>
-            Considere também a Microsoft, a Amazon, o Google e mais um milhão de outras empresas 
-            que prestam serviços de <strong>CI/CD</strong>.<br /><br />
+            Considere também a Microsoft, a Amazon, o Google e mais um milhão de
+            outras empresas que prestam serviços de
+            <strong>CI/CD</strong>.<br /><br />
           </p>
           <hr />
         </section>
@@ -533,7 +579,8 @@
             <h3><b>Até agora trabalhamos localmente</b></h3>
             <hr />
             <p>
-              Outra ferramenta importante disponível é o histórico de modificações <i>log</i>.
+              Outra ferramenta importante disponível é o histórico de
+              modificações <i>log</i>.
             </p>
             <pre>
               <code class="bash" data-trim>
@@ -542,7 +589,8 @@
             </pre>
             <hr />
             <p>
-              Podemos ver também um número reduzdido de modificações. As dez últimas, por exemplo:
+              Podemos ver também um número reduzdido de modificações. As dez
+              últimas, por exemplo:
             </p>
             <pre>
               <code class="bash" data-trim>
@@ -555,18 +603,25 @@
             <h3><b>Boas Práticas</b></h3>
             <hr />
             <ol>
-                <li>use <i>add</i> e <i>commit</i> no diretório local.</li>
-                <li>use <i>pull</i> para trazer as modificações recentes do repositório remoto.</li>
-                <li>use <i>push</i> para levar suas modificações para o repositório remoto.</li>
-             </ol>
+              <li>use <i>add</i> e <i>commit</i> no diretório local.</li>
+              <li>
+                use <i>pull</i> para trazer as modificações recentes do
+                repositório remoto.
+              </li>
+              <li>
+                use <i>push</i> para levar suas modificações para o repositório
+                remoto.
+              </li>
+            </ol>
             <hr />
           </section>
           <section>
             <h3><b>Trabalhando com diretórios remotos</b></h3>
             <hr />
             <p>
-              Para baixar as modificações mais recentes em um repositório remoto no seu repositório local.
-              Além de disponibilizar os arquivos modificados no seu <i>Working Directory</i>.
+              Para baixar as modificações mais recentes em um repositório remoto
+              no seu repositório local. Além de disponibilizar os arquivos
+              modificados no seu <i>Working Directory</i>.
             </p>
             <pre>
               <code class="bash" data-trim>
@@ -579,7 +634,8 @@
             <h3><b>Trabalhando com diretórios remotos</b></h3>
             <hr />
             <p>
-              Para enviar suas modificações, depois de comitadas, para o repositório remoto.
+              Para enviar suas modificações, depois de comitadas, para o
+              repositório remoto.
             </p>
             <pre>
               <code class="bash" data-trim>
@@ -590,45 +646,47 @@
           </section>
         </section>
         <section>
-        <section>
-          <h3><b>Branches</b></h3>
-          <hr />
-          <p>
-            <i>Branches</i>, em português, ramos, são derivações da Gráfico Direcional Acíclico que o GIT usa.
-            Usando os <i>branches</i> criamos uma versão do repositório, local ou remoto, para modificações. 
-            Do ponto de vista do GIT, tudo que é criado é um ponteiro para este novo ramo. 
-          </p>
-          <pre>
+          <section>
+            <h3><b>Branches</b></h3>
+            <hr />
+            <p>
+              <i>Branches</i>, em português, ramos, são derivações da Gráfico
+              Direcional Acíclico que o GIT usa. Usando os
+              <i>branches</i> criamos uma versão do repositório, local ou
+              remoto, para modificações. Do ponto de vista do GIT, tudo que é
+              criado é um ponteiro para este novo ramo.
+            </p>
+            <pre>
             <code class="bash" data-trim>
               $ git branch frank  
           </code>
           </pre>
-          <hr />
-        </section>
-        <section>
-        <h3><b>Branches</b></h3>
-          <hr />
-          <p>
-            A simples criação de um <i>branche</i>, não altera nada no seu trabalho, você irá continuar fazendo
-            <i>commit</i> no <i>Master</i>. 
-          </p>
-          <p>
-            O <i>branch</i> <i>Master</i> não tem nada de especial, e é tão comum apenas por que é criado por 
-            padrão quando criamos um repositório.  
-          </p>
-          <pre>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Branches</b></h3>
+            <hr />
+            <p>
+              A simples criação de um <i>branche</i>, não altera nada no seu
+              trabalho, você irá continuar fazendo <i>commit</i> no
+              <i>Master</i>.
+            </p>
+            <p>
+              O <i>branch</i> <i>Master</i> não tem nada de especial, e é tão
+              comum apenas por que é criado por padrão quando criamos um
+              repositório.
+            </p>
+            <pre>
             <code class="bash" data-trim>
               $ git log --oneline --decorate 
           </code>
           </pre>
-          <hr />
-        </section>
-        <section>
-          <h3><b>Branches</b></h3>
             <hr />
-            <p>
-              Para apontar seu desenvolvimento para o novo <i>branch</i>:
-            </p>
+          </section>
+          <section>
+            <h3><b>Branches</b></h3>
+            <hr />
+            <p>Para apontar seu desenvolvimento para o novo <i>branch</i>:</p>
             <pre>
               <code class="bash" data-trim>
                 $ git checkout frank
@@ -636,8 +694,8 @@
             </pre>
             <hr />
             <p>
-              Agora tudo que você fizer será feito no <i>branch</i> frank.
-              Mas você pode voltar ao <i>branch Master</i>.
+              Agora tudo que você fizer será feito no <i>branch</i> frank. Mas
+              você pode voltar ao <i>branch Master</i>.
             </p>
             <pre>
               <code class="bash" data-trim>
@@ -647,61 +705,81 @@
           </section>
           <section>
             <h3><b>Branches</b></h3>
-              <hr />
-              <p>
-                A ação de colocar todo o trabalho desenvolvido em um <i>branch</i> no <i>master</i>,
-                sem prejudicar o trabalho que pode ter sido feito no <i>master</i> por outros desenvolvedores
-                é chamada de <i>merge</i>.
-              </p>
-              <pre>
+            <hr />
+            <p>
+              A ação de colocar todo o trabalho desenvolvido em um
+              <i>branch</i> no <i>master</i>, sem prejudicar o trabalho que pode
+              ter sido feito no <i>master</i> por outros desenvolvedores é
+              chamada de <i>merge</i>.
+            </p>
+            <pre>
                 <code class="bash" data-trim>
                   $ git checkout master
                   $ git merge frank
                 </code>
               </pre>
-              <hr />
-              <p>
-                Vários desenvedores, vários <i>branches</i> um produto único. 
-              </p>
-            </section>
-            <section>
-              <h3><b>Branches</b></h3>
-                <hr />
-                <p>
-                  Um <i>merge</i> pode criar um conjunto de conflitos quando dois desenvolvedores alterarem 
-                  as mesmas linhas. O GIT fornece uma lista de conflitos.
-                </p>
-                <pre>
+            <hr />
+            <p>Vários desenvedores, vários <i>branches</i> um produto único.</p>
+          </section>
+          <section>
+            <h3><b>Branches</b></h3>
+            <hr />
+            <p>
+              Um <i>merge</i> pode criar um conjunto de conflitos quando dois
+              desenvolvedores alterarem as mesmas linhas. O GIT fornece uma
+              lista de conflitos.
+            </p>
+            <pre>
                   <code class="bash" data-trim>
                     $ git status
                   </code>
-                </pre> 
-                <p>
-                  Existem ferramentas para ajudar na correção de 
-                  conflitos. <br /><strong>O <i>merge</i> só vai ser executado depois que todos os conflitos forem resolvidos</strong>.
-                </p>
-
-              </section>
-      </section>
-      <section>
-        <section>
-          <h3><b>Impressão</b></h3>
-          <hr />
-          <p>
-            Clique <a href="?print-pdf#/">aqui</a> para salvar como pdf.
-          </p>
+                </pre>
+            <p>
+              Existem ferramentas para ajudar na correção de conflitos.
+              <br /><strong
+                >O <i>merge</i> só vai ser executado depois que todos os
+                conflitos forem resolvidos</strong
+              >.
+            </p>
+          </section>
         </section>
         <section>
-          <h3><b>Agradecimento</b></h3>
-          <hr />
-          <img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" alt="reveal.js" 
-          style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
-          <h3>The HTML Presentation Framework</h3>
-          <p><small>Criado por <a href="http://hakim.se">Hakim El Hattab</a> e 
-            <a href="https://github.com/hakimel/reveal.js/graphs/contributors">colaboradores</a></small>
-        </section>      
-      </section>
-      
+          <section>
+            <h3><b>Impressão</b></h3>
+            <hr />
+            <p>Clique <a href="?print-pdf#/">aqui</a> para salvar como pdf.</p>
+          </section>
+          <section>
+            <h3><b>Obras Citadas</b></h3>
+            <hr />
+            <p>TURING, A. M.. <b>I.- COMPUTING MACHINERY AND INTELLIGENCE</b>. Mind, [s.l.], v. , n. 236, p. 433-460, 1 out. 1950. Oxford University Press (OUP). http://dx.doi.org/10.1093/mind/lix.236.433. </p>
+            <p>BIOGRAPHY.COM EDITORS (England). <b>Alan Turing Biography: mathematician, educator (1912::1954)</b>. Mathematician, Educator (1912–1954). 2019. Disponível em: https://www.biography.com/scientist/alan-turing. Acesso em: 10 junho 2020.</p>
+          </section>
+          <section>
+            <h3><b>Agradecimento</b></h3>
+            <hr />
+            <img
+              src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg"
+              alt="reveal.js"
+              style="
+                height: 180px;
+                margin: 0 auto 4rem auto;
+                background: transparent;
+              "
+              class="demo-logo"
+            />
+            <h3>The HTML Presentation Framework</h3>
+            <p>
+              <small
+                >Criado por <a href="http://hakim.se">Hakim El Hattab</a> e
+                <a
+                  href="https://github.com/hakimel/reveal.js/graphs/contributors"
+                  >colaboradores</a
+                ></small
+              >
+            </p>
+          </section>
+        </section>
       </div>
       <!--fecha slides-->
     </div>
