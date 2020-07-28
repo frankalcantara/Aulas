@@ -15,6 +15,8 @@
 
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css"/>
 
     <link rel="stylesheet" href="dist/theme/moon.css" id="theme" />
 
@@ -39,6 +41,13 @@
       }
       .print-pdf .reveal .slide-background {
         background-color: black !important;
+      }
+      .codigo{
+        background-color: black !important;
+        color: beige;
+        font-family: monospace;
+        font-size: smaller;
+        font-style: oblique;
       }
     </style>
   </head>
@@ -310,9 +319,141 @@
               </p>
               <hr />
           </section>
+          <section>
+              <h3><b>Unified Modeling Language™ - UML</b></h3>
+              <hr />
+              <p>
+                A <strong>UML</strong> permite criar 
+                <ul>
+                  <li>Modelos funcionais (diagrama de caso de uso)</li>  
+                  <li>Modelos de objetos (diagrama de classes)</li>  
+                  <li>Modelos dinâmicos (diagrama de sequência)</li>  
+                </ul>
+              </p>
+              <p>
+                Alguns autores classificam os diagramas em apenas dois grupos: estáticos e dinâmicos.
+              </p>
+              <hr />
+          </section>
+          <section>
+              <h3><b>UML - Diagramas Estáticos</b></h3>
+              <hr />
+              <p>
+                <strong>Diagramas estáticos</strong>, ou estruturais, descrevem a estrutura do sistema. Usam os objetos, 
+                seus atributos, operações e relacionamento. Exemplo: diagrama de classes.
+              </p>
+              <p>
+                <strong>Diagramas dinâmicios</strong>, ou comportamentais, descrevem a interação entre os 
+                componentes do sistema, não raramente, entre objetos. Detalhando as mudanças de estado destes objetos. Exemmplo: diagrama de casos de uso. 
+              </p>
+              <hr />
+          </section>
+        </section>
 
+        <section ><!-- Fixação de Conteúdo -->
+            <h3><b>Fixação de Conteúdo</b></h3>
+            <hr />
+            <p>Resolva o questionário proposto!!!</p>
+            <hr />
         </section>
         
+        <section> <!-- Orientação a Objetos-->
+          <section>
+              <h3><b>Um Pouco de História - Simula 67</b></h3>
+              <hr />
+              <p>
+                Projeto de <a href="https://en.wikipedia.org/wiki/Ole-Johan_Dahl" target="_blank"></a>Ole-Johan Dahl e 
+                <a href="https://en.wikipedia.org/wiki/Kristen_Nygaard" target="_blank">Kristen Nygaard</a> 
+                desenvolvido no <a href="https://www.nr.no/en/about-main" target="_blank"></a><strong><i>Norwegian Computing Centrer</i></strong> - (NCC) 
+                em Oslo entre os anos de 1962 e 1967. Criada para ser uma lingagem  capaz de descrever e simular um evento.
+                 Baseada no ALGOL 60 
+              </p>
+              <p>
+                A linguagem continha a maior parte dos conceitos que usamos hoje em linguagens orientadas a objetos.
+              </p>
+              <hr />
+          </section>
+          <section>
+              <h3><b>Objetos</b></h3>
+              <hr />
+              <p>
+                Programação orientada a objetos utiliza <strong>uma abstração da realidade chamada</strong> de objeto que 
+                abstrai tanto dados quanto procedimentos. Ou seja, um objeto contém dados, que representam seu estado 
+                e métodos para ler e alterar estes estados.
+              </p>
+              <p>
+                Os objetos são instâncias em memória de artefatos de código chamados de <strong>classes</strong>. São as classes que 
+                definem tanto a abstração de dados quanto os métodos que serão utilizados para sua manipulação.
+              </p>
+              <hr />
+          </section>
+          <section>
+              <h3><b>Classes</b></h3>
+              <hr />
+              <p>
+                A sintaxe utilizada para criar uma classe varia de acordo com os limites de cada uma 
+                das linguagems de programação orientadas a objetos. <a href="https://madnight.github.io/githut/#/pull_requests/2020/2" target="_blank">As linguagens mais utilizadas</a> 
+                são: Javascript, Phyton, Java, Go, C++, Typescript, Ruby, PHP e C#.
+              </p>
+              <p>
+               Uma classe define um tipo de objeto, assim como a palavra endereço define um tipo de informação.
+               Com uma mesma classe, podemos instanciar vários objetos. 
+              </p>
+              <hr />
+          </section>
+          <section>
+              <h3><b>Instância</b></h3>
+              <hr />
+              <p>
+                A palavra instância se refere a uma classe, em memória, um objeto. O ato de instanciar é o
+                ato de criar as estruturas de memória necessárias para suportar um objeto. A classe contém o conjunto
+                de instruções que permitirá ao programa criar os objetos que precisa.
+              </p>
+              <p>
+               Uma vez instanciado, um objeto, tem <strong>propriedades</strong> onde estão armazenados seus dados 
+               e <strong>métodos</strong> que serão utilizados para acessar estes dados.
+              </p>
+              <hr />
+          </section>
+           <section>
+              <h3><b>Associação</b></h3>
+              <hr />
+              <p>
+                Objetos podem ser relacionados por meio de uma <strong>associação</strong>, esta associação 
+                irá determinar como um objeto de uma determinada classe irá se relacionar com objetos de outras classes.
+              </p>
+              <p>
+               Por exemplo, poderíamos ter uma classe <b class="codigo">Aluno</b> contendo dados sobre alunos que 
+               fosse associada a classe <b class="codigo">Endereco</b> que conteria dados de endereço.
+              </p>
+              <hr />
+          </section>
+          <section>
+              <h3><b>Classe - Exemplo</b></h3>
+              <hr />
+              <p>
+                <pre class="java"><code >public class Aluno
+                    {
+                      private Vector notas;
+                      int nNotas;
+                      public void nota(int n);
+                      protected boolean notaGravada(int n);
+                    }
+                </code>
+                </pre>
+              </p>
+              
+              <hr />
+          </section>
+        </section>
+        
+        
+        <section ><!-- Fixação de Conteúdo -->
+            <h3><b>Fixação de Conteúdo</b></h3>
+            <hr />
+            <p>Resolva o questionário proposto!!!</p>
+            <hr />
+        </section>
 
         <section> <!--Referências e Impressão -->
           <section>
