@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <title>Gestão de Configuração - SCM - Git</title>
+    <meta name="description" content="Engenharia de Software - Introdução" />
+    <meta name="author" content="Frank de Alcantara" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../dist/reset.css" />
+    <link rel="stylesheet" href="../dist/reveal.css" />
+    <link rel="stylesheet" href="../dist/reveal.css" />
+
+    <link rel="stylesheet" href="../dist/theme/moon.css" id="theme" />
+    <link
+      rel="stylesheet"
+      href="../plugin/highlight/monokai.css"
+      id="highlight-theme"
+    />
+
+    <style type="text/css">
+      h2 b {
+        color: #6c5ce7;
+      }
+      h3 b {
+        color: #dfe6e9;
+      }
+      b {
+        color: #2396e8;
+      }
+      strong {
+        color: rgb(88, 172, 250);
+      }
+      i {
+        font-style: italic;
+      }
+      p {
+        text-align: justify !important;
+      }
+      h3 {
+        text-align: left !important;
+      }
+      .print-pdf .reveal .slide-background {
+        background-color: black !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h2>
+              <b>Gestão de Configuração<br />SCM - Git</b>
+            </h2>
+            <p style="text-align: right !important;">
+              <br /><br />
+              <small>Frank de Alcantara - junho 2020</small>
+            </p>
+          </section>
+          <section>
+            <h3><b>Software Configuration Management</b></h3>
+            <hr />
+            <p>
+              O termo "<b><i>Software Configuration Management</i> (SCM)</b>"
+              Engloba um conceito de controle de modificações em projetos de
+              software durante o desenvolvimento.
+            </p>
+            <hr />
+            <p>
+              E na fase de manutenção durante toda vida útil do produto.
+            </p>
+            <hr />
+            <p>
+              Em português:
+              <strong
+                >Gerência / Gestão de Configuração de Software (GCS)</strong
+              >.
+            </p>
+          </section>
+        </section>
+        <section>
+          <h3><b>Atividades Relacionadas</b></h3>
+          <hr />
+          <p>
+            Identificar mudanças no código, processo de construção e testes.
+          </p>
+          <hr />
+          <p>
+            Controlar a realização de alterações no código, processo de
+            construção e testes.
+          </p>
+          <hr />
+          <p>
+            Reportar todas as mudanças, alterações e correções de forma clara.
+          </p>
+        </section>
+        <section>
+          <h3><b>Maturidade: CMMI</b></h3>
+          <hr />
+          <p>
+            Construção ou fornecimento de especificações para construir produtos
+            de trabalho a partir do <strong>sistema de configuração</strong>.
+          </p>
+          <hr />
+          <p>Manutenção da integridade das <i>baselines</i>.</p>
+          <hr />
+          <p>
+            Fornecimento de dados precisos de status e configuração corrente aos
+            <strong><i>stakeholders</i></strong
+            >,
+          </p>
+        </section>
+        <section>
+          <h3><b>Baseline</b></h3>
+          <hr />
+          <p>
+            A <i>baseline</i> (linha base) é definida pelo
+            <strong>IEEE 610.12 (1990)</strong> como sendo:
+          </p>
+          <hr />
+          <p>
+            <i
+              >“Uma especificação ou produto que foi formalmente revisada e
+              acordada, que irá servir de base para o desenvolvimento e só pode
+              ser mudada através de procedimentos formais de controle.”</i
+            >
+          </p>
+        </section>
+        <section>
+          <h3><b>Mudanças</b></h3>
+          <hr />
+          <p>
+            Controlamos tudo que pode afetar a qualidade do produto:
+            especificação de projeto; modelo de dados; componentes;
+            códigos-fonte; especificação de testes; projetos de testes.
+          </p>
+          <hr />
+        </section>
+        <section>
+          <section>
+            <h3><b>Controle de Versão</b></h3>
+            <hr />
+            <p>
+              Procedimentos para o gerenciamento de versões de artefatos de
+              código, teste e configuração criados durante os processos de
+              desenvolvimento e manutenção de um software.
+            </p>
+            <hr />
+            <p>
+              Utiliza um sistema capaz de indicar, controlar e realizar
+              alterações nestes artefatos independente do desenvolvedor.
+            </p>
+          </section>
+          <section>
+            <h3><b>Controle de Versão</b></h3>
+            <hr />
+            <p>
+              Banco de dados para artefatos de desenvolvimento.
+            </p>
+            <hr />
+            <p>
+              Controle de acesso e histórico de modificações.
+            </p>
+            <hr />
+            <p>
+              Segurança, confiabilidade e disponibilidade.
+            </p>
+          </section>
+        </section>
+        <section>
+          <h3><b>GIT</b></h3>
+          <hr />
+          <p>
+            <a href="https://xkcd.com/1597/">
+              <img
+                style="float: left; margin-right: 20px;"
+                src="img/XKCDgit.png"
+                alt="imagem do XKCD brincando com o uso do git"
+                width="30%"
+            /></a>
+          </p>
+          <p>
+            Hoje, usamos o <a href="https://git-scm.com/">GIT</a> geralmente no
+            <a href="https://github.com/">Github</a>, algumas vezes com o
+            <a href="https://gitlab.com/">GitLab</a> e o
+            <a href="https://bitbucket.org/">BitBucket</a>.
+          </p>
+          <p>
+            Considere também a Microsoft, a Amazon, o Google e mais um milhão de
+            outras empresas que prestam serviços de
+            <strong>CI/CD</strong>.<br /><br />
+          </p>
+          <hr />
+        </section>
+        <section>
+          <section>
+            <h3><b>Repositório</b></h3>
+            <hr />
+            <p>
+              Localização preferencialmente segura para armazenar todos os
+              artefatos de projeto.
+            </p>
+            <hr />
+            <p>
+              Edite seu arquivo localmente em uma <i>working tree</i> depois
+              coloque seus arquivos em repositório usando o comando
+              <i>commit</i>.
+            </p>
+            <hr />
+            <p>
+              No GIT, cada usuário pode manter sua própria cópia do repositório.
+            </p>
+          </section>
+          <section>
+            <h3><b>Repositório</b></h3>
+            <hr />
+            <p>
+              Você precisa adicionar os arquivos que estão na sua
+              <i>working tree</i> ao repositório.
+            </p>
+            <hr />
+            <p>
+              Não deve incluir arquivos .obj e .exe. Ou outros que sejam
+              derivados do código.
+            </p>
+            <hr />
+            <p>Deve incluir arquivos <i>Make</i> ou de configuração.</p>
+          </section>
+          <section>
+            <h3><b>Repositório</b></h3>
+            <hr />
+            <p>
+              Podemos criar repositórios em qualquer lugar. Até no computador de
+              desenvolvimento.
+            </p>
+            <hr />
+            <p>
+              Coloque em computadores com <b>RAID</b> e que estejam disponívies
+              24h/7.
+            </p>
+            <hr />
+            <p>
+              Considere: <a href="https://github.com/">Github</a>;
+              <a href="https://gitlab.com/">GitLab</a>;
+              <a href="https://bitbucket.org/">BitBucket</a>
+            </p>
+            <hr />
+            <p>
+              Além da Amazon, Microsoft e Google. Todos têm serviços de
+              <i>CI/CD</i>.
+            </p>
+          </section>
+          <section>
+            <h3><b>Estrutura de Repositórios</b></h3>
+            <hr />
+            <p>
+              <img
+                src="img/CtrlVersionDistribuido.jpg"
+                alt="diagrama de sistema de controle de versão distribuido"
+                width="80%"
+              />
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Repositório Local</b></h3>
+            <hr />
+            <p>
+              <strong><i>Working tree</i></strong> ou <i>Directory tree</i>. os
+              arquivos não são controlados pelo GIT. podemos alterar qualquer
+              coisa sem medo.
+            </p>
+            <p>
+              <strong><i>Staging Area</i></strong> estes são os arquivos que
+              serão incluídos no seu próximo <i>commit</i>. Estes são os
+              arquivos que o GIT conhece.
+            </p>
+            <p>
+              <strong><i>Repository</i></strong> estes são os arquivos que você
+              já comitou. Está no diretório <b><i>.git</i></b
+              >.
+            </p>
+          </section>
+          <section>
+            <h3><b>Staging Area</b></h3>
+            <hr />
+            <p>
+              Contém uma cópia do seu último <i>commit</i>. Uma lista de
+              arquivos e o <i>hash SHA1</i> dos arquivos que fizeram parte do
+              seu último <i>commit</i>.
+            </p>
+            <p>
+              Este índex é, na verdade, um arquivo binário no diretório
+              <b><i>.git</i></b
+              >.
+            </p>
+            <p>
+              Sempre que você altera, renomeia, ou apaga arquivos o SHA1 deste
+              arquivo muda.
+            </p>
+            <hr />
+            <pre>
+              <code class="bash" data-trim>
+                $ git ls-files -s
+              </code>
+            </pre>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Fluxo de Trabalho</b></h3>
+            <hr />
+            <p>
+              Crie e modifique tudo que quiser no seu <i>Working Directory</i>.
+            </p>
+            <p>
+              <i>Stage</i> seus arquivos para que o GIT tenha conhecimento
+              deles.
+            </p>
+            <p>
+              <i>Commit</i> do seus arquivos para que o GIT faça uma cópia
+              destes arquivos diretamente no seu <b><i>.git</i></b
+              >.
+            </p>
+            <hr />
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3><b>GIT na Linha de Comando</b></h3>
+            <hr />
+            <p>
+              Para buscar ajuda:
+            </p>
+            <hr />
+            <pre>
+              <code class="bash" data-trim>
+                $ git help verbo
+                $ git verbo --help 
+                $ man git-verbo
+             </code>
+            </pre>
+            <hr />
+            <p>
+              Existe um
+              <a href="https://git-scm.com/book/en/v2/">Livro gratuito</a>
+              <i>online</i> que está em processo de tradução para o português.
+            </p>
+          </section>
+          <section>
+            <h3><b>Configurando seu ambiente</b></h3>
+            <hr />
+            <pre>
+              <code class="bash" data-trim>
+                $ git config --global user.name “Seu Nome”
+                $ git config --global user.email seu@email.com
+                $ git config –-list 
+             </code>
+            </pre>
+            <hr />
+            <p>
+              Estes valores serão ajustados globalmente para todos os seus
+              projetos no GIT
+            </p>
+          </section>
+
+          <section>
+            <h3><b>Criando uma cópia local</b></h3>
+            <hr />
+            <pre>
+              <code class="bash" data-trim>
+                $ git clone &lt;url&gt; [nome do dir local]
+                $ exemplo:
+                $ git clone https://github.com/frankalcantara/learngo
+            </code>
+            </pre>
+            <hr />
+            <p>
+              Irá criar, no diretório onde você rodar este comando, um diretório
+              chamado <i>learngo</i> com um arquivo <b><i>.git</i></b> contendo
+              o histórico do repositório do GitHub.
+            </p>
+          </section>
+          <section>
+            <h3><b>Para criar um repositório</b></h3>
+            <hr />
+            <pre>
+              <code class="bash" data-trim>
+                $ git init
+            </code>
+            </pre>
+            <hr />
+            <p>
+              Irá criar, um repositório, no diretório corrente com o respectivo
+              <b><i>.git</i></b
+              >. Uma vez que o diretório está criado você pode adicionar
+              arquivos a <i>Stage Area</i>.
+            </p>
+            <pre>
+              <code class="bash" data-trim>
+                $ git add teste1.c
+                $ git commit –m “primeiro commit neste repositorio para testes”
+            </code>
+            </pre>
+            <hr />
+            <p>
+              O commando <i>commit</i> incluiu os arquivos que estavam na
+              <i>Stage Area</i> no repositório local.
+            </p>
+          </section>
+          <section>
+            <h3><b>Comandos</b></h3>
+            <hr />
+            <style type="text/css">
+              .tg {
+                border-spacing: 0;
+              }
+              .tg td {
+                font-family: Arial, sans-serif;
+                font-size: 20px;
+                overflow: hidden;
+                padding: 10px 5px;
+                word-break: normal;
+                border-bottom: 2px !important;
+              }
+              .tg th {
+                font-family: Arial, sans-serif;
+                font-size: 24px;
+                font-weight: normal;
+                overflow: hidden;
+                padding: 10px 5px;
+                word-break: normal;
+              }
+              .tg .tg-0pky {
+                text-align: left;
+                vertical-align: top;
+                padding-left: 15px;
+              }
+              .tg .tg-1pky {
+                text-align: left;
+                vertical-align: top;
+                font-style: italic;
+                padding-left: 15px;
+                padding-right: 15px;
+              }
+            </style>
+            <table class="tg">
+              <thead>
+                <tr>
+                  <th>Comando</th>
+                  <th>Descrição</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background-color: #333;">
+                  <td class="tg-1pky">git clone url [dir]</td>
+                  <td class="tg-0pky">
+                    Faz uma cópia de um repositório em um diretório local
+                  </td>
+                </tr>
+                <tr>
+                  <td class="tg-1pky">git add files</td>
+                  <td class="tg-0pky">
+                    Adiciona arquivos ao controle de versão
+                  </td>
+                </tr>
+                <tr style="background-color: #333;">
+                  <td class="tg-1pky">git commit</td>
+                  <td class="tg-0pky">
+                    Grava uma imagem da <i>Staging Area</i>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="tg-1pky">git status</td>
+                  <td class="tg-0pky">
+                    Verifica o status dos seus arquivos na <i>Working Area</i> e
+                    na <i>Stage Area</i>
+                  </td>
+                </tr>
+                <tr style="background-color: #333;">
+                  <td class="tg-1pky">git pull</td>
+                  <td class="tg-0pky">
+                    Recupera arquivos de um repositório e tenta o <i>merge</i>no
+                    seu <i>branch</i> corrente.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="tg-1pky">git push</td>
+                  <td class="tg-0pky">
+                    Coloca suas modificações em um repositório remoto
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Até agora trabalhamos localmente</b></h3>
+            <hr />
+            <p>
+              Para ver o status dos seus arquivos no <i>Working Directory</i> e
+              <i>Stage Area</i>.
+            </p>
+            <pre>
+              <code class="bash" data-trim>
+                $ git status –s 
+            </code>
+            </pre>
+            <hr />
+            <p>
+              Sem o parâmetro "-s" teremos uma versão mais detalhada do status.
+            </p>
+          </section>
+          <section>
+            <h3><b>Até agora trabalhamos localmente</b></h3>
+            <hr />
+            <p>
+              Podemos comparar o <i>Working Directory</i> e <i>Stage Area</i>.
+            </p>
+            <pre>
+              <code class="bash" data-trim>
+                $ git diff
+            </code>
+            </pre>
+            <hr />
+            <p>
+              Ou ainda, comparar a <i>Stage Area</i> com o repositório local.
+            </p>
+            <pre>
+              <code class="bash" data-trim>
+                $ git diff --cached
+            </code>
+            </pre>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Até agora trabalhamos localmente</b></h3>
+            <hr />
+            <p>
+              Outra ferramenta importante disponível é o histórico de
+              modificações <i>log</i>.
+            </p>
+            <pre>
+              <code class="bash" data-trim>
+                $ git log --oneline  
+            </code>
+            </pre>
+            <hr />
+            <p>
+              Podemos ver também um número reduzdido de modificações. As dez
+              últimas, por exemplo:
+            </p>
+            <pre>
+              <code class="bash" data-trim>
+                $ git log -10  
+            </code>
+            </pre>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Boas Práticas</b></h3>
+            <hr />
+            <ol>
+              <li>use <i>add</i> e <i>commit</i> no diretório local.</li>
+              <li>
+                use <i>pull</i> para trazer as modificações recentes do
+                repositório remoto.
+              </li>
+              <li>
+                use <i>push</i> para levar suas modificações para o repositório
+                remoto.
+              </li>
+            </ol>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Trabalhando com diretórios remotos</b></h3>
+            <hr />
+            <p>
+              Para baixar as modificações mais recentes em um repositório remoto
+              no seu repositório local. Além de disponibilizar os arquivos
+              modificados no seu <i>Working Directory</i>.
+            </p>
+            <pre>
+              <code class="bash" data-trim>
+                $ git pull origin master  
+            </code>
+            </pre>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Trabalhando com diretórios remotos</b></h3>
+            <hr />
+            <p>
+              Para enviar suas modificações, depois de comitadas, para o
+              repositório remoto.
+            </p>
+            <pre>
+              <code class="bash" data-trim>
+                $ git push origin master  
+            </code>
+            </pre>
+            <hr />
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3><b>Branches</b></h3>
+            <hr />
+            <p>
+              <i>Branches</i>, em português, ramos, são derivações da Gráfico
+              Direcional Acíclico que o GIT usa. Usando os
+              <i>branches</i> criamos uma versão do repositório, local ou
+              remoto, para modificações. Do ponto de vista do GIT, tudo que é
+              criado é um ponteiro para este novo ramo.
+            </p>
+            <pre>
+            <code class="bash" data-trim>
+              $ git branch frank  
+          </code>
+          </pre>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Branches</b></h3>
+            <hr />
+            <p>
+              A simples criação de um <i>branche</i>, não altera nada no seu
+              trabalho, você irá continuar fazendo <i>commit</i> no
+              <i>Master</i>.
+            </p>
+            <p>
+              O <i>branch</i> <i>Master</i> não tem nada de especial, e é tão
+              comum apenas por que é criado por padrão quando criamos um
+              repositório.
+            </p>
+            <pre>
+            <code class="bash" data-trim>
+              $ git log --oneline --decorate 
+          </code>
+          </pre>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Branches</b></h3>
+            <hr />
+            <p>Para apontar seu desenvolvimento para o novo <i>branch</i>:</p>
+            <pre>
+              <code class="bash" data-trim>
+                $ git checkout frank
+              </code>
+            </pre>
+            <hr />
+            <p>
+              Agora tudo que você fizer será feito no <i>branch</i> frank. Mas
+              você pode voltar ao <i>branch Master</i>.
+            </p>
+            <pre>
+              <code class="bash" data-trim>
+                $ git checkout master
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3><b>Branches</b></h3>
+            <hr />
+            <p>
+              A ação de colocar todo o trabalho desenvolvido em um
+              <i>branch</i> no <i>master</i>, sem prejudicar o trabalho que pode
+              ter sido feito no <i>master</i> por outros desenvolvedores é
+              chamada de <i>merge</i>.
+            </p>
+            <pre>
+                <code class="bash" data-trim>
+                  $ git checkout master
+                  $ git merge frank
+                </code>
+              </pre>
+            <hr />
+            <p>Vários desenvedores, vários <i>branches</i> um produto único.</p>
+          </section>
+          <section>
+            <h3><b>Branches</b></h3>
+            <hr />
+            <p>
+              Um <i>merge</i> pode criar um conjunto de conflitos quando dois
+              desenvolvedores alterarem as mesmas linhas. O GIT fornece uma
+              lista de conflitos.
+            </p>
+            <pre>
+                  <code class="bash" data-trim>
+                    $ git status
+                  </code>
+                </pre>
+            <p>
+              Existem ferramentas para ajudar na correção de conflitos.
+              <br /><strong
+                >O <i>merge</i> só vai ser executado depois que todos os
+                conflitos forem resolvidos</strong
+              >.
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3><b>Impressão</b></h3>
+            <hr />
+            <p>Clique <a href="?print-pdf#/">aqui</a> para salvar como pdf.</p>
+          </section>
+          <section>
+            <h3><b>Agradecimento</b></h3>
+            <hr />
+            <img
+              src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg"
+              alt="reveal.js"
+              style="
+                height: 180px;
+                margin: 0 auto 4rem auto;
+                background: transparent;
+              "
+              class="demo-logo"
+            />
+            <h3>The HTML Presentation Framework</h3>
+            <p>
+              <small
+                >Criado por <a href="http://hakim.se">Hakim El Hattab</a> e
+                <a
+                  href="https://github.com/hakimel/reveal.js/graphs/contributors"
+                  >colaboradores</a
+                ></small
+              >
+            </p>
+          </section>
+        </section>
+      </div>
+      <!--fecha slides-->
+    </div>
+    <!--fecha reveal-->
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/search/search.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // Also available as an ES module, see:
+      // https://revealjs.com/initialization/
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
+  </body>
+</html>
