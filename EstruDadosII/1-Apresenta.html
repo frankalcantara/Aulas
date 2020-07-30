@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <title>Estrutura de Dados II - Introdução</title>
+    <meta name="description" content="Estrutura de Dados II - Introdução" />
+    <meta name="author" content="Frank de Alcantara" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/moon.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme"/>
+-->
+    <style type="text/css">
+      strong {
+        color: antiquewhite;
+      }
+      i {
+        font-style: italic !important;
+      }
+      p {
+        text-align: justify !important;
+      }
+      h3 {
+        text-align: left !important;
+      }
+      .print-pdf .reveal .slide-background {
+        background-color: black !important;
+      }
+      .codigo{
+        background-color: black !important;
+        color: beige;
+        font-family: monospace;
+        font-size: smaller;
+        font-style: oblique;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="reveal default"
+      role="application"
+      data-transition-speed="default"
+      data-background-transition="default"
+    >
+      <div class="slides">
+        <section> <!-- Definição da Disciplina -->
+          <section>
+            <h2>
+              <b>Estutura de Dados II<br />Estruturas Avançadas</b>
+            </h2>
+            <p style="text-align: right !important;">
+              <br /><br />
+              <small>Frank de Alcantara - julho 2020</small>
+            </p>
+          </section>
+          <section>
+            <h3><b>Ementa</b></h3>
+            <hr />
+            <p>
+              Processo de desenvolvimento de software. Histórico e
+              desenvolvimento do paradigma de <strong>Orientação a Objetos</strong>. Aspectos das
+              <strong>linguagens de modelagem de sistemas</strong>.
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Conteúdo</b></h3>
+            <hr />
+            <p><strong>Engenharia de Software</strong>.</p>
+            <p>
+              <strong>Análise Orientada a Objetos:</strong> história e conceitos
+              de aplicação do paradigma de Programação orientada a objetos.
+            </p>
+            <p>
+              <strong>UML2 (Unified Modeling Language):</strong> histórico;
+              visão geral dos diagramas da UML; diagrama de casos de uso;
+              diagrama de classes; diagrama de sequência...
+            </p>
+            <p>
+              <strong>Tópicos Adicionais em Engenharia de Software.</strong>
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Ferramentas Sugeridas</b></h3>
+            <hr />
+            <p>
+              <strong>UML:</strong> <a href="https://www.genmymodel.com/" target="_blank"> Genimodel </a>
+            </p>
+            <p>
+              Mais tarde definiremos as ferramentas para desenvolvimento de software.
+            </p>
+            <p>
+              Estas são apenas <strong>Sugestões</strong>, você pode usar a ferramenta que desejar.
+            </p>
+            <hr />
+          </section>
+        </section>
+        <section>  <!-- Engenharia de Software -->
+          <section>
+            <h3><b>Engenharia</b></h3>
+            <hr />
+            <p>
+              <q>
+                Se um construtor constroi uma casa para alguém, e não a constroi
+                de forma correta, e a casa por ele construida cai e mata seu
+                proprietário, então o construtor deve ser morto.
+              </q>
+              (Artigo 229 do código de Hammurabi - 1790 AC)
+            </p>
+            <hr />
+            <p>
+              Há quase 4000 anos a humanidade já se preocupava em regular a
+              profissão de engenheiro. Deixando claro que a função do engenheiro
+              é servir ao usuário de forma adequada e segura.
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Engenharia de Software</b></h3>
+            <hr />
+            <p>
+              A <strong>Engenharia de software</strong> é jovem! Podemos marcar
+              sua origem na primeira metade do <strong>Século XX</strong>. Ainda
+              estamos aprendendo o que é isso!
+            </p>
+            <hr />
+            <p>
+              O produto <strong>software é abstrato</strong>, sujeito a mudanças
+              constantes, algumas vezes conflitantes. Além disso, o
+              desenvolvimento de um produto de software é uma
+              <strong>tarefa complexa</strong> com centenas de disciplinas
+              diferentes interligadas.
+            </p>
+
+            <hr />
+          </section>
+          <section>
+            <h3><b>Engenharia de Software</b></h3>
+            <hr />
+            <p>
+              Consiste na <strong>modelagem</strong> de um sistema como forma de
+              minimizar a complexidade. Utilizar estes modelos em busca de uma
+              <strong>solução viável</strong> para um problema. Avaliando dados,
+              descobrindo informações e determinando uma forma de
+              <strong>criar e organizar o conhecimento</strong>.
+            </p>
+            <hr />
+            <p>
+              Este processo permite criar uma ferramenta
+              <strong>racional</strong> para a tomada de decisão, ou execução de
+              uma tarefa específica necessária a solução do problema.
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Sistemas</b></h3>
+            <hr />
+            <p>
+              <strong>Sistemas são conjuntos de partes interagindo para um objetivo
+              comum</strong>. Podemos classificá-los em naturais, sociais e artificiais.
+            </p>
+            <hr />
+            <p>
+              O objetivo da engenharia é modificar sistemas independente da sua
+              natureza. A <strong>Engenharia de Software</strong> lida com
+              sistemas artificiais modificando tanto os sistemas naturais quanto
+              os sistemas sociais.
+            </p>
+            <hr />
+          </section>
+        </section>
+        <section> <!--Solução de problemas com software-->
+          <section>
+            <h3><b>Solução de Problemas</b></h3>
+            <hr />
+            <p>
+            <ol>
+              <li>Formular;</li>
+              <li>Analisar;</li>
+              <li>Buscar soluções;</li>
+              <li>Escolher a solução adequada;</li>
+              <li>Especificar a solução.</li>
+              </ol>
+            </p>
+            <p>
+              A função da engenharia é solucionar problemas. A <strong>Engenharia de Software é uma atividade de 
+              engenharia</strong>. Requer experiência, experimentação, reuso de soluções e evolução contínua. 
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Engenharia de Software - Processos</b></h3>
+            <hr />
+            <p>
+              <ol>
+              <li>Elicitação de Requerimentos;</li>
+              <li>Analise do sistema;</li>
+              <li>Design do sistema;</li>
+              <li>Design dos objetos;</li>
+              <li>Implementação;</li>
+              <li>Testes;</li>
+              <li>Entrega;</li>
+              <li>Manutenção;</li>
+              </ol>
+            </p>
+            <hr />
+          </section>
+        <section>
+            <h3><b>Engenharia de Software - Processos</b></h3>
+            <hr />
+            <p>
+             Dependendo dos processos escolhidos para a criação do software, para a gestão do projeto, 
+             ou mesmo para o modelo de ciclo de vida do produto, estes processos podem ter nomes diferentes,
+             podem estar distruídos de forma diferente e podem até não existir. 
+            </p>
+            <p>
+             Neste curso, vamos considerar todos indispensáveis. E não vamos nos preocupar com nomes e ordens. Mas, 
+             vamos focar em <strong>Processos Ágeis</strong>.
+            </p>
+            <hr />
+          </section>
+        </section>  
+        <section> <!-- Projetos -->
+          <section>
+            <h3><b>Engenharia de Software - Projetos</b></h3>
+            <hr />
+              <img
+                src="img/projetos.svg"
+                alt="Estrutura de projetos mostrando projetos, atividades e tarefas"
+                  width="90%"
+                />
+              <hr />
+              <p><small><b>Fonte: adaptado de (BRUENGGE & DUTOIT, 2010) <br /> Link: <a href="https://www.amazon.com/gp/product/B008VIXZGY/ref=dbs_a_def_rwt_bibl_vppi_i0" target="_blank">Objected Oriented Software Engineering</a> </b></small></p>
+          </section>
+          <section>
+              <h3><b>Sistemas e Modelos</b></h3>
+              <hr />
+              <p>
+                <strong>Sistemas são conjuntos de partes interagindo para um objetivo
+                comum</strong>. Podemos classificá-los em naturais, sociais e artificiais.
+              </p>
+              <hr />
+              <p>
+                <strong>Modelo é uma representação simplificada de um sistema</strong>, ou de parte de um sistema,
+                onde estão representadas as funcionalidades essenciais para o entendimento do sistema,
+                ou do problema.
+              </p>
+              <hr />
+          </section>
+          <section>
+              <h3><b>Modelagem</b></h3>
+              <hr />
+              <p>
+                <strong>É a arte, e a ciência, de reduzir um problema</strong> 
+                a sua representação mais simples. Esta é uma técnica de redução de complexidade por 
+                meio da exclusão das partes do sistema que sejam irrelevantes para a solução do problema em um determinado domínio.
+              </p>
+              
+              <p>
+                No caso de um projeto, seu cronograma e seu orçamento são modelos do projeto em si.
+              </p>
+              <hr />
+          </section>
+          <section>
+              <h3><b>Modelagem Ágil</b></h3>
+              <hr />
+              <p>
+                Processos de desenvolvimento ágil como o <i><strong>Scrum</strong></i> e 
+                <i><strong>eXtreme Programming</strong></i>
+                baseiam seu processo de modelagem na criação e análise de <strong><i>User Stories</i></strong>. 
+                Este é um processo de modelagem dinâmico que mais eficiente se os analistas e 
+                desenvolvedores conhecerem as técnicas de modelagem clássicas.
+              </p>
+              <hr />
+          </section>
+          <section>
+              <h3><b>Modelagem UML</b></h3>
+              <hr />
+              <p>
+                <strong><i>Unified Modeling Language™</i></strong> ou, Liguagem Unificada de Modelagem é 
+                O resultado da junção, nos anos 1980 e 1990, de vários esforços para a criação de uma linguagem 
+                para a modelagem de sistemas desenvolvidos por <a href="https://en.wikipedia.org/wiki/James_Rumbaugh" target="_blank">Rumbaugh</a>,
+                <a href="https://en.wikipedia.org/wiki/Ivar_Jacobson" target="_blank">Jacobson</a> e 
+                <a href="https://en.wikipedia.org/wiki/Grady_Booch" target="_blank">Booch</a> e Booch. Em 1996
+                a primeira versão da <stron>UML</stron> estava pronta e disponível para uso.
+              </p>
+              <p>
+                Desde então, a <strong>UML</strong> está intimamente relacionada com o <strong><i>Rational Unified Process</i> - RUP</strong> da IBM e com o 
+                paradigma de programação orientada a objetos.
+              </p>
+              <hr />
+          </section>
+           <section>
+              <h3><b>Modelagem - Paradigmas de Programação</b></h3>
+              <hr />
+              <p>
+                Ainda que exista uma relação entre <strong>UML</strong>, <strong>RUP</strong> e programação orientada a objetos. 
+                Não há <strong>nenhuma limitação ao uso da modelagem</strong>, ou mesmo da <stron>UML</stron>, com outros paradigmas de programação.
+              </p>
+              <p>
+                Tanto a modelagem em geral, quanto a <strong>UML</strong> em particular, são técnicas para a análise e entendimento de problemas.
+              </p>
+              <hr />
+          </section>
+          <section>
+              <h3><b>Unified Modeling Language™ - UML</b></h3>
+              <hr />
+              <p>
+                A <strong>UML</strong> permite criar 
+                <ul>
+                  <li>Modelos funcionais (diagrama de caso de uso)</li>  
+                  <li>Modelos de objetos (diagrama de classes)</li>  
+                  <li>Modelos dinâmicos (diagrama de sequência)</li>  
+                </ul>
+              </p>
+              <p>
+                Alguns autores classificam os diagramas em apenas dois grupos: estáticos e dinâmicos.
+              </p>
+              <hr />
+          </section>
+          <section>
+              <h3><b>UML - Diagramas Estáticos</b></h3>
+              <hr />
+              <p>
+                <strong>Diagramas estáticos</strong>, ou estruturais, descrevem a estrutura do sistema. Usam os objetos, 
+                seus atributos, operações e relacionamento. Exemplo: diagrama de classes.
+              </p>
+              <p>
+                <strong>Diagramas dinâmicos</strong>, ou comportamentais, descrevem a interação entre os 
+                componentes do sistema, não raramente, entre objetos. Detalhando as mudanças de 
+                estado destes objetos. Exemplo: diagrama de casos de uso. 
+              </p>
+              <hr />
+          </section>
+        </section>
+
+        <section ><!-- Fixação de Conteúdo -->
+            <h3><b>Fixação de Conteúdo</b></h3>
+            <hr />
+            <p>Resolva o questionário proposto!!!</p>
+            <hr />
+        </section>
+        
+        <section> <!-- Orientação a Objetos-->
+          <section>
+              <h3><b>Um Pouco de História - Simula 67</b></h3>
+              <hr />
+              <p>
+                Projeto de <a href="https://en.wikipedia.org/wiki/Ole-Johan_Dahl" target="_blank"></a>Ole-Johan Dahl e 
+                <a href="https://en.wikipedia.org/wiki/Kristen_Nygaard" target="_blank">Kristen Nygaard</a> 
+                desenvolvido no <a href="https://www.nr.no/en/about-main" target="_blank"></a><strong><i>Norwegian Computing Centrer</i></strong> - (NCC) 
+                em Oslo entre os anos de 1962 e 1967. Criada para ser uma linguagem  capaz de descrever e simular um evento.
+                 Baseada no ALGOL 60 
+              </p>
+              <p>
+                A linguagem continha a maior parte dos conceitos que usamos hoje em linguagens orientadas a objetos.
+              </p>
+              <hr />
+          </section>
+          <section>
+              <h3><b>Objetos</b></h3>
+              <hr />
+              <p>
+                Programação orientada a objetos utiliza <strong>uma abstração da realidade chamada</strong> de objeto que 
+                abstrai tanto dados quanto procedimentos. Ou seja, um objeto contém dados, que representam seu estado 
+                e métodos para ler e alterar estes estados.
+              </p>
+              <p>
+                Os objetos são instâncias em memória de artefatos de código chamados de <strong>classes</strong>. São as classes que 
+                definem tanto a abstração de dados quanto os métodos que serão utilizados para sua manipulação.
+              </p>
+              <hr />
+          </section>
+          <section>
+              <h3><b>Classes</b></h3>
+              <hr />
+              <p>
+                A sintaxe utilizada para criar uma classe varia de acordo com os limites de cada uma 
+                das linguagems de programação orientadas a objetos. <a href="https://madnight.github.io/githut/#/pull_requests/2020/2" target="_blank">As linguagens mais utilizadas</a> 
+                são: Javascript, Phyton, Java, Go, C++, Typescript, Ruby, PHP e C#.
+              </p>
+              <p>
+               Uma classe define um tipo de objeto, assim como a palavra endereço define um tipo de informação.
+               Com uma mesma classe, podemos instanciar vários objetos. 
+              </p>
+              <hr />
+          </section>
+          <section>
+              <h3><b>Instância</b></h3>
+              <hr />
+              <p>
+                A palavra instância se refere a uma classe, em memória, um objeto. O ato de instanciar é o
+                ato de criar as estruturas de memória necessárias para suportar um objeto. A classe contém o conjunto
+                de instruções que permitirá ao programa criar os objetos que precisa.
+              </p>
+              <p>
+               Uma vez instanciado, um objeto, tem <strong>propriedades</strong> onde estão armazenados seus dados 
+               e <strong>métodos</strong> que serão utilizados para acessar estes dados.
+              </p>
+              <hr />
+          </section>
+           <section>
+              <h3><b>Associação</b></h3>
+              <hr />
+              <p>
+                Objetos podem ser relacionados por meio de uma <strong>associação</strong>, esta associação 
+                irá determinar como um objeto de uma determinada classe irá se relacionar com objetos de outras classes.
+              </p>
+              <p>
+               Por exemplo, poderíamos ter uma classe <b class="codigo">Aluno</b> contendo dados sobre alunos que 
+               fosse associada a classe <b class="codigo">Endereco</b> que conteria dados de endereço.
+              </p>
+              <hr />
+          </section>
+          <section>
+              <h3><b>Classe - Exemplo</b></h3>
+              <hr />
+              <p>
+                <pre class="java"><code >public class Aluno
+                    {
+                      private Vector notas;
+                      int nNotas;
+                      public void nota(int n);
+                      protected boolean notaGravada(int n);
+                    }
+                </code>
+                </pre>
+              </p>
+              
+              <hr />
+          </section>
+        </section>
+        
+        
+        <section ><!-- Fixação de Conteúdo -->
+            <h3><b>Fixação de Conteúdo</b></h3>
+            <hr />
+            <p>Resolva o questionário proposto!!!</p>
+            <hr />
+        </section>
+
+        <section> <!--Referências e Impressão -->
+          <section>
+            <h3><b>Referências</b></h3>
+            <hr />
+            <p>BRUEGGE, B.; DUTOIT, A. H. <b>Object-Oriented Software Engineering Using UML, Patterns, and Java</b>. 
+              3º. ed. Pittsburgh, USA: Prentice Hall, 2010.
+            </p>
+          </section>
+          <section>
+            <h3><b>Impressão</b></h3>
+            <hr />
+            <p>Clique <a href="?print-pdf#/">aqui</a> para salvar como pdf.</p>
+          </section>
+          <section>
+            <h3><b>Agradecimento</b></h3>
+            <hr />
+            <img
+              src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg"
+              alt="reveal.js"
+              style="
+                height: 180px;
+                margin: 0 auto 4rem auto;
+                background: transparent;
+              "
+              class="demo-logo"
+            />
+            <h3>The HTML Presentation Framework</h3>
+            <p>
+              <small
+                >Criado por <a href="http://hakim.se">Hakim El Hattab</a> e
+                <a
+                  href="https://github.com/hakimel/reveal.js/graphs/contributors"
+                  >colaboradores</a
+                ></small
+              >
+            </p>
+          </section>
+        </section>
+      </div>
+      <!--fecha slides-->
+    </div>
+    <!--fecha reveal-->
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/search/search.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // Also available as an ES module, see:
+      // https://revealjs.com/initialization/
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
+  </body>
+</html>
