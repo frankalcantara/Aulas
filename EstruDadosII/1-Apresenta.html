@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="dist/reveal.css" />
     <link rel="stylesheet" href="dist/theme/moon.css" id="theme" />
     <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme"/>
--->
-    <style type="text/css">
+
+<style type="text/css">
       strong {
         color: antiquewhite;
       }
@@ -65,93 +65,82 @@
             <h3><b>Ementa</b></h3>
             <hr />
             <p>
-              Processo de desenvolvimento de software. Histórico e
-              desenvolvimento do paradigma de <strong>Orientação a Objetos</strong>. Aspectos das
-              <strong>linguagens de modelagem de sistemas</strong>.
+                <strong>Árvores e suas Generalizações:</strong> árvores binárias, árvores de busca, árvores balanceadas; 
+                <strong>Algoritmos para pesquisa e ordenação interna</strong>; <strong>Tabelas Hash</strong>; <strong>Organização de arquivos</strong>; <strong>Grafos</strong>.
             </p>
             <hr />
           </section>
           <section>
             <h3><b>Conteúdo</b></h3>
             <hr />
-            <p><strong>Engenharia de Software</strong>.</p>
-            <p>
-              <strong>Análise Orientada a Objetos:</strong> história e conceitos
-              de aplicação do paradigma de Programação orientada a objetos.
-            </p>
-            <p>
-              <strong>UML2 (Unified Modeling Language):</strong> histórico;
-              visão geral dos diagramas da UML; diagrama de casos de uso;
-              diagrama de classes; diagrama de sequência...
-            </p>
-            <p>
-              <strong>Tópicos Adicionais em Engenharia de Software.</strong>
-            </p>
+              <p>Conceitos avançados de estruturas de dados</p>
+              <p>
+                <ul> 
+                    <li>Métodos de ordenação</li>
+                    <li>Tabelas hashing</li>  
+                    <li>Organização de arquivos</li>
+                    <li>Árvores e suas generalizações</li>
+                    <li>Árvore binária de busca: inserção, remoção, pesquisa, percorrimento</li>
+                    <li>Árvores balanceadas</li>
+                    <li>Grafo: matriz de adjacência, busca por largura, busca por profundidade, caminho mais curto</li>
+                </ul>
+              </p>
             <hr />
           </section>
           <section>
             <h3><b>Ferramentas Sugeridas</b></h3>
             <hr />
             <p>
-              <strong>UML:</strong> <a href="https://www.genmymodel.com/" target="_blank"> Genimodel </a>
+              <strong>Ambiente de desenvolvimento online:</strong> <a href="https://repl.it/~" target="_blank"> Repl.it</a>
             </p>
             <p>
-              Mais tarde definiremos as ferramentas para desenvolvimento de software.
-            </p>
-            <p>
-              Estas são apenas <strong>Sugestões</strong>, você pode usar a ferramenta que desejar.
+              Você pode usar a ferramenta de desenvolvimento que desejar. Desde que lembre que 
+              <strong>todos os trabalhos serão avaliados por compartilhamento</strong>, 
+              de links no </strong> <a href="https://repl.it/~" target="_blank"> Repl.it</a> .
             </p>
             <hr />
           </section>
         </section>
-        <section>  <!-- Engenharia de Software -->
+        <section>  <!-- Ordenação -->
           <section>
-            <h3><b>Engenharia</b></h3>
+            <h3><b>Ordenação - Conceito</b></h3>
             <hr />
             <p>
-              <q>
-                Se um construtor constroi uma casa para alguém, e não a constroi
-                de forma correta, e a casa por ele construida cai e mata seu
-                proprietário, então o construtor deve ser morto.
-              </q>
-              (Artigo 229 do código de Hammurabi - 1790 AC)
+              Ordenação, em inglês <strong><i>sort</i></strong> é uma das tarefas com maior impacto na eficiência de 
+              soluções computationais. Sejam elas baseadas em software ou em hardware.
             </p>
             <hr />
             <p>
-              Há quase 4000 anos a humanidade já se preocupava em regular a
-              profissão de engenheiro. Deixando claro que a função do engenheiro
-              é servir ao usuário de forma adequada e segura.
+              <strong>Problema:</strong> dado um conjunto de itens quaisquer, de que forma 
+              podemos organizar estes itens segundo uma sequência especificada.
             </p>
             <hr />
           </section>
           <section>
-            <h3><b>Engenharia de Software</b></h3>
+            <h3><b>Ordenação - Conceito</b></h3>
             <hr />
             <p>
-              A <strong>Engenharia de software</strong> é jovem! Podemos marcar
-              sua origem na primeira metade do <strong>Século XX</strong>. Ainda
-              estamos aprendendo o que é isso!
+                Por ser tão importante os problemas de ordenção são muito estudados e temos, 
+                centenas de algoritmos diferentes para resolver este problema.
             </p>
             <hr />
             <p>
-              O produto <strong>software é abstrato</strong>, sujeito a mudanças
-              constantes, algumas vezes conflitantes. Além disso, o
-              desenvolvimento de um produto de software é uma
-              <strong>tarefa complexa</strong> com centenas de disciplinas
-              diferentes interligadas.
+                A escolha do algoritmo de ordenação dependerá do conjunto de itens que será ordenado, da 
+                infraestrutura disponível, da ordem inicial dos itens e dos custos envolvidos.
             </p>
-
+            <p>
+                Nem sempre o algoritmo mais rápido será o mais eficaz para um dado problema.
+                Se o número de ítens for pequeno, por exemplo, pode ser mais interessante usar 
+                um algoritmo simples como o <strong>quicksort</strong> que pagar o custo de 
+                implementação de algoritmos mais rápidos.
+            </p>
             <hr />
           </section>
           <section>
-            <h3><b>Engenharia de Software</b></h3>
+            <h3><b>Ordenação - Conceito Exemplo</b></h3>
             <hr />
             <p>
-              Consiste na <strong>modelagem</strong> de um sistema como forma de
-              minimizar a complexidade. Utilizar estes modelos em busca de uma
-              <strong>solução viável</strong> para um problema. Avaliando dados,
-              descobrindo informações e determinando uma forma de
-              <strong>criar e organizar o conhecimento</strong>.
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/ZZuD6iUe3Pc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </p>
             <hr />
             <p>
