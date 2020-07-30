@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme"/>
 
 <style type="text/css">
+      math {
+        color: white;
+      }
       strong {
         color: antiquewhite;
       }
@@ -96,7 +99,7 @@
             <p>
               Você pode usar a ferramenta de desenvolvimento que desejar. Desde que lembre que 
               <strong>todos os trabalhos serão avaliados por compartilhamento</strong>, 
-              de links no </strong> <a href="https://repl.it/~" target="_blank"> Repl.it</a> .
+              de links no <a href="https://repl.it/~" target="_blank"> Repl.it</a> .
             </p>
             <hr />
           </section>
@@ -121,88 +124,81 @@
             <hr />
             <p>
                 Por ser tão importante os problemas de ordenção são muito estudados e temos, 
-                centenas de algoritmos diferentes para resolver este problema.
+                centenas de algoritmos diferentes para resolver problemas deste tipo.
             </p>
-            <hr />
             <p>
                 A escolha do algoritmo de ordenação dependerá do conjunto de itens que será ordenado, da 
                 infraestrutura disponível, da ordem inicial dos itens e dos custos envolvidos.
-            </p>
-            <p>
                 Nem sempre o algoritmo mais rápido será o mais eficaz para um dado problema.
-                Se o número de ítens for pequeno, por exemplo, pode ser mais interessante usar 
-                um algoritmo simples como o <strong>quicksort</strong> que pagar o custo de 
-                implementação de algoritmos mais rápidos.
             </p>
             <hr />
           </section>
           <section>
             <h3><b>Ordenação - Conceito Exemplo</b></h3>
             <hr />
-            <p>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/ZZuD6iUe3Pc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </p>
-            <hr />
-            <p>
-              Este processo permite criar uma ferramenta
-              <strong>racional</strong> para a tomada de decisão, ou execução de
-              uma tarefa específica necessária a solução do problema.
-            </p>
+              <p>
+                <iframe width="100%" height="500" src="https://www.youtube.com/embed/ZZuD6iUe3Pc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </p>
             <hr />
           </section>
           <section>
-            <h3><b>Sistemas</b></h3>
+            <h3><b>Ordenação - Conceito </b></h3>
             <hr />
-            <p>
-              <strong>Sistemas são conjuntos de partes interagindo para um objetivo
-              comum</strong>. Podemos classificá-los em naturais, sociais e artificiais.
-            </p>
+              <p>
+                Raramente você irá ordenar uma lista de números, ou palavras, ou arquivos. 
+                Profissionalmente, a maior parte dos problemas de ordenamento são relacionados a dados complexos
+                <strong><i>records</i></strong> compostos de diversos campos de tipos diferentes com um ou mais campos
+                chave <strong><i>keys</i></strong> que deverão ser usados como referência.
+              </p>
             <hr />
-            <p>
-              O objetivo da engenharia é modificar sistemas independente da sua
-              natureza. A <strong>Engenharia de Software</strong> lida com
-              sistemas artificiais modificando tanto os sistemas naturais quanto
-              os sistemas sociais.
-            </p>
+          </section>
+          <section>
+            <h3><b>Definição do Problema</b></h3>
+            <hr />
+              <p> 
+                Uma coleção de elementos <math>$A$</math> cujos elementos são indicados por <math>$a_i$</math> ou <math>$A[i]$</math>. 
+                O objetivo de uma ordenação crescente será criar um conjunto <math>$A$</math> ordenado de 
+                tal forma que para todos os elementos <math>$A[i]$</math> exista um <math>$A[j]$</math> desde que 
+                <math>$A[i] &lt; A[j]$</math> onde <math>$j &gt; i$</math> e não exista nenhum elemento <math>$A[k]$</math> 
+                entre <math>$A[i] \wedge A[j]$</math>.
+              </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Definição do Problema</b></h3>
+            <hr />
+              <p> 
+                Para ordenar os elementos usaremos uma permutação comparando, de alguma forma, os 
+                elementos da coleção <math>$A$</math> para definir se um <math>$A[i]$</math> qualquer
+                é maior, igual ou menor que um <math>$A[i]$</math> qualquer. A forma como fazemos esta 
+                comparação e a permutação é que define como os algoritmos de ordenação funcionam.
+              </p>
             <hr />
           </section>
         </section>
-        <section> <!--Solução de problemas com software-->
+        <section> <!-- Bubble Sort -->
           <section>
-            <h3><b>Solução de Problemas</b></h3>
+            <h3><b>Bubble Sort</b></h3>
             <hr />
             <p>
-            <ol>
-              <li>Formular;</li>
-              <li>Analisar;</li>
-              <li>Buscar soluções;</li>
-              <li>Escolher a solução adequada;</li>
-              <li>Especificar a solução.</li>
-              </ol>
+                O Bubble Sort é um dos mais simples algoritmos de ordenação a ideia é percorrer 
+                toda a coleção de dados <math>$A$</math> comparando <math>$A[j]$</math> com <math>$A[j+1]$</math>
+                e inverter a posição destes dois elementos sempre que <math>$A[j] &gt A[j+1] $</math>.
             </p>
             <p>
-              A função da engenharia é solucionar problemas. A <strong>Engenharia de Software é uma atividade de 
-              engenharia</strong>. Requer experiência, experimentação, reuso de soluções e evolução contínua. 
+              <pre><code>
+                1. begin
+                2.    for i = 1 to n − 1
+                3.     for j = 1 to n − i
+                4.       if (A[j] > A[j + 1]) then
+                5.         Swap (A[j], A[j + 1])
+                8. end
+
+              </code></pre>
             </p>
             <hr />
           </section>
-          <section>
-            <h3><b>Engenharia de Software - Processos</b></h3>
-            <hr />
-            <p>
-              <ol>
-              <li>Elicitação de Requerimentos;</li>
-              <li>Analise do sistema;</li>
-              <li>Design do sistema;</li>
-              <li>Design dos objetos;</li>
-              <li>Implementação;</li>
-              <li>Testes;</li>
-              <li>Entrega;</li>
-              <li>Manutenção;</li>
-              </ol>
-            </p>
-            <hr />
-          </section>
+          
         <section>
             <h3><b>Engenharia de Software - Processos</b></h3>
             <hr />
@@ -486,6 +482,7 @@
     <script src="plugin/search/search.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
     <script>
       // Also available as an ES module, see:
       // https://revealjs.com/initialization/
@@ -494,6 +491,12 @@
         progress: true,
         center: true,
         hash: true,
+        math: {
+                mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+                config: 'TeX-AMS_HTML-full',
+                // pass other options into `MathJax.Hub.Config()`
+                TeX: { Macros: { RR: "{\\bf R}" } }
+               },
 
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [
@@ -501,6 +504,7 @@
           RevealNotes,
           RevealSearch,
           RevealMarkdown,
+          RevealMath,
           RevealHighlight,
         ],
       });
