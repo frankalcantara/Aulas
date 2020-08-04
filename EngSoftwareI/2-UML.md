@@ -252,12 +252,12 @@ Este é um processo que requer prática. Não tente acertar da primeira vez. Cri
 <strong>Atores primários:</strong> aqueles para os quais o sistema existe. Estes são os principais beneficiários do sistema. </br>
 <strong>Atores secundários</strong> são atores cuja função existe no sistema mas que não iniciam interações ou são beneficiados por elas. {.P}
 
-<hr> {.P}
-
 A classificação entre atores primários e secundários depende do sistema, da interação iniciada e da visão do analista no momento da modelagem. Uma regra geral determina que os atores primários são aqueles para os quais o sistema está sendo desenvolvido. Por exemplo: pacientes, médicas e infermeiras em um sistema hospitalar ou vendedor e comprador em um sistema de vendas.
 
 <strong>Atores diretos:</strong> são os atores que efetivamente usam o sistema. Voltando ao exemplo do sistema hospitalar podemos classificar o _atendente de balcão_ como um ator direto já que é ele que irá dar entrada nos dados dos pacientes. </br>
 <strong>Atores indireto:</strong> são os atores afetados pelo sistema mas que não usam o sistema. De volta ao exemplo do sistema hospitalar, um paciente é um ator indireto. {.P}
+
+<hr> {.P}
 
 Mesmo que o paciente seja um ator primário, o sistema será feito para ele, ele não interage diretamente com o sistema. Talvez, a única excessão a esta regra está nos sistemas modernos em que o paciente precisa registrar sua entrada e sua saída. Ainda assim, ele só será classificado como <strong>direto</strong> para estes casos de uso.
 
