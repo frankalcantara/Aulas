@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Frank Coelho de Alcantara">
+  <title>Introdução a UML e seus Diagramas</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.0//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.0//dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.0//dist/theme/moon.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Introdução a UML e seus Diagramas</h1>
+  <p class="author">Frank Coelho de Alcantara</p>
+</section>
+
+<section>
+<section id="uml" class="title-slide slide level1 P">
+<h1 class="P">UML</h1>
+<style> 
+p {
+    text-align: justify !important;
+}
+h1{ font-size: 2.8 em !important;}
+h2{ text-align: left !important; font-size: 1.6em !important;}
+strong {
+    color:antiquewhite;
+}
+.reveal img, .reveal video, .reveal iframe {
+    max-width: 60%;
+    max-height: 60%;
+}
+
+.reveal img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<hr>
+<p>UML - <em>Unified Modeling Language</em> é uma linguagem, principalmente gráfica, para a modelagem de sistemas que é independente de linguagens de programação e de paradigmas de linguagens de programação </p>
+<p>A UML foi criada para facilitar a análise de sistemas por meio de um processo de modelagem bem definido e documentado. </p>
+<hr>
+</section>
+<section id="versão-e-objetivo" class="slide level2 P">
+<h2 class="P">Versão e objetivo</h2>
+<hr>
+<p>“O objetivo da UML é fornecer a arquitetos de sistemas, engenheiros de software e desenvolvedores de software ferramentas para análise, design e implementação de sistemas baseados em software e para a modelagem de processos de negócio e processos similares” </p>
+<p>Cada diagrama é voltado para uma parte do processo é necessário que o profissional responsável pela modelagem conheça a área específica do diagrama. </p>
+<hr>
+</section>
+<section id="natureza-dos-diagramas" class="slide level2 P">
+<h2 class="P">Natureza dos Diagramas</h2>
+<hr>
+<p> <strong>Estruturais vs. Comportamentais:</strong> as características estruturais indicam como o negócio está estruturado enquanto os comportamentais indicam o fluxo de informação no sistema. </p>
+<p><strong>Estáticos vs. Dinâmicos:</strong> diagramas que modelam condições não relacionadas a mudança do tempo são estáticos, todos os outros, são dinâmicos. Mesmo que indiquem um instante do tempo. </p>
+<hr>
+</section>
+<section id="figura-1-natureza-dos-diagramas-uml" class="slide level2 P">
+<h2 class="P">Figura 1: Natureza dos Diagramas UML</h2>
+<hr>
+<p><img data-src="../img/UMLNatureza.jpg" alt="Fonte:(UNHELKAR,2010) Diagramas UML segundo sua natureza" /> </p>
+<p><small>Fonte:(UNHELKAR,2010) Diagramas UML segundo sua natureza</small> </p>
+<hr>
+</section></section>
+<section>
+<section id="visão-geral-dos-diagramas-uml" class="title-slide slide level1 P">
+<h1 class="P">Visão Geral dos Diagramas UML</h1>
+<hr>
+<p> Na UML 2.51 são definidos 23 diagramas diferentes. Não vamos detalhar todos eles, para isso, você pode ver a documentação da linguagem <a href="https://www.omg.org/spec/UML/2.5.1/PDF">versão 2.51</a>. </p>
+<hr>
+</section>
+<section id="diagramas-de-caso-de-uso" class="slide level2 P">
+<h2 class="P">Diagramas de Caso de Uso</h2>
+<hr>
+<p><em>Use Case Diagrams</em> ou <strong>Diagrama de Caso de Uso</strong> representam um modelo da interação entre os atores (<em>stakeholders</em> e outros sistemas) com o sistema que está sendo modelado. Captura, em alto nível, os requerimentos do sistema. Não mostra um caso de uso, em vez disso, apresenta os atores, suas funções, sua relações com o sistema e as funcionalidades envolvidas. </p>
+<hr>
+</section>
+<section id="figura-2-diagramas-de-caso-de-uso" class="slide level2 P">
+<h2 class="P">Figura 2: Diagramas de Caso de Uso</h2>
+<hr>
+<p><img data-src="../img/casosDeUsoExemplo.jpg" alt="Fonte:o autor (2020) Diagrama de caso de uso - exemplo" /> </p>
+<p><small>Fonte: o autor (2020) Diagrama de caso de uso - exemplo</small> </p>
+<hr>
+</section>
+<section id="diagramas-de-atividade" class="slide level2 P">
+<h2 class="P">Diagramas de Atividade</h2>
+<hr>
+<p><em>Activity Diagrams</em> ou <strong>Diagrama de atividades</strong> são como fluxogramas, são diagramas que modelam o fluxo de informação em um processo. Esta modelagem pode ser feita em processo de negócio ou entre diagramas de casos de uso. Estes diagramas são usados para documentar o fluxo de informação em um determinado caso de uso representando um conjunto de processos de negócio mas podem representar o fluxo de informação entre casos de uso ou, se for o caso, em todo o negócio. </p>
+<hr>
+</section>
+<section id="figura-3-diagramas-atividades" class="slide level2 P">
+<h2 class="P">Figura 3: Diagramas Atividades</h2>
+<hr>
+<p><img data-src="../img/ActivityDiagramExemple.jpg" alt="Fonte: (BAUSOLA, 2008) Diagrama de Atividades - exemplo" /> </p>
+<p><small>Fonte: (BAUSOLA, 2008) Diagrama de Atividades - exemplo</small> </p>
+<hr>
+</section>
+<section id="diagramas-de-classe" class="slide level2 P">
+<h2 class="P">Diagramas de Classe</h2>
+<hr>
+<p><em>Classe Diagrams</em> ou <strong>Diagrama de classe</strong> são diagramas estruturais e estáticos que representam os elementos mais importantes nos domínios técnico e de negócio. Podem representar tanto as entidades do negócio quanto as entidades necessárias para a criação do software. Neste caso, linguagens de programação orientadas à objetos podem ter seus elementos estrururais diretamente ligados a elementos de negócio. </p>
+<hr>
+</section>
+<section id="figura-4-diagrama-de-classes" class="slide level2 P">
+<h2 class="P">Figura 4: Diagrama de Classes</h2>
+<hr>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/c/ce/ClassDiagramInitial.jpg" alt="Fonte: (WIKIMEDIA, 2016) Diagrama de Classes - exemplo" /> </p>
+<p><small>Fonte: (WIKIMEDIA, 2016) Diagrama de Classes - exemplo</small> </p>
+<hr>
+</section>
+<section id="diagramas-de-sequência" class="slide level2 P">
+<h2 class="P">Diagramas de Sequência</h2>
+<hr>
+<p><em>Sequence Diagrams</em> ou <strong>Diagrama de sequência</strong> apresentam as entidades que participam de um determinado caso de uso e as mensagens que são trocadas entre eles ao longo do tempo. Trata-se de um diagrama dinâmico que permite a visualização explicita das memsagens passadas entre entidades em uma interação específica. </p>
+<hr>
+</section>
+<section id="figura-5-diagramas-de-sequência" class="slide level2 P">
+<h2 class="P">Figura 5: Diagramas de sequência</h2>
+<hr>
+<p><img data-src="../img/DiagramaSequencia.jpg" alt="Fonte: o autor (2016) Diagrama de Sequência - exemplo" /> </p>
+<p><small>Fonte: o autor (2016) Diagrama de Classes - exemplo</small> </p>
+<hr>
+</section>
+<section id="diagramas-de-objetos" class="slide level2 P">
+<h2 class="P">Diagramas de Objetos</h2>
+<hr>
+<p><em>Object Diagrams</em> ou <strong>Diagrama de objetos</strong> representa um determinado momento congelado no tempo destacando as entidades do sistema, objetos e atores, e seu relacionamento neste momento específico. Mostra os objetos em tempo de execução de forma estática. Como se fosse uma fotografia de um processo em andamento. </p>
+<hr>
+</section>
+<section id="figura-6-diagramas-de-objetos" class="slide level2 P">
+<h2 class="P">Figura 6: Diagramas de Objetos</h2>
+<hr>
+<p><img data-src="../img/DiagramaObjetos.jpg" alt="Fonte: o autor (2020) Diagrama de objetos - exemplo" /> </p>
+<p><small>Fonte: o autor (2020) Diagrama de objetos - exemplo</small> </p>
+<hr>
+</section></section>
+<section>
+<section id="diagrama-de-casos-de-uso" class="title-slide slide level1 P">
+<h1 class="P">Diagrama de Casos de Uso</h1>
+<hr>
+<p>São diagramas de comportamento, estáticos, usados para descrever um conjunto de ações, <strong>casos de uso</strong> que um determinado sistema deve realizar por meio da interação de um ou mais <strong>atores</strong>. </p>
+<hr>
+</section>
+<section id="diagrama-de-casos-de-uso---atores" class="slide level2 P">
+<h2 class="P">Diagrama de Casos de Uso - Atores</h2>
+<hr>
+<p> Um ator é uma função do sistema que será realizada por uma pessoa, ou coisa, externa ao sistema. O ator, interage com o sistema para permitir que o sistema atinja seus objetivos. O ator é a função, não a pessoa que está executado a função e, como tal, um ator pode participar de vários casos de uso. </p>
+<hr>
+</section>
+<section id="diagrama-de-casos-de-uso---atores-1" class="slide level2 P">
+<h2 class="P">Diagrama de Casos de Uso - Atores</h2>
+<hr>
+<ul>
+<li>Um ator é uma função do sistema que gera valor;</li>
+<li>Um ator é uma função do sistema que inicia uma interação com o sistema;</li>
+<li>Um ator é um função do sistema que se beneficia de uma interação com o sistema;</li>
+<li>O tempo é um ator, já que existem interações que podem ser iniciadas com o passar do tempo;</li>
+<li>Um ator pode ser um outro sistema qualquer que interaja com o sistema que estamos modelando;</li>
+<li>Um ator pode ser um dispositivo externo, como uma impressora. </li>
+</ul>
+<hr>
+<hr>
+</section>
+<section id="diagrama-de-casos-de-uso---encontrando-atores" class="slide level2 P">
+<h2 class="P">Diagrama de Casos de Uso - Encontrando Atores</h2>
+<hr>
+<ul>
+<li>Quais serão os usuários do sistema? (a função, não a pessoa);</li>
+<li>Existem usuários primários e secundários? Quem são?</li>
+<li>Quais serão os beneficiários das ações do sistema? (a função, não a pessoa);</li>
+<li>Quais são os sistemas, e dispositivos, que vão interagir com o sistema?</li>
+<li>Este sistema sofre a influência de algum evento relativo a passagem do tempo? </li>
+</ul>
+<hr>
+</section>
+<section id="diagrama-de-casos-de-uso---classificação" class="slide level2 P">
+<h2 class="P">Diagrama de Casos de Uso - Classificação</h2>
+<hr>
+<hr>
+<p><strong>Atores diretos:</strong> são os atores que efetivamente usam o sistema. Voltando ao exemplo do sistema hospitalar podemos classificar o <em>atendente de balcão</em> como um ator direto já que é ele que irá dar entrada nos dados dos pacientes. </br> <strong>Atores indireto:</strong> são os atores afetados pelo sistema mas que não usam o sistema. De volta ao exemplo do sistema hospitalar, um paciente é um ator indireto. </p>
+</section>
+<section id="section" class="slide level2 P">
+<h2 class="P"></h2>
+<p><strong>Atores abstratos:</strong> são os atores que servem como base para a definição das interações e características de outros atores. </br> <strong>Atores concretos:</strong> são os atores que herdam características de um outro ator. </p>
+</section>
+<section id="figura-7-atores-abstratos-e-concretos" class="slide level2 P">
+<h2 class="P">Figura 7: atores abstratos e concretos</h2>
+<hr>
+<p><img data-src="../img/AtoresAbstratos.jpg" alt="Fonte: o autor (2020) Atores abstratos e concretos - exemplo" /> </p>
+<p><small>Fonte: o autor (2020) Diagrama de objetos - exemplo</small> </p>
+<hr>
+</section>
+<section id="exemplo-de-documentação-de-atores" class="slide level2 P">
+<h2 class="P">Exemplo de documentação de atores</h2>
+<hr>
+<p><strong>Nome:</strong> paciente_sus </br> <strong>Classe:</strong> ator concreto herdeiro de Paciente </br> <strong>Descrição:</strong> Ator para indicar os pacientes que serão tratados no hospital de acordo com as regras determinadas pelo convênio com o SUS. Utilizará o sistema de forma direta apenas para registar sua entrada no hospital e sua saída. Não esquecer a necessidade de assinatura nos documentos relativos ao convênio com o SUS. </p>
+<hr>
+</section></section>
+<section>
+<section id="material-de-apoio" class="title-slide slide level1 P">
+<h1 class="P">Material de apoio</h1>
+<hr>
+<p>Você pode baixar a versão em pdf desta aula <a href="./2-UML.pdf">clicando aqui</a> </p>
+<hr>
+</section>
+<section id="obras-citadas" class="slide level2 P">
+<h2 class="P">Obras Citadas</h2>
+<hr>
+<p> <small> BAUSOLA, D. <strong>Activity Diagram</strong>. zeroinfluence, 2012. Disponivel em: <a href="http:zeroinfluence.wordpress.com/uml" class="uri">http:zeroinfluence.wordpress.com/uml</a>. Acesso em: 04 Ago. 2020. </br> DENNIS, A.; WIXOM, B. H.; ROTH, R. M. <strong>System Analysis and Design</strong>. Danvers, MA. USA: John Wiley &amp; Sons, Inc., 2009. </br> OBJECT MANAGEMENT GROUP. <strong>Unified Modeling Language</strong>. Object Management Group, 2017. Disponivel em: <a href="https://www.omg.org/spec/UML/2.5.1/PDF" class="uri">https://www.omg.org/spec/UML/2.5.1/PDF</a>. Acesso em: 04 ago. 2020.</br> SOMMERVILLE, I. <strong>Engenharia de software</strong>. São Paulo, SP. Brasil: Pearson , 2012.</br> UNHELKAR, B. <strong>Software Engineering with UML</strong>. Boca Raton, FL. USA: Taylor &amp; Francis Group, LLC, 2018.</br> WIKIMEDIA COMMONS, THE FREE MEDIA REPOSITORY. <strong>File:ClassDiagramInitial.jpg</strong>. Wikipedia, 2016. Disponivel em: <a href="https://commons.wikimedia.org/w/index.php?title=File:ClassDiagramInitial.jpg&amp;oldid=407262714" class="uri">https://commons.wikimedia.org/w/index.php?title=File:ClassDiagramInitial.jpg&amp;oldid=407262714</a>. Acesso em: 04 ago 2020. </br> WIKIPEDIA CONTRIBUTORS. <strong>Ivar Jacobson</strong>. Wikipedia, 2020. Disponivel em: <a href="https://en.wikipedia.org/w/index.php?title=Ivar_Jacobson&amp;oldid=944058726" class="uri">https://en.wikipedia.org/w/index.php?title=Ivar_Jacobson&amp;oldid=944058726</a>. Acesso em: 4 ago. 2020.</br> </p>
+<hr>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@4.0.0//dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://unpkg.com/reveal.js@4.0.0//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.0.0//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.0.0//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Frank Coelho de Alcantara" />
+  <title>Introdução a UML e seus Diagramas</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Introdução a UML e seus Diagramas</h1>
+<p class="author">Frank Coelho de Alcantara</p>
+</header>
+<h1 class="P" id="uml">UML</h1>
+<style> 
+p {
+    text-align: justify !important;
+}
+h1{ font-size: 2.8 em !important;}
+h2{ text-align: left !important; font-size: 1.6em !important;}
+strong {
+    color:antiquewhite;
+}
+.reveal img, .reveal video, .reveal iframe {
+    max-width: 60%;
+    max-height: 60%;
+}
+
+.reveal img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<hr>
+<p>UML - <em>Unified Modeling Language</em> é uma linguagem, principalmente gráfica, para a modelagem de sistemas que é independente de linguagens de programação e de paradigmas de linguagens de programação </p>
+<p>UML, ainda que tenha sido muito correlacionada ao Java, por coincidência histórica, não está atrelada a nenhuma linguagem de programação. Não está atrelada nem aos paradigmas de linguagens de programação. Ainda, novamente, que devido a uma coincidência histórica, há, pelo menos um diagrama que é total e inequivocamente relacionado a programação orientada a objetos, o diagrama de classes. Também neste caso, a melhor esplicação seja a coincidência histórica. A UML, o Java e a programação Orientada a Objetos tiveram seu auge nos anos 1990. E, neste cenário é natural que existam relações entre estas três tecnologias.</p>
+<p>A UML foi criada para facilitar a análise de sistemas por meio de um processo de modelagem bem definido e documentado. </p>
+<hr>
+<p>O objetivo desta linguagem, UML, é fornecer um conjunto de diagramas que permita a modelagem de todos os processos envolvidos na criação de uma solução computacional para um determinado problema. Atualmente a UML é mantida pelo <a href="https://www.omg.org/index.htm"><em>The Object Management Group®</em> (OMG®)</a> que, além de incentivar a adoção desta linguagem, fomenta a adoção do paradigma de programação orientada a objetos.</p>
+<h2 class="P" id="versão-e-objetivo">Versão e objetivo</h2>
+<hr>
+<p>Estamos atualmente na <a href="https://www.omg.org/spec/UML/2.5.1/PDF">versão 2.51</a> e na seção de escopo deste manual é possível ler:</p>
+<p>“O objetivo da UML é fornecer a arquitetos de sistemas, engenheiros de software e desenvolvedores de software ferramentas para análise, design e implementação de sistemas baseados em software e para a modelagem de processos de negócio e processos similares” </p>
+<p>O parágrafo acima foi traduzido de forma livre mas permite o posicionamento da UML além de uma linguagem de programação específica, diretamente no cenário da modelagem de processos e negócios.</p>
+<p>A UML é parte integrante dos processos de engenharia de software sendo constituida de 14 diagramas diferentes. Graças a complexidade do processo de desenvolvimento de software é raro encontrar profissionais especializados em todos estes diagramas. O que vemos com frequência são profissionais usando dois ou três destes diagramas por toda a sua vida profissional já que o conjunto de diagramas têm a pretenção de abordar todos os processos de modelagem é raro encontrar profissionais que precisem de mais de dois ou três diagramas nas suas tarefas dentro do processo de desenvolvimento.</p>
+<p>Cada diagrama é voltado para uma parte do processo é necessário que o profissional responsável pela modelagem conheça a área específica do diagrama. </p>
+<hr>
+<h2 class="P" id="natureza-dos-diagramas">Natureza dos Diagramas</h2>
+<hr>
+<p> <strong>Estruturais vs. Comportamentais:</strong> as características estruturais indicam como o negócio está estruturado enquanto os comportamentais indicam o fluxo de informação no sistema. </p>
+<p><strong>Estáticos vs. Dinâmicos:</strong> diagramas que modelam condições não relacionadas a mudança do tempo são estáticos, todos os outros, são dinâmicos. Mesmo que indiquem um instante do tempo. </p>
+<hr>
+<p>Esta classificação dos diagramas serve como referência para o entendimento dos processos que podem ser representados. Assim, um diagrama estrutural pode ser estático ou dinâmico mas não será comportamental. A Figura 1. Apresenta todos os diagramas da UML classificados segundo a sua natureza.</p>
+<h2 class="P" id="figura-1-natureza-dos-diagramas-uml">Figura 1: Natureza dos Diagramas UML</h2>
+<hr>
+<p><img src="../img/UMLNatureza.jpg" alt="Fonte:(UNHELKAR,2010) Diagramas UML segundo sua natureza" /> </p>
+<p><small>Fonte:(UNHELKAR,2010) Diagramas UML segundo sua natureza</small> </p>
+<hr>
+<p>O padrão definido pela UMl 2.51 determina a natureza dos diagramas em apenas duas classes: estruturais e comportamentais. O padrão não impede a mistura de diagramas na criação de um diagrama mais complexo que atenda as necessidades de um projeto específico. Dessa forma, a fronteira entre os diagramas não é rigidamente definida. Existem, no entanto, limitações que são impostas pelas ferramentas que usamos para criar os diagramas que limitam os componentes que podemos usar durante a criação.</p>
+<p>A seguir vamos ver cada um dos diagramas de forma introdutória, sem muitos detalhes. Vamos deixar o detalhamento para o momento em que estivermos estudando cada um deles.</p>
+<h1 class="P" id="visão-geral-dos-diagramas-uml">Visão Geral dos Diagramas UML</h1>
+<hr>
+<p> Na UML 2.51 são definidos 23 diagramas diferentes. Não vamos detalhar todos eles, para isso, você pode ver a documentação da linguagem <a href="https://www.omg.org/spec/UML/2.5.1/PDF">versão 2.51</a>. </p>
+<hr>
+<h2 class="P" id="diagramas-de-caso-de-uso">Diagramas de Caso de Uso</h2>
+<hr>
+<p><em>Use Case Diagrams</em> ou <strong>Diagrama de Caso de Uso</strong> representam um modelo da interação entre os atores (<em>stakeholders</em> e outros sistemas) com o sistema que está sendo modelado. Captura, em alto nível, os requerimentos do sistema. Não mostra um caso de uso, em vez disso, apresenta os atores, suas funções, sua relações com o sistema e as funcionalidades envolvidas. </p>
+<hr>
+<p>Os diagramas de caso de uso são <strong>estáticos e comportamentais</strong>. São ferramentas importantes para a definição e a compreensão dos requerimentos funcionais de um sistema. A parte comportamental do diagrama é clara pela indicação das ações que estão representadas. Este diagrama deve ser classificado como estático por que as relações entre atores e o sistema, entre atores e atores e mesmo entre diferentestes diagramas de caso de uso não estão explicitadas. O fluxo de informações entre atores, funcionalides e sistemas representados nos diagramas de casos de uso deve ser registrado na documentação que suporta este diagrama. A Figura 2 apresenta um exemplo deste diagrama.</p>
+<h2 class="P" id="figura-2-diagramas-de-caso-de-uso">Figura 2: Diagramas de Caso de Uso</h2>
+<hr>
+<p><img src="../img/casosDeUsoExemplo.jpg" alt="Fonte:o autor (2020) Diagrama de caso de uso - exemplo" /> </p>
+<p><small>Fonte: o autor (2020) Diagrama de caso de uso - exemplo</small> </p>
+<hr>
+<p>O diagrama apresentado na Figura 2 mostra três atores (gerente de loja, vendedor e contador), seus casos de uso e a interação com o sistema. As linha conectando os atores aos casos de uso indicam um associação, ou relação, mas não representam nenhum tipo de dependência. No diagrama da Figura 2 existe um exemplo de extensão (<em>extends</em>) e outro de uso (<em>uses</em>), ou inclusão neste caso, estas são relações de dependência e determinam como determinados casos de uso se relacionam com outros casos de uso.</p>
+<h2 class="P" id="diagramas-de-atividade">Diagramas de Atividade</h2>
+<hr>
+<p><em>Activity Diagrams</em> ou <strong>Diagrama de atividades</strong> são como fluxogramas, são diagramas que modelam o fluxo de informação em um processo. Esta modelagem pode ser feita em processo de negócio ou entre diagramas de casos de uso. Estes diagramas são usados para documentar o fluxo de informação em um determinado caso de uso representando um conjunto de processos de negócio mas podem representar o fluxo de informação entre casos de uso ou, se for o caso, em todo o negócio. </p>
+<hr>
+<p>A Figura 3 apresenta um exemplo de Diagrama de Atividades.</p>
+<h2 class="P" id="figura-3-diagramas-atividades">Figura 3: Diagramas Atividades</h2>
+<hr>
+<p><img src="../img/ActivityDiagramExemple.jpg" alt="Fonte: (BAUSOLA, 2008) Diagrama de Atividades - exemplo" /> </p>
+<p><small>Fonte: (BAUSOLA, 2008) Diagrama de Atividades - exemplo</small> </p>
+<hr>
+<p>No diagrama mostrado na Figura 3 podemos ver três raias, em inglês <em>swimlanes</em>, a ação de cada ator, o fluxo em que estas ações ocorrem no sistema e qual ator é responsável pela ação em um dado momento. Esta divisão em raias, permite o entendimento das atividades que estão acontecendo ao mesmo tempo e, graças a isso, são ferramentas voltadas a modelagem de processos de negócio em ambientes complexos. Estas raias eram chamadas de <em>swinlanes</em> mas, o padrão mudou na UML 2.51, última versão, são chamadas de partições, do inglês <em>partitions</em>. Neste curso vamos usar os termos raias, partições, <em>swinlanes</em> e <em>partitions</em> sem rigor com a padronização.</p>
+<h2 class="P" id="diagramas-de-classe">Diagramas de Classe</h2>
+<hr>
+<p><em>Classe Diagrams</em> ou <strong>Diagrama de classe</strong> são diagramas estruturais e estáticos que representam os elementos mais importantes nos domínios técnico e de negócio. Podem representar tanto as entidades do negócio quanto as entidades necessárias para a criação do software. Neste caso, linguagens de programação orientadas à objetos podem ter seus elementos estrururais diretamente ligados a elementos de negócio. </p>
+<p>Além das classes própriamente ditas, os diagramas de classe representam as relações que eventualmente existam entre as classes. Com cada classe representando uma entidade de negócio, ou técnica, o diagrama de classes completo representa todo o espaço do problema que precisa ser resolvido. O conceito de tempo não se aplica ao diagrama de classes. A Figura 4 apresenta um exemplo de diagrama de classes.</p>
+<hr>
+<h2 class="P" id="figura-4-diagrama-de-classes">Figura 4: Diagrama de Classes</h2>
+<hr>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/ClassDiagramInitial.jpg" alt="Fonte: (WIKIMEDIA, 2016) Diagrama de Classes - exemplo" /> </p>
+<p><small>Fonte: (WIKIMEDIA, 2016) Diagrama de Classes - exemplo</small> </p>
+<hr>
+<p>No diagrama mostrado na Figura 4 quatro classes: Student; Enrolment; Seminar e Professor. Ainda nesta figura, é possível ver a representação dos dados e métodos referentes a cada uma das classes. Por exemplo, a classe Professor armazena os dados: Name, Seminar Number e Fee e possui os métodos: Add Student e Drop Student. A relação entre estas classes também pode ser vista na Figura 4 mas, vamos deixar para detalhar isso quando estivermos estudando este diagrama específicamente.</p>
+<h2 class="P" id="diagramas-de-sequência">Diagramas de Sequência</h2>
+<hr>
+<p><em>Sequence Diagrams</em> ou <strong>Diagrama de sequência</strong> apresentam as entidades que participam de um determinado caso de uso e as mensagens que são trocadas entre eles ao longo do tempo. Trata-se de um diagrama dinâmico que permite a visualização explicita das memsagens passadas entre entidades em uma interação específica. </p>
+<hr>
+<p>Este é um dos diagramas mais populares desde sua criação por <a href="https://en.wikipedia.org/wiki/Ivar_Jacobson">Jacobson (WIKIPEDIA, 2020)</a>, criando uma forma de representar o comportamento das entidades em um caso de uso e, graças a isso, são populares tanto entre os analistas de sistemas quanto entre os analistas de negócios.</p>
+<h2 class="P" id="figura-5-diagramas-de-sequência">Figura 5: Diagramas de sequência</h2>
+<hr>
+<p><img src="../img/DiagramaSequencia.jpg" alt="Fonte: o autor (2016) Diagrama de Sequência - exemplo" /> </p>
+<p><small>Fonte: o autor (2016) Diagrama de Classes - exemplo</small> </p>
+<hr>
+<p>No exemplo apresentado na Figura 4 é possível ver um ator, cliente, interagindo com objetos de um sistema de vendas de veículos. Este é um sistema totalmente automatizado onde o vendedor é um objeto do sistema. As linhas pontilhadas indicam o tempo de vida da entidade no sistema, as caixas retangulares verticais indicam uma ocorrência de execução e são utilizadas quando os objetos estão enviado e recebendo mensagens.</p>
+<p>Uma mensagem é uma troca de informações entre entidades do sistema, podem ocorrer, neste diagrama, entre atores e objetos, objetos e objetos e entre diagramas. As mensagens são representadas por linhas contínuas que são chamadas de <em>links</em>. Este diagrama representa os eventos em uma sequência temporal mais precisa, e menos granulada, que o Diagrama de Atividade e com ele podemos entender o que acontece no período de tempo entre duas mensagens.</p>
+<h2 class="P" id="diagramas-de-objetos">Diagramas de Objetos</h2>
+<hr>
+<p><em>Object Diagrams</em> ou <strong>Diagrama de objetos</strong> representa um determinado momento congelado no tempo destacando as entidades do sistema, objetos e atores, e seu relacionamento neste momento específico. Mostra os objetos em tempo de execução de forma estática. Como se fosse uma fotografia de um processo em andamento. </p>
+<hr>
+<h2 class="P" id="figura-6-diagramas-de-objetos">Figura 6: Diagramas de Objetos</h2>
+<hr>
+<p><img src="../img/DiagramaObjetos.jpg" alt="Fonte: o autor (2020) Diagrama de objetos - exemplo" /> </p>
+<p><small>Fonte: o autor (2020) Diagrama de objetos - exemplo</small> </p>
+<hr>
+<p>No exemplo apresentado na Figura 4 é possível ver diversos objetos, sua relação e seu estado em um dado momento do tempo. Não é comum mas, dado a flexibilidade da UML, podemos incluir atores no diagrama de objetos sempre que o estado, ou mensagem, originada de um ator, for importante para a definição do estado que está sendo modelado. O uso de atores ocorre, principalmente, quando estamos modelando objetos de interfaces.</p>
+<h1 class="P" id="diagrama-de-casos-de-uso">Diagrama de Casos de Uso</h1>
+<hr>
+<p>São diagramas de comportamento, estáticos, usados para descrever um conjunto de ações, <strong>casos de uso</strong> que um determinado sistema deve realizar por meio da interação de um ou mais <strong>atores</strong>. </p>
+<p>Todas as interações, casos de uso, devem produzir um resultado de valor para os atores envolvidos ou para algum outro stakeholder.</p>
+<hr>
+<h2 class="P" id="diagrama-de-casos-de-uso---atores">Diagrama de Casos de Uso - Atores</h2>
+<hr>
+<p> Um ator é uma função do sistema que será realizada por uma pessoa, ou coisa, externa ao sistema. O ator, interage com o sistema para permitir que o sistema atinja seus objetivos. O ator é a função, não a pessoa que está executado a função e, como tal, um ator pode participar de vários casos de uso. </p>
+<hr>
+<h2 class="P" id="diagrama-de-casos-de-uso---atores-1">Diagrama de Casos de Uso - Atores</h2>
+<hr>
+<ul>
+<li>Um ator é uma função do sistema que gera valor;</li>
+<li>Um ator é uma função do sistema que inicia uma interação com o sistema;</li>
+<li>Um ator é um função do sistema que se beneficia de uma interação com o sistema;</li>
+<li>O tempo é um ator, já que existem interações que podem ser iniciadas com o passar do tempo;</li>
+<li>Um ator pode ser um outro sistema qualquer que interaja com o sistema que estamos modelando;</li>
+<li>Um ator pode ser um dispositivo externo, como uma impressora. </li>
+</ul>
+<hr>
+<p>Um ator pode representar qualquer entidade, qualquer coisa, que envie mensagens para o sistema, ou se preferir, que interaja com o sistema. Os atores servem como ponto de origem para a modelagem das interfaces com o sistema. Sejam estas interfaces entre humanos e o sistema ou entre sistemas de características diferentes. E, como um determinado ator pode participar de vários casos de uso, ele pode representar diversos objetivos. Contudo, é preciso ressaltar que cada caso de uso deve representar a craiação de valor para o ator ou outro <em>stakeholder</em>, com um resultado palpável. Temos a tendência de só olhar os atores pelo ponto de vista da origem do caso de uso e, é necessário perceber que existem atores que representam o resultado do caso de uso. São os atores que consomem as informações geradas no sistema. Encontrar e classificar os atores de forma correta é imprescindível para o sucesso da análise do sistema.</p>
+<hr>
+<h2 class="P" id="diagrama-de-casos-de-uso---encontrando-atores">Diagrama de Casos de Uso - Encontrando Atores</h2>
+<hr>
+<p>Este é um processo que requer prática. Não tente acertar da primeira vez. Crie uma lista dos atores que você acredita que irão interagir com o sistema. A identificação dos atores começa nos processos de elicitação de requerimentos. Técnicas como entrevista, questionário e observação podem, e devem ser usadas para a identificação dos atores. A melhor forma de otimizar este processo é garantir que um dos resultados do processo de elicitação de requisitos seja a identificação dos atores que irão interagir com o sistema, já criando uma lista de funções e sistemas externos. Descobrimos atores respondendo pergutas sobre o sistema:</p>
+<ul>
+<li>Quais serão os usuários do sistema? (a função, não a pessoa);</li>
+<li>Existem usuários primários e secundários? Quem são?</li>
+<li>Quais serão os beneficiários das ações do sistema? (a função, não a pessoa);</li>
+<li>Quais são os sistemas, e dispositivos, que vão interagir com o sistema?</li>
+<li>Este sistema sofre a influência de algum evento relativo a passagem do tempo? </li>
+</ul>
+<hr>
+<h2 class="P" id="diagrama-de-casos-de-uso---classificação">Diagrama de Casos de Uso - Classificação</h2>
+<hr>
+<p><strong>Atores primários:</strong> aqueles para os quais o sistema existe. Estes são os principais beneficiários do sistema. </br> <strong>Atores secundários</strong> são atores cuja função existe no sistema mas que não iniciam interações ou são beneficiados por elas.</p>
+<hr>
+<p>A classificação entre atores primários e secundários depende do sistema, da interação iniciada e da visão do analista no momento da modelagem. Uma regra geral determina que os atores primários são aqueles para os quais o sistema está sendo desenvolvido. Por exemplo: pacientes, médicas e infermeiras em um sistema hospitalar ou vendedor e comprador em um sistema de vendas.</p>
+<p><strong>Atores diretos:</strong> são os atores que efetivamente usam o sistema. Voltando ao exemplo do sistema hospitalar podemos classificar o <em>atendente de balcão</em> como um ator direto já que é ele que irá dar entrada nos dados dos pacientes. </br> <strong>Atores indireto:</strong> são os atores afetados pelo sistema mas que não usam o sistema. De volta ao exemplo do sistema hospitalar, um paciente é um ator indireto. </p>
+<p>Mesmo que o paciente seja um ator primário, o sistema será feito para ele, ele não interage diretamente com o sistema. Talvez, a única excessão a esta regra está nos sistemas modernos em que o paciente precisa registrar sua entrada e sua saída. Ainda assim, ele só será classificado como <strong>direto</strong> para estes casos de uso.</p>
+<p>Além de principal e secundário, direto e indireto, ainda podemos classificar os atores em abstrato e concreto. Esta última classificação aparece explicitamente nos Diagramas de Casos de Uso.</p>
+<p>A UML permite a generalização de atores. Desta forma, atores podem <em>herdar</em> as características de outros atores. Novamente recorrendo ao exemplo do sistema hospitalar, podemos ter um ator <em>paciente_privado</em> que represente um paciente de plano de saúde, e um ator <em>paciente_sus</em> que represente os pacientes que serão atendidos segundo o SUS (Sistema Unificado de Saúde). Estes dois atores podem herdar as característics do ator <em>paciente</em>. Assim, nos preocuparemos em descrever apenas as interações específicas para estes atores.</p>
+<h2 class="P" id="section"></h2>
+<p><strong>Atores abstratos:</strong> são os atores que servem como base para a definição das interações e características de outros atores. </br> <strong>Atores concretos:</strong> são os atores que herdam características de um outro ator. </p>
+<p>No exemplo que discutimos anteriormente, os atores <em>paciente_sus</em> e <em>paciente_privado</em> são concretos enquanto o ator <em>paciente</em> é abstrato. Este processo de generalização permite que a complexidade dos diagramas de casos de uso seja reduzida e, como este processo é chamado de herança, precisa ser especificado de acordo com as normas da UML. A relação entre ator abstrato e ator concreto será feita com uma seta de herança, como pode ser visto na Figura 7.</p>
+<h2 class="P" id="figura-7-atores-abstratos-e-concretos">Figura 7: atores abstratos e concretos</h2>
+<hr>
+<p><img src="../img/AtoresAbstratos.jpg" alt="Fonte: o autor (2020) Atores abstratos e concretos - exemplo" /> </p>
+<p><small>Fonte: o autor (2020) Diagrama de objetos - exemplo</small> </p>
+<hr>
+<p>Observe que, na Figura 7, tomei algumas liberdades. Como a UML não define como devemos nomear nossos atores, eu usei a primeira letra maiúscula para indicar o ator abstrato. Uma opção melhor seria colocar uma indicação de que o nome se refere a um ator, para o uso em outros diagramas onde não veremos a figura, e talvez um número de referência. Poderia ter nomeados os meus atores como: A1_Paciente, A2_paciente_sus e A3_paciente_privado. Mas <strong>NUNCA</strong> use apenas letras números.</strong></p>
+<p><strong>A principal característica de um bom modelo, ou código, é inteligibilidade e a inteligibilidade depende da legibilidade do seu código.</strong></p>
+<p>O nome dos atores deve ser descritivo da sua função. Este processo de identificação dos atores é responsabilidade do analista que está modelando o sistema. Então faça com que os nomes sejam claros para você e para todas as pessoas que algum dia irão usar o seu modelo.</p>
+<p>Uma vez que seus atores tenham sido identificados, uma boa prática de modelagem indica que, devemos documentar estes atores. O nome, a classificação, e uma descrição são suficientes. A UML não especifica como devemos documentar os atores. Lembre-se a modelagem é, em si, um processo de documentação. Contudo, como nossos atores são originados de um processo de elicitação de requisitos. Esta documentação pode ser criada durante este processo e servirá de base para a criação dos Diagramas de Casos de Uso.</p>
+<h2 class="P" id="exemplo-de-documentação-de-atores">Exemplo de documentação de atores</h2>
+<hr>
+<p><strong>Nome:</strong> paciente_sus </br> <strong>Classe:</strong> ator concreto herdeiro de Paciente </br> <strong>Descrição:</strong> Ator para indicar os pacientes que serão tratados no hospital de acordo com as regras determinadas pelo convênio com o SUS. Utilizará o sistema de forma direta apenas para registar sua entrada no hospital e sua saída. Não esquecer a necessidade de assinatura nos documentos relativos ao convênio com o SUS. </p>
+<hr>
+<h1 class="P" id="material-de-apoio">Material de apoio</h1>
+<hr>
+<p>Você pode baixar a versão em pdf desta aula <a href="./2-UML.pdf">clicando aqui</a> </p>
+<hr>
+<h2 class="P" id="obras-citadas">Obras Citadas</h2>
+<hr>
+<p> <small> BAUSOLA, D. <strong>Activity Diagram</strong>. zeroinfluence, 2012. Disponivel em: <a href="http:zeroinfluence.wordpress.com/uml" class="uri">http:zeroinfluence.wordpress.com/uml</a>. Acesso em: 04 Ago. 2020. </br> DENNIS, A.; WIXOM, B. H.; ROTH, R. M. <strong>System Analysis and Design</strong>. Danvers, MA. USA: John Wiley &amp; Sons, Inc., 2009. </br> OBJECT MANAGEMENT GROUP. <strong>Unified Modeling Language</strong>. Object Management Group, 2017. Disponivel em: <a href="https://www.omg.org/spec/UML/2.5.1/PDF" class="uri">https://www.omg.org/spec/UML/2.5.1/PDF</a>. Acesso em: 04 ago. 2020.</br> SOMMERVILLE, I. <strong>Engenharia de software</strong>. São Paulo, SP. Brasil: Pearson , 2012.</br> UNHELKAR, B. <strong>Software Engineering with UML</strong>. Boca Raton, FL. USA: Taylor &amp; Francis Group, LLC, 2018.</br> WIKIMEDIA COMMONS, THE FREE MEDIA REPOSITORY. <strong>File:ClassDiagramInitial.jpg</strong>. Wikipedia, 2016. Disponivel em: <a href="https://commons.wikimedia.org/w/index.php?title=File:ClassDiagramInitial.jpg&amp;oldid=407262714" class="uri">https://commons.wikimedia.org/w/index.php?title=File:ClassDiagramInitial.jpg&amp;oldid=407262714</a>. Acesso em: 04 ago 2020. </br> WIKIPEDIA CONTRIBUTORS. <strong>Ivar Jacobson</strong>. Wikipedia, 2020. Disponivel em: <a href="https://en.wikipedia.org/w/index.php?title=Ivar_Jacobson&amp;oldid=944058726" class="uri">https://en.wikipedia.org/w/index.php?title=Ivar_Jacobson&amp;oldid=944058726</a>. Acesso em: 4 ago. 2020.</br> </p>
+<p></small></p>
+<hr>
+</body>
+</html>

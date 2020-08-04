@@ -1,4 +1,4 @@
-MDFILES=$(shell find -type f -name *.md)
+MDFILES=$(shell find -type f -name '*.md')
 
 SLIDES=$(foreach p,$(subst .md,.slide.html,$(MDFILES)),out/$(p))
 HTMLS=$(foreach p,$(subst .md,.html,$(MDFILES)),out/$(p))
