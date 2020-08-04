@@ -8,6 +8,7 @@ KATEX ?= https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/
 
 REVEAL_OPTS := -V revealjs-url="https://unpkg.com/reveal.js@4.0.0/"
 REVEAL_OPTS += -V theme=moon
+REVEAL_OPTS += -V transition=cube
 REVEAL_OPTS += --slide-level=2
 
 slides: Makefile $(SLIDES)
