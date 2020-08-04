@@ -214,7 +214,7 @@ Um ator é uma função do sistema que será realizada por uma pessoa, ou coisa,
 
 <hr> {.P}
 
-## Diagrama de Casos de Uso - Atores {.P}
+## Diagrama de Casos de Uso - Atores continuação {.P}
 
 <hr> {.P}
 
@@ -250,7 +250,7 @@ Este é um processo que requer prática. Não tente acertar da primeira vez. Cri
 <hr> {.P}
 
 <strong>Atores primários:</strong> aqueles para os quais o sistema existe. Estes são os principais beneficiários do sistema. </br>
-<strong>Atores secundários</strong> são atores cuja função existe no sistema mas que não iniciam interações ou são beneficiados por elas.
+<strong>Atores secundários</strong> são atores cuja função existe no sistema mas que não iniciam interações ou são beneficiados por elas. {.P}
 
 <hr> {.P}
 
