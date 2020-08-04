@@ -1,7 +1,8 @@
 ---
 author: Frank Coelho de Alcantara
-title: Introdução a UML e seus Diagramas v:0.5
+title: Introdução a UML e seus Diagramas 
 data: 3 de agosto, 2020
+version: 0.5 
 ---
 
 # UML {.P}
