@@ -1,6 +1,6 @@
 ---
 author: Frank Coelho de Alcantara
-title: Introdução a UML e seus Diagramas
+title: Introdução a UML e seus Diagramas v:0.5
 data: 3 de agosto, 2020
 ---
 
@@ -25,6 +25,7 @@ strong {
   margin-left: auto;
   margin-right: auto;
 }
+
 </style>
 
 <hr> {.P}
@@ -249,17 +250,22 @@ Este é um processo que requer prática. Não tente acertar da primeira vez. Cri
 
 <hr> {.P}
 
-<strong>Atores primários:</strong> aqueles para os quais o sistema existe. Estes são os principais beneficiários do sistema. </br>
-<strong>Atores secundários</strong> são atores cuja função existe no sistema mas que não iniciam interações ou são beneficiados por elas. {.P}
-
-A classificação entre atores primários e secundários depende do sistema, da interação iniciada e da visão do analista no momento da modelagem. Uma regra geral determina que os atores primários são aqueles para os quais o sistema está sendo desenvolvido. Por exemplo: pacientes, médicas e infermeiras em um sistema hospitalar ou vendedor e comprador em um sistema de vendas.
-
-<strong>Atores diretos:</strong> são os atores que efetivamente usam o sistema. Voltando ao exemplo do sistema hospitalar podemos classificar o _atendente de balcão_ como um ator direto já que é ele que irá dar entrada nos dados dos pacientes. </br>
-<strong>Atores indireto:</strong> são os atores afetados pelo sistema mas que não usam o sistema. De volta ao exemplo do sistema hospitalar, um paciente é um ator indireto. {.P}
+<strong>**Atores primários:**</strong> aqueles para os quais o sistema existe. Estes são os principais beneficiários do sistema. </br>
+<strong>**Atores secundários:**</strong> são atores cuja função existe no sistema mas que não iniciam interações ou são beneficiados por elas. {.P}
 
 <hr> {.P}
 
-Mesmo que o paciente seja um ator primário, o sistema será feito para ele, ele não interage diretamente com o sistema. Talvez, a única excessão a esta regra está nos sistemas modernos em que o paciente precisa registrar sua entrada e sua saída. Ainda assim, ele só será classificado como <strong>direto</strong> para estes casos de uso.
+A classificação entre atores primários e secundários depende do sistema, da interação iniciada e da visão do analista no momento da modelagem. Uma regra geral determina que os atores primários são aqueles para os quais o sistema está sendo desenvolvido. Por exemplo: pacientes, médicas e infermeiras em um sistema hospitalar ou vendedor e comprador em um sistema de vendas.
+
+##   {.P}
+
+<hr> {.P}
+<strong>**Atores diretos:**</strong> são os atores que efetivamente usam o sistema. Voltando ao exemplo do sistema hospitalar podemos classificar o _atendente de balcão_ como um ator direto já que é ele que irá dar entrada nos dados dos pacientes. </br>
+<strong>**Atores indireto:**</strong> são os atores afetados pelo sistema mas que não usam o sistema. De volta ao exemplo do sistema hospitalar, um paciente é um ator indireto. {.P}
+
+<hr> {.P}
+
+Mesmo que o paciente seja um ator primário já que o sistema será feito para atendê-lo, ele não interage diretamente com o sistema. Talvez, a única exceção a esta regra esteja nos sistemas com auto nível de automação, nos quais o paciente precisa registrar sua entrada e sua saída de forma eletrônica. Ainda assim, ele só será classificado como <strong>direto</strong> nestes casos de uso em que interage diretamente com o sistema.
 
 Além de principal e secundário, direto e indireto, ainda podemos classificar os atores em abstrato e concreto. Esta última classificação aparece explicitamente nos Diagramas de Casos de Uso.
 
@@ -267,8 +273,12 @@ A UML permite a generalização de atores. Desta forma, atores podem _herdar_ as
 
 ## {.P}
 
-<strong>Atores abstratos:</strong> são os atores que servem como base para a definição das interações e características de outros atores. </br>
-<strong>Atores concretos:</strong> são os atores que herdam características de um outro ator. {.P}
+<hr> {.P}
+
+<strong>**Atores abstratos:**</strong> são os atores que servem como base para a definição das interações e características de outros atores. </br>
+<strong>**Atores concretos:**</strong> são os atores que herdam características de um outro ator. {.P}
+
+<hr> {.P}
 
 No exemplo que discutimos anteriormente, os atores *paciente_sus* e *paciente_privado* são concretos enquanto o ator _paciente_ é abstrato. Este processo de generalização permite que a complexidade dos diagramas de casos de uso seja reduzida e, como este processo é chamado de herança, precisa ser especificado de acordo com as normas da UML. A relação entre ator abstrato e ator concreto será feita com uma seta de herança, como pode ser visto na Figura 7.
 
@@ -311,7 +321,8 @@ Você pode baixar a versão em pdf desta aula [clicando aqui](./2-UML.pdf) {.P}
 ## Obras Citadas {.P}
 
 <hr> {.P}
-<small>
+
+<small >
 BAUSOLA, D. <strong>Activity Diagram</strong>. zeroinfluence, 2012. Disponivel em: <http:zeroinfluence.wordpress.com/uml>. Acesso em: 04 Ago. 2020. </br>
 DENNIS, A.; WIXOM, B. H.; ROTH, R. M. <strong>System Analysis and Design</strong>. Danvers, MA. USA: John Wiley & Sons, Inc., 2009. </br>
 OBJECT MANAGEMENT GROUP. <strong>Unified Modeling Language</strong>. Object Management Group, 2017. Disponivel em: <https://www.omg.org/spec/UML/2.5.1/PDF>. Acesso em: 04 ago. 2020.</br>
@@ -319,7 +330,6 @@ SOMMERVILLE, I. <strong>Engenharia de software</strong>. São Paulo, SP. Brasil:
 UNHELKAR, B. <strong>Software Engineering with UML</strong>. Boca Raton, FL. USA: Taylor & Francis Group, LLC, 2018.</br>
 WIKIMEDIA COMMONS, THE FREE MEDIA REPOSITORY. <strong>File:ClassDiagramInitial.jpg</strong>. Wikipedia, 2016. Disponivel em: <https://commons.wikimedia.org/w/index.php?title=File:ClassDiagramInitial.jpg&oldid=407262714>. Acesso em: 04 ago 2020. </br>
 WIKIPEDIA CONTRIBUTORS. <strong>Ivar Jacobson</strong>. Wikipedia, 2020. Disponivel em: <https://en.wikipedia.org/w/index.php?title=Ivar_Jacobson&oldid=944058726>. Acesso em: 4 ago. 2020.</br> {.P}
-
 </small>
 
 <hr> {.P}
