@@ -159,7 +159,7 @@ No diagrama mostrado na Figura 4 quatro classes: Student; Enrolment; Seminar e P
 
 <hr> {.P}
 
-_Sequence Diagrams_ ou <strong>Diagrama de sequência</strong> apresentam as entidades que participam de um determinado caso de uso e as mensagens que são trocadas entre eles ao longo do tempo. Trata-se de um diagrama dinâmico que permite a visualização explicita das memsagens passadas entre entidades em uma interação específica. {.P}
+_Sequence Diagrams_ ou <strong>Diagrama de sequência</strong> apresentam as entidades que participam de um determinado caso de uso e as mensagens que são trocadas entre eles ao longo do tempo. Trata-se de um diagrama dinâmico que permite a visualização explicita das mensagens passadas entre entidades em uma interação específica. {.P}
 
 <hr> {.P}
 
