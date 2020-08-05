@@ -151,7 +151,7 @@ O __*ALGOL-60*__, marca a primeira vez em que uma linguagem baseada em uma nota�
 
 A linguagem __*ALGOL-60*__ foi responsável por estabelecer as bases para a criação do compilador moderno (NAUR, BACKUS, *et al.*, 1963) e está diretamente ligada a todas a linguagues de programação que usamos neste início de Século XXI. O impacto do ALGOL-60 foi gigantesco no mundo das linguagens de programação. Contudo, comercialmente, a linguagem foi um fracasso. Talvez por ,motivos comerciais, a maior parte do hardware da época era produzido pela IBM, talvez por causa da popularidade do FORTRAN, talvez por causa da complexidade da linguagem.
 
-Em 1958, enquanto o __*Fortran II*__ decolava entre os pesquisadores voltados para aplicações científicas e matemáticas, no MIT - __Massachusetts Institute of Technology__,  [__John McCarthy__](https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)), fundador da pesquisa em inteligência artificial,inicia a pesquisa no desenvolvimento da linguagem __*LISP*__, a linguagem que dá origem a praticamente todas as linguagens funcionais. Em 1959 surge o *Lisp 1.5* e cria definitivamente, os paradigmas do que chamamos hoje de linguagem funcional.
+Em 1958, enquanto o __*Fortran II*__ decolava entre os pesquisadores voltados para aplicações científicas e matemáticas, no MIT - __Massachusetts Institute of Technology__, [__John McCarthy__](https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)), fundador da pesquisa em inteligência artificial,inicia a pesquisa no desenvolvimento da linguagem __*LISP*__, a linguagem que dá origem a praticamente todas as linguagens funcionais. Em 1959 surge o *Lisp 1.5* e cria definitivamente, os paradigmas do que chamamos hoje de linguagem funcional.
 
 ## Figura 2: Grace Hopper - Uma das inventoras do compilador moderno. 
 
@@ -1678,21 +1678,19 @@ Você pode baixar a versão em pdf desta aula [clicando aqui](./1-Apresenta.pdf)
 
 <hr> {.P}
 
-
-
-# Obras Citadas
+# Obras Citadas {.P}
 
 <small>
-BARRAL, B. File:AnalyticalMachine Babbage London.jpg. Wikipedia, 2009. Disponivel em: <https://commons.wikimedia.org/wiki/File:AnalyticalMachine_Babbage_London.jpg#filelinks>. Acesso em: 20 Fev. 2020.
+BARRAL, B. File:AnalyticalMachine Babbage London.jpg. Wikipedia, 2009. Disponivel em: <https://commons.wikimedia.org/wiki/File:AnalyticalMachine_Babbage_London.jpg#filelinks>. Acesso em: 20 Fev. 2020. <br/>
 BERGIN, T. J. 50 Years of Army Computing from Eniac to MSRC. Aberdeen, MD. USA: Army Research Laboratory, 1996.
-BÖHM, C.; JACOPINI, G. Flow diagrams, turing machines and languages with only two formation rules. Communications of the ACM, v. 9, n. 5, p. 366-371, 1966.
-DAVIS, J. S. File:Commodore Grace M. Hopper, USN (covered).jpg. Wikipedia, 1984. Disponivel em: <https://en.wikipedia.org/wiki/File:Commodore_Grace_M._Hopper,_USN_(covered).jpg>. Acesso em: 20 Fev. 2020.
+BÖHM, C.; JACOPINI, G. Flow diagrams, turing machines and languages with only two formation rules. Communications of the ACM, v. 9, n. 5, p. 366-371, 1966. <br/>
+DAVIS, J. S. File:Commodore Grace M. Hopper, USN (covered).jpg. Wikipedia, 1984. Disponivel em: <https://en.wikipedia.org/wiki/File:Commodore_Grace_M._Hopper,_USN_(covered).jpg>. Acesso em: 20 Fev. 2020. <br/>
 DIJKSTRA, E. W. A Case against the GO TO Statement. Commun. ACM , v. 3, n. 1, p. 147-148, Mar. 1968.
-KNUTH, D. E. Structured programming with go to statements. ACM Computing Surveys (CSUR), v. 6, n. 4, p. 261-301, 1974.
-MENABREA, L. F. The Analitical Engine Invented by Charles Babbage. Fourmilab, 1842. Disponivel em: <http://www.fourmilab.ch/babbage/sketch.html#NoteG>. Acesso em: 20 Fev. 2020.
-MICROSOFT. Microsoft Macro Assembler - Documentation. MSDN - Microsoft Developers Network, 2010. Disponivel em: <https://docs.microsoft.com/en-us/cpp/assembler/masm/microsoft-macro-assembler-reference?view=vs-2019>. Acesso em: 01 Mar. 2020.
+KNUTH, D. E. Structured programming with go to statements. ACM Computing Surveys (CSUR), v. 6, n. 4, p. 261-301, 1974. <br/>
+MENABREA, L. F. The Analitical Engine Invented by Charles Babbage. Fourmilab, 1842. Disponivel em: <http://www.fourmilab.ch/babbage/sketch.html#NoteG>. Acesso em: 20 Fev. 2020. <br/>
+MICROSOFT. Microsoft Macro Assembler - Documentation. MSDN - Microsoft Developers Network, 2010. Disponivel em: <https://docs.microsoft.com/en-us/cpp/assembler/masm/microsoft-macro-assembler-reference?view=vs-2019>. Acesso em: 01 Mar. 2020. <br/>
 NAUR, P. et al. Revised report on the algorithmic language Algol 60. Communications of the ACM, v. 6, n. 1, p. 1-17, 1963.
-WIKIMEDIA COMMONS. File:JohnvonNeumann-LosAlamos.gif --- Wikimedia Commons
+WIKIMEDIA COMMONS. File:JohnvonNeumann-LosAlamos.gif --- Wikimedia Commons {.P}
 
 </small>
 
@@ -1712,7 +1710,7 @@ WIKIMEDIA COMMONS. File:JohnvonNeumann-LosAlamos.gif --- Wikimedia Commons
 [^6]: Em tradução livre: cadeias. Mas, neste livro, vamos ignorar isso e
     usar *strings*.
 
-[^7]: Intel; http:\\\\www.intel.com.br
+[^7]: Intel; http://www.intel.com.br
 
 [^8]: Em tradução livre: conjunto de instruções *x86_64* (cada *string*
     da linguagem tem 64 símbolos)
