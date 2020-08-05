@@ -42,6 +42,7 @@ strong {
 .reveal ul {
     font-size: 70% !important;
 }
+section.footnotes { display: none; }
 </style>
 
 <hr> {.P}
