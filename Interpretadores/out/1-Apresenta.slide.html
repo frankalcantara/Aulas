@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Frank Coelho de Alcantara">
+  <title>Interpretadores e compiladores, introdução</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@3.9.2//css/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@3.9.2//css/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@3.9.2//css/theme/moon.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://unpkg.com/reveal.js@3.9.2//css/print/pdf.css' : 'https://unpkg.com/reveal.js@3.9.2//css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://unpkg.com/reveal.js@3.9.2//lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Interpretadores e compiladores, introdução</h1>
+  <p class="author">Frank Coelho de Alcantara</p>
+</section>
+
+<section>
+<section id="introdução" class="title-slide slide level1 P">
+<h1 class="P">Introdução</h1>
+<style> 
+p {
+    text-align: justify !important;
+}
+h1{ font-size: 1.9em !important;}
+h2{ text-align: left !important; font-size: 1.6em !important;}
+strong {
+    color:antiquewhite;
+}
+.reveal img, .reveal video, .reveal iframe {
+    max-width: 60%;
+    max-height: 60%;
+}
+
+.reveal img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.reveal.cube .slides section:not(.stack):before {
+    background: inherit !important;
+}
+
+.reveal blockquote {
+    display: block;
+    position: relative;
+    width: 100% !important;
+}
+
+.reveal table {
+    font-size: 70% !important;
+}
+.reveal ul {
+    font-size: 70% !important;
+}
+</style>
+<hr>
+<p></p>
+<blockquote>
+<p>“The tools we use have a profound (and devious!) influence on our thinking habits, and, therefore, on our thinking abilities.” </br> Edsger Dijkstra </p>
+</blockquote>
+<hr>
+<p></p>
+</section>
+<section id="introdução-1" class="slide level2 P">
+<h2 class="P">Introdução</h2>
+<hr>
+<p></p>
+<p>Veremos um pouco da história da computação, os conceitos de compilação e interpretação e a matemática que suporta a criação de linguagens de programação. </p>
+<p>Vamos tratar de máquinas abstratas feitas para entender a linguagem que os programadores usam para criar algoritmos e resolver problemas. </p>
+<p>Vamos explorar os processos de tradução que são utilizados por compiladores e interpretadores. E, principalmente, entender esta tecnologia. </p>
+<hr>
+<p></p>
+</section>
+<section id="um-pouco-de-história" class="slide level2 P">
+<h2 class="P">Um pouco de História</h2>
+<hr>
+<p>Poderíamos dizer que a história da computação começou quando o primeiro homem colocou algumas pedras no chão para saber com quantas ovelhas saiu para o pasto e com quantas voltou. </p>
+<p>Vamos marcar o começo da computação em algum trabalho científico do começo do Século XX. Talvez, os Trabalhos de Turing sejam o ponto ideal mas, falaremos sobre isso em outro tópico. </p>
+<hr/>
+</section>
+<section id="os-primeiros-anos" class="slide level2 P">
+<h2 class="P">Os primeiros anos</h2>
+<hr/>
+<p>O conceito de linguagem de programação começou a ser construído a partir de 1946 com a criação de <strong><em>Plankalkül</em></strong><a href="#/fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> por <strong>Konrad Suze</strong>, um engenheiro alemão que criou o primeiro computador com relés e com a sua própria linguagem de programação, <strong><em>Plankalkül</em></strong>. </p>
+<hr>
+<p></p>
+</section>
+<section id="grace-hopper" class="slide level2 P">
+<h2 class="P">Grace Hopper</h2>
+<hr>
+<p></p>
+<p>Podemos correr o risco de afirmar que o compilador, foi criado em 1951 pela equipe liderada por <a href="https://en.wikipedia.org/wiki/Grace_Hopper"><strong>Grace Hopper</strong></a> enquanto trabalhava na Remington Rand, e chamado de <strong><em>A-0</em></strong>. </p>
+<hr>
+<p></p>
+</section>
+<section id="fortran-algol-e-cobol" class="slide level2 P">
+<h2 class="P">Fortran, Algol e Cobol</h2>
+<hr>
+<p></p>
+<p>Poucos anos depois, em 1957 <a href="https://en.wikipedia.org/wiki/John_Backus"><strong>John Backus</strong></a>, trabalhando na IBM, criou o <strong><em>Fortran</em></strong> (<strong>FOR</strong>mula <strong>TRAN</strong>slation). </p>
+<p>Entre os conceitos apresentados por <strong><em>Chomsky</em></strong> estava o conceito de <em>gramáticas livres de contexto</em>, que se mostrou extremamente útil para a descrição da sintaxe de linguagens formais, principalmente para as linguagens de programação. </p>
+<hr>
+<p></p>
+</section>
+<section id="bnf-e-algol" class="slide level2 P">
+<h2 class="P">BNF e Algol</h2>
+<hr>
+<p></p>
+<p><a href="https://en.wikipedia.org/wiki/John_Backus"><strong>John Backus</strong></a>, criou uma linguagem de programação apenas para provar que um processo de descrição, por meio de uma linguagem específica, poderia ser usado para criar uma linguagem de programação, esta meta linguagem recebeu o nome de <strong><em>Backus Normal Form</em></strong>. </p>
+<p>O <strong><em>ALGOL-60</em></strong>, marca a primeira vez em que uma linguagem baseada em uma notação formal, <strong><em>Backus-Naur-Form</em></strong>¸ foi usada para definir uma linguagem de programação. </p>
+<hr>
+<p></p>
+<p>Em 1959, é publicado o <strong><em>COBOL</em></strong>, por um comitê de pesquisadores liderados por Grace Hopper. A mesma Grace Hopper que alguns anos antes havia trabalhado na criação do primeiro compilador. </p>
+</section>
+<section id="os-anos-1970-o-basic-e-o-c" class="slide level2 P">
+<h2 class="P">Os anos 1970, o Basic e o C</h2>
+<hr>
+<p></p>
+<p>No dia 1º de Maio de 1964, aproximadamente as 4:00h foi executado o primeiro programa em <em>Basic</em>, fruto do trabalho de John G. Kemeny e Thomas E. Kurtz, no Dartmouth College. </p>
+<p>O <strong><em>C</em></strong>, criado em 1972 por <a href="https://en.wikipedia.org/wiki/Dennis_Ritchie"><strong>Dennis Ritchie</strong></a> nos laboratórios da Bell para ser utilizada no Sistema Operacional Unix desenvolvida sobre outra linguagem a B, que fora desenvolvida por <strong><em>Ken Thompson</em></strong> para permitir o porte do Unix para o computador PDP-11. </p>
+<hr/>
+</section>
+<section id="tabela-1---história-das-versões-da-linguagem-c" class="slide level2 P">
+<h2 class="P">Tabela 1 - História das Versões da linguagem C</h2>
+<hr>
+<p></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>LINGUAGEM</strong></th>
+<th><strong>ANO</strong></th>
+<th style="text-align: left;"><strong>DESENVOLVIDA POR</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Algol</td>
+<td>1960</td>
+<td style="text-align: left;">International Group (Backus-Naur)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BCPL</td>
+<td>1967</td>
+<td style="text-align: left;">Martin Richard</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B</td>
+<td>1970</td>
+<td style="text-align: left;">Ken Thompson</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C</td>
+<td>1972</td>
+<td style="text-align: left;">Dennis Ritchie</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K &amp; R C</td>
+<td>1978</td>
+<td style="text-align: left;">Brian Kernighan &amp; Dennis Ritchie</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ANSI C</td>
+<td>1989</td>
+<td style="text-align: left;">Comitê ANSI</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ANSI/ISO C</td>
+<td>1990</td>
+<td style="text-align: left;">Comitê ISO</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C99</td>
+<td>1999</td>
+<td style="text-align: left;">Comitê de Padronização da ISO</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C18</td>
+<td>2018</td>
+<td style="text-align: left;">Comitê de Padronização da ISO </td>
+</tr>
+</tbody>
+</table>
+<p><small>Fonte: o autor (2020) .</small> </p>
+<hr>
+<p></p>
+</section>
+<section id="o-c-e-o-java" class="slide level2 P">
+<h2 class="P">O C++ e o Java</h2>
+<hr/>
+<p>Em 1984 que é publicada a primeira versão do <strong>C++</strong> por <a href="https://en.wikipedia.org/wiki/Bjarne_Stroustrup"><strong>Bjarne Stroustrup</strong></a>, a partir da tese desenvolvida em seu doutorado no ano de 1979, dando um impulso significativo as linguagens de programação orientadas a objeto. </p>
+<hr/>
+</section>
+<section id="e-surge-a-web-e-a-computação-quântica" class="slide level2 P">
+<h2 class="P">E surge a WeB e a computação Quântica</h2>
+<hr>
+<p></p>
+<p>E chegamos a era da web, <strong>Rasmus Lerdorf</strong> com o <strong>PHP</strong> (1994), <strong>Guido Van Rossum</strong> com o <strong>Python</strong> (1989) e <strong>Brendan Eich</strong> com o Javascript (1995) movimentam a Internet permitindo a expansão da web e a criação de tecnologias remotas e interativas. </p>
+<p>Na segunda década do Século XXI, chegamos as linguagens voltadas para a computação quântica: <strong>CIRQ</strong>, do Google; <strong>Q#</strong> da Microsoft e <strong>Q</strong> da IBM </p>
+<hr/>
+</section></section>
+<section>
+<section id="linguagem-de-máquina" class="title-slide slide level1 P">
+<h1 class="P">Linguagem de Máquina</h1>
+<hr/>
+<p>Usamos máquinas para resolver problemas desde que o primeiro homem utilizou um graveto para pegar uma fruta ou matar um animal. </p>
+<p>Apenas no Século XX conseguimos nos comunicar com as máquinas e conseguimos dizer o que queremos que elas façam. </p>
+<hr/>
+</section>
+<section id="hardware" class="slide level2 P">
+<h2 class="P">Hardware</h2>
+<hr>
+<p>O conjunto formado pela CPU, memória e dispositivos de entrada e saída é responsável pela execução direta de todas as instruções que desejamos que a máquina execute. Este conjunto de dispositivos entende apenas os símbolos 0 e 1 (zero e um). Esta é uma linguagem, baseada apenas em um conjunto de símbolos, ou alfabeto, definido por: <span class="math inline">\Sigma_{b} = \left\{ 0,1 \right\}</span>. </p>
+<hr>
+</section>
+<section id="o-formalismo-da-máquina" class="slide level2 P">
+<h2 class="P">O formalismo da máquina</h2>
+<hr>
+<p>A linguagem de máquina é a mais formal e específica linguagem envolvida nos processos de computação. Isso a torna praticamente impossível de uso por seres humanos. </p>
+<p>O <strong>Assembly</strong> é apenas uma coleção de mnemônicos organizada sobre uma sintaxe e semânticas simples que representam de forma mais adequada ao ser humano, as instruções em binário que queremos que a máquina execute. </p>
+<hr>
+</section>
+<section id="linguagem-de-maquina" class="slide level2 P">
+<h2 class="P">Linguagem de maquina</h2>
+<hr>
+<p>O <em>Assembly</em> não é linguagem de máquina. Só para enfatizar, vou repetir: o <em>Assembly</em> não é linguagem de máquina. Sequer a linguagem baseada no alfabeto <span class="math inline">\Sigma_{h}</span>, hexadecimal, pode ser chamada de linguagem de máquina. </p>
+<hr>
+</section></section>
+<section>
+<section id="entendendo-o-assembler" class="title-slide slide level1 P">
+<h1 class="P">Entendendo o Assembler</h1>
+<hr>
+<p>O <em>Assembler</em> traduz uma linguagem de baixo nível, formal e desenhada para uso humano em código de máquina. Ainda que a linguagem <em>Assembly</em>, objeto o <em>Assembler</em>, seja muito simples, pouco mais que uma linguagem puramente simbólica, e muito próxima do nível da linguagem de máquina, ela tem estrutura léxica, sintática e semântica como qualquer outra linguagem de programação. </p>
+<hr>
+</section>
+<section id="assembler-compila" class="slide level2 P">
+<h2 class="P">Assembler compila?</h2>
+<hr>
+<p>Compiladores e interpretadores são estruturas software, ou hardware, que fazem a tradução de uma linguagem formal e regular, criada para uso humano em uma linguagem de máquina. Se você está pensando que um <em>Assembler</em> é uma espécie de compilador, não está muito longe da verdade. </p>
+<hr>
+</section>
+<section id="assembler-compila-1" class="slide level2 P">
+<h2 class="P">Assembler compila?</h2>
+<hr>
+<p>Cada arquitetura de hardware, <em>x86_64</em>, <em>ARM</em>, <em>RISC-V</em> tem as suas próprias características de forma que um conjunto de zeros e uns pode significar coisas completamente diferente em máquinas diferentes. Isto faz com que o <em>Assembler</em> seja um tradutor altamente especializado. </p>
+<hr>
+</section>
+<section id="assembler-um-passo" class="slide level2 P">
+<h2 class="P">Assembler um passo</h2>
+<hr>
+<ul>
+<li><strong><em>One-pass Assembler</em></strong>: um Assembler que lê o texto contendo o código fonte e transforma em código de máquina varrendo este texto, do começo ao fim, uma única vez. </li>
+</ul>
+<hr>
+</section>
+<section id="assembler-dois-passos" class="slide level2 P">
+<h2 class="P">Assembler dois passos</h2>
+<hr>
+<ul>
+<li><strong><em>Two-pass Assembler</em></strong>: como no nome diz, lê o arquivo contendo o código fonte duas vezes. Isso permite o uso de instruções específicas para a criação de código, como as referências a fragmentos de código específico para melhorar o processo de redação de código fonte e diminuir o erro. </li>
+</ul>
+<hr>
+</section>
+<section id="macro-assembler" class="slide level2 P">
+<h2 class="P">Macro Assembler</h2>
+<hr>
+<ul>
+<li><strong><em>Macro-Assembler</em></strong>: o <em>Assembler</em> que permite o uso de macros. Uma macro, neste contexto é equivalente a uma sub-rotina que, por sua vez, representa um fragmento de código que é escrito uma vez e pode ser reutilizado muitas vezes. </li>
+</ul>
+<hr>
+</section>
+<section id="cross-assembler" class="slide level2 P">
+<h2 class="P">Cross Assembler</h2>
+<hr>
+<ul>
+<li><strong><em>Cross-Assembler</em></strong>: um <em>Assembler</em> capaz de rodar em uma arquitetura enquanto gera código de máquina que será utilizado em outra arquitetura. Os <em>Assemblies</em> definidos para este tipo de <em>Assembler</em>, mais tarde, seriam classificados como linguagens de mais alto nível entre os <em>Assembly</em>. </li>
+</ul>
+<hr>
+</section>
+<section id="assembler---processo-de-tradução" class="slide level2 P">
+<h2 class="P">Assembler - processo de tradução</h2>
+<hr>
+<ul>
+<li><p><strong>Verificar a sintaxe de cada instrução</strong>, parar e emitir uma mensagem de erro todas as vezes que encontrar um erro na formação de uma instrução;</p></li>
+<li><p><strong>Determinar se o tamanho da instrução</strong> e o dado que ela está manipulando para reservar espaço de memória, ou registrador, para seu uso;</p></li>
+<li><p><strong>Determinar os endereços</strong> de <em>labels</em> ou de seções de código;</p></li>
+<li><p><strong>Criar uma tabela de símbolos</strong> contendo as definições de cada <em>label</em> e seu endereço em memória. </p></li>
+</ul>
+<hr>
+</section></section>
+<section id="as-linguagens-de-programação" class="title-slide slide level1 P">
+<h1 class="P">As linguagens de programação</h1>
+<hr>
+<p></p>
+</section>
+
+<section id="material-de-apoio" class="title-slide slide level1 P">
+<h1 class="P">Material de apoio</h1>
+<hr>
+<p></p>
+<p>Você pode baixar a versão em pdf desta aula <a href="./1-Apresenta.pdf">clicando aqui</a> </p>
+<hr>
+<p></p>
+</section>
+
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Em tradução livre: cálculos planos<a href="#/fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@3.9.2//js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'cube', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'https://unpkg.com/reveal.js@3.9.2//lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'https://unpkg.com/reveal.js@3.9.2//plugin/zoom-js/zoom.js', async: true },
+          { src: 'https://unpkg.com/reveal.js@3.9.2//plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
