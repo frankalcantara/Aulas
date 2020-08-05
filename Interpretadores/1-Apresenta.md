@@ -100,11 +100,11 @@ Vamos marcar o começo da computação em algum trabalho científico do começo 
 
 <hr/> 
 
-O conceito de linguagem de programação começou a ser construído a partir de 1946 com a criação de __*Plankalkül*__[^1] por __Konrad Suze__, um engenheiro alemão que criou o primeiro computador com relés e com a sua própria linguagem de programação, __*Plankalkül*__. {.P}  
+O conceito de linguagem de programação começou a ser construído a partir de 1946 com a criação de __*Plankalkül*__ por __Konrad Suze__, um engenheiro alemão que criou o primeiro computador com relés e com a sua própria linguagem de programação, __*Plankalkül*__. {.P}  
 
 <hr> {.P}
 
-Esta linguagem, ainda que embrionária já poderia ser classificada como imperativa e altamente tipada. o trabalho de __Suze__ não foi publicado até a década de 1970, devido ao preconceito inerente a ciência por causa das restrições impostas a Alemanha pela Segunda Guerra Mundial. Em 1949 [__John W. Mauchly__](https://en.wikipedia.org/wiki/John_Mauchly) apresenta uma linguagem chamada de *Short Code*, a base para o desenvolvimento UNIVAC a primeira máquina que pode ser chamada de computador eletrônico e que então representava (BERGIN, 1996) o maior conjunto de equipamentos eletrônicos interligados . No caso da linguagem __*Short Code*__, a compilação era feita a mão, uma instrução era posta em execução após a outra, formando uma lista de instruções na ordem em que deveriam ser executadas e, talvez tenha sido neste momento que a palavra compilador começou a ter o sentido que tem hoje. Compilar, é na verdade, a tarefa de colocar em listas.
+Esta linguagem __*Plankalkül*__[^1], ainda que embrionária já poderia ser classificada como imperativa e altamente tipada. o trabalho de __Suze__ não foi publicado até a década de 1970, devido ao preconceito inerente a ciência por causa das restrições impostas a Alemanha pela Segunda Guerra Mundial. Em 1949 [__John W. Mauchly__](https://en.wikipedia.org/wiki/John_Mauchly) apresenta uma linguagem chamada de *Short Code*, a base para o desenvolvimento UNIVAC a primeira máquina que pode ser chamada de computador eletrônico e que então representava (BERGIN, 1996) o maior conjunto de equipamentos eletrônicos interligados . No caso da linguagem __*Short Code*__, a compilação era feita a mão, uma instrução era posta em execução após a outra, formando uma lista de instruções na ordem em que deveriam ser executadas e, talvez tenha sido neste momento que a palavra compilador começou a ter o sentido que tem hoje. Compilar, é na verdade, a tarefa de colocar em listas.
 
 ## Grace Hopper {.P}
 
