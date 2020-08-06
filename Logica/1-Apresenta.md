@@ -5,7 +5,7 @@ data: 6 de agosto, 2020
 version: 0.5 
 ---
 
-# Introdução {.P} 
+# Introdução {.P}
 
 <style> 
 p {
@@ -164,8 +164,8 @@ Todas as declarações do exemplo 1 são proposições. Todas estas sentenças, 
 
 <hr/>
 
-1. $p = \text{Lima é a Capital da China.} | p = F$ 
-2. $q = \text{Paris é a Capital da França.} | q = T$ 
+1. $p = \text{Lima é a Capital da China.} | p = F$
+2. $q = \text{Paris é a Capital da França.} | q = T$
 3. $r = \text{1+2=3} | r = F$
 4. $q = \text{Todos os gatos são animais.} | r = T$ {.P}
 
@@ -176,7 +176,7 @@ Todas as declarações do exemplo 1 são proposições. Todas estas sentenças, 
 <hr/>
 Toda proposição é uma sentença mas, nem toda sentença é uma proposição. {.P}
 
-1. Escreva este texto ainda hoje. 
+1. Escreva este texto ainda hoje.
 2. $x+4=6$ {.P}
 
 <hr/>
@@ -188,11 +188,11 @@ A sentença um não é uma proposição por que não é uma declaração e a sen
 
 Temos um e apenas um operador unário em cálculo proposicional, o operador de negação representando por $\neg$. {.P}
 
-Se uma proposição é verdadeira a aplicação deste operador a transforma em falsa e vice-versa. Podemos usar este operador quantas vezes for necessário, sempre a frente de proposição que estamos operando $\neg q$ {,P} 
+Se uma proposição é verdadeira a aplicação deste operador a transforma em falsa e vice-versa. Podemos usar este operador quantas vezes for necessário, sempre a frente de proposição que estamos operando $\neg q$ {,P}
 
-- $q = T$ logo $\neg q = F$ {,P} 
+- $q = T$ logo $\neg q = F$ {,P}
 
-- $r = F$ logo $ \neg \neg r = F$ {,P} 
+- $r = F$ logo $\neg \neg r = F$ {,P}
 
 <hr/>
 
