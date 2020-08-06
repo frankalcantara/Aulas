@@ -202,10 +202,10 @@ Se uma proposição é verdadeira a aplicação deste operador a transforma em f
 
 Temos quatro operadores binários. {.P}
 
-- A conjunção ou operador E (_and_) representado por $\land$
-- A disjunção ou operador Ou (_or_) representado por $\lor$
-- A condicional representada pelo operador $\to$
-- A Bi-condicional representada pelo operador $\leftrightarrow$ {.P}
+- A conjunção ou operador E (_and_) representado por $\land$ tal que: $(p \land q)$
+- A disjunção ou operador Ou (_or_) representado por $\lor$ tal que: $(p \lor q)$
+- A condicional representada pelo operador $\to$ tal que: $(p \to q)$
+- A Bi-condicional representada pelo operador $\leftrightarrow$ {.P} tal que: $(p \leftrightarrow q)$
 
 <hr/>
 <!--  colocar aqui exemplos destas operações. -->
