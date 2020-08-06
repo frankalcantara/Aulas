@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Frank Coelho de Alcantara">
+  <title>Lógica, Introdução e Cálculo Proposicional</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@3.9.2//css/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@3.9.2//css/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@3.9.2//css/theme/moon.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://unpkg.com/reveal.js@3.9.2//css/print/pdf.css' : 'https://unpkg.com/reveal.js@3.9.2//css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://unpkg.com/reveal.js@3.9.2//lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Lógica, Introdução e Cálculo Proposicional</h1>
+  <p class="author">Frank Coelho de Alcantara</p>
+</section>
+
+<section>
+<section id="introdução" class="title-slide slide level1 P">
+<h1 class="P">Introdução</h1>
+<style> 
+p {
+    text-align: justify !important;
+}
+h1{ font-size: 1.9em !important;}
+h2{ text-align: left !important; font-size: 1.6em !important;}
+strong {
+    color:antiquewhite;
+}
+.reveal img, .reveal video, .reveal iframe {
+    max-width: 60%;
+    max-height: 60%;
+}
+
+.reveal img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.reveal.cube .slides section:not(.stack):before {
+    background: inherit !important;
+}
+
+.reveal blockquote {
+    display: block;
+    position: relative;
+    width: 90% !important;
+    padding: 5%;
+}
+
+.reveal table {
+    font-size: 70% !important;
+}
+.reveal ul {
+    font-size: 70% !important;
+}
+.katex .base {
+   color: antiquewhite !important;
+}
+</style>
+<hr>
+<blockquote>
+<p>“Logic is the technique by which we add conviction to truth.” </br> Jean de la Bruyere </p>
+</blockquote>
+<hr>
+</section>
+<section id="ciência-e-filosofia" class="slide level2 P">
+<h2 class="P">Ciência e Filosofia</h2>
+<hr>
+<p>A lógica é a ciencia da <em>avaliação sistemática de argumentos</em> em busca do convencimento. A Lógica busca o convencimento, a certeza, na forma dos argumentos e não conteúdo destes argumentos. Busca a verdade pela análise de um argumento em relação a outro, de forma racional, formal e estruturada. </p>
+<hr>
+</section>
+<section id="um-pouco-de-história" class="slide level2 P">
+<h2 class="P">Um pouco de História</h2>
+<hr>
+<p>O estudo da lógica começa com <a href="https://en.wikipedia.org/wiki/Aristotle">Aristóteles (384 A.C. –322 A.C.)</a> </p>
+<p><a href="https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz">Leibniz</a> que além de ajudar no desenvolvimento do cálculo, e dos números binários, definiu os conceitos de conjunção, disjunção, negação e identidade, as operações fundamentais do Cálculo Proposicional. </p>
+<p><a href="https://en.wikipedia.org/wiki/George_Boole">George Boole</a>, em 1854 <em>The Laws of Thought</em> apresentando o que conhecemos hoje como <strong>Algebra Booleana</strong>. </p>
+<hr/>
+</section>
+<section id="paradoxo" class="slide level2 P">
+<h2 class="P">Paradoxo</h2>
+<hr/>
+<p>Paradoxo é uma sentença que não tem a verdade bem definida, se a sentença for verdadeira, o argumento é falso. Se a sentença for falsa, o argumento é verdadeiro. </p>
+<p>O paradoxo do mentiroso, que pode ser ligado as escolas gregas de filosofia, pode ser demonstrado com a declaração: <strong>esta declaração é falsa</strong>. </p>
+<hr/>
+</section>
+<section id="bertand-russel" class="slide level2 P">
+<h2 class="P">Bertand Russel</h2>
+<hr/>
+<p><a href="https://en.wikipedia.org/wiki/Bertrand_Russell">Bertrand Russel</a> (1872 – 1970) pretenciosamente tentou reescrever toda a matemática a partir dos conceitos de conjuntos e fracassou ao encontrar um dos mais famosos paradoxos da história da matemática. </p>
+<hr/>
+</section>
+<section id="o-paradoxo-de-russell" class="slide level2 P">
+<h2 class="P">O Paradoxo de Russell</h2>
+<p>Considere <span class="math inline">A</span> como o conjunto formado por todos os conjuntos que não contém a si mesmos. De tal forma que: <span class="math inline">A=\{S|S \notin S\}</span> </p>
+<p>Seria <span class="math inline">A</span> um elemento de si mesmo? Seria o conjunto <span class="math inline">A</span> um elemento do conjunto dos conjuntos que não contém a si mesmos? </p>
+<hr/>
+<!-- fazer aqui a definição do paradoxo de russel segundo o matheus sugeriu -->
+</section></section>
+<section>
+<section id="cálculo-proposicional" class="title-slide slide level1 P">
+<h1 class="P">Cálculo Proposicional</h1>
+<hr/>
+<p>A proposição, é uma declaração, na forma de sentença, que é verdadeira <strong>ou</strong> falsa. </p>
+<hr/>
+</section>
+<section id="exemplos-de-proposição-1" class="slide level2 P">
+<h2 class="P">Exemplos de Proposição (1)</h2>
+<hr/>
+<ol type="1">
+<li>Lima é a Capital da China.</li>
+<li>Paris é a Capital da França.</li>
+<li><span class="math inline">1+2=3</span></li>
+<li>Todos os gatos são animais. </li>
+</ol>
+<hr/>
+</section>
+<section id="exemplos-de-proposição-1-1" class="slide level2 P">
+<h2 class="P">Exemplos de Proposição (1)</h2>
+<hr/>
+<ol type="1">
+<li><span class="math inline">p = \text{Lima é a Capital da China.} | p = F</span></li>
+<li><span class="math inline">q = \text{Paris é a Capital da França.} | q = T</span></li>
+<li><span class="math inline">r = \text{1+2=3} | r = F</span></li>
+<li><span class="math inline">q = \text{Todos os gatos são animais.} | r = T</span> </li>
+</ol>
+<hr/>
+</section>
+<section id="exemplos-de-proposição-2" class="slide level2 P">
+<h2 class="P">Exemplos de Proposição (2)</h2>
+<hr/>
+<p>Toda proposição é uma sentença mas, nem toda sentença é uma proposição. </p>
+<ol type="1">
+<li>Escreva este texto ainda hoje.</li>
+<li><span class="math inline">x+4=6</span> </li>
+</ol>
+<hr/>
+</section>
+<section id="cálculo-proposicional-operador-unário" class="slide level2 P">
+<h2 class="P">Cálculo Proposicional Operador unário</h2>
+<hr/>
+<p>Temos um e apenas um operador unário em cálculo proposicional, o operador de negação representando por <span class="math inline">\neg</span>. </p>
+<hr/>
+</section>
+<section id="cálculo-proposicional-operador-binário" class="slide level2 P">
+<h2 class="P">Cálculo Proposicional Operador Binário</h2>
+<p>Temos quatro operadores binários. </p>
+<ul>
+<li>A conjunção ou operador E (<em>and</em>) representado por <span class="math inline">\land</span></li>
+<li>A disjunção ou operador Ou (<em>or</em>) representado por <span class="math inline">\lor</span></li>
+<li>A condicional representada pelo operador <span class="math inline">\to</span></li>
+<li>A Bi-condicional representada pelo operador <span class="math inline">\leftrightarrow</span> </li>
+</ul>
+<!--  colocar aqui exemplos destas operações. -->
+</section></section>
+<section id="material-de-apoio" class="title-slide slide level1 P">
+<h1 class="P">Material de apoio</h1>
+<hr>
+<p></p>
+<p>Você pode baixar a versão em pdf desta aula <a href="./1-Apresenta.pdf">clicando aqui</a> </p>
+<hr>
+<p></p>
+</section>
+
+<section id="obras-citadas" class="title-slide slide level1 P">
+<h1 class="P">Obras Citadas</h1>
+
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@3.9.2//js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'cube', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'https://unpkg.com/reveal.js@3.9.2//lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'https://unpkg.com/reveal.js@3.9.2//plugin/zoom-js/zoom.js', async: true },
+          { src: 'https://unpkg.com/reveal.js@3.9.2//plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
