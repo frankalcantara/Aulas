@@ -174,13 +174,15 @@ Todas as declarações do exemplo 1 são proposições. Todas estas sentenças, 
 ## Exemplos de Proposição (2) {.P}
 
 <hr/>
+
 Toda proposição é uma sentença mas, nem toda sentença é uma proposição. {.P}
 
 1. Escreva este texto ainda hoje.
 2. $x+4=6$ {.P}
 
 <hr/>
-A sentença um não é uma proposição por que não é uma declaração e a sentença 2 não é porque não temos como garantir se ela é verdadeira ou falsa. Observe que, no momento em que atribuirmos um valor a $x$, poderemos definir se a sentença 2 é verdadeira ou falsa e teremos uma proposição. 
+
+A sentença um não é uma proposição por que não é uma declaração e a sentença 2 não é porque não temos como garantir se ela é verdadeira ou falsa. Observe que, no momento em que atribuirmos um valor a $x$, poderemos definir se a sentença 2 é verdadeira ou falsa e teremos uma proposição.
 
 ## Cálculo Proposicional Operador unário {.P}
 
@@ -191,12 +193,12 @@ Temos um e apenas um operador unário em cálculo proposicional, o operador de n
 Se uma proposição é verdadeira a aplicação deste operador a transforma em falsa e vice-versa. Podemos usar este operador quantas vezes for necessário, sempre a frente de proposição que estamos operando $\neg q$ {,P}
 
 - $q = T$ logo $\neg q = F$ {,P}
-
 - $r = F$ logo $\neg \neg r = F$ {,P}
 
 <hr/>
 
 ## Cálculo Proposicional Operador Binário {.P}
+<hr/>
 
 Temos quatro operadores binários. {.P}
 
@@ -205,6 +207,7 @@ Temos quatro operadores binários. {.P}
 - A condicional representada pelo operador $\to$
 - A Bi-condicional representada pelo operador $\leftrightarrow$ {.P}
 
+<hr/>
 <!--  colocar aqui exemplos destas operações. -->
 
 
