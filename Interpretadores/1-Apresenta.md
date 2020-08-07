@@ -474,39 +474,31 @@ WIKIMEDIA COMMONS. File:JohnvonNeumann-LosAlamos.gif --- Wikimedia Commons {.P}
 
 </small>
 
-[^1]: Em tradução livre: cálculos planos
+[^1]: Em tradução livre: cálculos planos.
 
-[^2]: Em tradução livre: estruturas sintáticas
+[^2]: Em tradução livre: estruturas sintáticas.
 
-[^3]: ACM -- Association for Computing Machinery. Em tradução livre:
-    Associação para a Máquinas Computationais.
+[^3]: ACM -- Association for Computing Machinery. Em tradução livre: Associação para a Máquinas Computationais.
 
-[^4]: GAMM - Gesellschaft für Angewandte Mathematik und Mechanik. Em
-    tradução livre: Sociedade para matemática e mecânica aplicadas.
+[^4]: GAMM - Gesellschaft für Angewandte Mathematik und Mechanik. Em tradução livre: Sociedade para matemática e mecânica aplicadas.
 
-[^5]: Em tradução livre: Compiladores, princípios, técnicas e
-    ferramentas.
+[^5]: Em tradução livre: Compiladores, princípios, técnicas e ferramentas.
 
-[^6]: Em tradução livre: cadeias. Mas, neste livro, vamos ignorar isso e
-    usar *strings*.
+[^6]: Em tradução livre: cadeias. Mas, neste livro, vamos ignorar isso e usar *strings*.
 
 [^7]: Intel; http://www.intel.com.br
 
-[^8]: Em tradução livre: conjunto de instruções *x86_64* (cada *string*
-    da linguagem tem 64 símbolos)
+[^8]: Em tradução livre: conjunto de instruções *x86_64* (cada *string* da linguagem tem 64 símbolos)
 
 [^9]: Em tradução livre: programa de montagem simbólica otimizado.
-
-[^10]: O Microsoft Macro Assembler pode ser instalado junto com o Visual
-    Studio, de forma gratuita (MICROSOFT, 2010).
+ 
+[^10]: O Microsoft Macro Assembler pode ser instalado junto com o Visual Studio, de forma gratuita (MICROSOFT, 2010).
 
 [^11]: Em tradução livre: etiqueta.
 
-[^12]: Em tradução livre: correção de erro. Esta é uma outra referência
-    a Grace Hopper e, se me permitir a audácia, sugiro que pesquise na
-    internet: Grace Hopper e Bug. Esta é uma história que vale seu
-    tempo.
+[^12]: Em tradução livre: correção de erro. Esta é uma outra referência a Grace Hopper e, se me permitir a audácia, sugiro que pesquise na
+    internet: Grace Hopper e Bug. Esta é uma história que vale seu tempo.
 
-[^13]: Em tradução livre: início e fim. 
+[^13]: Em tradução livre: início e fim.
 
 [^14]: Temos uma expressão para esse caso: código macarrônico.
