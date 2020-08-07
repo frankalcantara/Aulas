@@ -167,7 +167,7 @@ Todas as declarações do exemplo 1 são proposições. Todas estas sentenças, 
 1. $p = \text{Lima é a Capital da China.} | p = F$
 2. $q = \text{Paris é a Capital da França.} | q = T$
 3. $r = \text{1+2=3} | r = F$
-4. $q = \text{Todos os gatos são animais.} | r = T$ {.P}
+4. $s = \text{Todos os gatos são animais.} | s = T$ {.P}
 
 <hr/>
 
@@ -209,7 +209,6 @@ Temos quatro operadores binários. {.P}
 
 <hr/>
 <!--  colocar aqui exemplos destas operações. -->
-
 
 # Material de apoio {.P}
 
