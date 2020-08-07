@@ -1,7 +1,7 @@
 ---
 author: Frank Coelho de Alcantara
-title: Interpretadores e compiladores, introdução 
-data: 5 de agosto, 2020
+title: Compiladores, Interpretadores  
+data: 7 de agosto, 2020
 version: 0.5 
 ---
 
@@ -45,12 +45,9 @@ strong {
 </style>
 
 
-Chegamos a um ponto interessante da nossa jornada. Já vimos um pouco da
-história de linguagens desenvolvidas para o uso humano e percebemos a
-necessidade de uma linguagem que fosse entendida por máquinas. Nos resta
-entender como podemos traduzir uma na outra. Ou seja, como podemos
-escrever um conjunto de instruções em uma linguagem que os humanos
-entendam e ter como resultado, um conjunto de instruções em uma
+Chegamos a um ponto interessante da nossa jornada. Já vimos um pouco da história de linguagens desenvolvidas para o uso humano e percebemos a
+necessidade de uma linguagem que fosse entendida por máquinas. Nos resta entender como podemos traduzir uma na outra. Ou seja, como podemos
+escrever um conjunto de instruções em uma linguagem que os humanos entendam e ter como resultado, um conjunto de instruções em uma
 linguagem que as máquinas entendam. Como podemos traduzir uma linguagem
 na outra?
 
