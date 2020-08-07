@@ -1,4 +1,4 @@
-MDFILES=$(shell find -type f -name '*.md')
+MDFILES=$(shell find -maxdepth 1 -type f -name '*.md')
 
 SLIDES=$(foreach p,$(subst .md,.slide.html,$(MDFILES)),out/$(p))
 HTMLS=$(foreach p,$(subst .md,.html,$(MDFILES)),out/$(p))
@@ -6,7 +6,7 @@ PDFS=$(foreach p,$(subst .md,.pdf,$(MDFILES)),out/$(p))
 
 KATEX ?= https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/
 
-REVEAL_OPTS := -V revealjs-url="https://unpkg.com/reveal.js@3.9.2/"
+REVEAL_OPTS := -V revealjs-url="dist"
 REVEAL_OPTS += -V theme=moon
 REVEAL_OPTS += -V transition=cube
 REVEAL_OPTS += --slide-level=2

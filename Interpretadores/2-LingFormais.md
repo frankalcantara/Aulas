@@ -1118,4 +1118,3 @@ WIKIMEDIA COMMONS. File:JohnvonNeumann-LosAlamos.gif --- Wikimedia Commons {.P}
 
 [^16]: AST é uma abreviação da expressão inglesa *Abstract Sintact
     Tree*, ou, em tradução livre: árvore sintática abstrata.
-

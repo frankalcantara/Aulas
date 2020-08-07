@@ -12,6 +12,13 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "label": "make-fast",
+      "type": "shell",
+      "command": "bash -c 'make slides'",
+      "problemMatcher": [],
+      "group": "build"
     }
   ]
 }

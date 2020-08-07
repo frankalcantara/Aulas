@@ -20,7 +20,7 @@ strong {
     max-width: 60%;
     max-height: 60%;
 }
-
+  
 .reveal img {
   display: block;
   margin-left: auto;
