@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <title>Estrutura de Dados II - Introdução</title>
+    <meta name="description" content="Estrutura de Dados II - Introdução" />
+    <meta name="author" content="Frank de Alcantara" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/moon.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme"/>
+
+<style type="text/css">
+      math {
+        color: white;
+      }
+      strong {
+        color: antiquewhite;
+      }
+      i {
+        font-style: italic !important;
+      }
+      p {
+        text-align: justify !important;
+      }
+      h3 {
+        text-align: left !important;
+      }
+      .print-pdf .reveal .slide-background {
+        background-color: black !important;
+      }
+      .codigo{
+        background-color: black !important;
+        color: beige;
+        font-family: monospace;
+        font-size: smaller;
+        font-style: oblique;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="reveal default"
+      role="application"
+      data-transition-speed="default"
+      data-background-transition="default"
+    >
+      <div class="slides">
+        <section> <!-- Definição da Disciplina -->
+          <section>
+            <h2>
+              <b>Estutura de Dados II<br />Estruturas Avançadas</b>
+            </h2>
+            <p style="text-align: right !important;">
+              <br /><br />
+              <small>Frank de Alcantara - julho 2020</small>
+            </p>
+          </section>
+          <section>
+            <h3><b>Ementa</b></h3>
+            <hr />
+            <p>
+                <strong>Árvores e suas Generalizações:</strong> árvores binárias, árvores de busca, árvores balanceadas; 
+                <strong>Algoritmos para pesquisa e ordenação interna</strong>; <strong>Tabelas Hash</strong>; <strong>Organização de arquivos</strong>; <strong>Grafos</strong>.
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Conteúdo</b></h3>
+            <hr />
+              <p>Conceitos avançados de estruturas de dados</p>
+              <p>
+                <ul> 
+                    <li>Métodos de ordenação</li>
+                    <li>Tabelas hashing</li>  
+                    <li>Organização de arquivos</li>
+                    <li>Árvores e suas generalizações</li>
+                    <li>Árvore binária de busca: inserção, remoção, pesquisa, percorrimento</li>
+                    <li>Árvores balanceadas</li>
+                    <li>Grafo: matriz de adjacência, busca por largura, busca por profundidade, caminho mais curto</li>
+                </ul>
+              </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Ferramentas Sugeridas</b></h3>
+            <hr />
+            <p>
+              <strong>Ambiente de desenvolvimento online:</strong> <a href="https://repl.it/~" target="_blank"> Repl.it</a>
+            </p>
+            <p>
+              Você pode usar a ferramenta de desenvolvimento que desejar. Desde que lembre que 
+              <strong>todos os trabalhos serão avaliados por compartilhamento</strong>, 
+              de links no <a href="https://repl.it/~" target="_blank"> Repl.it</a> .
+            </p>
+            <hr />
+          </section>
+        </section>
+        <section>  <!-- Ordenação -->
+          <section>
+            <h3><b>Ordenação - Conceito</b></h3>
+            <hr />
+            <p>
+              Ordenação, em inglês <strong><i>sort</i></strong> é uma das tarefas com maior impacto na eficiência de 
+              soluções computationais. Sejam elas baseadas em software ou em hardware.
+            </p>
+            <hr />
+            <p>
+              <strong>Problema:</strong> dado um conjunto de itens quaisquer, de que forma 
+              podemos organizar estes itens segundo uma sequência especificada.
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Ordenação - Conceito</b></h3>
+            <hr />
+            <p>
+                Por ser tão importante os problemas de ordenção são muito estudados e temos, 
+                centenas de algoritmos diferentes para resolver problemas deste tipo.
+            </p>
+            <p>
+                A escolha do algoritmo de ordenação dependerá do conjunto de itens que será ordenado, da 
+                infraestrutura disponível, da ordem inicial dos itens e dos custos envolvidos.
+                Nem sempre o algoritmo mais rápido será o mais eficaz para um dado problema.
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Ordenação - Conceito Exemplo</b></h3>
+            <hr />
+              <p>
+                <iframe width="100%" height="500" src="https://www.youtube.com/embed/ZZuD6iUe3Pc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Ordenação - Conceito </b></h3>
+            <hr />
+              <p>
+                Raramente você irá ordenar uma lista de números, ou palavras, ou arquivos. 
+                Profissionalmente, a maior parte dos problemas de ordenamento são relacionados a dados complexos
+                <strong><i>records</i></strong> compostos de diversos campos de tipos diferentes com um ou mais campos
+                chave <strong><i>keys</i></strong> que deverão ser usados como referência.
+              </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Definição do Problema</b></h3>
+            <hr />
+              <p> 
+                Uma coleção de elementos <math>$A$</math> cujos elementos são indicados por <math>$a_i$</math> ou <math>$A[i]$</math>. 
+                O objetivo de uma ordenação crescente será criar um conjunto <math>$A$</math> ordenado de 
+                tal forma que para todos os elementos <math>$A[i]$</math> exista um <math>$A[j]$</math> desde que 
+                <math>$A[i] &lt; A[j]$</math> onde <math>$j &gt; i$</math> e não exista nenhum elemento <math>$A[k]$</math> 
+                entre <math>$A[i] \wedge A[j]$</math>.
+              </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Definição do Problema</b></h3>
+            <hr />
+              <p> 
+                Para ordenar os elementos usaremos uma permutação comparando, de alguma forma, os 
+                elementos da coleção <math>$A$</math> para definir se um <math>$A[i]$</math> qualquer
+                é maior, igual ou menor que um <math>$A[i]$</math> qualquer. A forma como fazemos esta 
+                comparação e a permutação é que define como os algoritmos de ordenação funcionam.
+              </p>
+            <hr />
+          </section>
+        </section>
+        <section> <!-- Bubble Sort -->
+          <section>
+            <h3><b>Bubble Sort Pseudo Código</b></h3>
+            <hr />
+            <p>
+                O <strong>Bubble Sort</strong> é um dos mais simples algoritmos de ordenação (IVERSON, 1962) a ideia é percorrer 
+                toda a coleção de dados <math>$A$</math> comparando <math>$A[j]$</math> com <math>$A[j+1]$</math>
+                e inverter a posição destes dois elementos sempre que <math>$A[j] &gt A[j+1] $</math>.
+            </p>
+            <p>
+              <pre><code>
+                1. begin
+                2.    for i = 0 to n 
+                3.     for j = i to n − i
+                4.       if (A[j] > A[j + 1]) then
+                5.         Swap (A[j], A[j + 1])
+                8. end
+              </code></pre>
+            </p>
+            <hr />
+          </section>
+        </section>  
+        
+        <section ><!-- Fixação de Conteúdo -->
+            <h3><b>Fixação de Conteúdo</b></h3>
+            <hr />
+            <p>Resolva o questionário proposto!!!</p>
+            <hr />
+        </section>
+ 
+        <section> <!--Referências e Impressão -->
+          <section>
+            <h3><b>Referências</b></h3>
+            <hr />
+              <p>CORMEN, Thomas H.; LEISERSON, Charles E.; RIVEST, Ronald L.; STEIN, Clifford. 
+                <b>Introduction to Algorithms</b>. 3. ed. Cambridge, Ma Usa: The Mit Press, 2009.
+              </p>
+               <p>IVERSON, Kenneth E.. <b>A Programming Language</b>. 3. ed. New York: John Wiley & Sons, Inc, 1962.
+              </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Impressão</b></h3>
+            <hr />
+            <p>Clique <a href="?print-pdf#/">aqui</a> para salvar como pdf.</p>
+            <p>Depois que a página for gerada, clique <b>ctrl+p</b>para imprimir em pdf.</p>
+          </section>
+          <section>
+            <h3><b>Agradecimento</b></h3>
+            <hr />
+            <img
+              src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg"
+              alt="reveal.js"
+              style="
+                height: 180px;
+                margin: 0 auto 4rem auto;
+                background: transparent;
+              "
+              class="demo-logo"
+            />
+            <h3>The HTML Presentation Framework</h3>
+            <p>
+              <small
+                >Criado por <a href="http://hakim.se">Hakim El Hattab</a> e
+                <a
+                  href="https://github.com/hakimel/reveal.js/graphs/contributors"
+                  >colaboradores</a
+                ></small
+              >
+            </p>
+          </section>
+        </section>
+      </div>
+      <!--fecha slides-->
+    </div>
+    <!--fecha reveal-->
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/search/search.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+      // Also available as an ES module, see:
+      // https://revealjs.com/initialization/
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+        math: {
+                mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+                config: 'TeX-AMS_HTML-full',
+                // pass other options into `MathJax.Hub.Config()`
+                TeX: { Macros: { RR: "{\\bf R}" } }
+               },
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealMath,
+          RevealHighlight,
+        ],
+      });
+    </script>
+  </body>
+</html>
