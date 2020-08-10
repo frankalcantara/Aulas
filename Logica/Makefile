@@ -24,4 +24,4 @@ out/%.slide.html: %.md
 #	pandoc -t html -s -o $@ $< --katex=$(KATEX) --filter=./filter
 
 out/%.pdf: %.md
-	pandoc -t latex -s -o $@ $< --filter=/home/frank/.local/bin/pandoc-presentation --resource-path=.:..:out
+	pandoc -t latex -s -o $@ $< --filter=/home/frank/.local/bin/pandoc-presentation --resource-path=.:..:out --template=default

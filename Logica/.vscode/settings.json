@@ -1,0 +1,6 @@
+{
+  "triggerTaskOnSave.selectedTask": "make-fast",
+  "triggerTaskOnSave.tasks": {
+    "make-fast": ["*.md"]
+  }
+}

@@ -6,95 +6,117 @@ Programa de demonstração do uso do Merge Sort.
 
 #include <iostream>
 #include <ctime>
+#include <chrono>
+
 using namespace std;
 
-// protótipos
+//protótipo de função
+void display(int *, string);
 void merge(int *, int, int, int);
 void merge_sort(int *, int, int);
-void display(int *, string, int);
 
 int main()
 {
-    int num = 30;
-    int array_teste[30];
-    string string_1;
 
-    //iniciando o gerador randômicos
+    //iniciando um gerador de números randômicos
     srand((unsigned)time(0));
+    int num = 100000;
+    int array_teste[100000];
+    //string string_1;
 
-    //preenchendo o conjunto (array a) com números randômicos.
-    for (int i = 0; i < 30; i++)
+    // preenchendo nosso conjunto com números aleatórios
+    for (int i = 0; i < 100000; i++)
     {
-        array_teste[i] = (rand() % 100) + 1; //randômicos menores que cem
+        array_teste[i] = (rand() % 100) + 1;
     }
 
-    string_1 = "\n\nLista não ordenada";
-    display(array_teste, string_1, 30);
+    //variáveis usadas para medir o tempo de execução
+    clock_t clock1, clock2;
 
+    //display(array_teste, "\nNão ordenado:\n");
+
+    clock1 = clock();
     merge_sort(array_teste, 0, num - 1);
+    clock2 = clock();
+    //display(array_teste, "\nNão ordenado:\n");
 
-    string_1 = "\n\nLista ordenada";
-    display(array_teste, string_1, 30);
-}
+    //O(nlogn) 100 x log 100
+    //O(n^2) 100^2
 
-// funções - implementação.
-void display(int m[10], string s, int tam)
+    cout << (float)(clock2 - clock1) / CLOCKS_PER_SEC << endl;
+
+} //fim do main
+
+//funções implementação
+void merge_sort(int *arr, int baixo, int alto)
 {
-    cout << s << endl;
-    for (int k = 0; k < tam; k++)
+
+    int meio;
+
+    if (baixo < alto)
     {
-        cout << m[k] << "\t";
+        meio = (baixo + alto) / 2; //typecasting ....
+        //dividiu o array em dois, usando os limites passados
+        //para identificar o array inferior e o superio
+        merge_sort(arr, baixo, meio);
+        merge_sort(arr, meio + 1, alto);
+        // juntando os arrays já ordenados.
+        merge(arr, alto, baixo, meio);
     }
 }
-void merge_sort(int *arr, int low, int high)
+
+void merge(int *arr, int alto, int baixo, int meio)
 {
-    int mid;
-    if (low < high)
-    {
-        //divide o array no meio chama as funções de ordenação para cada metade
-        mid = (low + high) / 2;
-        merge_sort(arr, low, mid);
-        merge_sort(arr, mid + 1, high);
-        //junta as partes
-        merge(arr, low, high, mid);
-    }
-}
-// o Merge Sort
-void merge(int *arr, int low, int high, int mid)
-{
-    int i, j, k, c[50];
-    i = low;
-    k = low;
-    j = mid + 1;
-    while (i <= mid && j <= high)
+    int temp[200000], i, j, k;
+    i = baixo;
+    k = baixo; //array final
+    j = meio + 1;
+
+    while (i <= meio && j <= alto)
     {
         if (arr[i] < arr[j])
         {
-            c[k] = arr[i];
+            temp[k] = arr[i];
             k++;
             i++;
         }
         else
         {
-            c[k] = arr[j];
+            temp[k] = arr[j];
             k++;
             j++;
-        }
-    }
-    while (i <= mid)
+        } // fim do if
+    }     // fim while
+
+    while (i <= meio)
     {
-        c[k] = arr[i];
+        temp[k] = arr[i];
         k++;
         i++;
     }
-    while (j <= high)
+
+    while (j <= alto)
     {
-        c[k] = arr[j];
+        temp[k] = arr[j];
         k++;
         j++;
     }
-    for (i = low; i < k; i++)
+
+    for (i = baixo; i < k; i++)
     {
-        arr[i] = c[i];
+        arr[i] = temp[i];
     }
+}
+
+void display(int m[100000], string s)
+{
+
+    cout << s << endl;
+
+    for (int i = 0; i < 100000; i++)
+    {
+        cout << m[i] << "\t";
+    }
+
+    cout << endl;
 }
