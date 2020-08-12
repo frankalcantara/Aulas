@@ -1,0 +1,2 @@
+C:\Users\frank\OneDrive\Projetos\Aulas\ProgramacaoC++\apresenta\Debug\apresenta.exe
+C:\Users\frank\OneDrive\Projetos\Aulas\ProgramacaoC++\apresenta\Debug\apresenta.pdb
