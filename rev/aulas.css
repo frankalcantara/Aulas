@@ -1,0 +1,38 @@
+h2 b {
+  color: #6c5ce7;
+}
+h3 b {
+  color: #dfe6e9;
+}
+b {
+  color: #2396e8;
+}
+strong {
+  color: rgb(88, 172, 250);
+}
+i {
+  font-style: italic;
+}
+p {
+  text-align: justify !important;
+}
+h3 {
+  text-align: left !important;
+}
+.print-pdf .reveal .slide-background {
+  background-color: black !important;
+}
+.reveal table th,
+.reveal table td {
+  text-align: center !important;
+  padding: 0.2em 0.5em 0.2em 0.5em !important;
+  border: 1px solid antiquewhite !important;
+}
+.reveal table th {
+  background-color: black;
+  color: rgb(27, 118, 192);
+}
+.reveal small {
+  font-size: 0.8em !important;
+  line-height: 1.3em !important;
+}
