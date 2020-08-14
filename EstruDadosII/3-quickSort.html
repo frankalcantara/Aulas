@@ -22,6 +22,7 @@
 
     <script src="../rev/plugin/math/math.js"></script>
   </head>
+
   <body>
     <div class="reveal">
       <div class="slides">
@@ -36,139 +37,73 @@
             </p>
           </section>
           <section>
-            <h3><b>Axiomas Fundamentais da Lógica </b></h3>
+            <h3><b>Origem</b></h3>
             <hr />
             <p>
-              <b>Princípio da não contradição:</b> uma proposição não pode ser
-              verdadeira e falsa ao mesmo tempo.
+              O Quick Sort foi descrito em um artigo de <a href="https://en.wikipedia.org/wiki/Tony_Hoare" target="_blanck"> C.A.R. Hoare</a> em 1962
+              no artigo Quick Sort, publicado no <i>The Computer Journal</i>, e disponível <a href="https://academic.oup.com/comjnl/article/5/1/10/395338" target="_blanck">aqui</a>
             </p>
             <p>
-              <b>Princípio do terceiro excluído:</b> toda proposição ou é
-              verdadeira ou é falsa, isto é, verifica-se sempre um desses dois
-              casos, mas nunca um terceiro.
+              A leitura deste artigo é indispensável para quem pretende aprender a analisar um algoritmo. 
             </p>
+           
+            <hr />
+          </section>
+          <section>
+            <h3><b>Padrão adotado</b></h3>
+            <hr />
+              <p>
+                Assim como o Merge Sort, o Quick Sort segue o padrão dividir e conquistar.
+              </p>
+              <p>
+                Ouvi alguém dizer recursão?
+              </p>
             <hr />
           </section>
         </section>
         <section>
           <section>
-            <h3><b>Proposições Compostas</b></h3>
+            <h3><b>Ordenando os trabalhos dos estudantes</b></h3>
             <hr />
             <p>
-              As proposições atômicas, ou simples, são aquelas contidas em si
-              mesmo. Que representaremos por letras $p, q, r, s$.
+              O problema é ordenar os trabalhos de todos os estudantes por nome, alfabeticamente de a até z.
+            </p>
+              <small>
+              <ol>
+                <li>
+                  Escolha um valor perto do centro da pilha, por exemplo o L. E vamos chamar este valor central de pivô.
+                </li>
+                <li style="background-color: rgb(10, 58, 74);">
+                  Distribua todos os trabalhos em duas pilhas. Na esquerda, todos os nomes començando com letras anteriores ao L ou com o próprio L. 
+                  Na direita todos trabalhos com nomes começando com letras entre M e Z inclusive.
+                </li>
+                <li>
+                  Pegue cada uma destas pilhas, encontre um novo pivô e divida em outras duas pilhas.
+                </li>
+                <li style="background-color: rgb(10, 58, 74);">
+                  Repita este processo até que seja fácil ordenar cada pilha. Ordene e junte todas a pilhas em ordem.
+                </li>
+              </ol>
+              </small>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Ordenando os trabalhos dos estudantes</b></h3>
+            <hr />
+            <p>
+              As pilhas, em qualquer uma das divisões, não precisam ser iguais.
             </p>
             <p>
-              Proposições compostas são aquelas representadas por uma fórmula
-              lógica. São proposições criadas por proposições atômicas e
-              Oper., ou concetivos.
+              Este é, claramente, um algoritmo recursivo.
             </p>
             <hr />
           </section>
           <section>
-            <h3><b>Oper. Lógicos - AND $(\land)$</b></h3>
+            <h3>E vamos ao código</b></h3>
             <hr />
-            <p>
-              <b>Paula compra tijolos e faz casas.</b> é uma proposição composta
-            </p>
-            <p>$p = $ Paula compra Tijolos</p>
-            <p>$q = $ Paula faz casas</p>
-            <p>Será representada por: $p \land q$</p>
-            <hr />
-          </section>
-          <section>
-            <h3><b>Oper. Lógicos - AND $(\land)$</b></h3>
-            <hr />
-            <p>
-              <b>Estudei muito, mas não fui aprovado.</b>
-            </p>
-            <p>$p = $ Eu estudei muito.</p>
-            <p>$q = $ Eu não fui aprovado.</p>
-            <p>Será representada por: $p \land q$</p>
-            <hr />
-          </section>
-          <section>
-            <h3><b>Oper. Lógicos - AND $(\land)$</b></h3>
-            <hr />
-            <p>
-              <b>Estudei muito, contudo não fui aprovado.</b>
-            </p>
-            <p>$p = $ Eu estudei muito.</p>
-            <p>$q = $ Eu não fui aprovado.</p>
-            <p>Será representada por: $p \land q$</p>
-            <hr />
-          </section>
-          <section>
-            <h3><b>Oper. Lógicos - OR $(\lor)$</b></h3>
-            <hr />
-            <p>
-              <b>Sílvia vai ao cinema ou Jéssica vai a Praia.</b>
-            </p>
-            <p>$p = $ Sílvia vai ao cinema.</p>
-            <p>$q = $ Jéssica vai a Praia.</p>
-            <p>Será representada por: $p \lor q$</p>
-            <hr />
-          </section>
-          <section>
-            <h3><b>Oper. Lógicos - negação $(\neg)$</b></h3>
-            <hr />
-            <p>
-              <b>O carro é de qualquer cor menos preto.</b>
-            </p>
-            <p>Será representada por: $p = \neg p$ <b>o carro não é preto.</b></p>
-            <hr />
-          </section>
-          <section>
-            <h3><b>Oper. Lógicos - implicação $(\rightarrow)$</b></h3>
-            <hr />
-            <p><b>Se Janaína é arquiteta então Bruna é médica</b></p>
-            <p>$p = $ Janaína é arquiteta.</p>
-            <p>$q = $ Bruna é médica.</p>
-            <p>Será representada por: $p \rightarrow q$</p>
-            <hr />
-          </section>
-          <section>
-            <h3><b>Oper. Lógicos - implicação $(\rightarrow)$</b></h3>
-            <hr />
-            <p>
-              No caso da <b>implicação</b> a proposição $p$ é a <b>hipótese</b>, ou antecendente, e a proposição $q$ a <b>conclusão</b> ou consequente.
-            </p>
-            <p>
-              A operação condicional, ou <b>implicação</b>, indica que $p$ é uma condição para $q$, sem $p$, não há $q$.
-            </p>
-            <p>
-              $p \rightarrow q$ é lido com <b>p <i>implica em</i> q</b>
-            </p>
-            <hr />
-          </section>
-          <section>
-            <h3><b>Oper. Lógicos - implicação $(\rightarrow)$</b></h3>
-            <hr />
-            <p>
-              $p \rightarrow q$
-            </p>
-            <p>
-            <ul>
-              <li>quando $p$ então $q$;</li>
-              <li>se $p$, então $q$;</li>
-              <li>$p$ é suficiente para $q$;</li>
-              <li>$q$ se $p$;</li>
-              <li>uma condição nessária para $p$ é $q$;</li>
-              <li>$p$ sempre que $q$;</li>
-              <li>$q$ é necessário para $p$.</li>
-            </ul>
-            </p>
-            <hr />
-          </section>
-          <section>
-            <h3><b>Oper. Lógicos - bi-implicação $(\leftrightarrow)$</b></h3>
-            <hr />
-            <p>
-              Será aprovado se, e somente se, estudar.
-            </p>
-            <p>$p = $ Será aprovado.</p>
-            <p>$q = $ Estudar.</p>
-            <p>Será representada por: $p \leftrightarrow q$</p>
+              <p>
+                <b>Nada melhor que o código para entender um algoritmo.</b>
+              </p>
             <hr />
           </section>
         </section>
