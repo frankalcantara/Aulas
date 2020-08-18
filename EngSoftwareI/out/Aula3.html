@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Frank Coelho de Alcantara">
+  <title>Diagramas de Casos de Uso - Casos de Uso</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../rev/reset.css">
+  <link rel="stylesheet" href="../../rev/reveal.css">
+  <link rel="stylesheet" href="../../rev/aulas.css" />
+<style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="../../rev/theme/moon.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+    <section id="title-slide">
+        <h1 class="title">Diagramas de Casos de Uso <br/> Casos de Uso</h1>
+        <p class="author" style="text-align: right !important;">Frank Coelho de Alcantara</p>
+    </section>
+    <section>
+        <section id="uml" class="title-slide slide level1 P">
+          <h2>Definição</h2>
+          <hr>
+            <p>O Caso de Uso é uma descrição detalhada de uma interação com o sistema que gere valor.</p>
+            <p>As interações podem ser realizadas por seres humanos, ou por outros sistemas.</p>
+          <hr>
+      </section>
+      <section id="versão-e-objetivo" class="slide level2 P">
+          <h2>Objetivo</h2>
+          <hr/>
+            <p>Transformar requisitos e requerimentos em uma ferramenta de suporte ao desenvolvimento do sistema.</p>
+            <p>Os casos de uso são ferramentas para as análises de negócio e sistemas.</p>
+          <hr/>
+      </section>
+      <section id="natureza-dos-diagramas" class="slide level2 P">
+          <h2>Exemplo 1</h2>
+          <hr>
+            <img data-src="../img/casosDeUsoExemplo.jpg" style="max-width: 80% !important;" alt="Fonte:o autor (2020) Diagrama de caso de uso - exemplo" /> </p>
+          <hr>
+      </section>
+      <section id="natureza-dos-diagramas" class="slide level2 P">
+          <h2>Exemplo 2</h2>
+          <hr>
+          <p><i>O jogador joga os dados e se sair o número 7 ele ganha o jogo.</i></p>
+          <ol>
+            <li><strong>Ator:</strong> O jogador</li>
+            <li><strong>Caso de Uso:</strong> jogar os dados</li>
+            <li><strong>Condição:</strong> se der 7</li>
+            <li><strong>Resultado:</strong> ganhar o jogo</li>
+          </ol>
+          <hr>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Modelo de documentação</h2>
+        <hr />
+          <ol>
+            <li><strong>Nome:</strong> Frase Verbal.</li>
+            <li><strong>Código:</strong> UC_2020-08-25-0889</li>
+            <li><strong>Descrição:</strong> Um parágrafo.</li>
+            <li><strong>Fluxo para o sucesso:</strong> valor</li>
+            <li><strong>Fluxos extras:</strong> opções?</li>
+            <li><strong>Exceções:</strong> o que pode dar errado</li>
+            <li><strong>Prioridade:</strong> quando?</li>
+            <li><strong>Interface:</strong> quando?</li>
+          </ol>
+        <hr />
+      </section>
+      <section>
+        <h2>Nunca esqueça!!!</h2>
+        <hr />
+          <h3><i>Se não conseguir explicar em um parágrafo. Você ainda não entendeu o problema.</i></h3>
+        <hr />
+      </section>
+      <section>
+        <h2>Sintaxe</h2>
+        <hr />
+          <p><img data-src="../img/SintaxeCasosUso.jpg" style="max-width: 80% !important;" alt="diagrama com os símbolos da UML para casos de uso" /> </p>
+        <hr />
+      </section>
+      <section>
+        <h2>Extensão e Inclusão</h2>
+        <hr />
+          <p><strong>Extensão: </strong> diz respeito ao uso, ou não, de um caso de uso, por outros casos de uso. (as vezes!) </p>
+          <p><strong>Inclusão: </strong> diz respeito ao uso de um caso de uso, por outros casos de uso. (sempre!)</p>
+        <hr />
+      </section>
+      <section>
+        <h2>Generalização</h2>
+        <hr />
+          <p> Um caso de uso, chamado de concreto, <i>herda</i> características de um casos de uso chamado de abstrato.</p>
+        <hr />
+      </section>
+      <section>
+        <h2>Muito Importante!</h2>
+        <hr />
+        <h3> É uma sintaxe, precisa ser obedecida se você quiser ser entendido.</h3>
+        <hr />
+      </section>
+      <section>
+        <h2>Relações múltiplas</h2>
+        <hr />
+          <p>Podem ocorrer relações múltiplas entre atores e casos de uso e entre casos de uso.</p>
+          <ul>
+            <li><strong>indefinidas:</strong> * </li>
+            <li><strong>Nenhuma ou indefinidas:</strong> 0..</li>
+            <li><strong>Nenhuma ou uma:</strong> 0..1.</li>
+            <li><strong>Entre uma e cinco:</strong> 1..5</li>
+            <li><strong>Exatamente três:</strong> 3</li>
+          </ul>
+        <hr />
+      </section>
+    </section>  
+    <section>
+      <section>
+        <h2>Classificação dos Casos de Uso</h2>
+        <hr />
+        <ul>
+          <li><strong>Sistema:</strong> interação direta com o sistema; </li>
+          <li><strong>Contextuais:</strong> relações com outros sistemas;</li>
+          <li><strong>Interno:</strong> interno ao sistema;</li>
+          <li><strong>Sumário:</strong> conjunto de objetivos;</li>
+          <li><strong>Abuso:</strong> coisas que não queremos.</li>
+        </ul>
+        <hr />
+      </section>
+      <section>
+        <h2>Classificação dos Casos de Uso</h2>
+        <hr />
+        <p><strong>Na prática:</strong> em um ambiente de práticas ágeis, partimos de um caso de uso do tipo <strong>sumário</strong> e detalhamos todos os
+        seus casos de uso, para encontrar os que são de <strong>sistema</strong>, <strong>internos</strong> e <strong>contextuais</strong>. Depois analisamos os casos de uso do
+        tipo <strong>abuso</strong>. 
+        </p>
+        <hr />
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Casos de uso efetivos</h2>
+        <hr />
+        <p>Efetivo significa permanente, que tem caráter definitivo.</p>
+        <ul>
+          <li><strong>Precisão 0:</strong> definição do Escopo;</li>
+          <li><strong>Precisão 1:</strong> ator primário e seu objetivo;</li>
+          <li><strong>Precisão 2:</strong> principal caso de sucesso;</li>
+          <li><strong>Precisão 3:</strong> extensões e inclusões</li>
+          <li><strong>Precisão 4:</strong> alternativas e Exceções</li>
+        </ul>
+        <hr />
+      </section>
+      <section>
+        <h2>Muito Importante!</h2>
+        <hr />
+          <h3> Você vai repetir este processo para cada caso de uso do sistema.</h3>
+        <hr />
+      </section>
+      <section>
+        <h2>Precisão 0: escopo</h2>
+        <hr />
+        <p>Análise do domínio do problema, definindo o objetivo geral do sistema, as características específicas do domínio do problema, e os principais <i>stakeholders.</i></p>
+        <p>Precisa ser suscinto mas deve conter a ideia principal do sistema. Geralmente são as primeiras frases que o <i>stakholder</i> usa para definir seu problema.</p>
+        <hr />
+      </section>
+      <section>
+        <h2>Precisão 0: escopo - exemplo</h2>
+        <hr />
+         <p>
+          A empresa <strong>FraldasVerdes</strong>, uma fabricante de fraldas ecológicas precisa que todas as suas vendas sejam controladas
+          pelo sistema <strong>FraldasVerdes Vende</strong>, um sistema de vendas ao consumidor final, online, móvel e acessível. Este sistema irá
+          permitir que o usuário final da fralda ecológica entenda o processo de fabricação e possa fazer seus pedidos sem a
+          necessidade de sair de casa.
+         </p> 
+        <hr />
+      </section>
+      <section>
+        <h2>Precisão 1: ator primário</h2>
+        <hr />
+        <p>
+          Você vai responder a pergunta quem quer o quê? O ator primário de cada caso de uso deve ter sido explicitado na análise de requisitos. 
+        </p>
+        <p>
+          Além do ator primário deste caso de uso, você precisa identificar o <i>trigger</i>, a ação que ele executa. E o valor que ele irá obter do sistema.
+          No caso das FraldasVerdes, um dos atores primários é o cliente. Qual o <i>trigger</i>? Qual o valor?
+        </p>
+        <hr />
+      </section>
+      <section>
+        <h2>Precisão 2: caso de sucesso</h2>
+        <hr />
+        <p>
+          Precisaremos documentar o caminho para o sucesso deste caso de uso.
+        </p>
+        <p>
+          O sucesso ocorre quando a interação produz o valor desejado. 
+        </p>
+        <p>
+          A documentação pode ser um passo-a-passo, mas precisa ser validada com <i>stakeholders</i> e desenvolvedores.
+        </p>
+        <hr />
+      </section>
+      <section>
+        <h2>Precisão 3: alternativas e extensões</h2>
+        <hr />
+        <p>
+          Hora de vericar os caminhos alternativos para o sucesso. Os caminhos alternativos para o fracasso.
+        </p>
+        <p>
+          Documentar as extensões e inclusões. Talvez repetindo todo o processo para cada novo caso de uso.
+        </p>
+        <p>
+          Extensão, inclusão e exceção. Todos estes casos estão na responsabilidade do analista.
+        </p>
+        <hr />
+      </section>
+      <section>
+        <h2>Precisão 4: extensões e inclusões</h2>
+        <hr />
+        <p>
+          Hora de detalhar a história que estamos contando destacando os casos de extensão e inclusão.
+        </p>
+        <p>
+          Você precisa responder a pergunta o que mais precisa acontecer para que isso dê certo?
+        </p>
+        <p>
+          É a hora de ver os casos de uso, com funcionalides que você pode criar, ou utilizar.
+          Também é a hora de pensar em falhas. Todo mundo falha, inclusive os sistemas.
+        </p>
+        <hr />
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Histórias de Usuário</h2>
+        <hr/>
+          <p>Em práticas de desenvolvimento ágil, substituimos todo o digrama de casos de uso e análise de requisitos por <strong>Histórias de Usuário</strong>.</p>
+          <p><strong>Histórias de Usuário</strong> são uma descrição suscinta, porém efetiva, de uma interação de um <i>stakeholder</i> com o sistema.</p>  
+        <hr />
+      </section>
+      <section>
+        <h2>Histórias de Usuário - Problema</h2>
+        <hr />
+        <p>A análise de requisitos primeiro, e o diagramas de casos de uso depois, foram criados para permitir o entendimento e congelar os requisitos durante o desenvolvimento da solução.
+        </p>
+        <p>As <strong>Histórias de Usuário</strong> fazem exatamente isso se existir colaboração entre equipe de desenvolvimento e <i>stakeholders</i> e se o tempo de desenvolvimento da funcionalidade for curto.</p>
+        <hr />
+      </section>
+      <section>
+        <h2>Histórias de Usuário</h2>
+        <hr />
+        <p>Em práticas de desenvolvimento ágil, substituimos todo o digrama de casos de uso e análise de requisitos por
+          <strong>Histórias de Usuário</strong>.</p>
+        <p><strong>Histórias de Usuário</strong> são uma descrição suscinta, porém efetiva, de uma interação de um
+          <i>stakeholder</i> com o sistema.</p>
+        <hr />
+      </section>
+      <section>
+        <h2>Histórias de Usuário - Definição</h2>
+        <hr />
+        <p>Eu, como um <strong>&lt;insira o ator&gt;</strong>, quero <strong>&lt;insira o objetivo&gt;</strong> já que <strong>&lt;insira a razão&gt;</strong>.
+        </p>
+        <p>Esta é a frase típica. Comece com ela, mas não fique restrito a ela. As histórias de usuário precisam ser simples, diretas, claras e, pricipalmente, completas.</p>
+        <hr />
+      </section>
+      <section>
+        <h2>Histórias de Usuário - Exemplos</h2>
+        <hr />
+        <oL>
+          <li>Eu, como um aluno, quero ver minhas notas já que preciso saber se fui aprovado.</li>
+          <li>Eu, como um cliente, quero me autenticar no sistema já que gostaria de comprar fraldas.</li>
+          <li>Eu,como um paciente do sus, eu quero receber alta do hospital, já que meu tratamento acabou.</li>
+        </oL>
+        <hr />
+      </section>
+      <section>
+        <h2>Exercício Formativo 1</h2>
+        <hr />
+        <h3>Resolva o Exercício Formativo 1.</h3>
+        <hr />
+      </section> 
+      <section>
+        <h2>Histórias de Usuário - Redação</h2>
+        <hr />
+          <p> Desconfie de histórias de usuários muito curtas. e muito longas. </p>
+          <p> 
+            A história de usuário deve conter uma descrição da interação com o sistema que permita o entendimento das características desta interação, 
+            dos recursos necessários e do tempo que será utilizado para a sua construção.
+          </p>
+        <hr />
+      </section>
+      <section>
+        <h2>Histórias de Usuário - Redação</h2>
+        <hr />
+        <p> Em práticas ágeis, criamos histórias de usuários em fichas ou <i>post-it</i>s. </p>
+        <p>
+          Isso permite que, por exemplo, seja possível escrever as exceções no verso da ficha. Ordenar as fichas por prioridade e criar o <i>backlog</i>.
+          Alterar as histórias a medida que o sistema fica pronto.
+        </p>
+        <p> Lembre-se: em práticas ágeis, tudo pode, e deve, ser negociado. </p>
+        <hr />
+      </section>
+      <section>
+        <h2>Histórias de Usuário - Características</h2>
+        <hr />
+        <p> <strong>Independentes:</strong> cada história deve ser independente das outras histórias e da ordem em que serão construídas. As
+        histórias dependentes de outras histórias, ou da ordem de construção adicionam níveis de complexidade desnecessários ao
+        desenvolvimento de software.</p>
+        <hr />
+      </section>
+      <section>
+        <h2>Histórias de Usuário - Características</h2>
+        <hr />
+        <p> <strong>Negociáveis:</strong> as histórias não são contratos nem detalhamento de requisitos. Tanto a equipe de desenvolvimento quanto os
+        stakeholders devem se envolver na definição da história. Ela não deve ser muito detalhada justamente para não criar a
+        sensação de que todos os detalhes são conhecidos.</p>
+        <hr />
+      </section>
+      <section>
+        <h2>Histórias de Usuário - Características</h2>
+        <hr />
+        <p> <strong>Valorosas:</strong> as histórias devem agregar valor ao sistema que está sendo desenvolvido. Este valor deve ser percebido pela
+        equipe de desenvolvimento e pelos stakeholders. Se a história não tiver um valor claro, será difícil determinar sua
+        prioridade no backlog.</p>
+        <hr />
+      </section>
+      <section>
+          <h2>Histórias de Usuário - Características</h2>
+          <hr />
+          <p> <strong>Estimáveis:</strong> todas as histórias devem ser estimadas em termos de tempo e recursos necessários para a sua conclusão. Esta
+          estimação precisa ser justa. Uma história muito grande é difícil de estimar, difícil de priorizar e irá
+          causar problemas no desenvolvimento por quebra de expectativas.</p>
+          <hr />
+      </section>
+      <section>
+        <h2>Histórias de Usuário - Características</h2>
+        <hr />
+        <p> <strong>Tamanho apropriado:</strong> eventualmente as histórias precisarão ser divididas, ou reduzidas, para caber no tempo de
+        desenvolvimento de uma determinada versão do software. Este é o momento em que serão negociados os requerimentos de cada
+        história, a ordem de sua execução e a prioridade.</p>
+        <hr />
+      </section>
+      <section>
+        <h2>Histórias de Usuário - Características</h2>
+        <hr />
+        <p> <strong>Testáveis:</strong> todas as histórias devem permitir que tanto os desenvolvedores quanto os stakeholders sejam capazes de testar
+        o resultado do processo de desenvolvimento e determinar se o valor esperado foi atingido.</p>
+        <hr />
+      </section>
+    </section>
+    <section>
+    <section>
+      <h2>Exemplo 1 - Máquina de Venda</h2>
+      <hr />
+      <small> 
+        Crie um diagrama de casos de uso para uma máquina automática de venda que vende <strong>apenas refrigerantes e salgadinhos</strong>. Esta
+        máquina aceita <strong>um cartão e dinheiro em notas</strong>. Tente usar as associações de extensão, inclusão e generalização e lembre-se
+        que esta máquina irá precisar de </strong>manutenção de tempos em tempos</strong>. Esta máquina é diferente das máquinas que vemos todos
+        os dias. <strong>Os produtos não estão visíveis para o cliente</strong>. O cliente precisa escolher o produto em uma interface do
+        sistema. <strong>Não existe manutenção preventiva</strong>.
+      </small>
+      <hr />
+    </section>
+    <section>
+      <h2>Exemplo 1 - domínio</h2>
+      <hr />
+      <small>
+        <strong>Detalhamento do domínio:</strong> a especificação do problema não apresenta nenhuma informação sobre a máquina estar, ou não
+        conectada a um sistema central de controle. Por simplicidade vamos considerar que não. Então a máquina deve resolver
+        todos os seus problemas de forma independente. A exceção será feita para o técnico, a máquina precisa sofrer manutenção,
+        vamos considerar apenas manutenção corretiva..
+      </small>
+      <hr />
+    </section>
+    <section>
+      <h2>Exemplo 1 - atores</h2>
+      <hr />
+      <small>
+      <strong>A1_cliente:</strong> ator que irá comprar um dos produtos ofertados pela máquina o sucesso desta relação será determinado pela
+      entrega do produto. É preciso considerar que a máquina pode dar defeito e, neste caso, o ator deve receber o dinheiro de
+      volta e, em casos extremos, chamar o técnico.<br/>
+      <strong>A2_técnico:</strong> ator responsável pela manutenção. Este ator será responsável por recarregar a máquina e por concertar
+      eventuais defeitos. Como no domínio determinamos que a existência de só e somente só manutenção corretiva, este ator não
+      terá acionamentos temporais.
+      </small>
+      <hr />
+    </section>
+    <section>
+      <h2>Exemplo 1 - casos de uso</h2>
+        <hr />
+        <small>
+          <strong>UC_1:</strong> escolher o produto: o cliente escolhe o produto que pode ser um refrigerante ou um salgadinho e digita o código
+          deste produto.<br />
+          <strong> UC_2:</strong> pagar o produto: o cliente escolhe o meio de pagamento, dinheiro ou cartão e paga pelo produto.<br />
+          <strong>UC_3:</strong> o cliente confirma a compra.<br />
+          <strong>UC_4:</strong> receber o produto: o cliente recebe o produto e encerra a compra.<br />
+          </small>
+          <hr />
+    </section>
+    <section>
+      <h2>Exemplo 1 - casos de uso</h2>
+      <hr />
+      <small>
+        <strong>UC_5:</strong> o cliente cancela a compra, antes de receber o produto, durante a confirmação, o cliente
+        cancela a compra.<br />
+        <strong>UC_6:</strong> o cliente não recebe o produto por um problema da máquina e chama o técnico.<br />
+        <strong>UC_7:</strong> o técnico concerta a máquina. Sempre que for chamado por um cliente.<br />
+        <strong>UC_8:</strong> o técnico recarrega a máquina.<br />
+      </small>
+      <hr />
+    </section>
+    <section>
+      <h2>Diagrama de Casos de Uso</h2>
+      <hr />
+      <p><img data-src="../img/MáquinadeVenda.svg" style="max-width: 80% !important;"
+          alt="diagrama com os símbolos da UML para casos de uso" /> </p>
+      <hr />
+    </section>
+    </section>
+    <section>
+      <section>
+      <h1>Material de apoio</h1>
+        <hr>
+        <p>Você pode baixar o material de apoio <a href="./UMLCAP1.pdf">clicando aqui</a> </p>
+        <hr>
+      </section>
+      <section>
+        <h2>Obras Citadas</h2>
+        <hr>
+        <small>
+          BAUSOLA, D. <strong>Activity Diagram</strong>. zeroinfluence, 2012. Disponivel em: <a
+            href="http:zeroinfluence.wordpress.com/uml" target="_blanck" class="uri">http:zeroinfluence.wordpress.com/uml</a>.
+          Acesso em: 04 Ago. 2020. </br>
+          BECK, Kent et. Al. <strong>Manifesto para Desenvolvimento Ágil de Software</strong>. 2001. Disponível em: <a
+            href="https://agilemanifesto.org/iso/ptbr/manifesto.html" target="_blanck"
+            class="uri">https://agilemanifesto.org/iso/ptbr/manifesto.html </a>. Acesso em: 10 ago 2020. <br />
+          BECK, Kent e ANDRES, Cynthia. <strong>Extreme Programming Explained</strong>. 2012.Boston, MA. USA. Addison Wesleyt.
+          2º Edição.<br />
+          SOMMERVILLE, I. <strong>Engenharia de software</strong>. São Paulo, SP. Brasil: Pearson , 2012.<br />
+          UNHELKAR, B. <strong>Software Engineering with UML</strong>. Boca Raton, FL. USA: Taylor & Francis Group, LLC, 2018.
+        </small>
+        <hr>
+      </section>
+    </section>
+  </section>
+<!--  <section>
+    
+      
+   </section>   -->
+</section>
+</div>
+</div>
+
+  <script src="../../rev/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'cube', // none/fade/slide/convex/concave/zoom
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
