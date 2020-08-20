@@ -8,15 +8,19 @@
 b {
   color: #2396e8;
 }
+
 strong {
   color: rgb(88, 172, 250);
 }
+
 i {
   font-style: italic;
 }
+
 p {
   text-align: justify !important;
 }
+
 h3 {
   text-align: left !important;
 }
@@ -24,21 +28,27 @@ h3 {
 .print-pdf .reveal .slide-background {
   background-color: black !important;
 }
+
 .reveal h2 {
   color: antiquewhite;
   font-size: 2.11em;
   text-align: left !important;
 }
+
 .reveal table th,
 .reveal table td {
   text-align: center !important;
   padding: 0.2em 0.5em 0.2em 0.5em !important;
   border: 1px solid antiquewhite !important;
+  vertical-align: middle;
 }
+}
+
 .reveal table th {
   background-color: black;
   color: rgb(27, 118, 192);
 }
+
 .reveal small {
   font-size: 0.6em !important;
   line-height: 1.3em !important;
@@ -60,36 +70,40 @@ table.blueTable {
   text-align: left;
   border-collapse: collapse;
 }
+
 table.blueTable td,
 table.blueTable th {
   border: 1px solid #aaaaaa;
   padding: 3px 2px;
   color: black !important;
 }
+
 table.blueTable tbody td {
   font-size: 20px;
 }
+
 table.blueTable tr:nth-child(even) {
   background: #06665eaf;
 }
+
 table.blueTable thead {
   background: #1c6ea4;
   background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1c6ea4 100%);
-  background: -webkit-linear-gradient(
-    top,
-    #5592bb 0%,
-    #327cad 66%,
-    #1c6ea4 100%
-  );
+  background: -webkit-linear-gradient(top,
+      #5592bb 0%,
+      #327cad 66%,
+      #1c6ea4 100%);
   background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1c6ea4 100%);
   border-bottom: 2px solid #444444;
 }
+
 table.blueTable thead th {
   font-size: 25px;
   font-weight: bold;
   color: #ffffff;
   border-left: 2px solid #d0e4f5;
 }
+
 table.blueTable thead th:first-child {
   border-left: none;
 }
