@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Frank Coelho de Alcantara">
+  <title>Análise Assintótica</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../rev/reset.css">
+  <link rel="stylesheet" href="../../rev/reveal.css">
+  <link rel="stylesheet" href="../../rev/aulas.css" />
+  <link rel="stylesheet" href="../../rev/theme/moon.css" id="theme">
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var mathElements = document.getElementsByClassName("math");
+      for (var i = 0; i < mathElements.length; i++) {
+        var texText = mathElements[i].firstChild;
+        if (mathElements[i].tagName == "SPAN") {
+          katex.render(texText.data, mathElements[i], {
+            displayMode: mathElements[i].classList.contains('display'),
+            throwOnError: false,
+            fleqn: false
+          });
+        }
+      }
+    });
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="title-slide">
+        <h1 class="title">Análise Assintótica</h1>
+        <p class="author">Frank Coelho de Alcantara</p>
+      </section>
+      <section>
+        <section class="title-slide slide level1" style="border-bottom: 2px solid antiquewhite">
+          <h2>Análise Assintótica</h2>
+          <p>Se baseia na definição de três pontos relevantes entre todas as possibilidades de uso de um algoritmo: o
+            pior caso possível, o melhor caso possível e o caso médio.</p>
+          <p>A análise assintótica de um algoritmo representado por uma função $f(n)$ refere-se a taxa de crescimento
+            de $f(n)$ à medida que $n$ cresce. </p>
+        </section>
+        <section class="title-slide slide level1" style="border-bottom: 2px solid antiquewhite">
+          <h2>Análise Assintótica</h2>
+          <p>Imagine, que temos dois algoritmos, um que pode ser representado por uma função linear, $f_1 (n)=d×n+k$, ou
+            seja, para cada $n$, o tempo necessário para seu processamento será dado pela cardinalidade do conjunto
+            multiplicada por uma constante $d$ qualquer e este resultado somado a outra constante $k$, usando as mesmas
+            constantes poderíamos ter um algoritmo dado pela função exponencial $f_1 (n)=d×n^2+k$. </p>
+        </section>
+        <section class="title-slide slide level1" style="border-bottom: 2px solid antiquewhite">
+          <h2>Análise Assintótica</h2>
+          <img data-src="../img/graficoCrescimento.jpg"
+            alt="gráfico comparando o crescimento de uma função linear e outra exponencial."
+            style="height: 300px !important;" />
+        </section>
+        <section class="title-slide slide level1" style="border-bottom: 2px solid antiquewhite">
+          <h2>Análise Assintótica</h2>
+          <img data-src="../img/EMG_Distribution_CDF.png"
+            alt="gráfico comparando o crescimento de uma função linear e outra exponencial."
+            style="height: 300px !important;" />
+        </section>
+        <section class="title-slide slide level1" style="border-bottom: 2px solid antiquewhite">
+          <h2>Análise Assintótica</h2>
+          <p>Quanto custa um automóvel mais um skate?</p>
+        </section>
+        <section class="title-slide slide level1" style="border-bottom: 2px solid antiquewhite">
+          <h2>Análise Assintótica</h2>
+          <p>A principal vantagem da notação Big-O é que podemos desconsiderar todos os termos da equação polinomial que
+            represente o algoritmo, por exemplo nas funções $f_1 (n)=d×n+k$, e $f_1 (n)=d×n^2+k$, podemos desprezar o
+            $k$ antes mesmo de começar. </p>
+        </section>
+        <section class="title-slide slide level1" style="border-bottom: 2px solid antiquewhite">
+          <h2>Análise Assintótica</h2>
+          <table style="font-size: 80%;">
+            <tr>
+              <td>Big-O</td>
+              <td>Tempo</td>
+            </tr>
+            <tr>
+              <td>$O(1)$</td>
+              <td>Constante</td>
+            </tr>
+            <tr>
+              <td>$O(n)$</td>
+              <td>linear</td>
+            </tr>
+            <tr>
+              <td>$O(log n)$</td>
+              <td>Logarítmico</td>
+            </tr>
+            <tr>
+              <td>$O(n log n)$</td>
+              <td>Linearítimo</td>
+            </tr>
+            <tr>
+              <td>$O(n^2)$</td>
+              <td>Quadrática</td>
+            </tr>
+            <tr>
+              <td>$O(n^3)$</td>
+              <td>Cúbica</td>
+            </tr>
+            <tr>
+              <td>$2~{O(1)}$</td>
+              <td>Exponencial</td>
+            </tr>
+            <tr>
+              <td>$O(n!)$</td>
+              <td>Fatorial</td>
+            </tr>
+          </table>
+        </section>
+        <section class="title-slide slide level1" style="border-bottom: 2px solid antiquewhite">
+          <h2>Análise Assintótica</h2>
+          <img data-src="../img/bubblePseudo.jpg" alt="pseudocode do Bubble Sorte" style="height: 300px !important;" />
+        </section>
+        <section class="title-slide slide level1" style="border-bottom: 2px solid antiquewhite">
+          <h2>Análise Assintótica</h2>
+          <p>
+            $$(n − 1) + (n − 2) + (n − 3) … + 3 + 2 + 1$$
+          </p>
+          <p>
+            $$\frac{n(n-1)}{2} ∴ \frac{n^2}{2}-\frac{n}{2}$$
+          </p>
+          <p>
+            $$𝑂(n^2)$$
+          </p>
+        </section>
+      </section>
+      <section>
+        <h2>Exercício</h2>
+        <p>Exercício Merge Sort disponível online</p>
+        <hr>
+      </section>
+      <section>
+        <h2>Material de apoio</h2>
+
+        <p>Você pode baixar a versão em pdf desta aula <a href="./2-InsertionMerge.pdf">clicando aqui</a> </p>
+        <hr>
+      </section>
+    </div>
+  </div>
+
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/markdown/markdown.js"></script>
+  <script src="../../rev/plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+      math: {
+        mathjax: "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}"
+          }
+        },
+      },
+      plugins: [
+        RevealZoom,
+        RevealNotes,
+        RevealSearch,
+        RevealMath,
+        RevealMarkdown,
+        RevealHighlight,
+      ],
+    });
+  </script>
+
+</body>
+
+</html>

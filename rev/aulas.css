@@ -23,6 +23,12 @@ p {
 
 h3 {
   text-align: left !important;
+  border-bottom: 2px solid antiquewhite !important;
+}
+
+h2 {
+  text-align: left !important;
+  border-bottom: 2px solid antiquewhite !important;
 }
 
 .print-pdf .reveal .slide-background {

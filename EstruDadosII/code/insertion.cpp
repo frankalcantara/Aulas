@@ -5,7 +5,7 @@ Programa de demonstração do uso do Insertion Sort.
 */
 
 #include <iostream>
-#include <ctime>'
+#include <ctime>
 #include <chrono>
 
 using namespace std;
@@ -30,7 +30,7 @@ int main()
 
     //variáveis usadas para medir o tempo de execução
     clock_t clock1, clock2;
-    //display(array_teste,"lista não ordenada: ");
+    display(array_teste, "lista não ordenada: ");
     //função clock() do ctime
     clock1 = clock();
     //insertion sort
@@ -50,7 +50,7 @@ int main()
     clock2 = clock();
 
     cout << (float)(clock2 - clock1) / CLOCKS_PER_SEC << endl;
-    //display(array_teste,"lista ordenada: ");
+    display(array_teste, "lista ordenada: ");
 
     return 1;
 } // fim do main
