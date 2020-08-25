@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Frank Coelho de Alcantara">
+  <title>UML - Diagrama de Atividades</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../rev/reset.css">
+  <link rel="stylesheet" href="../../rev/reveal.css">
+  <link rel="stylesheet" href="../../rev/engsoft1.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="title-slide">
+        <h1 class="title">Diagrama de Atividades</h1>
+        <p class="author" style="text-align: right !important;">Frank Coelho de Alcantara</p>
+      </section>
+      <section>
+        <section class="slide level2">
+          <h2>SYSML</h2>
+          <p class="fragment fade-up">System Modeling Language</p>
+          <p class="fragment fade-up">Utiliza tudo que não é patenteado da UML e vai além.</p>
+          <p class="fragment fade-up">Mais Abrangente e Mais Flexível para a análise e criação de sistemas.</p>
+          <p class="fragment fade-up">É um projeto aberto que pode ser encontrado <a
+              href="https://sysml.org/sysml-specs/" target="_blanck">aqui!</a></p>
+        </section>
+      </section>
+      <section>
+        <section class="title-slide slide level1">
+          <h2>Diagrama de Atividades</h2>
+          <p class="fragment fade-up">Trata-se de um diagrama comportamental na forma de um grafo onde atividades são
+            representadas por nós
+            ligados por arestas.</p>
+          <p class="fragment fade-up">Apresenta um fluxo de controle com base na sequência das ações, origem e
+            responsável.</p>
+        </section>
+        <section id="versão-e-objetivo" class="slide level2">
+          <h2>Componentes</h2>
+          <p class="fragment fade-up">Ação: um passo único da ação que pode ser nomeado. </p>
+          <p class="fragment fade-up">Objeto: uma representação abstrata para definir o fluxo de objetos dentro da ação.
+          </p>
+          <p class="fragment fade-up">Controle: um nó de agrupamento usado para coordenar o fluxo entre outros nós.</p>
+        </section>
+        <section class="slide level2">
+          <h2>Sintaxe</h2>
+          <img data-src="../img/AtividadeSintaxe.jpg" style="max-width: 70% !important;"
+            alt="símbolos usados no diagrama de atividades" />
+        </section>
+        <section class="slide level2">
+          <h2>Exemplo 1: trabalho</h2>
+          <ol>
+            <li>Abrir o editor de textos;</li>
+            <li>Criar um arquivo em branco;</li>
+            <li>Salvar o arquivo, nome e diretório escolhidos;</li>
+            <li>Digitar o trabalho;</li>
+            <li>Gráficos?</li>
+            <li>Tabelas?</li>
+            <li>Salvar em PDF;</li>
+            <li>Fechar o editor de textos.</li>
+          </ol>
+        </section>
+        <section class="slide level2">
+          <h2>Exemplo 2: matrícula</h2>
+          <ol>
+            <li>preenche o formulário de inscrição;</li>
+            <li>existe ajuda para o preenchimento deste formulário;</li>
+            <li>confirma a matrícula;</li>
+            <li>pode frequentar aulas e palestras;</li>
+            <li>as palestras precisam de inscrição;</li>
+            <li>precisa pagar mensalidade.</li>
+          </ol>
+        </section>
+      </section>
+      <section class="slide level2">
+        <h2>Exercício: Admin. Hospitalar</h2>
+        <ol>
+          <li>paciente informa o sintoma;</li>
+          <li>enfermeira preenche a ficha de entrada;</li>
+          <li>pode ser enviado para emergência ou consulta;</li>
+          <li>na consulta o médico atende, pode pedir exames ou não;</li>
+          <li>pode receber uma receita, ou não;</li>
+          <li>pode comprar o remédio ou não.</li>
+        </ol>
+      </section>
+      <section>
+        <section>
+          <h1>Material de apoio</h1>
+
+          <p>Você pode baixar o material de apoio <a href="./UMLCAP1.pdf">clicando aqui</a> </p>
+
+        </section>
+        <section>
+          <h2>Obras Citadas</h2>
+
+          <small>
+            BAUSOLA, D. <strong>Activity Diagram</strong>. zeroinfluence, 2012. Disponivel em: <a
+              href="http:zeroinfluence.wordpress.com/uml" target="_blanck"
+              class="uri">http:zeroinfluence.wordpress.com/uml</a>.
+            Acesso em: 04 Ago. 2020. </br>
+            BECK, Kent et. Al. <strong>Manifesto para Desenvolvimento Ágil de Software</strong>. 2001. Disponível em: <a
+              href="https://agilemanifesto.org/iso/ptbr/manifesto.html" target="_blanck"
+              class="uri">https://agilemanifesto.org/iso/ptbr/manifesto.html </a>. Acesso em: 10 ago 2020. <br />
+            BECK, Kent e ANDRES, Cynthia. <strong>Extreme Programming Explained</strong>. 2012.Boston, MA. USA. Addison
+            Wesleyt.
+            2º Edição.<br />
+            SOMMERVILLE, I. <strong>Engenharia de software</strong>. São Paulo, SP. Brasil: Pearson , 2012.<br />
+            UNHELKAR, B. <strong>Software Engineering with UML</strong>. Boca Raton, FL. USA: Taylor & Francis Group,
+            LLC, 2018.
+          </small>
+
+        </section>
+      </section>
+      </section>
+      <!--  <section>
+    
+      
+   </section>   -->
+      </section>
+    </div>
+  </div>
+
+  <script src="../../rev/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealSearch,
+        RevealZoom
+      ]
+    });
+  </script>
+</body>
+
+</html>
