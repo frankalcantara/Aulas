@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="author" content="Frank Coelho de Alcantara">
-  <title>Diagramas de Casos de Uso - Casos de Uso</title>
+  <title>Gramáticas - Analisador Léxico</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport"
@@ -12,48 +12,19 @@
   <link rel="stylesheet" href="../../rev/reset.css">
   <link rel="stylesheet" href="../../rev/reveal.css">
   <link rel="stylesheet" href="../../rev/aulas.css" />
-  <style>
-    code {
-      white-space: pre-wrap;
-    }
-
-    span.smallcaps {
-      font-variant: small-caps;
-    }
-
-    span.underline {
-      text-decoration: underline;
-    }
-
-    div.column {
-      display: inline-block;
-      vertical-align: top;
-      width: 50%;
-    }
-
-    div.hanging-indent {
-      margin-left: 1.5em;
-      text-indent: -1.5em;
-    }
-
-    ul.task-list {
-      list-style: none;
-    }
-  </style>
-  <link rel="stylesheet" href="../../rev/theme/moon.css" id="theme">
+  <link rel="stylesheet" href="../../rev/interpret.css" />
 </head>
 
 <body>
   <div class="reveal">
     <div class="slides">
       <section id="title-slide">
-        <h1 class="title">Linguagens Regulares <br /> MEF & Regex</h1>
+        <h1 class="title">Gramáticas <br /> Analisadores Léxicos</h1>
         <p class="author" style="text-align: right !important;">Frank Coelho de Alcantara</p>
       </section>
       <section>
         <section id="uml" class="title-slide slide level1 P">
           <h2>Definição</h2>
-          <hr>
           <p>
             O conjunto de itens de uma linguagem regular é um conjunto <strong>finito</strong> pode ser definido por um
             alfabeto $\Sigma$</p>
@@ -61,7 +32,6 @@
           E é fechado em relação as operações de <strong>união</strong>, <strong>concatenação</strong> e
           <strong>fechamento de Kleene</strong>.
           </p>
-          <hr>
         </section>
         <section id="versão-e-objetivo" class="slide level2 P">
           <h2>Linguagens Formais</h2>
@@ -310,13 +280,10 @@
       <section>
         <section>
           <h1>Material de apoio</h1>
-          <hr>
           <p>Você pode baixar o material de apoio <a href="./INTERPRETADORES.pdf">clicando aqui</a> </p>
-          <hr>
         </section>
         <section>
           <h2>Obras Citadas</h2>
-          <hr>
           <small>
             BAUSOLA, D. <strong>Activity Diagram</strong>. zeroinfluence, 2012. Disponivel em: <a
               href="http:zeroinfluence.wordpress.com/uml" target="_blanck"
@@ -332,25 +299,22 @@
             UNHELKAR, B. <strong>Software Engineering with UML</strong>. Boca Raton, FL. USA: Taylor & Francis Group,
             LLC, 2018.
           </small>
-          <hr>
         </section>
       </section>
       </section>
-
-
-
-
       </section>
     </div>
   </div>
 
   <script src="../../rev/reveal.js"></script>
-
   // reveal.js plugins
   <script src="../../rev/plugin/notes/notes.js"></script>
   <script src="../../rev/plugin/search/search.js"></script>
   <script src="../../rev/plugin/zoom/zoom.js"></script>
   <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
   <script>
     // Full list of configuration options available at:
     // https://revealjs.com/config/
@@ -358,7 +322,7 @@
       // Push each slide change to the browser history
       history: true,
       // Transition style
-      transition: 'cube', // none/fade/slide/convex/concave/zoom
+      transition: 'fade', // none/fade/slide/convex/concave/zoom
 
       math: {
         mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
@@ -370,11 +334,34 @@
           }
         }
       },
+      menu: {
+        side: 'left',
+        width: 'normal',
+        numbers: false,
+        titleSelector: 'h1, h2, h3, h4, h5, h6',
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: 'dist/theme/',
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true
+      },
 
       // reveal.js plugins
       plugins: [
         RevealNotes,
         RevealMath,
+        RevealMenu,
+        RevealChalkboard,
         RevealSearch,
         RevealZoom
       ]
