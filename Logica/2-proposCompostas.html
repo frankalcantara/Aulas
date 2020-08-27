@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
   <head>
     <meta charset="utf-8" />
     <title>Gestão de Configuração - SCM - Git</title>
@@ -7,10 +8,7 @@
     <meta name="author" content="Frank de Alcantara" />
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="dist/reset.css" />
@@ -19,49 +17,60 @@
     <script src="plugin/math/math.js"></script>
 
     <link rel="stylesheet" href="dist/theme/moon.css" id="theme" />
-    <link
-      rel="stylesheet"
-      href="plugin/highlight/monokai.css"
-      id="highlight-theme"
-    />
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme" />
 
     <style type="text/css">
       h2 b {
         color: #6c5ce7;
       }
+
       h3 b {
         color: #dfe6e9;
       }
+
       b {
         color: #2396e8;
       }
+
       strong {
         color: rgb(88, 172, 250);
       }
+
       i {
         font-style: italic;
       }
+
       p {
         text-align: justify !important;
       }
+
       h3 {
         text-align: left !important;
       }
+
       .print-pdf .reveal .slide-background {
         background-color: black !important;
       }
-      .reveal table th, .reveal table td {
+
+      .reveal table th,
+      .reveal table td {
         text-align: center !important;
         padding: 0.2em 0.5em 0.2em 0.5em !important;
-        border: 1px solid  antiquewhite !important;
+        border: 1px solid antiquewhite !important;
       }
-      .reveal table th{background-color:black; color: rgb(27, 118, 192)}
+
+      .reveal table th {
+        background-color: black;
+        color: rgb(27, 118, 192)
+      }
+
       .reveal small {
         font-size: 0.8em !important;
         line-height: 1.3em !important;
       }
     </style>
   </head>
+
   <body>
     <div class="reveal">
       <div class="slides">
@@ -188,15 +197,15 @@
               $p \rightarrow q$
             </p>
             <p>
-            <ul>
-              <li>quando $p$ então $q$;</li>
-              <li>se $p$, então $q$;</li>
-              <li>$p$ é suficiente para $q$;</li>
-              <li>$q$ se $p$;</li>
-              <li>uma condição nessária para $p$ é $q$;</li>
-              <li>$p$ sempre que $q$;</li>
-              <li>$q$ é necessário para $p$.</li>
-            </ul>
+              <ul>
+                <li>quando $p$ então $q$;</li>
+                <li>se $p$, então $q$;</li>
+                <li>$p$ é suficiente para $q$;</li>
+                <li>$q$ se $p$;</li>
+                <li>uma condição nessária para $p$ é $q$;</li>
+                <li>$p$ sempre que $q$;</li>
+                <li>$q$ é necessário para $p$.</li>
+              </ul>
             </p>
             <hr />
           </section>
@@ -217,9 +226,7 @@
           <hr />
           <p>
             Exercício disponível,
-            <a href="https://forms.gle/wr2hZmVkokSHkCcBA" target=_blanck"
-              >clique aqui</a
-            >
+            <a href="https://forms.gle/wr2hZmVkokSHkCcBA" target=_blanck">clique aqui</a>
           </p>
           <hr />
         </section>
@@ -230,16 +237,16 @@
             <p>
               A descoberta da verdade em proposições compostas pode ser facilitado pelo uso de <i>tabelas verdade</i>.
             </p>
-            
+
             <p>
               As <i>tabelas verdade</i> são um recurso visual que permite a análise de todos os estados possíveis para cada proposição.
             </p>
-            <hr/>
+            <hr />
           </section>
           <section>
-              <h3><b>Oper. Lógicos - negação $(\neg)$</b></h3>
-              <hr />
-              <p>
+            <h3><b>Oper. Lógicos - negação $(\neg)$</b></h3>
+            <hr />
+            <p>
               <table class="vtable">
                 <caption><b>Negação</b>
                 </caption>
@@ -258,44 +265,44 @@
                   </tr>
                 </tbody>
               </table>
-              </p>
-             <hr />
+            </p>
+            <hr />
           </section>
           <section>
             <h3><b>Oper. Lógicos - AND $(\land)$</b></h3>
             <hr />
             <p>
-            <table class="vtable">
-              <caption><b>Conjunção (And, $\land$)</b>
-              </caption>
-              <tbody>
-                <tr>
-                  <th style="width:80px"><i>$p$</i></th>
-                  <th style="width:80px"><i>$q$</i></th>
-                  <th style="width:80px"><i>$q \land p$</i></th>
-                </tr>
-                <tr>
-                  <td>$T$</td>
-                  <td>$T$</td>
-                  <td>$T$</td>
-                </tr>
-                <tr>
-                  <td>$T$</td>
-                  <td>$F$</td>
-                  <td>$F$</td>
-                </tr>
-                <tr>
-                  <td>$F$</td>
-                  <td>$T$</td>
-                  <td>$F$</td>
-                </tr>
-                <tr>
-                  <td>$F$</td>
-                  <td>$F$</td>
-                  <td>$F$</td>
-                </tr>
-              </tbody>
-            </table>
+              <table class="vtable">
+                <caption><b>Conjunção (And, $\land$)</b>
+                </caption>
+                <tbody>
+                  <tr>
+                    <th style="width:80px"><i>$p$</i></th>
+                    <th style="width:80px"><i>$q$</i></th>
+                    <th style="width:80px"><i>$q \land p$</i></th>
+                  </tr>
+                  <tr>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                  </tr>
+                  <tr>
+                    <td>$T$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                  </tr>
+                  <tr>
+                    <td>$F$</td>
+                    <td>$T$</td>
+                    <td>$F$</td>
+                  </tr>
+                  <tr>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                  </tr>
+                </tbody>
+              </table>
             </p>
             <hr />
           </section>
@@ -303,37 +310,37 @@
             <h3><b>Oper. Lógicos - OR $(\lor)$</b></h3>
             <hr />
             <p>
-            <table class="vtable">
-              <caption><b>Disjunção (OR, $\lor$)</b>
-              </caption>
-              <tbody>
-                <tr>
-                  <th style="width:80px"><i>$p$</i></th>
-                  <th style="width:80px"><i>$q$</i></th>
-                  <th style="width:80px"><i>$q \lor p$</i></th>
-                </tr>
-                <tr>
-                  <td>$T$</td>
-                  <td>$T$</td>
-                  <td>$T$</td>
-                </tr>
-                <tr>
-                  <td>$T$</td>
-                  <td>$F$</td>
-                  <td>$T$</td>
-                </tr>
-                <tr>
-                  <td>$F$</td>
-                  <td>$T$</td>
-                  <td>$T$</td>
-                </tr>
-                <tr>
-                  <td>$F$</td>
-                  <td>$F$</td>
-                  <td>$F$</td>
-                </tr>
-              </tbody>
-            </table>
+              <table class="vtable">
+                <caption><b>Disjunção (OR, $\lor$)</b>
+                </caption>
+                <tbody>
+                  <tr>
+                    <th style="width:80px"><i>$p$</i></th>
+                    <th style="width:80px"><i>$q$</i></th>
+                    <th style="width:80px"><i>$q \lor p$</i></th>
+                  </tr>
+                  <tr>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                  </tr>
+                  <tr>
+                    <td>$T$</td>
+                    <td>$F$</td>
+                    <td>$T$</td>
+                  </tr>
+                  <tr>
+                    <td>$F$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                  </tr>
+                  <tr>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                  </tr>
+                </tbody>
+              </table>
             </p>
             <hr />
           </section>
@@ -341,37 +348,37 @@
             <h3><b>Oper. Implicação (se..então, $\rightarrow$)</b></h3>
             <hr />
             <p>
-            <table class="vtable">
-              <caption><b>Implicação (se..então, $\rightarrow$)</b>
-              </caption>
-              <tbody>
-                <tr>
-                  <th style="width:80px"><i>$p$</i></th>
-                  <th style="width:80px"><i>$q$</i></th>
-                  <th style="width:180px"><i>$p \rightarrow q$</i></th>
-                </tr>
-                <tr>
-                  <td>$T$</td>
-                  <td>$T$</td>
-                  <td>$T$</td>
-                </tr>
-                <tr>
-                  <td>$T$</td>
-                  <td>$F$</td>
-                  <td>$F$</td>
-                </tr>
-                <tr>
-                  <td>$F$</td>
-                  <td>$T$</td>
-                  <td>$T$</td>
-                </tr>
-                <tr>
-                  <td>$F$</td>
-                  <td>$F$</td>
-                  <td>$T$</td>
-                </tr>
-              </tbody>
-            </table>
+              <table class="vtable">
+                <caption><b>Implicação (se..então, $\rightarrow$)</b>
+                </caption>
+                <tbody>
+                  <tr>
+                    <th style="width:80px"><i>$p$</i></th>
+                    <th style="width:80px"><i>$q$</i></th>
+                    <th style="width:180px"><i>$p \rightarrow q$</i></th>
+                  </tr>
+                  <tr>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                  </tr>
+                  <tr>
+                    <td>$T$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                  </tr>
+                  <tr>
+                    <td>$F$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                  </tr>
+                  <tr>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                    <td>$T$</td>
+                  </tr>
+                </tbody>
+              </table>
             </p>
             <hr />
           </section>
@@ -381,59 +388,61 @@
             <small>
               <ul>
                 <li style="background-color: darkslateblue;">A proposição será verdadeira se eu cumprir a promessa. Caso contrário será falsa.</li>
-                <li>Suponha que você tirou 10 na prova, então  $p = T$ e eu mantenho a promessa, logo $q = T$. A proposição é verdadeira.</li>
-                <li style="background-color: darkslateblue;">Suponha que você tirou 10 na prova, então $p = T$ e eu não cumpro a promessa, logo $q = F$. A proposição é falsa.</li>
-                <li>Suponha que você tirou 8 na prova, se eu lhe dou os R$ 1000,00 não importa por que eu não tive a chance de quebrar a promessa. A proposição é verdadeira.</li>
+                <li>Suponha que você tirou 10 na prova, então $p = T$ e eu mantenho a promessa, logo $q = T$. A proposição é verdadeira.</li>
+                <li style="background-color: darkslateblue;">Suponha que você tirou 10 na prova, então $p = T$ e eu não cumpro a promessa, logo $q = F$. A
+                  proposição é falsa.</li>
+                <li>Suponha que você tirou 8 na prova, se eu lhe dou os R$ 1000,00 não importa por que eu não tive a chance de quebrar a promessa. A proposição
+                  é verdadeira.</li>
               </ul>
             </small>
-           <hr />
+            <hr />
           </section>
           <section>
             <h3><b>Oper. Implicação Dupla (se..então, $\leftrightarrow$)</b></h3>
             <hr />
             <p>
-            <table class="vtable">
-              <caption><b>Implicação Dupla (se..então, $\leftrightarrow$)</b>
-              </caption>
-              <tbody>
-                <tr>
-                  <th style="width:80px"><i>$p$</i></th>
-                  <th style="width:80px"><i>$q$</i></th>
-                  <th style="width:180px"><i>$p \leftrightarrow q$</i></th>
-                </tr>
-                <tr>
-                  <td>$T$</td>
-                  <td>$T$</td>
-                  <td>$T$</td>
-                </tr>
-                <tr>
-                  <td>$T$</td>
-                  <td>$F$</td>
-                  <td>$F$</td>
-                </tr>
-                <tr>
-                  <td>$F$</td>
-                  <td>$T$</td>
-                  <td>$F$</td>
-                </tr>
-                <tr>
-                  <td>$F$</td>
-                  <td>$F$</td>
-                  <td>$T$</td>
-                </tr>
-              </tbody>
-            </table>
+              <table class="vtable">
+                <caption><b>Implicação Dupla (se..então, $\leftrightarrow$)</b>
+                </caption>
+                <tbody>
+                  <tr>
+                    <th style="width:80px"><i>$p$</i></th>
+                    <th style="width:80px"><i>$q$</i></th>
+                    <th style="width:180px"><i>$p \leftrightarrow q$</i></th>
+                  </tr>
+                  <tr>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                  </tr>
+                  <tr>
+                    <td>$T$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                  </tr>
+                  <tr>
+                    <td>$F$</td>
+                    <td>$T$</td>
+                    <td>$F$</td>
+                  </tr>
+                  <tr>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                    <td>$T$</td>
+                  </tr>
+                </tbody>
+              </table>
             </p>
             <hr />
           </section>
-          </section>
+        </section>
         </section>
 
         <section>
           <section>
             <h3><b>Material de apoio</b></h3>
             <hr />
-            <p>Clique <a href="out/2-TabelasVerdade.pdf" target="_blanck">aqui</a> abrir o material de suporte.</p>
+            <p>Clique <a href="./logicaProposicional.pdf" target="_blanck">aqui</a> abrir o material de suporte.</p>
           </section>
         </section>
       </div>
@@ -455,11 +464,14 @@
         center: true,
         hash: true,
         math: {
-          mathjax:
-            "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+          mathjax: "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
           config: "TeX-AMS_HTML-full",
           // pass other options into `MathJax.Hub.Config()`
-          TeX: { Macros: { RR: "{\\bf R}" } },
+          TeX: {
+            Macros: {
+              RR: "{\\bf R}"
+            }
+          },
         },
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [
@@ -473,4 +485,5 @@
       });
     </script>
   </body>
+
 </html>
