@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <meta charset="utf-8">
-    <meta name="author" content="Frank Coelho de Alcantara">
+    <meta charset="utf-8" />
+    <meta name="author" content="Frank Coelho de Alcantara" />
     <title>Classificação de Fórmulas e Inferência</title>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../../rev/reset.css">
-    <link rel="stylesheet" href="../../rev/reveal.css">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+    />
+    <link rel="stylesheet" href="../../rev/reset.css" />
+    <link rel="stylesheet" href="../../rev/reveal.css" />
     <link rel="stylesheet" href="../../rev/aulas.css" />
     <link rel="stylesheet" href="../../rev/novaAulas.css" />
   </head>
@@ -19,24 +24,31 @@
       <div class="slides">
         <section id="title-slide">
           <h1 class="title">Classificação de Fórmulas e Inferência</h1>
-          <p class="author" style="text-align: right !important;">Frank Coelho de Alcantara</p>
+          <p class="author" style="text-align: right !important">
+            Frank Coelho de Alcantara
+          </p>
         </section>
         <section>
           <section>
             <h2>Tautologia</h2>
             <p>
-              Palavra de origem grega que significava: repetindo o que já foi dito;
+              Palavra de origem grega que significava: repetindo o que já foi
+              dito;
             </p>
             <p>
-              Usamos a palavra tautologia para indicar fórmulas onde todas as interpretações são verdadeiras.
+              Usamos a palavra tautologia para indicar fórmulas onde todas as
+              interpretações são verdadeiras.
             </p>
             <p>
-              Verifique se $(A \rightarrow B)\leftrightarrow(\neg B \rightarrow \neg A)$ é uma <strong>Tautologia</strong>.
+              Verifique se $(A \rightarrow B)\leftrightarrow(\neg B \rightarrow
+              \neg A)$ é uma <strong>Tautologia</strong>.
             </p>
           </section>
           <section>
-            <h2 style="font-size: 90% !important;">$(P \rightarrow Q)\leftrightarrow(\neg Q \rightarrow \neg P)$</h2>
-            <table style="font-size: 63% !important;">
+            <h2 style="font-size: 90% !important">
+              $(P \rightarrow Q)\leftrightarrow(\neg Q \rightarrow \neg P)$
+            </h2>
+            <table style="font-size: 63% !important">
               <tbody>
                 <tr>
                   <th><i>$P$</i></th>
@@ -45,43 +57,48 @@
                   <th><i>$(\neg Q)$</i></th>
                   <th><i>$( \neg P)$</i></th>
                   <th><i>$(\neg Q \rightarrow \neg P)$</i></th>
-                  <th><i>$(P \rightarrow Q)\leftrightarrow(\neg Q \rightarrow \neg P)$</i></th>
+                  <th>
+                    <i
+                      >$(P \rightarrow Q)\leftrightarrow(\neg Q \rightarrow \neg
+                      P)$</i
+                    >
+                  </th>
                 </tr>
                 <tr>
                   <td>$T$</td>
                   <td>$T$</td>
-                  <td><input type="text"></td>
+                  <td><input type="text" /></td>
                   <td>$F$</td>
                   <td>$F$</td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
+                  <td><input type="text" /></td>
+                  <td><input type="text" /></td>
                 </tr>
                 <tr>
                   <td>$T$</td>
                   <td>$F$</td>
-                  <td><input type="text"></td>
+                  <td><input type="text" /></td>
                   <td>$T$</td>
                   <td>$F$</td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
+                  <td><input type="text" /></td>
+                  <td><input type="text" /></td>
                 </tr>
                 <tr>
                   <td>$F$</td>
                   <td>$T$</td>
-                  <td><input type="text"></td>
+                  <td><input type="text" /></td>
                   <td>$F$</td>
                   <td>$T$</td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
+                  <td><input type="text" /></td>
+                  <td><input type="text" /></td>
                 </tr>
                 <tr>
                   <td>$F$</td>
                   <td>$F$</td>
-                  <td><input type="text"></td>
+                  <td><input type="text" /></td>
                   <td>$T$</td>
                   <td>$T$</td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
+                  <td><input type="text" /></td>
+                  <td><input type="text" /></td>
                 </tr>
               </tbody>
             </table>
@@ -89,123 +106,189 @@
           <section>
             <h2>Contradição e Contingência</h2>
             <p>
-              Usamos a palavra contradição para indicar fórmulas que são falsas em todas as interpretações.
+              Usamos a palavra contradição para indicar fórmulas que são falsas
+              em todas as interpretações.
             </p>
+            <p>A contradição é o oposto da tautologia.</p>
             <p>
-              A contradição é o oposto da tautologia.
-            </p>
-            <p>
-              Se a formula não for <strong>verdadeira em todas as interpretações</strong>, nem <strong>falsa em todas as interpretações</strong> ela é
-              chamada de
+              Se a formula não for
+              <strong>verdadeira em todas as interpretações</strong>, nem
+              <strong>falsa em todas as interpretações</strong> ela é chamada de
               contingência.
             </p>
           </section>
           <section>
             <h2>Consistência e inconsistência</h2>
             <p>
-              Se a fórmula é falsa em uma determinada interpretação $i$ então <strong>a fórmula é falsa segundo $i$</strong>.
-              Caso contrário dizemos: a fórmula é verdaderia segundo $i$.
+              Se a fórmula é falsa em uma determinada interpretação $i$ então
+              <strong>a fórmula é falsa segundo $i$</strong>. Caso contrário
+              dizemos: a fórmula é verdaderia segundo $i$.
             </p>
             <p>
-              Formulas verdadeiras em algum $i$ são contingentes ou satisfatíveis. Se a <strong>fórmula não for verdadeira em algum $i$ ela será
-                insatisfatível</strong>, ou contraditória.
+              Formulas verdadeiras em algum $i$ são contingentes ou
+              satisfatíveis. Se a
+              <strong
+                >fórmula não for verdadeira em algum $i$ ela será
+                insatisfatível</strong
+              >, ou contraditória.
             </p>
-            <p>
-              Uma fórmula é válida se for tautológica.
-            </p>
+            <p>Uma fórmula é válida se for tautológica.</p>
           </section>
         </section>
         <section>
           <section>
             <h2>Equivalência</h2>
             <p>
-              Dizemos que a fórmula $P$ e equivalente a fórmula $Q$ se, e somente se, cada valor lógico verdadeiro, $V(P)\equiv T$, que satisfaz $P$ também
-              satisfaz $Q$ e cada valor lógico verdadeiro, $V(Q)\equiv T$, que satisfaz $Q$ também satisfaz $P$.
+              Dizemos que a fórmula $P$ e equivalente a fórmula $Q$ se, e
+              somente se, cada valor lógico verdadeiro, $V(P)\equiv T$, que
+              satisfaz $P$ também satisfaz $Q$ e cada valor lógico verdadeiro,
+              $V(Q)\equiv T$, que satisfaz $Q$ também satisfaz $P$.
             </p>
           </section>
           <section>
             <h2>Equivalências Notáveis</h2>
-            <img data-src="../img/eqvNotav.jpg" alt="tabela com as equivalências notáveis do cálculo proposicional" />
+            <img
+              data-src="../img/eqvNotav.jpg"
+              alt="tabela com as equivalências notáveis do cálculo proposicional"
+            />
           </section>
           <section>
             <h2>Forma Normais</h2>
-            <p>Podemos representar qualquer fórmula bem formatada apenas usando as operações básicas do cálculo proposicional; $\neg, \wedge, \vee,
-              \rightarrow,$
+            <p>
+              Podemos representar qualquer fórmula bem formatada apenas usando
+              as operações básicas do cálculo proposicional; $\neg, \wedge,
+              \vee, \rightarrow,$
             </p>
-            <p>Dizemos que uma determinada proposição $P$ está em uma forma normal se contiver apenas: $\neg, \wedge, \vee$.
+            <p>
+              Dizemos que uma determinada proposição $P$ está em uma forma
+              normal se contiver apenas: $\neg, \wedge, \vee$.
             </p>
-            <p>Entre as formas normais vamos destacar as formas normais conjuntiva e disjuntiva</p>
+            <p>
+              Entre as formas normais vamos destacar as formas normais
+              conjuntiva e disjuntiva
+            </p>
           </section>
           <section>
             <h2>Forma Normal Conjuntiva</h2>
-            <p>São ditas conjuntivas as formas que sejam a conjunção de formas disjuntivas. Nas formas normais conjuntivas usamos apenas $\neg, \wedge, \vee$.
+            <p>
+              São ditas conjuntivas as formas que sejam a conjunção de formas
+              disjuntivas. Nas formas normais conjuntivas usamos apenas $\neg,
+              \wedge, \vee$.
             </p>
-            <p>As seguintes fórmulas estão de acordo com a Forma Normal Conjuntiva.</p>
+            <p>
+              As seguintes fórmulas estão de acordo com a Forma Normal
+              Conjuntiva.
+            </p>
             <ul>
               <li>$(\neg q \vee p \vee r) \wedge (\neg p \vee r) \wedge q$</li>
-              <li>$(p \vee r) \wedge (\neg p \vee r) \wedge (p \vee \neg r)$</li>
-              <li>$p \vee q$</li>
+              <li>
+                $(p \vee r) \wedge (\neg p \vee r) \wedge (p \vee \neg r)$
+              </li>
+              <li>$p \wedge q$</li>
               <li>$p$</li>
             </ul>
           </section>
           <section>
             <h2>Forma Normal Conjuntiva</h2>
             <ol>
-              <li>Contém apenas $\neg, \wedge, \vee$. </li>
-              <li>Não contém dupa negação $\neg \neg p$. </li>
-              <li>A negação não está aplicada a conjunção ou as disjunções $\neg (p \vee q)$. </li>
-              <li>Não existem disjunções de conjunções $p \vee (q \wedge r)$. </li>
+              <li>Contém apenas $\neg, \wedge, \vee$.</li>
+              <li>Não contém dupa negação $\neg \neg p$.</li>
+              <li>
+                A negação não está aplicada a conjunção ou as disjunções $\neg
+                (p \vee q)$.
+              </li>
+              <li>
+                Não existem disjunções de conjunções $p \vee (q \wedge r)$.
+              </li>
             </ol>
           </section>
           <section>
             <h2>Forma Normal Conjuntiva</h2>
-            <p>Usamos as propriedades de equivalência tautológica para converter qualquer fórmula na forma normal conjuntiva.</p>
-            <table style="font-size: 60%;">
+            <p>
+              Usamos as propriedades de equivalência tautológica para converter
+              qualquer fórmula na forma normal conjuntiva.
+            </p>
+            <table style="font-size: 60%">
               <tr>
-                <td style="text-align:left !important;">formula original</td>
-                <td style="text-align:left !important;">$\neg ((p \vee q) \wedge \neg q) \wedge \neg (q \wedge r)) $</td>
+                <td style="text-align: left !important">formula original</td>
+                <td style="text-align: left !important">
+                  $\neg ((p \vee q) \wedge \neg q) \wedge \neg (q \wedge r)) $
+                </td>
               </tr>
               <tr>
-                <td style="text-align:left !important;">usando a negação</td>
-                <td style="text-align:left !important;">$\Leftrightarrow (\neg(p \vee q) \vee \neg \neg q) \wedge (\neg q \vee \neg r) $</td>
+                <td style="text-align: left !important">usando a negação</td>
+                <td style="text-align: left !important">
+                  $\Leftrightarrow (\neg(p \vee q) \vee \neg \neg q) \wedge
+                  (\neg q \vee \neg r) $
+                </td>
               </tr>
               <tr>
-                <td style="text-align:left !important;">convertento da disjunção</td>
-                <td style="text-align:left !important;">$\Leftrightarrow ((\neg p \wedge \neg q) \vee q) \wedge (\neg q \vee \neg r) $</td>
+                <td style="text-align: left !important">
+                  convertento da disjunção
+                </td>
+                <td style="text-align: left !important">
+                  $\Leftrightarrow ((\neg p \wedge \neg q) \vee q) \wedge (\neg
+                  q \vee \neg r) $
+                </td>
               </tr>
               <tr>
-                <td style="text-align:left !important;">propriedade distributiva</td>
-                <td style="text-align:left !important;">$\Leftrightarrow (\neg p \vee q) \wedge (\neg q \vee q) \wedge (\neg q \vee \neg r) $</td>
+                <td style="text-align: left !important">
+                  propriedade distributiva
+                </td>
+                <td style="text-align: left !important">
+                  $\Leftrightarrow (\neg p \vee q) \wedge (\neg q \vee q) \wedge
+                  (\neg q \vee \neg r) $
+                </td>
               </tr>
               <tr>
-                <td style="text-align:left !important;">Já que: $(\neg q \vee q) \Leftrightarrow T$</td>
-                <td style="text-align:left !important;">$\Leftrightarrow (\neg p \vee q) \wedge T \wedge (\neg q \vee \neg r) $</td>
+                <td style="text-align: left !important">
+                  Já que: $(\neg q \vee q) \Leftrightarrow T$
+                </td>
+                <td style="text-align: left !important">
+                  $\Leftrightarrow (\neg p \vee q) \wedge T \wedge (\neg q \vee
+                  \neg r) $
+                </td>
               </tr>
               <tr>
-                <td style="text-align:left !important;">finalmente:</td>
-                <td style="text-align:left !important;">$\Leftrightarrow (\neg p \vee q) \wedge (\neg q \vee \neg r) $</td>
+                <td style="text-align: left !important">finalmente:</td>
+                <td style="text-align: left !important">
+                  $\Leftrightarrow (\neg p \vee q) \wedge (\neg q \vee \neg r) $
+                </td>
               </tr>
             </table>
           </section>
           <section>
             <h2>Forma Normal disjuntivas</h2>
-            <p>São ditas disjuntivas as formas que sejam a disjunção de formas conjuntivas. Nas formas normais disjuntivsa usamos apenas $\neg, \wedge, \vee$.
+            <p>
+              São ditas disjuntivas as formas que sejam a disjunção de formas
+              conjuntivas. Nas formas normais disjuntivsa usamos apenas $\neg,
+              \wedge, \vee$.
             </p>
-            <p>As seguintes fórmulas estão de acordo com a Forma Normal Disjuntiva.</p>
+            <p>
+              As seguintes fórmulas estão de acordo com a Forma Normal
+              Disjuntiva.
+            </p>
             <ul>
               <li>$(\neg q \wedge p \vee r) \vee (\neg p \wedge r) \vee q$</li>
-              <li>$(p \wedge r) \vee (\neg p \wedge r) \vee (p \wedge \neg r)$</li>
-              <li>$p \wedge q$</li>
+              <li>
+                $(p \wedge r) \vee (\neg p \wedge r) \vee (p \wedge \neg r)$
+              </li>
+              <li>$p \vee q$</li>
               <li>$p$</li>
             </ul>
           </section>
           <section>
             <h2>Forma Normal Disjuntiva</h2>
             <ol>
-              <li>Contém apenas $\neg, \wedge, \vee$. </li>
-              <li>Não contém dupa negação $\neg \neg p$. </li>
-              <li>A negação não está aplicada a conjunção ou as disjunções $\neg (p \wedge q)$. </li>
-              <li>Não existem conjunções de disjunções $p \vee (q \wedge r)$. </li>
+              <li>Contém apenas $\neg, \wedge, \vee$.</li>
+              <li>Não contém dupa negação $\neg \neg p$.</li>
+              <li>
+                A negação não está aplicada a conjunção ou as disjunções $\neg
+                (p \wedge q)$.
+              </li>
+              <li>
+                Não existem conjunções de disjunções $p \vee (q \wedge r)$.
+              </li>
             </ol>
           </section>
           <section>
@@ -214,75 +297,123 @@
           </section>
           <section>
             <h2>Formas Normais e Tabelas Verdades</h2>
-            <p>Para usar uma tabela verdade para criar as formas normais basta lembrar que:</p>
-            <p>Usamos as interpretações falsas para criar a forma normal conjuntiva.</p>
-            <p>Usamos as interpretações Verdadeiras para criar a forma normal disjuntiva.</p>
+            <p>
+              Para usar uma tabela verdade para criar as formas normais basta
+              lembrar que:
+            </p>
+            <p>
+              Usamos as interpretações falsas para criar a forma normal
+              conjuntiva.
+            </p>
+            <p>
+              Usamos as interpretações Verdadeiras para criar a forma normal
+              disjuntiva.
+            </p>
           </section>
           <section>
             <h2>FN Conjuntiva e Tabela Verdade</h2>
-            <img data-src="../img/fnc1.jpg" alt="Tabela verdade forma normal conjuntiva" style="float:left; max-width: 50%;" />
-            <div style="font-size: 70%; float:right; max-width: 40%;">
-              <p>Para cada interpretação $F$ uma formula disjuntiva equivalente $(F)$.</p>
-              <p>A forma resultante, a forma normal conjuntiva será a conjunção destas disjunções.</p>
+            <img
+              data-src="../img/fnc1.jpg"
+              alt="Tabela verdade forma normal conjuntiva"
+              style="float: left; max-width: 50%"
+            />
+            <div style="font-size: 70%; float: right; max-width: 40%">
+              <p>
+                Para cada interpretação $F$ uma formula disjuntiva equivalente
+                $(F)$.
+              </p>
+              <p>
+                A forma resultante, a forma normal conjuntiva será a conjunção
+                destas disjunções.
+              </p>
             </div>
           </section>
           <section>
             <h2>FN Disjuntiva e Tabela Verdade</h2>
-            <img data-src="../img/fnd1.jpg" alt="Tabela verdade forma normal conjuntiva" style="float:right; max-width: 50%;" />
-            <div style="font-size: 70%; float:left; max-width: 40%;">
-              <p>Para cada interpretação $T$ uma formula conjuntiva equivalente $(T)$.</p>
-              <p>A forma resultante, a forma normal disjuntiva será a disjunção destas conjunções.</p>
+            <img
+              data-src="../img/fnd1.jpg"
+              alt="Tabela verdade forma normal conjuntiva"
+              style="float: right; max-width: 50%"
+            />
+            <div style="font-size: 70%; float: left; max-width: 40%">
+              <p>
+                Para cada interpretação $T$ uma formula conjuntiva equivalente
+                $(T)$.
+              </p>
+              <p>
+                A forma resultante, a forma normal disjuntiva será a disjunção
+                destas conjunções.
+              </p>
             </div>
           </section>
           <section>
             <h2>Praticando!</h2>
-            <p>Podemos verificar a veracidade destas técnicas se pegarmos uma função qualquer. Digamos: $ (\neg q \rightarrow p) \rightarrow (p \rightarrow q)$
-              e aplicar as técnicas de representação usando as tabelas verdades para criar as formas normais, conjuntiva e disjuntiva. E comparar a tabela
-              verdade
-              das três fórmulas.
+            <p>
+              Podemos verificar a veracidade destas técnicas se pegarmos uma
+              função qualquer. Digamos: $ (\neg q \rightarrow p) \rightarrow (p
+              \rightarrow q)$ e aplicar as técnicas de representação usando as
+              tabelas verdades para criar as formas normais, conjuntiva e
+              disjuntiva. E comparar a tabela verdade das três fórmulas.
             </p>
-            <p>Vocês tem 30 minutos para testar esta técnica em grupo. Dividam as tarefas e comparem os resultados.</p>
+            <p>
+              Vocês tem 30 minutos para testar esta técnica em grupo. Dividam as
+              tarefas e comparem os resultados.
+            </p>
           </section>
         </section>
         <section>
           <section>
             <h2>Argumentos</h2>
-            <p>Definiremos formalmente um argumento com sendo toda afirmação de que uma dada seqüência
-              finita de proposições chamada de premissas, dadas por ${P_1, P_2, P_3... P_n}$ para todo $n.=1$, tem como conseqüência,
-              ou acarreta, uma proposição final $Q$ que chamaremos de conclusão.</p>
+            <p>
+              Definiremos formalmente um argumento com sendo toda afirmação de
+              que uma dada seqüência finita de proposições chamada de premissas,
+              dadas por ${P_1, P_2, P_3... P_n}$ para todo $n.=1$, tem como
+              conseqüência, ou acarreta, uma proposição final $Q$ que chamaremos
+              de conclusão.
+            </p>
             <p>$P_1, P_2, P_3... P_n \vDash Q $</p>
           </section>
           <section>
             <h2>Argumentos</h2>
             <p>$P_1, P_2, P_3... P_n \vDash Q $</p>
-            <p>Que leremos como: </p>
+            <p>Que leremos como:</p>
             <ol>
               <li>$P_1, P_2, P_3... P_n \text{ acarretam } Q $</li>
               <li>$Q \text{ decorre de } P_1, P_2, P_3... P_n $</li>
               <li>$Q \text{ se deduz de } P_1, P_2, P_3... P_n $</li>
               <li>$Q \text{ se infere de } P_1, P_2, P_3... P_n $</li>
             </ol>
-            <p> e chamaremos de <strong>consequência semântica</strong>.</p>
+            <p>e chamaremos de <strong>consequência semântica</strong>.</p>
           </section>
           <section>
             <h2>Argumentos</h2>
-            <p> No começo da discipina vimos um argumento especial. Composto de duas premissas e uma conclusão. A este argumento damos o nome de
-              <strong>silogismo</strong>.</p>
+            <p>
+              No começo da discipina vimos um argumento especial. Composto de
+              duas premissas e uma conclusão. A este argumento damos o nome de
+              <strong>silogismo</strong>.
+            </p>
           </section>
         </section>
         <section>
           <section>
             <h1>Material de apoio</h1>
-            <p>Você pode baixar o material de apoio <a href="./logicaProposicional.pdf" target="_blanck">clicando aqui</a> </p>
+            <p>
+              Você pode baixar o material de apoio
+              <a href="./logicaProposicional.pdf" target="_blanck"
+                >clicando aqui</a
+              >
+            </p>
           </section>
           <section>
             <h2>Obras Citadas</h2>
             <p>
-              AHO, A. V. et al. <strong>Compiladores: princípios, técnicas e ferramentas</strong>. 2º. ed. Boston, MA,
-              USA: Pearson
-              Education Inc. , 2007. <br />
-              CASS, S. <strong>The 2016 Top Programming Languages</strong>. IEEE Spectrum, 2016. Disponível em:
-              http://spectrum.ieee.org/computing/software/the-2016-top-programming-languages. Acesso em: 22 Set. 2016.
+              AHO, A. V. et al.
+              <strong>Compiladores: princípios, técnicas e ferramentas</strong>.
+              2º. ed. Boston, MA, USA: Pearson Education Inc. , 2007. <br />
+              CASS, S. <strong>The 2016 Top Programming Languages</strong>. IEEE
+              Spectrum, 2016. Disponível em:
+              http://spectrum.ieee.org/computing/software/the-2016-top-programming-languages.
+              Acesso em: 22 Set. 2016.
             </p>
           </section>
         </section>
@@ -303,29 +434,30 @@
         // Push each slide change to the browser history
         history: true,
         // Transition style
-        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        transition: "fade", // none/fade/slide/convex/concave/zoom
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
+          mathjax:
+            "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+          config: "TeX-AMS_HTML-full",
           // pass other options into `MathJax.Hub.Config()`
           TeX: {
             Macros: {
-              RR: "{\\bf R}"
-            }
-          }
+              RR: "{\\bf R}",
+            },
+          },
         },
         menu: {
-          side: 'left',
-          width: 'normal',
+          side: "left",
+          width: "normal",
           numbers: false,
-          titleSelector: 'h1, h2, h3, h4, h5, h6',
+          titleSelector: "h1, h2, h3, h4, h5, h6",
           useTextContentForMissingTitles: false,
           hideMissingTitles: false,
           markers: true,
           custom: false,
           themes: false,
-          themesPath: 'dist/theme/',
+          themesPath: "dist/theme/",
           transitions: false,
           openButton: true,
           openSlideNumber: false,
@@ -334,7 +466,7 @@
           autoOpen: true,
           delayInit: false,
           openOnInit: false,
-          loadIcons: true
+          loadIcons: true,
         },
 
         // reveal.js plugins
@@ -344,10 +476,9 @@
           RevealMenu,
           RevealChalkboard,
           RevealSearch,
-          RevealZoom
-        ]
+          RevealZoom,
+        ],
       });
     </script>
   </body>
-
 </html>
