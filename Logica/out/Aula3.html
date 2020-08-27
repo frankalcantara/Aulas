@@ -1,1088 +1,1087 @@
 <!DOCTYPE html>
 <html lang="pt">
 
-<head>
-  <meta charset="utf-8" />
-  <title>Tabelas Verdade - Tautologias</title>
-  <meta name="description" content="Lógica, Proposições Compostas" />
-  <meta name="author" content="Frank de Alcantara" />
+  <head>
+    <meta charset="utf-8" />
+    <title>Tabelas Verdade - Tautologias</title>
+    <meta name="description" content="Lógica, Proposições Compostas" />
+    <meta name="author" content="Frank de Alcantara" />
 
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="../../rev/reset.css" />
-  <link rel="stylesheet" href="../../rev/reveal.css" />
-  <link rel="stylesheet" href="../../rev/reveal.css" />
-  <link rel="stylesheet" href="../../rev/aulas.css" />
-  <script src="../../rev/plugin/math/math.js"></script>
+    <link rel="stylesheet" href="../../rev/reset.css" />
+    <link rel="stylesheet" href="../../rev/reveal.css" />
+    <link rel="stylesheet" href="../../rev/reveal.css" />
+    <link rel="stylesheet" href="../../rev/aulas.css" />
+    <script src="../../rev/plugin/math/math.js"></script>
 
-  <link rel="stylesheet" href="../../rev/theme/moon.css" id="theme" />
-  <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme" />
-</head>
+    <link rel="stylesheet" href="../../rev/theme/moon.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme" />
+  </head>
 
-<body>
-  <div class="reveal">
-    <div class="slides">
-      <section>
+  <body>
+    <div class="reveal">
+      <div class="slides">
         <section>
-          <h2>
-            <b>Tabelas Verdade <br /> Tautologias e Contradições</b>
-          </h2>
-          <p style="text-align: right !important;">
-            <br /><br />
-            <small>Frank de Alcantara - junho 2020</small>
-          </p>
-        </section>
-        <section>
-          <h3><b>Tabela Verdade - Prática</b></h3>
-          <hr />
-          <p> $p=$ Sílvia é professora. </p>
-          <p> $q=$ Sílvia é aluna. </p>
-          <p>
-            Considerando estas duas proposições vamos fazer a tabela Verdade para: $ p\land q $,$ \neg (p\land q) $, $
-            \neg p \lor \neg q $.
-          </p>
-          <hr />
-        </section>
-        <section>
-          <h3><b>Tabela Verdade - Prática</b></h3>
-          <hr />
-          <p> Como temos duas variáveis $p, q $ e três formulas: $ p \land q $,$ \neg (p\land q) $, $ \neg p
-            \lor \neg q $ nossa tabela terá três colunas e $2^2$ linhas, além da linha de título. Sendo assim:
-          </p>
-          <table class="vtable">
-            <caption><b>Exemplo 1</b>
-            </caption>
-            <tbody>
-              <tr>
-                <th style="width:80px"><i>$p$</i></th>
-                <th style="width:80px"><i>$q$</i></th>
-                <th style="width:80px"><i>$ p \land q $ </i></th>
-                <th style="width:80px"><i>$ \neg (p\land q) $</i></th>
-                <th style="width:80px"><i>$ \neg p \lor \neg q $</i></th>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-          <hr />
-        </section>
-        <section data-transition="fade">
-          <h3><b>Tabela Verdade - Prática</b></h3>
-          <hr />
-          <table class="vtable">
-            <caption><b>Exemplo 1</b>
-            </caption>
-            <tbody>
-              <tr>
-                <th style="width:80px"><i>$p$</i></th>
-                <th style="width:80px"><i>$q$</i></th>
-                <th style="width:80px"><i>$ p \land q $ </i></th>
-                <th style="width:80px"><i>$ \neg (p\land q) $</i></th>
-                <th style="width:80px"><i>$ \neg p \lor \neg q $</i></th>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-          <hr />
-        </section>
-        <section data-transition="fade">
-          <h3><b>Tabela Verdade - Prática</b></h3>
-          <hr />
-          <table class="vtable">
-            <caption><b>Exemplo 1</b>
-            </caption>
-            <tbody>
-              <tr>
-                <th style="width:80px"><i>$p$</i></th>
-                <th style="width:80px"><i>$q$</i></th>
-                <th style="width:80px"><i>$ p \land q $ </i></th>
-                <th style="width:80px"><i>$ \neg (p\land q) $</i></th>
-                <th style="width:80px"><i>$ \neg p \lor \neg q $</i></th>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-          <hr />
-        </section>
-        <section data-transition="fade">
-          <h3><b>Tabela Verdade - Prática</b></h3>
-          <hr />
-          <table class="vtable">
-            <caption><b>Exemplo 1</b>
-            </caption>
-            <tbody>
-              <tr>
-                <th style="width:80px"><i>$p$</i></th>
-                <th style="width:80px"><i>$q$</i></th>
-                <th style="width:80px"><i>$ p \land q $ </i></th>
-                <th style="width:80px"><i>$ \neg (p\land q) $</i></th>
-                <th style="width:80px"><i>$ \neg p \lor \neg q $</i></th>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-          <hr />
-        </section>
-        <section data-transition="fade">
-          <h3><b>Tabela Verdade - Prática</b></h3>
-          <hr />
-          <table class="vtable">
-            <caption><b>Exemplo 1:</b>
-            </caption>
-            <tbody>
-              <tr>
-                <th style="width:80px"><i>$p$</i></th>
-                <th style="width:80px"><i>$q$</i></th>
-                <th style="width:80px"><i>$ p \land q $ </i></th>
-                <th style="width:80px"><i>$ \neg (p\land q) $</i></th>
-                <th style="width:80px"><i>$ \neg p \lor \neg q $</i></th>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-          <hr />
-        </section>
-        <section data-transition="fade">
-          <h3><b>Tabela Verdade - Prática</b></h3>
-          <hr />
-          <table class="vtable">
-            <caption><b>Exemplo</b>
-            </caption>
-            <tbody>
-              <tr>
-                <th style="width:80px"><i>$p$</i></th>
-                <th style="width:80px"><i>$q$</i></th>
-                <th style="width:80px"><i>$ p \land q $ </i></th>
-                <th style="width:80px"><i>$ \neg (p\land q) $</i></th>
-                <th style="width:80px"><i>$ \neg p \lor \neg q $</i></th>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-              </tr>
-            </tbody>
-          </table>
-          <hr />
-        </section>
-      </section>
-      <section>
-        <section>
-          <h3><b>Conjunção Negada - Nand $\uparrow$</b></h3>
-          <hr />
-          <p>
-            <table>
-              <caption>Tabela Verdade NAND
+          <section>
+            <h2>
+              <b>Tabelas Verdade <br /> Tautologias e Contradições</b>
+            </h2>
+            <p style="text-align: right !important;">
+              <br /><br />
+              <small>Frank de Alcantara - junho 2020</small>
+            </p>
+          </section>
+          <section>
+            <h3><b>Tabela Verdade - Prática</b></h3>
+            <hr />
+            <p> $p=$ Sílvia é professora. </p>
+            <p> $q=$ Sílvia é aluna. </p>
+            <p>
+              Considerando estas duas proposições vamos fazer a tabela Verdade para: $ p\land q $,$ \neg (p\land q) $, $
+              \neg p \lor \neg q $.
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Tabela Verdade - Prática</b></h3>
+            <hr />
+            <p> Como temos duas variáveis $p, q $ e três formulas: $ p \land q $,$ \neg (p\land q) $, $ \neg p
+              \lor \neg q $ nossa tabela terá três colunas e $2^2$ linhas, além da linha de título. Sendo assim:
+            </p>
+            <table class="vtable">
+              <caption><b>Exemplo 1</b>
               </caption>
               <tbody>
                 <tr>
-                  <th>$p$</th>
-                  <th>$q$</th>
-                  <th>$\neg (p \land q)$</th>
-                  <th>$(p \uparrow q )$</th>
-                  <th>$ (\neg p \lor \neg q) $</th>
+                  <th style="width:80px"><i>$p$</i></th>
+                  <th style="width:80px"><i>$q$</i></th>
+                  <th style="width:80px"><i>$ p \land q $ </i></th>
+                  <th style="width:80px"><i>$ \neg (p\land q) $</i></th>
+                  <th style="width:80px"><i>$ \neg p \lor \neg q $</i></th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            <hr />
+          </section>
+          <section data-transition="fade">
+            <h3><b>Tabela Verdade - Prática</b></h3>
+            <hr />
+            <table class="vtable">
+              <caption><b>Exemplo 1</b>
+              </caption>
+              <tbody>
+                <tr>
+                  <th style="width:80px"><i>$p$</i></th>
+                  <th style="width:80px"><i>$q$</i></th>
+                  <th style="width:80px"><i>$ p \land q $ </i></th>
+                  <th style="width:80px"><i>$ \neg (p\land q) $</i></th>
+                  <th style="width:80px"><i>$ \neg p \lor \neg q $</i></th>
                 </tr>
                 <tr>
                   <td>$T$</td>
                   <td>$T$</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>$T$</td>
                   <td>$F$</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            <hr />
+          </section>
+          <section data-transition="fade">
+            <h3><b>Tabela Verdade - Prática</b></h3>
+            <hr />
+            <table class="vtable">
+              <caption><b>Exemplo 1</b>
+              </caption>
+              <tbody>
+                <tr>
+                  <th style="width:80px"><i>$p$</i></th>
+                  <th style="width:80px"><i>$q$</i></th>
+                  <th style="width:80px"><i>$ p \land q $ </i></th>
+                  <th style="width:80px"><i>$ \neg (p\land q) $</i></th>
+                  <th style="width:80px"><i>$ \neg p \lor \neg q $</i></th>
+                </tr>
+                <tr>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
                   <td>$F$</td>
                   <td>$F$</td>
                 </tr>
                 <tr>
                   <td>$T$</td>
                   <td>$F$</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
                   <td>$T$</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            <hr />
+          </section>
+          <section data-transition="fade">
+            <h3><b>Tabela Verdade - Prática</b></h3>
+            <hr />
+            <table class="vtable">
+              <caption><b>Exemplo 1</b>
+              </caption>
+              <tbody>
+                <tr>
+                  <th style="width:80px"><i>$p$</i></th>
+                  <th style="width:80px"><i>$q$</i></th>
+                  <th style="width:80px"><i>$ p \land q $ </i></th>
+                  <th style="width:80px"><i>$ \neg (p\land q) $</i></th>
+                  <th style="width:80px"><i>$ \neg p \lor \neg q $</i></th>
+                </tr>
+                <tr>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                </tr>
+                <tr>
+                  <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
                   <td>$T$</td>
                   <td>$T$</td>
                 </tr>
                 <tr>
                   <td>$F$</td>
                   <td>$T$</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            <hr />
+          </section>
+          <section data-transition="fade">
+            <h3><b>Tabela Verdade - Prática</b></h3>
+            <hr />
+            <table class="vtable">
+              <caption><b>Exemplo 1:</b>
+              </caption>
+              <tbody>
+                <tr>
+                  <th style="width:80px"><i>$p$</i></th>
+                  <th style="width:80px"><i>$q$</i></th>
+                  <th style="width:80px"><i>$ p \land q $ </i></th>
+                  <th style="width:80px"><i>$ \neg (p\land q) $</i></th>
+                  <th style="width:80px"><i>$ \neg p \lor \neg q $</i></th>
+                </tr>
+                <tr>
                   <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                </tr>
+                <tr>
+                  <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$F$</td>
                   <td>$T$</td>
                   <td>$T$</td>
                 </tr>
                 <tr>
                   <td>$F$</td>
                   <td>$F$</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            <hr />
+          </section>
+          <section data-transition="fade">
+            <h3><b>Tabela Verdade - Prática</b></h3>
+            <hr />
+            <table class="vtable">
+              <caption><b>Exemplo</b>
+              </caption>
+              <tbody>
+                <tr>
+                  <th style="width:80px"><i>$p$</i></th>
+                  <th style="width:80px"><i>$q$</i></th>
+                  <th style="width:80px"><i>$ p \land q $ </i></th>
+                  <th style="width:80px"><i>$ \neg (p\land q) $</i></th>
+                  <th style="width:80px"><i>$ \neg p \lor \neg q $</i></th>
+                </tr>
+                <tr>
                   <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                </tr>
+                <tr>
+                  <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
                   <td>$T$</td>
                   <td>$T$</td>
                 </tr>
               </tbody>
             </table>
-          </p>
-          <p style="text-align:center !important;">
-            $ \neg(p \land q) \equiv (p \uparrow q) \equiv (\neg p \lor \neg q) $
-          </p>
-          <hr />
+            <hr />
+          </section>
         </section>
         <section>
-          <h3><b>Disjunção Negada - NOR $\downarrow$</b></h3>
-          <hr />
-          <p>
-            <table>
-              <caption>Tabela Verdade NOR
-              </caption>
+          <section>
+            <h3><b>Conjunção Negada - Nand $\uparrow$</b></h3>
+            <hr />
+            <p>
+              <table>
+                <caption>Tabela Verdade NAND
+                </caption>
+                <tbody>
+                  <tr>
+                    <th>$p$</th>
+                    <th>$q$</th>
+                    <th>$\neg (p \land q)$</th>
+                    <th>$(p \uparrow q )$</th>
+                    <th>$ (\neg p \lor \neg q) $</th>
+                  </tr>
+                  <tr>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                  </tr>
+                  <tr>
+                    <td>$T$</td>
+                    <td>$F$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                  </tr>
+                  <tr>
+                    <td>$F$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                  </tr>
+                  <tr>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                  </tr>
+                </tbody>
+              </table>
+            </p>
+            <p style="text-align:center !important;">
+              $ \neg(p \land q) \equiv (p \uparrow q) \equiv (\neg p \lor \neg q) $
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Disjunção Negada - NOR $\downarrow$</b></h3>
+            <hr />
+            <p>
+              <table>
+                <caption>Tabela Verdade NOR
+                </caption>
+                <tbody>
+                  <tr>
+                    <th>$p$</th>
+                    <th>$q$</th>
+                    <th>$\neg(p \lor q)$</th>
+                    <th>$ (p \downarrow q) $</th>
+                    <th>$ (\neg p \land \neg q) $</th>
+                  </tr>
+                  <tr>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                  </tr>
+                  <tr>
+                    <td>$T$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                  </tr>
+                  <tr>
+                    <td>$F$</td>
+                    <td>$T$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                  </tr>
+                  <tr>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                  </tr>
+                </tbody>
+              </table>
+            </p>
+            <p style="text-align:center !important;">
+              $ \neg(p \lor q) \equiv (p \downarrow q) \equiv (\neg p \land \neg q) $
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Disjunção exclusiva - XOR $\veebar$</b></h3>
+            <hr />
+            <p>
+              <table>
+                <caption>Tabela Verdade XOR
+                </caption>
+                <tbody>
+                  <tr>
+                    <th>$p$</th>
+                    <th>$q$</th>
+                    <th>$(p \veebar q)$</th>
+                    <th>$ (p \lor q) \land \neg (p \land q) $</th>
+                  </tr>
+                  <tr>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                  </tr>
+                  <tr>
+                    <td>$T$</td>
+                    <td>$F$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                  </tr>
+                  <tr>
+                    <td>$F$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                    <td>$T$</td>
+                  </tr>
+                  <tr>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                    <td>$F$</td>
+                  </tr>
+                </tbody>
+              </table>
+            </p>
+            <p style="text-align:center !important;">
+              $ (p \lor q) \land \neg (p \land q) \equiv (p \leftrightarrow q) \equiv (p \land \neg q) \lor (\neg p \land
+              q) $
+            </p>
+            <hr />
+          </section>
+        </section>
+        </section>
+        <section>
+          <section>
+            <h3><b>Fórmulas Proposicionais</b></h3>
+            <hr />
+            <p> Serão representadas por letras maiúsculas $P, Q, R, T$ </p>
+            <p>Todas as variáveis proposicionais são fórmulas proposicionais.</p>
+            <p>Se $P$ e $Q$ são fórmulas proposicionais então $\neg P$, $\neg Q$, $(P \land Q)$, $(P \lor Q)$, $(P
+              \rightarrow Q)$ e $(P \leftrightarrow Q)$ também são.</p>
+            <p>Nada mais é uma Fórmula Proposicional</p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Fórmulas Proposicionais</b></h3>
+            <hr />
+            <p>A sintaxe de uma fórmula bem formatada será determinada pelos conectivos que já vimos (não, ou, e,...).</p>
+            <p>A semântica será determinada pela Verdade da fórmula. Ou, ser preferir, pelo valor-Verdade.</p>
+            <p>Para encontar a Verdade de uma fórmula usamos a <strong>Tabela Verdade</strong> como ferramenta de cálculo.
+            </p>
+            <hr />
+          </section>
+          <section>
+            <h3><b>Encontrando a Verdade</b></h3>
+            <hr />
+            <p>
+              Para encontrar a Verdade de uma fórmula, repetimos o mesmo procedimento que utilizamos para preencher as
+              tabelas Verdade até o momento.
+              Primeiro, preechemos todas as combinações possíveis de entrada de acordo com as nossas variáveis, depois,
+              vamos preenchendo as colunas de acordo com as fórmulas.
+            </p>
+            <p>Lembre-se que o número de combinações possíveis será determinado por $2^n$ onde $n$ representa o número de
+              variáveis.</p>
+            <hr />
+          </section>
+          <section data-transition="fade">
+            <h3><b>Exemplo 2: $ (p \rightarrow (q \lor r)) $</b></h3>
+            <hr />
+            <p>Encontre Tabela Verdade para $P \equiv (p \rightarrow (q \lor r)) $</p>
+            <table style="font-size: 70% !important;">
               <tbody>
                 <tr>
                   <th>$p$</th>
                   <th>$q$</th>
-                  <th>$\neg(p \lor q)$</th>
-                  <th>$ (p \downarrow q) $</th>
-                  <th>$ (\neg p \land \neg q) $</th>
+                  <th>$r$</th>
+                  <th>$ (q \lor r) $</th>
+                  <th>$ (p \rightarrow (q \lor r)) $</th>
+                </tr>
+                <tr>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$ $</td>
+                  <td>$ $</td>
                 </tr>
                 <tr>
                   <td>$T$</td>
                   <td>$T$</td>
                   <td>$F$</td>
+                  <td>$ $</td>
+                  <td>$ $</td>
+                </tr>
+                <tr>
+                  <td>$T$</td>
                   <td>$F$</td>
-                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$ $</td>
+                  <td>$ $</td>
                 </tr>
                 <tr>
                   <td>$T$</td>
                   <td>$F$</td>
                   <td>$F$</td>
+                  <td>$ $</td>
+                  <td>$ $</td>
+                </tr>
+                <tr>
                   <td>$F$</td>
-                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$ $</td>
+                  <td>$ $</td>
                 </tr>
                 <tr>
                   <td>$F$</td>
                   <td>$T$</td>
                   <td>$F$</td>
-                  <td>$F$</td>
-                  <td>$F$</td>
+                  <td>$ $</td>
+                  <td>$ $</td>
                 </tr>
                 <tr>
                   <td>$F$</td>
                   <td>$F$</td>
                   <td>$T$</td>
-                  <td>$T$</td>
-                  <td>$T$</td>
+                  <td>$ $</td>
+                  <td>$ $</td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$ $</td>
+                  <td>$ $</td>
                 </tr>
               </tbody>
             </table>
-          </p>
-          <p style="text-align:center !important;">
-            $ \neg(p \lor q) \equiv (p \downarrow q) \equiv (\neg p \land \neg q) $
-          </p>
-          <hr />
-        </section>
-        <section>
-          <h3><b>Disjunção exclusiva - XOR $\veebar$</b></h3>
-          <hr />
-          <p>
-            <table>
-              <caption>Tabela Verdade XOR
-              </caption>
+            <hr />
+          </section>
+          <section data-transition="fade">
+            <h3><b>Exemplo 2: $ (p \rightarrow (q \lor r)) $</b></h3>
+            <hr />
+            <p>Encontre Tabela Verdade para $P \equiv (p \rightarrow (q \lor r)) $</p>
+            <table style="font-size: 70% !important;">
               <tbody>
                 <tr>
                   <th>$p$</th>
                   <th>$q$</th>
-                  <th>$(p \veebar q)$</th>
-                  <th>$ (p \lor q) \land \neg (p \land q) $</th>
+                  <th>$r$</th>
+                  <th>$(q \lor r)$</th>
+                  <th>$(p \rightarrow (q \lor r)) $</th>
+                </tr>
+                <tr>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$ $</td>
+                </tr>
+                <tr>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$ $</td>
+                </tr>
+                <tr>
+                  <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$ $</td>
+                </tr>
+                <tr>
+                  <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$ $</td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$ $</td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$ $</td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$ $</td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$ $</td>
+                </tr>
+              </tbody>
+            </table>
+            <hr />
+          </section>
+          <section data-transition="fade">
+            <h3><b></b>Exemplo 2: $ (p \rightarrow (q \lor r)) $</b></h3>
+            <hr />
+            <p>Encontre Tabela Verdade para $ (P \equiv (p \rightarrow (q \lor r)) $</p>
+            <table style="font-size: 70% !important;">
+              <tbody>
+                <tr>
+                  <th>$p$</th>
+                  <th>$q$</th>
+                  <th>$r$</th>
+                  <th>$ (q \lor r) $</th>
+                  <th>$ (p \rightarrow (q \lor r)) $</th>
+                </tr>
+                <tr>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                </tr>
+                <tr>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                </tr>
+                <tr>
+                  <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                </tr>
+                <tr>
+                  <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                </tr>
+                <tr>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$T$</td>
+                </tr>
+              </tbody>
+            </table>
+            <hr />
+          </section>
+          <section>
+            <h3><b></b>Exemplo 2: $(p \lor q) \rightarrow (p \land q)) $</b></h3>
+            <hr />
+            <p>Vamos distribuir a tabela por operação, e colocar o resultado na coluna do operador.</p>
+            <table style="font-size: 70% !important;">
+              <tbody>
+                <tr>
+                  <th>$(p$</th>
+                  <th>$ \lor $</th>
+                  <th>$q)$</th>
+                  <th>$\rightarrow$</th>
+                  <th>$(p$</th>
+                  <th>$ \land $</th>
+                  <th>$q) $</th>
+                </tr>
+                <tr>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
+                  <td>$T$</td>
                 </tr>
                 <tr>
                   <td>$T$</td>
                   <td>$T$</td>
                   <td>$F$</td>
                   <td>$F$</td>
-                </tr>
-                <tr>
                   <td>$T$</td>
                   <td>$F$</td>
-                  <td>$T$</td>
-                  <td>$T$</td>
+                  <td>$F$</td>
                 </tr>
                 <tr>
                   <td>$F$</td>
                   <td>$T$</td>
                   <td>$T$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
                   <td>$T$</td>
                 </tr>
                 <tr>
                   <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$F$</td>
+                  <td>$T$</td>
                   <td>$F$</td>
                   <td>$F$</td>
                   <td>$F$</td>
                 </tr>
               </tbody>
             </table>
-          </p>
-          <p style="text-align:center !important;">
-            $ (p \lor q) \land \neg (p \land q) \equiv (p \leftrightarrow q) \equiv (p \land \neg q) \lor (\neg p \land
-            q) $
-          </p>
-          <hr />
+            <hr />
+          </section>
+          <section>
+            <h3><b></b>Árvore sintática</b></h3>
+            <hr />
+            <table>
+              <tr>
+                <td>Tabela Verdade</td>
+                <td>Árvore Verdade</td>
+              </tr>
+              <tr>
+                <td>
+                  <table style="font-size: 70% !important;">
+                    <tbody>
+                      <tr>
+                        <th>$(p$</th>
+                        <th>$ \lor $</th>
+                        <th>$q)$</th>
+                        <th>$\rightarrow$</th>
+                        <th>$(p$</th>
+                        <th>$ \land $</th>
+                        <th>$q) $</th>
+                      </tr>
+                      <tr>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                      </tr>
+                      <tr>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$T$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                      </tr>
+                      <tr>
+                        <td>$F$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$T$</td>
+                      </tr>
+                      <tr>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$T$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td>
+                  <img data-src="../img/arvoreSintatica1.svg" alt="exemplo de máquina de estados finitos" style="height: 300px !important;" />
+                </td>
+              </tr>
+            </table>
+            <hr />
+          </section>
+          <section>
+            <h3><b></b>Validade e Consistência</b></h3>
+            <hr />
+            <ol>
+              <li>Se $A \equiv T $ para qualquer Interpretação $I$ dizemos que <strong>$A$ é verdadeira na intepretação
+                  $I$.</strong></li>
+              <li>Se $A \equiv T $ segundo uma Interpretação $I$ dizemos que $A$ é <strong>consistente</strong>.</li>
+              <li>Se $A \equiv T $ em todas as suas interpretações dizemos que $A$ é uma <strong>tautologia</strong>.</li>
+            </ol>
+            <hr />
+          </section>
+          <section>
+            <h3><b></b>Validade e Consistência</b></h3>
+            <hr />
+            <table>
+              <tr>
+                <td>Tabela Verdade</td>
+                <td>Interpretação</td>
+              </tr>
+              <tr>
+                <td>
+                  <table style="font-size: 70% !important;">
+                    <tbody>
+                      <tr>
+                        <th>$(p$</th>
+                        <th>$ \lor $</th>
+                        <th>$q)$</th>
+                        <th>$\rightarrow$</th>
+                        <th>$(p$</th>
+                        <th>$ \land $</th>
+                        <th>$q) $</th>
+                      </tr>
+                      <tr>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                      </tr>
+                      <tr>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$T$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                      </tr>
+                      <tr>
+                        <td>$F$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$T$</td>
+                      </tr>
+                      <tr>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$T$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td>
+                  <ul style="font-size: 80% !important;">
+                    <li>$A \equiv ((p \lor q) \rightarrow (p \land q)) $</li>
+                    <li> $A$ é verdadeira nas intepretações $1$ e $4$.</li>
+                    <li> $A$ é <strong>consistente</strong>.</li>
+                    <li> $A$ não é uma <strong>tautologia</strong>.</li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+            <hr />
+          </section>
+          <section>
+            <h3><b></b>Validade e Consistência</b></h3>
+            <hr />
+            <ol>
+              <li>Se $A \equiv F $ para qualquer Interpretação $I$ dizemos que <strong>$A$ é falsa na intepretação
+                  $I$.</strong></li>
+              <li>Se $A \equiv F $ segundo uma Interpretação $I$ dizemos que $A$ é <strong>inválida</strong>.</li>
+              <li>Se $A \equiv F $ em todas as suas interpretações $A$ é <strong>inconsistente</strong> e chamamos de
+                <strong>contradição</strong>.
+              </li>
+            </ol>
+            <hr />
+          </section>
+          <section>
+            <h3><b></b>Validade e Consistência</b></h3>
+            <hr />
+            <table>
+              <tr>
+                <td>Tabela Verdade</td>
+                <td>Interpretação</td>
+              </tr>
+              <tr>
+                <td>
+                  <table style="font-size: 70% !important;">
+                    <tbody>
+                      <tr>
+                        <th>$(p$</th>
+                        <th>$ \lor $</th>
+                        <th>$q)$</th>
+                        <th>$\rightarrow$</th>
+                        <th>$(p$</th>
+                        <th>$ \land $</th>
+                        <th>$q) $</th>
+                      </tr>
+                      <tr>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                      </tr>
+                      <tr>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$T$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                      </tr>
+                      <tr>
+                        <td>$F$</td>
+                        <td>$T$</td>
+                        <td>$T$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$T$</td>
+                      </tr>
+                      <tr>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$T$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                        <td>$F$</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td>
+                  <ul style="font-size: 80% !important;">
+                    <li>$A \equiv ((p \lor q) \rightarrow (p \land q)) $</li>
+                    <li> $A$ é falsa nas intepretações $2$ e $3$.</li>
+                    <li> $A$ não é uma <strong>tautologia</strong>.</li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+            <hr />
+          </section>
+          <section>
+            <h3><b></b>Validade e Consistência</b></h3>
+            <hr />
+            <p>Uma fórmula que não é <strong>TAUTOLOGIA</strong> nem <strong>CONTRADIÇÃO</strong> é denominada fórmula
+              <strong>CONTINGENTE</strong> ou <strong>CONTINGÊNCIA</strong>.</p>
+          </section>
+          <section>
+            <h3><b></b>Axiomas</b></h3>
+            <hr />
+            <ol>
+              <li>Uma fórmula é inconsistente se, e somente se, sua negação for válida.</li>
+              <li>Uma fórmula é inválida se, e somente se, existe pelo menos uma
+                interpretação na qual ela é <strong>falsa</strong>.</li>
+              <li>Uma fórmula é consistente se, e somente se, existe pelo menos uma
+                interpretação na qual ela é <strong>verdadeira</strong>.</li>
+              <li>Se uma fórmula é válida então ela é consistente, mas não vice-versa.</li>
+              <li>Se uma fórmula é inconsistente, então ela é inválida, mas a não vice-versa.</li>
+            </ol>
+          </section>
         </section>
-      </section>
-      </section>
-      <section>
-        <section>
-          <h3><b>Fórmulas Proposicionais</b></h3>
-          <hr />
-          <p> Serão representadas por letras maiúsculas $P, Q, R, T$ </p>
-          <p>Todas as variáveis proposicionais são fórmulas proposicionais.</p>
-          <p>Se $P$ e $Q$ são fórmulas proposicionais então $\neg P$, $\neg Q$, $(P \land Q)$, $(P \lor Q)$, $(P
-            \rightarrow Q)$ e $(P \leftrightarrow Q)$ também são.</p>
-          <p>Nada mais é uma Fórmula Proposicional</p>
-          <hr />
-        </section>
-        <section>
-          <h3><b>Fórmulas Proposicionais</b></h3>
-          <hr />
-          <p>A sintaxe de uma fórmula bem formatada será determinada pelos conectivos que já vimos (não, ou, e,...).</p>
-          <p>A semântica será determinada pela Verdade da fórmula. Ou, ser preferir, pelo valor-Verdade.</p>
-          <p>Para encontar a Verdade de uma fórmula usamos a <strong>Tabela Verdade</strong> como ferramenta de cálculo.
-          </p>
-          <hr />
-        </section>
-        <section>
-          <h3><b>Encontrando a Verdade</b></h3>
-          <hr />
-          <p>
-            Para encontrar a Verdade de uma fórmula, repetimos o mesmo procedimento que utilizamos para preencher as
-            tabelas Verdade até o momento.
-            Primeiro, preechemos todas as combinações possíveis de entrada de acordo com as nossas variáveis, depois,
-            vamos preenchendo as colunas de acordo com as fórmulas.
-          </p>
-          <p>Lembre-se que o número de combinações possíveis será determinado por $2^n$ onde $n$ representa o número de
-            variáveis.</p>
-          <hr />
-        </section>
-        <section data-transition="fade">
-          <h3><b>Exemplo 2: $ (p \rightarrow (q \lor r)) $</b></h3>
-          <hr />
-          <p>Encontre Tabela Verdade para $P \equiv (p \rightarrow (q \lor r)) $</p>
-          <table style="font-size: 70% !important;">
-            <tbody>
-              <tr>
-                <th>$p$</th>
-                <th>$q$</th>
-                <th>$r$</th>
-                <th>$ (q \lor r) $</th>
-                <th>$ (p \rightarrow (q \lor r)) $</th>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$ $</td>
-                <td>$ $</td>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$ $</td>
-                <td>$ $</td>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$ $</td>
-                <td>$ $</td>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$ $</td>
-                <td>$ $</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$ $</td>
-                <td>$ $</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$ $</td>
-                <td>$ $</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$ $</td>
-                <td>$ $</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$ $</td>
-                <td>$ $</td>
-              </tr>
-            </tbody>
-          </table>
-          <hr />
-        </section>
-        <section data-transition="fade">
-          <h3><b>Exemplo 2: $ (p \rightarrow (q \lor r)) $</b></h3>
-          <hr />
-          <p>Encontre Tabela Verdade para $P \equiv (p \rightarrow (q \lor r)) $</p>
-          <table style="font-size: 70% !important;">
-            <tbody>
-              <tr>
-                <th>$p$</th>
-                <th>$q$</th>
-                <th>$r$</th>
-                <th>$(q \lor r)$</th>
-                <th>$(p \rightarrow (q \lor r)) $</th>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$ $</td>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$ $</td>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$ $</td>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$ $</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$ $</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$ $</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$ $</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$ $</td>
-              </tr>
-            </tbody>
-          </table>
-          <hr />
-        </section>
-        <section data-transition="fade">
-          <h3><b></b>Exemplo 2: $ (p \rightarrow (q \lor r)) $</b></h3>
-          <hr />
-          <p>Encontre Tabela Verdade para $ (P \equiv (p \rightarrow (q \lor r)) $</p>
-          <table style="font-size: 70% !important;">
-            <tbody>
-              <tr>
-                <th>$p$</th>
-                <th>$q$</th>
-                <th>$r$</th>
-                <th>$ (q \lor r) $</th>
-                <th>$ (p \rightarrow (q \lor r)) $</th>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-              </tr>
-            </tbody>
-          </table>
-          <hr />
         </section>
         <section>
-          <h3><b></b>Exemplo 2: $(p \lor q) \rightarrow (p \land q)) $</b></h3>
-          <hr />
-          <p>Vamos distribuir a tabela por operação, e colocar o resultado na coluna do operador.</p>
-          <table style="font-size: 70% !important;">
-            <tbody>
-              <tr>
-                <th>$(p$</th>
-                <th>$ \lor $</th>
-                <th>$q)$</th>
-                <th>$\rightarrow$</th>
-                <th>$(p$</th>
-                <th>$ \land $</th>
-                <th>$q) $</th>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-              </tr>
-              <tr>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-              </tr>
-              <tr>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$T$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-                <td>$F$</td>
-              </tr>
-            </tbody>
-          </table>
-          <hr />
+          <section>
+            <h3><b>Material de apoio</b></h3>
+            <hr />
+            <p>Clique <a href="./logicaProposicional.pdf">aqui</a> abrir o material de suporte.</p>
+          </section>
         </section>
-        <section>
-          <h3><b></b>Árvore sintática</b></h3>
-          <hr />
-          <table>
-            <tr>
-              <td>Tabela Verdade</td>
-              <td>Árvore Verdade</td>
-            </tr>
-            <tr>
-              <td>
-                <table style="font-size: 70% !important;">
-                  <tbody>
-                    <tr>
-                      <th>$(p$</th>
-                      <th>$ \lor $</th>
-                      <th>$q)$</th>
-                      <th>$\rightarrow$</th>
-                      <th>$(p$</th>
-                      <th>$ \land $</th>
-                      <th>$q) $</th>
-                    </tr>
-                    <tr>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                    </tr>
-                    <tr>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$T$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                    </tr>
-                    <tr>
-                      <td>$F$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$T$</td>
-                    </tr>
-                    <tr>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$T$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-              <td>
-                <img data-src="../img/arvoreSintatica1.svg" alt="exemplo de máquina de estados finitos"
-                  style="height: 300px !important;" />
-              </td>
-            </tr>
-          </table>
-          <hr />
-        </section>
-        <section>
-          <h3><b></b>Validade e Consistência</b></h3>
-          <hr />
-          <ol>
-            <li>Se $A \equiv T $ para qualquer Interpretação $I$ dizemos que <strong>$A$ é verdadeira na intepretação
-                $I$.</strong></li>
-            <li>Se $A \equiv T $ segundo uma Interpretação $I$ dizemos que $A$ é <strong>consistente</strong>.</li>
-            <li>Se $A \equiv T $ em todas as suas interpretações dizemos que $A$ é uma <strong>tautologia</strong>.</li>
-          </ol>
-          <hr />
-        </section>
-        <section>
-          <h3><b></b>Validade e Consistência</b></h3>
-          <hr />
-          <table>
-            <tr>
-              <td>Tabela Verdade</td>
-              <td>Interpretação</td>
-            </tr>
-            <tr>
-              <td>
-                <table style="font-size: 70% !important;">
-                  <tbody>
-                    <tr>
-                      <th>$(p$</th>
-                      <th>$ \lor $</th>
-                      <th>$q)$</th>
-                      <th>$\rightarrow$</th>
-                      <th>$(p$</th>
-                      <th>$ \land $</th>
-                      <th>$q) $</th>
-                    </tr>
-                    <tr>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                    </tr>
-                    <tr>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$T$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                    </tr>
-                    <tr>
-                      <td>$F$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$T$</td>
-                    </tr>
-                    <tr>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$T$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-              <td>
-                <ul style="font-size: 80% !important;">
-                  <li>$A \equiv ((p \lor q) \rightarrow (p \land q)) $</li>
-                  <li> $A$ é verdadeira nas intepretações $1$ e $4$.</li>
-                  <li> $A$ é <strong>consistente</strong>.</li>
-                  <li> $A$ não é uma <strong>tautologia</strong>.</li>
-                </ul>
-              </td>
-            </tr>
-          </table>
-          <hr />
-        </section>
-        <section>
-          <h3><b></b>Validade e Consistência</b></h3>
-          <hr />
-          <ol>
-            <li>Se $A \equiv F $ para qualquer Interpretação $I$ dizemos que <strong>$A$ é falsa na intepretação
-                $I$.</strong></li>
-            <li>Se $A \equiv F $ segundo uma Interpretação $I$ dizemos que $A$ é <strong>inválida</strong>.</li>
-            <li>Se $A \equiv F $ em todas as suas interpretações $A$ é <strong>inconsistente</strong> e chamamos de
-              <strong>contradição</strong>.
-            </li>
-          </ol>
-          <hr />
-        </section>
-        <section>
-          <h3><b></b>Validade e Consistência</b></h3>
-          <hr />
-          <table>
-            <tr>
-              <td>Tabela Verdade</td>
-              <td>Interpretação</td>
-            </tr>
-            <tr>
-              <td>
-                <table style="font-size: 70% !important;">
-                  <tbody>
-                    <tr>
-                      <th>$(p$</th>
-                      <th>$ \lor $</th>
-                      <th>$q)$</th>
-                      <th>$\rightarrow$</th>
-                      <th>$(p$</th>
-                      <th>$ \land $</th>
-                      <th>$q) $</th>
-                    </tr>
-                    <tr>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                    </tr>
-                    <tr>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$T$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                    </tr>
-                    <tr>
-                      <td>$F$</td>
-                      <td>$T$</td>
-                      <td>$T$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$T$</td>
-                    </tr>
-                    <tr>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$T$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                      <td>$F$</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-              <td>
-                <ul style="font-size: 80% !important;">
-                  <li>$A \equiv ((p \lor q) \rightarrow (p \land q)) $</li>
-                  <li> $A$ é falsa nas intepretações $2$ e $3$.</li>
-                  <li> $A$ não é uma <strong>tautologia</strong>.</li>
-                </ul>
-              </td>
-            </tr>
-          </table>
-          <hr />
-        </section>
-        <section>
-          <h3><b></b>Validade e Consistência</b></h3>
-          <hr />
-          <p>Uma fórmula que não é <strong>TAUTOLOGIA</strong> nem <strong>CONTRADIÇÃO</strong> é denominada fórmula
-            <strong>CONTINGENTE</strong> ou <strong>CONTINGÊNCIA</strong>.</p>
-        </section>
-        <section>
-          <h3><b></b>Axiomas</b></h3>
-          <hr />
-          <ol>
-            <li>Uma fórmula é inconsistente se, e somente se, sua negação for válida.</li>
-            <li>Uma fórmula é inválida se, e somente se, existe pelo menos uma
-              interpretação na qual ela é <strong>falsa</strong>.</li>
-            <li>Uma fórmula é consistente se, e somente se, existe pelo menos uma
-              interpretação na qual ela é <strong>verdadeira</strong>.</li>
-            <li>Se uma fórmula é válida então ela é consistente, mas não vice-versa.</li>
-            <li>Se uma fórmula é inconsistente, então ela é inválida, mas a não vice-versa.</li>
-          </ol>
-        </section>
-      </section>
-      </section>
-      <section>
-        <section>
-          <h3><b>Material de apoio</b></h3>
-          <hr />
-          <p>Clique <a href="out/2-TabelasVerdade.pdf" target="_blanck">aqui</a> abrir o material de suporte.</p>
-        </section>
-      </section>
+      </div>
+      <!--fecha slides-->
     </div>
-    <!--fecha slides-->
-  </div>
-  <!--fecha reveal-->
+    <!--fecha reveal-->
 
-  <script src="../../rev/reveal.js"></script>
-  <script src="../../rev/plugin/zoom/zoom.js"></script>
-  <script src="../../rev/plugin/notes/notes.js"></script>
-  <script src="../../rev/plugin/search/search.js"></script>
-  <script src="../../rev/plugin/markdown/markdown.js"></script>
-  <script src="../../rev/plugin/highlight/highlight.js"></script>
-  <script>
-    Reveal.initialize({
-      controls: true,
-      progress: true,
-      center: true,
-      hash: true,
-      math: {
-        mathjax: "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
-        config: "TeX-AMS_HTML-full",
-        TeX: {
-          Macros: {
-            RR: "{\\bf R}"
-          }
+    <script src="../../rev/reveal.js"></script>
+    <script src="../../rev/plugin/zoom/zoom.js"></script>
+    <script src="../../rev/plugin/notes/notes.js"></script>
+    <script src="../../rev/plugin/search/search.js"></script>
+    <script src="../../rev/plugin/markdown/markdown.js"></script>
+    <script src="../../rev/plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+        math: {
+          mathjax: "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+          config: "TeX-AMS_HTML-full",
+          TeX: {
+            Macros: {
+              RR: "{\\bf R}"
+            }
+          },
         },
-      },
-      plugins: [
-        RevealZoom,
-        RevealNotes,
-        RevealSearch,
-        RevealMath,
-        RevealMarkdown,
-        RevealHighlight,
-      ],
-    });
-  </script>
-</body>
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMath,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
+  </body>
 
 </html>
