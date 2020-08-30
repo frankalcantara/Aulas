@@ -13,8 +13,7 @@ using namespace std;
 //protótipo de função
 void display(int *, string);
 
-int main()
-{
+int main(){
 
     //iniciando um gerador de números randômicos
     srand((unsigned)time(0));
