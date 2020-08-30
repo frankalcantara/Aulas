@@ -2,16 +2,12 @@
   // See https://go.microsoft.com/fwlink/?LinkId=733558
   // for the documentation about the tasks.json format
   "version": "2.0.0",
-  "tasks": [
-    {
+  "tasks": [{
       "label": "make",
       "type": "shell",
       "command": "bash -c 'make all'",
       "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      }
+      "group": "build"
     },
     {
       "label": "make-fast",
@@ -19,6 +15,28 @@
       "command": "bash -c 'make slides'",
       "problemMatcher": [],
       "group": "build"
+    },
+    {
+      "type": "shell",
+      "label": "C/C++: cl.exe build active file",
+      "command": "cl.exe",
+      "args": [
+        "/Zi",
+        "/EHsc",
+        "/Fe:",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "${file}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$msCompile"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     }
   ]
 }

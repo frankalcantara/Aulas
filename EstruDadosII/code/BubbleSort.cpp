@@ -21,7 +21,7 @@ int main()
     //preenchendo o conjunto (array a) com números randômicos.
     for (int i = 0; i < tam; i++)
     {
-        a[i] = (rand() % 100) + 1; //randômicos menores que cem
+        a[i] = (rand() % 1000) + 1; //randômicos menores que cem
     }
 
     //imprime a lista criada que será ordenada
