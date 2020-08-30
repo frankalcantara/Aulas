@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Frank Coelho de Alcantara">
+  <title>Algoritmos de Ordenação Interna</title>
+  <meta name="author" content="Frank de Alcantara" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/estrutdados.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="title-slide" class="nivel1">
+        <h1 class="title">Algoritmos de Ordenação Interna</h1>
+        <p style="text-algin:right !important">Frank Coelho de Alcantara</p>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Ordenação</h2>
+          <p>Entre os algoritmos mais importantes destacam-se os algoritmos de ordenação, em inglês <em>sort</em>, isto porque a maior parte das tarefas diárias
+            envolve alguma forma de ordenação. </p>
+          <p><strong>Problema:</strong> dado um conjunto de dados qualquer, de que forma podemos ordenar estes dados em uma sequência determinada. </p>
+        </section>
+        <section>
+          <h2>Conceito</h2>
+          <p>A escolha do algoritmo para a solução de um determinado problema depende do problema, dos recursos disponíveis e da característica dos dados. </p>
+        </section>
+        <section>
+          <h2>Exemplo visual</h2>
+          <iframe width="100%" height="500" src="https://www.youtube.com/embed/ZZuD6iUe3Pc" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+          </iframe>
+        </section>
+        <section class="nivel1">
+          <h1>Material de apoio</h1>
+          <p>Baixe o material de apoio <a href="1-ordena.pdf">clicando aqui</a> </p>
+        </section>
+      </section>
+    </div>
+  </div>
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
+
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
+</html>

@@ -1,187 +1,183 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="author" content="Frank Coelho de Alcantara" />
-		<title>Heap Sort</title>
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta
-			name="apple-mobile-web-app-status-bar-style"
-			content="black-translucent"
-		/>
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
-		/>
-		<link rel="stylesheet" href="../../rev/reset.css" />
-		<link rel="stylesheet" href="../../rev/reveal.css" />
-		<link rel="stylesheet" href="../../rev/novaAulas.css" />
-	</head>
 
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section id="title-slide">
-					<h1 class="title">Heap Sort</h1>
-					<p class="author" style="text-align: right !important">
-						Frank Coelho de Alcantara
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Frank Coelho de Alcantara" />
+	<title>Heap Sort</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta
+		name="apple-mobile-web-app-status-bar-style"
+		content="black-translucent" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	<link rel="stylesheet" href="../../rev/reset.css" />
+	<link rel="stylesheet" href="../../rev/reveal.css" />
+	<link rel="stylesheet" href="../../rev/estrutdados.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section id="title-slide" class="nivel1">
+				<h1>Heap Sort</h1>
+				<p style="text-align: right !important">Frank Coelho de Alcantara</p>
+			</section>
+			<section class="nivel1">
+				<section>
+					<h2>Heap</h2>
+					<p>
+						Mais uma palavra em inglês que significa pilha, amontoado...
+						<br />
+						Com o sentido de que coisas estão arrumadas, uma em cima da outra.
+					</p>
+					<p>
+						Em computação, <i>heap</i> é uma estrutura de dados que tem a
+						forma de uma árvore binária quase completa.
+					</p>
+					<p>
+						Neste caso a árvore está completa em todos os seus níveis, exceto,
+						talvez, o nível mais baixo.
 					</p>
 				</section>
 				<section>
-					<section class="title-slide slide level1">
-						<h2>Heap</h2>
-						<p>
-							Mais uma palavra em inglês que significa pilha, amontoado...
-							<br />
-							Com o sentido de que coisas estão arrumadas, uma em cima da outra.
-						</p>
-						<p>
-							Em computação, <i>heap</i> é uma estrutura de dados que tem a
-							forma de uma árvore binária quase completa.
-						</p>
-						<p>
-							Neste caso a árvore está completa em todos os seus níveis, exceto,
-							talvez, o nível mais baixo.
-						</p>
-					</section>
-					<section>
-						<h2>Exemplo de <i>heap</i></h2>
-						<img
-							data-src="../img/heap1.png"
-							alt="algoritmos de parser mais comuns"
-						/>
-          </section>
-          <section>
-						<h2>heap - Propriedades</i></h2>
-            <p><strong>Forma</strong>: uma folha na profunidade $k>0$ só pode existir se todos $2^{k-1}$ nós da profundidade $k-1$ existirem.</p>
-            <p><strong>Preenchimento</strong>: nós icompletos devem ser preenchidos da <i>esquerda para direita</i>.</p>
-            <p><strong>Pilha</strong>: Cada nó da <i>árvore</i> deve conter um valor maior ou igual ao valor dos seus filhos.</p>
-          </section>
-          <section>
-						<h2>heap - Propriedades</i></h2>
-            <p>Graças a rigidez das propriedades, um <i>heap</i> pode ser armazenado em um array. </p>
-            	<img
-							data-src="../img/heap1.png"
-              alt="algoritmos de parser mais comuns"
-              class="fragment fade-up" style="max-width: 40%; float: left; margin-left: 10%"
-            />
-            	<img
-							data-src="../img/heap2.png"
-              alt="algoritmos de parser mais comuns"
-              class="fragment fade-up" style="max-width: 40%; float: right; margin-right: 4%; margin-top: 12%;"
-            />
-            <p class="fragment fade-up"><small><br/><strong>Sem perder nenhuma informação estrutural.</strong></small></p>
-          </section>
-          <section>
-						<h2>heap - array</i></h2>
-            <p> O array $A$ que representa um <i>heap</i> possui duas propriedades: comprimento $A.comp$, que 
-            indica o número de elementos deste array e o tamanho do <i>heap</i> $A.heap$ que indica quantos elementos do 
-            <i>heap</i> estão no array. Isso quer dizer que mesmo que o array $A$ tenha um comprimento determinado, apenas os elementos
-            localizados entre $A[1]$ e $A[heap]$ são elementos do <i>heap</i>. De tal forma que: $$0 <= A.heap <= A.comp$$</p>
-          </section>
-          <section>
-						<h2>heap - array</i></h2>
-            <p> Na forma de array a raiz será sempre o primeiro nó do array $A[0]$. Dado um nó $i$ qualquer, que não seja a raiz. Seu filho da esquerda pode ser encontrado por $2i$, o filho da direita por $2i+1$ e seu pai por $(i-1)/2$</p>
-            <img
-                data-src="../img/heap3.png"
-                alt="algoritmos de parser mais comuns"
-                class="fragment fade-up" 
-              />
-          </section>
-          <section>
-						<h2>Heap - Implementação</i></h2>
-            <p>Dado um conjunto qualquer de dados, primeiro precisamos organizar estes dados, dentro do próprio array, seguindo 
-              a ordem indicada para que este array seja a correta representação de um <i>heap</i>. Vamos chamar esta ação de <strong>construir</strong>.
-            </p>  
-            <p>Uma vez que o <i>heap</i> tenha sido construído, precisamos ordenar este array. Faremos isso dividindo este arry em dois e chamando a função de 
-              ordenação de forma recursiva. 
-            </p>  
-          </section>
+					<h2>Exemplo de heap</h2>
+					<img
+						data-src="../img/heap1.png"
+						alt="algoritmos de parser mais comuns" />
 				</section>
-
 				<section>
-					<section>
-						<h1>Material de apoio</h1>
-						<p>
-							Você pode baixar o material de apoio
-							<a href="./INTERPRETADORES.pdf">clicando aqui</a>
-						</p>
-					</section>
-					<section>
-						<h2>Obras Citadas</h2>
-						<p>
-							AHO, A. V. et al.
-							<strong>Compiladores: princípios, técnicas e ferramentas</strong>.
-							2º. ed. Boston, MA, USA: Pearson Education Inc. , 2007. <br />
-							CASS, S. <strong>The 2016 Top Programming Languages</strong>. IEEE
-							Spectrum, 2016. Disponível em:
-							<http://spectrum.ieee.org/computing/software/the-2016-top-programming-languages>.
-							Acesso em: 22 Set. 2016.
-						</p>
-					</section>
+					<h2>heap - Propriedades</i></h2>
+					<p><strong>Forma</strong>: uma folha na profunidade $k>0$ só pode existir se todos $2^{k-1}$ nós da profundidade $k-1$ existirem.</p>
+					<p><strong>Preenchimento</strong>: nós icompletos devem ser preenchidos da <i>esquerda para direita</i>.</p>
+					<p><strong>Pilha</strong>: Cada nó da <i>árvore</i> deve conter um valor maior ou igual ao valor dos seus filhos.</p>
 				</section>
-			</div>
+				<section>
+					<h2>heap - Propriedades</i></h2>
+					<p>Graças a rigidez das propriedades, um <i>heap</i> pode ser armazenado em um array. </p>
+					<img
+						data-src="../img/heap1.png"
+						alt="algoritmos de parser mais comuns"
+						class="fragment fade-up" style="max-width: 40%; float: left; margin-left: 10%" />
+					<img
+						data-src="../img/heap2.png"
+						alt="algoritmos de parser mais comuns"
+						class="fragment fade-up" style="max-width: 40%; float: right; margin-right: 4%; margin-top: 12%;" />
+					<p class="fragment fade-up"><small><br /><strong>Sem perder nenhuma informação estrutural.</strong></small></p>
+				</section>
+				<section>
+					<h2>heap - array</i></h2>
+					<p> O array $A$ que representa um <i>heap</i> possui duas propriedades: comprimento $A.comp$, que
+						indica o número de elementos deste array e o tamanho do <i>heap</i> $A.heap$ que indica quantos elementos do
+						<i>heap</i> estão no array. Isso quer dizer que mesmo que o array $A$ tenha um comprimento determinado, apenas os elementos
+						localizados entre $A[1]$ e $A[heap]$ são elementos do <i>heap</i>. De tal forma que: $$0 <= A.heap <=A.comp$$</p>
+				</section>
+				<section>
+					<h2>heap - array</i></h2>
+					<p> Na forma de array a raiz será sempre o primeiro nó do array $A[0]$. Dado um nó $i$ qualquer, que não seja a raiz. Seu filho da esquerda
+						pode ser encontrado por $2i$, o filho da direita por $2i+1$ e seu pai por $(i-1)/2$</p>
+					<img
+						data-src="../img/heap3.png"
+						alt="algoritmos de parser mais comuns"
+						class="fragment fade-up" />
+				</section>
+				<section>
+					<h2>Heap - Implementação</i></h2>
+					<p>Dado um conjunto qualquer de dados, primeiro precisamos organizar estes dados, dentro do próprio array, seguindo
+						a ordem indicada para que este array seja a correta representação de um <i>heap</i>. Vamos chamar esta ação de
+						<strong>construir</strong>.
+					</p>
+					<p>Uma vez que o <i>heap</i> tenha sido construído, precisamos ordenar este array. Faremos isso dividindo este arry em dois e chamando a
+						função de
+						ordenação de forma recursiva.
+					</p>
+				</section>
+			</section>
+			<section class="nivel1">
+				<section>
+					<h1>Material de apoio</h1>
+					<p>
+						Você pode baixar o material de apoio
+						<a href="./INTERPRETADORES.pdf">clicando aqui</a>
+					</p>
+				</section>
+				<section>
+					<h2>Obras Citadas</h2>
+					<p>
+						AHO, A. V. et al.
+						<strong>Compiladores: princípios, técnicas e ferramentas</strong>.
+						2º. ed. Boston, MA, USA: Pearson Education Inc. , 2007. <br />
+						CASS, S. <strong>The 2016 Top Programming Languages</strong>. IEEE
+						Spectrum, 2016. Disponível em:
+						<http: //spectrum.ieee.org/computing/software/the-2016-top-programming-languages>.
+							Acesso em: 22 Set. 2016.
+					</p>
+				</section>
+			</section>
 		</div>
-		<script src="../../rev/reveal.js"></script>
-		<script src="../../rev/plugin/notes/notes.js"></script>
-		<script src="../../rev/plugin/search/search.js"></script>
-		<script src="../../rev/plugin/zoom/zoom.js"></script>
-		<script src="../../rev/plugin/math/math.js"></script>
-		<script src="../../rev/plugin/menu/menu.js"></script>
-		<script src="../../rev/plugin/chalkboard/plugin.js"></script>
+	</div>
+	<script src="../../rev/reveal.js"></script>
+	<script src="../../rev/plugin/notes/notes.js"></script>
+	<script src="../../rev/plugin/search/search.js"></script>
+	<script src="../../rev/plugin/zoom/zoom.js"></script>
+	<script src="../../rev/plugin/math/math.js"></script>
+	<script src="../../rev/plugin/menu/menu.js"></script>
+	<script src="../../rev/plugin/chalkboard/plugin.js"></script>
 
-		<script>
-			// Full list of configuration options available at:
-			// https://revealjs.com/config/
-			Reveal.initialize({
-				// Push each slide change to the browser history
-				history: true,
-				// Transition style
-				transition: "fade", // none/fade/slide/convex/concave/zoom
+	<script>
+		// Full list of configuration options available at:
+		// https://revealjs.com/config/
+		Reveal.initialize({
+			// Push each slide change to the browser history
+			history: true,
+			// Transition style
+			transition: "fade", // none/fade/slide/convex/concave/zoom
 
-				math: {
-					mathjax:
-						"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
-					config: "TeX-AMS_HTML-full",
-					// pass other options into `MathJax.Hub.Config()`
-					TeX: {
-						Macros: {
-							RR: "{\\bf R}",
-						},
+			math: {
+				mathjax:
+					"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+				config: "TeX-AMS_HTML-full",
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: {
+					Macros: {
+						RR: "{\\bf R}",
 					},
 				},
-				menu: {
-					side: "left",
-					width: "normal",
-					numbers: false,
-					titleSelector: "h1, h2, h3, h4, h5, h6",
-					useTextContentForMissingTitles: false,
-					hideMissingTitles: false,
-					markers: true,
-					custom: false,
-					themes: false,
-					themesPath: "dist/theme/",
-					transitions: false,
-					openButton: true,
-					openSlideNumber: false,
-					keyboard: true,
-					sticky: false,
-					autoOpen: true,
-					delayInit: false,
-					openOnInit: false,
-					loadIcons: true,
-				},
+			},
+			menu: {
+				side: "left",
+				width: "normal",
+				numbers: false,
+				titleSelector: "h1, h2, h3, h4, h5, h6",
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: false,
+				themesPath: "dist/theme/",
+				transitions: false,
+				openButton: true,
+				openSlideNumber: false,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true,
+			},
 
-				// reveal.js plugins
-				plugins: [
-					RevealNotes,
-					RevealMath,
-					RevealMenu,
-					RevealChalkboard,
-					RevealSearch,
-					RevealZoom,
-				],
-			});
-		</script>
-	</body>
+			// reveal.js plugins
+			plugins: [
+				RevealNotes,
+				RevealMath,
+				RevealMenu,
+				RevealChalkboard,
+				RevealSearch,
+				RevealZoom,
+			],
+		});
+	</script>
+</body>
+
 </html>

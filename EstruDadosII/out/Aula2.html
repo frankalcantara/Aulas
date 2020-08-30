@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Frank Coelho de Alcantara">
+  <title>Insertion e Merge Sort</title>
+  <meta name="author" content="Frank de Alcantara" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/estrutdados.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="title-slide" class="nivel1">
+        <h1 class="title">Insertion e Merge Sort</h1>
+        <p style="text-align:right !important;">Frank Coelho de Alcantara</p>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Insertion Sort</h2>
+          <p>O <strong>Insertion Sort</strong> interage por uma lista de itens e cada um destes itens é inserido em uma lista de itens na posição correta. </p>
+          <p>Use o <strong>Insertion Sort</strong> apenas para conjuntos de dados pequenos e com baixa entropia. </p>
+        </section>
+        <section>
+          <h2>Pseudocode 1: Insertion Sort </h2>
+          <div class="sourceCode" id="cb1">
+            <pre class="sourceCode python"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a>\\entrada conjunto A com n elementos</span>
+              <span id="cb1-2"><a href="#cb1-2"></a>\\saída conjunto A de n elementos ordenados </span>
+              <span id="cb1-3"><a href="#cb1-3"></a></span>
+              <span id="cb1-4"><a href="#cb1-4"></a>ordene(A)</span>
+              <span id="cb1-5"><a href="#cb1-5"></a>    <span class="cf">for</span> i=<span class="dv">1</span> até n-<span class="dv">1</span></span>
+              <span id="cb1-6"><a href="#cb1-6"></a>        inserte(A, i, A[i])</span>
+              <span id="cb1-7"><a href="#cb1-7"></a></span>
+              <span id="cb1-8"><a href="#cb1-8"></a>inserte(A, posição, valor)</span>
+              <span id="cb1-9"><a href="#cb1-9"></a>    i = posição - <span class="dv">1</span></span>
+              <span id="cb1-10"><a href="#cb1-10"></a>    <span class="cf">while</span> (i &gt;= <span class="dv">0</span> E A[i] &gt; valor ) <span class="cf">do</span></span>
+              <span id="cb1-11"><a href="#cb1-11"></a>        A[i+<span class="dv">1</span>] = A[i]</span>
+              <span id="cb1-12"><a href="#cb1-12"></a>        i=i-<span class="dv">1</span></span></code></pre>
+          </div>
+          <p><small>Fonte: o autor (2020)</small> </p>
+        </section>
+        <section>
+          <h2>Merge Sort</h2>
+          <p>O algoritmo <strong>Merge Sort</strong> é uma aplicação do padrão de construção de algoritmos <strong>dividir &amp; conquistar</strong>. </p>
+          <ul>
+            <li><strong>Dividir</strong>: divida o conjunto de entrada em dois. Exceto que este conjunto for muito pequeno;</li>
+            <li><strong>Recorrência</strong>: recursivamente ordene os dois conjuntos de dados resultantes;</li>
+            <li><strong>Conquistar</strong>: una os dois conjuntos. </li>
+          </ul>
+          <p></p>
+        </section>
+        <section>
+          <h2>Dividir</h2>
+          <p>Se o conjunto $A$ tem zero, ou um elemento, retornos o conjunto $A$ já que ele já
+            está ordenado. Você não consegue ordenar conjuntos vazios ou unitários. Caso a cardinalidade do conjunto $A$ seja
+            maior que $1$, dividimos este conjunto em dois, $A_1$ e $A_2$ com cardinalidade proxima da metade da cardinalidade de $A$. </p>
+        </section>
+        <section>
+          <h2>Recursividade e Conquista</h2>
+          <p>Recursivamente ordene os itens de $A_1</span> e $A_2</span>. </p>
+          <p>Junte, <em>merge</em>, $A_1</span> e $A_2</span> em $A</span>. </p>
+        </section>
+        <section>
+          <h2>Figura 1: árvore binária do Merge Sort.</h2>
+          <p><img data-src="../img/MergeSortTree.jpg" style="width:2.47014in;height:3in"
+              alt="Merge Sort Tree (GOODRICH; TAMASSIA; MOUNT, 2011) Exemplo de árvore recursiva." /> </p>
+          <p><small>Fonte: (GOODRICH; TAMASSIA; MOUNT, 2011)</small> </p>
+        </section>
+        <section>
+          <h2>Pseudocódigo 2: Algoritmo Merge Sort</h2>
+          <div class="sourceCode" id="cb2">
+            <pre class="sourceCode python"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a>mergeSort(S)</span>
+                <span id="cb2-2"><a href="#cb2-2"></a>\\entrada conjunto A com n elementos</span>
+                <span id="cb2-3"><a href="#cb2-3"></a>\\saída conjunto A de n elementos ordenados </span>
+                <span id="cb2-4"><a href="#cb2-4"></a></span>
+                <span id="cb2-5"><a href="#cb2-5"></a><span class="cf">if</span> A.size() &gt; <span class="dv">1</span></span>
+                <span id="cb2-6"><a href="#cb2-6"></a>    (A1, A2) ← partition(A, n/<span class="dv">2</span>)</span>
+                <span id="cb2-7"><a href="#cb2-7"></a></span>
+                <span id="cb2-8"><a href="#cb2-8"></a>mergeSort(A1)</span>
+                <span id="cb2-9"><a href="#cb2-9"></a>mergeSort(A2)</span>
+                <span id="cb2-10"><a href="#cb2-10"></a></span>
+                <span id="cb2-11"><a href="#cb2-11"></a>S ← merge(S1, S2)</span></code></pre>
+          </div>
+          <p><small>Fonte: o autor (2020)</small> </p>
+        </section>
+      </section>
+      <section class="nivel1">
+        <h1>Material de apoio</h1>
+        <p>Baixe o material de apoio <a href="1-ordena.pdf">clicando aqui</a> </p>
+      </section>
+    </div>
+  </div>
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
+
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
+</html>

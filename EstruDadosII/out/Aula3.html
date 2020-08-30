@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Quick Sort</title>
+  <meta name="description" content="Quick Sort" />
+  <meta name="author" content="Frank de Alcantara" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/estrutdados.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="nivel1">
+        <section>
+          <h1>Quick Sort</h1>
+          <p style="text-align: right !important;">Frank de Alcantara</p>
+        </section>
+        <section>
+          <h2>Origem</h2>
+          <p>
+            O Quick Sort foi descrito em um artigo de <a href="https://en.wikipedia.org/wiki/Tony_Hoare" target="_blanck"> C.A.R. Hoare</a> em 1962
+            no artigo Quick Sort, publicado no <i>The Computer Journal</i>, e disponível <a href="https://academic.oup.com/comjnl/article/5/1/10/395338"
+              target="_blanck">aqui</a>
+          </p>
+          <p>
+            A leitura deste artigo é indispensável para quem pretende aprender a analisar um algoritmo.
+          </p>
+        </section>
+        <section>
+          <h2>Padrão adotado</h2>
+          <p>
+            Assim como o Merge Sort, o Quick Sort segue o padrão dividir e conquistar.
+          </p>
+          <p>
+            Ouvi alguém dizer recursão?
+          </p>
+
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Ordenando os trabalhos dos estudantes</h2>
+
+          <p>
+            O problema é ordenar os trabalhos de todos os estudantes por nome, alfabeticamente de a até z.
+          </p>
+          <small>
+            <ol>
+              <li>
+                Escolha um valor perto do centro da pilha, por exemplo o L. E vamos chamar este valor central de pivô.
+              </li>
+              <li style="background-color: rgba(37, 37, 37, 0.56);">
+                Distribua todos os trabalhos em duas pilhas. Na esquerda, todos os nomes començando com letras anteriores ao L ou com o próprio L.
+                Na direita todos trabalhos com nomes começando com letras entre M e Z inclusive.
+              </li>
+              <li>
+                Pegue cada uma destas pilhas, encontre um novo pivô e divida em outras duas pilhas.
+              </li>
+              <li style="background-color: rgba(37, 37, 37, 0.56);">
+                Repita este processo até que seja fácil ordenar cada pilha. Ordene e junte todas a pilhas em ordem.
+              </li>
+            </ol>
+          </small>
+
+        </section>
+        <section>
+          <h2>Ordenando os trabalhos dos estudantes</h2>
+
+          <p>
+            As pilhas, em qualquer uma das divisões, não precisam ser iguais.
+          </p>
+          <p>
+            Este é, claramente, um algoritmo recursivo.
+          </p>
+
+        </section>
+        <section>
+          <h2>E vamos ao código</h2>
+
+          <p>
+            Nada melhor que o código para entender um algoritmo.
+          </p>
+
+        </section>
+      </section>
+      <section class="nivel1">
+        <h2>Oper. Lógicos - Formativo 1</h2>
+        <p>
+          Exercício disponível,
+          <a href="https://forms.gle/wr2hZmVkokSHkCcBA" target=_blanck">clique aqui</a>
+        </p>
+      </section>
+      <section>
+        <section>
+          <h2>Tabelas Verdade</h2>
+          <p>
+            A descoberta da verdade em proposições compostas pode ser facilitado pelo uso de <i>tabelas verdade</i>.
+          </p>
+          <p>
+            As <i>tabelas verdade</i> são um recurso visual que permite a análise de todos os estados possíveis para cada proposição.
+          </p>
+        </section>
+        <section>
+          <h2>Oper. Lógicos - negação $(\neg)$</h2>
+          <p>
+          <table class="vtable">
+            <caption>Negação
+            </caption>
+            <tbody>
+              <tr>
+                <th style="width:80px"><i>$p$</i></th>
+                <th style="width:80px"><i>$\neg$p</i></th>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$F$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$T$</td>
+              </tr>
+            </tbody>
+          </table>
+          </p>
+        </section>
+        <section>
+          <h2>Oper. Lógicos - AND $(\land)$</h2>
+          <p>
+          <table class="vtable">
+            <caption>Conjunção (And, $\land$)
+            </caption>
+            <tbody>
+              <tr>
+                <th style="width:80px"><i>$p$</i></th>
+                <th style="width:80px"><i>$q$</i></th>
+                <th style="width:80px"><i>$q \land p$</i></th>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$T$</td>
+                <td>$T$</td>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$F$</td>
+                <td>$F$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$T$</td>
+                <td>$F$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$F$</td>
+                <td>$F$</td>
+              </tr>
+            </tbody>
+          </table>
+          </p>
+        </section>
+        <section>
+          <h2>Oper. Lógicos - OR $(\lor)$</h2>
+          <p>
+          <table class="vtable">
+            <caption>Disjunção (OR, $\lor$)
+            </caption>
+            <tbody>
+              <tr>
+                <th style="width:80px"><i>$p$</i></th>
+                <th style="width:80px"><i>$q$</i></th>
+                <th style="width:80px"><i>$q \lor p$</i></th>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$T$</td>
+                <td>$T$</td>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$F$</td>
+                <td>$T$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$T$</td>
+                <td>$T$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$F$</td>
+                <td>$F$</td>
+              </tr>
+            </tbody>
+          </table>
+          </p>
+        </section>
+        <section>
+          <h2>Oper. Implicação (se..então, $\rightarrow$)</h2>
+          <p>
+          <table class="vtable">
+            <caption>Implicação (se..então, $\rightarrow$)
+            </caption>
+            <tbody>
+              <tr>
+                <th style="width:80px"><i>$p$</i></th>
+                <th style="width:80px"><i>$q$</i></th>
+                <th style="width:180px"><i>$p \rightarrow q$</i></th>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$T$</td>
+                <td>$T$</td>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$F$</td>
+                <td>$F$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$T$</td>
+                <td>$T$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$F$</td>
+                <td>$T$</td>
+              </tr>
+            </tbody>
+          </table>
+          </p>
+        </section>
+        <section>
+          <h2>Se tirar 10, lhe darei R$1.000,00</h2>
+          <small>
+            <ul>
+              <li style="background-color: rgba(37, 37, 37, 0.56);;">A proposição será verdadeira se eu cumprir a promessa. Caso contrário será falsa.</li>
+              <li>Suponha que você tirou 10 na prova, então $p = T$ e eu mantenho a promessa, logo $q = T$. A proposição é verdadeira.</li>
+              <li style="background-color: rgba(37, 37, 37, 0.56);">Suponha que você tirou 10 na prova, então $p = T$ e eu não cumpro a promessa, logo $q = F$.
+                A
+                proposição é falsa.</li>
+              <li>Suponha que você tirou 8 na prova, se eu lhe dou os R$ 1000,00 não importa por que eu não tive a chance de quebrar a promessa. A proposição é
+                verdadeira.</li>
+            </ul>
+          </small>
+        </section>
+        <section>
+          <h2>Oper. Implicação Dupla (se..então, $\leftrightarrow$)</h2>
+          <p>
+          <table class="vtable">
+            <caption>Implicação Dupla (se..então, $\leftrightarrow$)
+            </caption>
+            <tbody>
+              <tr>
+                <th style="width:80px"><i>$p$</i></th>
+                <th style="width:80px"><i>$q$</i></th>
+                <th style="width:180px"><i>$p \leftrightarrow q$</i></th>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$T$</td>
+                <td>$T$</td>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$F$</td>
+                <td>$F$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$T$</td>
+                <td>$F$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$F$</td>
+                <td>$T$</td>
+              </tr>
+            </tbody>
+          </table>
+          </p>
+        </section>
+      </section>
+      </section>
+      <section class="nivel1">
+        <section class="nivel1">
+          <h1>Material de apoio</h1>
+          <p>Baixe o material de apoio <a href="1-ordena.pdf">clicando aqui</a> </p>
+        </section>
+      </section>
+    </div>
+    <!--fecha slides-->
+  </div>
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
+
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
+</html>
