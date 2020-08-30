@@ -1,122 +1,303 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="author" content="Frank Coelho de Alcantara">
-  <title>Compiladores, Interpretadores</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="dist/css/reset.css">
-  <link rel="stylesheet" href="dist/css/reveal.css">
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <link rel="stylesheet" href="dist/css/theme/moon.css" id="theme">
-  <!-- Printing and PDF exports -->
-  <script>
-    var link = document.createElement( 'link' );
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? 'dist/css/print/pdf.css' : 'dist/css/print/paper.css';
-    document.getElementsByTagName( 'head' )[0].appendChild( link );
-  </script>
-  <!--[if lt IE 9]>
-  <script src="dist/lib/js/html5shiv.js"></script>
-  <![endif]-->
+  <title>Linguagens Formais - Construção de Interpretadores</title>
+  <meta charset="utf-8" />
+  <meta name="author" content="Frank Coelho de Alcantara" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/interpret.css" />
 </head>
+
 <body>
   <div class="reveal">
     <div class="slides">
+      <section class="nivel1">
+        <section>
+          <h1>Linguagens Formais - Construção de Interpretadores</h1>
+          <p style="text-align: right !important">Frank Coelho de Alcantara </p>
+        </section>
+        <section>
+          <h2>Tradução em Linguagem de Máquina</h2>
+          <p>
+            Para que uma máquina possa executar este algoritmo o texto que
+            escrevemos deve ser traduzido em linguagem de máquina.
+          </p>
+          <p>
+            Esta tradução pode ser realizada por compilação, interpretação ou
+            por processos mistos.
+          </p>
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Processo de Compilação</h2>
 
-<section id="title-slide">
-  <h1 class="title">Compiladores, Interpretadores</h1>
-  <p class="author">Frank Coelho de Alcantara</p>
-</section>
+          <img
+            src="../img/image15.png"
+            alt="processo de compilação em módulos"
+            style="
+								height: 500px !important;
+								margin: 0 auto 4rem auto;
+								background: transparent;
+							" />
 
-<section id="compilação-e-interpretação" class="title-slide slide level1 P">
-<h1 class="P">Compilação e Interpretação</h1>
-<style> 
-p {
-    text-align: justify !important;
-}
-h1{ font-size: 1.9em !important;}
-h2{ text-align: left !important; font-size: 1.6em !important;}
-strong {
-    color:antiquewhite;
-}
-.reveal img, .reveal video, .reveal iframe {
-    max-width: 60%;
-    max-height: 60%;
-}
+        </section>
+        <section>
+          <h2>Analisadores Léxicos</h2>
 
-.reveal img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.reveal.cube .slides section:not(.stack):before {
-    background: inherit !important;
-}
+          <p>
+            Módulo Responsável pela interpretação dos Lexemas (palavras) da
+            linguagem formal.
+          </p>
+          <p>
+            Lexema é um termo mais amplo por que inclui todos os conjuntos de
+            símbolos que são possíveis em uma linguagem.
+          </p>
 
-.reveal blockquote {
-    display: block;
-    position: relative;
-    width: 100% !important;
-}
+        </section>
+        <section>
+          <h2>Analisador Sintático</h2>
 
-.reveal table {
-    font-size: 70% !important;
-}
-.reveal ul {
-    font-size: 70% !important;
-}
-</style>
-<hr>
-<p></p>
-</section>
+          <p>Responsável pela análise da estrutura da linguangem.</p>
+          <p>
+            Cabe ao analisador sintático determinar se uma determinada
+            declaração da linguagem está corretamente formatada.
+          </p>
 
-<section id="material-de-apoio" class="title-slide slide level1 P">
-<h1 class="P">Material de apoio</h1>
-<hr>
-<p></p>
-<p>Você pode baixar a versão em pdf desta aula <a href="./1-LingFormai.pdf">clicando aqui</a> </p>
-<hr>
-<p></p>
-</section>
+        </section>
+        <section>
+          <h2>Analisador Semântico</h2>
 
-<section id="obras-citadas" class="title-slide slide level1 P">
-<h1 class="P">Obras Citadas</h1>
-<p><small> BARRAL, B. File:AnalyticalMachine Babbage London.jpg. Wikipedia, 2009. Disponivel em: <a href="https://commons.wikimedia.org/wiki/File:AnalyticalMachine_Babbage_London.jpg#filelinks" class="uri">https://commons.wikimedia.org/wiki/File:AnalyticalMachine_Babbage_London.jpg#filelinks</a>. Acesso em: 20 Fev. 2020. <br/> BERGIN, T. J. 50 Years of Army Computing from Eniac to MSRC. Aberdeen, MD. USA: Army Research Laboratory, 1996. BÖHM, C.; JACOPINI, G. Flow diagrams, turing machines and languages with only two formation rules. Communications of the ACM, v. 9, n. 5, p. 366-371, 1966. <br/> DAVIS, J. S. File:Commodore Grace M. Hopper, USN (covered).jpg. Wikipedia, 1984. Disponivel em: <a href="https://en.wikipedia.org/wiki/File:Commodore_Grace_M._Hopper,_USN_(covered).jpg" class="uri">https://en.wikipedia.org/wiki/File:Commodore_Grace_M._Hopper,_USN_(covered).jpg</a>. Acesso em: 20 Fev. 2020. <br/> DIJKSTRA, E. W. A Case against the GO TO Statement. Commun. ACM , v. 3, n. 1, p. 147-148, Mar. 1968. KNUTH, D. E. Structured programming with go to statements. ACM Computing Surveys (CSUR), v. 6, n. 4, p. 261-301, 1974. <br/> MENABREA, L. F. The Analitical Engine Invented by Charles Babbage. Fourmilab, 1842. Disponivel em: <a href="http://www.fourmilab.ch/babbage/sketch.html#NoteG" class="uri">http://www.fourmilab.ch/babbage/sketch.html#NoteG</a>. Acesso em: 20 Fev. 2020. <br/> MICROSOFT. Microsoft Macro Assembler - Documentation. MSDN - Microsoft Developers Network, 2010. Disponivel em: <a href="https://docs.microsoft.com/en-us/cpp/assembler/masm/microsoft-macro-assembler-reference?view=vs-2019" class="uri">https://docs.microsoft.com/en-us/cpp/assembler/masm/microsoft-macro-assembler-reference?view=vs-2019</a>. Acesso em: 01 Mar. 2020. <br/> NAUR, P. et al. Revised report on the algorithmic language Algol 60. Communications of the ACM, v. 6, n. 1, p. 1-17, 1963. WIKIMEDIA COMMONS. File:JohnvonNeumann-LosAlamos.gif — Wikimedia Commons </p>
-</section>
+          <p>
+            O analisador semântico é responsável pela interpretação de cada
+            declaração da linguagem.
+          </p>
+          <p>
+            Erros de tipos, declaração de variáveis, composição de argumentos,
+            estão entre os problemas que cabem ao analisador semântico.
+          </p>
+
+        </section>
+        <section>
+          <h2>Geração de código intermediário</h2>
+
+          <p>
+            Cabe ao gerador de código intermediário, otimizar o código e
+            transformá-lo em uma linguagem mais próxima da linguagem da
+            máquina.
+          </p>
+          <p>
+            Neste módulo encontramos, atualmente, as maiores oportunidades
+            para desenvolvimento de tecnologia. O Java, o Chrome, o LLVM são
+            projetos que dependem do código intermediário para o seu sucesso.
+          </p>
+
+        </section>
+        <section>
+          <h2>Otimização de código</h2>
+
+          <p>
+            Este módulo pode estar dentro ou fora do gerador de código
+            intermediário. E é responsável por fazer com que o código de
+            máquina gerado seja o mais eficiente e eficaz possível.
+          </p>
+          <p>
+            Sistemas como o LLVM, possuem diversos projetos diferentes
+            competindo pelo código mais eficiênte.
+          </p>
+
+        </section>
+        <section>
+          <h2>Linguagens Formais</h2>
+
+          <p>
+            Uma linguagem formal é uma linguagem artificial criada pelo homem,
+            para alguma função específica.
+          </p>
+          <p>
+            A música é uma linguagem formal. Pelo menos, existe uma linguagem
+            formal para a escrita, leitura e interpretação de músicas. O
+            cálculo proposicional, que começou com Aristóteles também é uma
+            linguagem formal. Há uma pequena diferença entre linguagens
+            formais e regulares. Todas as regulares são formais mas, o
+            contrário não é verdadeiro.
+          </p>
+
+        </section>
+        <section>
+          <h2>Linguagens Naturais</h2>
+
+          <p>
+            Iremos, ao longo desta disciplina, afinando, a definição de
+            linguagem formal.
+          </p>
+          <p>
+            As linguagens naturais são fruto da evolução da especie humana. Um
+            dos passos importantes nesta evolução foi o desenvolvimento de
+            linguagens artificiais.
+          </p>
+
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Alfabetos</h2>
+
+          <p>
+            Um alfabeto é um conjunto finito de símbolos que podem ser
+            utilizados em uma determinada linguagem.
+          </p>
+          <p>
+            Nesta disciplina, vamos usar o caractere $\Sigma$ (Sigma) para
+            representar um alfabeto com um índice para identificar sua
+            lingagem. O $\Sigma_{bin}$ representa a linguagem binária.
+          </p>
+
+        </section>
+        <section>
+          <h2>Alfabetos - representação</h2>
+
+          <p>
+            Se desconsideramos os símbolos de pontuação, e símbolos de outros
+            idiomas como o latim ou o grego. O alfabeto da língua portuguêsa,
+            como falado no Brasil seria representado por: <br />
+            $\Sigma_{pt_br} = \{a..z,A..Z,0..9\}$.
+          </p>
+          <p>
+            Este alfabeto, conjunto de símbolos teria a cardinalidade de 62.
+            <br />Tal que
+            $|\Sigma_{pt_br}| = |\{a..z,A..Z,0..9\}| = 62$.
+          </p>
+
+        </section>
+        <section>
+          <h2>Strings</h2>
+
+          <p>
+            Vamos chamar de <i>strings</i> a sequências finitas de símbolos de
+            um alfabeto $\Sigma$ específico de uma linguagem.
+          </p>
+          <p>
+            A <i>strings</i> podem ter qualquer comprimento, inclusive
+            comprimento nenhum. A esta <i>string</i> que existe, mas não tem
+            comprimento daremos o nome de <i>string vazia</i> e
+            representaremos pelo símbolo $\varepsilon$.
+          </p>
+
+        </section>
+        <section>
+          <h2>Strings</h2>
+
+          <p>
+            Dado o alfabeto $\Sigma=\{a,b\}$, o conjunto de todas as
+            <i>strings</i> possíveis com este alfabeto será dado por:
+            $S=\{\varepsilon,a,b,ab,ba,aa,bb,aaa, ...\}$
+          </p>
+          <p>
+
+            O conjunto das <i>strings</i> possíveis é infinito, o conjunto
+            das <i>strings</i> de uma linguagem não é infinto.
+
+          </p>
+
+        </section>
+        <section>
+          <h2>Strings</h2>
+
+          <p>
+            Formalmente, representaremos <i>strings</i> como os conjuntos que
+            são. Então uma <i>string</i> qualquer poderia ser $s=\{a,b,b\}$,
+            informalmente teremos $s=\text{"abb"}$.
+          </p>
+          <p>
+            A <i>string</i> $s$ tem cardinalidade 3. Contudo: $|{a,b,b}|_a =
+            1$.
+          </p>
+
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Exercício Formativo</h2>
+          <p>resolva, em grupo, o execício formativo 1</p>
+        </section>
+        <section>
+          <h1>Material de Apoio</h1>
+          <p>
+            Clique <a href="out/LinguagensFormais.pdf">aqui</a> para abrir o material de apoio.
+          </p>
+        </section>
+      </section>
     </div>
+    <!--fecha slides-->
   </div>
-
-  <script src="dist/js/reveal.js"></script>
+  <!--fecha reveal-->
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
 
   <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: "fade", // none/fade/slide/convex/concave/zoom
 
-      // Full list of configuration options available at:
-      // https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        // Push each slide change to the browser history
-        history: true,
-        // Transition style
-        transition: 'cube', // none/fade/slide/convex/concave/zoom
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h2, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
 
-        // Optional reveal.js plugins
-        dependencies: [
-          { src: 'dist/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'dist/plugin/zoom-js/zoom.js', async: true },
-          { src: 'dist/plugin/notes/notes.js', async: true }
-        ]
-      });
-    </script>
-    </body>
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
 </html>
