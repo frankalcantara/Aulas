@@ -5,46 +5,40 @@
   <meta charset="utf-8">
   <meta name="author" content="Frank Coelho de Alcantara">
   <title>Diagramas de Casos de Uso - Casos de Uso</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../../rev/reset.css">
-  <link rel="stylesheet" href="../../rev/reveal.css">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
   <link rel="stylesheet" href="../../rev/engsoft1.css" />
+  <link rel="stylesheet" href="../../rev/plugin/highlight/monokai.css" id="highlight-theme" />
 </head>
 
 <body>
   <div class="reveal">
     <div class="slides">
-      <section id="title-slide">
+      <section id="title-slide" class="nivel1">
         <h1 class="title">Linguagens Regulares <br /> MEF & Regex</h1>
         <p class="author" style="text-align: right !important;">Frank Coelho de Alcantara</p>
       </section>
-      <section>
+      <section class="nivel1">
         <section id="uml" class="title-slide slide level1 P">
           <h2>Definição</h2>
-
           <p>Linguagens regulares são aquelas que podem ser definidas por um alfabeto $\Sigma$</p>
-
         </section>
         <section id="versão-e-objetivo" class="slide level2 P">
           <h2>Objetivo</h2>
-
           <p>Transformar requisitos e requerimentos em uma ferramenta de suporte ao desenvolvimento do sistema.</p>
           <p>Os casos de uso são ferramentas para as análises de negócio e sistemas.</p>
-
         </section>
         <section id="natureza-dos-diagramas" class="slide level2 P">
           <h2>Exemplo 1</h2>
-
-          <img data-src="../img/casosDeUsoExemplo.jpg" style="max-width: 80% !important;"
+          <img data-src="../img/casosDeUsoExemplo.jpg" style="max-width: 80% !important;" style="max-width: 60%;"
             alt="Fonte:o autor (2020) Diagrama de caso de uso - exemplo" /> </p>
-
         </section>
         <section id="natureza-dos-diagramas" class="slide level2 P">
           <h2>Exemplo 2</h2>
-
           <p><i>O jogador joga os dados e se sair o número 7 ele ganha o jogo.</i></p>
           <ol>
             <li><strong>Ator:</strong> O jogador</li>
@@ -52,13 +46,11 @@
             <li><strong>Condição:</strong> se der 7</li>
             <li><strong>Resultado:</strong> ganhar o jogo</li>
           </ol>
-
         </section>
       </section>
-      <section>
+      <section class="nivel1">
         <section>
           <h2>Modelo de documentação</h2>
-
           <ol>
             <li><strong>Nome:</strong> Frase Verbal.</li>
             <li><strong>Código:</strong> UC_2020-08-25-0889</li>
@@ -69,45 +61,33 @@
             <li><strong>Prioridade:</strong> quando?</li>
             <li><strong>Interface:</strong> quando?</li>
           </ol>
-
         </section>
         <section>
           <h2>Nunca esqueça!!!</h2>
-
           <h3><i>Se não conseguir explicar em um parágrafo. Você ainda não entendeu o problema.</i></h3>
-
         </section>
         <section>
           <h2>Sintaxe</h2>
-
-          <p><img data-src="../img/sintaxeCasosUso.jpg" style="max-width: 80% !important;"
+          <p><img data-src="../img/sintaxeCasosUso.jpg" style="max-width: 80% !important;" style="max-width: 60%;"
               alt="diagrama com os símbolos da UML para casos de uso" /> </p>
-
         </section>
         <section>
           <h2>Extensão e Inclusão</h2>
-
           <p><strong>Extensão: </strong> diz respeito ao uso, ou não, de um caso de uso, por outros casos de uso. (as
             vezes!) </p>
           <p><strong>Inclusão: </strong> diz respeito ao uso de um caso de uso, por outros casos de uso. (sempre!)</p>
-
         </section>
         <section>
           <h2>Generalização</h2>
-
           <p> Um caso de uso, chamado de concreto, <i>herda</i> características de um casos de uso chamado de abstrato.
           </p>
-
         </section>
         <section>
           <h2>Muito Importante!</h2>
-
           <h3> É uma sintaxe, precisa ser obedecida se você quiser ser entendido.</h3>
-
         </section>
         <section>
           <h2>Relações múltiplas</h2>
-
           <p>Podem ocorrer relações múltiplas entre atores e casos de uso e entre casos de uso.</p>
           <ul>
             <li><strong>indefinidas:</strong> * </li>
@@ -116,13 +96,11 @@
             <li><strong>Entre uma e cinco:</strong> 1..5</li>
             <li><strong>Exatamente três:</strong> 3</li>
           </ul>
-
         </section>
       </section>
-      <section>
+      <section class="nivel1">
         <section>
           <h2>Classificação dos Casos de Uso</h2>
-
           <ul>
             <li><strong>Sistema:</strong> interação direta com o sistema; </li>
             <li><strong>Contextuais:</strong> relações com outros sistemas;</li>
@@ -130,24 +108,20 @@
             <li><strong>Sumário:</strong> conjunto de objetivos;</li>
             <li><strong>Abuso:</strong> coisas que não queremos.</li>
           </ul>
-
         </section>
         <section>
           <h2>Classificação dos Casos de Uso</h2>
-
           <p><strong>Na prática:</strong> em um ambiente de práticas ágeis, partimos de um caso de uso do tipo
             <strong>sumário</strong> e detalhamos todos os
             seus casos de uso, para encontrar os que são de <strong>sistema</strong>, <strong>internos</strong> e
             <strong>contextuais</strong>. Depois analisamos os casos de uso do
             tipo <strong>abuso</strong>.
           </p>
-
         </section>
       </section>
-      <section>
+      <section class="nivel1">
         <section>
           <h2>Casos de uso efetivos</h2>
-
           <p>Efetivo significa permanente, que tem caráter definitivo.</p>
           <ul>
             <li><strong>Precisão 0:</strong> definição do Escopo;</li>
@@ -156,26 +130,20 @@
             <li><strong>Precisão 3:</strong> extensões e inclusões</li>
             <li><strong>Precisão 4:</strong> alternativas e Exceções</li>
           </ul>
-
         </section>
         <section>
           <h2>Muito Importante!</h2>
-
           <h3> Você vai repetir este processo para cada caso de uso do sistema.</h3>
-
         </section>
         <section>
           <h2>Precisão 0: escopo</h2>
-
           <p>Análise do domínio do problema, definindo o objetivo geral do sistema, as características específicas do
             domínio do problema, e os principais <i>stakeholders.</i></p>
           <p>Precisa ser suscinto mas deve conter a ideia principal do sistema. Geralmente são as primeiras frases que o
-            <i>stakholder</i> usa para definir seu problema.</p>
-
+            <i>stakeholder</i> usa para definir seu problema.</p>
         </section>
         <section>
           <h2>Precisão 0: escopo - exemplo</h2>
-
           <p>
             A empresa <strong>FraldasVerdes</strong>, uma fabricante de fraldas ecológicas precisa que todas as suas
             vendas sejam controladas
@@ -185,11 +153,9 @@
             sem a
             necessidade de sair de casa.
           </p>
-
         </section>
         <section>
           <h2>Precisão 1: ator primário</h2>
-
           <p>
             Você vai responder a pergunta quem quer o quê? O ator primário de cada caso de uso deve ter sido explicitado
             na análise de requisitos.
@@ -199,11 +165,9 @@
             E o valor que ele irá obter do sistema.
             No caso das FraldasVerdes, um dos atores primários é o cliente. Qual o <i>trigger</i>? Qual o valor?
           </p>
-
         </section>
         <section>
           <h2>Precisão 2: caso de sucesso</h2>
-
           <p>
             Precisaremos documentar o caminho para o sucesso deste caso de uso.
           </p>
@@ -214,11 +178,9 @@
             A documentação pode ser um passo-a-passo, mas precisa ser validada com <i>stakeholders</i> e
             desenvolvedores.
           </p>
-
         </section>
         <section>
           <h2>Precisão 3: alternativas e extensões</h2>
-
           <p>
             Hora de vericar os caminhos alternativos para o sucesso. Os caminhos alternativos para o fracasso.
           </p>
@@ -228,11 +190,9 @@
           <p>
             Extensão, inclusão e exceção. Todos estes casos estão na responsabilidade do analista.
           </p>
-
         </section>
         <section>
           <h2>Precisão 4: extensões e inclusões</h2>
-
           <p>
             Hora de detalhar a história que estamos contando destacando os casos de extensão e inclusão.
           </p>
@@ -243,18 +203,15 @@
             É a hora de ver os casos de uso, com funcionalides que você pode criar, ou utilizar.
             Também é a hora de pensar em falhas. Todo mundo falha, inclusive os sistemas.
           </p>
-
         </section>
       </section>
-      <section>
+      <section class="nivel1">
         <section>
           <h2>Histórias de Usuário</h2>
-
           <p>Em práticas de desenvolvimento ágil, substituimos todo o digrama de casos de uso e análise de requisitos
             por <strong>Histórias de Usuário</strong>.</p>
           <p><strong>Histórias de Usuário</strong> são uma descrição suscinta, porém efetiva, de uma interação de um
             <i>stakeholder</i> com o sistema.</p>
-
         </section>
         <section>
           <h2>Histórias de Usuário - Problema</h2>
@@ -357,10 +314,10 @@
             o resultado do processo de desenvolvimento e determinar se o valor esperado foi atingido.</p>
         </section>
       </section>
-      <section>
+      <section class="nivel1">
         <section>
           <h2>Exemplo 1 - Máquina de Venda</h2>
-          <small>
+          <small style="margin-right:1%; width:97%;">
             Crie um diagrama de casos de uso para uma máquina automática de venda que vende <strong>apenas refrigerantes
               e salgadinhos</strong>. Esta
             máquina aceita <strong>um cartão e dinheiro em notas</strong>. Tente usar as associações de extensão,
@@ -374,7 +331,7 @@
         </section>
         <section>
           <h2>Exemplo 1 - domínio</h2>
-          <small>
+          <small style="margin-right:1%; width:97%;">
             <strong>Detalhamento do domínio:</strong> a especificação do problema não apresenta nenhuma informação sobre
             a máquina estar, ou não
             conectada a um sistema central de controle. Por simplicidade vamos considerar que não. Então a máquina deve
@@ -428,14 +385,13 @@
               alt="diagrama com os símbolos da UML para casos de uso" /> </p>
         </section>
       </section>
-      <section>
+      <section class="nivel1">
         <section>
           <h1>Material de apoio</h1>
           <p>Você pode baixar o material de apoio <a href="./UMLCAP1.pdf">clicando aqui</a> </p>
         </section>
         <section>
           <h2>Obras Citadas</h2>
-
           <small>
             BAUSOLA, D. <strong>Activity Diagram</strong>. zeroinfluence, 2012. Disponivel em: <a
               href="http:zeroinfluence.wordpress.com/uml" target="_blanck"
@@ -451,24 +407,18 @@
             UNHELKAR, B. <strong>Software Engineering with UML</strong>. Boca Raton, FL. USA: Taylor & Francis Group,
             LLC, 2018.
           </small>
-
         </section>
       </section>
       </section>
-      <!--  <section>
-    
-      
-   </section>   -->
-      </section>
     </div>
   </div>
-
   <script src="../../rev/reveal.js"></script>
-
-  // reveal.js plugins
   <script src="../../rev/plugin/notes/notes.js"></script>
   <script src="../../rev/plugin/search/search.js"></script>
   <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
 
   <script>
     // Full list of configuration options available at:
@@ -477,14 +427,50 @@
       // Push each slide change to the browser history
       history: true,
       // Transition style
-      transition: 'fade', // none/fade/slide/convex/concave/zoom
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
 
       // reveal.js plugins
       plugins: [
         RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
         RevealSearch,
-        RevealZoom
-      ]
+        RevealZoom,
+      ],
     });
   </script>
 </body>

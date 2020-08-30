@@ -5,24 +5,25 @@
   <meta charset="utf-8">
   <meta name="author" content="Frank Coelho de Alcantara">
   <title>UML - Diagrama de Atividades</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../../rev/reset.css">
-  <link rel="stylesheet" href="../../rev/reveal.css">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
   <link rel="stylesheet" href="../../rev/engsoft1.css" />
+  <link rel="stylesheet" href="../../rev/plugin/highlight/monokai.css" id="highlight-theme" />
 </head>
 
 <body>
   <div class="reveal">
     <div class="slides">
-      <section id="title-slide">
+      <section id="title-slide" class="nivel1">
         <h1 class="title">Diagrama de Atividades</h1>
         <p class="author" style="text-align: right !important;">Frank Coelho de Alcantara</p>
       </section>
-      <section>
-        <section class="slide level2">
+      <section class="nivel1">
+        <section>
           <h2>SYSML</h2>
           <p class="fragment fade-up">System Modeling Language</p>
           <p class="fragment fade-up">Utiliza tudo que não é patenteado da UML e vai além.</p>
@@ -31,8 +32,8 @@
               href="https://sysml.org/sysml-specs/" target="_blanck">aqui!</a></p>
         </section>
       </section>
-      <section>
-        <section class="title-slide slide level1">
+      <section class="nivel1">
+        <section>
           <h2>Diagrama de Atividades</h2>
           <p class="fragment fade-up">Trata-se de um diagrama comportamental na forma de um grafo onde atividades são
             representadas por nós
@@ -40,19 +41,19 @@
           <p class="fragment fade-up">Apresenta um fluxo de controle com base na sequência das ações, origem e
             responsável.</p>
         </section>
-        <section id="versão-e-objetivo" class="slide level2">
+        <section id="versão-e-objetivo">
           <h2>Componentes</h2>
           <p class="fragment fade-up">Ação: um passo único da ação que pode ser nomeado. </p>
           <p class="fragment fade-up">Objeto: uma representação abstrata para definir o fluxo de objetos dentro da ação.
           </p>
           <p class="fragment fade-up">Controle: um nó de agrupamento usado para coordenar o fluxo entre outros nós.</p>
         </section>
-        <section class="slide level2">
+        <section>
           <h2>Sintaxe</h2>
           <img data-src="../img/AtividadeSintaxe.jpg" style="max-width: 70% !important;"
             alt="símbolos usados no diagrama de atividades" />
         </section>
-        <section class="slide level2">
+        <section>
           <h2>Exemplo 1: trabalho</h2>
           <ol>
             <li>Abrir o editor de textos;</li>
@@ -65,7 +66,7 @@
             <li>Fechar o editor de textos.</li>
           </ol>
         </section>
-        <section class="slide level2">
+        <section>
           <h2>Exemplo 2: matrícula</h2>
           <ol>
             <li>preenche o formulário de inscrição;</li>
@@ -77,7 +78,7 @@
           </ol>
         </section>
       </section>
-      <section class="slide level2">
+      <section class="nivel1">
         <h2>Exercício: Admin. Hospitalar</h2>
         <ol>
           <li>paciente informa o sintoma;</li>
@@ -88,7 +89,7 @@
           <li>pode comprar o remédio ou não.</li>
         </ol>
       </section>
-      <section>
+      <section class="nivel1">
         <section>
           <h1>Material de apoio</h1>
 
@@ -98,7 +99,7 @@
         <section>
           <h2>Obras Citadas</h2>
 
-          <small>
+          <small style="width:90%; margin-right:2%">
             BAUSOLA, D. <strong>Activity Diagram</strong>. zeroinfluence, 2012. Disponivel em: <a
               href="http:zeroinfluence.wordpress.com/uml" target="_blanck"
               class="uri">http:zeroinfluence.wordpress.com/uml</a>.
@@ -117,21 +118,15 @@
         </section>
       </section>
       </section>
-      <!--  <section>
-    
-      
-   </section>   -->
-      </section>
     </div>
   </div>
-
   <script src="../../rev/reveal.js"></script>
-
-  // reveal.js plugins
   <script src="../../rev/plugin/notes/notes.js"></script>
   <script src="../../rev/plugin/search/search.js"></script>
   <script src="../../rev/plugin/zoom/zoom.js"></script>
-
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
   <script>
     // Full list of configuration options available at:
     // https://revealjs.com/config/
@@ -139,14 +134,50 @@
       // Push each slide change to the browser history
       history: true,
       // Transition style
-      transition: 'fade', // none/fade/slide/convex/concave/zoom
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
 
       // reveal.js plugins
       plugins: [
         RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
         RevealSearch,
-        RevealZoom
-      ]
+        RevealZoom,
+      ],
     });
   </script>
 </body>
