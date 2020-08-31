@@ -36,7 +36,7 @@ html * {
 	--heading3-size: 1.55em;
 	--heading4-size: 1em;
 	--code-font: monospace;
-	--link-color: #268bd2;
+	--link-color: antiquewhite;
 	--link-color-hover: #78b9e6;
 	--selection-background-color: #d33682;
 	--selection-color: #fff;
@@ -294,7 +294,7 @@ html * {
  * LINKS
  *********************************************/
 .reveal a {
-	color: #268bd2;
+	color: antiquewhite;
 	text-decoration: none;
 	transition: color 0.15s ease;
 }
@@ -331,7 +331,7 @@ html * {
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-	color: #268bd2;
+	color: antiquewhite;
 }
 
 /*********************************************
@@ -492,4 +492,29 @@ table.blueTable thead th:first-child {
 .author {
 	margin-right: 1%;
 	text-align: right !important;
+}
+
+#toggle-chalkboard {
+	left: 65px !important;
+}
+
+#toggle-notes {
+	left: 95px !important;
+	font-size: 22px !important;
+}
+
+.home-button {
+	visibility: visible;
+	position: absolute;
+	z-index: 30;
+	font-size: 24px;
+	left: 120px;
+	bottom: 30px;
+	top: auto;
+	right: auto;
+	color: antiquewhite !important;
+}
+
+.home-button a:visited {
+	color: antiquewhite;
 }
