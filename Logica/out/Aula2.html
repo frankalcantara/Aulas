@@ -1,145 +1,146 @@
 <!DOCTYPE html>
 <html lang="pt">
 
-  <head>
-    <meta charset="utf-8" />
-    <title>Gestão de Configuração - SCM - Git</title>
-    <meta name="description" content="Lógica, Proposições Compostas" />
-    <meta name="author" content="Frank de Alcantara" />
+<head>
+  <meta charset="utf-8" />
+  <title>Gestão de Configuração - SCM - Git</title>
+  <meta name="description" content="Lógica, Proposições Compostas" />
+  <meta name="author" content="Frank de Alcantara" />
 
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../../rev/reset.css" />
-	  <link rel="stylesheet" href="../../rev/reveal.css" />
-	  <link rel="stylesheet" href="../../rev/logica.css" />
-    <script src="../../rev/plugin/math/math.js"></script>
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/logica.css" />
+  <script src="../../rev/plugin/math/math.js"></script>
 </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section class="nivel1">
-          <section>
-            <h1>Lógica, Proposições Compostas</h2>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="nivel1">
+        <section>
+          <h1>Lógica, Proposições Compostas</h2>
             <p class="author" style="text-align: right !important">Frank Coelho de Alcantara</p>
-          </section>
-          <section>
-            <h3>Axiomas Fundamentais da Lógica </h3>
-              <p>
-              Princípio da não contradição: uma proposição não pode ser
-              verdadeira e falsa ao mesmo tempo.
-            </p>
-            <p>
-              Princípio do terceiro excluído: toda proposição ou é
-              verdadeira ou é falsa, isto é, verifica-se sempre um desses dois
-              casos, mas nunca um terceiro.
-            </p>
-            </section>
         </section>
-        <section class="nivel1">
-          <section>
-            <h3>Proposições Compostas</h3>
-              <p>
-              As proposições atômicas, ou simples, são aquelas contidas em si
-              mesmo. Que representaremos por letras $p, q, r, s$.
-            </p>
-            <p>
-              Proposições compostas são aquelas representadas por uma fórmula
-              lógica. São proposições criadas por proposições atômicas e
-              Oper., ou concetivos.
-            </p>
-            </section>
-          <section>
-            <h3>Oper. Lógicos - AND $(\land)$</h3>
-              <p>
-              Paula compra tijolos e faz casas. é uma proposição composta
-            </p>
-            <p>$p = $ Paula compra Tijolos</p>
-            <p>$q = $ Paula faz casas</p>
-            <p>Será representada por: $p \land q$</p>
-            </section>
-          <section>
-            <h3>Oper. Lógicos - AND $(\land)$</h3>
-              <p>
-              Estudei muito, mas não fui aprovado.
-            </p>
-            <p>$p = $ Eu estudei muito.</p>
-            <p>$q = $ Eu não fui aprovado.</p>
-            <p>Será representada por: $p \land q$</p>
-            </section>
-          <section>
-            <h3>Oper. Lógicos - AND $(\land)$</h3>
-              <p>
-              Estudei muito, contudo não fui aprovado.
-            </p>
-            <p>$p = $ Eu estudei muito.</p>
-            <p>$q = $ Eu não fui aprovado.</p>
-            <p>Será representada por: $p \land q$</p>
-            </section>
-          <section>
-            <h3>Oper. Lógicos - OR $(\lor)$</h3>
-              <p>
-              Sílvia vai ao cinema ou Jéssica vai a Praia.
-            </p>
-            <p>$p = $ Sílvia vai ao cinema.</p>
-            <p>$q = $ Jéssica vai a Praia.</p>
-            <p>Será representada por: $p \lor q$</p>
-            </section>
-          <section>
-            <h3>Oper. Lógicos - negação $(\neg)$</h3>
-              <p>
-              O carro é de qualquer cor menos preto.
-            </p>
-            <p>Será representada por: $p = \neg p$ o carro não é preto.</p>
-            </section>
-          <section>
-            <h3>Oper. Lógicos - implicação $(\rightarrow)$</h3>
-              <p>Se Janaína é arquiteta então Bruna é médica</p>
-            <p>$p = $ Janaína é arquiteta.</p>
-            <p>$q = $ Bruna é médica.</p>
-            <p>Será representada por: $p \rightarrow q$</p>
-            </section>
-          <section>
-            <h3>Oper. Lógicos - implicação $(\rightarrow)$</h3>
-              <p>
-              No caso da implicação a proposição $p$ é a hipótese, ou antecendente, e a proposição $q$ a conclusão ou consequente.
-            </p>
-            <p>
-              A operação condicional, ou implicação, indica que $p$ é uma condição para $q$, sem $p$, não há $q$.
-            </p>
-            <p>
-              $p \rightarrow q$ é lido com p <i>implica em</i> q
-            </p>
-            </section>
-          <section>
-            <h3>Oper. Lógicos - implicação $(\rightarrow)$</h3>
-              <p>
-              $p \rightarrow q$
-            </p>
-            <p>
-              <ul>
-                <li>quando $p$ então $q$;</li>
-                <li>se $p$, então $q$;</li>
-                <li>$p$ é suficiente para $q$;</li>
-                <li>$q$ se $p$;</li>
-                <li>uma condição nessária para $p$ é $q$;</li>
-                <li>$p$ sempre que $q$;</li>
-                <li>$q$ é necessário para $p$.</li>
-              </ul>
-            </p>
-            </section>
-          <section>
-            <h3>Oper. Lógicos - bi-implicação $(\leftrightarrow)$</h3>
-              <p>
-              Será aprovado se, e somente se, estudar.
-            </p>
-            <p>$p = $ Será aprovado.</p>
-            <p>$q = $ Estudar.</p>
-            <p>Será representada por: $p \leftrightarrow q$</p>
-            </section>
+        <section>
+          <h3>Axiomas Fundamentais da Lógica </h3>
+          <p>
+            Princípio da não contradição: uma proposição não pode ser
+            verdadeira e falsa ao mesmo tempo.
+          </p>
+          <p>
+            Princípio do terceiro excluído: toda proposição ou é
+            verdadeira ou é falsa, isto é, verifica-se sempre um desses dois
+            casos, mas nunca um terceiro.
+          </p>
         </section>
-        <section class="nivel1">
+      </section>
+      <section class="nivel1">
+        <section>
+          <h3>Proposições Compostas</h3>
+          <p>
+            As proposições atômicas, ou simples, são aquelas contidas em si
+            mesmo. Que representaremos por letras $p, q, r, s$.
+          </p>
+          <p>
+            Proposições compostas são aquelas representadas por uma fórmula
+            lógica. São proposições criadas por proposições atômicas e
+            Oper., ou concetivos.
+          </p>
+        </section>
+        <section>
+          <h3>Oper. Lógicos - AND $(\land)$</h3>
+          <p>
+            Paula compra tijolos e faz casas. é uma proposição composta
+          </p>
+          <p>$p = $ Paula compra Tijolos</p>
+          <p>$q = $ Paula faz casas</p>
+          <p>Será representada por: $p \land q$</p>
+        </section>
+        <section>
+          <h3>Oper. Lógicos - AND $(\land)$</h3>
+          <p>
+            Estudei muito, mas não fui aprovado.
+          </p>
+          <p>$p = $ Eu estudei muito.</p>
+          <p>$q = $ Eu não fui aprovado.</p>
+          <p>Será representada por: $p \land q$</p>
+        </section>
+        <section>
+          <h3>Oper. Lógicos - AND $(\land)$</h3>
+          <p>
+            Estudei muito, contudo não fui aprovado.
+          </p>
+          <p>$p = $ Eu estudei muito.</p>
+          <p>$q = $ Eu não fui aprovado.</p>
+          <p>Será representada por: $p \land q$</p>
+        </section>
+        <section>
+          <h3>Oper. Lógicos - OR $(\lor)$</h3>
+          <p>
+            Sílvia vai ao cinema ou Jéssica vai a Praia.
+          </p>
+          <p>$p = $ Sílvia vai ao cinema.</p>
+          <p>$q = $ Jéssica vai a Praia.</p>
+          <p>Será representada por: $p \lor q$</p>
+        </section>
+        <section>
+          <h3>Oper. Lógicos - negação $(\neg)$</h3>
+          <p>
+            O carro é de qualquer cor menos preto.
+          </p>
+          <p>Será representada por: $p = \neg p$ o carro não é preto.</p>
+        </section>
+        <section>
+          <h3>Oper. Lógicos - implicação $(\rightarrow)$</h3>
+          <p>Se Janaína é arquiteta então Bruna é médica</p>
+          <p>$p = $ Janaína é arquiteta.</p>
+          <p>$q = $ Bruna é médica.</p>
+          <p>Será representada por: $p \rightarrow q$</p>
+        </section>
+        <section>
+          <h3>Oper. Lógicos - implicação $(\rightarrow)$</h3>
+          <p>
+            No caso da implicação a proposição $p$ é a hipótese, ou antecendente, e a proposição $q$ a conclusão ou consequente.
+          </p>
+          <p>
+            A operação condicional, ou implicação, indica que $p$ é uma condição para $q$, sem $p$, não há $q$.
+          </p>
+          <p>
+            $p \rightarrow q$ é lido com p <i>implica em</i> q
+          </p>
+        </section>
+        <section>
+          <h3>Oper. Lógicos - implicação $(\rightarrow)$</h3>
+          <p>
+            $p \rightarrow q$
+          </p>
+          <p>
+          <ul>
+            <li>quando $p$ então $q$;</li>
+            <li>se $p$, então $q$;</li>
+            <li>$p$ é suficiente para $q$;</li>
+            <li>$q$ se $p$;</li>
+            <li>uma condição nessária para $p$ é $q$;</li>
+            <li>$p$ sempre que $q$;</li>
+            <li>$q$ é necessário para $p$.</li>
+          </ul>
+          </p>
+        </section>
+        <section>
+          <h3>Oper. Lógicos - bi-implicação $(\leftrightarrow)$</h3>
+          <p>
+            Será aprovado se, e somente se, estudar.
+          </p>
+          <p>$p = $ Será aprovado.</p>
+          <p>$q = $ Estudar.</p>
+          <p>Será representada por: $p \leftrightarrow q$</p>
+        </section>
+      </section>
+      <section class="nivel1">
         <section>
           <h3>Oper. Lógicos - Formativo 1</h3>
           <p>
@@ -148,262 +149,264 @@
           </p>
         </section>
         <section>
-            <h3>Tabelas Verdade</h3>
-              <p>
-              A descoberta da verdade em proposições compostas pode ser facilitado pelo uso de <i>tabelas verdade</i>.
-            </p>
+          <h3>Tabelas Verdade</h3>
+          <p>
+            A descoberta da verdade em proposições compostas pode ser facilitado pelo uso de <i>tabelas verdade</i>.
+          </p>
 
-            <p>
-              As <i>tabelas verdade</i> são um recurso visual que permite a análise de todos os estados possíveis para cada proposição.
-            </p>
+          <p>
+            As <i>tabelas verdade</i> são um recurso visual que permite a análise de todos os estados possíveis para cada proposição.
+          </p>
         </section>
         <section>
-            <h3>Oper. Lógicos - negação $(\neg)$</h3>
-              <p>
-              <table class="vtable">
-                <caption>Negação
-                </caption>
-                <tbody>
-                  <tr>
-                    <th style="width:80px"><i>$p$</i></th>
-                    <th style="width:80px"><i>$\neg$p</i></th>
-                  </tr>
-                  <tr>
-                    <td>$T$</td>
-                    <td>$F$</td>
-                  </tr>
-                  <tr>
-                    <td>$F$</td>
-                    <td>$T$</td>
-                  </tr>
-                </tbody>
-              </table>
-            </p>
+          <h3>Oper. Lógicos - negação $(\neg)$</h3>
+          <p>
+          <table class="vtable">
+            <caption>Negação
+            </caption>
+            <tbody>
+              <tr>
+                <th style="width:80px"><i>$p$</i></th>
+                <th style="width:80px"><i>$\neg$p</i></th>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$F$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$T$</td>
+              </tr>
+            </tbody>
+          </table>
+          </p>
         </section>
         <section>
-            <h3>Oper. Lógicos - AND $(\land)$</h3>
-              <p>
-              <table class="vtable">
-                <caption>Conjunção (And, $\land$)
-                </caption>
-                <tbody>
-                  <tr>
-                    <th style="width:80px"><i>$p$</i></th>
-                    <th style="width:80px"><i>$q$</i></th>
-                    <th style="width:80px"><i>$q \land p$</i></th>
-                  </tr>
-                  <tr>
-                    <td>$T$</td>
-                    <td>$T$</td>
-                    <td>$T$</td>
-                  </tr>
-                  <tr>
-                    <td>$T$</td>
-                    <td>$F$</td>
-                    <td>$F$</td>
-                  </tr>
-                  <tr>
-                    <td>$F$</td>
-                    <td>$T$</td>
-                    <td>$F$</td>
-                  </tr>
-                  <tr>
-                    <td>$F$</td>
-                    <td>$F$</td>
-                    <td>$F$</td>
-                  </tr>
-                </tbody>
-              </table>
-            </p>
+          <h3>Oper. Lógicos - AND $(\land)$</h3>
+          <p>
+          <table class="vtable">
+            <caption>Conjunção (And, $\land$)
+            </caption>
+            <tbody>
+              <tr>
+                <th style="width:80px"><i>$p$</i></th>
+                <th style="width:80px"><i>$q$</i></th>
+                <th style="width:80px"><i>$q \land p$</i></th>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$T$</td>
+                <td>$T$</td>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$F$</td>
+                <td>$F$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$T$</td>
+                <td>$F$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$F$</td>
+                <td>$F$</td>
+              </tr>
+            </tbody>
+          </table>
+          </p>
         </section>
         <section>
-            <h3>Oper. Lógicos - OR $(\lor)$</h3>
-              <p>
-              <table class="vtable">
-                <caption>Disjunção (OR, $\lor$)
-                </caption>
-                <tbody>
-                  <tr>
-                    <th style="width:80px"><i>$p$</i></th>
-                    <th style="width:80px"><i>$q$</i></th>
-                    <th style="width:80px"><i>$q \lor p$</i></th>
-                  </tr>
-                  <tr>
-                    <td>$T$</td>
-                    <td>$T$</td>
-                    <td>$T$</td>
-                  </tr>
-                  <tr>
-                    <td>$T$</td>
-                    <td>$F$</td>
-                    <td>$T$</td>
-                  </tr>
-                  <tr>
-                    <td>$F$</td>
-                    <td>$T$</td>
-                    <td>$T$</td>
-                  </tr>
-                  <tr>
-                    <td>$F$</td>
-                    <td>$F$</td>
-                    <td>$F$</td>
-                  </tr>
-                </tbody>
-              </table>
-            </p>
+          <h3>Oper. Lógicos - OR $(\lor)$</h3>
+          <p>
+          <table class="vtable">
+            <caption>Disjunção (OR, $\lor$)
+            </caption>
+            <tbody>
+              <tr>
+                <th style="width:80px"><i>$p$</i></th>
+                <th style="width:80px"><i>$q$</i></th>
+                <th style="width:80px"><i>$q \lor p$</i></th>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$T$</td>
+                <td>$T$</td>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$F$</td>
+                <td>$T$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$T$</td>
+                <td>$T$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$F$</td>
+                <td>$F$</td>
+              </tr>
+            </tbody>
+          </table>
+          </p>
         </section>
         <section>
-            <h3>Oper. Implicação (se..então, $\rightarrow$)</h3>
-              <p>
-              <table class="vtable">
-                <caption>Implicação (se..então, $\rightarrow$)
-                </caption>
-                <tbody>
-                  <tr>
-                    <th style="width:80px"><i>$p$</i></th>
-                    <th style="width:80px"><i>$q$</i></th>
-                    <th style="width:180px"><i>$p \rightarrow q$</i></th>
-                  </tr>
-                  <tr>
-                    <td>$T$</td>
-                    <td>$T$</td>
-                    <td>$T$</td>
-                  </tr>
-                  <tr>
-                    <td>$T$</td>
-                    <td>$F$</td>
-                    <td>$F$</td>
-                  </tr>
-                  <tr>
-                    <td>$F$</td>
-                    <td>$T$</td>
-                    <td>$T$</td>
-                  </tr>
-                  <tr>
-                    <td>$F$</td>
-                    <td>$F$</td>
-                    <td>$T$</td>
-                  </tr>
-                </tbody>
-              </table>
-            </p>
+          <h3>Oper. Implicação (se..então, $\rightarrow$)</h3>
+          <p>
+          <table class="vtable">
+            <caption>Implicação (se..então, $\rightarrow$)
+            </caption>
+            <tbody>
+              <tr>
+                <th style="width:80px"><i>$p$</i></th>
+                <th style="width:80px"><i>$q$</i></th>
+                <th style="width:180px"><i>$p \rightarrow q$</i></th>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$T$</td>
+                <td>$T$</td>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$F$</td>
+                <td>$F$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$T$</td>
+                <td>$T$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$F$</td>
+                <td>$T$</td>
+              </tr>
+            </tbody>
+          </table>
+          </p>
         </section>
         <section>
-            <h3>Se tirar 10 na prova, lhe darei R$1.000,00</h3>
-              <small>
-              <ul>
-                <li style="background-color: rgba(65, 65, 66, .75);">A proposição será verdadeira se eu cumprir a promessa. Caso contrário será falsa.</li>
-                <li>Suponha que você tirou 10 na prova, então $p = T$ e eu mantenho a promessa, logo $q = T$. A proposição é verdadeira.</li>
-                <li style="background-color: rgba(65, 65, 66, .75)">Suponha que você tirou 10 na prova, então $p = T$ e eu não cumpro a promessa, logo $q = F$. A
-                  proposição é falsa.</li>
-                <li>Suponha que você tirou 8 na prova, se eu lhe dou os R$ 1000,00 não importa por que eu não tive a chance de quebrar a promessa. A proposição
-                  é verdadeira.</li>
-              </ul>
-            </small>
+          <h3>Se tirar 10 na prova, lhe darei R$1.000,00</h3>
+          <small>
+            <ul>
+              <li style="background-color: rgba(65, 65, 66, .75);">A proposição será verdadeira se eu cumprir a promessa. Caso contrário será falsa.</li>
+              <li>Suponha que você tirou 10 na prova, então $p = T$ e eu mantenho a promessa, logo $q = T$. A proposição é verdadeira.</li>
+              <li style="background-color: rgba(65, 65, 66, .75)">Suponha que você tirou 10 na prova, então $p = T$ e eu não cumpro a promessa, logo $q = F$. A
+                proposição é falsa.</li>
+              <li>Suponha que você tirou 8 na prova, se eu lhe dou os R$ 1000,00 não importa por que eu não tive a chance de quebrar a promessa. A proposição
+                é verdadeira.</li>
+            </ul>
+          </small>
         </section>
         <section>
-            <h3>Oper. Implicação Dupla (se..então, $\leftrightarrow$)</h3>
-              <p>
-              <table class="vtable">
-                <caption>Implicação Dupla (se..então, $\leftrightarrow$)
-                </caption>
-                <tbody>
-                  <tr>
-                    <th style="width:80px"><i>$p$</i></th>
-                    <th style="width:80px"><i>$q$</i></th>
-                    <th style="width:180px"><i>$p \leftrightarrow q$</i></th>
-                  </tr>
-                  <tr>
-                    <td>$T$</td>
-                    <td>$T$</td>
-                    <td>$T$</td>
-                  </tr>
-                  <tr>
-                    <td>$T$</td>
-                    <td>$F$</td>
-                    <td>$F$</td>
-                  </tr>
-                  <tr>
-                    <td>$F$</td>
-                    <td>$T$</td>
-                    <td>$F$</td>
-                  </tr>
-                  <tr>
-                    <td>$F$</td>
-                    <td>$F$</td>
-                    <td>$T$</td>
-                  </tr>
-                </tbody>
-              </table>
-            </p>
+          <h3>Oper. Implicação Dupla (se..então, $\leftrightarrow$)</h3>
+          <p>
+          <table class="vtable">
+            <caption>Implicação Dupla (se..então, $\leftrightarrow$)
+            </caption>
+            <tbody>
+              <tr>
+                <th style="width:80px"><i>$p$</i></th>
+                <th style="width:80px"><i>$q$</i></th>
+                <th style="width:180px"><i>$p \leftrightarrow q$</i></th>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$T$</td>
+                <td>$T$</td>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$F$</td>
+                <td>$F$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$T$</td>
+                <td>$F$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$F$</td>
+                <td>$T$</td>
+              </tr>
+            </tbody>
+          </table>
+          </p>
         </section>
+      </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h3>Material de apoio</h3>
+          <p>Clique <a href="./logicaProposicional.pdf" target="_blanck">aqui</a> abrir o material de suporte.</p>
         </section>
-        </section>
-        <section class="nivel1">
-          <section>
-            <h3>Material de apoio</h3>
-              <p>Clique <a href="./logicaProposicional.pdf" target="_blanck">aqui</a> abrir o material de suporte.</p>
-          </section>
-        </section>
-      </div>
+      </section>
     </div>
-    <script src="../../rev/reveal.js"></script>
-		<script src="../../rev/plugin/notes/notes.js"></script>
-		<script src="../../rev/plugin/search/search.js"></script>
-		<script src="../../rev/plugin/zoom/zoom.js"></script>
-		<script src="../../rev/plugin/math/math.js"></script>
-		<script src="../../rev/plugin/menu/menu.js"></script>
-		<script src="../../rev/plugin/chalkboard/plugin.js"></script>
-		<script>
-			// Full list of configuration options available at:
-			// https://revealjs.com/config/
-			Reveal.initialize({
-				// Push each slide change to the browser history
-				history: true,
-				// Transition style
-				transition: "fade", // none/fade/slide/convex/concave/zoom
-				math: {
-					mathjax:
-						"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
-					config: "TeX-AMS_HTML-full",
-					// pass other options into `MathJax.Hub.Config()`
-					TeX: {
-						Macros: {
-							RR: "{\\bf R}",
-						},
-					},
-				},
-				menu: {
-					side: "left",
-					width: "normal",
-					numbers: false,
-					titleSelector: "h1, h2, h3, h4, h5, h6",
-					useTextContentForMissingTitles: false,
-					hideMissingTitles: false,
-					markers: true,
-					custom: false,
-					themes: false,
-					themesPath: "dist/theme/",
-					transitions: false,
-					openButton: true,
-					openSlideNumber: false,
-					keyboard: true,
-					sticky: false,
-					autoOpen: true,
-					delayInit: false,
-					openOnInit: false,
-					loadIcons: true,
-				},
-				// reveal.js plugins
-				plugins: [
-					RevealNotes,
-					RevealMath,
-					RevealMenu,
-					RevealChalkboard,
-					RevealSearch,
-					RevealZoom,
-				],
-			});
-		</script>
-  </body>
+  </div>
+  <div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+  <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
 </html>
