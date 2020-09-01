@@ -510,6 +510,6 @@ table.blueTable thead th:first-child {
 }
 
 .reveal table th {
-	color: antiquewhite background;
+	color: antiquewhite;
 	background-color: #5f4746;
 }
