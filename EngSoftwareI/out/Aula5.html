@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Frank Coelho de Alcantara">
+  <title>UML - Diagramas de Classes</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/engsoft1.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="title-slide" class="nivel1">
+        <h1 class="title">Diagramas de Classes</h1>
+        <p class="author" style="text-align: right !important;">Frank Coelho de Alcantara</p>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Classes</h2>
+          <p class="fragment fade-up">Uma classe é uma abstração para todos os objetos com as mesmas características.</p>
+          <p class="fragment fade-up">Objetos são criados a partir de uma classe, mas são definidos por sua identidade, estado e comportamento.</p>
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Identidade</h2>
+          <p class="fragment fade-up">A identidade de um objeto é determinada por um identificador único aquele objeto.</p>
+          <p class="fragment fade-up">Por exemplo: podemos usar o cpf como identificador único de pessoas no Brasil.</p>
+          <p class="fragment fade-up">Um campo que seja exclusivo de um objeto, e apenas deste objeto.</p>
+        </section>
+        <section id="versão-e-objetivo">
+          <h2>Estado</h2>
+          <p class="fragment fade-up">O estado de um objeto, em um instante do tempo, é determinado por todos os valores das suas propriedades.</p>
+          <p class="fragment fade-up">A palavra propriedade pode ser substituida por atributos. </p>
+          <p class="fragment fade-up">O estado de um objeto é uma propriedade dinâmica e depende do estado de todos os objetos em um dado instante.</p>
+        </section>
+        <section>
+          <h2>Comportamento</h2>
+          <p class="fragment fade-up">O comportamento de um objeto é determinado pela forma como ele reage a uma troca de informações.</p>
+          <p class="fragment fade-up">As informações são trocadas por meio de métodos que permitem, ou não, acesso as propriedades do objeto.</p>
+          <p class="fragment fade-up">O estado da máquina em um determinado instante é consequência do comportamento de todos os objetos na memória.</p>
+        </section>
+        <section>
+          <h2>Instância</h2>
+          <p class="fragment fade-up">A instância é o espaço de memória utilizado para criar um dos objetos definido pela classe.</p>
+          <p class="fragment fade-up">Uma instância, é um objeto com valores nos campos e com métodos disponíveis.</p>
+          <p class="fragment fade-up">A classe é apenas o mapa que usamos para instanciar objetos em memória.</p>
+        </section>
+        <section>
+          <h2>Encapsulamento</h2>
+          <p class="fragment fade-up">A arte de deixar a vista apenas o indispensável.</p>
+          <p class="fragment fade-up">Todo o estado da máquina depende da troca de informações. Podemos controlar este estado, controlando informações.</p>
+          <p class="fragment fade-up">Usamos para isso os conceitos de abstração e visibilidade.</p>
+          <p class="fragment fade-up">Só para lembrar: usamos a palavra <strong>abstrato</strong> para indicar componentes que mantém características comuns.
+          </p>
+        </section>
+        <section>
+          <h2>Generalização</h2>
+          <p class="fragment fade-up">A classe abstrata,<i>superclass</i>, contém os métodos e propriedades que são comuns a outras classes.</p>
+          <p class="fragment fade-up">A classe concreta, <i>subclass</i>, <strong>herda</strong> estes métodos e propriedades.</p>
+          <p class="fragment fade-up">Este processo de aproveitamento de características de uma classe em outra é chamada de herança e não é raro que remeta a
+            uma estrutura hierárquica.</p>
+          <p class="fragment fade-up"> Não é raro usarmos classe abstrata como classe pai, e classe concreta como classe filho. </p>
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Representação</h2>
+          <img data-src="../img/class1.png" style="max-width: 90% !important;"
+            alt="Diagrama de Classes mostrando herança simbolizada por uma seta com a ponta aberta indo do filho para o pai" />
+          <p>Usamos setas com a ponta aberta, indo da concreta para a abstrata indicando <strong>generalização por herança</strong>.</p>
+        </section>
+        <section>
+          <h2>Classe</h2>
+          <img data-src="../img/class2.png" style="height: 351px !important; "
+            alt="Diagrama de Classes mostrando cada símbolo usado na representação" />
+          <div style="float: right; margin-right: 5%; text-align: justify; width: 90%;;">
+            A única coisa que faltou são observações. Para tal, seguimos os padrões anteriores.
+          </div>
+        </section>
+        <section>
+          <h2>Definições</h2>
+          <p class="fragment fade-up"><strong>Privado</strong>: a propriedade ou método não pode ser visto por outras classes.</p>
+          <p class="fragment fade-up"><strong>Público</strong>: a propriedade ou método está acessível para todas as classes.</p>
+          <p class="fragment fade-up"><strong>Protegido</strong>: a propriedade ou método está acessível para todas as classes concretas, herdeiras da classe
+            abstrata.</p>
+          <p class="fragment fade-up"><strong>Estático</strong>: Existe uma instância e é compartilhada por todos os objetos.</p>
+        </section>
+        <section>
+          <h2>Associação </h2>
+          <div style="float: right; margin-right: 5%; text-align: justify; width: 66%; padding-top: 1%; ">
+            <strong>Associação</strong>: entre duas ou mais classes, uma representação da abstração entre as classes.
+          </div>
+          <img data-src="../img/associa1.png" style="float:left; margin-left:3% "
+            alt="associação entre as classes banco e conta" />
+
+          <div style="float: right; margin-right: 5%; text-align: justify; width: 66%; padding-top: 5%; ">
+            <strong>Associação direta</strong>: representa uma relação de propriedade aponta para o possuído.
+          </div>
+          <img data-src="../img/associa2.png" style="float:left; margin-left:3% "
+            alt="associação entre as classes banco e conta" />
+        </section>
+        <section>
+          <h2>Associação </h2>
+          <div style="float: right; margin-right: 5%; text-align: justify; width: 66%; padding-top: 1%; ">
+            <strong>Multiplicidade</strong>: podemos indicar quantas instâncias existem em uma dada associação.
+          </div>
+          <img data-src="../img/associa3.png" style="float:left; margin-left:3% "
+            alt="associação entre as classes banco e conta" />
+
+          <div style="float: right; margin-right: 5%; text-align: justify; width: 66%; padding-top: 5%; ">
+            <strong>Associação reflexiva</strong>: ocorre quando o objeto de negócio representado pela classe tem várias funções.
+          </div>
+          <img data-src="../img/associa4.png" style="float:left; margin-left:3% "
+            alt="associação entre as classes banco e conta" />
+        </section>
+        <section>
+          <h2>Multiplicidade</h2>
+          <table>
+            <tr>
+              <th>Representação</th>
+              <th>Significado</th>
+            </tr>
+            <tr>
+              <td>$0..*$</td>
+              <td>Nenhuma ou muitas</td>
+            </tr>
+            <tr>
+              <td>$0..1$ ou $1$</td>
+              <td>Nenhuma ou uma</td>
+            </tr>
+            <tr>
+              <td>$1..*$</td>
+              <td>Uma ou muitas</td>
+            </tr>
+            <tr>
+              <td>$3..6$</td>
+              <td>três, quatro ou cinco</td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <h2>Agregação </h2>
+          <div style="float: right; margin-right: 5%; text-align: justify; width: 66%; padding-top: 1%;">
+            <strong>Agregação</strong>: usamos para representar uma relação entre o todo e a parte.
+          </div>
+          <img data-src="../img/associa5.png" style="float:left; margin-left:3%;"
+            alt="agregação entre holding e empresas" />
+          <div style="float:right; margin: 5%; text-align: justify; width: 85%;">
+            <p>Agregação ocorre quando uma classe é uma <strong>coleção</strong> de outras classes, porém o ciclo de vida da classe contida não
+              depende da classe que a contém</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Composição</h2>
+          <div style="float: right; margin-right: 5%; text-align: justify; width: 66%; padding-top: 1%;">
+            <strong>Composição</strong>: usamos para representar uma relação entre o todo e a parte.
+          </div>
+          <img data-src="../img/associa6.png" style="float:left; margin-left:3%;"
+            alt="agregação entre holding e empresas" />
+          <div style="float:right; margin: 5%; text-align: justify; width: 85%;">
+            <p>A composição indica um relacionamento forte. Não existe a parte se não existir o todo. A agregação pode ser substituida pela associação. A
+              composição não.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Generalização / especialização</h2>
+          <div style="float: right; margin-right: 5%; text-align: justify; width: 51%; padding-top: 1%;">
+            <p><strong>Composição</strong>: usamos para representar uma relação entre abstrato e concreto.</p>
+          </div>
+          <img data-src="../img/associa7.png" style="float:left; margin-left:3%;"
+            alt="agregação entre holding e empresas" />
+          <div style="float:right; text-align: justify; width: 97%;">
+            <p>Esta é a relação de <strong>herança</strong> onde uma classe <i>herda</i> métodos e propriedades de outra classe. Os objetos poderão usar métodos
+              tanto da
+              <strong>classe concreta</strong> quanto da <strong>classe abstrata</strong>. </p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Generalização / especialização</h2>
+          <p class="fragment fade-up">Usamos a generalização quando existe uma quantidade significativa de <strong>informação compartilhada</strong> por dois,
+            ou mais objetos de negócio.</p>
+          <p class="fragment fade-up">A generalização permite a uniformidade do tratamento para todas as informações comuns.</p>
+          <p class="fragment fade-up"><strong>Do ponto de vista do negócio</strong>, facilita o entendimento das relações entre as entidades envolvidas. </p>
+          <p class="fragment fade-up"><strong>Do ponto de vista do código</strong>, permite a uniformidade, reaproveitamento e segurança do código.</p>
+        </section>
+
+        <section>
+          <h2>Dependência</h2>
+          <div style="float: right; margin-right: 5%; text-align: justify; width: 66%; padding-top: 1%;">
+            <strong>Composição</strong>: usamos a dependência para indicar uma relação de invocação. O uso de um objeto por outro.
+          </div>
+          <img data-src="../img/associa8.png" style="float:left; margin-left:3%; height: 225px;"
+            alt="Relação de dependência entre classes" />
+          <div style="float:right; margin: 5%; text-align: justify; width: 85%;">
+            <p>Qualquer alteração na classe que dispara a ação de dependência pode afetar a classe disparada.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Sintaxe</h2>
+          <img data-src="../img/classSintax.png" style="display: block; margin-left: auto; margin-right: auto; height:260px"
+            alt="Relação de dependência entre classes" />
+          <div style=" text-align: justify; width: 90%;">
+            <p>Estes são todos os símbolos que precisamos para criar um diagrama de classes. O problema não está na sintaxe. O problema está na semântica.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Exemplo</h2>
+          <img data-src="../img/class1Exemplo.png" style="display: block; margin-left: auto; margin-right: auto; height:560px"
+            alt="Exemplo de diagrama de classes" />
+
+        </section>
+
+      </section>
+
+      <section class="nivel1">
+        <section>
+          <h1>Material de apoio</h1>
+          <p>Você pode baixar o material de apoio <a href="./UMLCAP1.pdf">clicando aqui</a> </p>
+        </section>
+        <section>
+          <h2>Obras Citadas</h2>
+
+          <small style="width:90%; margin-right:2%">
+            BAUSOLA, D. <strong>Activity Diagram</strong>. zeroinfluence, 2012. Disponível em: <a
+              href="http:zeroinfluence.wordpress.com/uml" target="_blanck"
+              class="uri">http:zeroinfluence.wordpress.com/uml</a>.
+            Acesso em: 04 Ago. 2020. </br>
+            BECK, Kent et. Al. <strong>Manifesto para Desenvolvimento Ágil de Software</strong>. 2001. Disponível em: <a
+              href="https://agilemanifesto.org/iso/ptbr/manifesto.html" target="_blanck"
+              class="uri">https://agilemanifesto.org/iso/ptbr/manifesto.html </a>. Acesso em: 10 ago 2020. <br />
+            BECK, Kent e ANDRES, Cynthia. <strong>Extreme Programming Explained</strong>. 2012.Boston, MA. USA. Addison
+            Wesleyt.
+            2º Edição.<br />
+            SOMMERVILLE, I. <strong>Engenharia de software</strong>. São Paulo, SP. Brasil: Pearson , 2012.<br />
+            UNHELKAR, B. <strong>Software Engineering with UML</strong>. Boca Raton, FL. USA: Taylor & Francis Group,
+            LLC, 2018.
+          </small>
+
+        </section>
+      </section>
+
+
+    </div>
+  </div>
+  <div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+  <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
+
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
+</html>
