@@ -508,3 +508,8 @@ table.blueTable thead th:first-child {
 .home-button a:visited {
 	color: antiquewhite;
 }
+
+.reveal table th {
+	color: antiquewhite background;
+	background-color: #5f4746;
+}
