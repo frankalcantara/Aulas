@@ -417,54 +417,11 @@ h2 {
 	margin-left: 2%;
 }
 
+/*
 .MathJax {
 	color: antiquewhite !important;
 }
-
-table.blueTable {
-	border: 1px solid #093655;
-	background-color: #6b6b6b;
-	width: 100%;
-	text-align: left;
-	border-collapse: collapse;
-}
-
-table.blueTable td,
-table.blueTable th {
-	border: 1px solid #aaaaaa;
-	padding: 3px 2px;
-	color: black !important;
-}
-
-table.blueTable tbody td {
-	font-size: 20px;
-}
-
-table.blueTable tr:nth-child(even) {
-	background: #06665eaf;
-}
-
-table.blueTable thead {
-	background: #1c6ea4;
-	background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1c6ea4 100%);
-	background: -webkit-linear-gradient(top,
-			#5592bb 0%,
-			#327cad 66%,
-			#1c6ea4 100%);
-	background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1c6ea4 100%);
-	border-bottom: 2px solid #444444;
-}
-
-table.blueTable thead th {
-	font-size: 25px;
-	font-weight: bold;
-	color: #ffffff;
-	border-left: 2px solid #d0e4f5;
-}
-
-table.blueTable thead th:first-child {
-	border-left: none;
-}
+*/
 
 .reveal-viewport {
 	background: url(img/pic1d.jpg) no-repeat center center fixed !important;
@@ -477,6 +434,11 @@ table.blueTable thead th:first-child {
 .nivel1 {
 	background: rgba(0, 0, 0, 0.4);
 	padding: 10%;
+}
+
+.reveal table th {
+	background-color: #555260;
+	color: antiquewhite;
 }
 
 #toggle-chalkboard {
@@ -502,4 +464,34 @@ table.blueTable thead th:first-child {
 
 .home-button a:visited {
 	color: antiquewhite;
+}
+
+
+.imgleft {
+	height: 351px !important;
+	float: left;
+	margin-left: 2%;
+}
+
+.imgright {
+	height: 351px !important;
+	float: right;
+	margin-right: 4% !important;
+}
+
+.textoleft {
+	float: left;
+	margin-left: 5%;
+	text-align: left;
+	width: 54%;
+	padding-top: 4%;
+
+}
+
+.textoright {
+	float: right;
+	margin-right: 5%;
+	text-align: left;
+	width: 54%;
+	padding-top: 4%;
 }
