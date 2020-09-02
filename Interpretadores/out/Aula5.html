@@ -466,6 +466,98 @@
       </section>
       <section class="nivel1">
         <section>
+          <h2>Parsers</h2>
+          <p>
+            <img
+              data-src="../img/parsers.png"
+              alt="algoritmos de parser mais comuns" />
+          </p>
+        </section>
+
+        <section>
+          <h2>Parsers - Top-Down</h2>
+          <img
+            data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 465px;"
+            alt="algoritmos de parser mais comuns" />
+          <div style=" font-size: 80%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
+            <ul>
+              <li>Da raiz para as folhas;</li>
+              <li>Da esquerda para direita;</li>
+              <li>A derivação mais a esquerda;</li>
+              <li>O parse deverá escolher uma regra que atenda esta derivação.</li>
+            </ul>
+            <p>O que acontece quando não existe uma regra adequada?</p>
+          </div>
+        </section>
+        <section>
+          <h2>Parsers - Backtracing</h2>
+          <img
+            data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 465px;"
+            alt="algoritmos de parser mais comuns" />
+          <div style=" font-size: 80%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
+            <p>Se, a qualquer momento, não existir uma regra de produção que permita a derivação, o parser deve voltar e refazer a árvore;
+              A essa operação damos o nome de Backtrack.</p>
+          </div>
+        </section>
+        <section>
+          <h2>Parsers - Backtracing</h2>
+          <img
+            data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 465px;"
+            alt="algoritmos de parser mais comuns" />
+          <div style=" font-size: 80%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
+            <p>Existem dois algoritmos para varrer uma árvore de soluções: <strong>deep-first</strong> e <strong>breadth-first</strong>.</p>
+            <p>No <strong>deep-first</strong> havendo duas opções, armazenamos uma e seguimos com a outra, se algo der errado voltamos neste ponto e seguimos a
+              outra alternativa.
+            </p>
+          </div>
+        </section>
+        <section>
+          <h2>Parsers - Backtracing</h2>
+          <img
+            data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 465px;"
+            alt="algoritmos de parser mais comuns" />
+          <div style=" font-size: 80%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
+            <p>No <strong>breadth-first</strong>, armazenamos um conjunto de soluções parciais e examinamos estas soluções em busca de soluções melhores
+              eventualmente o conjunto
+              irá conter toda a árvore.</p>
+          </div>
+        </section>
+        <section>
+          <h2>Parsers - NonBacktracing</h2>
+          <img
+            data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 465px;"
+            alt="algoritmos de parser mais comuns" />
+          <div style=" font-size: 80%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
+            <p>Classe de parsers que usa um ponteiro apontando para o próximo símbolo na string;</p>
+            <p>Usam uma classe de gramática especial chamada de LL(k);</p>
+            <p>O k representa o número de símbolos previsto.</p>
+          </div>
+        </section>
+        <section>
+          <h2>Gramáticas LL(1)</h2>
+          <img
+            data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 465px;"
+            alt="algoritmos de parser mais comuns" />
+          <div style=" font-size: 60%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
+            <p>De tal forma que:$𝑮=\{𝑵,\Sigma, 𝑷, 𝑺\}$</p>
+            <p>Onde: $𝒘 \in \Sigma^∗, 𝑨\in 𝑵, \alpha, \beta 𝒆 \gamma \in (𝑵\cup \Sigma)^∗$</p>
+            <p>Cujas derivações serão dadas por:$𝑺 \rightarrow 𝒘𝑨 \gamma | 𝒘 \alpha 𝜸 | 𝒘𝒙 \in \Sigma^∗$ </p>
+            <p>$ 𝑺 \rightarrow 𝒘𝑨 \gamma | 𝒘\beta \gamma | 𝒘𝒚 \in \Sigma^∗$
+            </p>
+          </div>
+        </section>
+        <section>
+          <h2>LL(k) - Resumo</h2>
+          <p>
+            <img
+              data-src="../img/llk1.png"
+              alt="algoritmos de parser mais comuns" />
+          </p>
+        </section>
+
+      </section>
+      <section class="nivel1">
+        <section>
           <h1>Material de apoio</h1>
           <p>
             Você pode baixar o material de apoio
