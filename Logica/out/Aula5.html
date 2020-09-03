@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Frank Coelho de Alcantara" />
+	<title>Exercícios</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta
+		name="apple-mobile-web-app-status-bar-style"
+		content="black-translucent" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	<link rel="stylesheet" href="../../rev/reset.css" />
+	<link rel="stylesheet" href="../../rev/reveal.css" />
+	<link rel="stylesheet" href="../../rev/logica.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="nivel1" id="title-slide">
+				<h1 class="title">Exercícios de Fixação</h1>
+				<p class="author" style="text-align: right !important">
+					Frank Coelho de Alcantara
+				</p>
+			</section>
+			<section class="nivel1">
+				<section>
+					<h2>Ex.1: Satisfação</h2>
+					<p>
+						Considere a interpretação $w$ onde o $V(p)\equiv F, V(q) \equiv T$ e $V(r) \equiv T$. Determine se a interpretação $w$ satisfaz, ou não,
+						as seguintes fórmulas.
+					</p>
+					<ol>
+						<li>$(\neg p \vee \neg q) \rightarrow (p \vee \neg r)$</li>
+						<li>$\neg(\neg p \rightarrow \neg q) \wedge r$</li>
+						<li>$\neg(\neg p \rightarrow q \wedge \neg r)$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Ex.1.1: Solução</h2>
+					<p>
+						Para a interpretação $w$ onde o $V(p)\equiv F, V(q) \equiv T$ e $V(r) \equiv T$. Aplicada a formula $(\neg p \vee \neg q) \rightarrow (p
+						\vee \neg r)$. teremos:
+					</p>
+					<table style="font-size: 63% !important; width: 90%;">
+						<tbody>
+							<tr>
+								<th><i>$p$</i></th>
+								<th><i>$q$</i></th>
+								<th><i>$r$</i></th>
+								<th><i>$(\neg p \vee \neg q)$</i></th>
+								<th><i>$(p \vee \neg r)$</i></th>
+								<th><i>$(\neg p \vee \neg q) \rightarrow (p \vee \neg r)$</i></th>
+							</tr>
+							<tr>
+								<td>$F$</td>
+								<td>$T$</td>
+								<td>$T$</td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+							</tr>
+						</tbody>
+					</table>
+					<p class="fragment fade-up">
+						<small style="width:80%; margin:3%;">
+							Como a função verdade $V$ de $(\neg p \vee \neg q) \rightarrow (p
+							\vee \neg r)$. na interpretação $w$ é falso então a interpretação $w$ não satisfaz $(\neg p \vee \neg q) \rightarrow (p
+							\vee \neg r)$.
+						</small>
+					</p>
+				</section>
+				<section>
+					<h2>Ex. 1.2 , Ex. 1.3: Satisfação</h2>
+					<p>
+						Resolvam os exercícios 1.2 e 1.3.
+					</p>
+					<ol>
+						<li>$(\neg p \vee \neg q) \rightarrow (p \vee \neg r)$</li>
+						<li>$\neg(\neg p \rightarrow \neg q) \wedge r$</li>
+						<li>$\neg(\neg p \rightarrow q \wedge \neg r)$</li>
+					</ol>
+					<p class="fragment fade-up">
+						<small style="width:80%; margin:3%;">
+							A interpretação $w$ de satisfaz $\neg(\neg p \rightarrow \neg q) \wedge r$ e
+							$\neg(\neg p \rightarrow q \wedge \neg r)$.
+						</small>
+					</p>
+				</section>
+				<section>
+					<h2>Ex.2: Tabelas Verdade</h2>
+					<p>Determine a tabela verdade das seguinte fórmulas.</p>
+					<ol>
+						<li>$(p \rightarrow q) \vee (p \rightarrow \neg q$</li>
+						<li>$(\neg p \vee q) \wedge (q \rightarrow \neg \wedge \neg p) \wedge (p \vee r)$</li>
+						<li>$p \wedge \neg q \rightarrow p \wedge q$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Ex.2.1: Solução</h2>
+					<p>Considerando: $(p \rightarrow q) \vee (p \rightarrow \neg q)$ teremos:</p>
+					<table style="font-size: 63% !important; width: 90%;">
+						<tbody>
+							<tr>
+								<th><i>$p$</i></th>
+								<th><i>$q$</i></th>
+								<th><i>$(p \rightarrow q)$</i></th>
+								<th><i>$(p \rightarrow \neg q)$</i></th>
+								<th><i>$(p \rightarrow q) \vee (p \rightarrow \neg q)$</i></th>
+							</tr>
+							<tr>
+								<td>$T$</td>
+								<td>$T$</td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+							</tr>
+							<tr>
+								<td>$T$</td>
+								<td>$F$</td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+							</tr>
+							<tr>
+								<td>$F$</td>
+								<td>$T$</td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+							</tr>
+							<tr>
+								<td>$F$</td>
+								<td>$F$</td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h2>Ex.2.1, Ex.2.2: Tabelas Verdade</h2>
+					<p>Determine a tabela verdade das seguinte fórmulas.</p>
+					<ol>
+						<li>$(p \rightarrow q) \vee (p \rightarrow \neg q$</li>
+						<li>$(\neg p \vee q) \wedge (q \rightarrow \neg \wedge \neg p) \wedge (p \vee r)$</li>
+						<li>$p \wedge \neg q \rightarrow p \wedge q$</li>
+					</ol>
+					<p>Resolvam os números 2.2 e 2.3.</p>
+				</section>
+				<section>
+					<h2>Ex.3: Equivalência Lógica</h2>
+					<p>
+						Determine se as expressões a seguir são logicamente equivalentes.
+					</p>
+					<ol>
+						<li>$p \rightarrow (q \wedge \neg q) \Leftrightarrow \neg p$</li>
+						<li>$(\neg p \vee q) \wedge (q \wedge \neg p) \Leftrightarrow (p \vee r)$</li>
+						<li>$p \vee (q \wedge r) \Leftrightarrow (p \wedge r) \vee q$</li>
+						<li>$(p \wedge ¬q) \Leftrightarrow \neg (p \leftrightarrow q)$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Ex.3.1: Solução</h2>
+					<p> Considerando: $p \rightarrow (q \wedge \neg q) \Leftrightarrow \neg p$, teremos:</p>
+					<table style="font-size: 63% !important; width: 90%;">
+						<tbody>
+							<tr>
+								<th><i>$p$</i></th>
+								<th><i>$q$</i></th>
+								<th><i>$(q \wedge \neg q)$</i></th>
+								<th><i>$p \rightarrow (q \wedge \neg q)$</i></th>
+								<th><i>$\neg p$</i></th>
+
+							</tr>
+							<tr>
+								<td>$T$</td>
+								<td>$T$</td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+							</tr>
+							<tr>
+								<td>$T$</td>
+								<td>$F$</td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+							</tr>
+							<tr>
+								<td>$F$</td>
+								<td>$T$</td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+							</tr>
+							<tr>
+								<td>$F$</td>
+								<td>$F$</td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+							</tr>
+						</tbody>
+					</table>
+					<p class="fragment fade-up">
+						<small style="width:80%; margin:3%;">
+							As duas fórmulas são logicamente equivalentes já que, para cada interpretação, o valor verdade é o mesmo .
+						</small>
+					</p>
+				</section>
+				<section>
+					<h2>Ex.3.2, Ex.3.3, Ex.3.4 Equivalência</h2>
+					<p>
+						Resolvam os exercícios 3.2, 3.3 e 3.4.
+					</p>
+					<ol>
+						<li>$p \rightarrow (q \wedge \neg q) \Leftrightarrow \neg p$</li>
+						<li>$(\neg p \vee q) \wedge (q \wedge \neg p) \Leftrightarrow (p \vee r)$</li>
+						<li>$p \vee (q \wedge r) \Leftrightarrow (p \wedge r) \vee q$</li>
+						<li>$(p \wedge ¬q) \Leftrightarrow \neg (p \leftrightarrow q)$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Ex.4: Consistência</h2>
+					<p>
+						Considerando as fórmulas a seguir, determine se elas são válidas,
+						satisfatíveis ou insatisfatíveis, válidas, tautológicas, contraditórias ou contingentes.
+					</p>
+					<ol>
+						<li>$(p \rightarrow (q \rightarrow r)) \rightarrow ((r \rightarrow q))$</li>
+						<li>$(p \wedge q) \vee (\neg q \wedge \neg p$</li>
+						<li>$(\neg p \rightarrow q) ∨ ((p ∧ \neg r) \leftrightarrow q)$</li>
+						<li>$(p \rightarrow q) ∧ (p \rightarrow \neg q)$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Ex.4.1: Solução</h2>
+					<p>
+						Considerando $(p \rightarrow (q \rightarrow r)) \rightarrow ((r \rightarrow q))$, teremos:
+					</p>
+					<table style="font-size: 53% !important; width: 90%;">
+						<tbody>
+							<tr>
+								<th><i></i></th>
+								<th><i>$p$</i></th>
+								<th><i>$q$</i></th>
+								<th><i>$r$</i></th>
+								<th><i>$(q \rightarrow r)$</i></th>
+								<th><i>$(p \rightarrow (q \rightarrow r))$</i></th>
+								<th><i>$(r\rightarrow q)$</i></th>
+								<th><i>$(p \rightarrow (q \rightarrow r)) \rightarrow ((r \rightarrow q))$</i></th>
+							</tr>
+							<tr>
+								<td>$a$</td>
+								<td>$T$</td>
+								<td>$T$</td>
+								<td>$T$</td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+							</tr>
+							<tr>
+								<td>$b$</td>
+								<td>$T$</td>
+								<td>$T$</td>
+								<td>$F$</td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+							</tr>
+							<tr>
+								<td>$c$</td>
+								<td>$T$</td>
+								<td>$F$</td>
+								<td>$T$</td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+							</tr>
+							<tr>
+								<td>$d$</td>
+								<td>$T$</td>
+								<td>$F$</td>
+								<td>$F$</td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+							</tr>
+							<tr>
+								<td>$e$</td>
+								<td>$F$</td>
+								<td>$T$</td>
+								<td>$T$</td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+							</tr>
+							<tr>
+								<td>$f$</td>
+								<td>$F$</td>
+								<td>$T$</td>
+								<td>$F$</td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+							</tr>
+							<tr>
+								<td>$g$</td>
+								<td>$F$</td>
+								<td>$F$</td>
+								<td>$T$</td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+							</tr>
+							<tr>
+								<td>$h$</td>
+								<td>$F$</td>
+								<td>$F$</td>
+								<td>$F$</td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+							</tr>
+						</tbody>
+					</table>
+					<p class="fragment fade-up">
+						<small style="width:90%; margin:2%;">
+							É satisfatível em todas as interpretações exceto c e g.
+							Não é insatisfatível, não é tautologia, não é contradição.
+							Não é válida, mas é contingente.
+						</small>
+					</p>
+				</section>
+				<section>
+					<h2>Ex.4.2, Ex.4.3, Ex.4.4: Consistência</h2>
+					<p>
+						Resolvam os exercícios 4.2, 4.3 e 4.4.
+					</p>
+					<ol>
+						<li>$(p \rightarrow (q \rightarrow r)) \rightarrow ((r \rightarrow q))$</li>
+						<li>$(p \wedge q) \vee (\neg q \wedge \neg p$</li>
+						<li>$(\neg p \rightarrow q) ∨ ((p ∧ \neg r) \leftrightarrow q)$</li>
+						<li>$(p \rightarrow q) ∧ (p \rightarrow \neg q)$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Ex.5: Formalização de sentenças</h2>
+					<p>
+						Considere uma linguagem proposicional onde $p$ signifique "Sandra é feliz";
+						$q$ signifique "Patrícia pinta quadros" e $r$ signifique "Amélia é feliz". Formalize as
+						seguintes sequências:
+					</p>
+					<ol style="width:90%; margin-left:8%; font-size:80%;">
+						<li>Se Sandra é feliz, então Amélia é feliz.</li>
+						<li>Se Sandra não é feliz, então Patrícia não pinta quadros.</li>
+						<li>Já que Sandra e Amélia são felizes, então Patrícia pinta quadros.</li>
+						<li>Quando Patrícia pinta quadros e Amélia não é feliz Sandra também não é.</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Ex.6: Solução de problemas</h2>
+					<p>
+						Beatriz, encontrou os baús $A$ e $B$ em uma caverna. Ela conhece a lenda destes baús e sabe
+						que um contém um tesouro e o outro uma maldição. No baú $A$ está escrito: "Ao menos um destes baús contém um tesouro".
+						Enquanto isso no baú $B$ está escrito: "No baú A existe uma maldição". Beatriz também sabe que ou as duas
+						inscrições são verdadeiras ou as duas são falsas. Será possível encontrar o tesouro? Se sim,
+						qual baú Beatriz deve abrir?
+					</p>
+				</section>
+				<section>
+					<h2>Ex.6: Solução </h2>
+					<small>
+						<p class="fragment fade-up">
+							Considere uma linguagem proposicional onde $p$ representa "baú $A$ contém o tesouro" e $q$
+							representa baú $B$ contém o tesouro"
+						</p>
+						<p class="fragment fade-up">
+							Neste ponto podemos afirmar que $\neg p$ significa "baú $A$ contém uma maldição" e que
+							$\neg q$ significa "Baú $B$ contém uma maldição." Apenas um contém o tesouro. Apenas um contém a maldição.
+						</p>
+						<p class="fragment fade-up">
+							Podemos formalizar o conhecimento de Beatriz:
+						<ul style="margin-left: 8%;">
+							<li>"Ao menos um destes baús contém um tesouro", ou seja $p \vee q$;</li>
+							<li>"O Baú $A$ contém uma maldição", ou seja $\neg p$</li>
+							<li>"Ou as duas inscrições são verdadeiras ou falsas", ou seja $(p \vee q) \leftrightarrow \neg p$</li>
+						</ul>
+						</p>
+						<p class="fragment fade-up">
+							Precisamos verificar existe alguma interpretação que satisfaz $(p \vee q) \leftrightarrow \neg p$ e você pode
+							usar uma tabela verdade para isso.
+						</p>
+					</small>
+				</section>
+				<section>
+					<h2>Ex.6: Solução Continuação </h2>
+					<p>
+						Fazendo a tabela verdade de $(p \vee q) \leftrightarrow \neg p$ teremos.
+					</p>
+
+					<table style="font-size: 53% !important; width: 90%;">
+						<tbody>
+							<tr>
+								<th><i></i></th>
+								<th><i>$p$</i></th>
+								<th><i>$q$</i></th>
+								<th><i>$(p \vee q)$</i></th>
+								<th><i>$(\neg p)$</i></th>
+								<th><i>$((p \vee q)\leftrightarrow \neg p)$</i></th>
+							</tr>
+							<tr>
+								<td>$a$</td>
+								<td>$T$</td>
+								<td>$T$</td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+							</tr>
+							<tr>
+								<td>$b$</td>
+								<td>$T$</td>
+								<td>$F$</td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+							</tr>
+							<tr>
+								<td>$c$</td>
+								<td>$F$</td>
+								<td>$T$</td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+							</tr>
+							<tr>
+								<td>$d$</td>
+								<td>$F$</td>
+								<td>$F$</td>
+								<td><span class="fragment fade-up">$F$</span></td>
+								<td><span class="fragment fade-up">$T$</span></td>
+								<td><span class="fragment fade-up">$F$</span></td>
+							</tr>
+						</tbody>
+					</table>
+					<p class="fragment fade-up">
+						Graças a interpretação $c$, sabemos que Beatriz pode abrir um baú.
+					</p>
+					<p class="fragment fade-up">Qual Baú ela deve abrir?</p>
+				</section>
+				<section>
+					<h2>Ex.6: Solução de problemas</h2>
+					<small style="width:90%; font-size: 80% !important;">
+						<p>
+							Após o falcimento do seu pai, homem sério e que nunca disse uma mentira na vida.
+							Tônia encontra três caixas etiquetadas. Na caixa um se lê "o dinheiro não está aqui".
+							Na etiqueta da caixa é possível ler "o dinheiro não está aqui" e na caixa três há uma etiqueta
+							que diz "o dinheiro está na caixa 2". Na frete das três caixas existe uma nota do seu pai
+							que diz em letras garrafais: "apenas uma etiqueta contém a verdade, as outras duas são mentiras".
+						</p>
+						<p> Formalize o problema e determine que caixa Tônia deve abrir.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Ex.7: Forma Normal Conjuntiva</h2>
+					<p>Sem utilizar uma tabela verdade, reduza as seguinte fórmulas a forma normal conjuntiva.</p>
+					<ol>
+						<li>$\neg (\neg p \vee q) \vee (r \rightarrow \neg s)$</li>
+						<li>$(\neg p \rightarrow q) \rightarrow (q \rightarrow \neg r)$</li>
+						<li>$\neg ((((p \rightarrow q)) \rightarrow p) \rightarrow a)$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Ex.7.1: Solução</h2>
+					<p>Considerando $\neg (\neg p \vee q) \vee (r \rightarrow \neg s)$ </p>
+					<ol>
+						<li class="fragment fade-up">$\neg (\neg p \vee q) \vee (\neg r \vee \neg s)$</li>
+						<li class="fragment fade-up">(Distributiva da Negação)</li>
+						<li class="fragment fade-up">$(\neg \neg p \wedge \neg q) \vee (\neg r \vee \neg s)$</li>
+						<li class="fragment fade-up">(Retiramos a negação dupla)</li>
+						<li class="fragment fade-up">$(p \wedge \neg q) \vee (\neg r \vee \neg s)$</li>
+						<li class="fragment fade-up">(Distributiva da Disjunção)</li>
+						<li class="fragment fade-up">$(p \vee (\neg r \vee \neg s)) \wedge (\neg q \vee (\neg r \vee \neg s))$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Ex.7.2, Ex.7.3: Solução</h2>
+					<p>Resolvam os exercícios 7.2 e 7.3</p>
+				</section>
+				<section>
+					<h2>Ex.8: Forma Normal Disjuntiva</h2>
+					<p>Sem utilizar uma tabela verdade, reduza as seguinte fórmulas a forma normal conjuntiva.</p>
+					<ol>
+						<li>$\rightarrow ((p \rightarrow (q \rightarrow r))) \rightarrow ((p \rightarrow q) \rightarrow (p \rightarrow r))$</li>
+						<li>$(\neg p \rightarrow q) \wedge (q \rightarrow \neg r)$</li>
+						<li>$\neg ((((p \rightarrow q)) \rightarrow p) \rightarrow a)$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Ex.8: Solução</h2>
+					<p>Estes são todos com vocês.</p>
+				</section>
+			</section>
+			<section class="nivel1">
+				<section>
+					<h1>Material de apoio</h1>
+					<p>
+						Você pode baixar o material de apoio
+						<a href="./logicaProposicional.pdf" target="_blanck">clicando aqui</a>
+					</p>
+				</section>
+				<section>
+					<h2>Obras Citadas</h2>
+					<p>
+						AHO, A. V. et al.
+						<strong>Compiladores: princípios, técnicas e ferramentas</strong>.
+						2º. ed. Boston, MA, USA: Pearson Education Inc. , 2007. <br />
+						CASS, S. <strong>The 2016 Top Programming Languages</strong>. IEEE
+						Spectrum, 2016. Disponível em:
+						http://spectrum.ieee.org/computing/software/the-2016-top-programming-languages.
+						Acesso em: 22 Set. 2016.
+					</p>
+				</section>
+			</section>
+		</div>
+	</div>
+	<div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+	<script src="../../rev/reveal.js"></script>
+	<script src="../../rev/plugin/notes/notes.js"></script>
+	<script src="../../rev/plugin/search/search.js"></script>
+	<script src="../../rev/plugin/zoom/zoom.js"></script>
+	<script src="../../rev/plugin/math/math.js"></script>
+	<script src="../../rev/plugin/menu/menu.js"></script>
+	<script src="../../rev/plugin/chalkboard/plugin.js"></script>
+	<script>
+		// Full list of configuration options available at:
+		// https://revealjs.com/config/
+		Reveal.initialize({
+			// Push each slide change to the browser history
+			history: true,
+			// Transition style
+			transition: "fade", // none/fade/slide/convex/concave/zoom
+			math: {
+				mathjax:
+					"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+				config: "TeX-AMS_HTML-full",
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: {
+					Macros: {
+						RR: "{\\bf R}",
+					},
+				},
+			},
+			menu: {
+				side: "left",
+				width: "normal",
+				numbers: false,
+				titleSelector: "h1, h2, h3, h4, h5, h6",
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: false,
+				themesPath: "dist/theme/",
+				transitions: false,
+				openButton: true,
+				openSlideNumber: false,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true,
+			},
+			// reveal.js plugins
+			plugins: [
+				RevealNotes,
+				RevealMath,
+				RevealMenu,
+				RevealChalkboard,
+				RevealSearch,
+				RevealZoom,
+			],
+		});
+	</script>
+</body>
+
+</html>

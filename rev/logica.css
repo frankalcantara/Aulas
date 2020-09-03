@@ -324,7 +324,7 @@ html * {
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-	color: #268bd2;
+	color: antiquewhite;
 }
 
 /*********************************************
@@ -430,7 +430,7 @@ h2 {
 }
 
 .MathJax {
-	color: antiquewhite !important;
+	color: white !important;
 }
 
 table.blueTable {
@@ -487,8 +487,9 @@ table.blueTable thead th:first-child {
 }
 
 .nivel1 {
-	background: rgba(0, 0, 0, 0.4);
+	background: rgba(0, 0, 22, 0.55);
 	padding: 10%;
+	box-shadow: 5px 10px 10px rgba(0, 0, 22, 0.44);
 }
 
 input {
@@ -525,4 +526,10 @@ input {
 
 .home-button a:visited {
 	color: antiquewhite;
+}
+
+
+.reveal table th {
+	background-color: #545f6e;
+	color: rgb(27, 118, 192);
 }
