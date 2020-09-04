@@ -142,6 +142,7 @@ void merge(int arr[], int l, int m, int r) {
 
 
 //função interativa timSort
+//há um limite para o tamanho do array ser uma potência de 2 múltipla de 32
 void timSort(int arr[], int n, int run)
 {
     // ordena arrays individuais do tamanho n-1 
@@ -150,14 +151,12 @@ void timSort(int arr[], int n, int run)
 
     // começa o merge a partir do tamanho RUN (32). 
     // formando arrays de tamanho 64, then 128, 256 and so on .... 
-    for (int size = run; size < n; size = 2 * size)
-    {
+    for (int size = run; size < n; size = 2 * size) {
         // escolhe um ponto de início no subarray L. We 
         // vamos fazer o merge entre os subarrays[left..left+size-1] 
         // e os arrays[left+size, left+2*size-1] 
         // depois de cada merge mudamos a posição de Left por 2*size 
-        for (int left = 0; left < n; left += 2 * size)
-        {
+        for (int left = 0; left < n; left += 2 * size) {
             // encontra o ponto final do array left 
             // mid+1 é o ponto inicial do array right  
             int mid = left + size - 1;
