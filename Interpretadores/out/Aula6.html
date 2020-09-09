@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="author" content="Frank Coelho de Alcantara" />
-  <title>Parsers LL(1)</title>
+  <title>Parsers LL & LR</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta
     name="apple-mobile-web-app-status-bar-style"
@@ -21,7 +21,7 @@
   <div class="reveal">
     <div class="slides">
       <section id="title-slide" class="nivel1">
-        <h1 class="title">Parsers LL(1)</h1>
+        <h1 class="title">Parsers LL & LR</h1>
         <p style="text-align: right !important;">
           Frank Coelho de Alcantara&nbsp;&nbsp;
         </p>
@@ -431,7 +431,7 @@
       </section>
       <!--/ Parser LL(1)-->
       <section class="nivel1">
-        <!-- top-down -->
+        <!-- Parser LR -->
         <section>
           <h2>Bottom-UP Parser</h2>
           <img data-src="../img/btup1.png" class="imgright" style="height: 304px !important; margin-top: 7%;"
@@ -456,67 +456,67 @@
           <h2>Exemplo Shift-Reduce</h2>
           <p>
             Considere e gramática a seguir para a <i>string</i> "n+n*n" sem as aspas.
-            </p> 
+          </p>
           <img data-src="../img/btup2.png" class="imgright" style="height: 304px !important; margin-top: 7%;"
             alt="símbolo meramente ilustrativo, sem valor didático" />
-            <ol style=" font-size: 60% !important; float: left; margin-left: 18%;">
-              <li>$𝑷=\{𝑺 \rightarrow 𝑺+S$;</li>
-              <li>$𝑺 \rightarrow S*S$;</li>
-              <li>$S \rightarrow (S)$;</li>
-              <li>$S \rightarrow n$;</li>
-           </ol>
+          <ol style=" font-size: 60% !important; float: left; margin-left: 18%;">
+            <li>$𝑷=\{𝑺 \rightarrow 𝑺+S$;</li>
+            <li>$𝑺 \rightarrow S*S$;</li>
+            <li>$S \rightarrow (S)$;</li>
+            <li>$S \rightarrow n$;</li>
+          </ol>
         </section>
         <section>
           <h2>Shift-Reduce Parser</h2>
           <img data-src="../img/btup1.png" class="imgright" style="height: 304px !important; margin-top: 7%;"
             alt="símbolo meramente ilustrativo, sem valor didático" />
           <div class="textoleft">
-            $LR(k)$ L para da Esquerda para direita (from Left) e R para usar a redução mais a direita (Rightmost Redution);<br/> 
-            O $K$ indica quantos símbolos a frente; <br/>
-            É um parser não recursivo, Shift-Reduce, e Botton Up; <br/>
+            $LR(k)$ L para da Esquerda para direita (from Left) e R para usar a redução mais a direita (Rightmost Redution);<br />
+            O $K$ indica quantos símbolos a frente; <br />
+            É um parser não recursivo, Shift-Reduce, e Botton Up; <br />
             O <i>Shift-Reduce</i> é um $LL(k)$ com $k=0$.
-           </div>
+          </div>
         </section>
         <section>
           <h2>Família LR</h2>
           <img data-src="../img/btup1.png" class="imgright" style="height: 304px !important; margin-top: 7%;"
             alt="símbolo meramente ilustrativo, sem valor didático" />
-            <ol style=" margin-top: 4%; margin-left: 6%; font-size: 63%; margin-right: 2%;">
-              <li class="fragment fade-up">SLR(1) – Simple LR Parser:
-                <ul>
-                  <li>Poucas gramáticas;</li>
-                  <li>Poucos estados, tabela simples;</li>
-                  <li>Simples e fácil, código e tabela.</li>
-                </ul>  
-              </li>
-              <li class="fragment fade-up">LR(1) – LR Parser:
-                <ul>
-                  <li>Todas as gramáticas LR(1);</li>
-                  <li>Muitos estados, tabela grande;</li>
-                  <li>Difícil, código e tabela.</li>
-                </ul>  
-              </li>
-              <li class="fragment fade-up">LALR(1) – Look-Ahead LR Parser:
-                <ul>
-                  <li>Trabalha com gramáticas intermediárias;</li>
-                  <li>Tantos estados quanto um SLR(1);</li>
-                  <li>Melhor usar uma ferramenta para criar.</li>
-                </ul> 
-              </li>
-            </ol>  
+          <ol style=" margin-top: 4%; margin-left: 6%; font-size: 63%; margin-right: 2%;">
+            <li class="fragment fade-up">SLR(1) – Simple LR Parser:
+              <ul>
+                <li>Poucas gramáticas;</li>
+                <li>Poucos estados, tabela simples;</li>
+                <li>Simples e fácil, código e tabela.</li>
+              </ul>
+            </li>
+            <li class="fragment fade-up">LR(1) – LR Parser:
+              <ul>
+                <li>Todas as gramáticas LR(1);</li>
+                <li>Muitos estados, tabela grande;</li>
+                <li>Difícil, código e tabela.</li>
+              </ul>
+            </li>
+            <li class="fragment fade-up">LALR(1) – Look-Ahead LR Parser:
+              <ul>
+                <li>Trabalha com gramáticas intermediárias;</li>
+                <li>Tantos estados quanto um SLR(1);</li>
+                <li>Melhor usar uma ferramenta para criar.</li>
+              </ul>
+            </li>
+          </ol>
         </section>
         <section>
           <h2>Família LR - Obs.</h2>
           <img data-src="../img/btup1.png" class="imgright" style="height: 304px !important; margin-top: 7%;"
             alt="símbolo meramente ilustrativo, sem valor didático" />
           <div class="textoleft" style="font-size: 85%;">
-            Todas as linguagens de programação podem ser especificadas em uma gramática $LR(1)$. Ou, praticamente todas; <br/>
-            Os algoritmos $LALR(1)$ e $SLR$ são variações do $LR(k)$;<br/>
-            $LALR(1)$ todas as linguagens reais, usando menos memória;<br/>
+            Todas as linguagens de programação podem ser especificadas em uma gramática $LR(1)$. Ou, praticamente todas; <br />
+            Os algoritmos $LALR(1)$ e $SLR$ são variações do $LR(k)$;<br />
+            $LALR(1)$ todas as linguagens reais, usando menos memória;<br />
             Todas as variações ($SLR$, $LALR$, $LR$) usam o mesmo algoritmo mas com tabelas de formato diferente.
-           </div>
+          </div>
         </section>
-         <section>
+        <section>
           <h2>Comparação LL LR</h2>
           <img data-src="../img/btup3.png" style="height: 478px !important; margin-top: 2%; margin-left: 5%;"
             alt="símbolo meramente ilustrativo, sem valor didático" />
@@ -524,18 +524,24 @@
         <section>
           <h2>Por quê LR(1)?</h2>
           <div class="textoleft" style="font-size: 68%; width: 90%;">
-          <p class="fragment fade-up">Podem ser construídos para qualquer linguagem de programação sobre uma gramática livre de contexto. Podemos criar gramáticas LR que não são livres de contexto, mas estas tem pouca ou nenhuma utilidade em Linguagens de Programação.</p>
-          <p class="fragment fade-up">O algoritmo é um método de parsing sem <i>backtracking</i>, baseado em <i>Shift-Reduce</i> que pode ser implementado de forma mais eficiente, mantendo complexidade baixa. </p>
-          <p class="fragment fade-up"> Pode detectar erros de sintaxe assim que seja possível identificar estes erros fazendo uma varredura da esquerda para a direita.</p> 
-            <p class="fragment fade-up"> A classe de gramáticas $LR$ é um subconjunto da classe $LL$.</p> 
+            <p class="fragment fade-up">Podem ser construídos para qualquer linguagem de programação sobre uma gramática livre de contexto. Podemos criar
+              gramáticas LR que não são livres de contexto, mas estas tem pouca ou nenhuma utilidade em Linguagens de Programação.</p>
+            <p class="fragment fade-up">O algoritmo é um método de parsing sem <i>backtracking</i>, baseado em <i>Shift-Reduce</i> que pode ser implementado de
+              forma mais eficiente, mantendo complexidade baixa. </p>
+            <p class="fragment fade-up"> Pode detectar erros de sintaxe assim que seja possível identificar estes erros fazendo uma varredura da esquerda para a
+              direita.</p>
+            <p class="fragment fade-up"> A classe de gramáticas $LR$ é um subconjunto da classe $LL$.</p>
           </div>
         </section>
         <section>
           <h2>Quando encontramos um problema</h2>
           <div class="textoleft" style="font-size: 68%; width: 90%;">
-            <p class="fragment fade-up">Como não temos nenhuma função para adivinhar o futuro, podemos usar o <i>backtracking</i>. A cada opção, mantemos uma árvore na memória, tentamos uma regra de produção. Se não der certo, voltamos até o ponto da opção e tentamos outra regra. <strong>Nem pensar!</strong></p>
+            <p class="fragment fade-up">Como não temos nenhuma função para adivinhar o futuro, podemos usar o <i>backtracking</i>. A cada opção, mantemos uma
+              árvore na memória, tentamos uma regra de produção. Se não der certo, voltamos até o ponto da opção e tentamos outra regra. <strong>Nem
+                pensar!</strong></p>
             <p class="fragment fade-up">Opcionalmente, podemos definir um prefixo viável, um prefixo de um handle que pode aparecer na pilha.</p>
-            <p class="fragment fade-up">A ideia é construir uma $MEF$ para reconhecer os prefixos viáveis e, um ou dois tokens, do resto da string. Realizando a redução sempre que reconhecemos um token</p> 
+            <p class="fragment fade-up">A ideia é construir uma $MEF$ para reconhecer os prefixos viáveis e, um ou dois tokens, do resto da string. Realizando a
+              redução sempre que reconhecemos um token</p>
           </div>
         </section>
         <section>
@@ -556,7 +562,7 @@
           <h2>Exemplo MEF - Explicação</h2>
           <img data-src="../img/mef1.png" class="imgright" style="height: 250px !important; margin-top: 2%;"
             alt="símbolo meramente ilustrativo, sem valor didático" />
-          
+
           <table style="font-size: 59%; float: left; margin-left: 3%;">
             <tr>
               <th>Pilha</th>
@@ -588,7 +594,7 @@
               <td>$cde\$$</td>
               <td>Shift</td>
             </tr>
-             <tr class="fragment fade-up">
+            <tr class="fragment fade-up">
               <td>$aAbc$</td>
               <td>$de\$$</td>
               <td>Reduce</td>
@@ -598,7 +604,7 @@
               <td>$de\$$</td>
               <td>shift</td>
             </tr>
-             <tr class="fragment fade-up">
+            <tr class="fragment fade-up">
               <td>$aAd$</td>
               <td>$e\$$</td>
               <td>Reduce</td>
@@ -634,13 +640,481 @@
           </div>
         </section>
         <section>
-          <div  class="fundo">
+          <div class="fundo">
             <h2>A repetição é um problema!</h2>
-            <p>A solução com a MEF inclui muitas repetições, voltamos ao estado inicial a cada nova avaliação da pilha;</p> 
+            <p>A solução com a MEF inclui muitas repetições, voltamos ao estado inicial a cada nova avaliação da pilha;</p>
             <p>Só alteramos a parte do string que corresponde ao Handle;</p>
-            <p> Nós queremos que  complexidade seja $O(n)$;</p>
+            <p> Nós queremos que complexidade seja $O(n)$;</p>
             <p> Cada gramática irá requerer uma MEF diferente.</p>
           </div>
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1)</h2>
+          <p>Considere o conjunto de regras de produção a seguir para a string: “abbcde” sem as aspas.</p>
+          <img data-src="../img/mef2.jpg" class="imgright" style="height: 350px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="width: 32% !important;font-size: 70%;">
+            <ol>
+              <li>$𝑆^′\rightarrow 𝑆\$$</li>
+              <li>$𝑆 \rightarrow aABe$</li>
+              <li>$𝐴 \rightarrow 𝐴b𝑐 | b$</li>
+              <li>$𝐵 \rightarrow 𝑑$</li>
+            </ol>
+          </div>
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1): o porquê.</h2>
+          <p>Considere o conjunto de regras de produção a seguir para a string: “abbcde” sem as aspas.</p>
+          <img data-src="../img/mef2.jpg" class="imgright" style="height: 220px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="    width: 53% !important; font-size: 47%; padding-top:0% !important;">
+            <p>Ações</p>
+            <ul>
+              <li>linha = estado corrente;</li>
+              <li>coluna = próximo terminal;</li>
+              <li>$sn$ = <i>shift</i>; move a MFE para o estado $n$;</li>
+              <li>$rn$ = <i>reduce</i>, usando a regra $n$;</li>
+              <li>$acc$ = <i>Accept</i>, o string foi reconhecido</li>
+              <li>vazio = erro de sintaxe;</li>
+            </ul>
+            <p>Vai Para</p>
+            <ul>
+              <li>$linha$ = Estado corrente (topo da pilha, depois de um push não terminal);</li>
+              <li>$coluna$ = Lado esquerdo da regra de redução (não-terminal);</li>
+              <li>$gn$ = vai para a MEF no estado $n$;</li>
+              <li>$vazio$ = fizemos algo errado na tabela de Vai Para</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1): Passo 1.</h2>
+          <p>
+            <img data-src="../img/mef2.jpg" class="imgright" style="height: 220px !important;"
+              alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="width: 39% !important;font-size: 60%;">
+            <table>
+              <tr>
+                <th>Pilha de Estados</th>
+                <th>Buffer</th>
+              </tr>
+              <tr>
+                <td>$\$1$</td>
+                <td>$abbcde\$$</td>
+              </tr>
+            </table>
+          </div>
+          <img data-src="../img/lr1.png" class="imgright" style="height: 251px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1): Passo 2.</h2>
+          <p>
+            <img data-src="../img/mef2.jpg" class="imgright" style="height: 220px !important;"
+              alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="width: 39% !important;font-size: 60%;">
+            <table>
+              <tr>
+                <th>Pilha de Estados</th>
+                <th>Buffer</th>
+              </tr>
+              <tr>
+                <td>$\$12$</td>
+                <td>$bbcde\$$</td>
+              </tr>
+            </table>
+          </div>
+          <img data-src="../img/lr2.png" class="imgright" style="height: 251px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1): Passo 3.</h2>
+          <p>
+            <img data-src="../img/mef2.jpg" class="imgright" style="height: 220px !important;"
+              alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="width: 39% !important;font-size: 60%;">
+            <table>
+              <tr>
+                <th>Pilha de Estados</th>
+                <th>Buffer</th>
+              </tr>
+              <tr>
+                <td>$\$124$</td>
+                <td>$bcde\$$</td>
+              </tr>
+            </table>
+          </div>
+          <img data-src="../img/lr3.png" class="imgright" style="height: 251px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1): Passo 4.</h2>
+          <p>
+            <img data-src="../img/mef2.jpg" class="imgright" style="height: 220px !important;"
+              alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="width: 39% !important;font-size: 60%;">
+            <table>
+              <tr>
+                <th>Pilha de Estados</th>
+                <th>Buffer</th>
+              </tr>
+              <tr>
+                <td>$\$12$</td>
+                <td>$bcde\$$</td>
+              </tr>
+            </table>
+          </div>
+          <img data-src="../img/lr4.png" class="imgright" style="height: 251px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1): Passo 5.</h2>
+          <p>
+            <img data-src="../img/mef2.jpg" class="imgright" style="height: 220px !important;"
+              alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="width: 39% !important;font-size: 60%;">
+            <table>
+              <tr>
+                <th>Pilha de Estados</th>
+                <th>Buffer</th>
+              </tr>
+              <tr>
+                <td>$\$123$</td>
+                <td>$bcde\$$</td>
+              </tr>
+            </table>
+          </div>
+          <img data-src="../img/lr5.png" class="imgright" style="height: 251px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1): Passo 6.</h2>
+          <p>
+            <img data-src="../img/mef2.jpg" class="imgright" style="height: 220px !important;"
+              alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="width: 39% !important;font-size: 60%;">
+            <table>
+              <tr>
+                <th>Pilha de Estados</th>
+                <th>Buffer</th>
+              </tr>
+              <tr>
+                <td>$\$1236$</td>
+                <td>$cde\$$</td>
+              </tr>
+            </table>
+          </div>
+          <img data-src="../img/lr6.png" class="imgright" style="height: 251px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1): Passo 7.</h2>
+          <p>
+            <img data-src="../img/mef2.jpg" class="imgright" style="height: 220px !important;"
+              alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="width: 39% !important;font-size: 60%;">
+            <table>
+              <tr>
+                <th>Pilha de Estados</th>
+                <th>Buffer</th>
+              </tr>
+              <tr>
+                <td>$\$12367$</td>
+                <td>$de\$$</td>
+              </tr>
+            </table>
+          </div>
+          <img data-src="../img/lr7.png" class="imgright" style="height: 251px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1): Passo 8.</h2>
+          <p>
+            <img data-src="../img/mef2.jpg" class="imgright" style="height: 220px !important;"
+              alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="width: 39% !important;font-size: 60%;">
+            <table>
+              <tr>
+                <th>Pilha de Estados</th>
+                <th>Buffer</th>
+              </tr>
+              <tr>
+                <td>$\$12$</td>
+                <td>$de\$$</td>
+              </tr>
+            </table>
+          </div>
+          <img data-src="../img/lr8.png" class="imgright" style="height: 251px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1): Passo 9.</h2>
+          <p>
+            <img data-src="../img/mef2.jpg" class="imgright" style="height: 220px !important;"
+              alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="width: 39% !important;font-size: 60%;">
+            <table>
+              <tr>
+                <th>Pilha de Estados</th>
+                <th>Buffer</th>
+              </tr>
+              <tr>
+                <td>$\$123$</td>
+                <td>$de\$$</td>
+              </tr>
+            </table>
+          </div>
+          <img data-src="../img/lr9.png" class="imgright" style="height: 251px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1): Passo 10.</h2>
+          <p>
+            <img data-src="../img/mef2.jpg" class="imgright" style="height: 220px !important;"
+              alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="width: 39% !important;font-size: 60%;">
+            <table>
+              <tr>
+                <th>Pilha de Estados</th>
+                <th>Buffer</th>
+              </tr>
+              <tr>
+                <td>$\$1235$</td>
+                <td>$e\$$</td>
+              </tr>
+            </table>
+          </div>
+          <img data-src="../img/lr10.png" class="imgright" style="height: 251px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1): Passo 11.</h2>
+          <p>
+            <img data-src="../img/mef2.jpg" class="imgright" style="height: 220px !important;"
+              alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="width: 39% !important;font-size: 60%;">
+            <table>
+              <tr>
+                <th>Pilha de Estados</th>
+                <th>Buffer</th>
+              </tr>
+              <tr>
+                <td>$\$123$</td>
+                <td>$e\$$</td>
+              </tr>
+            </table>
+          </div>
+          <img data-src="../img/lr11.png" class="imgright" style="height: 251px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1): Passo 12.</h2>
+          <p>
+            <img data-src="../img/mef2.jpg" class="imgright" style="height: 220px !important;"
+              alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="width: 39% !important;font-size: 60%;">
+            <table>
+              <tr>
+                <th>Pilha de Estados</th>
+                <th>Buffer</th>
+              </tr>
+              <tr>
+                <td>$\$1238$</td>
+                <td>$e\$$</td>
+              </tr>
+            </table>
+          </div>
+          <img data-src="../img/lr12.png" class="imgright" style="height: 251px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1): Passo 13.</h2>
+          <p>
+            <img data-src="../img/mef2.jpg" class="imgright" style="height: 220px !important;"
+              alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="width: 39% !important;font-size: 60%;">
+            <table>
+              <tr>
+                <th>Pilha de Estados</th>
+                <th>Buffer</th>
+              </tr>
+              <tr>
+                <td>$\$12389$</td>
+                <td>$\$$</td>
+              </tr>
+            </table>
+          </div>
+          <img data-src="../img/lr13.png" class="imgright" style="height: 251px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+        </section>
+        <section>
+          <h2>Exemplo MEF - LR(1): Passo 14.</h2>
+          <p>
+            <img data-src="../img/mef2.jpg" class="imgright" style="height: 220px !important;"
+              alt="tabela com os valores das ações da MEF para o LR(k)" />
+          <div class="textoleft" style="width: 39% !important;font-size: 60%;">
+            <table>
+              <tr>
+                <th>Pilha de Estados</th>
+                <th>Buffer</th>
+              </tr>
+              <tr>
+                <td>$\$1$</td>
+                <td>$\$$</td>
+              </tr>
+            </table>
+          </div>
+          <img data-src="../img/lr14.png" class="imgright" style="height: 251px !important;"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+        </section>
+        <section>
+          <h2>Uma Nova Notação</h2>
+          <p>Considere a regra $A \rightarrow XY$, podemos representar o progresso na regra.</p>
+          <ul>
+            <li>$A \rightarrow \cdot XY$</li>
+            <li>$A \rightarrow X \cdot Y$</li>
+            <li>$A \rightarrow XY \cdot$</li>
+          </ul>
+          <p>O $\cdot$ representa o progresso de formação da regra no parser.</p>
+        </section>
+        <section>
+          <h2>MEF - Revisada</h2>
+          <img data-src="../img/lrfim.png"
+            alt="tabela com os valores das ações da MEF para o LR(k)" />
+        </section>
+        <section>
+          <h2>LALR</h2>
+          <p><i>Look-Ahead LR Parser</i>></p>
+          <p>Inventado por Frank DeRenner em 1969;</p>
+          <p>A divisão em itens do LR pode implicar em um grande número de repetições;</p>
+          <p>LALR, tenta reduzir o número de estados agrupando itens iguais.</p>
+          <p>Basicamente é um SLR, com menos estados e com toda a segurança do LR.</p>
+        </section>
+        <section>
+          <h2>Gabarito Exercício LL(1)</h2>
+          <table style="font-size: 39%;">
+            <tbody align="left">
+              <tr>
+                <th>Localizado</th>
+                <th>Pilha</th>
+                <th>Buffer</th>
+                <th>Ação</th>
+              </tr>
+              <tr>
+                <td>&nbsp;&nbsp;</td>
+                <td><i>S</i> <b>$</b></td>
+                <td><b>n + n * n</b></td>
+                <td>&nbsp;&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;&nbsp;</td>
+                <td><i>T</i> <i>R</i> <b>$</b></td>
+                <td><b>n + n * n $</b></td>
+                <td><i>S</i> → <i>T</i> <i>R</i></td>
+              </tr>
+              <tr>
+                <td>&nbsp;&nbsp;</td>
+                <td><i>F</i> <i>S</i> <i>R</i> <b>$</b></td>
+                <td><b>n + n * n $</b></td>
+                <td><i>T</i> → <i>F</i> <i>S</i></td>
+              </tr>
+              <tr>
+                <td>&nbsp;&nbsp;</td>
+                <td><b>n</b> <i>G</i> <i>R</i> <b>$</b></td>
+                <td><b>n + n * n $</b></td>
+                <td><i>F</i> → <b>n</b></td>
+              </tr>
+              <tr>
+                <td><b>n</b></td>
+                <td><i>S</i> <i>R</i> <b>$</b></td>
+                <td><b>+ n * n $</b></td>
+                <td>match <b>n</b></td>
+              </tr>
+              <tr>
+                <td><b>n</b></td>
+                <td><i>R</i> <b>$</b></td>
+                <td><b>+ n * n $</b></td>
+                <td><i>G</i> → ε</td>
+              </tr>
+              <tr>
+                <td><b>n</b></td>
+                <td><b>+</b> <i>S</i> <b>$</b></td>
+                <td><b>+ n * n $</b></td>
+                <td><i>R</i> → <b>+</b> <i>S</i></td>
+              </tr>
+              <tr>
+                <td><b>n +</b></td>
+                <td><i>S</i> <b>$</b></td>
+                <td><b>n * n $</b></td>
+                <td>match <b>+</b></td>
+              </tr>
+              <tr>
+                <td><b>n +</b></td>
+                <td><i>T</i> <i>R</i> <b>$</b></td>
+                <td><b>n * n $</b></td>
+                <td><i>S</i> → <i>T</i> <i>R</i></td>
+              </tr>
+              <tr>
+                <td><b>n +</b></td>
+                <td><i>F</i> <i>S</i> <i>R</i> <b>$</b></td>
+                <td><b>n * n $</b></td>
+                <td><i>T</i> → <i>F</i> <i>S</i></td>
+              </tr>
+              <tr>
+                <td><b>n +</b></td>
+                <td><b>n</b> <i>G</i> <i>R</i> <b>$</b></td>
+                <td><b>n * n $</b></td>
+                <td><i>F</i> → <b>n</b></td>
+              </tr>
+              <tr>
+                <td><b>n + n</b></td>
+                <td><i>G</i> <i>R</i> <b>$</b></td>
+                <td><b>* n $</b></td>
+                <td>match <b>n</b></td>
+              </tr>
+              <tr>
+                <td><b>n + n</b></td>
+                <td><b>*</b><i>T</i> <i>R</i> <b>$</b></td>
+                <td><b>* n $</b></td>
+                <td><i>G</i> → <b>*</b> <i>T</i></td>
+              </tr>
+              <tr>
+                <td><b>n + n *</b></td>
+                <td><i>T</i> <i>R</i> <b>$</b></td>
+                <td><b>n $</b></td>
+                <td>match <b>*</b></td>
+              </tr>
+              <tr>
+                <td><b>n + n *</b></td>
+                <td><i>F</i> <i>S</i> <i>R</i> <b>$</b></td>
+                <td><b>n $</b></td>
+                <td><i>T</i> → <i>F</i> <i>S</i></td>
+              </tr>
+              <tr>
+                <td><b>n + n *</b></td>
+                <td><b>n</b> <i>G</i> <i>R</i> <b>$</b></td>
+                <td><b>n $</b></td>
+                <td><i>F</i> → <b>n</b></td>
+              </tr>
+              <tr>
+                <td><b>n + n * n</b></td>
+                <td><i>G</i> <i>R</i> <b>$</b></td>
+                <td><b>$</b></td>
+                <td>match <b>n</b></td>
+              </tr>
+              <tr>
+                <td><b>n + n * n</b></td>
+                <td><i>R</i> <b>$</b></td>
+                <td><b>$</b></td>
+                <td><i>G</i> → ε</td>
+              </tr>
+              <tr>
+                <td><b>n + n * n</b></td>
+                <td><b>$</b></td>
+                <td><b>$</b></td>
+                <td><i>R</i> → ε</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
       </section>
       <section class="nivel1">
