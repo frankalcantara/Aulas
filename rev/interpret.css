@@ -331,7 +331,7 @@ html * {
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-	color: #268bd2;
+	color: antiquewhite;
 }
 
 /*********************************************
@@ -417,11 +417,11 @@ h2 {
 	margin-left: 2%;
 }
 
-/*
+
 .MathJax {
-	color: antiquewhite !important;
+	color: white !important;
 }
-*/
+
 
 .reveal-viewport {
 	background: url(img/pic1d.jpg) no-repeat center center fixed !important;
@@ -434,6 +434,7 @@ h2 {
 .nivel1 {
 	background: rgba(0, 0, 0, 0.4);
 	padding: 10%;
+	box-shadow: 5px 10px 10px #101010;
 }
 
 .reveal table th {
@@ -494,4 +495,13 @@ h2 {
 	text-align: left;
 	width: 54%;
 	padding-top: 4%;
+}
+
+
+.fundo {
+	background: url(img/fundo1.jpg) no-repeat center center fixed !important;
+	background-size: cover !important;
+	display: flex;
+  flex-flow: column;
+  height: 100%;
 }
