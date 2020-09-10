@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Frank Coelho de Alcantara" />
+	<title>Inferência</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta
+		name="apple-mobile-web-app-status-bar-style"
+		content="black-translucent" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	<link rel="stylesheet" href="../../rev/reset.css" />
+	<link rel="stylesheet" href="../../rev/reveal.css" />
+	<link rel="stylesheet" href="../../rev/logica.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="nivel1" id="title-slide">
+				<h1 class="title">Inferência</h1>
+				<p style="text-align: right !important">
+					Frank Coelho de Alcantara &nbsp;&nbsp;
+				</p>
+			</section>
+			<section class="nivel1">
+				<section>
+					<h2>Conceitos: Argumento</h2>
+					<p class="fragment fade-up">
+						Argumento é uma forma de raciocínio que permite a percepção de uma conclusão. A conclusão é a consequência lógica do argumento.
+					</p>
+					<p class="fragment fade-up"> Formalmente: um argumento é uma coleção de premissas que implicam em uma tese.</p>
+					<p class="fragment fade-up"> Também podemos dizer que um argumento é uma conjunção de premissas que implicam em uma tese.</p>
+				</section>
+				<section>
+					<h2>Cláusulas ou premissas</h2>
+					<p class="fragment fade-up"> Originalmente definimos um silogismo como sendo um argumento composto de premissa, consequência e conclusão.</p>
+					<p class="fragment fade-up"> Hoje, a maior parte dos textos acadêmicos definem silogismo como um argumento composto de duas premissas e uma conclusão.</p>
+					<p class="fragment fade-up"> Não havendo uma contradição, o uso da palavra premissa, ou cláusula, não altera o conceito de argumento.</p>
+				</section>
+				<section>
+					<h2>Validade do Argumento</h2>
+					<small style="font-size:80% !important;">
+						<p class="fragment fade-up"> Dizemos que um argumento é válido se, e somente se, a conclusão é verdadeira se todas as premissas são verdadeiras. Caso contrário o argumento é falso.</p>
+						<p class="fragment fade-up"> Isto é o mesmo que dizer que um argumento será válido se, na interpretação onde todas as premissas são verdadeiras, a conclusão for verdadeira.</p>
+						<p class="fragment fade-up"> Observe que definimos a validade do argumento apenas usando a interpretação onde todas as premissas são verdadeiras.</p>
+						<p class="fragment fade-up"> <strong>Importante</strong>: além de verdadeiras, as hipóteses devem suportar a conclusão. Ou, caímos em uma falácia.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Tipos de Argumentos</h2>
+					<p class="fragment fade-up">Um argumento pode ser:</p>
+					<ul class="fragment fade-up" style="font-size:80% !important; margin-left: 7%;">
+						<li><strong>Indutivo</strong>: usa uma coleção de premissas e as usa para propor a conclusão (possibilidades e probabilidades).</li>
+						<li><strong>Dedutivo</strong>: usa uma coleção de premissas e as usa para provar a conclusão (consequência lógica).</li>
+					</ul>
+					<p class="fragment fade-up">O argumento <strong>indutivo é experimental</strong>, ou observacional.</p>
+					<p class="fragment fade-up">O argumento <strong>dedutivo é a consequência lógica</strong> da verdade das premissas.</p>
+				</section>
+			</section>
+			<section class="nivel1">
+				<section>
+					<h2>Sintaxe Formal</h2>
+					<p class="fragment fade-up">Já vimos um alfabeto $\Sigma=\{\neg, \wedge, \vee, \rightarrow, \leftrightarrow, \Leftrightarrow, \vdash, \vDash, (, ) \}$ para definir fórmulas lógicas.
+						E uma sintaxe, sem definir exatamente a gramática, que permite a redação de fórmulas bem formatadas.</p>
+					<p class="fragment fade-up">Precisamos definir axioma:</p>
+					<blockquote class="fragment fade-up">Um axioma é uma premissa cuja verdade é incontestável. Uma verdade tão evidente que nenhum raciocínio, ou análise pode torná-la mais clara.</blockquote>
+				</section>
+				<section>
+					<h2>Estendendo a Sintaxe formal</h2>
+					<p class="fragment fade-up">Estendendo o alfabeto $\Sigma=\{\neg, \wedge, \vee, \rightarrow, \leftrightarrow, \Leftrightarrow, \top, \bot, \vdash, \vDash, (, ) \}$</p>
+					<p class="fragment fade-up">Onde $\top$ é lido como <i>verum</i>, ou verdade; e $\bot$ é lido como <i>falsum</i> ou falso.</p>
+					<p class="fragment fade-up"><strong>Importante</strong>: apresentaremos os argumentos em listas, ou por meio de uma regra geral de formação.</p>
+					<p class="fragment fade-up"><strong>Preferivelmente</strong>: regras gerais de formação.</p>
+				</section>
+				<section>
+					<h2>Teorema</h2>
+					<small style="font-size:80% !important;">
+						<p class="fragment fade-up">
+							Definimos <strong>teorema</strong> como uma sequência tautológica, gerada por argumentos axiomáticos, préviamente existentes no sistema por meio da aplicação das
+							<strong>Regras de Inferência.</strong> Provamos um teorema por meio da derivação de axiomas $e$ de tal forma que será possível encontrar a
+							verdade de um axioma $e_n$, por meio de $e_1, e_2, e_3,...$ axiomas, desde que <strong>todos estes axiomas façam parte do sistema lógico</strong> adotado e sejam válidos em uma
+							interpretação determinada.
+						</p>
+						<p class="fragment fade-up">
+							A prova de um <strong>teorema</strong> existe em um procedimento de decisão caracterizado por um <strong>conjunto finito</strong>, não ambíguo, de operações
+							para determinar se uma sequência de axiomas, em um tempo finito, é, ou não, válida em um determinado sistema formal que define a validade dos axiomas.
+						</p>
+					</small>
+				</section>
+				<section>
+					<h2>Argumento Validade Formal</h2>
+					<small style="font-size:80% !important;">
+						<p class="fragment fade-up">
+							Uma sequência de axiomas $e_1, e_2, e_3,...$ com $n >= 1$ onde os $n-1$ primeiros axiomas são chamados de premissas e o último $e_n$ é chamado de conclusão. De tal forma que:
+							$$e_1, e_2, e_{...} \vDash e_n$$
+						</p>
+						<p class="fragment fade-up">Este argumento será considerado válido se, somente se:$$e_1, e_2, e_{...} \Rightarrow e_n$$</p>
+						<p class="fragment fade-up">Ou seja, se $e_n$ for uma consequência lógica de $e_1, e_2, e_{...}$.</p>
+						<p class="fragment fade-up"><strong>A consequência lógica é chamada de Tese</strong>.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Lendo argumentos</h2>
+					<small style="font-size:80% !important;">
+						<p class="fragment fade-up">$$e_1, e_2, e_{...} \vDash e_n$$</p>
+						<p class="fragment fade-up">É lido $e_n$ se deduz de $e_1, e_2, e_{...}$.</p>
+						<p class="fragment fade-up">É possível inferir $e_n$ a partir de $e_1, e_2, e_{...}$.</p>
+						<p class="fragment fade-up">$e_n$ a partir de $e_1, e_2, e_{...}$ acarretam $e_n$.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Sistema Formal </h2>
+					<p class="fragment fade-up"> Um sistema formal é definido por:</p>
+					<ul>
+						<li class="fragment fade-up">Alfabeto: $\Sigma=\{\neg, \wedge, \vee, \rightarrow, \leftrightarrow, \Leftrightarrow, \vdash, \vDash, \top, \bot, (, ) \}$</li>
+						<li class="fragment fade-up">Sintaxe:
+							<ol style="font-size:80% !important;">
+								<li class="fragment fade-up">Toda variável, símbolo atômico, é uma fórmula bem formatada;</li>
+								<li class="fragment fade-up">Se $A$ e $B$ são fórmulas bem formatadas então: $\neg A$ e $A\rightarrow B$ também são;</li>
+								<li class="fragment fade-up">Uma fórmula bem formatada só pode ser obtida pelas regras anteriores.</li>
+							</ol>
+						</li>
+						<li class="fragment fade-up">Não usamos $\top$ ou $\bot$ para construir fórmulas, apenas na sua análise.</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Sist. Formal: Correção e Completude</h2>
+					<small style="font-size:80% !important;">
+						<p class="fragment fade-up">
+							<strong>Correção</strong>: dizemos que um sistema formal é correto se, e somente se, todas as sequências que podem ser geradas como teorema são verdadeiras.
+							Um sistema é correto se todas as sequências são tautológicas o que implica que todos os teoremas são verdadeiros. <strong>Todo Teorema é uma Tautologia.</strong>
+						</p>
+						<p class="fragment fade-up">
+							<strong>Completude</strong>: dizemos que um sistema formal é completo se, e somente se, todas as sequências que esteja correta do ponto de vista semântico (tautologia)
+							possa ser criada como um teorema do sistema. Um sistema formal é completo se as sequências forem criadas a partir de axiomas e regras de inferência.<strong>Toda Tautologia é um Teorema.</strong>
+						</p>
+					</small>
+				</section>
+				<section>
+					<h2>Exercício 1:</h2>
+					<p> Prove, ou não, os seguintes axiomas:</p>
+					<ol style="font-size:80% !important; margin-left:2%;">
+						<li>$( A \rightarrow ( B \rightarrow A ))$</li>
+						<li>$(( A \rightarrow ( B \rightarrow C )) \rightarrow (( A \rightarrow B ) \rightarrow ( A \rightarrow C )))$</li>
+						<li>$(( \neg A \rightarrow \neg B ) \rightarrow ( B \rightarrow A ))$</li>
+					</ol>
+				</section>
+				<section>
+					<h1>Todo axioma é uma tautologia, mas nem toda tautologia é axioma.</h1>
+				</section>
+				<section>
+					<h1>Todo teorema é tautologia, e toda tautologia é teorema.</h1>
+				</section>
+				<section>
+					<h2>Sistema Formal</h2>
+					<p class="fragment fade-up">Definiremos um sistema formal para inferência contendo apenas axiomas, expressões atômicas, representadas por letras maiúsculas latinas e as operações $\neg$ e $\rightarrow$.</p>
+					<p class="fragment fade-up">Isto simplifica o raciocínio de implicação e dedução, mas não exclui representação de fórmulas mais complexas: $A \leftrightarrow (p \vee q)$.</p>
+					<p class="fragment fade-up">Desde que todas as fórmulas envolvidas sejam bem formatadas e estejam de acordo com o sistema.</p>
+				</section>
+				<section>
+					<h2>Sistema Formal</h2>
+					<p class="fragment fade-up">Como qualquer fórmula bem formatada pode ser uma variável axiomática, temos um número infinito de axiomas possíveis. Precisamos determinar quais axiomas considerar:</p>
+					<ol class="fragment fade-up" style="font-size: 76%; margin-left: 8%;">
+						<li class="fragment fade-up">Para: $( ( p \rightarrow q ) \rightarrow ( \neg p \rightarrow ( p \rightarrow q ) ) )$, escolhemos $A \Leftrightarrow (p\rightarrow q)$ e $B \Leftrightarrow \neg p$ e
+							temos $( A \rightarrow ( B \rightarrow A ) )$ </li>
+						<li class="fragment fade-up">Para: $((\neg p \rightarrow ( \neg p \rightarrow \neg p)) \rightarrow ((\neg p \rightarrow \neg p) \rightarrow (\neg p \rightarrow \neg p)))$, escolhemos $A \neg p$ e $B \Leftrightarrow (\neg p
+							\rightarrow \neg p)$ e
+							temos $((A \rightarrow B) \rightarrow (B \rightarrow B))$ </li>
+					</ol>
+					<p class="fragment fade-up">
+						<strong>Muito Importante!</strong> a escolha dos axiomas não pode alterar a verdade do argumento.
+					</p>
+				</section>
+				<section>
+					<h2>Um pouco mais de conceitos</h2>
+					<small>
+						<p class="fragment fade-up">Dizemos que $A$ implica em $B$ se a sentença condicional "se $A$ então $B$" for uma tautologia.</p>
+						<p class="fragment fade-up">Simbolicamente se $A\rightarrow B$ for uma tautologia podemos usar $A\Rightarrow B$ ou $A\vDash B$</p>
+						<p class="fragment fade-up">$A\rightarrow B$ é uma fórmula bem formatada construída a partir de $A$ e $B$. Tem valores que dependem de $V(A)$ e da $V(B)$.</p>
+						<p class="fragment fade-up">$A\Rightarrow B$ ou $A\vdash B$ é uma tautologia. $B$ é uma consequência lógica de $A$.</p>
+						<p class="fragment fade-up">Se tanto o axioma $A$ quanto a implicação $A\rightarrow B$ são verdadeiras, a conclusão $B$ é verdadeira. Logo: $$A\wedge (A\rightarrow B) \Rightarrow B$$</p>
+						<p class="fragment fade-up"><strong>Esta conclusão é muito importante e já vamos voltar a ela!</strong></p>
+					</small>
+				</section>
+				<section>
+					<h2>Exemplo 1</h2>
+					<small>
+						<p class="fragment fade-up">Considere as seguintes verdades absolutas:</p>
+						<ul class="fragment fade-up" style="margin-left: 8%;">
+							<li><i>só quem estuda é aprovado</i>; </li>
+							<li><i>quem usa o tempo para outras atividades não é aprovado</i>.</li>
+						</ul>
+						<p class="fragment fade-up">Estas verdades são indiscutíveis no sistema que estamos montando para este exemplo. Se for assim, podemos criar alguns axiomas, também válidos neste sistema.</p>
+						<ul class="fragment fade-up" style="margin-left: 8%;">
+							<li>$A$ representa "Josie estuda"; </li>
+							<li>$B$ representa "Josie é aprovada";</li>
+							<li>$C$ representa "Josie joga volei".</li>
+						</ul>
+						<p class="fragment fade-up">Este sistema é limitado a estas verdades e permite inferir que:</p>
+						<ul class="fragment fade-up" style="margin-left: 8%;">
+							<li>$A \Rightarrow B$;</li>
+							<li>$\neg C \Rightarrow B$;</li>
+							<li>$(A \wedge \neg C)\Rightarrow B$.</li>
+						</ul>
+
+						<p class="fragment fade-up">Voce consegue montar outras implicações?</p>
+					</small>
+				</section>
+				<section>
+					<h2>Exemplo 2</h2>
+					<small>
+						<p class="fragment fade-up">Considerando a verdade inabalável dos axiomas, avalie o seguinte argumento.</p>
+						<ul class="fragment fade-up" style="margin-left: 8%;list-style-type: none;">
+							<li><i>Marcela faz curso de economia ou curso de matemática</i>; </li>
+							<li style="border-bottom: 1px solid white;"><i>Marcela não faz curso de economia</i>;</li>
+							<li>Consequentemente, Marcela faz cuso de matemática</li>
+						</ul>
+						<p class="fragment fade-up">Podemos formalizar este argumento. Onde $p$ representa Marcela faz curso de economia e $q$ representa Marcela faz curso de matemática.</p>
+						<ul class="fragment fade-up" style="margin-left: 8%;list-style-type: none;">
+							<li></li>
+							<li>$p \vee q$</li>
+							<li style="border-bottom: 1px solid white;">$\neg p$</li>
+							<li>$q$</li>
+						</ul>
+						<p class="fragment fade-up">Ou, na forma de implicação: $((p \vee q)\wedge \neg q)\rightarrow q$</p>
+						<p class="fragment fade-up">Resta provar que $((p \vee q)\wedge \neg q)\rightarrow q$ é uma tautologia. <strong>Prove!</strong></p>
+					</small>
+				</section>
+				<section>
+					<h2>Prova de Argumentos</h2>
+					<p class="fragment fade-up">Sempre podemos provar um argumento utilizando a sua tabela verdade.</p>
+					<p class="fragment fade-up">O uso de tabelas verdade é tedioso, cansativo e torna mecânico o processo de conclusão.</p>
+					<p class="fragment fade-up">A forma ideal de resolver problemas de inferência, ou dedução, é utilizar as próprias propriedades da lógica.</p>
+					<p class="fragment fade-up">Usamos argumentos cuja consequência já é conhecida, são chamados de <strong>Consequências Notáveis</strong>.</p>
+				</section>
+				<section>
+					<h2>Consequências Notáveis</h2>
+					<table style="font-size:67%;">
+						<tr>
+							<th>Nome</th>
+							<th>Consequência</th>
+						</tr>
+						<tr>
+							<td>Adição</td>
+							<td>$A\Rightarrow A \vee B$</td>
+						</tr>
+						<tr>
+							<td>Subtração </td>
+							<td>$A \wedge B \Rightarrow A$</td>
+						</tr>
+						<tr>
+							<td>Modus Ponens</td>
+							<td>$A \wedge (A \rightarrow B) \Rightarrow B$</td>
+						</tr>
+						<tr>
+							<td>Modus Tollens</td>
+							<td>$(A \rightarrow B) \wedge (\neg B) \Rightarrow \neg A$</td>
+						</tr>
+						<tr>
+							<td>Silogismo Disjuntivo</td>
+							<td>$(A \vee B) \wedge \neg A \Rightarrow B$</td>
+						</tr>
+						<tr>
+							<td>Silogismo Hipotético</td>
+							<td>$(A \rightarrow B) \wedge (B \rightarrow C) \Rightarrow A \rightarrow C$</td>
+						</tr>
+						<tr>
+							<td>Contradição</td>
+							<td>$A \rightarrow \bot \Rightarrow \neg A$</td>
+						</tr>
+						<tr>
+							<td>Contraposição</td>
+							<td>$A \rightarrow B \Rightarrow \neg B \rightarrow \neg A$</td>
+						</tr>
+						<tr>
+							<td>Eliminação da Equivalência</td>
+							<td>$A \leftrightarrow B \Rightarrow A \rightarrow B$</td>
+						</tr>
+						<tr>
+							<td>Prova Condicional</td>
+							<td>$A \rightarrow ( B \rightarrow C ) \Rightarrow ( A \wedge B ) \rightarrow C$</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+			<section class="nivel1">
+				<section>
+					<h2>Regra da Adição</h2>
+					<p class="fragment fade-up">Dada uma proposição verdadeira qualquer $A$, podemos deduzir sua disjunção com qualquer outra proposição $B$.</p>
+					<p class="fragment fade-up">Suponha a premissa $(p \wedge q) \vdash \top $ podemos deduzir sua disjunção com um $B$ qualquer.</p>
+					<p class="fragment fade-up">$(p \wedge q) \vee B \Rightarrow (p \wedge q)$</p>
+					<p class="fragment fade-up">O céu á azul, logo o céu é azul ou verde.</p>
+				</section>
+				<section>
+					<h2>Regra da Subtração (simplificação)</h2>
+					<p class="fragment fade-up">Dada uma conjunção de duas proposições $A \wedge B$, podemos deduzir cada uma das proposições de forma individual.</p>
+					<p class="fragment fade-up">$(x \in Z) \wedge (x \in Y)$ \Rightarrow (x in Z), $(x \in Z)$ é consequência lógica de $(x \in Z) ∧ (x \in Y)$.</p>
+					<p class="fragment fade-up">Sandra joga futebol e basquete logo Sandra joga futebol.</p>
+					<p class="fragment fade-up">Você consegue encontrar outras implicações?</p>
+				</section>
+				<section>
+					<h2>Modus Ponens</h2>
+					<p class="fragment fade-up">De longe a regra mais utilizada em inferência lógica. Permite deduzir uma tese $B$ a partir das premissas $A$ e $A \rightarrow B$.</p>
+					<p class="fragment fade-up">Considere $(p\wedge q)$ e $(p\wedge q)\rightarrow r$ se ambas são verdade podemos deduzir que $r$ é verdade.</p>
+					<p class="fragment fade-up" style="font-size:80%;">$(x \in Z \cap Y),((x \in Z \cap Y) \rightarrow (x \in Z)) \Rightarrow (x \in Z)$<./p>
+					<p class="fragment fade-up">Se estuda é aprovado, estudou logo é aprovado.</p>
+					<p class="fragment fade-up">Você deve formalizar esta última sentença.</p>
+				</section>
+				<section>
+					<h2>Modus Tollens</h2>
+					<p class="fragment fade-up">Permite deduzir a negação do antecedente $A$ a partir da negação de $B$ e da implicação $A\rightarrow B$.</p>
+					<p class="fragment fade-up">Considere $(q \wedge p) → r$ e $\neg r$ então podemos deduzir $\neg(q \wedge p)$.</p>
+					<p class="fragment fade-up">Se chove, não vou a aula. Vou a aula logo não chove.</p>
+					<p class="fragment fade-up">Você deve formalizar esta última sentença.</p>
+				</section>
+				<section>
+					<h2>Modus Ponens - Representação</h2>
+					<small style="font-size: 70% !important;">
+					<p class="fragment fade-up">O <i>Modus Ponens</i> é visto, comumente em uma forma mais prática de representar argumentos.</p>
+					<ul class="fragment fade-up" style="margin-left: 8%;list-style-type: none;">
+						<li style="border-bottom: 1px solid white;">$A$, $A\rightarrow B$;</li>
+						<li>$B$</li>
+					</ul>
+					<p class="fragment fade-up">Que lê-mos, dadas as proposições $A$, $A\rightarrow B$; temos a consequência $B$.</p>
+					<p class="fragment fade-up">A expressão <i>Modus Ponens</i> é uma abreviação da expressão <i>modus ponendo ponens</i> que significa o modo que afirma afirmando.</p>
+					<p class="fragment fade-up"> Colocado nessa forma fica óbvia a relação com o <i>Modus Tollens</i></p>
+					<ul class="fragment fade-up" style="margin-left: 8%;list-style-type: none;">
+						<li style="border-bottom: 1px solid white;">$\neg B$, $A\rightarrow B$;</li>
+						<li>$\neg A$</li>
+					</ul>
+					</small>
+				</section>
+				<section>
+					<h2>The Logic Theorist</h2>
+					<small style="font-size: 70% !important;">
+							<p class="fragment fade-up">Um dos primeiros, se não o primeiro, esfoço de automatizar o processo de inferência e dedução o <i>The Logic Theorist</i>, criado em 
+								1956 por Allen Newell, Herbert A. Simon e Cliff Shaw usava exatamente o <i>Modus Ponens</i> para fazer conclusões lógicas.
+							</p>
+						<p class="fragment fade-up"> 
+							O programa percorria uma lista de premissas em busca de uma premissa na forma $A\rightarrow B$ "se A então B", uma vez que uma destas premissas fosse encontrada
+							o próximo passo era encontrar uma premissa na forma $A$. Quando ambas eram encontradas era possível concluir $B$, como verdadeira e acrescentar esta premissa a lista
+							das premissas verdadeiras. 
+						</p>
+						<p class="fragment fade-up"> Usando apenas o <i>Modus Ponens</i> e algumas simplificações o <i>The Logical Theorist</i> provou alguns teoremas matemáticos.</p>
+				</small>
+				</section>
+			</section>
+			<section class="nivel1">
+				<h2>Exercício 2</h2>
+				<small style="font-size: 80% !important;">
+				<p>Usando as Consequências Notáveis formalize as seguintes sentenças:</p>
+				<ol style="margin-left:7%;">
+					<li>Está sol agora. Consequentemente, ou está sol, ou está chovendo.</li>
+					<li>Está muito quente e está sol. Consequentemente está muito quente.</li>
+					<li>Se chover hoje não faremos churrasco. Se não fizermos churrasco hoje faremos o churrasco amanhã. Consequentemente, se chover hoje teremos churrasco amanhã.</li>
+				</ol>
+				</small>
+			</section>
+			<section class="nivel1">
+				<section>
+					<h2>Solução Exemplo 2</h2>
+					<table style="font-size: 80%;">
+						<tbody>
+							<tr>
+								<th>$p$</th>
+								<th>$q$</th>
+								<th></th>
+								<th>$($</th>
+								<th>$($</th>
+								<th>$p$</th>
+								<th>$\vee $</th>
+								<th>$q$</th>
+								<th>$)$</th>
+								<th>$\wedge$</th>
+								<th>$\neg$</th>
+								<th>$p$</th>
+								<th>$)$</th>
+								<th>$\rightarrow$</th>
+								<th>$q$</th>
+								<th></th>
+							</tr>
+							<tr>
+								<td>T</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td>F</td>
+								<td>$F$</td>
+								<td>T</td>
+								<td></td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>$T$</td>
+								<td>$F$</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td>F</td>
+								<td></td>
+								<td>F</td>
+								<td>$F$</td>
+								<td>T</td>
+								<td></td>
+								<td>$T$</td>
+								<td>F</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>$F$</td>
+								<td>$T$</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td>F</td>
+								<td></td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>F</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>F</td>
+								<td>$F$</td>
+								<td>F</td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>F</td>
+								<td></td>
+								<td>$T$</td>
+								<td>F</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h2>Solução Exercício 1.1:</h2>
+					<table style="font-size:80%">
+						<tbody>
+							<tr>
+								<th>$A$</th>
+								<th>$B$</th>
+								<th></th>
+								<th>$A$</th>
+								<th>$\rightarrow$</th>
+								<th>$($</th>
+								<th>$B$</th>
+								<th>$\rightarrow$</th>
+								<th>$A$</th>
+								<th>$)$</th>
+								<th></th>
+							</tr>
+							<tr>
+								<td>T</td>
+								<td>T</td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>T</td>
+								<td>F</td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>F</td>
+								<td>T</td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td></td>
+								<td>T</td>
+								<td>$F$</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>F</td>
+								<td>F</td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h2>Solução Exercício 1.2:</h2>
+					<table style="font-size:47%;">
+						<tbody>
+							<tr>
+								<th>$A$</th>
+								<th>$B$</th>
+								<th>$C$</th>
+								<th></th>
+								<th>$($</th>
+								<th>$A$</th>
+								<th>$\rightarrow$</th>
+								<th>$($</th>
+								<th>$B$</th>
+								<th>$\rightarrow$</th>
+								<th>$C$</th>
+								<th>$)$</th>
+								<th>$)$</th>
+								<th>$→$</th>
+								<th>$($</th>
+								<th>$($</th>
+								<th>$A$</th>
+								<th>$\rightarrow$</th>
+								<th>$B$</th>
+								<th>$)$</th>
+								<th>$\rightarrow$</th>
+								<th>$($</th>
+								<th>$A$</th>
+								<th>$\rightarrow$</th>
+								<th>$C$</th>
+								<th>$)$</th>
+								<th>$)$</th>
+							</tr>
+							<tr>
+								<td>T</td>
+								<td>T</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>T</td>
+								<td>T</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+								<td>T</td>
+								<td>$F$</td>
+								<td></td>
+								<td>T</td>
+								<td>$F$</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td>$F$</td>
+								<td></td>
+								<td>T</td>
+								<td>$F$</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>T</td>
+								<td>F</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td></td>
+								<td>T</td>
+								<td>$F$</td>
+								<td>F</td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>T</td>
+								<td>F</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td></td>
+								<td>T</td>
+								<td>$F$</td>
+								<td>F</td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td>T</td>
+								<td>$F$</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>F</td>
+								<td>T</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>F</td>
+								<td>T</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td></td>
+								<td>T</td>
+								<td>$F$</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>F</td>
+								<td>F</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>F</td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>F</td>
+								<td>F</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>F</td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h2>Solução Exercício 1.3:</h2>
+					<table style="font-size: 70%;">
+						<tbody>
+							<tr>
+								<th>A</th>
+								<th>B</th>
+								<th></th>
+								<th>$($</th>
+								<th>$\neg$</th>
+								<th>$A$</th>
+								<th>$\rightarrow$</th>
+								<th>$\neg$</th>
+								<th>$B$</th>
+								<th>$)$</th>
+								<th>$\rightarrow$</th>
+								<th>$($</th>
+								<th>$B$</th>
+								<th>$\rightarrow$</th>
+								<th>$A$</th>
+								<th>$)$</th>
+							</tr>
+							<tr>
+								<td>T</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+								<td>F</td>
+								<td>T</td>
+								<td>$T$</td>
+								<td>F</td>
+								<td>T</td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td>T</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>T</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+								<td>F</td>
+								<td>T</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td>F</td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>F</td>
+								<td>T</td>
+								<td></td>
+								<td></td>
+								<td>T</td>
+								<td>F</td>
+								<td>$F$</td>
+								<td>F</td>
+								<td>T</td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td>T</td>
+								<td>$F$</td>
+								<td>F</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>F</td>
+								<td>F</td>
+								<td></td>
+								<td></td>
+								<td>T</td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>T</td>
+								<td>F</td>
+								<td></td>
+								<td>$T$</td>
+								<td></td>
+								<td>F</td>
+								<td>$T$</td>
+								<td>F</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h2>Solução do Exercício 2</h2>
+					<ul class="fragment fade-up" style="margin-left: 8%;list-style-type: none;">
+						<li>Exercício 2.1</li>
+						<li style="border-bottom: 1px solid white;">$A$</li>
+						<li>$A \vee B$</li>
+					</ul>
+					<ul class="fragment fade-up" style="margin-left: 8%;list-style-type: none;">
+						<li>Exercício 2.2</li>
+						<li style="border-bottom: 1px solid white;">$A \wedge B$;</li>
+						<li>$A$</li>
+					</ul>
+					<ul class="fragment fade-up" style="margin-left: 8%;list-style-type: none;">
+						<li>Exercício 2.3</li>
+						<li style="border-bottom: 1px solid white;">$A\rightarrow B$, $B\rightarrow C$;</li>
+						<li>$A \rightarrow C$</li>
+					</ul>
+				</section>
+			</section>
+			<section class="nivel1">
+				<section>
+					<h1>Material de apoio</h1>
+					<p>
+						Você pode baixar o material de apoio
+						<a href="./logicaProposicional.pdf" target="_blanck">clicando aqui</a>
+					</p>
+				</section>
+				<section>
+					<h2>Obras Citadas</h2>
+					<p>
+						AHO, A. V. et al.
+						<strong>Compiladores: princípios, técnicas e ferramentas</strong>.
+						2º. ed. Boston, MA, USA: Pearson Education Inc. , 2007. <br />
+						CASS, S. <strong>The 2016 Top Programming Languages</strong>. IEEE
+						Spectrum, 2016. Disponível em:
+						http://spectrum.ieee.org/computing/software/the-2016-top-programming-languages.
+						Acesso em: 22 Set. 2016.
+					</p>
+				</section>
+			</section>
+		</div>
+	</div>
+	<div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+	<script src="../../rev/reveal.js"></script>
+	<script src="../../rev/plugin/notes/notes.js"></script>
+	<script src="../../rev/plugin/search/search.js"></script>
+	<script src="../../rev/plugin/zoom/zoom.js"></script>
+	<script src="../../rev/plugin/math/math.js"></script>
+	<script src="../../rev/plugin/menu/menu.js"></script>
+	<script src="../../rev/plugin/chalkboard/plugin.js"></script>
+	<script>
+		// Full list of configuration options available at:
+		// https://revealjs.com/config/
+		Reveal.initialize({
+			// Push each slide change to the browser history
+			history: true,
+			// Transition style
+			transition: "fade", // none/fade/slide/convex/concave/zoom
+			math: {
+				mathjax:
+					"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+				config: "TeX-AMS_HTML-full",
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: {
+					Macros: {
+						RR: "{\\bf R}",
+					},
+				},
+			},
+			menu: {
+				side: "left",
+				width: "normal",
+				numbers: false,
+				titleSelector: "h1, h2, h3, h4, h5, h6",
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: false,
+				themesPath: "dist/theme/",
+				transitions: false,
+				openButton: true,
+				openSlideNumber: false,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true,
+			},
+			// reveal.js plugins
+			plugins: [
+				RevealNotes,
+				RevealMath,
+				RevealMenu,
+				RevealChalkboard,
+				RevealSearch,
+				RevealZoom,
+			],
+		});
+	</script>
+</body>
+
+</html>
