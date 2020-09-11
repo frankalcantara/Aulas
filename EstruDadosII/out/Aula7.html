@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Frank Coelho de Alcantara -2020" />
+	<title>Tim software</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta
+		name="apple-mobile-web-app-status-bar-style"
+		content="black-translucent" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	<link rel="stylesheet" href="../../rev/reset.css" />
+	<link rel="stylesheet" href="../../rev/reveal.css" />
+	<link rel="stylesheet" href="../../rev/estrutdados.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section id="title-slide" class="nivel1">
+				<h1>Tim Sort</h1>
+				<p style="text-align: right !important">Frank Coelho de Alcantara -2020</p>
+			</section>
+			<section class="nivel1">
+				<section>
+					<h2>Origem</h2>
+					<p>Criado em 2002 por Tim Peters para a implementação CPython.</p>
+					<p>Foi criado sobre a ideia de que os conjuntos no mundo real contém dados quase ordenados.</p>
+					<p>É o algoritmo híbrido entre o </i>Insertion Sort</i> e o <i></i>Merge Sort</i> padrão do Python e do Java.</p>
+				</section>
+				<section>
+					<h2>Propriedades</h2>
+					<p>No melhor caso: $O(n)$;</p>
+					<p>Na média: $O(n log n)$;</p>
+					<p>No pior caso: $O(n log n)$;</p>
+					<p>Está entre os melhores.</p>
+				</section>
+				<section>
+					<h2>Conceito</i></h2>
+					<p>Um algoritmo especial é usado para dividir o conjunto de entrada em subconjuntos.</p>
+					<p>Cada subconjunto é ordenado com o <i>Insertion Sort</i> mais simples possível.</p>
+					<p>Estes subconjuntos, já ordenados, são reunidos com o <i>Merge Sort</i></p>
+				</section>
+				<section>
+					<h2>Definições</i></h2>
+					<p><strong>N</strong>: representa o comprimento do conjunto de entrada.</p>
+					<p><strong>Run</strong>: um subconjunto ordenado do conjunto de entrada.</p>
+					<p><strong>minRun</strong>: tamanho mínimo do subconjunto</p>
+				</section>
+				<section>
+					<h2>minRun</i></h2>
+					<p> O minRun será calculado de acordo com o <strong>N</strong> segundo os seguintes princípios:</p>
+					<ol>
+						<li>Não deve ser muito grande para que o <i>Insertion Sort</i> seja efetivo.</li>
+						<li>Não deve ser muito pequeno para que o número de <i>merges</i> não seja muito grande.</li>
+						<li>Deve ser tal que $N/2$ seja uma potência de $2$</li>
+					</ol>
+					<p> O último princípio é devido ao fato que o <i>Merge Sort</i> é mais eficiente em conjuntos cujo comprimento seja uma potência de $2$.</p>
+				</section>
+				<section>
+					<h2>Galopando</i></h2>
+					<p> Uma pequena, porém substancial mudança é feita no <i>Merge Sort</i></p>
+					<p>Em vez de comparar todos os elementos dos dois conjuntos, uma janela $J$ é determinada.</p>
+					<p>Considerando o subconjunto mais baixo, ou a esquerda, os $J$ primeiros itens são comparados apenas com o primeiro item do subconjunto
+						mais alto, ou a direita. </p>
+					<p> Se estes itens forem menores são colocados na posição correta. E uma nova janela $J$ é comparada com o primeiro número do subconjunto a
+						direita.</p>
+				</section>
+				<section>
+					<h2>Documentação</i></h2>
+					<p> A publicação original de Tim Peters está disponível <a href="http://svn.python.org/projects/python/trunk/Objects/listsort.txt"
+							target="_black">aqui.</a></i></p>
+					<p>Observe que ele cita que, na prática, o Tim Sort é muito mais eficiente que os algoritmos utilizados até então pelo Python e pelo Perl.
+					</p>
+				</section>
+			</section>
+			<section class="nivel1">
+				<section>
+					<h1>Material de apoio</h1>
+					<p>
+						Você pode baixar o material de apoio
+						<a href="./INTERPRETADORES.pdf">clicando aqui</a>
+					</p>
+				</section>
+				<section>
+					<h2>Obras Citadas</h2>
+					<p>
+						AHO, A. V. et al.
+						<strong>Compiladores: princípios, técnicas e ferramentas</strong>.
+						2º. ed. Boston, MA, USA: Pearson Education Inc. , 2007. <br />
+						CASS, S. <strong>The 2016 Top Programming Languages</strong>. IEEE
+						Spectrum, 2016. Disponível em:
+						<http: //spectrum.ieee.org/computing/software/the-2016-top-programming-languages>.
+							Acesso em: 22 Set. 2016.
+					</p>
+				</section>
+			</section>
+		</div>
+	</div>
+	<div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+	<script src="../../rev/reveal.js"></script>
+	<script src="../../rev/plugin/notes/notes.js"></script>
+	<script src="../../rev/plugin/search/search.js"></script>
+	<script src="../../rev/plugin/zoom/zoom.js"></script>
+	<script src="../../rev/plugin/math/math.js"></script>
+	<script src="../../rev/plugin/menu/menu.js"></script>
+	<script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+	<script>
+		// Full list of configuration options available at:
+		// https://revealjs.com/config/
+		Reveal.initialize({
+			// Push each slide change to the browser history
+			history: true,
+			// Transition style
+			transition: "fade", // none/fade/slide/convex/concave/zoom
+
+			math: {
+				mathjax:
+					"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+				config: "TeX-AMS_HTML-full",
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: {
+					Macros: {
+						RR: "{\\bf R}",
+					},
+				},
+			},
+			menu: {
+				side: "left",
+				width: "normal",
+				numbers: false,
+				titleSelector: "h1, h2, h3, h4, h5, h6",
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: false,
+				themesPath: "dist/theme/",
+				transitions: false,
+				openButton: true,
+				openSlideNumber: false,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true,
+			},
+
+			// reveal.js plugins
+			plugins: [
+				RevealNotes,
+				RevealMath,
+				RevealMenu,
+				RevealChalkboard,
+				RevealSearch,
+				RevealZoom,
+			],
+		});
+	</script>
+</body>
+
+</html>
