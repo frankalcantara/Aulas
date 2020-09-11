@@ -29,67 +29,115 @@
 			<section class="nivel1">
 				<section>
 					<h2>Números Randômicos</h2>
-					<p>A palavra randômico é sinônimo de aleatório. Algo que acontece de forma imprevista.</p>
-					<p>Na computação, esta imprevisibilidade é indispensável para criptografia, jogos e aplicações onde não podemos ter determinismo.</p>
-					<p>Determinismo poderia ser considerado como o antônimo de aleatoriedade.</p>
+					<small style="font-size: 80% !important;">
+						<p class="fragment fade-up">A palavra randômico é sinônimo de aleatório. Algo que acontece de forma imprevista.</p>
+						<p class="fragment fade-up">Na computação, esta imprevisibilidade é indispensável para criptografia, jogos e aplicações onde não podemos ter determinismo.</p>
+						<p class="fragment fade-up">Determinismo poderia ser considerado como o antônimo de aleatoriedade.</p>
+					</small>
 				</section>
 				<section>
 					<h2>Geradores de números randômicos</h2>
-					<p>Tudo, tudo nos computadores digitais é determinístico. Computadores digitais não são máquinas eficientes para a geração de números randômicos.</p>
-					<p>Podemos usar um hardware especial: ruido de transistores e ruídos quânticos. A Intel incluiu um Gerador de Números Randômicos na Arquitetura Ivy Bridge.</p>
-					<p>Podemos usar sites especializados para gerar números randômicos: <a href="//random.org" target="_blanck">Random.org</a></p>
-					<p>Nos computadores, tudo que temos são Pseudogeradores de Números Aleatórios.</p>
+					<small style="font-size: 80% !important;">
+						<p class="fragment fade-up">Tudo, tudo nos computadores digitais é determinístico. Computadores digitais não são máquinas eficientes para a geração de números randômicos.</p>
+						<p class="fragment fade-up">Podemos usar um hardware especial: ruido de transistores e ruídos quânticos. A Intel incluiu um Gerador de Números Randômicos na Arquitetura Ivy Bridge.</p>
+						<p class="fragment fade-up">Podemos usar sites especializados para gerar números randômicos: <a href="//random.org" target="_blanck">Random.org</a></p>
+						<p class="fragment fade-up">Nos computadores, tudo que temos são Geradores de Números Pseudorandômicos.</p>
+					</small>
+					</small>
 				</section>
 				<section>
-					<h2>Conceito</i></h2>
-					<p>Um algoritmo especial é usado para dividir o conjunto de entrada em subconjuntos.</p>
-					<p>Cada subconjunto é ordenado com o <i>Insertion Sort</i> mais simples possível.</p>
-					<p>Estes subconjuntos, já ordenados, são reunidos com o <i>Merge Sort</i></p>
+					<h2>Ger. de Números Pseudorandômicos</h2>
+					<small style="font-size: 80% !important;">
+						<p class="fragment fade-up">Toda linguagem de programação tem, no mínimo um geradore de números Pseudorandômicos. Algumas têm vários. Outras têm bibliotecas para esta funcionalidade</p>
+						<p class="fragment fade-up">A maioria destes geradores se baseiam em uma geração linear e congruente.</p>
+						<p class="fragment fade-up">Estes geradores usam a função: $X_{n+1}=(a \times X_n + c)\text{ } (mod \text{ } m)$</p>
+						<ol style="margin-left: 7%;">
+							<li>$m$ e $c$ são primos e muito grandes;</li>
+							<li>$a-1$ é divisível por todos os fatores primos de $m$;</li>
+							<li>$a-1$ é divisível por $4$ se $m$ é divisível por $4$.</li>
+						</ol>
+					</small>	
 				</section>
 				<section>
-					<h2>Definições</i></h2>
-					<p><strong>N</strong>: representa o comprimento do conjunto de entrada.</p>
-					<p><strong>Run</strong>: um subconjunto ordenado do conjunto de entrada.</p>
-					<p><strong>minRun</strong>: tamanho mínimo do subconjunto</p>
+					<h2>Ger. Linear Congruente</h2>
+					<small style="font-size: 70% !important;">
+						<p class="fragment fade-up">A Microsoft usa:$X_{n+1}=(214013 \times X_n + 2531011)\text{ } (mod \text{ } 2147483648)$ .</p>
+						<p class="fragment fade-up">O resultado desta operação é dividido por 16. São gerados números entre 0 e 32767.</p>
+						<p class="fragment fade-up">Estes números determinam a qualidade do gerador e são definidos matemática e cuidadosamente.</p>
+						<p class="fragment fade-up">Outra possibilidade: $X_{n+1}=(16807 \times X_n + 2531011)\text{ } (mod \text{ } 2147483647)$ (LEWIS, et. al,1988).</p>
+						<p class="fragment fade-up">Na prática.... vamos ver um pouco de código.</p>
+					</small>
 				</section>
 				<section>
-					<h2>minRun</i></h2>
-					<p> O minRun será calculado de acordo com o <strong>N</strong> segundo os seguintes princípios:</p>
-					<ol>
-						<li>Não deve ser muito grande para que o <i>Insertion Sort</i> seja efetivo.</li>
-						<li>Não deve ser muito pequeno para que o número de <i>merges</i> não seja muito grande.</li>
-						<li>Deve ser tal que $N/2$ seja uma potência de $2$</li>
-					</ol>
-					<p> O último princípio é devido ao fato que o <i>Merge Sort</i> é mais eficiente em conjuntos cujo comprimento seja uma potência de $2$.</p>
+					<h2>Mersenne Twister</h2>
+					<small style="font-size: 70% !important;">
+						<p class="fragment fade-up"> Geradores lineares Congruentes são falhos, atendem apenas emergências e demonstrações.</p>
+						<p class="fragment fade-up"> O algoritmo chamado de Mersenne Twister foi desenvolvido em 1997 por Makoto Matsumoto e Takuji Nishimura </p>
+						<p class="fragment fade-up"> Tem um ciclo de repetição que é igual a um dos números primos de Mersenne o $2^{19937}-1$.</p>
+						<p class="fragment fade-up"> De onde tiramos seu nome MT19937. As principais linguagens de programação possuem uma implementação deste algoritmo. Inclusive o C++.</p>
+					</small>
 				</section>
 				<section>
-					<h2>Galopando</i></h2>
-					<p> Uma pequena, porém substancial mudança é feita no <i>Merge Sort</i></p>
-					<p>Em vez de comparar todos os elementos dos dois conjuntos, uma janela $J$ é determinada.</p>
-					<p>Considerando o subconjunto mais baixo, ou a esquerda, os $J$ primeiros itens são comparados apenas com o primeiro item do subconjunto
-						mais alto, ou a direita. </p>
-					<p> Se estes itens forem menores são colocados na posição correta. E uma nova janela $J$ é comparada com o primeiro número do subconjunto a
-						direita.</p>
+					<h2>Primos de Mersenne</h2>
+					<small style="font-size: 70% !important;">
+						<p class="fragment fade-up"> Números primos que são imediatamente anteriores a uma potência de dois, então são representados por $2^m-1$</p>
+						<p class="fragment fade-up">Recebem este nome em honra de Marin Mersene, um frade francês que estudou estes números no Século XVII.</p>
+						<p class="fragment fade-up">A sequência destes números é:  $M=\{3, 7, 31, 127, 8191, 131071, 524287, 2147483647, ...\}$</p>
+						<p class="fragment fade-up"> O número $2^{77232917} - 1$ representa o maior número primo conhecido <br/>(RALEIGH, 2018 ).</p>
+					</small>
 				</section>
 				<section>
-					<h2>Documentação</i></h2>
-					<p> A publicação original de Tim Peters está disponível <a href="http://svn.python.org/projects/python/trunk/Objects/listsort.txt"
-							target="_black">aqui.</a></i></p>
-					<p>Observe que ele cita que, na prática, o Tim Sort é muito mais eficiente que os algoritmos utilizados até então pelo Python e pelo Perl.
-					</p>
+					<h2>Números Primos</h2>
+					<small style="font-size: 70% !important;">
+						<p class="fragment fade-up">Toda a criptografia que usamos hoje, funciona graças a algoritmos baseados em números primos.</p>
+						<p class="fragment fade-up">Fatorar grandes números custa muito caro, computacionalmente falando.</p>
+						<p class="fragment fade-up">por exemplo: $2244354$ é fatorado em $(1* 2 * 3 * 7 * 53437)$. Não é óbvio.</p>
+						<p class="fragment fade-up">Algoritmos de fatoração simples: aproximação da raiz quadrada, Euler...</p>
+						<p class="fragment fade-up">Na prática.... vamos ver um pouco de código.</p>
+					</small>	
+				</section>
+				<section>
+					<h2>Crivo de Erastótenes</h2>
+					<small style="font-size: 70% !important;">
+						<p class="fragment fade-up">Desenvolva no Repl.it, uma implementação do Crivo de Erastótenes (<i>sieve of eratosthenes</i>).</p>
+						<p class="fragment fade-up">Em qualquer linguagem de programação.</p>
+					</small>	
+				</section>
+				<section>
+					<h2>Mersenne Twister em C++</h2>
+					<small style="font-size: 70% !important;">
+						<p class="fragment fade-up">Vamos direto para o código.</p>
+					</small>	
+				</section>
+			</section>
+			<section class="nivel1">
+				<section>
+					<h2>Embaralhamento</h2>
+					<small style="font-size: 70% !important;">
+						<p class="fragment fade-up">O problema do embaralhamento (<i>shuffle</i>) é o problema inverso da ordenção.</p>
+						<p class="fragment fade-up">Dado um conjunto de dados $A=\{a_1, a-2, a_3,..,a_4\}$. Queremos produzir um conjunto de dados $E$ tal que 
+							não exista uma relação possível entre a posição de um item de $A$ e o item na mesma posição em $E$.
+						</p>
+						<p class="fragment fade-up">O algoritmo mais simples, definido por Ronald Fischer e Frank Yeats em 1938 ainda está em uso e consiste em:</p>
+						<pre><code>
+for i from last downto 1 do:
+	let j = random integer in range 0 <= j  <= i
+		swap items[i] with items[j]
+						  </code></pre>
+					</small>	
 				</section>
 			</section>
 			<section class="nivel1">
 				<section>
 					<h1>Material de apoio</h1>
-					<p>
+					<p class="fragment fade-up">
 						Você pode baixar o material de apoio
 						<a href="./INTERPRETADORES.pdf">clicando aqui</a>
 					</p>
 				</section>
 				<section>
 					<h2>Obras Citadas</h2>
-					<p>
+					<p class="fragment fade-up">
 						AHO, A. V. et al.
 						<strong>Compiladores: princípios, técnicas e ferramentas</strong>.
 						2º. ed. Boston, MA, USA: Pearson Education Inc. , 2007. <br />

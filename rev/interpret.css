@@ -380,11 +380,13 @@ i {
 h3 {
 	text-align: left !important;
 	border-bottom: 2px solid antiquewhite !important;
+
 }
 
 h2 {
 	text-align: left !important;
 	border-bottom: 2px solid antiquewhite !important;
+	width: 96% !important;
 }
 
 .print-pdf .reveal .slide-background {
@@ -502,6 +504,6 @@ h2 {
 	background: url(img/fundo1.jpg) no-repeat center center fixed !important;
 	background-size: cover !important;
 	display: flex;
-  flex-flow: column;
-  height: 100%;
+	flex-flow: column;
+	height: 100%;
 }

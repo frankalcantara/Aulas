@@ -385,6 +385,7 @@ h3 {
 h2 {
 	text-align: left !important;
 	border-bottom: 2px solid antiquewhite !important;
+	width: 96% !important;
 }
 
 .print-pdf .reveal .slide-background {
@@ -418,7 +419,7 @@ h2 {
 }
 
 .MathJax {
-	color: antiquewhite !important;
+	color: white !important;
 }
 
 table.blueTable {
@@ -487,6 +488,7 @@ table.blueTable thead th:first-child {
 .nivel1 {
 	background: rgba(0, 0, 0, 0.4);
 	padding: 10%;
+	box-shadow: 5px 10px 10px #101010;
 }
 
 .author {
