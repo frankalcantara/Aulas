@@ -1,4 +1,5 @@
 #include <iostream>
+#include <chrono>
 using namespace std;
 
 void embaralha(int[], int);
@@ -37,7 +38,7 @@ void embaralha(int arr[], int n) {
     // Use a different seed value so that  
     // we don't get same result each time 
     // we run this program  
-    srand(time(NULL));
+    srand(clock());
 
     // Start from the last element and troca  
     // one by one. We don't need to run for  
