@@ -14,7 +14,7 @@ public:
     }
 
     int rnd() {
-        //o shift a direita de 16bits é equivalente a dividir por 16 só que muito mais rápido
+        //o shift a direita de 16bits é equivalente a dividir por 16 só que muito mais rápidob
         return (_seed = (_a * _seed + _c) % _m) >> 16;
     }
     //constructor
