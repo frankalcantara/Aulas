@@ -2,5 +2,13 @@
   "triggerTaskOnSave.selectedTask": "make-fast",
   "triggerTaskOnSave.tasks": {
     "make-fast": ["*.md"]
-  }
+  },
+  "cSpell.ignoreWords": [
+    "l",
+    "plankalk",
+    "plankalkül"
+  ],
+  "cSpell.words": [
+    "jacopini"
+  ]
 }
