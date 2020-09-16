@@ -4,9 +4,11 @@
     "make-fast": ["*.md"]
   },
   "cSpell.ignoreWords": [
+    "attb",
     "l",
     "plankalk",
-    "plankalkül"
+    "plankalkül",
+    "textoleft"
   ],
   "cSpell.words": [
     "jacopini"

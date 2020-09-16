@@ -59,173 +59,264 @@
             <p class="fragment fade-up">Na forma:</p> 
               <ul class="fragment fade-up" style="margin-left: 7%;">
                 <li>Regras de Produção: $<𝑨> ::= <𝑩> <𝑪>$ </li>
-                <li>Regras Semânticas: $𝑨.𝒂 := …; 𝑩.𝒂 := …; 𝑪.𝒂 := …$</li>
+                <li>Regras Semânticas: $𝑨.𝒂ttb := …; 𝑩.𝒂ttb := …; 𝑪.𝒂ttb := …$</li>
               </ul>     
             <p class="fragment fade-up">As regras semânticas são usadas pelo compilador para permitir a análise estática ou para produzir a árvore sintática abstrata ainda durante o parse. A isso chamamos <strong>TRADUÇÃO SINTÁTICA DIRETA</strong></p>
           </small>
         </section>
         <section>
           <h2>Exemplo Gramática de Atributos</h2>
-          <table>
+          <table style="font-size: 80%">
             <tr>
               <th>Regras de Produção</th>
               <th>Regras Semânticas</th>
             </tr>
+            <tr>
+              <td>
+                <ol>
+                  <li>$E1 = E2+T$</li>
+                  <li>$E1 = E2-T$</li>
+                  <li>$E = T$</li>
+                  <li>$T1 = T2*F$</li>
+                  <li>$T1 = T2/F$</li>
+                  <li>$T = F$</li>
+                  <li>$F1 = -F2$</li>
+                  <li>$F = (E)$</li>
+                  <li>$F = unsigned\_int$</li>
+                </ol>
+              </td>
+              <td>
+                <ol>
+                  <li>$E1.attb = E2.attb+T.attb$</li>
+                  <li>$E1.attb = E2.attb-T.attb$</li>
+                  <li>$E.attb = T.attb$</li>
+                  <li>$T1.attb = T2.attb*F.attb$</li>
+                  <li>$T1.attb = T2.attb/F.attb$</li>
+                  <li>$T.attb = F.attb$</li>
+                  <li>$F1.attb = -F2.attb$</li>
+                  <li>$F.attb = (E.attb)$</li>
+                  <li>$F.attb = unsigned\_int.attb$</li>
+                </ol>
+              </td>
+            </tr>
           </table>
         </section>
-
-
         <section>
-          <h2>Buffer e Pilha</h2>
-          <ol style="float: right; margin-right: 3%; font-size: 30%;">
-            <li>$S \rightarrow TR$</li>
-            <li>$R \rightarrow \varepsilon$</li>
-            <li>$R \rightarrow +S$</li>
-            <li>$T \rightarrow FG$</li>
-            <li>$G \rightarrow \varepsilon$</li>
-            <li>$G \rightarrow *T$</li>
-            <li>$F \rightarrow n$</li>
-            <li>$F \rightarrow (S)$</li>
-          </ol>
-          <table style="font-size: 30%; float:right; margin-right:2%;">
-            <tr>
-              <th></th>
-              <th>$n$</th>
-              <th>$+$</th>
-              <th>$*$</th>
-              <th>$($</th>
-              <th>$)$</th>
-              <th>$\$$</th>
-            </tr>
-            <tr>
-              <td>$S$</td>
-              <td>$1$</td>
-              <td>$ $</td>
-              <td>$ $</td>
-              <td>$1$</td>
-              <td>$ $</td>
-              <td>$ $</td>
-            </tr>
-            <tr>
-              <td>$R$</td>
-              <td>$ $</td>
-              <td>$3$</td>
-              <td>$2$</td>
-              <td>$ $</td>
-              <td>$2$</td>
-              <td>$2$</td>
-            </tr>
-            <tr>
-              <td>$T$</td>
-              <td>$4$</td>
-              <td>$ $</td>
-              <td>$ $</td>
-              <td>$4$</td>
-              <td>$ $</td>
-              <td>$ $</td>
-            </tr>
-            <tr>
-              <td>$G$</td>
-              <td>$ $</td>
-              <td>$5$</td>
-              <td>$6$</td>
-              <td>$ $</td>
-              <td>$5$</td>
-              <td>$5$</td>
-            </tr>
-            <tr>
-              <td>$F$</td>
-              <td>$7$</td>
-              <td>$ $</td>
-              <td>$ $</td>
-              <td>$8$</td>
-              <td>$ $</td>
-              <td>$ $</td>
-            </tr>
-          </table>
-
-          <table style="font-size: 50%; float:left; margin-left:2%;">
-            <tr>
-              <th>$Localizado$</th>
-              <th>$Pilha$</th>
-              <th>$Buffer$</th>
-              <th>$Ação$</th>
-            </tr>
-            <tr class="fragment fade-up">
-              <td></td>
-              <td>$S\$$</td>
-              <td>$n*n\$$</td>
-              <td>Reduce $S \rightarrow TR$</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td></td>
-              <td>$TR\$$</td>
-              <td>$n*n\$$</td>
-              <td>Reduce $T \rightarrow FG$</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td></td>
-              <td>$FGR\$$</td>
-              <td>$n*n\$$</td>
-              <td>Reduce $F \rightarrow n $</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td></td>
-              <td>$nGR\$$</td>
-              <td>$n*n\$$</td>
-              <td>Encontrei $n$</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td>$n$</td>
-              <td>$GR\$$</td>
-              <td>$*n\$$</td>
-              <td>Reduce $G \rightarrow *T$</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td>$n$</td>
-              <td>$*TR\$$</td>
-              <td>$*n\$$</td>
-              <td>Encontrei $*$</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td>$n*$</td>
-              <td>$TR\$$</td>
-              <td>$n\$$</td>
-              <td>Reduce $T \rightarrow FG$</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td>$n*$</td>
-              <td>$FGR\$$</td>
-              <td>$n\$$</td>
-              <td>Reduce $F \rightarrow n$</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td>$n*$</td>
-              <td>$nGR\$$</td>
-              <td>$n\$$</td>
-              <td>Encontrei $n$</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td>$n*n$</td>
-              <td>$GR\$$</td>
-              <td>$\$$</td>
-              <td>Reduce $G \rightarrow \varepsilon $</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td>$n*n$</td>
-              <td>$R\$$</td>
-              <td>$\$$</td>
-              <td>Reduce $R \rightarrow \varepsilon $</td>
-            </tr>
-            <tr class="fragment fade-up">
-              <td>$n*n$</td>
-              <td>$\$$</td>
-              <td>$\$$</td>
-              <td>Fim</td>
-            </tr>
-          </table>
+          <h2>Atributos Sintetizados</h2>
+          <div class="textoleft">Um atributo é dito <strong>sintetizado</strong>quando é computado a partir do seu valor e do valor dos seus filhos. Um atributo sintetizado $𝑋.𝑎$ 
+            em função de alguma combinação de $𝑌_𝑖.𝑎$ (<strong>bottom-up</strong>).</div>
+           <img data-src="../img/attb1.png" class="imgright" style="height: 340px !important; margin-top: 7%;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+         <section>
+          <h2>Atributos Herdados</h2>
+          <div class="textoright">Um atributo é dito <strong>herdado</strong>quando é computado a partir do seu valor e do valor dos seus pais e irmãos. 
+            Um atributo herdado $𝑋.𝑎$ em função de alguma combinação de $𝑋.𝑎$ e algum  $𝑌𝑗.𝑎$ (<strong>top-down</strong>).</div>
+           <img data-src="../img/attb2.png" class="imgleft" style="height: 340px !important; margin-top: 7%; margin-left:3%;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+          <section>
+          <h2>Gramáticas L&S</h2>
+          <small style="font-size: 71% !important; width: 89%;">
+          <p class="fragment fade-up">Em uma gramática <strong>S-attributed</strong> todos os atributos são sintetizados;</p>
+          <p class="fragment fade-up">Uma gramática é dita <strong>L-attributed</strong> se a árvore de parse for percorrida sempre da esquerda para direita em deep-first:</p>
+          <ul style="margin-left:7%;">
+            <li class="fragment fade-up">valores herdados são passados para os filhos da esquerda para direita;</li>
+            <li class="fragment fade-up">regras semânticas aplicadas imediatamente durante o parse.</li>
+            <li class="fragment fade-up">essencial para compiladores e interpretadores de uma passagem.</li>
+          </ul>    
+          <p class="fragment fade-up">A gramática <strong>S-attributed</strong> é um caso especial das gramáticas <strong>L-attributed</strong> .</p>
+          </small>
+         </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Análise Semântica Dinâmica</h2>
+          <p>O compilador, ou interpretador, gera código para aprimorar a análise sintática durante a execução do código.</p>
+          <ul style="margin-left:7%;">
+            <li class="fragment fade-up">índices de <i>arrays</i> dinâmicos estão dentro dos limites;</li>
+            <li class="fragment fade-up">erros aritméticos (divisão por zero);</li>
+            <li class="fragment fade-up">variável sendo usada antes da declaração.</li>
+          </ul>    
+          <p class="fragment fade-up">Cada vez mais comum em sistemas mistos.</p>
+        </section>
+        <section>
+          <h2>Análise Estática - Fluxo</h2>
+          <p>Verificaçã do fluxo de controle:</p>
+          <ul style="margin-left:7%;">
+            <li class="fragment fade-up">Os comandos que fazem o fluxo de controle deixar uma construção precisam ter algum local para onde transferir o controle;</li>
+            <li class="fragment fade-up">Exemplo: O comando <strong><i>break</i></strong> em C faz com que o fluxo de controle saia do <strong><i>while</i></strong>, <strong><i>for</i></strong> 
+              ou do <strong><i>switch</i></strong> mais interno.</li>
+           </ul>    
+        </section>
+        <section>
+          <h2>Análise Estática - Unicidade</h2>
+          <p>Um artefato de código precisa ser definido exatamente uma vez:</p>
+          <ul style="margin-left:7%;">
+            <li class="fragment fade-up">um identificador precisa ser declarado univocamente no mesmo nível;</li>
+            <li class="fragment fade-up">definição de <strong>escopo</strong> para identificadores;</li>
+            <li class="fragment fade-up">campos de tipos complexos (<strong><i>structs</i></strong>, <strong><i>class</i></strong>) não podem ser repetidos.</li>
+          </ul>    
+        </section>
+        <section>
+          <h2>Análise Estática - Identificadores</h2>
+          <p>Algumas vezes, precisamos repetir os identificadores:</p>
+          <ul style="margin-left:7%;">
+            <li class="fragment fade-up">em <strong>ADA</strong> o nome do bloco deve aparecer no começo e no fim do bloco;</li>
+            <li class="fragment fade-up">em <strong>C++</strong> os <strong><i>constructors</i></strong> devem ter o mesmo nome da classe;</li>
+          </ul>    
+        </section>
+        <section>
+          <h2>Análise Estática - Tipos</h2>
+          <p>Compatibilidade entre operador e operando:</p>
+          <ul style="margin-left:7%;">
+            <li class="fragment fade-up">um <strong><i>array</i></strong> sendo somado a um inteiro;</li>
+            <li class="fragment fade-up">um <strong><i>double</i></strong> sendo usado como índice em um array;</li>
+            <li class="fragment fade-up">um <strong><i>string</i></strong> sendo usado no lugar de um <strong><i>char</i></strong>.</li>
+          </ul>    
+          <p  class="fragment fade-up"> A verificação de tipos é o coração da análise semântica.</p>
         </section>
       </section>
+      <section class="nivel1">
+        <section>
+          <h2>Verificação de tipos</h2>
+            <p  class="fragment fade-up">Segurança para execução.</p>
+            <p  class="fragment fade-up">Detecção de erros em tempo de compilação.</p>
+            <p  class="fragment fade-up">Metáforas mas expressivas: <strong><i>overload</i></strong>, por exemplo.</p>
+            <p  class="fragment fade-up">Fornecer informações para o otimizador de código.</p>
+        </section>
+        <section>
+          <h2>Identificação de tipos</h2>
+            <img data-src="../img/tipo1.png" class="fragment fade-up" style="height: 231px !important; margin-left:3%;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+            <img data-src="../img/tipo2.png" class="fragment fade-up" style="height: 231px !important; margin-top: 5%; margin-left:3%;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+        <section>
+          <h2>Classificação dos tipos</h2>
+          <small style="font-size: 76% !important; width: 97%;">
+            <p  class="fragment fade-up"><strong>Estáticos</strong>: sua definição é realizada em tempo de codificação e a verificação em tempo de compilação;</p>
+            <p  class="fragment fade-up"><strong>Dinâmicos</strong>: sua definição pode, ou não, ser realizada em tempo de codificação mas, sua verificação é realizada em tempo de execução.</p>
+            <p  class="fragment fade-up"><strong>Primitivos</strong>: não possuem estrutura interna. Ex.: inteiro, real, booleano, carácter, string, intervalo e enumeração.</p>
+            <p  class="fragment fade-up"><strong>Compostos</strong>: possuem uma estrutura interna composta por tipos básicos e outros tipos compostos. Ex.: ponteiros, estruturas, registros, vetores e matrizes.</p>
+            <p  class="fragment fade-up"><strong>Construídos</strong>: são tipos, geralmente compostos, definidos pelo programador. Ex.: typedef.</p>
+          </small>    
+        </section>
+        <section>
+          <h2>Estáticamente Tipadas</h2>
+          <div class="textoleft" style="font-size:80%;">Linguagens estáticamente tipadas são aquelas em que o tipo da variável é conhecido durante o tempo de compilação: C, C++, Fortran, Pascal, Scala.<br/> 
+            Uma vez que a variável tenha sido declarada com um determinado tipo, não é possível utilizar este identificador com qualquer outro tipo. 
+            Deve ser emitido um erro, ou <strong>warning</strong>, caso isso ocorra.
+          </div>
+          <img data-src="../img/tipo3.png" class="imgright" style="    height: 324px !important; margin-top: 24%;margin-left: 3%;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+        <section>
+          <h2>Dinâmicamente Tipadas</h2>
+          <div class="textoleft" style="font-size:80%;">Linguagens estáticamente tipadas são aquelas em que o tipo de um identificador é verificado durante o tempo de execução: Javascript, PHP, Phyton, Ruby e Lisp.<br/> 
+            Os tipos são atribuídos aos identificadores em tempo de execução o que resulta em código mais difícil de otimizar. E força a verificação do tipo a cada uso do identificador.
+          </div>
+          <img data-src="../img/tipo3.png" class="imgright" style="    height: 324px !important; margin-top: 24%;margin-left: 3%;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+        <section>
+          <h2>Fortemente Tipadas</h2>
+          <div class="textoleft" style="font-size:80%;">Uma linguagem fortemente tipada é aquela em que o identificador está preso a um determinado tipo de dado: Python, Java;
+            <br/>Uma vez que um tipo seja atribuído a um determinado identificador, este identificador não poderá ser usado com tipos diferentes.
+          </div>
+          <img data-src="../img/tipo3.png" class="imgright" style="    height: 324px !important; margin-top: 24%;margin-left: 3%;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+        <section>
+          <h2>Fracamente Tipadas</h2>
+          <div class="textoleft" style="font-size:80%;">Uma linguagem fracamente tipada é aquela em que os identificadores não estão presos a um determinado tipo de dado. Por exemplo, o PHP;
+              <br/>A cada uso do identificador é possível atribuir um tipo diferente de acordo com as necessidades do programador.
+          </div>
+          <img data-src="../img/tipo3.png" class="imgright" style="    height: 324px !important; margin-top: 24%;margin-left: 3%;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+        <section>
+          <h2>Informações Semânticas</h2>
+          <table style="font-size: 61%;">
+            <tr>
+              <th>Informação</th>
+              <th>Forma</th>
+              <th>Uso</th>
+            </tr>
+            <tr>
+              <td>Tabelas de Símbolos</td>
+              <td>Declarações</td>
+              <td>Expressões e declarações</td>
+            </tr>
+            <tr>
+              <td>Informação de tipo</td>
+              <td>Expressões e declarações</td>
+              <td>Operações</td>
+            </tr>
+            <tr>
+              <td>Constantes e variáveis</td>
+              <td>Expressões e declarações</td>
+              <td>Expressões e declarações</td>
+            </tr>
+            <tr>
+              <td>Registradores e Memórias</td>
+              <td>Compilador/interpretador</td>
+              <td>Geração de código</td>
+            </tr>
+            <tr>
+              <td>Valores literais</td>
+              <td>Constantes e variáveis</td>
+              <td>Expressões e declarações</td>
+            </tr>
+          </table>
+         </section>
+         <section>
+           <h2>Verificação de Tipos</h2>
+           <img data-src="../img/tipo4.png" class="imgright" style="height: 574px !important; margin-left: 3%;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+      </section>
+      <section class="nivel1">
+          <section>
+            <h2>Exemplo</h2>
+            <p>Vamos determinar os atributos para uma linguagem aritmética simples com as regras de produção e atributos explicitados a seguir.</p>
+            <ol style="float: left; margin-left: 7%;font-size: 60%;width: 40%;">
+              <li>$PROGRAM \rightarrow DECL$ $STMT$</li>
+              <li>$DECL \rightarrow 𝑖𝑛𝑡$ $𝑖𝑑$</li>
+              <li>$STMT \rightarrow  EXP⁡ = EXP$</li>
+              <li>$EXP \rightarrow 𝑖𝑑 | EXP + EXP | 1$</li>
+            </ol>
+
+            <ol style="float: left;margin-left: 7%;font-size: 60%; width: 40%;">
+              <li>$env$ (ambiente, e.g. tabela de símbolos): sintetizada por $DECL$ e herdado por $STMT$;</li>
+              <li>$type$ (tipo da expressão); sempre sintetizado;</li>
+              <li>$cat$ ( categoria variável $[var, lvalue] \times valor [val, rvalue])$: sempre sintetizado.</li>
+              <li>$error$ para destacar possíveis erros.</li>
+            </ol>
+          </section>
+           <section>
+            <h2>Exemplo: atribuição</h2>
+            <p>Vamos determinar os atributos para uma linguagem aritmética simples com as regras de produção e atributos explicitados a seguir.</p>
+            <ol style="float: left; margin-left: 7%; font-size: 51%;width: 90%;">
+              <li class="fragment fade-up">$PROGRAM \rightarrow DECL$ $STMT \Rightarrow PROGRAM.env = DECL.env STMT.env$</li>
+              <li class="fragment fade-up" style="margin-top: 2%;">$DECL \rightarrow 𝑖𝑛𝑡$ $𝑖𝑑$ $\Rightarrow DECL.env = \{identifier, int, var\}$</li>
+              <li class="fragment fade-up" style="margin-top: 2%;">$EXP⁡ \rightarrow 1 \Rightarrow EXP.cat = val \wedge EXT.type=int$</li>
+              <li class="fragment fade-up" style="margin-top: 2%;">$EXP \rightarrow 𝑖𝑑 \Rightarrow id.type = EXP.env.lookup(id) \wedge$<br/> $ EXP.type = id.type \wedge EXP.cat = id.cat$ </li>
+              <li class="fragment fade-up" style="margin-top: 2%;">$EXP \rightarrow EXP1 + EXP2 \Rightarrow EXP.cat = val \wedge EXP1.env = EXP.env \wedge $<br/> $
+                EXP1.env = EXP.env \wedge$<br/>$EXP.type = EXP1.type = EXP1.type 
+                \wedge$&nbsp;$error=\text{"Tipos diferentes"}$</li>
+              <li class="fragment fade-up" style="margin-top: 2%;">$STMT \rightarrow  EXP⁡1 = EXP2 \Rightarrow EXP2.env = STMT.env \wedge EXP1.env = STMT.env$<br/> $\wedge$&nbsp;$error=\text{"Tipos diferentes"} \wedge$&nbsp;$ error=\text{"Se"} cat = val"$</li>
+            </ol>
+          </section>
+          <section>
+            <h2>Exemplo: observações</h2>
+            <p class="fragment fade-up">Gramáticas de atributo são excelentes para estruturação da verificação semântica.</p>
+            <p class="fragment fade-up">Estas regras podem ser estendidas para atender operações e declarações mais complexas.</p>
+            <p class="fragment fade-up">Acrescente mais campos aos nós da AST para incluir mais atributos.</p>
+            <p class="fragment fade-up">Isto é só um exemplo.</p>
+          </section>
+      </section>
+      
       <!-- Material de Apoio -->
       <section class="nivel1">
         <section>
