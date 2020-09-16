@@ -559,13 +559,37 @@
             <img data-src="../img/anot27.png" style="height: 420px !important;"
             alt="símbolo meramente ilustrativo, sem valor didático" />
           </section>
+          <section>
+            <h2>Cálculo de Sequentes - Exemplo</h2>
+              <p class="fragment fade-up">Como podemos verificar os tipos nas seguintes declarações em cálculo de sequentes?</p> 
+              <p class="fragment fade-up">$\text{𝑓𝑙𝑜𝑎𝑡 𝑓(𝑓𝑙𝑜𝑎𝑡 𝑥, 𝑓𝑙𝑜𝑎𝑡 𝑦) \{ 𝑟𝑒𝑡𝑢𝑟𝑛 𝑥+𝑦; \}}$</p> 
+              <p class="fragment fade-up">$𝑥 : 𝑓𝑙𝑜𝑎𝑡,  𝑦 : 𝑓𝑙𝑜𝑎𝑡  ⊢  𝑥+𝑦 : 𝑓𝑙𝑜𝑎𝑡$</p> 
+              <p class="fragment fade-up">$\text{𝑖𝑛𝑡 𝑔(𝑖𝑛𝑡 𝑥, 𝑖𝑛𝑡 𝑦) \{ 𝑟𝑒𝑡𝑢𝑟𝑛 𝑥+𝑦; \}}$</p> 
+              <p class="fragment fade-up">$𝑥 : 𝑖𝑛𝑡,  𝑦 : 𝑖𝑛𝑡  ⊢  𝑥+𝑦 : 𝑖𝑛𝑡$</p> 
+          </section>
+          <section>
+            <h2>Regras de Atribuição</h2>
+              <p class="fragment fade-up">Usamos o cálculo de sequentes para definir as regras de atribuição, verificação e checagem  de tipos.</p> 
+              <img data-src="../img/anot28.png" style="height: 180px !important;" class="fragment fade-up"
+            alt="regra de equivalência entre tipos de dois operadores inteiros em uma soma." />
+              <p class="fragment fade-up">Lemos: se 𝐸1 tem tipo int e 𝐸2 tem tipo int então E1+E2 tem tipo int</p> 
+          </section>
+          <section>
+            <h2>Cálculo de Sequentes - Exemplo</h2>
+            <img data-src="../img/anot29.png" style="height: 570px !important;"
+            alt="enunciado do exemplo" />
+          </section>
+          <section>
+            <h2>Construíndo a AST</h2>
+            <img data-src="../img/anot30.png" style="height: 570px !important;"
+            alt="AST montada com as regras de produção escritas em cálculo de sequentes" />
+          </section>
+          <section>
+            <h2>Equivalência</h2>
+            <img data-src="../img/anot31.png" style="height: 500px !important;"
+            alt="regras de equivalência de tipos" />
+          </section>
         </section>
-
-
-        
-
-
-
 
       </section>
       <!-- Material de Apoio -->
@@ -578,16 +602,16 @@
           </p>
         </section>
         <section>
-          <h2>Obras Citadas</h2>
+          <h2>Referências</h2>
+          <small style="font-size:80% !important;">
           <p>
-            AHO, A. V. et al.
-            <strong>Compiladores: princípios, técnicas e ferramentas</strong>.
-            2º. ed. Boston, MA, USA: Pearson Education Inc. , 2007. <br />
-            CASS, S. <strong>The 2016 Top Programming Languages</strong>. IEEE
-            Spectrum, 2016. Disponível em: <http:
-              //spectrum.ieee.org/computing/software/the-2016-top-programming-languages>.
-              Acesso em: 22 Set. 2016.
+            AHO, A. V. et al. <b>Compiladores: princípios, técnicas e ferramentas</b>. 2º. ed. Boston, MA, USA: Pearson Education Inc. , 2007. <br/>
+            Appel, Andrew W. <b>Modern Compiler Implementation in Java</b>, 2nd ed. Cambridge, 2002.  (Editions in ML and C also available; the “tiger books”)<br/>
+            CASS, S. <b>The 2016 Top Programming Languages</b>. IEEE Spectrum, 2016. Disponível em: <http://spectrum.ieee.org/computing/software/the-2016-top-programming-languages>. Acesso em: 22 Set. 2016.<br/>
+            Grune, Dick, Henri E. Bal, Ceriel J.H. Jacobs, and Koen G. Langendoen. <b>Modern Compiler Design</b>.  Wiley, 2000 <br/>
+            Hogg, Jim. <b>CSE-P501 Compilers</b>. Washington University, 2005<br/>
           </p>
+          </small>
         </section>
       </section>
     </div>
