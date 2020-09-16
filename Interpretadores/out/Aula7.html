@@ -315,8 +315,259 @@
             <p class="fragment fade-up">Acrescente mais campos aos nós da AST para incluir mais atributos.</p>
             <p class="fragment fade-up">Isto é só um exemplo.</p>
           </section>
+          <section>
+            <h2>Problemas da Análise Semântica</h2>
+              <p class="fragment fade-up">Manter a informação necessária (criar, acessar e atualizar): tabelas de símbolos.</p>
+              <p class="fragment fade-up">Integrar a análise semântica no parser: AST - <strong><i>Abstract Sintatic Tree</i></strong>.</p>
+              <p class="fragment fade-up">Computação das expressões semânticas: análise de tipos.</i></strong>.</p>
+              <p class="fragment fade-up">Fazer com que todo o processo seja rápido, muito rápido.</i></strong>.</p>
+          </section>
       </section>
-      
+      <section class="nivel1">
+          <section>
+            <h1>Tabelas de Símbolos</h1> 
+          </section>
+          <section>
+            <h2>Principais Funções</h2>
+               <small style="font-size:80% !important;">
+               <p class="fragment fade-up">Mapeia identificadores para:$\text{𝑡𝑦𝑝𝑒, 𝑐𝑎𝑡, 𝑙𝑜𝑐𝑎𝑙𝑖𝑧𝑎çã𝑜, 𝑜𝑢𝑡𝑟𝑎𝑠 𝑝𝑟𝑜𝑝𝑖𝑒𝑑𝑎𝑑𝑒𝑠}$</p>
+               <p class="fragment fade-up">Mantém as operações necessárias para abertura e fechamento de escopos e localização de itens.</p>
+               <p class="fragment fade-up">Queremos as complexidade $O(1)$ para encontrar qualquer atributo.</p>
+               <p class="fragment fade-up">Usamos informações adicionais para manter o fluxo de código: operações de entrada e saída de escopo, por exemplo.</p>
+               <p class="fragment fade-up">Em compiladores de múltiplos passos, a tabela de símbolos deve persistir durante todos os ciclos.</p>
+               <p class="fragment fade-up"><strong><i>Linked Lists</i></strong> ou <strong><i>Hash Tables</i></strong></p>
+               </small>
+          </section>
+          <section>
+            <h2>Tabela de Símbolos - item</h2>
+            <img data-src="../img/TabSimb1.png" class="imgright" style="height: 530px !important; margin-left: 3%;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+          </section>
+          <section>
+            <h2>Tabela de Símbolos - itens</h2>
+            <img data-src="../img/TabSimb2.png" class="imgright" style="margin-top: 9%; height: 358px !important;margin-left: 3%;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+          </section>
+          <section>
+            <h2>Tabela de Símbolos - Implementação</h2>
+               <p class="fragment fade-up">Para cada novo escopo: push uma tabela de símbolos novas no item (<strong><i>stack</i></strong>).</p>
+               <p class="fragment fade-up">Crie a tabela de símbolos como a uma pilha feita com linked lists de tabelas de símbolos.</p>
+               <p class="fragment fade-up">Os identificadores mais novos ficam no topo da pilha.</p> 
+               <p class="fragment fade-up">Busca: procure na pilha de tabelas de símbolos de cima para baixo.</p>
+          </section>
+      </section>
+      <section class="nivel1">
+          <section>
+            <h1>Integrando a verificação semântica no parser</h1>
+          </section>
+          <section>
+            <h2>Só para lembrar</h2>
+            <p class="fragment fade-up">Árvores sintáticas são representações internas do compilador, criadas pelo parser e usadas para geração de código.</p>
+            <p class="fragment fade-up">Cada pai representa uma operação, cada filho representa um operando.</p>
+            <img data-src="../img/parser10.png" class="fragment fade-up" style="height: 232px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+          </section>
+          <section>
+            <h2>Construindo a Árvore</h2>
+             <img data-src="../img/parser11.png" style="height: 480px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+          </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h1>Tipos, e mais tipos</h1>
+        </section>
+        <section>
+          <h2>Definição de Tipos</h2>
+          <h1 style="font-size: 199% !important;">Um tipo é uma classificação que representa um conjunto específico de dados. Esta classificação define as operações que podem ser realizadas com estes dados.</h1>
+        </section>
+        <section>
+          <h2>Definição de Sistema de Tipos</h2>
+          <h1 style="font-size: 199% !important;">Um conjunto de regras para garantir a aplicação e verificação de tipos em artefatos de uma linguagem de programação.</h1>
+        </section>
+        <section>
+          <h2>Anotação de Tipos</h2>
+             <img data-src="../img/anot1.png" style="height: 480px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+              <section>
+          <h2>Tipos de Tipos</h2>
+             <img data-src="../img/anot2.png" style="height: 480px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+         <section>
+            <h2>Inferência</h2>
+             <img data-src="../img/anot3.png" style="height: 480px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+         <section>
+            <h2>Exemplos: Sistemas de Tipos</h2>
+             <img data-src="../img/anot4.png" style="height: 320px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+         <section>
+            <h2>Tipos são conjuntos</h2>
+             <img data-src="../img/anot5.png" style="height: 440px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+         <section>
+            <h2>Por que tipos?</h2>
+             <img data-src="../img/anot6.png" style="height: 440px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+         <section>
+            <h2>Só de Curiosidade</h2>
+             <img data-src="../img/anot7.png" style="height: 455px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+            <div><a href="https://www.binaryconvert.com/result_float.html?hexadecimal=00000042" target="_blanck">Clique aqui para calcular.</a></div>
+         </section>
+         <section>
+            <h2>Exemplo de anotação</h2>
+             <img data-src="../img/anot8.png" style="height: 455px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+         <section>
+            <h2>Só para lembrar 2!</h2>
+             <img data-src="../img/anot9.png" style="height: 455px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+         <section>
+            <h2>Estáticos versus Dinâmicos</h2>
+             <img data-src="../img/anot10.png" style="height: 455px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+         <section>
+            <h2>Exemplo: "a" + 1</h2>
+             <img data-src="../img/anot12.png" style="height: 400px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+         <section>
+            <h2>Propriedades do Sistema de Tipos</h2>
+             <img data-src="../img/anot11.png" style="height: 530px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+          <section>
+            <h2>Fluxo de Verificação</h2>
+             <img data-src="../img/anot13.png" style="height: 530px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h1>Matemática, sempre acaba na Matemática.</h1>
+        </section>
+        <section>
+          <h2>Para Pensar</h2>
+            <img data-src="../img/anot14.png" style="height: 490px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+         <section>
+          <h2>Enumeração</h2>
+            <img data-src="../img/anot15.png" style="height: 490px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+        <section>
+          <h2>Tuplas</h2>
+            <img data-src="../img/anot16.png" style="height: 490px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+         <section>
+          <h2>Tuplas - Considerações</h2>
+            <img data-src="../img/anot17.png" style="height: 490px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+         <section>
+          <h2>Vetores</h2>
+            <img data-src="../img/anot18.png" style="height: 490px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+        <section>
+          <h2>União</h2>
+            <img data-src="../img/anot19.png" style="height: 490px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+        <section>
+          <h2>Coproduto</h2>
+            <img data-src="../img/anot20.png" style="height: 490px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+        <section>
+          <h2>Funções</h2>
+            <img data-src="../img/anot21.png" style="height: 490px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+        <section>
+          <h2>Variant, Union</h2>
+            <img data-src="../img/anot22.png" style="height: 490px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+        <section>
+          <h2>Variant, Union - Considerações</h2>
+          <small style="font-size:88% !important; width:93%;">
+              <p class="fragment fade-up">Cada campo usa o mesmo espaço de memória então o tamanho da union é o tamanho do maior campo definido.</p> 
+              <p class="fragment fade-up">Só Podemos usar um campo de cada vez. Se atribuirmos valores, ainda que corretos, para cada um dos campos em sequencia, apenas a última atribuição terá sentido. </p>
+              <p class="fragment fade-up">Uma herança dos tempos que a memória era muito cara e reduzida.</p> 
+              <p class="fragment fade-up">Nestes tempos a uninion era uma forma bem razoável de manter uma metáfora consistente nos seus programas.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Structs</h2>
+            <img data-src="../img/anot23.png" style="height: 490px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+         <section>
+          <h2>Structs - Considerações</h2>
+          <small style="font-size:88% !important; width:93%;">
+              <p class="fragment fade-up">As <strong>structs</strong> são representadas como um bloco de memória, grande o suficiente para armazenar todos os campos.</p> 
+              <p class="fragment fade-up">O campos são ordenados de acordo com a a ordem de declaração. </p>
+              <p class="fragment fade-up">O compilador irá determiner o tamanho total e a posição dos campos em memória. Durante a execução o programa não entende a estrutura da <strong>struct</strong>.</p> 
+              <p class="fragment fade-up">Ou seja, a <strong>struct</strong>, como a definimos só existe em forma de artefato de Código e metáfora.</p>
+          </small>
+        </section>
+          <section>
+          <h2>Vantagem das Structs</h2>
+            <img data-src="../img/anot24.png" style="height: 490px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+        <h1>Sistema de Tipos: Definição.</h1>
+        </section>
+        <section>
+          <h2>Como fazer isso?</h2>
+            <img data-src="../img/anot25.png" style="height: 290px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+         <section>
+          <h2>Em Linguagem Natural</h2>
+            <img data-src="../img/anot26.png" style="height: 420px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+         <section>
+          <h2>Em Linguagem Natural - Exemplo</h2>
+            <small style="font-size:88% !important; width:93%;">
+              <p class="fragment fade-up">Uma declaração é bem formatada se:</p> 
+              <p class="fragment fade-up">Sua variável alvo está bem formatada;</p>
+              <p class="fragment fade-up">Sua expressão fonte está bem formatada, e os tipos declarados da fonte e do alvo coincidem;</p> 
+              <p class="fragment fade-up">Uma condicional é bem formatada se sua expressão de teste for do tipo bool e tanto a opção then quanto a opção else estão bem formatadas.</p>
+              <p class="fragment fade-up">O Python (CPython) é definido desta forma.</p>
+          </small>
+        </section>
+          <section>
+            <h2>Cálculo de Sequentes</h2>
+            <img data-src="../img/anot27.png" style="height: 420px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+          </section>
+        </section>
+
+
+        
+
+
+
+
+      </section>
       <!-- Material de Apoio -->
       <section class="nivel1">
         <section>
