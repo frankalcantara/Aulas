@@ -2,5 +2,11 @@
   "triggerTaskOnSave.selectedTask": "make-fast",
   "triggerTaskOnSave.tasks": {
     "make-fast": ["*.md"]
-  }
+  },
+  "cSpell.ignoreWords": [
+    "notav",
+    "oper",
+    "sist",
+    "vtable"
+  ]
 }
