@@ -67,7 +67,7 @@
 				<section>
 					<h2>Sintaxe Formal</h2>
 					<p class="fragment fade-up">Já vimos um alfabeto $\Sigma=\{\neg, \wedge, \vee, \rightarrow, \leftrightarrow, \Leftrightarrow, \vdash, \vDash, (, ) \}$ para definir fórmulas lógicas.
-						E uma sintaxe, sem definir exatamente a gramática, que permite a redação de fórmulas bem formatadas.</p>
+						E uma sintaxe, sem definir exatamente a gramática, que permite a redação de fórmulas bem formadas.</p>
 					<p class="fragment fade-up">Precisamos definir axioma:</p>
 					<blockquote class="fragment fade-up">Um axioma é uma premissa cuja verdade é incontestável. Uma verdade tão evidente que nenhum raciocínio, ou análise pode torná-la mais clara.</blockquote>
 				</section>
@@ -121,9 +121,9 @@
 						<li class="fragment fade-up">Alfabeto: $\Sigma=\{\neg, \wedge, \vee, \rightarrow, \leftrightarrow, \Leftrightarrow, \vdash, \vDash, \top, \bot, (, ) \}$</li>
 						<li class="fragment fade-up">Sintaxe:
 							<ol style="font-size:80% !important;">
-								<li class="fragment fade-up">Toda variável, símbolo atômico, é uma fórmula bem formatada;</li>
-								<li class="fragment fade-up">Se $A$ e $B$ são fórmulas bem formatadas então: $\neg A$ e $A\rightarrow B$ também são;</li>
-								<li class="fragment fade-up">Uma fórmula bem formatada só pode ser obtida pelas regras anteriores.</li>
+								<li class="fragment fade-up">Toda variável, símbolo atômico, é uma fórmula bem formada;</li>
+								<li class="fragment fade-up">Se $A$ e $B$ são fórmulas bem formadas então: $\neg A$ e $A\rightarrow B$ também são;</li>
+								<li class="fragment fade-up">Uma fórmula bem formada só pode ser obtida pelas regras anteriores.</li>
 							</ol>
 						</li>
 						<li class="fragment fade-up">Não usamos $\top$ ou $\bot$ para construir fórmulas, apenas na sua análise.</li>
@@ -161,11 +161,11 @@
 					<h2>Sistema Formal</h2>
 					<p class="fragment fade-up">Definiremos um sistema formal para inferência contendo apenas axiomas, expressões atômicas, representadas por letras maiúsculas latinas e as operações $\neg$ e $\rightarrow$.</p>
 					<p class="fragment fade-up">Isto simplifica o raciocínio de implicação e dedução, mas não exclui representação de fórmulas mais complexas: $A \leftrightarrow (p \vee q)$.</p>
-					<p class="fragment fade-up">Desde que todas as fórmulas envolvidas sejam bem formatadas e estejam de acordo com o sistema.</p>
+					<p class="fragment fade-up">Desde que todas as fórmulas envolvidas sejam bem formadas e estejam de acordo com o sistema.</p>
 				</section>
 				<section>
 					<h2>Sistema Formal</h2>
-					<p class="fragment fade-up">Como qualquer fórmula bem formatada pode ser uma variável axiomática, temos um número infinito de axiomas possíveis. Precisamos determinar quais axiomas considerar:</p>
+					<p class="fragment fade-up">Como qualquer fórmula bem formada pode ser uma variável axiomática, temos um número infinito de axiomas possíveis. Precisamos determinar quais axiomas considerar:</p>
 					<ol class="fragment fade-up" style="font-size: 76%; margin-left: 8%;">
 						<li class="fragment fade-up">Para: $( ( p \rightarrow q ) \rightarrow ( \neg p \rightarrow ( p \rightarrow q ) ) )$, escolhemos $A \Leftrightarrow (p\rightarrow q)$ e $B \Leftrightarrow \neg p$ e
 							temos $( A \rightarrow ( B \rightarrow A ) )$ </li>
@@ -182,7 +182,7 @@
 					<small>
 						<p class="fragment fade-up">Dizemos que $A$ implica em $B$ se a sentença condicional "se $A$ então $B$" for uma tautologia.</p>
 						<p class="fragment fade-up">Simbolicamente se $A\rightarrow B$ for uma tautologia podemos usar $A\Rightarrow B$ ou $A\vDash B$</p>
-						<p class="fragment fade-up">$A\rightarrow B$ é uma fórmula bem formatada construída a partir de $A$ e $B$. Tem valores que dependem de $V(A)$ e da $V(B)$.</p>
+						<p class="fragment fade-up">$A\rightarrow B$ é uma fórmula bem formada construída a partir de $A$ e $B$. Tem valores que dependem de $V(A)$ e da $V(B)$.</p>
 						<p class="fragment fade-up">$A\Rightarrow B$ ou $A\vdash B$ é uma tautologia. $B$ é uma consequência lógica de $A$.</p>
 						<p class="fragment fade-up">Se tanto o axioma $A$ quanto a implicação $A\rightarrow B$ são verdadeiras, a conclusão $B$ é verdadeira. Logo: $$A\wedge (A\rightarrow B) \Rightarrow B$$</p>
 						<p class="fragment fade-up"><strong>Esta conclusão é muito importante e já vamos voltar a ela!</strong></p>

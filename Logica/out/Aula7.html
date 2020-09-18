@@ -42,9 +42,9 @@
 						<p class="fragment fade-up">Alfabeto $\Sigma_L=\{\neg, \rightarrow, \{ P, Q, R, S,...\}, (,)\}$</p>
 						<p class="fragment fade-up">Regras sintáticas.</p>
 						<ol class="fragment fade-up" style="margin-left: 7%; font-size: 80%;">
-							<li>Toda variável proposicional é uma fórmula bem formatada.</li>
-							<li>Se $P$ e $Q$ são fórmulas bem formatadas, então $\neg P$ e $(P\rightarrow Q)$ também são.</li>
-							<li>Uma fórmula bem formatada só pode ser obtida pelas regras acima.</li>
+							<li>Toda variável proposicional é uma fórmula bem formada.</li>
+							<li>Se $P$ e $Q$ são fórmulas bem formadas, então $\neg P$ e $(P\rightarrow Q)$ também são.</li>
+							<li>Uma fórmula bem formada só pode ser obtida pelas regras acima.</li>
 						</ol>
 						<p class="fragment fade-up">Axiomas:</p>
 						<ol class="fragment fade-up" style="margin-left: 7%; font-size: 80%;">
@@ -122,7 +122,7 @@
 					<h2>Exemplo 1</h2>
 					<small style="font-size: 67% !important; width: 90%;;">
 						<p class="fragment fade-up">Prove o teorema $\vdash_L ((p \rightarrow q) \rightarrow (p \rightarrow p))$ </p>
-						<p class="fragment fade-up">Lembrando $P, Q, R, S, ...$ podem ser usados de forma irrestrita para representar qualquer fórmula bem formatada. </p>
+						<p class="fragment fade-up">Lembrando $P, Q, R, S, ...$ podem ser usados de forma irrestrita para representar qualquer fórmula bem formada. </p>
 						<p class="fragment fade-up">Começamos do axioma 1: $( P \rightarrow ( Q \rightarrow P ))$ teremos: $[1] (p\rightarrow (q \rightarrow p))$</p>
 						<p class="fragment fade-up">2. Partimos para o axioma 2:$(( P \rightarrow ( Q \rightarrow R )) \rightarrow (( P \rightarrow Q ) \rightarrow ( P \rightarrow R )))$ 
 							onde $P \equiv p$, $Q \equiv q$ e $R \equiv p$ neste caso teremos $[2] (( p \rightarrow ( q \rightarrow p )) \rightarrow (( p \rightarrow q ) \rightarrow ( p \rightarrow p )))$
