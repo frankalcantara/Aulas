@@ -184,11 +184,25 @@
 				</section>
 				<section>
 					<h2>Exercício 2: </h2>
-					<p>A reposta depende do uso do lema indicado e o gabarito será postado <i>a posteriori</i>.</p>
+					<p>Prove $\vdash_L (\neg p\rightarrow p)\rightarrow p$</p>
+					<p>Nós já temos um Lema descoberto: $P \rightarrow P$ se fizermos $P \equiv \neg P$ teremos $\neg p \rightarrow \neg p$.</p>
+					<p>Pegando axioma 3 $((\neg Q \rightarrow \neg P) \rightarrow (\neg P \rightarrow Q)\rightarrow P)$ e fazendo $P\equiv p$ e $Q \equiv p$ teremos 
+						$((\neg p \rightarrow \neg p)\rightarrow (\neg p \rightarrow p)\rightarrow p)$</p>
+					<p>Agora, aplicamos <i>Modus Ponens</i> com $P \equiv (\neg p \rightarrow \neg p )$ e $(P\rightarrow Q) \equiv ((\neg p \rightarrow \neg p) \rightarrow ( \neg p \rightarrow p) \rightarrow p)$ e provamos $Q \equiv (\neg p \rightarrow p) \rightarrow p$.</p>	
 				</section>
 				<section>
 					<h2>Exercício 3: </h2>
-					<p>O gabarito será postado <i>a posteriori</i>.</p>
+					<small style="font-size: 57% !important;">
+					<p>Prove a validade de $P → ((Q \rightarrow P) \rightarrow R) \vdash_L P \rightarrow R$</p>
+					<p>Nós já provamos que $P\rightarrow (Q \rightarrow R),P\rightarrow Q \vdash_L P\rightarrow R$</p>
+					<p>Então podemos pegar este lema e fazer uma instância dele com $P\equiv P$, $Q\equiv (Q\rightarrow P)$ e $R\equiv R$. Feito isso teremos: $[1]: P \rightarrow ((Q \rightarrow P) \rightarrow R),P \rightarrow (Q \rightarrow P) \vdash_L  P \rightarrow R$.</p>
+					<p>O que precisamos provar é $P → ((Q \rightarrow P) \rightarrow R) \vdash_L P \rightarrow R$ </p>
+					<p>A hipótese dada é  $P \rightarrow ((Q \rightarrow P) \rightarrow R)$</p>
+					<p>O axioma 1 é $P \rightarrow (Q \rightarrow P)$ que é uma das hipóteses de $[1]$</p>
+					<p>A segunda hipóstese de $[1]$ é justamente a hipótese que nos foi dada:$P \rightarrow ((Q \rightarrow P) \rightarrow R)$</p>
+					<p>E em $[1]$ já provamos $P \rightarrow R$</p> 
+					<p>Todas as proposições de $P → ((Q \rightarrow P) \rightarrow R) \vdash_L P \rightarrow R$ são validas, o argumento é válido.</p>
+					</small>
 				</section>
 			</section>
 
