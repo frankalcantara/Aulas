@@ -23,170 +23,12 @@
        <section>
         <h1 class="title">Geração de Código Intermediário</h1>
         <p style="text-align: right !important;">Frank Coelho de Alcantara -2020&nbsp;&nbsp;</p>
-        </section>
-        <section>
-          <h2>Muito Além da Sintaxe</h2>
-          <small style="font-size: 70% !important; width: 70% !important;">
-            <h3 class="fragment fade-up">Algumas perguntas precisam ser respondidas:</h3>
-            <p class="fragment fade-up">A variável já foi declarada?</p>
-            <p class="fragment fade-up">O tipos são consistentes nesta declaração?</p>
-            <p class="fragment fade-up">O parâmetros chamados estão corretos?</p>
-            <p class="fragment fade-up">Um ponteiro pode estar fora do espaço de memória?</p>
-            <h3 class="fragment fade-up">A resposta não é simples!</h3>
-            <p class="fragment fade-up">As respostas dependem dos valores não da sintaxe;</p>
-            <p class="fragment fade-up">Tanto perguntas quanto respostas não são locais;</p>
-            <p class="fragment fade-up">Respostas podem precisar de computação.</p>
-            </small>
-         <div class="fas fa-question" style="margin-right: 3%; float: right; font-size: 272px; margin-top: 23%;"></div>            
-        </section>
-        <section>
-          <h2>Tarefas importantes</h2>
-          <p class="fragment fade-up"><strong>Para cada expressão</strong>: identificar quais são os tipos;</p>
-          <p class="fragment fade-up"><strong>Para cada declaração</strong>: que informação precisamos para que este artefato possa ser usado em outros lugares.</p>
-          <p class="fragment fade-up"><strong>Para cada artefato de linguagem</strong>: precisamos saber quais são as regras semânticas que precisamos e vamos verificar;</p>
-          <h3 class="fragment fade-up">O código deve estar perfeito antes da tradução!</h3>
-        </section>
-        <section>
-          <h2>Gramática de Atributos</h2>
-          <small style="font-size: 71% !important; width: 96%;">
-            <p class="fragment fade-up">Uma gramática de atributos conecta a sintaxe com a semântica;</p>
-            <p class="fragment fade-up">Cada regra de produção possui uma regra semântica com ações para modificar os valores de símbolos não terminais.</p>
-            <p class="fragment fade-up">Um símbolo não terminal pode ter qualquer numero de atributos e não há limites para estes atributos.</p>
-            <p class="fragment fade-up">Na forma:</p> 
-              <ul class="fragment fade-up" style="margin-left: 7%;">
-                <li>Regras de Produção: $<𝑨> ::= <𝑩> <𝑪>$ </li>
-                <li>Regras Semânticas: $𝑨.𝒂ttb := …; 𝑩.𝒂ttb := …; 𝑪.𝒂ttb := …$</li>
-              </ul>     
-            <p class="fragment fade-up">As regras semânticas são usadas pelo compilador para permitir a análise estática ou para produzir a árvore sintática abstrata ainda durante o parse. A isso chamamos <strong>TRADUÇÃO SINTÁTICA DIRETA</strong></p>
-          </small>
-        </section>
-        <section>
-          <h2>Exemplo Gramática de Atributos</h2>
-          <table style="font-size: 80%">
-            <tr>
-              <th>Regras de Produção</th>
-              <th>Regras Semânticas</th>
-            </tr>
-            <tr>
-              <td>
-                <ol>
-                  <li>$E1 = E2+T$</li>
-                  <li>$E1 = E2-T$</li>
-                  <li>$E = T$</li>
-                  <li>$T1 = T2*F$</li>
-                  <li>$T1 = T2/F$</li>
-                  <li>$T = F$</li>
-                  <li>$F1 = -F2$</li>
-                  <li>$F = (E)$</li>
-                  <li>$F = unsigned\_int$</li>
-                </ol>
-              </td>
-              <td>
-                <ol>
-                  <li>$E1.attb = E2.attb+T.attb$</li>
-                  <li>$E1.attb = E2.attb-T.attb$</li>
-                  <li>$E.attb = T.attb$</li>
-                  <li>$T1.attb = T2.attb*F.attb$</li>
-                  <li>$T1.attb = T2.attb/F.attb$</li>
-                  <li>$T.attb = F.attb$</li>
-                  <li>$F1.attb = -F2.attb$</li>
-                  <li>$F.attb = (E.attb)$</li>
-                  <li>$F.attb = unsigned\_int.attb$</li>
-                </ol>
-              </td>
-            </tr>
-          </table>
-        </section>
-        <section>
-          <h2>Atributos Sintetizados</h2>
-          <div class="textoleft">Um atributo é dito <strong>sintetizado</strong>quando é computado a partir do seu valor e do valor dos seus filhos. Um atributo sintetizado $𝑋.𝑎$ 
-            em função de alguma combinação de $𝑌_𝑖.𝑎$ (<strong>bottom-up</strong>).</div>
-           <img data-src="../img/attb1.png" class="imgright" style="height: 340px !important; margin-top: 7%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-          <h2>Atributos Herdados</h2>
-          <div class="textoright">Um atributo é dito <strong>herdado</strong>quando é computado a partir do seu valor e do valor dos seus pais e irmãos. 
-            Um atributo herdado $𝑋.𝑎$ em função de alguma combinação de $𝑋.𝑎$ e algum  $𝑌𝑗.𝑎$ (<strong>top-down</strong>).</div>
-           <img data-src="../img/attb2.png" class="imgleft" style="height: 340px !important; margin-top: 7%; margin-left:3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-          <section>
-          <h2>Gramáticas L&S</h2>
-          <small style="font-size: 71% !important; width: 89%;">
-          <p class="fragment fade-up">Em uma gramática <strong>S-attributed</strong> todos os atributos são sintetizados;</p>
-          <p class="fragment fade-up">Uma gramática é dita <strong>L-attributed</strong> se a árvore de parse for percorrida sempre da esquerda para direita em deep-first:</p>
-          <ul style="margin-left:7%;">
-            <li class="fragment fade-up">valores herdados são passados para os filhos da esquerda para direita;</li>
-            <li class="fragment fade-up">regras semânticas aplicadas imediatamente durante o parse.</li>
-            <li class="fragment fade-up">essencial para compiladores e interpretadores de uma passagem.</li>
-          </ul>    
-          <p class="fragment fade-up">A gramática <strong>S-attributed</strong> é um caso especial das gramáticas <strong>L-attributed</strong> .</p>
-          </small>
-         </section>
-      </section>
+       </section>
+       <section>
+            <img data-src="../img/gercode1.png" class="fragment fade-up" style=" margin-top: 5%; height: 576px !important;"  alt="imagem com a frase, seu código já foi anotado." />
+          </section>
       <section class="nivel1">
-        <section>
-          <h1>Análise Estática e Dinâmica.</h1>
-        </section>
-        <section>
-          <h2>Análise Semântica Dinâmica</h2>
-          <p>O compilador, ou interpretador, gera código para aprimorar a análise sintática durante a execução do código.</p>
-          <ul style="margin-left:7%;">
-            <li class="fragment fade-up">índices de <i>arrays</i> dinâmicos estão dentro dos limites;</li>
-            <li class="fragment fade-up">erros aritméticos (divisão por zero);</li>
-            <li class="fragment fade-up">variável sendo usada antes da declaração.</li>
-          </ul>    
-          <p class="fragment fade-up">Cada vez mais comum em sistemas mistos.</p>
-        </section>
-        <section>
-          <h2>Análise Estática - Fluxo</h2>
-          <p>Verificaçã do fluxo de controle:</p>
-          <ul style="margin-left:7%;">
-            <li class="fragment fade-up">Os comandos que fazem o fluxo de controle deixar uma construção precisam ter algum local para onde transferir o controle;</li>
-            <li class="fragment fade-up">Exemplo: O comando <strong><i>break</i></strong> em C faz com que o fluxo de controle saia do <strong><i>while</i></strong>, <strong><i>for</i></strong> 
-              ou do <strong><i>switch</i></strong> mais interno.</li>
-           </ul>    
-        </section>
-        <section>
-          <h2>Análise Estática - Unicidade</h2>
-          <p>Um artefato de código precisa ser definido exatamente uma vez:</p>
-          <ul style="margin-left:7%;">
-            <li class="fragment fade-up">um identificador precisa ser declarado univocamente no mesmo nível;</li>
-            <li class="fragment fade-up">definição de <strong>escopo</strong> para identificadores;</li>
-            <li class="fragment fade-up">campos de tipos complexos (<strong><i>structs</i></strong>, <strong><i>class</i></strong>) não podem ser repetidos.</li>
-          </ul>    
-        </section>
-        <section>
-          <h2>Análise Estática - Identificadores</h2>
-          <p>Algumas vezes, precisamos repetir os identificadores:</p>
-          <ul style="margin-left:7%;">
-            <li class="fragment fade-up">em <strong>ADA</strong> o nome do bloco deve aparecer no começo e no fim do bloco;</li>
-            <li class="fragment fade-up">em <strong>C++</strong> os <strong><i>constructors</i></strong> devem ter o mesmo nome da classe;</li>
-          </ul>    
-        </section>
-        <section>
-          <h2>Análise Estática - Tipos</h2>
-          <p>Compatibilidade entre operador e operando:</p>
-          <ul style="margin-left:7%;">
-            <li class="fragment fade-up">um <strong><i>array</i></strong> sendo somado a um inteiro;</li>
-            <li class="fragment fade-up">um <strong><i>double</i></strong> sendo usado como índice em um array;</li>
-            <li class="fragment fade-up">um <strong><i>string</i></strong> sendo usado no lugar de um <strong><i>char</i></strong>.</li>
-          </ul>    
-          <p  class="fragment fade-up"> A verificação de tipos é o coração da análise semântica.</p>
-        </section>
-      </section>
-      <section class="nivel1">
-        <section>
-          <h1>Verificando Tipos</h1>
-        </section>
-        <section>
-          <h2>Verificação de tipos</h2>
-            <p  class="fragment fade-up">Segurança para execução.</p>
-            <p  class="fragment fade-up">Detecção de erros em tempo de compilação.</p>
-            <p  class="fragment fade-up">Metáforas mas expressivas: <strong><i>overload</i></strong>, por exemplo.</p>
-            <p  class="fragment fade-up">Fornecer informações para o otimizador de código.</p>
-        </section>
+      
         <section>
           <h2>Identificação de tipos</h2>
             <img data-src="../img/tipo1.png" class="fragment fade-up" style="height: 231px !important; margin-left:3%;"
@@ -633,7 +475,7 @@
       history: true,
       // Transition style
       transition: "fade", // none/fade/slide/convex/concave/zoom
-
+      center: false,
       math: {
         mathjax:
           "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
