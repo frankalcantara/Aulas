@@ -97,6 +97,7 @@ html * {
 
 .reveal h1 {
 	font-size: 3.77em;
+	margin-top: 20% !important;
 }
 
 .reveal h2 {
@@ -119,7 +120,8 @@ html * {
 }
 
 .reveal h1 {
-	text-shadow: none;
+	
+	margin-top: 20% !important;
 }
 
 /*********************************************
