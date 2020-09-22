@@ -25,416 +25,82 @@
         <p style="text-align: right !important;">Frank Coelho de Alcantara -2020&nbsp;&nbsp;</p>
        </section>
        <section>
-            <img data-src="../img/gercode1.png" class="fragment fade-up" style=" margin-top: 5%; height: 576px !important;"  alt="imagem com a frase, seu código já foi anotado." />
-          </section>
-      <section class="nivel1">
-      
-        <section>
-          <h2>Identificação de tipos</h2>
-            <img data-src="../img/tipo1.png" class="fragment fade-up" style="height: 231px !important; margin-left:3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-            <img data-src="../img/tipo2.png" class="fragment fade-up" style="height: 231px !important; margin-top: 5%; margin-left:3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
+            <img data-src="../img/gercode1.png" style=" margin-top: 5%; height: 576px !important;"  alt="imagem com a frase, seu código já foi anotado." />
+       </section>
+       <section>
+          <h2>Representações Intermediárias - RIs</h2>
+          <img data-src="../img/gercode2.png" class="fragment fade-up" style="height: 504px !important;"  alt="são representações que estão entre a linguagem de programação e o código de máquina." />
         </section>
         <section>
-          <h2>Classificação dos tipos</h2>
-          <small style="font-size: 76% !important; width: 97%;">
-            <p  class="fragment fade-up"><strong>Estáticos</strong>: sua definição é realizada em tempo de codificação e a verificação em tempo de compilação;</p>
-            <p  class="fragment fade-up"><strong>Dinâmicos</strong>: sua definição pode, ou não, ser realizada em tempo de codificação mas, sua verificação é realizada em tempo de execução.</p>
-            <p  class="fragment fade-up"><strong>Primitivos</strong>: não possuem estrutura interna. Ex.: inteiro, real, booleano, carácter, string, intervalo e enumeração.</p>
-            <p  class="fragment fade-up"><strong>Compostos</strong>: possuem uma estrutura interna composta por tipos básicos e outros tipos compostos. Ex.: ponteiros, estruturas, registros, vetores e matrizes.</p>
-            <p  class="fragment fade-up"><strong>Construídos</strong>: são tipos, geralmente compostos, definidos pelo programador. Ex.: typedef.</p>
-          </small>    
+          <h2>Tarefas da RI</h2>
+          <p  class="fragment fade-up">Realiza otimizações de Código independente da máquina trabalhando em partes onde não precisamos nos preocupar com registradores, e posições de memória.</p>
+          <p  class="fragment fade-up">O Código Gerado é uma representação simplificada da árvore gerada pela análise semântica.
+          Uma versão limpa, geralmente linear, mas que contém todas as características do algoritmo criado.</p>
+          <p  class="fragment fade-up">Este código intermediário já contém um nível significativo de otimizações. </p>
+          <p  class="fragment fade-up">O código intermediário é, geralmente, independente da arquitetura alvo.</p>
         </section>
         <section>
-          <h2>Estáticamente Tipadas</h2>
-          <div class="textoleft" style="font-size:80%;">Linguagens estáticamente tipadas são aquelas em que o tipo da variável é conhecido durante o tempo de compilação: C, C++, Fortran, Pascal, Scala.<br/> 
-            Uma vez que a variável tenha sido declarada com um determinado tipo, não é possível utilizar este identificador com qualquer outro tipo. 
-            Deve ser emitido um erro, ou <strong>warning</strong>, caso isso ocorra.
-          </div>
-          <img data-src="../img/tipo3.png" class="imgright" style="    height: 324px !important; margin-top: 24%;margin-left: 3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
+          <h2>Independência</h2>
+          <img data-src="../img/gercode3.png" class="fragment fade-up" style="height: 504px !important;"  alt="o código intermediário deve ser independente da arquitetura." />
         </section>
         <section>
-          <h2>Dinâmicamente Tipadas</h2>
-          <div class="textoleft" style="font-size:80%;">Linguagens dinâmicamente tipadas são aquelas em que o tipo de um identificador é verificado durante o tempo de execução: Javascript, PHP, Phyton, Ruby e Lisp.<br/> 
-            Os tipos são atribuídos aos identificadores em tempo de execução o que resulta em código mais difícil de otimizar. E força a verificação do tipo a cada uso do identificador.
-          </div>
-          <img data-src="../img/tipo3.png" class="imgright" style="    height: 324px !important; margin-top: 24%;margin-left: 3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Fortemente Tipadas</h2>
-          <div class="textoleft" style="font-size:80%;">Uma linguagem fortemente tipada é aquela em que o identificador está preso a um determinado tipo de dado: Python, Java;
-            <br/>Uma vez que um tipo seja atribuído a um determinado identificador, este identificador não poderá ser usado com tipos diferentes.
-          </div>
-          <img data-src="../img/tipo3.png" class="imgright" style="    height: 324px !important; margin-top: 24%;margin-left: 3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Fracamente Tipadas</h2>
-          <div class="textoleft" style="font-size:80%;">Uma linguagem fracamente tipada é aquela em que os identificadores não estão presos a um determinado tipo de dado. Por exemplo, o PHP;
-              <br/>A cada uso do identificador é possível atribuir um tipo diferente de acordo com as necessidades do programador.
-          </div>
-          <img data-src="../img/tipo3.png" class="imgright" style="    height: 324px !important; margin-top: 24%;margin-left: 3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Informações Semânticas</h2>
-          <table style="font-size: 61%;">
-            <tr>
-              <th>Informação</th>
-              <th>Forma</th>
-              <th>Uso</th>
-            </tr>
-            <tr>
-              <td>Tabelas de Símbolos</td>
-              <td>Declarações</td>
-              <td>Expressões e declarações</td>
-            </tr>
-            <tr>
-              <td>Informação de tipo</td>
-              <td>Expressões e declarações</td>
-              <td>Operações</td>
-            </tr>
-            <tr>
-              <td>Constantes e variáveis</td>
-              <td>Expressões e declarações</td>
-              <td>Expressões e declarações</td>
-            </tr>
-            <tr>
-              <td>Registradores e Memórias</td>
-              <td>Compilador/interpretador</td>
-              <td>Geração de código</td>
-            </tr>
-            <tr>
-              <td>Valores literais</td>
-              <td>Constantes e variáveis</td>
-              <td>Expressões e declarações</td>
-            </tr>
-          </table>
-         </section>
-         <section>
-           <h2>Verificação de Tipos</h2>
-           <img data-src="../img/tipo4.png" class="imgright" style="height: 574px !important; margin-left: 3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Exemplo</h2>
-            <p>Vamos determinar os atributos para uma linguagem aritmética simples com as regras de produção e atributos explicitados a seguir.</p>
-            <ol style="float: left; margin-left: 7%;font-size: 60%;width: 40%;">
-              <li>$PROGRAM \rightarrow DECL$ $STMT$</li>
-              <li>$DECL \rightarrow 𝑖𝑛𝑡$ $𝑖𝑑$</li>
-              <li>$STMT \rightarrow  EXP⁡ = EXP$</li>
-              <li>$EXP \rightarrow 𝑖𝑑 | EXP + EXP | 1$</li>
-            </ol>
-
-            <ol style="float: left;margin-left: 7%;font-size: 60%; width: 40%;">
-              <li>$env$ (ambiente, e.g. tabela de símbolos): sintetizada por $DECL$ e herdado por $STMT$;</li>
-              <li>$type$ (tipo da expressão); sempre sintetizado;</li>
-              <li>$cat$ ( categoria variável $[var, lvalue] \times valor [val, rvalue])$: sempre sintetizado.</li>
-              <li>$error$ para destacar possíveis erros.</li>
-            </ol>
-          </section>
-           <section>
-            <h2>Exemplo: atribuição</h2>
-            <p>Vamos determinar os atributos para uma linguagem aritmética simples com as regras de produção e atributos explicitados a seguir.</p>
-            <ol style="float: left; margin-left: 7%; font-size: 51%;width: 90%;">
-              <li class="fragment fade-up">$PROGRAM \rightarrow DECL$ $STMT \Rightarrow PROGRAM.env = DECL.env STMT.env$</li>
-              <li class="fragment fade-up" style="margin-top: 2%;">$DECL \rightarrow 𝑖𝑛𝑡$ $𝑖𝑑$ $\Rightarrow DECL.env = \{identifier, int, var\}$</li>
-              <li class="fragment fade-up" style="margin-top: 2%;">$EXP⁡ \rightarrow 1 \Rightarrow EXP.cat = val \wedge EXT.type=int$</li>
-              <li class="fragment fade-up" style="margin-top: 2%;">$EXP \rightarrow 𝑖𝑑 \Rightarrow id.type = EXP.env.lookup(id) \wedge$<br/> $ EXP.type = id.type \wedge EXP.cat = id.cat$ </li>
-              <li class="fragment fade-up" style="margin-top: 2%;">$EXP \rightarrow EXP1 + EXP2 \Rightarrow EXP.cat = val \wedge EXP1.env = EXP.env \wedge $<br/> $
-                EXP1.env = EXP.env \wedge$<br/>$EXP.type = EXP1.type = EXP1.type 
-                \wedge$&nbsp;$error=\text{"Tipos diferentes"}$</li>
-              <li class="fragment fade-up" style="margin-top: 2%;">$STMT \rightarrow  EXP⁡1 = EXP2 \Rightarrow EXP2.env = STMT.env \wedge EXP1.env = STMT.env$<br/> $\wedge$&nbsp;$error=\text{"Tipos diferentes"} \wedge$&nbsp;$ error=\text{"Se"} cat = val"$</li>
-            </ol>
-          </section>
-          <section>
-            <h2>Exemplo: observações</h2>
-            <p class="fragment fade-up">Gramáticas de atributo são excelentes para estruturação da verificação semântica.</p>
-            <p class="fragment fade-up">Estas regras podem ser estendidas para atender operações e declarações mais complexas.</p>
-            <p class="fragment fade-up">Acrescente mais campos aos nós da AST para incluir mais atributos.</p>
-            <p class="fragment fade-up">Isto é só um exemplo.</p>
-          </section>
-          <section>
-            <h2>Problemas da Análise Semântica</h2>
-              <p class="fragment fade-up">Manter a informação necessária (criar, acessar e atualizar): tabelas de símbolos.</p>
-              <p class="fragment fade-up">Integrar a análise semântica no parser: AST - <strong><i>Abstract Sintatic Tree</i></strong>.</p>
-              <p class="fragment fade-up">Computação das expressões semânticas: análise de tipos.</i></strong>.</p>
-              <p class="fragment fade-up">Fazer com que todo o processo seja rápido, muito rápido.</i></strong>.</p>
-          </section>
-      </section>
-      <section class="nivel1">
-          <section>
-            <h1>Tabelas de Símbolos</h1> 
-          </section>
-          <section>
-            <h2>Principais Funções</h2>
-               <small style="font-size:80% !important;">
-               <p class="fragment fade-up">Mapeia identificadores para:$\text{𝑡𝑦𝑝𝑒, 𝑐𝑎𝑡, 𝑙𝑜𝑐𝑎𝑙𝑖𝑧𝑎çã𝑜, 𝑜𝑢𝑡𝑟𝑎𝑠 𝑝𝑟𝑜𝑝𝑖𝑒𝑑𝑎𝑑𝑒𝑠}$</p>
-               <p class="fragment fade-up">Mantém as operações necessárias para abertura e fechamento de escopos e localização de itens.</p>
-               <p class="fragment fade-up">Queremos as complexidade $O(1)$ para encontrar qualquer atributo.</p>
-               <p class="fragment fade-up">Usamos informações adicionais para manter o fluxo de código: operações de entrada e saída de escopo, por exemplo.</p>
-               <p class="fragment fade-up">Em compiladores de múltiplos passos, a tabela de símbolos deve persistir durante todos os ciclos.</p>
-               <p class="fragment fade-up"><strong><i>Linked Lists</i></strong> ou <strong><i>Hash Tables</i></strong></p>
-               </small>
-          </section>
-          <section>
-            <h2>Tabela de Símbolos - item</h2>
-            <img data-src="../img/TabSimb1.png" class="imgright" style="height: 530px !important; margin-left: 3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-          </section>
-          <section>
-            <h2>Tabela de Símbolos - itens</h2>
-            <img data-src="../img/TabSimb2.png" class="imgright" style="margin-top: 9%; height: 358px !important;margin-left: 3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-          </section>
-          <section>
-            <h2>Tabela de Símbolos - Implementação</h2>
-               <p class="fragment fade-up">Para cada novo escopo: push uma tabela de símbolos novas no item (<strong><i>stack</i></strong>).</p>
-               <p class="fragment fade-up">Crie a tabela de símbolos como a uma pilha feita com linked lists de tabelas de símbolos.</p>
-               <p class="fragment fade-up">Os identificadores mais novos ficam no topo da pilha.</p> 
-               <p class="fragment fade-up">Busca: procure na pilha de tabelas de símbolos de cima para baixo.</p>
-          </section>
-      </section>
-      <section class="nivel1">
-          <section>
-            <h1>Integrando a verificação semântica no parser</h1>
-          </section>
-          <section>
-            <h2>Só para lembrar</h2>
-            <p class="fragment fade-up">Árvores sintáticas são representações internas do compilador, criadas pelo parser e usadas para geração de código.</p>
-            <p class="fragment fade-up">Cada pai representa uma operação, cada filho representa um operando.</p>
-            <img data-src="../img/parser10.png" class="fragment fade-up" style="height: 232px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-          </section>
-          <section>
-            <h2>Construindo a Árvore</h2>
-             <img data-src="../img/parser11.png" style="height: 480px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-          </section>
-      </section>
-      <section class="nivel1">
-        <section>
-          <h1>Tipos, e mais tipos</h1>
-        </section>
-        <section>
-          <h2>Definição de Tipos</h2>
-          <h1 style="font-size: 199% !important;">Um tipo é uma classificação que representa um conjunto específico de dados. Esta classificação define as operações que podem ser realizadas com estes dados.</h1>
-        </section>
-        <section>
-          <h2>Definição de Sistema de Tipos</h2>
-          <h1 style="font-size: 199% !important;">Um conjunto de regras para garantir a aplicação e verificação de tipos em artefatos de uma linguagem de programação.</h1>
-        </section>
-        <section>
-          <h2>Anotação de Tipos</h2>
-             <img data-src="../img/anot1.png" style="height: 480px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-              <section>
-          <h2>Tipos de Tipos</h2>
-             <img data-src="../img/anot2.png" style="height: 480px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Inferência</h2>
-             <img data-src="../img/anot3.png" style="height: 480px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Exemplos: Sistemas de Tipos</h2>
-             <img data-src="../img/anot4.png" style="height: 320px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Tipos são conjuntos</h2>
-             <img data-src="../img/anot5.png" style="height: 440px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Por que tipos?</h2>
-             <img data-src="../img/anot6.png" style="height: 440px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Só de Curiosidade</h2>
-             <img data-src="../img/anot7.png" style="height: 455px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-            <div><a href="https://www.binaryconvert.com/result_float.html?hexadecimal=00000042" target="_blanck">Clique aqui para calcular.</a></div>
-         </section>
-         <section>
-            <h2>Exemplo de anotação</h2>
-             <img data-src="../img/anot8.png" style="height: 455px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Só para lembrar 2!</h2>
-             <img data-src="../img/anot9.png" style="height: 455px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Estáticos versus Dinâmicos</h2>
-             <img data-src="../img/anot10.png" style="height: 455px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Exemplo: "a" + 1</h2>
-             <img data-src="../img/anot12.png" style="height: 400px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Propriedades do Sistema de Tipos</h2>
-             <img data-src="../img/anot11.png" style="height: 530px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-          <section>
-            <h2>Fluxo de Verificação</h2>
-             <img data-src="../img/anot13.png" style="height: 530px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-      </section>
-      <section class="nivel1">
-        <section>
-          <h1>Matemática, sempre acaba na Matemática.</h1>
-        </section>
-        <section>
-          <h2>Para Pensar</h2>
-            <img data-src="../img/anot14.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-         <section>
-          <h2>Enumeração</h2>
-            <img data-src="../img/anot15.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Tuplas</h2>
-            <img data-src="../img/anot16.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-         <section>
-          <h2>Tuplas - Considerações</h2>
-            <img data-src="../img/anot17.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-         <section>
-          <h2>Vetores</h2>
-            <img data-src="../img/anot18.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>União</h2>
-            <img data-src="../img/anot19.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Coproduto</h2>
-            <img data-src="../img/anot20.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Funções</h2>
-            <img data-src="../img/anot21.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Variant, Union</h2>
-            <img data-src="../img/anot22.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Variant, Union - Considerações</h2>
-          <small style="font-size:88% !important; width:93%;">
-              <p class="fragment fade-up">Cada campo usa o mesmo espaço de memória então o tamanho da union é o tamanho do maior campo definido.</p> 
-              <p class="fragment fade-up">Só Podemos usar um campo de cada vez. Se atribuirmos valores, ainda que corretos, para cada um dos campos em sequencia, apenas a última atribuição terá sentido. </p>
-              <p class="fragment fade-up">Uma herança dos tempos que a memória era muito cara e reduzida.</p> 
-              <p class="fragment fade-up">Nestes tempos a uninion era uma forma bem razoável de manter uma metáfora consistente nos seus programas.</p>
-          </small>
-        </section>
-        <section>
-          <h2>Structs</h2>
-            <img data-src="../img/anot23.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-         <section>
-          <h2>Structs - Considerações</h2>
-          <small style="font-size:88% !important; width:93%;">
-              <p class="fragment fade-up">As <strong>structs</strong> são representadas como um bloco de memória, grande o suficiente para armazenar todos os campos.</p> 
-              <p class="fragment fade-up">O campos são ordenados de acordo com a a ordem de declaração. </p>
-              <p class="fragment fade-up">O compilador irá determiner o tamanho total e a posição dos campos em memória. Durante a execução o programa não entende a estrutura da <strong>struct</strong>.</p> 
-              <p class="fragment fade-up">Ou seja, a <strong>struct</strong>, como a definimos só existe em forma de artefato de Código e metáfora.</p>
-          </small>
-        </section>
-          <section>
-          <h2>Vantagem das Structs</h2>
-            <img data-src="../img/anot24.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
+          <h2>Representação</h2>
+          <img data-src="../img/gercode4.png" class="fragment fade-up" style="height: 388px !important; margin-top: 4%;"  alt="a representação deve ser mais simples." />
         </section>
       </section>
       <section class="nivel1">
         <section>
-        <h1>Sistema de Tipos: Definição.</h1>
+          <img data-src="../img/gercode5.jpg" class="fragment fade-up" style=" height: 504px !important; margin-top: 8%;"  alt="apenas o começo da sesção." />
         </section>
         <section>
-          <h2>Como fazer isso?</h2>
-            <img data-src="../img/anot25.png" style="height: 290px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
+          <h2>Características</h2>
+          <img data-src="../img/gercode6.png" style="height: 350px !important;"  alt="deve ser independente da arquitetura ." />
         </section>
-         <section>
-          <h2>Em Linguagem Natural</h2>
-            <img data-src="../img/anot26.png" style="height: 420px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
+        <section>
+          <h2>Otimização High-Level</h2>
+          <img data-src="../img/gercode7.png" style="height: 540px !important;"  alt="permite otimização utilizando as características da linguagem." />
         </section>
-         <section>
-          <h2>Em Linguagem Natural - Exemplo</h2>
-            <small style="font-size:88% !important; width:93%;">
-              <p class="fragment fade-up">Uma declaração é bem formatada se:</p> 
-              <p class="fragment fade-up">Sua variável alvo está bem formatada;</p>
-              <p class="fragment fade-up">Sua expressão fonte está bem formatada, e os tipos declarados da fonte e do alvo coincidem;</p> 
-              <p class="fragment fade-up">Uma condicional é bem formatada se sua expressão de teste for do tipo bool e tanto a opção then quanto a opção else estão bem formatadas.</p>
-              <p class="fragment fade-up">O Python (CPython) é definido desta forma.</p>
-          </small>
+        <section>
+          <h2>Otimização Mid-Level</h2>
+          <img data-src="../img/gercode8.png" style="height: 546px !important;"  alt="permite otimização utilizando as características da linguagem." />
         </section>
-          <section>
-            <h2>Cálculo de Sequentes</h2>
-            <img data-src="../img/anot27.png" style="height: 420px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-          </section>
-          <section>
-            <h2>Cálculo de Sequentes - Exemplo</h2>
-              <p class="fragment fade-up">Como podemos verificar os tipos nas seguintes declarações em cálculo de sequentes?</p> 
-              <p class="fragment fade-up">$\text{𝑓𝑙𝑜𝑎𝑡 𝑓(𝑓𝑙𝑜𝑎𝑡 𝑥, 𝑓𝑙𝑜𝑎𝑡 𝑦) \{ 𝑟𝑒𝑡𝑢𝑟𝑛 𝑥+𝑦; \}}$</p> 
-              <p class="fragment fade-up">$𝑥 : 𝑓𝑙𝑜𝑎𝑡,  𝑦 : 𝑓𝑙𝑜𝑎𝑡  ⊢  𝑥+𝑦 : 𝑓𝑙𝑜𝑎𝑡$</p> 
-              <p class="fragment fade-up">$\text{𝑖𝑛𝑡 𝑔(𝑖𝑛𝑡 𝑥, 𝑖𝑛𝑡 𝑦) \{ 𝑟𝑒𝑡𝑢𝑟𝑛 𝑥+𝑦; \}}$</p> 
-              <p class="fragment fade-up">$𝑥 : 𝑖𝑛𝑡,  𝑦 : 𝑖𝑛𝑡  ⊢  𝑥+𝑦 : 𝑖𝑛𝑡$</p> 
-          </section>
-          <section>
-            <h2>Regras de Atribuição</h2>
-              <p class="fragment fade-up">Usamos o cálculo de sequentes para definir as regras de atribuição, verificação e checagem  de tipos.</p> 
-              <img data-src="../img/anot28.png" style="height: 180px !important;" class="fragment fade-up"
-            alt="regra de equivalência entre tipos de dois operadores inteiros em uma soma." />
-              <p class="fragment fade-up">Lemos: se 𝐸1 tem tipo int e 𝐸2 tem tipo int então E1+E2 tem tipo int</p> 
-          </section>
-          <section>
-            <h2>Cálculo de Sequentes - Exemplo</h2>
-            <img data-src="../img/anot29.png" style="height: 570px !important;"
-            alt="enunciado do exemplo" />
-          </section>
-          <section>
-            <h2>Construíndo a AST</h2>
-            <img data-src="../img/anot30.png" style="height: 570px !important;"
-            alt="AST montada com as regras de produção escritas em cálculo de sequentes" />
-          </section>
-          <section>
-            <h2>Equivalência</h2>
-            <img data-src="../img/anot31.png" style="height: 500px !important;"
-            alt="regras de equivalência de tipos" />
-          </section>
+        <section>
+          <h2>Otimização Low-Level</h2>
+          <img data-src="../img/gercode9.png" style="height: 350px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Valores</h2>
+          <img data-src="../img/gercode10.png" style="height: 530px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Tecnologias</h2>
+          <img data-src="../img/gercode11.png" style="height: 530px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Árvore Sintática Abstrata</h2>
+          <img data-src="../img/gercode12.png" style="height: 425px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Direct Acyclic Graphs</h2>
+          <img data-src="../img/gercode13.png" style="height: 530px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Comparação DAG - AST </h2>
+          <img data-src="../img/gercode14.png" style="height: 530px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>DAG - Prática </h2>
+          <p  class="fragment fade-up"> Considere a declaração, $( 𝑎 + 𝑏 )∗ ( 𝑎 + 𝑏 + 𝑐 )$ e construa o DAG equivalente.</p>
+          <img data-src="../img/gercode15.png" class="fragment fade-up" style="height: 315px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Gráficos de Controle de Fluxo</h2>
+          <p  class="fragment fade-up"> Cada </p>
+          <img data-src="../img/gercode15.png" class="fragment fade-up" style="height: 315px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
         </section>
 
       </section>
-      <!-- Material de Apoio -->
+     <!-- Material de Apoio -->
       <section class="nivel1">
         <section>
           <h1>Material de apoio</h1>
