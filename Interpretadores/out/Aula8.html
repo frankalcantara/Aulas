@@ -33,24 +33,26 @@
         </section>
         <section>
           <h2>Tarefas da RI</h2>
+          <small style="font-size: 80% !important; margin-left:2%;">
           <p  class="fragment fade-up">Realiza otimizações de Código independente da máquina trabalhando em partes onde não precisamos nos preocupar com registradores, e posições de memória.</p>
           <p  class="fragment fade-up">O Código Gerado é uma representação simplificada da árvore gerada pela análise semântica.
           Uma versão limpa, geralmente linear, mas que contém todas as características do algoritmo criado.</p>
           <p  class="fragment fade-up">Este código intermediário já contém um nível significativo de otimizações. </p>
           <p  class="fragment fade-up">O código intermediário é, geralmente, independente da arquitetura alvo.</p>
+        </small>
         </section>
         <section>
           <h2>Independência</h2>
-          <img data-src="../img/gercode3.png" class="fragment fade-up" style="height: 504px !important;"  alt="o código intermediário deve ser independente da arquitetura." />
+          <img data-src="../img/gercode3.png" style="height: 504px !important;"  alt="o código intermediário deve ser independente da arquitetura." />
         </section>
         <section>
           <h2>Representação</h2>
-          <img data-src="../img/gercode4.png" class="fragment fade-up" style="height: 388px !important; margin-top: 4%;"  alt="a representação deve ser mais simples." />
+          <img data-src="../img/gercode4.png" style="height: 388px !important; margin-top: 4%;"  alt="a representação deve ser mais simples." />
         </section>
       </section>
       <section class="nivel1">
         <section>
-          <img data-src="../img/gercode5.jpg" class="fragment fade-up" style=" height: 504px !important; margin-top: 8%;"  alt="apenas o começo da sessão." />
+          <img data-src="../img/gercode5.jpg" style=" height: 504px !important; margin-top: 8%;"  alt="apenas o começo da sessão." />
         </section>
         <section>
           <h2>Características</h2>
@@ -109,11 +111,89 @@
           <h2>Representação Linear</h2>
           <img data-src="../img/gercode19.png" style="height: 450px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
         </section>
-
-
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Máquinas de Pilha - LIFO</h2>
+          <small style=" font-size: 72% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">Criadas no final dos anos 1950 pela Burroughs. A única empresa na história que concorreu com a IBM.</p>
+            <p class="fragment fade-up">Não usam registradores, todas as instruções estão armazenadas em uma pilha quando um operador chega a pilha, seus operandos já estão lá e o resultado é armazenado novamente na pilha.</p>
+            <p class="fragment fade-up">Uma das máquinas derivada da arquitetura de Von Neumann. As outras são Máquinas de Acumulador e de Registradores.</p>
+            <p class="fragment fade-up">É a arquitetura mais comum para implementação de interpretadores. O Java, o Python (CPython) e o WebAssembly usam variações desta tecnologia.</p>
+            <p class="fragment fade-up">Também conhecida como <i>one address code</i>.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Three Address Code</h2>
+          <p class="fragment fade-up">O gerador de código intermediário recebe uma <strong>AST</strong> originada no analisador semântico e converte esta árvore em uma representação linear. Esta representação é chamada de 3-Address code, <strong>3AC</strong> e é construída com base nos conceitos de endereços e instruções. Um endereço pode ser um nome, uma constante ou temporário.</p>
+          <p class="fragment fade-up">Seu código começa a ficar parecido com código de máquina.</p>
+        </section>
+        <section>
+          <h2>3AC - Formato</h2>
+          <small style=" font-size: 72% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">Todas as instruções terão a forma: $𝑥 := \text{ }𝑦\text{ } 𝑜𝑝\text{ } 𝑧 $ com no mínimo um operador no lado direito do $:=$;</p>
+            <p class="fragment fade-up">Logo são validos: $𝑥 := 𝑦\text{ } 𝑜𝑝\text{ } 𝑧 $ ; $𝑥 := 𝑜𝑝\text{ } 𝑧 $ e $𝑥 := 𝑦 $.</p>
+            <p class="fragment fade-up">Expressões complexas de código serão transformados em sequencias de comandos em 3AC</p>
+            <p class="fragment fade-up">Veremos que em algumas gramáticas existe uma sintaxe com regras de produção na forma de quadruplas: $𝑜𝑝,\text{ } arg1, \text{ }arg2, \text{ }𝑟𝑒𝑠𝑢𝑙𝑡$.</p>
+        </small>
+        </section>
+        <section>
+          <h2>3AC - Otimização 1</h2>
+          <img data-src="../img/gercode21.jpg" style="height: 516px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>3AC - Exemplo</h2>
+          <img data-src="../img/gercode20.png" style="height: 450px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>3AC - Resumo</h2>
+          <img data-src="../img/gercode22.png" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>3AC - Exercício</h2>
+          <p>Considere $( 𝑎 + 𝑏 )∗( 𝑎 + 𝑏 + 𝑐 )$ e construa seu DAG e um conjunto de instruções usando o 3AC.</p>
+          <img data-src="../img/gercode23.png" class="fragment fade-up" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Registradores</h2>
+          <img data-src="../img/gercode24.png" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+          <p class="fragment fade-up">A distribuição de valores em registradores é um problema NP-Complete.</p>
+        </section>
+        <section>
+          <h2>3AC-Quadruplas</h2>
+          <img data-src="../img/gercode25.png" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>3AC-Triplas</h2>
+          <img data-src="../img/gercode26.png" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>3AC-Triplas Indiretas</h2>
+          <img data-src="../img/gercode27.png" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>3AC-Triplas Exemplo</h2>
+          <P>Considere a expressão: $𝑥 = (−𝑏 + 𝑠𝑞𝑟𝑡(𝑏^2 − 4∗𝑎∗𝑐)) / (2∗𝑎)$ e crie o 3AC equivalente.</P>
+          <img data-src="../img/gercode28.png" class="fragment fade-up" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Na Prática - Java</h2>
+          <img data-src="../img/gercode29.png"  style="height: 435px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Na Prática - Webassembly</h2>
+          <img data-src="../img/gercode30.png" style="height: 435px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
       </section>
      <!-- Material de Apoio -->
       <section class="nivel1">
+        <section>
+          <h1>Pequena Revisão</h1>
+          <p>
+            Você pode, e deve, fazer uma revisão dos seus conhecimentos 
+            <a href="https://forms.gle/cbqbcgTc2WQtAz8x5" target="_blanck">clicando aqui</a>
+          </p>
+        </section>
         <section>
           <h1>Material de apoio</h1>
           <p>
