@@ -4,8 +4,11 @@
     "make-fast": ["*.md"]
   },
   "cSpell.ignoreWords": [
+    "imgleft",
+    "nivel",
     "notav",
     "oper",
+    "sintatica",
     "sist",
     "vtable"
   ]
