@@ -36,7 +36,7 @@
 				<section>
 					<h2>Definições, Alfabeto e Forma</h2>
 					<small style="font-size: 78% !important;">
-						<p class="fragment fade-up">Alfabeto $\Sigma_L=\{\neg, \rightarrow, \{ P, Q, R, S,...\}, (,)\}$</p>
+						<p class="fragment fade-up">Alfabeto $\Sigma_L=\{\neg, \vee, \wedge, \rightarrow, \vdash, \Rightarrow, \{ P, Q, R, S,...\}, (,)\}$</p>
 						<p class="fragment fade-up">Representação.</p>
 						<p class="fragment fade-up">$$\frac{P_1, P_2, ...P_n}{Q}$$</p>
 						<p class="fragment fade-up">Uma estrutura em forma de fração que não tem nenhuma relação com a divisão. Na parte de cima, equivalente ao numerador, estará um conjunto de premissas, e chamaremos esta parte de contexto $\Gamma$, ou <strong>teoria $\Gamma$ </strong> e na parte de baixo, equivalente ao denominador, está a conclusão lógica destas premissas</p>
@@ -65,14 +65,14 @@
 				</section>
 				<section>
 					<h2>Eliminação da Conjunção</h2>
-					<p class="fragment fade-up">Eliminação da Conjunção, simplificação $(\text{Elimin. }\wedge )$. Uma vez que $P$ e $Q$ já foram provadas como verdadeiras Deduzimos $(P\wedge Q)$.</p>
-					<p class="fragment fade-up">$$\frac{(P\wedge Q)}{P}\ \ \ \ \  \frac{(P\wedge Q)}{Q} (\text{Elimin. } \wedge)$$</p>
+					<p class="fragment fade-up">Eliminação da Conjunção, simplificação $(\text{Elim. }\wedge )$. Uma vez que $P$ e $Q$ já foram provadas como verdadeiras Deduzimos $(P\wedge Q)$.</p>
+					<p class="fragment fade-up">$$\frac{(P\wedge Q)}{P}\ \ \ \ \  \frac{(P\wedge Q)}{Q} (\text{Elim. } \wedge)$$</p>
 					<p class="fragment fade-up">A regra tem duas formas e permite deduzir tanto $P$ quanto $Q$. Novamente, você pode usar a tabela verdade se preferir.</p>
 				</section>
 				<section>
 					<h2>Exemplo 1</h2>
 					<small style="font-size: 50% !important">
-					<p class="fragment fade-up">Considere o argumento: $(P\wedge Q); R \vDash (Q\wedge R)$ e prove sua veracidade.</p>
+					<p class="fragment fade-up">Considere o argumento: $(P\wedge Q); R \vdash (Q\wedge R)$ e prove sua veracidade.</p>
 					<p class="fragment fade-up">Começamos listando as premissas da Teoria $\Gamma$: no caso $(P\wedge Q), R$. </p>
 					<ol class="fragment fade-up" style="font-size: 83%; margin-left: 10%;">
 						<li>$(P\wedge Q)$ &nbsp;&nbsp;&nbsp; (premissa)</li>
@@ -82,20 +82,20 @@
 					<ol class="fragment fade-up" style="font-size: 83%; margin-left: 10%; ">
 						<li>$(P\wedge Q)$&nbsp;&nbsp;&nbsp; (premissa)</li>
 						<li>$R$&nbsp;&nbsp;&nbsp; (premissa)</li>
-						<li>$Q$&nbsp;&nbsp;&nbsp;$(\text{Elimin. } \wedge)$ </li>
+						<li>$Q$&nbsp;&nbsp;&nbsp;$(\text{Elim. } \wedge)$ </li>
 					</ol>
 					<p class="fragment fade-up">$R \equiv \top$ devido a ser uma premissa e provamos $Q \equiv \top$ podemos provar $(Q\wedge R)$ usando a Introdução da Conjunção. </p>
 					<ol class="fragment fade-up" style="font-size: 83%; margin-left: 10%;">
 						<li>$(P\wedge Q)$&nbsp;&nbsp;&nbsp; (premissa)</li>
 						<li>$R$&nbsp;&nbsp;&nbsp; (premissa)</li>
-						<li>$Q$&nbsp;&nbsp;&nbsp;  $(\text{Elimin. } \wedge)$ </li>
+						<li>$Q$&nbsp;&nbsp;&nbsp;  $(\text{Elim. } \wedge)$ </li>
 						<li>$(Q\wedge R)$&nbsp;&nbsp;&nbsp; $(\text{Intro. } \wedge)$ consequentemente teremos:  $\frac{Q \ \ \ R}{(Q\wedge R)}$</li>
 					</ol>
 				</small>
 				</section>
 				<section>
 					<h2>Exercício 1</h2>
-					<p class="fragment fade-up">Considere o argumento: $(P \wedge Q) \wedge R, (S \wedge T) \vDash (Q \wedge S)$ e prove sua veracidade.</p>
+					<p class="fragment fade-up">Considere o argumento: $(P \wedge Q) \wedge R, (S \wedge T) \vdash (Q \wedge S)$ e prove sua veracidade.</p>
 					<p class="fragment fade-up">Lembre-se de começar sempre listando as premissas.</p>
 				</section>
 				<section>
@@ -107,7 +107,7 @@
 				<section>
 					<h2>Exemplo 2</h2>
 					<small style="font-size: 65% !important">
-						<p class="fragment fade-up">Considere o argumento: $P;\neg \neg(Q\wedge R) \vDash (\neg \neg P\wedge \neg \neg R)$ e prove sua veracidade.</p>
+						<p class="fragment fade-up">Considere o argumento: $P;\neg \neg(Q\wedge R) \vdash (\neg \neg P\wedge \neg \neg R)$ e prove sua veracidade.</p>
 						<p class="fragment fade-up">Começamos listando as premissas da Teoria $\Gamma$: no caso $P;\neg \neg(Q\wedge R)$. </p>
 						<ol style="font-size: 83%; margin-left: 10%;">
 							<li class="fragment fade-up">$P$ <span style="margin-left: 201px;">(premissa)</span></li>
@@ -123,7 +123,7 @@
 				</section>
 				<section>
 					<h2>Exercício 2</h2>
-					<p class="fragment fade-up">Considere o argumento: $P,\neg \neg(P \wedge R) \vDash \neg \neg P \wedge R$ e prove sua veracidade.</p>
+					<p class="fragment fade-up">Considere o argumento: $P,\neg \neg(P \wedge R) \vdash \neg \neg P \wedge R$ e prove sua veracidade.</p>
 				</section>
 				<section>
 					<h2>Eliminação da Implicação</h2>
@@ -132,7 +132,7 @@
 				</section>
 				<section>
 					<h2>Exemplo 3</h2>
-					<p>Prove o seguinte argumento: $P, (P \rightarrow Q), P \rightarrow (Q\rightarrow R) \vDash R$</p>
+					<p>Prove o seguinte argumento: $P, (P \rightarrow Q), P \rightarrow (Q\rightarrow R) \vdash R$</p>
 					<table>
 						<tbody>
 						<tr class="fragment fade-up">
@@ -170,7 +170,7 @@
 				</section>
 				<section>
 					<h2>Exemplo 4</h2>
-					<p>Prove o seguinte argumento: $P \rightarrow (Q \rightarrow R),P, \neg R \vDash \neg Q$</p>
+					<p>Prove o seguinte argumento: $P \rightarrow (Q \rightarrow R),P, \neg R \vdash \neg Q$</p>
 					<table>
 						<tbody>
 						<tr class="fragment fade-up">
@@ -216,7 +216,7 @@
 				<section>
 					<h2>Exemplo 5</h2>
 					
-						<p> Prove o argumento: $P \rightarrow Q \vDash \neg Q \rightarrow  \neg P$</p>
+						<p> Prove o argumento: $P \rightarrow Q \vdash \neg Q \rightarrow  \neg P$</p>
 					
 					<table style="font-size: 55% !important;">
 						<tbody>
@@ -255,7 +255,7 @@
 				</section>
 				<section>
 					<h2>Exemplo 6</h2>
-						<p> Prove o argumento: $\neg B \rightarrow \neg A \vDash A \rightarrow  \neg \neg B$</p>
+						<p> Prove o argumento: $\neg B \rightarrow \neg A \vdash A \rightarrow  \neg \neg B$</p>
 					
 					<table style="font-size: 55% !important;">
 						<tbody>
@@ -308,7 +308,7 @@
 					<h2>Eliminação da Disjunção</h2>
 					<small>
 						<p class="fragment fade-up">Para eliminar $P\vee Q$, temos um problema. Não há como definir qual premissa é verdadeira, então precisamos utilizar a técnica da análise de hipóteses. E teremos que analisar as hipóteses para os dois operandos da disjunção.</p>
-						<p class="fragment fade-up">A Eliminação da Disjunção ($\text{Elimin. } \vee$) tem a forma:$$\frac{\begin{smallmatrix}
+						<p class="fragment fade-up">A Eliminação da Disjunção ($\text{Elim. } \vee$) tem a forma:$$\frac{\begin{smallmatrix}
 							& P_1 & Q_1 \\ 
 							& : & :\\
 							(P\vee Q) & R & R
@@ -318,7 +318,7 @@
 				</section>
 				<section>
 					<h2>Exemplo 7</h2>
-						<p> Prove o argumento: $P \vee Q \vDash Q \vee P$</p>
+						<p> Prove o argumento: $P \vee Q \vdash Q \vee P$</p>
 					
 					<table style="font-size: 55% !important;">
 						<tbody>
@@ -379,11 +379,11 @@
 				</section>
 				<section>
 					<h2>Exercício 3</h2>
-						<p> Prove o argumento: $Q \rightarrow R\vDash (P\vee Q)\rightarrow (P\vee R)$</p>
+						<p> Prove o argumento: $Q \rightarrow R\vdash (P\vee Q)\rightarrow (P\vee R)$</p>
 				</section>
 				<section>
 					<h2>Exercício 4</h2>
-					<p>Prove o argumento: $(P\vee Q) \vee R \vDash P \vee (Q \vee R)$</p>
+					<p>Prove o argumento: $(P\vee Q) \vee R \vdash P \vee (Q \vee R)$</p>
 				</section>
 				<section>
 					<h2>Fixação</h2>
@@ -397,20 +397,20 @@
 				</section>
 				<section>
 					<h2>Exercício 1</h2>
-					<p class="fragment fade-up">Considere o argumento: $(P \wedge Q) \wedge R, (S \wedge T) \vDash (Q \wedge S)$ e prove sua veracidade.</p>
+					<p class="fragment fade-up">Considere o argumento: $(P \wedge Q) \wedge R, (S \wedge T) \vdash (Q \wedge S)$ e prove sua veracidade.</p>
 					<ol class="fragment fade-up" style="font-size: 83%; margin-left: 10%;">
 						<li>$(P \wedge Q) \wedge R$<span style="margin-left: 56px;">(premissa)</span></li>
 						<li>$(S \wedge T)$ <span style="margin-left: 130px;">(premissa)</span></li>
-						<li>$(P\wedge Q)$ <span style="margin-left: 117px;">$(\text{Elimin. } \wedge)$ aplicado em 1</span></li>
-						<li>$Q$ <span style="margin-left: 221px;">$(\text{Elimin. } \wedge)$ aplicado em 3</span></li>
-						<li>$S$ <span style="margin-left: 225px;">$(\text{Elimin. } \wedge)$  aplicada em 2</span></li>
+						<li>$(P\wedge Q)$ <span style="margin-left: 117px;">$(\text{Elim. } \wedge)$ aplicado em 1</span></li>
+						<li>$Q$ <span style="margin-left: 221px;">$(\text{Elim. } \wedge)$ aplicado em 3</span></li>
+						<li>$S$ <span style="margin-left: 225px;">$(\text{Elim. } \wedge)$  aplicada em 2</span></li>
 						<li>$(Q\wedge S))$ <span style="margin-left: 106px;">$(\text{Intro. } \wedge)$  aplicada em 4 e 5</span></li>
 					</ol>
 				</section>
 				<section>
 					<h2>Exercício 2</h2>
 					<small style="font-size: 65% !important">
-					<p>Considere o argumento: $P,\neg \neg(P \wedge R) \vDash \neg \neg P \wedge R$ e prove sua veracidade.</p>
+					<p>Considere o argumento: $P,\neg \neg(P \wedge R) \vdash \neg \neg P \wedge R$ e prove sua veracidade.</p>
 					<p>Começamos listando as premissas da Teoria $\Gamma$: no caso $P,\neg \neg(P \wedge R)$. </p>
 					<table>
 						<tbody>
@@ -437,7 +437,7 @@
 						<tr>
 							<td style="border: 0px !important;">5.</td>
 							<td style="text-align: left!important; border: 0px !important;">$R$</td>
-							<td style="text-align: left!important; border: 0px !important;">($\text{Elimin.} \wedge$ em 4)</td>
+							<td style="text-align: left!important; border: 0px !important;">($\text{Elim.} \wedge$ em 4)</td>
 						</tr>
 						<tr>
 							<td style="border: 0px !important;">6.</td>
@@ -451,7 +451,7 @@
 				</section>
 				<section>
 					<h2>Exercício 3</h2>
-						<p> Prove o argumento: $Q \rightarrow R\vDash (P\vee Q)\rightarrow (P\vee R)$</p>
+						<p> Prove o argumento: $Q \rightarrow R\vdash (P\vee Q)\rightarrow (P\vee R)$</p>
 						<img class="fragment fade-up" data-src="../img/deduz1.jpg" style="height: 360px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />	
 				
 				</section>
