@@ -21,179 +21,411 @@
     <div class="slides">
       <section id="title-slide" class="nivel1">
        <section>
-        <h1 class="title">Geração de Código Intermediário</h1>
+        <h1 class="title" style="width: 90%; margin-left: 4%;">Otimização de Código</h1>
         <p style="text-align: right !important;">Frank Coelho de Alcantara -2020&nbsp;&nbsp;</p>
        </section>
        <section>
-            <img data-src="../img/gercode1.png" style=" margin-top: 5%; height: 576px !important;"  alt="imagem com a frase, seu código já foi anotado." />
-       </section>
-       <section>
-          <h2>Representações Intermediárias - RIs</h2>
-          <img data-src="../img/gercode2.png" class="fragment fade-up" style="height: 504px !important;"  alt="são representações que estão entre a linguagem de programação e o código de máquina." />
-        </section>
-        <section>
-          <h2>Tarefas da RI</h2>
-          <small style="font-size: 80% !important; margin-left:2%;">
-          <p  class="fragment fade-up">Realiza otimizações de Código independente da máquina trabalhando em partes onde não precisamos nos preocupar com registradores, e posições de memória.</p>
-          <p  class="fragment fade-up">O Código Gerado é uma representação simplificada da árvore gerada pela análise semântica.
-          Uma versão limpa, geralmente linear, mas que contém todas as características do algoritmo criado.</p>
-          <p  class="fragment fade-up">Este código intermediário já contém um nível significativo de otimizações. </p>
-          <p  class="fragment fade-up">O código intermediário é, geralmente, independente da arquitetura alvo.</p>
+          <h2>Objetivos</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Reduzir o custo computacional de rotinas repetidas (DAG).</p>
+          <p  class="fragment fade-up">Reduzir o número de variáveis utilizadas (registradores).</p>
+          <p  class="fragment fade-up">Utilizar melhor as características únicas de cada hardware.</p>
+          <p  class="fragment fade-up">Centenas, talvez milhares de otimizações diferentes (qual?).</p>
         </small>
         </section>
         <section>
-          <h2>Independência</h2>
-          <img data-src="../img/gercode3.png" style="height: 504px !important;"  alt="o código intermediário deve ser independente da arquitetura." />
+          <h2>Constant Folding</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Sempre que existir uma operação entre dois literais, execute esta operação.</p>
+          <p  class="fragment fade-up">Com esta otimização seu código pode ser mais claro.</p>
+          <p  class="fragment fade-up">Você pode usar $$tempo = 30 * MINUTOS\_POR\_DIA; $$</p>
+          <p  class="fragment fade-up">Em vez de: $$tempo = 43200;$$</p>
+        </small>
         </section>
         <section>
-          <h2>Representação</h2>
-          <img data-src="../img/gercode4.png" style="height: 388px !important; margin-top: 4%;"  alt="a representação deve ser mais simples." />
-        </section>
-      </section>
-      <section class="nivel1">
-        <section>
-          <img data-src="../img/gercode5.jpg" style=" height: 504px !important; margin-top: 8%;"  alt="apenas o começo da sessão." />
-        </section>
-        <section>
-          <h2>Características</h2>
-          <img data-src="../img/gercode6.png" style="height: 350px !important;"  alt="deve ser independente da arquitetura ." />
+          <h2>Constant Propagation</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Se sabemos que, em um determinado ponto do programa, uma variável tem um valor constante, substitua a referência a variável por este valor.</p>
+          <p  class="fragment fade-up">Não é uma otimização simples, precisamos conhecer o fluxo de dado e encontrar o valor da variável em todos os cenários possíveis.</p>
+          <p  class="fragment fade-up">Fica mais simples se o código estiver na forma de SSA</p>
+        </small>
         </section>
         <section>
-          <h2>Otimização High-Level</h2>
-          <img data-src="../img/gercode7.png" style="height: 540px !important;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>Copy Propagation</h2>
+          <small style="font-size: 70% !important; margin-left: 2%;;">
+          <p  class="fragment fade-up">Depois de atribuirmos o valor de $A$ a $B$, a referencia de $A$ em $B$ pode ser substituída pelo valor de $A$, até que uma nova atribuição ocorra em $A$ ou $B$.</p>
+          <p  class="fragment fade-up">Não é uma otimização simples, precisamos conhecer o fluxo de dado e encontrar o valor da variável em todos os cenários possíveis.</p>
+          <p  class="fragment fade-up">Fica mais simples se o código estiver na forma de SSA</p>
+        </small>
+        <img data-src="../img/opt4.png" class="fragment fade-up" style="height: 262px !important; float: right; margin-top: 3%;"  alt="exemplo de código substituindo multiplicação por somas." />
         </section>
         <section>
-          <h2>Otimização Mid-Level</h2>
-          <img data-src="../img/gercode8.png" style="height: 546px !important;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>Static Single Assignment - SSA</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Método para estruturar o código intermediário de forma que cada variável seja atribuída apenas uma vez.</p>     
+          <p  class="fragment fade-up">A ideia é remover possíveis redundâncias no uso de variáveis.</p>
+          <p  class="fragment fade-up">Precisamos encontrar todos os pontos onde uma variável é usada.</p>     
+          <p  class="fragment fade-up">Outra estrutura de dados: Cadeias de definição de uso <i>def. use chain</i>.</p>     
+        </small>
         </section>
         <section>
-          <h2>Otimização Low-Level</h2>
-          <img data-src="../img/gercode9.png" style="height: 350px !important;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>Def. Use Chain</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Outro grafo relacionando cada definição de variável a todos os usos desta variável.</p>     
+          <p  class="fragment fade-up">Computacionalmente muito caro: uma variável com $d$ definições e $u$ usos terá complexidade $O(d\times u)$.</p>
+          <p  class="fragment fade-up">Vamos simplificar este processo definindo cada variável apenas uma vez?</p>     
+          <p  class="fragment fade-up">E assim nasceu o SSA dentro da IBM.</p> 
+        </small>
         </section>
         <section>
-          <h2>Valores</h2>
-          <img data-src="../img/gercode10.png" style="height: 530px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>SSA Em Blocos Básicos</h2>
+          <img data-src="../img/opt1.png" style="height: 450px !important;"  alt="permite otimização utilizando as características da linguagem." />
         </section>
         <section>
-          <h2>Tecnologias</h2>
-          <img data-src="../img/gercode11.png" style="height: 530px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>SSA Fluxo</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Quando voltamos de um $if$, por exemplo, como podemos saber que variável usar?</p>     
+          <p  class="fragment fade-up">Infelizmente este é um problema insolúvel. Não há como determinar isso de forma autônoma.</p>
+          <p  class="fragment fade-up">Então, vamos usar uma função alternativa $a3 := \Phi (a1, a2)$ que indica que $a3$ pode receber $a1$ ou $a2$ dependendo do fluxo do programa.</p>     
+          <p  class="fragment fade-up">E assim nasceu o SSA dentro da IBM.</i>.</p> 
+        </small>
         </section>
         <section>
-          <h2>Árvore Sintática Abstrata</h2>
-          <img data-src="../img/gercode12.png" style="height: 425px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>SSA Fluxo Exemplo</h2>
+          <img data-src="../img/opt2.png" style="height: 510px !important;"  alt="permite otimização utilizando as características da linguagem." />
         </section>
         <section>
-          <h2>Direct Acyclic Graphs</h2>
-          <img data-src="../img/gercode13.png" style="height: 530px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>Simplificação Algébrica</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Usamos as regras da álgebra.</p>     
+          <p  class="fragment fade-up">Não otimizado: $((4*(a + b))/ (4*a))*c$.</p>
+          <ol style="font-size: 70%; margin-left:17%;">
+            <li  class="fragment fade-up">$((4*a + 4*b)/ (4*a)) * c $</li>
+            <li  class="fragment fade-up">$((4*a)/(4*a) + (4*b)/(4*a)) * c$</li>
+            <li  class="fragment fade-up">$(1 + b/a) * c$</li>
+            <li  class="fragment fade-up">$(1*c) + (b/a)*c$</li>
+            <li  class="fragment fade-up">$c + (b*c)/a$</li>
+          </ol>
+          <p  class="fragment fade-up">Otimizado: $c + (b*c)/a$. A grande pergunta é: você vai deixar o interpretador fazer isso?</p>
+        </small>
         </section>
         <section>
-          <h2>Comparação DAG - AST </h2>
-          <img data-src="../img/gercode14.png" style="height: 530px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
-        </section>
-        <section>
-          <h2>DAG - Prática </h2>
-          <p  class="fragment fade-up"> Considere a declaração, $( 𝑎 + 𝑏 )∗ ( 𝑎 + 𝑏 + 𝑐 )$ e construa o DAG equivalente.</p>
-          <img data-src="../img/gercode15.png" class="fragment fade-up" style="height: 315px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
-        </section>
-        <section>
-          <h2>Blocos Básicos</h2>
-          <img data-src="../img/gercode16.png" style="height: 450px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
-        </section>
-        <section>
-          <h2>Blocos Básicos - Exemplo</h2>
-          <img data-src="../img/gercode17.png" style="height: 450px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
-        </section>
-        <section>
-          <h2>Blocos Básicos - Fluxo</h2>
-          <img data-src="../img/gercode18.png" style="height: 450px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
-        </section>
-        <section>
-          <h2>Representação Linear</h2>
-          <img data-src="../img/gercode19.png" style="height: 450px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
-        </section>
-      </section>
-      <section class="nivel1">
-        <section>
-          <h2>Máquinas de Pilha - LIFO</h2>
-          <small style=" font-size: 72% !important; width: 93%; margin-left: 2%;">
-            <p class="fragment fade-up">Criadas no final dos anos 1950 pela Burroughs. A única empresa na história que concorreu com a IBM.</p>
-            <p class="fragment fade-up">Não usam registradores, todas as instruções estão armazenadas em uma pilha quando um operador chega a pilha, seus operandos já estão lá e o resultado é armazenado novamente na pilha.</p>
-            <p class="fragment fade-up">Uma das máquinas derivada da arquitetura de Von Neumann. As outras são Máquinas de Acumulador e de Registradores.</p>
-            <p class="fragment fade-up">É a arquitetura mais comum para implementação de interpretadores. O Java, o Python (CPython) e o WebAssembly usam variações desta tecnologia.</p>
-            <p class="fragment fade-up">Também conhecida como <i>one address code</i>.</p>
+          <h2>Simplificação Algébrica - Cuidados</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Divisão por zero? Overflow?</p>
+          <p  class="fragment fade-up">Verificação de overflow tem impacto direto na interpretação. </p>
+          <table   class="fragment fade-up">
+            <tbody>
+            <tr>
+            <th></th>
+            <th>GCC 9</th>
+            <th>clang 9</th>
+            </tr>
+            <tr>
+            <td>no trapping</td>
+            <td>0.17 ns/int</td>
+            <td>0.11 ns/int</td>
+            </tr>
+            <tr>
+            <td>trapping</td>
+            <td>2.1 ns/int</td>
+            <td>0.32 ns/int</td>
+            </tr>
+            <tr>
+            <td>slowdown</td>
+            <td>12 x</td>
+            <td>3 x</td>
+            </tr>
+            </tbody>
+            </table>
+            <p  class="fragment fade-up">Fonte: <a href="https://lemire.me/blog/2020/09/23/how-expensive-is-integer-overflow-trapping-in-c/">Daniel Lemire (2020)</a>  </p>
           </small>
         </section>
         <section>
-          <h2>Three Address Code</h2>
-          <p class="fragment fade-up">O gerador de código intermediário recebe uma <strong>AST</strong> originada no analisador semântico e converte esta árvore em uma representação linear. Esta representação é chamada de 3-Address code, <strong>3AC</strong> e é construída com base nos conceitos de endereços e instruções. Um endereço pode ser um nome, uma constante ou temporário.</p>
-          <p class="fragment fade-up">Seu código começa a ficar parecido com código de máquina.</p>
+          <h2>Strength Reduction</h2>
+          <small style="font-size: 90% !important; margin-left:2%; float:left; width: 59%;">
+          <p  class="fragment fade-up">Algumas operações são mais computacionalmente mais caras em algumas arquiteturas e não em outras.</p>     
+          <p  class="fragment fade-up">Infelizmente este é um problema insolúvel. Não há como determinar isso de forma autônoma.</p>
+          <p  class="fragment fade-up">A otimização mais comum é substituir multiplicações por somas.</p>     
+        </small>
+        <img data-src="../img/opt3.png" class="fragment fade-up" style="height: 360px !important; float:right; margin-top:20%;"  alt="exemplo de código substituindo multiplicação por somas." />
         </section>
         <section>
-          <h2>3AC - Formato</h2>
+          <h2>Strength Reduction - shift</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">$a = b/16 \Rightarrow a = b >> 4$</p>     
+          <p  class="fragment fade-up">$a = b*64 \Rightarrow a = b << 6$</p>
+          <p  class="fragment fade-up">$a = b*15 \Rightarrow a = (b<<4) – b$</p>
+          <p  class="fragment fade-up">Dependem do processador e do número que está sendo operado.</p>   
+          <p  class="fragment fade-up">Por outro lado, o processo de substituição é simples e direto.</p>     
+        </small>
+        <img data-src="../img/opt3.png" class="fragment fade-up" style="height: 360px !important; float:right; margin-top:20%;"  alt="exemplo de código substituindo multiplicação por somas." />
+        </section>
+        <section>
+          <h2>Loop Invariant</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Remover dos laços todo o código que não está sendo alterado dentro do código.</p>     
+          <p  class="fragment fade-up">No exemplo há outra otimização: strength reduction.</p>
+        </small>
+        <img data-src="../img/opt5.png" class="fragment fade-up" style="height: 293px !important; float: right; margin-top: 5%;"  alt="exemplo de código substituindo multiplicação por somas." />
+        </section>
+        <section>
+          <h2>Lifetime</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Verificar e ajustar o uso de variáveis de acordo com seu tempo de vida, ou referências.</p>     
+          <p  class="fragment fade-up">Em C++ isso não é fácil.</p>
+         </small>
+        <img data-src="../img/opt6.png" class="fragment fade-up" style="height: 293px !important; float: right; margin-top: 5%;"  alt="exemplo de código substituindo multiplicação por somas." />
+        </section>
+        <section>
+          <h2>Function inlining</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+            <p  class="fragment fade-up">Economiza todo o custo de chamar a função e voltar.</p>     
+            <p  class="fragment fade-up">Algumas linguagens possuem indicadores para provocar isso: inline in C++.</p>
+            <p  class="fragment fade-up">Economiza memória no <i>stack</i>, abre espaço para outras otimizações locais.</p>
+            <p  class="fragment fade-up">Precisa tomar cuidado com o excesso de uso.</p>
+         </small>
+        </section>
+        <section>
+          <h2>Unswitching</h2>
+          <small style="font-size: 88% !important; margin-left: 2%; width: 61%;;">
+            <p  class="fragment fade-up">Não é raro que o processo interno de um laço não seja relacionado ao laço.</p>     
+            <p  class="fragment fade-up">Também não é raro que isso possa ser modificado se o laço for modificado..</p>
+            <p  class="fragment fade-up">Economiza memória no <i>stack</i>, abre espaço para outras otimizações locais.</p>
+            <p  class="fragment fade-up">Precisa tomar cuidado com o excesso de uso.</p>
+         </small>
+         <img data-src="../img/opt7.png" class="fragment fade-up" style="height: 373px !important; float: right; margin-top: 5%;"  alt="exemplo de código substituindo multiplicação por somas." />
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <img data-src="../img/opt8.png" style="height: 585px !important; margin-top: 5%;"  alt="exemplo de código substituindo multiplicação por somas." />
+        </section>
+        <section>
+          <h2>Gestão de Memória - Considerações</h2>
+          <img data-src="../img/opt9.png" style="height: 520px !important; margin-top: 2%;"  alt="exemplo de código substituindo multiplicação por somas." />
+        </section>
+        <section>
+          <h2>Layout Básico</h2>
+          <img data-src="../img/opt10.png" style="height: 520px !important; margin-top: 2%; margin-left: 4%;"  alt="exemplo de código substituindo multiplicação por somas." />
+        </section>
+        <section>
+          <h2>Alocação Estática</h2>
           <small style=" font-size: 72% !important; width: 93%; margin-left: 2%;">
-            <p class="fragment fade-up">Todas as instruções terão a forma: $𝑥 := \text{ }𝑦\text{ } 𝑜𝑝\text{ } 𝑧 $ com no máximo um operador no lado direito do $:=$;</p>
-            <p class="fragment fade-up">Logo são validos: $𝑥 := 𝑦\text{ } 𝑜𝑝\text{ } 𝑧 $ ; $𝑥 := 𝑜𝑝\text{ } 𝑧 $ e $𝑥 := 𝑦 $.</p>
-            <p class="fragment fade-up">Expressões complexas de código serão transformados em sequencias de comandos em 3AC</p>
-            <p class="fragment fade-up">Veremos que em algumas gramáticas existe uma sintaxe com regras de produção na forma de quadruplas: $𝑜𝑝,\text{ } arg1, \text{ }arg2, \text{ }𝑟𝑒𝑠𝑢𝑙𝑡$.</p>
+            <p class="fragment fade-up">Na maior parte das linguagens imperativas o código é alocado estaticamente.</p>
+            <p class="fragment fade-up">O compilador define, em tempo de compilação o endereço de cada artefato e este endereço é imutável durante o tempo de execução.</p>
+            <p class="fragment fade-up">Variáveis estáticas dependem de seu tempo de vida:  </p>
+            <ul>
+              <li class="fragment fade-up"><strong>Globais</strong> existem durante todo o tempo de execução;</li>
+              <li class="fragment fade-up"><strong>Locais</strong> existem durante o tempo de uma função, ou método, ou procedure;</li>
+              <li class="fragment fade-up"><strong>Dados compartilhados</strong> entre objetos existem durante todo o de execução.</li>
+            </ul>
         </small>
         </section>
         <section>
-          <h2>3AC - Otimização 1</h2>
-          <img data-src="../img/gercode21.jpg" style="height: 516px !important;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>Stack Allocation</h2>
+          <small style=" font-size: 72% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">Método simples e eficiente de alocar memória para sub-rotinas.</p>
+            <p class="fragment fade-up">Quando uma sub-rotina é chamada toda a memória necessária é alocada em um bloco chamado de <strong>Activation Record</strong> ou <strong>Stack Frame</strong>.</p>
+            <p class="fragment fade-up">O layout destes frames varia de linguagem para linguagem e de arquitetura para arquitetura</p>
+          </small>
         </section>
         <section>
-          <h2>3AC - Exemplo</h2>
-          <img data-src="../img/gercode20.png" style="height: 450px !important;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>Stack Allocation - Erro</h2>
+          <img data-src="../img/opt11.png" style="height: 520px !important;"  alt="permite otimização utilizando as características da linguagem." />
         </section>
         <section>
-          <h2>3AC - Resumo</h2>
-          <img data-src="../img/gercode22.png" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>Stack Frame</h2>
+          <img data-src="../img/opt12.png" style="height: 520px !important;"  alt="permite otimização utilizando as características da linguagem." />
         </section>
         <section>
-          <h2>3AC - Exercício</h2>
-          <p>Considere $( 𝑎 + 𝑏 )∗( 𝑎 + 𝑏 + 𝑐 )$ e construa seu DAG e um conjunto de instruções usando o 3AC.</p>
-          <img data-src="../img/gercode23.png" class="fragment fade-up" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>Stack Frames - Considerações</h2>
+          <img data-src="../img/opt13.png" style="height: 495px !important;"  alt="permite otimização utilizando as características da linguagem." />
         </section>
         <section>
-          <h2>Registradores</h2>
-          <img data-src="../img/gercode24.png" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
-          <p class="fragment fade-up">A distribuição de valores em registradores é um problema NP-Complete.</p>
+          <h2>Heap Allocation</h2>
+          <img data-src="../img/opt14.png" style="height: 495px !important;"  alt="permite otimização utilizando as características da linguagem." />
         </section>
         <section>
-          <h2>3AC-Quadruplas</h2>
-          <img data-src="../img/gercode25.png" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>Heap Allocation - Detalhes</h2>
+          <img data-src="../img/opt15.png" style="height: 540px !important;"  alt="permite otimização utilizando as características da linguagem." />
         </section>
         <section>
-          <h2>3AC-Triplas</h2>
-          <img data-src="../img/gercode26.png" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>Algoritmos de Alocação no Heap</h2>
+          <img data-src="../img/opt16.png" style="height: 540px !important;"  alt="permite otimização utilizando as características da linguagem." />
         </section>
         <section>
-          <h2>3AC-Triplas Indiretas</h2>
-          <img data-src="../img/gercode27.png" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>Exemplo em C</h2>
+          <img data-src="../img/opt17.png" style="height: 540px !important;"  alt="permite otimização utilizando as características da linguagem." />
         </section>
         <section>
-          <h2>3AC-Triplas Exemplo</h2>
-          <P>Considere a expressão: $𝑥 = (−𝑏 + 𝑠𝑞𝑟𝑡(𝑏^2 − 4∗𝑎∗𝑐)) / (2∗𝑎)$ e crie o 3AC equivalente.</P>
-          <img data-src="../img/gercode28.png" class="fragment fade-up" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>Considerações sobre Alocação</h2>
+          <img data-src="../img/opt18.png" style="height: 540px !important;"  alt="permite otimização utilizando as características da linguagem." />
         </section>
         <section>
-          <h2>Na Prática - Java</h2>
-          <img data-src="../img/gercode29.png"  style="height: 435px !important;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>Como Acompanhar os Blocos</h2>
+          <small style=" font-size: 72% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">Manter uma linked-list do blocos livres no heap.</p>
+            <p class="fragment fade-up">Para alocar, buscamos na lista um bloco cujo tamanho seja igual ou maior que o necessário.</p>
+            <p class="fragment fade-up">Se o tamanho for igual removemos o bloco da lista de blocos livres.</p>
+            <p class="fragment fade-up">Se o tamanho for maior, modificamos o tamanho para o tamanho necessário.</p>
+            <p class="fragment fade-up">Quando um artefato é deletado, o bloco é devolvido a lista de blocos livres.</p>
+            <p class="fragment fade-up">E verificamos se esse bloco não pode ser unido a um dos seus vizinhos para criar um bloco maior.</p>
+          </small>
         </section>
         <section>
-          <h2>Na Prática - Webassembly</h2>
-          <img data-src="../img/gercode30.png" style="height: 435px !important;"  alt="permite otimização utilizando as características da linguagem." />
+          <h2>Como Encontrar os Blocos</h2>
+          <small style=" font-size: 72% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">Quatro algoritmos dominam este cenário.</p>
+            <p class="fragment fade-up"><strong>First-fit</strong>: seleciona o primeiro bloco da lista de blocos livres que seja maior ou igual ao necessário.</p>
+            <p class="fragment fade-up"><strong>Best-fit</strong>: busca em toda a lista o melhor bloco para alocar o espaço necessário, o de tamanho igual é melhor.</p>
+            <p class="fragment fade-up"><strong>Buddy system</strong>: usa blocos de tamanho padrão $2^𝑘$. Se não existir nenhum espaço disponível. Se nenhum bloco de tamanho entre $2^{(𝑘−1)+1}$ e $2^𝑘$ atende então vamos encontrar 
+                um bloco de $2^{(𝑘+1)}$ e dividi-lo ao meio adicionando as metades a lista de blocos livres</p>
+            <p class="fragment fade-up"><strong>Fibonacci heap</strong>: blocos de tamanho padrão seguindo a sequência de Fibonacci.</p>
+          </small>
         </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <img data-src="../img/opt19.png" style=" height: 557px !important; margin-top: 6%;"  alt="imagem de lixeira." />
+        </section>
+        <section>
+          <h2>Garbage Collector</h2>
+          <small style=" font-size: 72% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">Erros de desalocação manual estão entre os mais caros  e difíceis de detectar em aplicações reais.</p>
+            <p class="fragment fade-up">Se um objeto é desalocado muito cedo, a referência a este objeto provoca comportamento indeterminado.</p>
+            <p class="fragment fade-up">Se um objeto nunca é desalocado teremos um vazamento de memória.</p>
+            <p class="fragment fade-up">A técnica de recolher blocos esquecidos é chamada de Garbabe Collection e foi inventada por John McCarty em 1959 para o Lisp.</p>
+            <p class="fragment fade-up">Usada em Lisp, Scheme, Prolog, Ada, Java, Haskell.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Garbage Collector - Considerações</h2>
+          <small style=" font-size: 72% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">A linguagem define o tempo de vida de um artefato.</p>
+            <p class="fragment fade-up">Em tempo de execução mantém controle de todos o <strong>bindings</strong> de cada artefato, incrementando a lista sempre que uma referência é criada e decrementando sempre que a referência é destruída.</p>
+            <p class="fragment fade-up">Se um objeto nunca é desalocado teremos um vazamento de memória.</p>
+            <p class="fragment fade-up">É necessário determinar quando a variável está viva ou não, de acordo com a especificação da própria linguagem.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Alto Desempenho</h2>
+          <small style=" font-size: 72% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">C++ não precisa, você pode fazer tudo que quiser com a memória e corrigir eventuais erros.</p>
+            <p class="fragment fade-up">Nunca houve consenso sobre a necessidade ou não desta técnica.</p>
+            <p class="fragment fade-up">Desde 03/2020 há um rebuliço na comunidade <a href="https://v8.dev/blog/high-performance-cpp-gc" target="_blank" rel="noopener noreferrer"></a>graças ao V8</i>.</p>
+            <p class="fragment fade-up">Porquê não?</p>
+          </small>
+        </section>
+        <section>
+          <h2>RAII</h2>
+          <small style=" font-size: 67% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">Resource Acquisition Is Initialization: talvez o fator mais importante do C++ é garantir que um recurso deve adquirido no <strong>constructor</strong> e devolvido no <strong>destructor</strong>.</p>
+            <p class="fragment fade-up">O segredo é que o <strong>destructor</strong> será automáticamente chamado se o objeto estiver fora do seu escopo.</p>
+            <p class="fragment fade-up">Em Python, e em Java, você também dispõe de um <strong>destructor</strong>, mas não tem garantias de sua execução.</p>
+            <p class="fragment fade-up">Ou seja, podemos ter problemas se o recurso for liberado antes da hora. Ou se não puder liberar por algum tipo de <strong>lock</strong>.</p> 
+            <p class="fragment fade-up">O segredo do C++ é amarar o tempo de vida de um recurso ao tempo de vida de uma variável local. O C++ já gerencia este tempo de vida.</p> 
+            <p class="fragment fade-up">O próprio Bjarne Stroustrup escreveu sobre isso <a href=" https://www.stroustrup.com/resource-model.pdf" target="_blank" rel="noopener noreferrer">Aqui</a>.</p> 
+          </small>
+        </section>
+        <section>
+          <h2>Rust</h2>
+          <small style=" font-size: 67% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">O Rust usa uma técnica semelhante ao C++.</p>
+            <p class="fragment fade-up">Usa um sistemas de tipos especial baseado em <strong>Affine Logic</strong> uma lógica que não permite contradição.</p>
+            <p class="fragment fade-up">Usando este sistema de tipos, o compilador acompanha o tempo de vida do objeto que consome o recurso e libera quando necessário.</p>
+            <p class="fragment fade-up">Aqui, também não há consenso.</p> 
+            <p class="fragment fade-up">Jesse Howarth da equipe do Discord escreveu um texto interresante sobre isso <a href="https://blog.discord.com/why-discord-is-switching-from-go-to-rust-a190bbca2b1f" target="_blank" rel="noopener noreferrer">aqui</a>.</p> 
+          </small>
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <img data-src="../img/opt20.png" style=" height: 615px !important;"  alt="Moça chorando por comportamento indefinido do C++." />
+        </section>
+        <section>
+          <h2>Buffers</h2>
+          <small style=" font-size: 67% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up"><strong>Buffer Overflow</strong>: praticamente todos os Worms já liberados na internet usaram, ou usam, alguma forma de buffer overflow vulnerabilidade. 
+              O último exemplo ocorreu em 2017: WannaCry.</p>
+            <p class="fragment fade-up"><strong>Buffer Overflow</strong> ocorre quando um dado é escrito em memória além do espaço alocado para um determinado artefato. Sobrescrevendo o espaço de memória adjacente.</p>
+            <p class="fragment fade-up"><strong>Buffer Underflow</strong>O corre quando dois artefatos do mesmo código tratam o mesmo bloco de memória já alocado, de forma diferente.
+              Por exemplo, considere a alocação de um string de N bytes por um artefato. E que outro artefato escreva N-4 bytes nesta área. 
+              Durante a leitura esperamos ler N e teremos 4 bytes de lixo.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Linguagens de Programação Seguras</h2>
+          <small style=" font-size: 67% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">Impõe disciplina e restrições aos programadores.</p>
+            <p class="fragment fade-up">Oferecem abstrações que limitam a liberdade e a flexibilidade de trabalhar diretamente com a máquina.</p>
+            <p class="fragment fade-up">Com a esperança que a segurança extra valha a pena.</p>
+            <p class="fragment fade-up">Há sempre um custo em eficiência no código.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Mecanismos de Verificação</h2>
+          <small style=" font-size: 67% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">Verificação em tempo de compilação: type checking.</p>
+            <p class="fragment fade-up">Verificação em tempo de execução: array bounds checks.</p>
+            <p class="fragment fade-up">Gerenciamento automático com Garbage Collection: não precisa do free().</p>
+            <p class="fragment fade-up">Uso de um engine específico para execução do Código: JVM.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Linguagens de Programação</h2>
+          <img data-src="../img/opt21.png" style=" height: 400px !important; margin-top: 6%;"  alt="lista das linguagens de programação por segurança." />
+        </section>
+        <section>
+          <h2>Linguagens Seguras</h2>
+          <small style=" font-size: 67% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">C, C++ e Objective-C são vulneráveis tanto a buffer overflow quanto ao buffer underflow.</p>
+            <p class="fragment fade-up">As linguagens ditas seguras (Python, Ruby, C#) em algum momento irão utilizar uma biblioteca usada em uma destas linguagens.</p>
+            <p class="fragment fade-up"> leia <a href="https://bugs.python.org/issue20246" target="_blank" rel="noopener noreferrer">aqui</a> sobre o Python e a função socket.recvfrom_into() em 2014.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Para Pesquisar</h2>
+          <img data-src="../img/opt22.png" style=" height: 525px !important;"  alt="lista das linguagens de programação por segurança." />
+        </section>
+      </section>
       </section>
      <!-- Material de Apoio -->
       <section class="nivel1">
         <section>
-          <h1>Pequena Revisão</h1>
-          <p>
-            Você pode, e deve, fazer uma revisão dos seus conhecimentos 
-            <a href="https://forms.gle/cbqbcgTc2WQtAz8x5" target="_blank" rel="noopener noreferrer">clicando aqui</a>
-          </p>
+          <h2>Python Quirks</h2>
+          <small style=" font-size: 67% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">Sintaxe: use 4 espaços para indentar. Muito ruim para funções ou condicionais longas.</p>
+            <p class="fragment fade-up">Importar: podemos importar uma função, praticamente criando um namespace, mas o código fica difícil de ler.</p>
+            <p class="fragment fade-up">Aspas: duplas e simples são a mesma coisa. Para quebrar linhas use aspas triplas.</p>
+            <p class="fragment fade-up">x=y atribui um novo nome ao valor que está em y, não copia. Não há uniformidade na forma de copiar um valor.</p>
+            <p class="fragment fade-up">As versões são um pesadelo. E uma das razões para legalizar a eutanásia.</p>
+          </small>
         </section>
+        <section>
+          <h2>Javascript Quirks</h2>
+          <small style=" font-size: 67% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">NAN é do tipo number.</p>
+            <p class="fragment fade-up">1 é igual a "1". Para que isso não ocorra existe igualdade estrita "===". Sem typecast? Todos os valores true são convertidos para 1 e todos os falsos para 0. Mas se você converter é diferente. </p> 
+            <pre class="fragment fade-up"><code data-trim data-noescape>
+              let x = 0;
+              let y = "0";
+              console.log(Boolean(x) == Boolean(y)); // false
+              console.log(x == y); // true
+            </code></pre> 
+            <p class="fragment fade-up">null e undefined.</p>
+            <pre class="fragment fade-up"><code data-trim data-noescape>
+              console.log(null === undefined); // false
+              console.log(null == undefined); // true
+              console.log(null > undefined); // false
+              console.log(null < undefined); // false
+              console.log(null >= undefined); // false
+              console.log(null <= undefined); // false
+            </code></pre> 
+            <p class="fragment fade-up"><a href="https://github.com/denysdovhan/wtfjs" target="_blank" rel="noopener noreferrer">Clique Aqui</a>.</p>
+          </small>
+        </section>
+        
         <section>
           <h1>Material de apoio</h1>
           <p>
@@ -210,6 +442,7 @@
             CASS, S. <b>The 2016 Top Programming Languages</b>. IEEE Spectrum, 2016. Disponível em: <http://spectrum.ieee.org/computing/software/the-2016-top-programming-languages>. Acesso em: 22 Set. 2016.<br/>
             Grune, Dick, Henri E. Bal, Ceriel J.H. Jacobs, and Koen G. Langendoen. <b>Modern Compiler Design</b>.  Wiley, 2000 <br/>
             Hogg, Jim. <b>CSE-P501 Compilers</b>. Washington University, 2005<br/>
+            Barry Rosen; Mark N. Wegman; F. Kenneth Zadeck (1988). "Global value numbers and redundant computations" (PDF). Proceedings of the 15th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages.<br/>
           </p>
           </small>
         </section>
