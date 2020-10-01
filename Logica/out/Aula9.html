@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Frank Coelho de Alcantara -2020" />
+	<title>Exercícios Revisão</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta
+		name="apple-mobile-web-app-status-bar-style"
+		content="black-translucent" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	<link rel="stylesheet" href="../../rev/reset.css" />
+	<link rel="stylesheet" href="../../rev/reveal.css" />
+	<link rel="stylesheet" href="../../rev/logica.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="nivel1" id="title-slide">
+				<section>
+				<h1 style="margin-top:15% !important;" class="title">Exercícios Revisão</h1>
+				<p style="text-align: right !important"> Frank Coelho de Alcantara -2020 &nbsp;&nbsp;</p>
+				</section>
+				<section>
+					<h2>Exercício 1</h2>
+					<p>Faça a tabela verdade das seguintes proposições</p>
+					<ol style="font-size: 68%; float: left; margin-left: 10%;;">
+						<li>$(𝑝 \wedge 𝑞) \vee \neg 𝑝$</li>
+						<li>$\neg 𝑞 \rightarrow (\neg 𝑝 \vee 𝑞)$</li>
+						<li>$(\neg 𝑝 \rightarrow 𝑞) \vee (\neg 𝑝 \wedge \neg 𝑞)$</li>
+						<li>$(𝑝 \wedge (𝑞 \vee \neg 𝑟)) \rightarrow (\neg p \wedge 𝑞)$</li>
+						<li>$((\neg 𝑞 \wedge 𝑝) \rightarrow 𝑟 ) \leftrightarrow ((\neg r \rightarrow \neg q) \vee 𝑝 )$</li>
+						<li>$(𝑟 \wedge ((\neg 𝑠 \vee 𝑞) \leftrightarrow \neg 𝑝 )) \rightarrow  (\neg (\neg 𝑞 \leftrightarrow 𝑟) \rightarrow (𝑠 \wedge \neg 𝑟))$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Exercício 2</h2>
+					<p>Simplifique as fórmulas abaixo usando as regras de equivalência</p>
+					<ol style="font-size: 68%; float: left; margin-left: 10%;;">
+						<li>$\neg(\neg p\rightarrow \neg q)$</li>
+						<li>$\neg (p \vee q)\vee (\neg p \wedge q)$</li>
+						<li>$\neg (p \vee  \neg q)$</li>
+						<li>$\neg (\neg p \vee \neg q)$</li>
+						<li>$(p \vee q) \wedge \neg p$</li>
+						<li>$(p \rightarrow q) \wedge (\neg p \rightarrow q)$</li>
+						<li>$(p \rightarrow q)\rightarrow r$</li>
+						<li>$(p \wedge q)\rightarrow (\neg r \rightarrow \neg q)$</li>
+						<li>$p \rightarrow (p \vee q)$</li>
+						<li>$p \leftrightarrow q$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Exercício 2</h2>
+					<p>Faça a derivação dos seguintes argumentos:</p>
+					<ol style="font-size: 68%; float: left; margin-left: 10%;;">
+						<li>$p\rightarrow q;r \vee s;t \vdash (p\rightarrow q) \wedge (r\vee s)$</li>
+						<li>$p\rightarrow (q\wedge s);p \vdash q;s$</li>
+						<li>$p; p \rightarrow q; q \rightarrow r \vdash r$</li>
+						<li>$p \rightarrow q; q \rightarrow r; \neg r \vdash \neg p$</li>
+						<li>$\neg p; \neg p \rightarrow \neg r; q \rightarrow r \vdash \neg q$</li>
+						<li>$(p \rightarrow q) \rightarrow p; p \rightarrow q \vdash q$</li>
+						<li>$ p \rightarrow (q \vee r); p → \neg r; p \vdash q$</li>
+						<li>$\neg p \rightarrow (q\vee r); p \rightarrow q; \neg q \vdash r$</li>
+						<li>$(p \vee r) \vee (p \rightarrow q); \neg (p \rightarrow q); r \rightarrow (p \rightarrow q) \vdash p$</li>
+						<li>$p \rightarrow \neg q; \neg q \rightarrow (r \wedge s); \neg (r \wedge s); p \vee t \vdash t$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Regras complementares 1</h2>
+					<img data-src="../img/regc3.jpg" style="height: 155px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+					<img data-src="../img/regc4.jpg" style="height: 155px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+				</section>
+				<section>
+					<h2>Regras complementares 2</h2>
+					<img data-src="../img/regc1.jpg" style="height: 130px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+					<img data-src="../img/regc2.jpg" style="height: 130px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+				</section>
+			</section>	
+			<section class="nivel1">
+				<section>
+					<h1>Respostas dos Exercícios</h1>
+				</section>
+				<section>
+					<h2>Exercício 1</h2>
+					<p>Exercício 1 item 3.</p>
+					<table style = "font-size: 70%;">
+						<tr>
+							<td>$p$</td>
+							<td>$q$</td>
+							<td>$\neg p$</td>
+							<td>$\neg p \rightarrow q$</td>
+							<td>$\neg q$</td>
+							<td>$\neg p \wedge \neg q$</td>
+							<td>$(\neg p \rightarrow q)\vee (\neg p \wedge \neg q)$</td>							
+						</tr>
+						<tr>
+							<td>$T$</td>
+							<td>$T$</td>
+							<td>$F$</td>
+							<td>$T$</td>
+							<td>$F$</td>
+							<td>$F$</td>
+							<td>$T$</td>							
+						</tr>
+						<tr>
+							<td>$T$</td>
+							<td>$F$</td>
+							<td>$F$</td>
+							<td>$T$</td>
+							<td>$T$</td>
+							<td>$F$</td>
+							<td>$T$</td>							
+						</tr>
+						<tr>
+							<td>$F$</td>
+							<td>$T$</td>
+							<td>$T$</td>
+							<td>$T$</td>
+							<td>$F$</td>
+							<td>$F$</td>
+							<td>$T$</td>							
+						</tr>
+						<tr>
+							<td>$F$</td>
+							<td>$F$</td>
+							<td>$T$</td>
+							<td>$F$</td>
+							<td>$T$</td>
+							<td>$T$</td>
+							<td>$T$</td>							
+						</tr>
+					</table>
+				</section>
+				<section>
+					<h2>Exercício 2</h2>
+					<p>Exercício 1 item 6.</p>
+					<ol style="font-size: 83%; margin-left: 10%;">
+						<li>$(p \rightarrow q) \wedge (\neg p \rightarrow q)$</li>
+						<li>$(\neg p \vee q) \wedge (p \vee q)$</li>
+						<li>$q \vee (\neg p \wedge p)$</li>
+						<li>$q \vee F$</li>
+						<li>$q$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Exercício 3</h2>
+					<p>Exercício 2 item 10</p>
+					<p>$p \rightarrow \neg q; \neg q \rightarrow (r \wedge s); \neg (r \wedge s); p \vee t \vdash t$</p>
+						<table style="font-size: 70%;">
+							<tr>
+								<td>1</td>
+								<td>$p \rightarrow \neg q$</td>
+								<td>Premissa</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>$\neg q \rightarrow (r \wedge s)$</td>
+								<td>Premissa</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>$\neg (r \wedge s)$</td>
+								<td>Premissa</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>$p\vee t$</td>
+								<td>Premissa</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>$\neg \neg q$</td>
+								<td>(MT) 2,3</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>$\neg p$</td>
+								<td>(MT) 1,5</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>$t$</td>
+								<td>(SD) 4,6 </td>
+							</tr>
+						</table>
+				</section>
+			</section>
+
+			<section class="nivel1">
+				<section>
+					<h1>Material de apoio</h1>
+					<p>
+						Você pode baixar o material de apoio
+						<a href="./logicaProposicional.pdf" target="_blank" rel="noopener noreferrer">clicando aqui</a>
+					</p>
+				</section>
+			</section>
+		</div>
+	</div>
+	<div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+	<script src="../../rev/reveal.js"></script>
+	<script src="../../rev/plugin/notes/notes.js"></script>
+	<script src="../../rev/plugin/search/search.js"></script>
+	<script src="../../rev/plugin/zoom/zoom.js"></script>
+	<script src="../../rev/plugin/math/math.js"></script>
+	<script src="../../rev/plugin/menu/menu.js"></script>
+	<script src="../../rev/plugin/chalkboard/plugin.js"></script>
+	<script>
+		// Full list of configuration options available at:
+		// https://revealjs.com/config/
+		Reveal.initialize({
+			// Push each slide change to the browser history
+			history: true,
+			// Transition style
+			transition: "fade", // none/fade/slide/convex/concave/zoom
+			center: false,
+			math: {
+				mathjax:
+					"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+				config: "TeX-AMS_HTML-full",
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: {
+					Macros: {
+						RR: "{\\bf R}",
+					},
+				},
+			},
+			menu: {
+				side: "left",
+				width: "normal",
+				numbers: false,
+				titleSelector: "h1, h2, h3, h4, h5, h6",
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: false,
+				themesPath: "dist/theme/",
+				transitions: false,
+				openButton: true,
+				openSlideNumber: false,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true,
+			},
+			// reveal.js plugins
+			plugins: [
+				RevealNotes,
+				RevealMath,
+				RevealMenu,
+				RevealChalkboard,
+				RevealSearch,
+				RevealZoom,
+			],
+		});
+	</script>
+</body>
+
+</html>
