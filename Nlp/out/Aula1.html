@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Frank Coelho de Alcantara -2020">
-  <title>Interpretadores e compiladores, introdução</title>
+  <title>Processamento de Linguagem Natural, Conceitos Básicos</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta
     name="apple-mobile-web-app-status-bar-style"
@@ -22,8 +22,10 @@
   <div class="reveal">
     <div class="slides">
       <section id="title-slide" class="nivel1">
-        <h1 class="title">Interpretadores e compiladores, introdução</h1>
-        <p style="text-align: right !important;">Frank Coelho de Alcantara -2020</p>
+        <section>
+          <h1 class="title">NLP, Conceitos Básicos</h1>
+          <p style="text-align: right !important;">Frank Coelho de Alcantara -2020&nbsp;&nbsp;&nbsp;</p>
+        </section>
       </section>
       <section class="nivel1">
         <section>
@@ -35,140 +37,109 @@
         </section>
         <section>
           <h2>Introdução</h2>
-          <p>Veremos um pouco da história da computação, os conceitos de compilação e interpretação e a matemática que suporta a criação de linguagens de
-            programação. </p>
-          <p>Vamos tratar de máquinas abstratas feitas para entender a linguagem que os programadores usam para criar algoritmos e resolver problemas. </p>
-          <p>Vamos explorar os processos de tradução que são utilizados por compiladores e interpretadores. E, principalmente, entender esta tecnologia. </p>
+          <p class="fragment fade-up">Linguagens regulares e formais são fáceis de interpretar. As regras e a forma fixa permitem isso. Linguagens naturais não são regulares nem formais.</p>
+          <p class="fragment fade-up">O Processamento de Linguagem Natural inclui: linguística, neurociência, matemática, computação e estatística. </p>
+          <p class="fragment fade-up">Não é uma área de pesquisa simples. Felizmente, a aplicação prática é cada dia mais simples. Dispomos de bibliotecas, algoritmos e bases de dados que facilitam o trabalho.</p>
         </section>
         <section>
-          <h2>Um pouco de História</h2>
-          <p>Poderíamos dizer que a história da computação começou quando o primeiro homem colocou algumas pedras no chão para saber com quantas ovelhas saiu
-            para o pasto e com quantas voltou. </p>
-          <p>Vamos marcar o começo da computação em algum trabalho científico do começo do Século XX. Talvez, os Trabalhos de Turing sejam o ponto ideal mas,
-            falaremos sobre isso em outro tópico. </p>
+          <h2>Por que?</h2>
+          <p class="fragment fade-up">A interface com as máquinas está ficando mais natural. Falamos com elas!</p>
+          <p class="fragment fade-up">Podemos entender o que está escrito e encontrar informação mais fácilmente.</p>
+          <p class="fragment fade-up">Com aplicação no comércio, medicina, direito, engenharia, pesquisa, em fim... tudo!!!.</p>
+          <p class="fragment fade-up">Mais importante, este mercado não tem fim, depende da sua capacidade e criatividade.</p>
         </section>
         <section>
-          <h2>Os primeiros anos</h2>
-          <p>O conceito de linguagem de programação começou a ser construído a partir de 1946 com a criação de <strong><em>Plankalkül</em></strong> por
-            <strong>Konrad Suze</strong>, um engenheiro alemão que criou o primeiro computador com relés e com a sua própria linguagem de programação,
-            <strong><em>Plankalkül</em></strong>. </p>
+          <h2>Chatbots</h2>
+          <p class="fragment fade-up">São sistemas baseados em Processamento de Linguagem Natural que conduzem conversações com seres humanos.</p>
+          <p class="fragment fade-up">Curiosamente são simples e, ao mesmo tempo, quase impossíveis.</p>
+          <p class="fragment fade-up">Turing começou esta busca, ao definir os parâmetros do Teste de Turing.</p>
+          <p class="fragment fade-up">Passar no teste de Teste de Turing? Em 2014 Eugene Gootsman passou.</p>
         </section>
         <section>
-          <h2>Grace Hopper</h2>
-          <p>Podemos correr o risco de afirmar que o compilador, foi criado em 1951 pela equipe liderada por <a
-              href="https://en.wikipedia.org/wiki/Grace_Hopper"><strong>Grace Hopper</strong></a> enquanto trabalhava na Remington Rand, e chamado de
-            <strong><em>A-0</em></strong>. </p>
+          <h2>Teste de Turing</h2>
+          <p class="fragment fade-up">Coloque um ser humano em uma sala conversando com um computador e outra pessoa sem saber quem é quem.O computador passará no Teste de Turing se não for possível distinguir a máquina do ser humano.</p>
+          <p class="fragment fade-up">Eu acredito que você é capaz de fazer uma máquina para passar neste teste.</p>
+          <p class="fragment fade-up">O Teste de Turing não tem sentido prático no Século XXI, está mais relacionado a mágica que a Inteligência Artificial.</p>
         </section>
         <section>
-          <h2>Fortran, Algol e Cobol</h2>
-          <p>Poucos anos depois, em 1957 <a href="https://en.wikipedia.org/wiki/John_Backus"><strong>John Backus</strong></a>, trabalhando na IBM, criou o
-            <strong><em>Fortran</em></strong> (<strong>FOR</strong>mula <strong>TRAN</strong>slation). </p>
-          <p>Entre os conceitos apresentados por <strong><em>Chomsky</em></strong> estava o conceito de <em>gramáticas livres de contexto</em>, que se mostrou
-            extremamente útil para a descrição da sintaxe de linguagens formais, principalmente para as linguagens de programação. </p>
+          <h2>O Verdadeiro Teste</h2>
+          <p  class="fragment fade-up">Quando eu falo com vocês, eu o faço sem me preocupar se vocês entendem ou não. É natural e automático. Eu posso, inclusive misturar idiomas.</p>
+          <p class="fragment fade-up">Inventar gírias, palavras novas, usar ironia e, ainda assim, vocês me entenderão. É isso que estamos procurando e deste ponto, estamos longe.</p>
+          <p class="fragment fade-up">Alguma coisa entre 10 e 20 anos de distância. E, mais importante. <strong>Pode ser Você!</strong></p>
         </section>
         <section>
-          <h2>BNF e Algol</h2>
-          <p><a href="https://en.wikipedia.org/wiki/John_Backus"><strong>John Backus</strong></a>, criou uma linguagem de programação apenas para provar que um
-            processo de descrição, por meio de uma linguagem específica, poderia ser usado para criar uma linguagem de programação, esta meta linguagem recebeu
-            o nome de <strong><em>Backus Normal Form</em></strong>. </p>
-          <p>O <strong><em>ALGOL-60</em></strong>, marca a primeira vez em que uma linguagem baseada em uma notação formal,
-            <strong><em>Backus-Naur-Form</em></strong>¸ foi usada para definir uma linguagem de programação. </p>
-          <p>Em 1959, é publicado o <strong><em>COBOL</em></strong>, por um comitê de pesquisadores liderados por Grace Hopper. A mesma Grace Hopper que alguns
-            anos antes havia trabalhado na criação do primeiro compilador. </p>
+          <h2>Aplicações</h2>
+          <p  class="fragment fade-up">Chatbot: o mais óbvio, conversar com a máquina para ela fazer o que eu quero.</p>
+          <p class="fragment fade-up">Análise de sentimentos: um investidor lê as notícias para entender o mercado.</p>
+          <p class="fragment fade-up">Tradução: falar em português e ser ouvido em mandarim e vice-versa.</p>
+          <p class="fragment fade-up">Entendimento: entender o contexto de um determinado texto, ou fala.</p>
+        </section>
+      </section> 
+      <section class="nivel1">
+        <section>
+          <h1 class="title">Colocando a mão na Massa!</h1>
         </section>
         <section>
-          <h2>Os anos 1970, o Basic e o C</h2>
-          <p>No dia 1º de Maio de 1964, aproximadamente as 4:00h foi executado o primeiro programa em <em>Basic</em>, fruto do trabalho de John G. Kemeny e
-            Thomas E. Kurtz, no Dartmouth College. </p>
-          <p>O <strong><em>C</em></strong>, criado em 1972 por <a href="https://en.wikipedia.org/wiki/Dennis_Ritchie"><strong>Dennis Ritchie</strong></a> nos
-            laboratórios da Bell para ser utilizada no Sistema Operacional Unix desenvolvida sobre outra linguagem a B, que fora desenvolvida por
-            <strong><em>Ken Thompson</em></strong> para permitir o porte do Unix para o computador PDP-11. </p>
+          <h2>Usando o Python</h2>
+          <p  class="fragment fade-up">O Python é inevitável para desenvolver os modelos de processamento de linguagem natural.</p>
+          <p class="fragment fade-up">Dezenas de milhares de usuários e pesquisas ao longo do mundo.</p>
+          <p class="fragment fade-up">É muito, muito ruim em produção. Mas, é muito, muito bom em desenvolvimento.</p>
+          <p class="fragment fade-up">Criamos o modelo e, quando for necessário escalar refazemos em C++.</p>
         </section>
         <section>
-          <h2>História da linguagem C</h2>
-          <table style="font-size: 60%;">
-            <thead>
-              <tr class="header">
-                <th style="text-align: left;"><strong>LINGUAGEM</strong></th>
-                <th><strong>ANO</strong></th>
-                <th style="text-align: left;"><strong>DESENVOLVIDA POR</strong></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="odd">
-                <td style="text-align: left;">Algol</td>
-                <td>1960</td>
-                <td style="text-align: left;">International Group (Backus-Naur)</td>
-              </tr>
-              <tr class="even">
-                <td style="text-align: left;">BCPL</td>
-                <td>1967</td>
-                <td style="text-align: left;">Martin Richard</td>
-              </tr>
-              <tr class="odd">
-                <td style="text-align: left;">B</td>
-                <td>1970</td>
-                <td style="text-align: left;">Ken Thompson</td>
-              </tr>
-              <tr class="even">
-                <td style="text-align: left;">C</td>
-                <td>1972</td>
-                <td style="text-align: left;">Dennis Ritchie</td>
-              </tr>
-              <tr class="odd">
-                <td style="text-align: left;">K &amp; R C</td>
-                <td>1978</td>
-                <td style="text-align: left;">Brian Kernighan &amp; Dennis Ritchie</td>
-              </tr>
-              <tr class="even">
-                <td style="text-align: left;">ANSI C</td>
-                <td>1989</td>
-                <td style="text-align: left;">Comitê ANSI</td>
-              </tr>
-              <tr class="odd">
-                <td style="text-align: left;">ANSI/ISO C</td>
-                <td>1990</td>
-                <td style="text-align: left;">Comitê ISO</td>
-              </tr>
-              <tr class="even">
-                <td style="text-align: left;">C99</td>
-                <td>1999</td>
-                <td style="text-align: left;">Comitê de Padronização da ISO</td>
-              </tr>
-              <tr class="odd">
-                <td style="text-align: left;">C18</td>
-                <td>2018</td>
-                <td style="text-align: left;">Comitê de Padronização da ISO </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section>
-          <h2>O C++ e o Java</h2>
-          <p>Em 1984 que é publicada a primeira versão do <strong>C++</strong> por <a href="https://en.wikipedia.org/wiki/Bjarne_Stroustrup"><strong>Bjarne
-                Stroustrup</strong></a>, a partir da tese desenvolvida em seu doutorado no ano de 1979, dando um impulso significativo as linguagens de
-            programação orientadas a objeto. </p>
-        </section>
-        <section>
-          <h2>a WeB e a Computação Quântica</h2>
-          <p>E chegamos a era da web, <strong>Rasmus Lerdorf</strong> com o <strong>PHP</strong> (1994), <strong>Guido Van Rossum</strong> com o
-            <strong>Python</strong> (1989) e <strong>Brendan Eich</strong> com o Javascript (1995) movimentam a Internet permitindo a expansão da web e a
-            criação de tecnologias remotas e interativas. </p>
-          <p>Na segunda década do Século XXI, chegamos as linguagens voltadas para a computação quântica: <strong>CIRQ</strong>, do Google; <strong>Q#</strong>
-            da Microsoft e <strong>Q</strong> da IBM </p>
+            <h2>Bibliotecas</h2>
+            <p  class="fragment fade-up"><a href="https://scikit-learn.org/stable/"><strong>SkLearn</strong></a>. NLP é só uma parte de um todo complexo.</p>
+            <p class="fragment fade-up"><a href="http://www.nltk.org/" target="_blank" rel="noopener noreferrer"><strong>NLTk</strong></a>. A biblioteca mais antiga e mais completa.</p>
+            <p class="fragment fade-up"><a href="https://spacy.io/" target="_blank" rel="noopener noreferrer"><strong>SPACY</strong></a>. A biblioteca mais rápida e flexível.</p>
+            <p class="fragment fade-up"><a href="https://textblob.readthedocs.io/en/dev/" target="_blank" rel="noopener noreferrer"><strong>Textblob</strong></a>. Uma interface mais simples para o NLTK.</p>
+            <p class="fragment fade-up"><a href="https://radimrehurek.com/gensim/" target="_blank" rel="noopener noreferrer"><strong>Gensim</strong></a>. A biblioteca para NLP complexo.</p>
+            <p class="fragment fade-up" style="text-align: center !important;"><strong>Em português todas são limitadas. <br/>Juntos podemos mudar isso! E eu tenho uma ideia!</strong></p>
         </section>
       </section>
       <section class="nivel1">
         <section>
-          <h2>Linguagem de Máquina</h2>
-          <p>Usamos máquinas para resolver problemas desde que o primeiro homem utilizou um graveto para pegar uma fruta ou matar um animal. </p>
-          <p>Apenas no Século XX conseguimos nos comunicar com as máquinas e conseguimos dizer o que queremos que elas façam. </p>
+          <h1 class="title">Vocabulário</h1>
         </section>
         <section>
-          <h2>Hardware</h2>
-          <p>O conjunto formado pela CPU, memória e dispositivos de entrada e saída é responsável pela execução direta de todas as instruções que desejamos que
-            a máquina execute. Este conjunto de dispositivos entende apenas os símbolos 0 e 1 (zero e um). Esta é uma linguagem, baseada apenas em um conjunto
-            de símbolos, ou alfabeto, definido por: $\Sigma_{b} = \left\{ 0,1 \right\}$. </p>
+          <h2>Linguística</h2>
+          <small style="font-size:70% !important; width:95%; margin-left:3%;">
+          <p class="fragment fade-up"><strong>Léxico</strong>: conjunto de termos usados por uma pessoa, ou área de conhecimento, ou linguagem.</p>
+          <p class="fragment fade-up"><strong>Fonemas</strong>: unidade de som da voz.</a>.</p>
+          <p class="fragment fade-up"><strong>Grafema</strong>: hummm!! grupo de símbolos que representam um fonema.</p>
+          <p class="fragment fade-up"><strong>Morfema</strong>: a menor unidade de fonema, em forma de grafema, que tem sentido. Un,Un!</p>
+          <p class="fragment fade-up"><strong>Corpus</strong>: no plural corpora, uma grande quantidade de texto. Nosso banco de dados!</p>
+          <p class="fragment fade-up"><strong>Stopwords</strong>: conjunto dos morfemas mais comuns na linguagem. Que geralmente não agregam muito ao sentido do texto.</p>
+          <p class="fragment fade-up"><strong>n-Grams</strong>: conjunto de $n$ morfemas.</p>
+        </small>
+        </section>
+        <section>
+          <h2>Tokenization</h2>
+          <p class="fragment fade-up">O primeiro passo no processo de processamento de linguagem natural será transformar um corpus em um conjunto de <i>tokens</i>.
+            O analisador léxico transforma o código em <i>tokens</i> usando MEF ou REGEX. Geralmente usamos algoritmos para identificar palavras (espaços) e sentenças (pontuação).</p>
+          
+          <img data-src="../img/nlp1.jpg" class="fragment fade-up" style=" height: 137px !important;"  alt="código em python usando split." />
+        </section>
+        <section>
+          <h2>Normalização</h2>
+          <p class="fragment fade-up"><strong>Stemming</strong>: reduzir o léxico a sua raíz - <i>meninos e meninas viram menin</i>.</p>
+          <p class="fragment fade-up"><strong>Lemmatization</strong>: um stemming com sentido, não apenas removendo algumas letras. Aqui vamos reduzir a palavra a um <i>lemma</i>. O lema é um morfema que faz sentido no idioma.</p>
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h1>A Grande Ideia!</h1>
+        </section>
+        <section>
+          <h2>Projeto</h2>
+          <small style="font-size:65% !important; width:95%; margin-left:3%;">
+          <p class="fragment fade-up">Criar um site, e uma API, para produzir um modelo em Português, como falado no Brasil.</p>
+          <p class="fragment fade-up">Neste site, as pessoas se registram usando o nome, e-mail, cpf e o link do Lattes.</p>
+          <p class="fragment fade-up">E podem classificar morfemas em português. Nós vamos salvando as classificações em um banco e a cada 3 classificações idênticas, consideramos correto.</p>
+          <p class="fragment fade-up">A estrutura seria a mesma do Spacy. Teríamos um modelo excelente para Português do Brasil.</p>
+          <p class="fragment fade-up">O banco de frases virá da Wikipédia em Português.</p>
+          <p class="fragment fade-up">A API é para integrar no Login da Universidade.</p>
+          <p class="fragment fade-up" style="text-align: center !important;"><strong> Vale um artigo e nota máxima na disciplina.</strong></p>
+        </small>
         </section>
         <section>
           <h2>O formalismo da máquina</h2>
