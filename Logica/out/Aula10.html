@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Frank Coelho de Alcantara -2020" />
+	<title>Introdução ao Cálculo de Predicados</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta
+		name="apple-mobile-web-app-status-bar-style"
+		content="black-translucent" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	<link rel="stylesheet" href="../../rev/reset.css" />
+	<link rel="stylesheet" href="../../rev/reveal.css" />
+	<link rel="stylesheet" href="../../rev/logica.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="nivel1" id="title-slide">
+				<section>
+				<h1 style="margin-top:5% !important;" class="title">Introdução ao Cálculo de Predicados</h1>
+				<p style="text-align: right !important"> Frank Coelho de Alcantara -2020 &nbsp;&nbsp;</p>
+				</section>
+				<section>
+					<h2>Todo Homem é Mortal</h2>
+					<small style="font-size:80% !important; ">
+						<p class="fragment fade-up">A proposição <strong><i>Todo homem é mortal</i></strong> inclui um conceito que ainda não havia sido explorado nesta disciplina.</p>
+						<p class="fragment fade-up">Ser homem e ser mortal são qualidades, ou predicados.</p>
+						<p class="fragment fade-up">Podemos representar esta expressão na forma <strong><i>Todo $H$ é $M$</i></strong>.</p>
+						<p class="fragment fade-up">Mais interessante, podemos escolher uma variável $x$ para representar um homem qualquer que caiba no conceito <strong><i>Todo homem</i></strong>.</p>
+						<p class="fragment fade-up">Agora podemos escrever <strong><i>Qualquer que seja $x$, se $x$ é homem, então $x$ é Mortal</i></strong>.</p>
+						<p class="fragment fade-up" style="text-align: center !important;">$\forall x(H(x)\rightarrow M(x))$</p>
+					</small>
+				</section>
+				<section>
+					<h2>Lógica de Primeira Ordem</h2>
+					<small style="font-size:80% !important; ">
+						<p class="fragment fade-up">Chamamos de Cálculo Predicativo, ou de Lógica de Primeira Ordem a lógica que inclui símbolos para indicar qualidades e quantidades.</p>
+						<p class="fragment fade-up">Aos símbolos de quantidade chamaremos de quantificadores e usaremos, inicialmente $\forall$ e $\exists$.</p>
+						<p class="fragment fade-up">$\forall$ que leremos como <i>para todo</i> ou <i>qualquer que seja</i>.</p>
+						<p class="fragment fade-up">$\exists$ que leremos <i>existe</i> ou <i>algum</i>.</p>
+						<p class="fragment fade-up">O Cálculo Predicativo, ou lógica de Primeira Ordem, fará uso de todas as equivalências e regras de inferência que vimos no Cálculo Proposicional.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Alfabeto</h2>
+					<small style="font-size:80% !important; ">
+						<p class="fragment fade-up">O Cálculo Predicativo é uma linguagem e, como tal, precisa de um alfabeto.</p>
+						<p class="fragment fade-up" style="font-size:72% !important; text-align: center !important; ">$\Sigma_{LPO} = \{\neg, \vee, \wedge, \rightarrow, \leftrightarrow, \{A, B, C, D...\},\{a, b, c, d,...\},\{x, y, z, w,...\}, (, )\}$</p>
+						<p class="fragment fade-up">Usaremos letras maiúsculas para indicar predicados e letras minúsculas para indicar indivíduos, ou individualidade.</p>
+						<p class="fragment fade-up">Se for necessário poderemos usar símbolos da matemática para complementar o predicado como: $=$ e $\neq$.</p>
+						<p class="fragment fade-up">A individualidade pode ser determinada na forma de constantes (um indivíduo especifico) ou de variáveis (uma classe de indivíduos).</p>
+					</small>
+				</section>
+				<section>
+					<h2>Definições</h2>
+					<small style="font-size:75% !important; ">
+						<p class="fragment fade-up">Um predicado é uma declaração que contém variáveis, as variáveis predicativas, e podem ser verdadeiros ou falsos dependendo do valor destas variáveis.</p>
+						<p class="fragment fade-up">$P(x)$ representando <strong>$x^2$ é maior que $x$</strong> é um predicado. Ele contém uma variável $x$ e pode ser falso ou, não.</p>
+						<p class="fragment fade-up">Uma vez que um predicado seja instanciado, ou seja, suas variáveis assumem valores, ele se torna uma proposição.</p>
+						<p class="fragment fade-up">O domínio de um predicado é definido por todos os valores que suas variáveis possam assumir.</p>
+						<p class="fragment fade-up">Para $P(x)$ o domínio poderia ser representado por todos os números inteiros, ou reais, ou racionais,...</p>
+					</small>
+				</section>
+				<section>
+					<h2>Sentenças</h2>
+					<p class="fragment fade-up">Procuramos uma lógica que permita expressar:</p>
+					<ol style="margin-left: 8%; font-size: 80% !important; width: 95%;">
+						<li class="fragment fade-up">Todo flamenguista é um campeão. Sílvia é flamenguista. Logo, Sílvia é campeã.</li>
+						<li class="fragment fade-up">A adição de dois números ímpares quaisquer é um número par.</li>
+						<li class="fragment fade-up">Acesso a esse recinto é permitido somente para as pessoas autorizadas ou conhecidas de pessoas autorizadas</li>
+					</ol>
+					<p class="fragment fade-up">Procuramos uma lógica que permita expressar sentenças, mais adequadas a linguagem natural. As sentenças possuem <i>sujeito – predicado – objeto</i></p>
+				</section>
+				<section>
+					<h2>Exemplo 1</h2>
+					<p class="fragment fade-up">Considere o predicado <i>maior que</i> representado por $MQ$ de variáveis no domínio dos números inteiros.</p>
+					<p class="fragment fade-up">Podemos definir a fórmula $MQ(x,y)$.</p>
+					<ol>
+						<li class="fragment fade-up">Se $x=4$ e $y=3$ então $MQ(x,y) \Rightarrow T$</li>
+						<li class="fragment fade-up">Se $x=1$ e $y=2$ então $MQ(x,y) \Rightarrow F$</li>
+					</ol>
+					<p class="fragment fade-up">Uma vez que tenha sido instanciado o predicado se torna uma proposição.</p>
+				</section>
+				<section>
+					<h2>Quantificador Universal</h2>
+					<p class="fragment fade-up">$\forall$ é o quantificador universal, lido como <i>para todos</i> ou <i>qualquer que seja</i>. Em um Domínio $D$, para a variável $x$, podemos 
+					definir um predicado $P$ verdadeiro por:</p>
+					<p class="fragment fade-up" style="text-align: center !important;">$\forall x \in D, P(x)$</p>
+					<p class="fragment fade-up">Que é uma generalização para expressões do tipo:</p>
+					<p class="fragment fade-up" style="text-align: center !important;">$\forall x \in \rm I\!R, (x^2 \geq 0)$</p>
+				</section>
+				<section>
+					<h2>Quantificador Existencial</h2>
+					<p class="fragment fade-up">$\exists$ é o quantificador universal, lido como <i>existe</i> ou<i>existe um</i> ou ainda <i>para algum</i>. Em um Domínio $D$, para a variável $x$, podemos 
+					definir um predicado $P$ verdadeiro por:</p>
+					<p class="fragment fade-up" style="text-align: center !important;">$\exists x \in D, P(x)$</p>
+					<p class="fragment fade-up">O predicado $P(x)$ será verdadeiro se existir pelo menos um $x$ que atenda o domínio $D$</p>
+					<p class="fragment fade-up">O Predicado <i>pássaros $(p)$ são brabos $(B)$</i> será verdadeiro se $\exists xB(x) $</p>
+				</section>
+				<section>
+					<h2>Quantificadores Aninhados</h2>
+					<small style="margin-left: 2%; font-size: 74% !important; width: 95%;">
+					<p class="fragment fade-up">Domínio: $C$ para coelhos e $Ta$ para tartarugas.</p>
+					<p class="fragment fade-up">Predicado: $MR$ para mais rápido. </p>
+					<p class="fragment fade-up">Considere: <i>TODOS os coelhos são mais rápidos que TODAS as tartarugas.</i></p>
+					<p class="fragment fade-up">$\forall x \in C \wedge \forall y \in Ta \therefore MR(x,y) \Rightarrow T$</p>
+					<p class="fragment fade-up">Considere: <i>Existe UM coelho mais rápidos que TODAS as tartarugas.</i></p>
+					<p class="fragment fade-up">$\exists x \in C \wedge \forall y \in Ta \therefore MR(x,y) \Rightarrow T$</p>
+					<p class="fragment fade-up">Fugindo um pouco da matemática e permanecendo na lógica.</p>
+					<p class="fragment fade-up">$MR(\forall xC(x), \forall y Ta(y))$</p>
+					<p class="fragment fade-up">$MR(\exists xC(x),y)$</p>
+					</small>
+				</section>
+				<section>
+					<h2>Universo do Discurso</h2>
+					<p class="fragment fade-up">Definimos um discurso, ou contexto, ou domínio, como sendo o conjunto de valores com os quais será possível avaliar o valor verdade de uma fórmula. Considere:</p>
+					<ol style="font-size:55% !important; ">
+						<li class="fragment fade-up">Constantes: $s$ para Sílvia, $d$ para Dani e $j$ para Jane.</li>
+						<li class="fragment fade-up">Predicados: $P$ para é professor e $A$ para é aluno.</li>
+						<li class="fragment fade-up">Relações: $J$ para lecionam juntos e $N$ para é mais novo.</li>
+					</ol>
+					<p class="fragment fade-up">Poderemos ter:</p>
+					<ol style="font-size:55% !important; ">
+						<li class="fragment fade-up">$P(s)$  indicando que Sílvia é professora.</li>
+						<li class="fragment fade-up">$\neg A(d)$ indicando que Dani não é aluna.</li>
+						<li class="fragment fade-up">$J(s,d)$ indicando que Sílvia e Dani lecionam juntas.</li>
+						<li class="fragment fade-up">$N(d,j)$ indicando que Dani é mais nova que Jane.</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Linguagem</h2>
+					<p class="fragment fade-up">Considere o mesmo contexto definido anteriormente:</p>
+					<ol style="font-size:55% !important; ">
+						<li class="fragment fade-up">Constantes: $s$ para Sílvia, $d$ para Dani e $j$ para Jane.</li>
+						<li class="fragment fade-up">Predicados: $P$ para é professor e $A$ para é aluno.</li>
+						<li class="fragment fade-up">Relações: $J$ para lecionam juntos e $N$ para é mais novo.</li>
+					</ol>
+					<p class="fragment fade-up">Poderemos ter:</p>
+					<ol style="font-size:55% !important; ">
+						<li class="fragment fade-up">$J(s,d)$ e $J(d,s)$ representam o mesmo conceito.</li>
+						<li class="fragment fade-up">$N(d,j)$ e $N(j,d)$ representam conceitos diferentes.</li>
+					</ol>
+					<p class="fragment fade-up">A explicitação da forma define o conceito representado.</p>
+				</section>
+				<section>
+					<h2>Variáveis</h2>
+					<p class="fragment fade-up">Podemos nos manter no contexto anteriormente definido e extrapolar usando variáveis:</p>
+					<ol style="font-size:55% !important; ">
+						<li class="fragment fade-up">Constantes: $s$ para Sílvia, $d$ para Dani e $j$ para Jane.</li>
+						<li class="fragment fade-up">Predicados: $P$ para é professor e $A$ para é aluno.</li>
+						<li class="fragment fade-up">Relações: $J$ para lecionam juntos e $N$ para é mais novo.</li>
+					</ol>
+					<p class="fragment fade-up">Poderemos ter:</p>
+					<ol style="font-size: 55% !important; width: 95%;">
+						<li class="fragment fade-up">$P(x)$  indicando que um membro genérico deste universo $x$ é professor.</li>
+						<li class="fragment fade-up">$J(x,y)$ indicando que $x$ é mais novo que $y$.</li>
+						<li class="fragment fade-up">$\neg A(y)$ indicando que um membro genérico deste universo $y$ não é aluno.</li>
+					</ol>
+					<p class="fragment fade-up">As sentenças definidas por variáveis são chamadas de sentenças abertas.</p>
+				</section>
+				<section>
+					<h2>Exemplo 2</h2>
+					<p class="fragment fade-up">Considere as seguintes sentenças e tente representar segundo a lógica de primeira ordem.</p>
+					<ol style="margin-left: 8%; font-size: 75% !important; width: 95%;">
+						<li class="fragment fade-up">Existem números naturais que são pares.</li>
+						<li class="fragment fade-up">$x$ representa números naturais e $P$ o predicado ser par.</li>
+						<li class="fragment fade-up">$\exists xP(x)$</li>
+					</ol>
+					<p>&nbsp;&nbsp;</p>
+					<ol style="margin-left: 8%; font-size: 75% !important; width: 95%;">
+						<li class="fragment fade-up">Hipátia é mulher.</li>
+						<li class="fragment fade-up">$h$ representa Hipátia e $M$ o predicado ser mulher.</li>
+						<li class="fragment fade-up">$M(h)$</li>
+					</ol>
+					<p class="fragment fade-up">Sim! Existem expressões sem quantificador.</p>
+				</section>
+				<section>
+					<h2>Aridade de predicados</h2>
+					<small style="margin-left: 5%; font-size: 80% !important; width: 90%;">
+					<p class="fragment fade-up">$M(h)$ representando <i>Hipátia é mulher</i> o predicado ser mulher tem aridade um.</p>
+					<p class="fragment fade-up">$J(x,y)$ indicando que <i>$x$ é mais novo que $y$</i> o predicado ser mais novo tem aridade dois.</p>
+					<p class="fragment fade-up">Paulo ($p$) Ama ($A$) Graça $g$ é representado por $A(p,g)$, e o predicado Amar tem aridade dois.</p>
+					<p class="fragment fade-up">Não há limites para a aridade de um determinado predicado.</p>
+					<p class="fragment fade-up">Paulo ama alguém poderia ser representado por $\exists xA(p,x)$.</p>
+				</small>
+				</section>
+				<section>
+					<h2>Exemplo 3</h2>
+					<p class="fragment fade-up">Qual o significado das seguintes fórmulas? Considerando que $C$ representa o predicado Comprou.</p>
+					<ol style="margin-left: 8%; font-size: 75% !important; width: 95%;">
+						<li class="fragment fade-up">$\exists x C(Silvia,x)$.</li>
+						<li class="fragment fade-up">$\exists x C(Silvia,x)\Rightarrow $ Silvia comprou alguma coisa.</li>
+						<li class="fragment fade-up">$\forall x C(Silvia,x)\rightarrow \forall x C(Sandra, x)$.</li>
+						<li class="fragment fade-up">$\forall x C(Silvia,x)\rightarrow \forall x C(Sandra, x) \Rightarrow $ Tudo que Silvia comprou Sandra comprou.</li>
+						<li class="fragment fade-up">$\exists x \forall y C(x,y)$.</li>
+						<li class="fragment fade-up">$\exists x \forall y C(x,y) \Rightarrow $ Alguém comprou alguma coisa.</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Exemplo 4</h2>
+					<small style="font-size: 80% !important;">
+					<p class="fragment fade-up">Considere o domínio composto apenas de pessoas.</p>
+					<ol style="margin-left: 8%; font-size: 75% !important; width: 95%;">
+						<li class="fragment fade-up">Maria ama todo mundo.</li>
+						<li class="fragment fade-up">$\forall x Ama(Maria,x)$</li>
+						<li class="fragment fade-up">Ou $\forall x (Ama(Maria,x))$ parênteses extras devem ser evitados.</li>
+					</ol>
+					<p class="fragment fade-up">Considere o domínio composto composto de qualquer coisa onde Maria só ame pessoas.</p>
+					<ol style="margin-left: 8%; font-size: 75% !important; width: 95%;">
+						<li class="fragment fade-up">Maria ama todo mundo.</li>
+						<li class="fragment fade-up">Teremos que explicitar todo mundo como todas as pessoas.</li>
+						<li class="fragment fade-up">$\forall x(Pessoa(x)\rightarrow Ama(Maria,x)$</li>
+					</ol>
+					<p class="fragment fade-up">Cuidado $\forall x(Pessoa(x)\wedge Ama(Maria,x)$ significa que tudo no universo é uma pessoa e Maria as ama.</p>
+				</small>
+				</section>
+				<section>
+					<h2>Exercício 1</h2>
+					<p class="fragment fade-up">Qual o significado das seguintes fórmulas? Considerando que $C$ representa o predicado Comprou.</p>
+					<ol style="margin-left: 8%; font-size: 75% !important; width: 95%;">
+						<li class="fragment fade-up">$C(Silvia,dvd)$</li>
+						<li class="fragment fade-up">$\forall x (C(Silvia,x)\rightarrow C(Sandra, x))$</li>
+						<li class="fragment fade-up">$\forall x \exists y C(x,y)$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Exemplo 5</h2>
+					<p class="fragment fade-up">Defina a fórmula para cada uma das seguintes sentenças, considerando os predicados E para estudante, I para inteligente, C para cursar e A para amar:</p>
+					<ol style="margin-left: 8%; font-size: 55% !important; width: 95%;">
+						<li class="fragment fade-up">Todos os estudantes são inteligentes.</li>
+						<li class="fragment fade-up">Todos os estudantes são inteligentes. $\forall x(E(x)\rightarrow I(x))$</li>
+						<li class="fragment fade-up">Existe um estudante inteligente.</li>
+						<li class="fragment fade-up">Existe um estudante inteligente. $\exists x(E(x)\wedge I(x))$</li>
+						<li class="fragment fade-up">Sandra cursa Lógica ou Interpretadores.</li>
+						<li class="fragment fade-up">Sandra cursa Lógica ou Interpretadores. $C(Sandra, Lógica)\vee C(Sandra, Interpretadores)$</li>
+						<li class="fragment fade-up">Jane cursa Lógica e Interpretadores.</li>
+						<li class="fragment fade-up">Jane cursa Lógica e Interpretadores. $C(Jane, Lógica)\wedge C(Jane, Interpretadores)$</li>
+						<li class="fragment fade-up">Nenhum estudante ama Silvia.</li>
+						<li class="fragment fade-up">Nenhum estudante ama Silvia. $\neg \exists x (E(x) \wedge A(x,Silvia)$</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Exercício 2</h2>
+					<p class="fragment fade-up">Defina a fórmula para cada uma das seguintes sentenças, considerando os predicados E para estudante, I para inteligente, C para cursar e A para amar:</p>
+					<ol style="margin-left: 8%; font-size: 75% !important; width: 95%;">
+						<li class="fragment fade-up">Existe um estudante.</li>
+						<li class="fragment fade-up">Ana é uma estudante.</li>
+						<li class="fragment fade-up">Paula cursa Lógica se não cursar Interpretadores.</li>
+						<li class="fragment fade-up">Jéssica não cursa Lógica.</li>
+						</ol>
+				</section>
+				<section>
+					<h2>Exemplo 6</h2>
+					<p class="fragment fade-up">Defina a fórmula para cada uma das seguintes sentenças, considerando os predicados E para estudante, I para inteligente, C para cursar e A para amar:</p>
+					<ol style="margin-left: 8%; font-size: 55% !important; width: 95%;">
+						<li class="fragment fade-up">Todo estudante ama algum estudante.</li>
+						<li class="fragment fade-up">Todo estudante ama algum estudante. $\forall x(E(x)\rightarrow \exists y(E(y)\wedge A(x,y)))$</li>
+						<li class="fragment fade-up">Todo estudante ama outro estudante.</li>
+						<li class="fragment fade-up">Todo estudante ama outro estudante. $\forall x(E(x)\rightarrow \exists y(E(y)\wedge \neg (x=y) \wedge A(x,y)))$</li>
+						<li class="fragment fade-up">Existe um estudante que é amado por todos os outros estudantes.</li>
+						<li class="fragment fade-up">Existe um estudante que é amado por todos os outros estudantes. $\exists x(E(x)\wedge \forall y((E(y)\wedge \neg (x=y)) \rightarrow A(x,y))) $</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Exercício 3</h2>
+					<p class="fragment fade-up">Defina a fórmula para cada uma das seguintes sentenças, considerando que o domínio é composto de pessoas:</p>
+					<ol style="margin-left: 8%; font-size: 65% !important; width: 95%;">
+						<li class="fragment fade-up">Ninguém fala.</li>
+						<li class="fragment fade-up">Todo mundo se ama.</li>
+						<li class="fragment fade-up">Todo mundo ama todo mundo.</li>
+						<li class="fragment fade-up">Todo mundo ama todo mundo, exceto a si mesmo.</li>
+						<li class="fragment fade-up">Todo estudante sorri.</li>
+						<li class="fragment fade-up">Todo estudante exceto Paula, sorri.</li>
+						<li class="fragment fade-up">Todo mundo fala ou anda.</li>
+						<li class="fragment fade-up">Todo estudante fala ou anda.</li>
+						<li class="fragment fade-up">Todo estudante que anda fala.</li>
+						<li class="fragment fade-up">Todo estudante que ama Maria é feliz.</li>
+					</ol>
+				</section>
+				
+			</section>	
+			<section class="nivel1">
+				<section>
+					<h1>Respostas dos Exercícios</h1>
+				</section>
+				<section>
+					<h2>Exercício 1</h2>
+					<p class="fragment fade-up">Qual o significado das seguintes fórmulas? Considerando que $C$ representa o predicado Comprou.</p>
+					<ol style="margin-left: 8%; font-size: 75% !important; width: 95%;">
+						<li class="fragment fade-up">$C(Silvia,dvd) \Rightarrow $ Silvia comprou um dvd.</li>
+						<li class="fragment fade-up">$\forall x (C(Silvia,x)\rightarrow C(Sandra, x)) \Rightarrow $ Silvia comprou o mesmo que Sandra.</li>
+						<li class="fragment fade-up">$\forall x \exists y C(x,y) \Rightarrow $ Todos compraram alguma coisa.</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Exercício 2</h2>
+					<p class="fragment fade-up">Defina a fórmula para cada uma das seguintes sentenças, considerando os predicados E para estudante, I para inteligente, C para cursar e A para amar:</p>
+					<ol style="margin-left: 8%; font-size: 75% !important; width: 95%;">
+						<li class="fragment fade-up">Existe um estudante. $\exists xE(x)$</li>
+						<li class="fragment fade-up">Ana é uma estudante. $E(Ana)$</li>
+						<li class="fragment fade-up">Paula cursa Lógica se não cursar Interpretadores. $C(Paula, Lógica)\leftrightarrow \neg C(Paula, Interpretadores)$</li>
+						<li class="fragment fade-up">Jéssica não cursa Lógica. $\neg C(Jéssica, Lógica)$</li>
+						</ol>
+				</section>
+				<section>
+					<h2>Exercício 3</h2>
+					<p class="fragment fade-up">Defina a fórmula para cada uma das seguintes sentenças, considerando que o domínio é composto de pessoas:</p>
+					<ol style="margin-left: 8%; font-size: 55% !important; width: 95%;">
+						<li class="fragment fade-up">Ninguém fala. $\neg \forall xFala(x)$ ou $\neg \exists xFala(x)$</li>
+						<li class="fragment fade-up">Todo mundo se ama. $\forall xAma(x,x)$</li>
+						<li class="fragment fade-up">Todo mundo ama todo mundo. $\forall x \forall y Ama(x,y)$</li>
+						<li class="fragment fade-up">Todo mundo ama todo mundo, exceto a si mesmo. $\forall x \forall y (\neg(x=y)\rightarrow Ama(x,y))$ ou $\forall x \forall y (\neg(x\neq y)\rightarrow Ama(x,y))$</li>
+						<li class="fragment fade-up">Todo estudante sorri. $\forall x (Estudante(x)\rightarrow Sorri(x))$</li>
+						<li class="fragment fade-up">Todo estudante exceto Paula, sorri. $\forall x(Estudante(x)\rightarrow ((x \neq Paula) \leftrightarrow Sorri(x))$</li>
+						<li class="fragment fade-up">Todo mundo fala ou anda. $\forall x(Fala(x)\vee Anda(x))$</li>
+						<li class="fragment fade-up">Todo estudante fala ou anda. $\forall x(Estudante(x)\rightarrow (Fala(x)\vee Anda(x)))$</li>
+						<li class="fragment fade-up">Todo estudante que anda fala. $\forall x((Estudante(x) \wedge Anda(x))\rightarrow Fala(x))$ ou $\forall x(Estudante(x) \rightarrow (Anda(x)\rightarrow Fala(x)))$ </li>
+						<li class="fragment fade-up">Todo estudante que ama Maria é feliz. $\forall x((Estudante(x) \wedge Ama(x,Maria))\rightarrow Felix(x))$</li>
+					</ol>
+				</section>
+		</div>
+	</div>
+	<div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+	<script src="../../rev/reveal.js"></script>
+	<script src="../../rev/plugin/notes/notes.js"></script>
+	<script src="../../rev/plugin/search/search.js"></script>
+	<script src="../../rev/plugin/zoom/zoom.js"></script>
+	<script src="../../rev/plugin/math/math.js"></script>
+	<script src="../../rev/plugin/menu/menu.js"></script>
+	<script src="../../rev/plugin/chalkboard/plugin.js"></script>
+	<script>
+		// Full list of configuration options available at:
+		// https://revealjs.com/config/
+		Reveal.initialize({
+			// Push each slide change to the browser history
+			history: true,
+			// Transition style
+			transition: "fade", // none/fade/slide/convex/concave/zoom
+			center: false,
+			math: {
+				mathjax:
+					"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+				config: "TeX-AMS_HTML-full",
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: {
+					Macros: {
+						RR: "{\\bf R}",
+					},
+				},
+			},
+			menu: {
+				side: "left",
+				width: "normal",
+				numbers: false,
+				titleSelector: "h1, h2, h3, h4, h5, h6",
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: false,
+				themesPath: "dist/theme/",
+				transitions: false,
+				openButton: true,
+				openSlideNumber: false,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true,
+			},
+			// reveal.js plugins
+			plugins: [
+				RevealNotes,
+				RevealMath,
+				RevealMenu,
+				RevealChalkboard,
+				RevealSearch,
+				RevealZoom,
+			],
+		});
+	</script>
+</body>
+
+</html>
