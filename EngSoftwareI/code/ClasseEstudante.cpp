@@ -1,8 +1,6 @@
 #include <iostream>
 using namespace std;
- 
-#define MAX 10
- 
+  
 class Estudante{
     private:
        string  nome;
@@ -14,7 +12,6 @@ class Estudante{
        void displayDetalhes(void);
 };
  
-
 void Estudante::setDetalhes(void){
     cout << "\033[1;31m"<<"Digite nome: " << "\033[0m" ;
     cin >> nome;
@@ -33,14 +30,15 @@ void Estudante::displayDetalhes(void){
  
 int main(){
     
-    Estudante * Estd;
-    Estd = new (nothrow) Estudante[MAX];
-    
     int n;
      
     cout << "\033[1;34m"<<"Quantidade de Estudantes: "<< "\033[0m" ;
     cin >> n;
-     
+
+    
+    Estudante * Estd;
+    Estd = new Estudante[n];
+
     for(int i=0;i< n; i++){
         cout << "\033[1;32m"<<"\nDados dos Estudante (" << i+1 << "): \n"<< "\033[0m";
         Estd[i].setDetalhes();
@@ -49,11 +47,6 @@ int main(){
     cout << endl;
     //para imprimir os dados...
     for(int i=0;i< n; i++){
-        cout << "\033[1;32m"<<"\nDetalhes do Estudante (" << (i+1) << "):\n";
+        cout << "\033[2J"<<"\033[1;1H"<<"\033[1;32m"<<"\nDetalhes do Estudante (" << (i+1) << "):\n";
         Estd[i].displayDetalhes();
     }
-     
-    delete[] Estd;
-
-    return 0;
-}
