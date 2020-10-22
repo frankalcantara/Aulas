@@ -105,6 +105,8 @@ html * {
 
 .reveal h3 {
 	font-size: 1.55em;
+	margin-left: 2%;
+    margin-right: 2%;
 }
 
 .reveal h4 {

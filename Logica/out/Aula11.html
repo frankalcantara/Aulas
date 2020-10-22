@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Frank Coelho de Alcantara -2020" />
+	<title>Cálculo de Predicados</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta
+		name="apple-mobile-web-app-status-bar-style"
+		content="black-translucent" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	<link rel="stylesheet" href="../../rev/reset.css" />
+	<link rel="stylesheet" href="../../rev/reveal.css" />
+	<link rel="stylesheet" href="../../rev/logica.css" />
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="nivel1" id="title-slide">
+				<section>
+				<h1 style="margin-top:5% !important;" class="title">Cálculo de Predicados</h1>
+				<p style="text-align: right !important"> Frank Coelho de Alcantara -2020 &nbsp;&nbsp;</p>
+				</section>
+				<section>
+					<h2>Revisão: alfabeto</h2>
+					<small style="font-size: 64% !important; width: 95%;">
+						<p class="fragment fade-up">Verdade: $True \Leftrightarrow \top$; $False \Leftrightarrow \bot \}$.</p>
+						<p class="fragment fade-up">Conjunto de símbolos para variáveis: $\{x; y; z; ...\}$ ou $\{x_1; x_2; x_3; ...\}$.</p>
+						<p class="fragment fade-up">Conjunto de símbolos para constantes: $\{a; b; c; ...\}$ ou $\{a_1; a_2; a_3; ...\}$. </p>
+						<p class="fragment fade-up">Conjunto de símbolos para funções: $\{a; b; c; ...\}$ ou $\{a_1; a_2; a_3; ...\}$. </p>
+						<p class="fragment fade-up">Conjunto de símbolos para proposições: $\{p; q; r; ...\}$ ou $\{p_1; p_2; p_3; ...\}$.</p>
+						<p class="fragment fade-up">Conjunto de símbolos para predicados: $\{P; Q; R; ...\}$ ou $\{P_1; P_2; P_3; ...\}$.</p>
+						<p class="fragment fade-up">Operadores, ou conectivos: $\{\neg ; \vee ; \wedge ; \rightarrow; \leftrightarrow \}$</p>
+						<p class="fragment fade-up">Quantificadores: $\{\forall ; \exists\} $</p>
+						<p class="fragment fade-up">Símbolos de pontuação: $\{,;);(\}$.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Revisão: funções, predicados, aridade</h2>
+					<small style="font-size:80% !important; ">
+						<p class="fragment fade-up"><strong>Funções</strong>: mapeamento de valores de um domínio em outro.</p>
+						<p class="fragment fade-up"><strong>Predicados</strong>: qualidades, relações ou propriedades, dos elementos de um determinado domínio.</p>
+						<p class="fragment fade-up"><strong>Aridade</strong>: funções e predicados possuem argumentos. A aridade representa o número de argumentos. Se a aridade 
+						de uma função for zero, teremos constantes. Se a aridade de um predicado for zero, teremos uma proposição. </p>
+					</small>
+				</section>
+				<section>
+					<h2>Revisão: quantificadores</h2>
+					<small style="font-size: 59% !important;">
+						<p class="fragment fade-up"><strong>Quantificador universal</strong>: $\forall$ que leremos: <i>para todo</i>. Usaremos para generalização: $\forall xP(x)$ que leremos 
+						para todo e qualquer $x$, $x$ tem o predicado $P$. Que representa sentenças como:</p>
+						<ul style="margin-left: 7%;">
+							<li class="fragment fade-up">Todo homem é mortal.</li>
+							<li class="fragment fade-up">Todos os homens são mortais.</li>
+							<li class="fragment fade-up">Os homens são mortais.</li>
+							<li class="fragment fade-up">Homens são sempre mortais.</li>
+							<li class="fragment fade-up">Se é homem, então é mortal.</li>
+						</ul>
+						<p class="fragment fade-up"><strong>Quantificador existencial</strong>: $\exists$ que leremos: <i>existe um</i>. Usaremos para a especialização: $\exists xP(9)x)$ que 
+						leremos existe um $x$, tal que $x$ tem o predicado $P$. Que representa sentenças como: </p>
+						<ul style="margin-left: 7%;">
+							<li class="fragment fade-up">Existe homem inteligente.</li>
+							<li class="fragment fade-up">Há homens inteligentes.</li>
+							<li class="fragment fade-up">Há pelo menos um homem inteligente.</li>
+							<li class="fragment fade-up">Algum homem é inteligente.</li>
+						</ul>
+					</small>
+				</section>
+				<section>
+					<h2>Só para lembrar</h2>
+					<small style="font-size:75% !important; ">
+						<p class="fragment fade-up">A linguagem natural permite a criação de sentenças com um valor verdade: a capital do Paraná é Curitiba.</p>
+						<p class="fragment fade-up">Ou permite a criação de sentenças cujo valor é um objeto: qual a capital do paraná?.</p>
+					<h3 class="fragment fade-up">Na lógica de predicados teremos:</h3>
+						<p class="fragment fade-up"><strong>Termos</strong>: sentenças que representam objetos.</p>
+						<p class="fragment fade-up"><strong>Fórmulas</strong>: sentenças que representam um valor verdade.</p>
+						<p class="fragment fade-up">O cálculo de predicados opera com termos e fórmulas para representar sentenças em busca de sua verdade.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Sentenças</h2>
+					<p class="fragment fade-up">Procuramos uma lógica que permita expressar:</p>
+					<ol style="margin-left: 8%; font-size: 80% !important; width: 95%;">
+						<li class="fragment fade-up">Todo flamenguista é um campeão. Sílvia é flamenguista. Logo, Sílvia é campeã.</li>
+						<li class="fragment fade-up">A adição de dois números ímpares quaisquer é um número par.</li>
+						<li class="fragment fade-up">Acesso a esse recinto é permitido somente para as pessoas autorizadas ou conhecidas de pessoas autorizadas</li>
+					</ol>
+					<p class="fragment fade-up">Procuramos uma lógica que permita expressar sentenças, mais adequadas a linguagem natural. As sentenças possuem <i>sujeito – predicado – objeto</i></p>
+				</section>
+				<section>
+					<h2>Termos</h2>
+					<small style="font-size: 83% !important;">
+					<p class="fragment fade-up">Variáveis, ou constantes, são termos.</p>
+					<p class="fragment fade-up">Se $x_1, x_2, ... , x_n$ são termos e $F$ é um símbolo de uma função <i>n-ária</i>, teremos: 
+						$F(x_1, x_2, ... , x_n)$ como sendo um termo.</p>
+					<ol style="margin-left: 7%;">
+						<li class="fragment fade-up">Variáveis: $x$ e $y$.</li>
+						<li class="fragment fade-up">Constantes: $a$ e $b$ <i>(função zero-ária)</i>.</li>
+						<li class="fragment fade-up">Funções: $f(x, a)$, <i>(função binária)</i>.</li>
+						<li class="fragment fade-up">Funções: $g(y, f(x, a), c)$, <i>função ternária com um termo binário e dois constantes</i> .</li>
+					</ol>
+					<p class="fragment fade-up">Variáveis, constantes e funções são termos.</p>	
+				</small>
+				</section>
+				<section>
+					<h2>Predicados e Termos:</h2>
+					<small style="font-size: 72% !important;">
+					<p  class="fragment fade-up">Usando a aritmética como exemplo:</p>
+						<ol style="margin-left: 7%; font-size: 78%;">
+							<li class="fragment fade-up">Funções: $+, −, \times, \div$.</li>
+							<li class="fragment fade-up">Constantes: $1, 2, . . . , 9, 0$.</li>
+							<li class="fragment fade-up">Termos: $x, 9, y, 8$. $+(5, 8)$ e  $+(−(8, 7), 3)$.</li>
+						</ol>
+						<p  class="fragment fade-up">Funções predicativas diversas:</p>
+						<ol style="margin-left: 7%; font-size: 78%;">
+							<li class="fragment fade-up">$Idade(pessoa)$: $Idade(Márcia)=21$.</li>
+							<li class="fragment fade-up">$População(cidade)$: $População(Curitiba)>2000000$</li>
+							<li class="fragment fade-up">$Irmãs(pessoa, pessoa)$: $Irmãs(Márcia, Jane)$</li>
+							<li class="fragment fade-up">$Gato(animal)$: $Gato(Thor)$</li>
+						</ol>
+						<p  class="fragment fade-up">Os termos têm funções parecidas com as funções de substantivos e pronomes nas linguagens naturais.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Átomos</h2>
+					<p class="fragment fade-up">As verdades, $True, T, \top $ e $False, F, \bot$ são átomos.</p>
+					<p class="fragment fade-up">Se $\{t_1, t_2, ..., t_n\}$ são termos e $P$ é um predicado, com qualquer aridade então: $P(t_1, t_2, ..., t_n)$ é um átomo. Exemplos:</p>
+					<ol style="margin-left: 7%; font-size: 78%;">
+						<li class="fragment fade-up">Verdades: $T$ e $F$.</li>
+						<li class="fragment fade-up">Predicados: $P$ e $Gato$.</li>
+						<li class="fragment fade-up">Função Predicativa: $G(y, F(x, a), c)$.</li>
+						<li class="fragment fade-up">Função: $ =; \geq$.</li>
+						<li class="fragment fade-up">Função Predicativa: $\geq(-(4,2), 3) \Leftrightarrow \bot$ .</li>
+						<li class="fragment fade-up">Função Predicativa: $\neq(\times(4,2), 7) \Leftrightarrow \top$.</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Fórmulas Bem Formadas</h2>
+					<small style="margin-left: 2%; font-size: 74% !important; width: 95%;">
+					<p class="fragment fade-up">Assim como na lógica proposicional, temos um conjunto de regras para a criação de fórmulas:</p>
+					<ol style="margin-left: 8%; font-size: 80%;">
+						<li class="fragment fade-up">Todo átomo é uma Fórmula Bem Formada.</li>
+						<li class="fragment fade-up">Se $P$ é uma Fórmula Bem Formada, então $\neg P$ é uma Fórmula Bem Formada</li>
+						<li class="fragment fade-up">Se $P$ e $Q$ são Fórmulas Bem Formadas, então $P\vee Q; P\wedge Q; P\rightarrow Q$ e $P\leftrightarrow Q$ são Fórmulas Bem Formadas.</li>
+						<li class="fragment fade-up">Se $P$ é uma Fórmula Bem Formada e $x$ uma variável, então $\forall xP$ e $\exists xP$ são Fórmulas Bem Formadas.</li>
+						<li class="fragment fade-up">Não existe nenhuma outra Fórmula Bem Formada.</li>
+					</ol>
+					<p class="fragment fade-up">Toda concatenação de símbolos na lógica de predicados, que seja uma Fórmula Bem Formada, será uma <i>expressão</i>.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Subtermo e subfórmula</h2>
+					<p class="fragment fade-up">São lexemas usados para definir as partes da fórmula:</p>
+					<ol style="margin-left: 6%;	font-size: 68% !important;">
+						<li class="fragment fade-up">Se $P = x$, então $x$ é subtermo de $P$.</li>
+						<li class="fragment fade-up">Se $P = F(t_1, t_2, ..., t_n)$, então $t_i$ e $F(t_1, t_2, ..., t_n)$ são subtermos de $P$.</li>
+						<li class="fragment fade-up">Se $t_1$ é subtermo de $t_2$ e $t_2$ é subtermo de $P$, então $t_1$ é subtermo de $P$.</li>
+						<li class="fragment fade-up">Se $Q$ é uma Fórmula Bem Formada e $P = \neg Q$, então $Q$ e $\neg Q$ são subfórmulas de $P$.</li>
+						<li class="fragment fade-up">Se $Q$ e $R$ são Fórmulas Bem Formadas e $P$ é uma das operação $(Q\vee R; Q\wedge R; Q\rightarrow R; Q\leftrightarrow R)$, 
+							então $Q$, $R$, e $P$ são subfórmulas de $P$.</li>
+						<li class="fragment fade-up">Se $P$ é uma Fórmula Bem Formada, $x$ uma variável, então $\forall xP$ e $\exists xP$ são subfórmulas de $P$.</li>
+						<li class="fragment fade-up">Se $R$ é subfórmula de $Q$ e $Q$ é subfórmula de $P$, então $R$ é subfórmula de $P$;</li>
+					</ol>
+					<p class="fragment fade-up">Todo subtermo e subfórmula são subexpressões.</p>
+				</section>
+				<section>
+					<h2>Exemplo 1</h2>
+					<small style="margin-left: 2%; font-size: 74% !important; width: 95%;">
+						<p class="fragment fade-up">Considerando que o nosso domínio, ou contexto, ou universo, seja formado pelo conjunto dos números reais ${\rm I\!R}$
+							e que os símbolos $\times ; -, 0$ e $1$ tenham o mesmo significado da aritmética; Traduza para o português as seguintes Fórmulas Bem Formadas.</p>
+						<ul style="margin-left: 6%;	font-size: 68% !important;">
+							<li class="fragment fade-up">$\forall x(x \times 0=0)$</li>
+							<li class="fragment fade-up">R. Para todo e qualquer número real $x$, teremos $x$ vezes $0$ igual a $0$.</li>
+							<li class="fragment fade-up">$\forall x(x \times x - x =0 \rightarrow (x = 0 \vee x = 1))$</li>
+							<li class="fragment fade-up">R. Para todo e qualquer número real $x$, se $x$ vezes $x$ menos $x$ igual a $0$ então $x$ igual a zero ou $x$ igual a 1.</li>
+							<li class="fragment fade-up">$\forall x \exists y(x \times y = 1)$</li>
+							<li class="fragment fade-up">R. Para todo e qualquer número real $x$, existe um número real $y$ tal que $x$ vezes $y$ igual a 1.</li>
+						</ul>
+					</small>
+				</section>
+				<section>
+					<h2>Exemplo 2</h2>
+					<small style="margin-left: 2%; font-size: 74% !important; width: 95%;">
+					<p class="fragment fade-up">Considerando que o nosso domínio, ou contexto, ou universo, seja formado pelo conjunto dos números naturais ${\mathbb{N}}$
+						que $f(x)$ signifique  $x + 1$, and $g(x)$ signifique $x = 0$. Traduza para o português as seguintes Fórmulas Bem Formadas.
+						<ul style="margin-left: 6%;	font-size: 68% !important;">
+							<li class="fragment fade-up">$\forall x\neg g(f(x))$</li>
+							<li class="fragment fade-up">R. Para todo e qualquer número natural $x$, não é verdade que $x$ mais $1$ é igual a $0$.</li>
+							<li class="fragment fade-up">R. Ou: para todo e qualquer número natural $x$, $x$ mais $1$ é diferente de $0$.</li>
+							<li class="fragment fade-up">$\exists xg(f(x))$</li>
+							<li class="fragment fade-up">R. Existe um número natural $x$, tal que $x$ mais $1$ é igual $0$.</li>
+							<li class="fragment fade-up">$\exists x\neg g(f(x))$</li>
+							<li class="fragment fade-up">R. Existe um número natural $x$, tal que $x$ mais $1$ é é diferente de $0$.</li>
+						</ul>
+					</small>
+				</section>
+				<section>
+					<h2>Exemplo 3</h2>
+					<small style="margin-left: 2%; font-size: 64% !important; width: 95%;">
+					<p class="fragment fade-up"> Considerando que o contexto é composto de todos os seres humanos e que o predicado $L(x,y)$ representa <i>$x$ ama $y$</i>, ou que 
+						$y$ é amado por $x$. Podemos usar os quantificadores universais para representar diversos conceitos:</p>
+						<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em;">
+							<li class="fragment fade-up">$\forall x\forall y L(x,y)$: todo mundo ama todo mundo.</li>
+							<li class="fragment fade-up">$\forall y\forall x L(x,y)$: ou todo mundo é amado por todo mundo.</li>
+							<li class="fragment fade-up">Estas sentenças significam a mesma coisa.</li>
+						</ul>
+						<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em; margin-top:1%;">
+							<li class="fragment fade-up">$\exists x \exists y L(x,y)$: alguém ama alguém.</li>
+							<li class="fragment fade-up">$\exists y \exists x L(x,y)$: alguém é amado por alguém.</li>
+							<li class="fragment fade-up">Estas sentenças significam a mesma coisa.</li>
+						</ul>
+						<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em; margin-top:1%;">
+							<li class="fragment fade-up">$\forall x\exists y L(x,y)$: todo mundo ama alguém.</li>
+							<li class="fragment fade-up">$\forall y\exists x L(x,y)$: todo mundo é amado por alguém.</li>
+							<li class="fragment fade-up">Estas sentenças NÃO significam a mesma coisa. "Todas as pessoas tem alguém que ama"; "Todas as pessoas tem alguém que as amam".</li>
+						</ul>
+						<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em; margin-top:1%;">
+							<li class="fragment fade-up">$\exists x\forall y L(x,y)$: alguém ama todo mundo.</li>
+							<li class="fragment fade-up">$\exists y\forall x L(x,y)$. alguém é amado por todo mundo.</li>
+							<li class="fragment fade-up">Estas sentenças NÃO significam a mesma coisa.</li>
+						</ul>
+					</small>
+				</section>
+				<section>
+					<h2>Exemplo 4</h2>
+					<small style="margin-left: 2%; font-size: 75% !important; width: 95%;">
+						<p class="fragment fade-up"> Traduza para cálculo predicativo as seguintes sentenças:</p>
+							<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em;">
+								<li class="fragment fade-up">Considerando como universo os números naturais traduza: Para todos números naturais $n$, $n$ é menor ou igual a $n$ elevado ao quadrado.</li>
+								<li class="fragment fade-up">Se $f(x) = x^2$ e $P(x,y)$ representar o predicado $x\leq y$ teremos:</li>
+								<li class="fragment fade-up">$\forall xP(x,f(x))$. O que está perfeito no nosso formalismo.</li>
+								<li class="fragment fade-up">Mas, podemos aceitar as regras da álgebra e escrever: $\forall n(n\leq n^2)$. O que é aceitável.</li>
+							</ul>
+							<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em; margin-top:3%;">
+								<li class="fragment fade-up">Considerando como universo os números reais traduza: Para todos números naturais $n$, $n$ é menor ou igual a $n$ elevado ao quadrado.</li>
+								<li class="fragment fade-up">Neste caso, primeiro precisamos indicar que $n$ é um número natural: $N(x)$ então teremos</li>
+								<li class="fragment fade-up">$\forall x(N(x)\rightarrow P(x,f(x)))$. 
+							</ul>
+						
+						</small>
+					
+				</section>
+				<section>
+					<h2>Exemplo 5</h2>
+					<small style="margin-left: 2%; font-size: 75% !important; width: 95%;">
+						<p class="fragment fade-up">Considerando o domínio sendo formado por todos os seres humanos, traduza para o cálculo predicativo o seguinte silogismo:</p>
+							<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em;">
+								<li class="fragment fade-up">Sócrates é um homem. Todos os homens têm nariz grande. Sócrates tem nariz grande.</li>
+								<li class="fragment fade-up">Vamos representar o predicado ser um homem por $H(x)$.</li>
+								<li class="fragment fade-up">Vamos representar o predicado nariz grande por $N(x)$.</li>
+								<li class="fragment fade-up">Vamos representar Sócrates pela constante $s$.</li>
+								<li class="fragment fade-up">Teremos: $M(s)$; $\forall x(M(x)\rightarrow N(x))$; $N(s)$.</li>
+							</ul>
+							<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em; margin-top:3%;">
+								<li class="fragment fade-up">Considerando como universo os números reais traduza: Para todos números naturais $n$, $n$ é menor ou igual a $n$ elevado ao quadrado.</li>
+								<li class="fragment fade-up">Neste caso, primeiro precisamos indicar que $n$ é um número natural: $N(x)$ então teremos</li>
+								<li class="fragment fade-up">$\forall x(N(x)\rightarrow P(x,f(x)))$. 
+							</ul>
+						
+						</small>
+					
+				</section>
+				<section>
+					<h2>Variáveis Livres</h2>
+					<small style="margin-left: 2%; font-size: 75% !important; width: 95%;">
+						<p class="fragment fade-up">Usamos parênteses para definir a parte da fórmula que é afetada pelos quantificadores. O fragmento entre parênteses 
+							é chamado de <strong>escopo</strong> do quantificador:
+						</p>
+						<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em; margin-top:3%;">
+							<li class="fragment fade-up">$\forall x(P(x)\rightarrow \forall y(R(x) \vee Q(y)))\vee B(x)$</li>
+							<li class="fragment fade-up">O Escopo de $\forall x$ é dado por $(P(x)\rightarrow \forall y(R(x) \vee Q(y)))$</li>
+							<li class="fragment fade-up">O Escopo de $\forall y$ é dado por $(R(x) \vee Q(y))$</li>
+						</ul>
+						<p class="fragment fade-up">Todas as variáveis que ocorrem no escopo de um quantificador é dita <strong>Ligada</strong>  a este quantificador. Todas as variáveis em uma 
+							Fórmula Bem Formada que não está ligada a um quantificador é dita <strong>Livre</strong>.
+						</p>
+						<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em; margin-top:3%;">
+							<li class="fragment fade-up">$\forall x(P(x)\rightarrow \forall y(R(x) \vee Q(y)))\vee B(x)$</li>
+							<li class="fragment fade-up">Apenas  $B(x))$ é livre.</li>
+						</ul>
+						<p class="fragment fade-up">Uma fórmula sem variáveis livres é chamada de <strong>Fórmula Fechada</strong> ou <strong>Sentença</strong> .
+						</p>
+					</small>
+				</section>
+				<section>
+					<h2>Exemplo 6</h2>
+					<small style="margin-left: 2%; font-size: 75% !important; width: 95%;">
+						<p class="fragment fade-up">$P(x,y)$ tem duas variáveis livres $x$ e $y$.</p>
+						<p class="fragment fade-up">$\exists yP(x,y) tem uma variável livre $x$.</p>
+						<p class="fragment fade-up">$\forall x\exists yP(x,y) é fechada.</p>
+						<p class="fragment fade-up">O fechamento universal de $P(x,y) é $\forall x\forall yP(x,y).</p>
+						<p class="fragment fade-up">O fechamento existencial de $P(x,y) é $\exists x\exists yP(x,y).</p>
+						<p class="fragment fade-up">Em $\forall xP(x)\wedge Q(x)$, $x$ é ligada em $P(x) e live em $Q(x)$.</p>
+						
+					</small>
+				</section>
+				<section>
+					<h2>Interpretação</h2>
+						<p class="fragment fade-up">No cálculo proposicional vimos que as fórmulas são interpretadas a partir de fórmulas atômicas em busca da verdade da fórmula composta.</p>
+						<p class="fragment fade-up">No cálculo predicativo, uma analogia válida seria partir das fórmulas atômicas até encontrar o valor verdade da fórmula composta.</p>
+						<p class="fragment fade-up">Neste caso, contudo, as fórmulas atômicas contém variáveis e constantes que devem ser avaliadas em um determinado domínio.</p>
+						<p class="fragment fade-up">Uma vez que o domínio é considerado as fórmulas podem ser interpretadas.</p>
+						<p class="fragment fade-up">O fechamento existencial de $P(x,y) é $\exists x\exists yP(x,y).</p>
+						<p class="fragment fade-up">Nós só definiremos validade em fórmulas fechadas.</p>
+				</section>
+			</section>	
+		</div>
+	</div>
+	<div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+	<script src="../../rev/reveal.js"></script>
+	<script src="../../rev/plugin/notes/notes.js"></script>
+	<script src="../../rev/plugin/search/search.js"></script>
+	<script src="../../rev/plugin/zoom/zoom.js"></script>
+	<script src="../../rev/plugin/math/math.js"></script>
+	<script src="../../rev/plugin/menu/menu.js"></script>
+	<script src="../../rev/plugin/chalkboard/plugin.js"></script>
+	<script>
+		// Full list of configuration options available at:
+		// https://revealjs.com/config/
+		Reveal.initialize({
+			// Push each slide change to the browser history
+			history: true,
+			// Transition style
+			transition: "fade", // none/fade/slide/convex/concave/zoom
+			center: false,
+			math: {
+				mathjax:
+					"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+				config: "TeX-AMS_HTML-full",
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: {
+					Macros: {
+						RR: "{\\bf R}",
+					},
+				},
+			},
+			menu: {
+				side: "left",
+				width: "normal",
+				numbers: false,
+				titleSelector: "h1, h2, h3, h4, h5, h6",
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: false,
+				themesPath: "dist/theme/",
+				transitions: false,
+				openButton: true,
+				openSlideNumber: false,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true,
+			},
+			// reveal.js plugins
+			plugins: [
+				RevealNotes,
+				RevealMath,
+				RevealMenu,
+				RevealChalkboard,
+				RevealSearch,
+				RevealZoom,
+			],
+		});
+	</script>
+</body>
+
+</html>
