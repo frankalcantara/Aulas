@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Frank Coelho de Alcantara -2020" />
+	<title>DFS e BFS</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta
+		name="apple-mobile-web-app-status-bar-style"
+		content="black-translucent" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	<link rel="stylesheet" href="../../rev/reset.css" />
+	<link rel="stylesheet" href="../../rev/reveal.css" />
+	<link rel="stylesheet" href="../../rev/estrutdados.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section id="title-slide" class="nivel1">
+				<section>
+					<h1>DFS e BFS</h1>
+					<p style="text-align: right !important">Frank Coelho de Alcantara -2020&nbsp;&nbsp;</p>
+				</section>
+			</section>
+			<section class="nivel1">
+				<section>
+					<h2>Deep First Search - DFS</h2>
+					<small style="font-size: 80% !important;">
+						<p class="fragment fade-up">Passo 1: Escolha, visite, e insira os dados do vértice inicial na pilha.</p>
+						<p class="fragment fade-up">Passo 2: Tire o vértice do topo da pilha e coloque na lista de visitados.</p>
+						<p class="fragment fade-up">Passo 3: Encontre todos os nós adjacentes do nó marcado como visitado e coloque na pilha todos que não estejam na lista de visitados.</p>
+						<p class="fragment fade-up">Passo 4: Repita os passos 2 e 3 até que a pilha esteja vazia.</p>
+						<p class="fragment fade-up">Pior caso $O(|V|+|E|)$. Matriz adjacente é pior que lista de adjacentes.</p>
+					</small>
+				</section>
+				<section>
+					<h2>DFS - Animação</h2>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/iaBEKo5sM7w?start=218" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</section>
+				<section>
+					<h2>DFS - Animação 2</h2>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/NUgMa5coCoE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</section>
+				<section>
+					<h2>Breadth First Search - BFS</h2>
+					<small style="font-size: 65% !important;">
+						<p class="fragment fade-up">Passo 1: Comece no vértice T e coloque este vértice na fila.</p>
+						<p class="fragment fade-up">Passo 2: Repita os próximos passos para todos os vértices no grafo.</p>
+						<p class="fragment fade-up">Passo 2.1: Tire o vértice de trabalho da lista e processe ele.</p>
+						<p class="fragment fade-up">Passo 2.2: Coloque na fila todos os nós adjacentes de T e processe ele.</p>
+						<p class="fragment fade-up">Passo 3: Quando não existirem vértices na lista encerre o laço.</p>
+						<p class="fragment fade-up">Passo 4: Fim do algoritmo.</p>
+						<p class="fragment fade-up">Pior caso $O(|V|+|E|)$. Matriz adjacente é pior que lista de adjacentes.</p>
+					</small>	
+				</section>
+				<section>
+					<h2>BFS - Animação</h2>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/QRq6p9s8NVg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</section>
+				<section>
+					<h2>BFS - Animação 2</h2>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/x-VTfcmrLEQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
+				</section>
+				<section>
+					<h2>Pilhas e Listas</h2>
+					<img data-src="../img/stack1.png" class="fragment fade-up" style="height: 352px !important;"
+						alt="símbolo meramente ilustrativo, sem valor didático" />
+					<img data-src="../img/pilha1.png" class="fragment fade-up" style="height: 352px !important;"
+						alt="símbolo meramente ilustrativo, sem valor didático" />
+						<small class="fragment fade-up">Referência: <a href="https://www.hackerearth.com/practice/notes/stacks-and-queues/" target="_blank" rel="noopener noreferrer">https://www.hackerearth.com/practice/notes/stacks-and-queues/</a></small>
+				</section>
+				<section>
+					<h2>Exercício</h2>
+					<small style="font-size: 52% !important;">
+					<p class="fragment fade-up">Seu trabalho será fazer uma implementação do BFS e do DFS em C, C++, ou qualquer outra linguagem que desejar. Com as seguintes características.</p>
+					<ol>
+						<li class="fragment fade-up" >O Grafo gerado deverá ter 1.000.000 vértices.</li>
+						<li class="fragment fade-up">Estes vértices devem estar aleatoriamente conectados.</li>
+						<li class="fragment fade-up">O número de arestas em cada vértice deve variar entre 0 e 10 arestas de forma aleatória.</li>
+						<li class="fragment fade-up">No máximo 81,3% dos vértices terão arestas.</li>
+						<li class="fragment fade-up">Você não pode usar um gerador de números randômicos linear e congruente.</li>
+						<li class="fragment fade-up">Os vertices armazenarão a string "unicesumar".</li>
+						<li class="fragment fade-up">Apenas 1 vértice, escolhido aleatoriamente armazenará a string "ACHEI".</li>
+						<li class="fragment fade-up">O código deve ser comentado e não ter variáveis globais.</li>
+					</ol>
+					<p class="fragment fade-up">Os dois algoritmos correrão a mesma estrutura de dados 10 vezes seguidas, em cada vez você irá gerar uma estrutura nova, parando sempre que encontrar o vértice onde está a string "ACHEI". Você deverá:</p>
+						<ol>
+							<li class="fragment fade-up">Em todas as 10 vezes você vai registrar, para os dois algoritmos, o vértice onde estava a string "ACHEI".</li>
+							<li class="fragment fade-up">Em todas as 10 vezes você vai registrar o tempo gasto para encontrar a string "ACHEI".</li>
+							<li class="fragment fade-up">Estes dados, além da média aritmética, e do desvio padrão dos tempos gastos para localizar a string "ACHEI" devem ser apresentados na tela.</li>
+						</ol>
+					
+				</small>
+				</section>
+				<section>
+					<h2>PRÊMIO 2 PONTOS MÉDIA DO BIMESTRE</h2>
+					<small style="font-size: 67% !important;">
+					<p class="fragment fade-up">Condições:</p>
+						<ol>
+							<li class="fragment fade-up">OS TRABALHOS SÃO INDIVIDUAIS.</li>
+							<li class="fragment fade-up">Trabalhos iguais serão anulados.</li>
+							<li class="fragment fade-up">Trabalhos copiados serão anulados.</li>
+							<li class="fragment fade-up">Trabalhos que usem um gerador de randômicos linear e congruente, serão anulados.</li>
+							<li class="fragment fade-up">Trabalhos que não tenham os dois algoritmos serão anulados.</li>
+							<li class="fragment fade-up">Os trabalhos devem rodar no Repl.it e este é o link que você deve compartilhar.</li>
+							<li class="fragment fade-up">Aqueles que fizerem em C++ e o programa cumprir todos os requisitos ganharão 3 pontos.</li>
+							<li class="fragment fade-up">A data limite para a entrega é 06 de novembro de 2020.</li>
+						</ol>
+					</small>
+				</section>
+				<section>
+					<h2>REFERÊNCIAS EM C</h2>
+					<small style="font-size: 67% !important;">
+						<p><a href="https://www.programiz.com/dsa/graph-dfs" target="_blank" rel="noopener noreferrer">https://www.programiz.com/dsa/graph-dfs</a> </p>
+						<p><a href="https://www.programiz.com/dsa/graph-bfs" target="_blank" rel="noopener noreferrer">https://www.programiz.com/dsa/graph-bfs</a> </p>
+						<p><a href="https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/</a> </p>
+						<p><a href="https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/" target="_blank" rel="noopener noreferrer">https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/</a> </p>
+						<p><a href="https://gist.github.com/mailpraveens/78713d5d69601bdb6737" target="_blank" rel="noopener noreferrer">https://gist.github.com/mailpraveens/78713d5d69601bdb6737</a> </p>
+						<p><a href="https://gist.github.com/mailpraveens/78713d5d69601bdb6737" target="_blank" rel="noopener noreferrer">https://www.srcmake.com/home/cpp-bfs-dfs</a> </p>
+					</small>
+				</section>
+			</section>
+		</div>
+	</div>
+	<div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+	<script src="../../rev/reveal.js"></script>
+	<script src="../../rev/plugin/notes/notes.js"></script>
+	<script src="../../rev/plugin/search/search.js"></script>
+	<script src="../../rev/plugin/zoom/zoom.js"></script>
+	<script src="../../rev/plugin/math/math.js"></script>
+	<script src="../../rev/plugin/menu/menu.js"></script>
+	<script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+	<script>
+		// Full list of configuration options available at:
+		// https://revealjs.com/config/
+		Reveal.initialize({
+			// Push each slide change to the browser history
+			history: true,
+			// Transition style
+			transition: "fade", // none/fade/slide/convex/concave/zoom
+			center: false,
+			math: {
+				mathjax:
+					"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+				config: "TeX-AMS_HTML-full",
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: {
+					Macros: {
+						RR: "{\\bf R}",
+					},
+				},
+			},
+			menu: {
+				side: "left",
+				width: "normal",
+				numbers: false,
+				titleSelector: "h1, h2, h3, h4, h5, h6",
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: false,
+				themesPath: "dist/theme/",
+				transitions: false,
+				openButton: true,
+				openSlideNumber: false,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true,
+			},
+
+			// reveal.js plugins
+			plugins: [
+				RevealNotes,
+				RevealMath,
+				RevealMenu,
+				RevealChalkboard,
+				RevealSearch,
+				RevealZoom,
+			],
+		});
+	</script>
+</body>
+
+</html>
