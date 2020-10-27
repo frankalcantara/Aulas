@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Frank Coelho de Alcantara -2020">
+  <title>Diagrama de Sequência</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/engsoft1.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="nivel1">
+        <section>
+          <h1 class="title" style="margin-top: 15%;">Diagrama de Sequência</h1>
+          <p  style="text-align: right !important;">Frank Coelho de Alcantara -2020&nbsp;&nbsp;</p>
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Propósito</h2>
+          <small style="font-size: 93% !important;"> 
+            <p class="fragment fade-up">Utilizado para indicar, de forma gráfica, as interações entre objetos, na ordem sequencial em que estas interações ocorrem.</p>
+            <p class="fragment fade-up">Assim como no caso do Diagrama de Classes, os desenvolvedores ignoram o fato que o uso dos Diagramas de Sequencia vai além do desenvolvimento. Analistas de negócio 
+              podem utilizar este diagrama para indicar como os objetos de negócio interagem entre si ou para servir de suporte para o levantamento de requisitos de sistemas futuros.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Frame</h2>
+          <p  class="fragment fade-up" style="font-size: 74% !important;">Em todos os diagramas que vimos até o momento, sempre incluímos um <i>frame</i>. Um <i>frame</i> permite limitar uma área do diagrama e ainda nomear esta área 
+          de forma semântica, atribuindo ao conjunto de elementos interno um significado específico.</p>
+           </p>
+           <img class="fragment fade-up"data-src="../img/seq1.jpg" style="height: 350px !important; "
+            alt="Diagrama sequência com vários objetos" />
+        </section>
+        <section>
+          <h2>Formalismo: frame</h2>
+          <small style="font-size: 72% !important; width: 97%;">  
+            <p class="fragment fade-up">A modelagem é a arte e a ciência de representar um problema na sua forma mais simples. Ainda que exista um conjunto de regras formais para a criação de diagramas, notadamente 
+              no que se refere a sintaxe dos diagramas, não é preciso se ater a esta formalidade. Eventualmente, no entanto, o formalismo cria uma estrutura mais simples.</p>
+            <p class="fragment fade-up">A UML 2.0 sugere que os <i>frames</i> que contenham diagramas inteiros, como o caso do exemplo anterior sejam nomeados seguindo a seguinte estrutura $$tipo\_diagrama:nome\_diagrama$$</p>
+            <p class="fragment fade-up">No caso, teríamos $sd:ident$ onde $sd$ é a abreviatura aconselhada pela UML 2.0. No entanto, se você observar o uso dos elementos gráficos corretos, a identificação do tipo de diagrama se torna redundante.</p>
+        </small>
+        </section>
+        <section>
+          <h2>LifeLines</h2>
+          <small style="font-size: 65% !important; width: 97%;">  
+            <p class="fragment fade-up">Em tradução livre: linhas de vida. As linhas de vida representam a existência funções (<i>roles</i>) ou instância de classes (<i>objects</i>). Por meio de linhas pontilhadas e retângulos. 
+              As <i>lifelines</i> são desenhadas a partir de um retângulo, colocado no topo do diagrama e são nomeada segundo a sintaxe: $$nome\_instância:nome\_objeto$$ Do centro deste retângulo sai uma linha pontilhada 
+              que cruza o Diagrama de Sequências verticalmente. Na figura temos a representação do objeto paulo, instância da classe Estudante. O sublinhado indica que é um objeto do sistema. 
+            </p>
+         </small>
+        <img class="fragment fade-up"data-src="../img/seq2.jpg" style="height: 170px !important; "
+            alt="retângulo com linha pontilhada saído do centro dele com nome paulo da classe Estudante" />
+        </section>
+        <section>
+          <h2>LifeLines - roles</h2>
+          <small style="font-size: 65% !important; width: 97%;">  
+            <p class="fragment fade-up">AS lifelines também podem especificar o tempo de vida de uma função <i>(role)</i> sem explicitar um individuo. Isto pode ser feito, usando exatamente a mesma representação, sem o sublinhado. 
+            Alguns analistas representam as funções, quando é possível e faz sentido, com o elemento usado para indicar um ator.</p>
+            <p class="fragment fade-up">Use o elemento ator, apenas para representar a interação com atores, e a sintaxe do Diagrama de Sequência para as classes que representem objetos de negócio e não, necessariamente de sistema.</p>
+          </small>
+        <img class="fragment fade-up" data-src="../img/seq3.jpg" style="height: 170px !important; "
+            alt="o lifeline anterior, um outro, sem sublinhado da classe professor, e um objeto ator representado professor." />
+        </section>
+        <section>
+          <h2>Exemplo 1</h2>
+          
+          <img class="fragment fade-up" data-src="../img/seq3a.jpg" style="height: 309px !important; "
+            alt="o lifeline anterior, um outro, sem sublinhado da classe professor, e um objeto ator representado professor." />
+           <small style="font-size: 55% !important;">
+            <p class="fragment fade-up"><strong>Fronteiras</strong>: representam dispositivos terminais como interface de usuários, ou bancos de dados.</p>
+            <p class="fragment fade-up"><strong>Entidades</strong>: representam sistemas externos como um CRM.</p>
+            <p class="fragment fade-up"><strong>Controles</strong>: sistemas que controle a relação entre o sistema sendo modelado e os sistemas externos.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Mensagens</h2>
+          <small style="font-size: 65% !important; width: 97%;">  
+            <p class="fragment fade-up">Mensagens são as informações trocadas entre as classes instanciadas em um Diagrama de Sequências.</p>
+            <p class="fragment fade-up">A primeira mensagem da sequência aparece no topo do diagrama, no lado esquerdo. Por que no ocidente escrevemos de cima para baixo e da esquerda para direita. 
+              A segunda mensagem estará abaixo desta e assim subsequentemente.</p>
+            <p class="fragment fade-up">As mensagens serão representadas por setas saíndo de um objeto para outro. </p>
+          </small>
+        <img class="fragment fade-up" data-src="../img/seq4.jpg" style="height: 170px !important; "
+            alt="o lifeline anterior, um outro, sem sublinhado da classe professor, e um objeto ator representado professor." />
+        </section>
+        <section>
+          <h2>Tipos de Mensagens</h2>
+          <small style="font-size: 50% !important; width: 97%;">  
+            <p class="fragment fade-up"><strong>Síncronas</strong>: estas mensagens requerem algum tipo de interação (resposta) antes que a sequência possa continuar. Serão desenhadas com linha contínua e seta de ponta fechada e solida.</p>
+            <p class="fragment fade-up"><strong>Assíncronas</strong>: não precisam de respostas para que a interação continue. Serão desenhadas com linha contínua e seta de ponta aberta não solida, ou com meia seta.</p>
+            <p class="fragment fade-up"><strong>Retorno</strong>: mensagens de retorno, ou resposta, serão desenhadas com linha pontilhada e seta de ponta aberta não solida, apontado para a <i>lifeline</i> original.</p>
+            <p class="fragment fade-up"><strong>Self</strong>: mensagens do objeto para ele mesmo, serão desenhadas com linha contínua, seta de ponta aberta não solida, em um formato de U, saíndo do objeto e apontando para ele mesmo.</p>
+            <p class="fragment fade-up"><strong>Criação</strong>: mensagens para a criação de objetos, serão desenhadas com linha sólida, seta de ponta aberta não solida, apontando para o objeto a ser criado com a legenda $&lt;&lt;create&gt;&gt;$.</p>
+            <p class="fragment fade-up"><strong>Destruição</strong>: mensagens para a destruição de objetos, serão desenhadas com linha sólida, seta de ponta aberta não solida, apontando para um $X$ com a legenda $&lt;&lt;destroy&gt;&gt;$.</p>  
+            <p class="fragment fade-up"><strong>Externas</strong>: mensagens originadas de objetos fora do diagrama. Quando chegam <i>(found)</i> tem origem em um círculo vazio com um círculo solido no centro e apontam para o destino. Quando 
+            saem <i>(lost)</i> tem origem em um objeto e apontam para círculo vazio com um círculo solido no centro </p>    
+          </small>
+        </section>
+        <section>
+          <h2>Tipos de Mensagens - Diagrama</h2>
+          <img class="fragment fade-up" data-src="../img/seq5.jpg" style="height: 170px !important; "
+            alt="um exemplo de cada seta utilizada no diagrama de sequências." />
+            <p class="fragment fade-up">Sem consultar a tela anterior, escreva no seu caderno o que cada seta representa!</p>
+            <p class="fragment fade-up"><strong>Mensagens representam uma funcionalidade <i>(Método)</i> que aquele objeto deve executar. São as chamadas.</strong></p>
+        </section>
+        <section>
+          <h2>Exemplo 2</h2>
+          <img class="fragment fade-up" data-src="../img/seq5a.jpg" style="height: 170px !important; "
+            alt="um exemplo de cada seta utilizada no diagrama de sequências." />
+        </section>
+        <section>
+          <h2>Ativação ou execução</h2>
+          <small style="font-size: 71% !important; width: 96%;"     >
+            <p class="fragment fade-up">O período de tempo necessário para execução de uma tarefa em um objeto, determinada por uma mensagem, será representado por um retângulo vertical.</p>
+            <p class="fragment fade-up">Uma mensagem pode chegar no topo deste retângulo, criando o objeto, ou a interação, ou durante o tempo de vida deste objeto. Neste último caso, a seta indicando a mensagem pode apontar para 
+              qualquer ponto do retângulo de ativação, desde que obedeça a sequência de ocorrência de mensagens. 
+            </p>
+          </small>  
+          <img class="fragment fade-up" data-src="../img/seq6.jpg" style="height: 170px !important; "
+            alt="o objeto paulo, da classe aluno envia uma mensagem para um objeto da classe professor e esta devolve uma resposta." />
+        </section>
+        <section>
+          <h2>Exemplo 3</h2>
+            <img data-src="../img/seq7.jpg" style="height: 350px !important; "
+            alt="o objeto paulo, da classe aluno envia uma mensagem para um objeto da classe professor e esta devolve uma resposta." />
+            <p>O uso de mensagens de retorno é opcional nos Diagramas de sequência. Melhora o detalhamento.</p>
+        </section>
+        <section>
+          <h2>Exemplo 4</h2>
+            <img data-src="../img/seq8.jpg" style="height: 350px !important; "
+            alt="o objeto paulo, da classe aluno envia uma mensagem para um objeto da classe professor e esta devolve uma resposta." />
+            <p style="font-size: 80% !important;">Eventualmente um objeto precisa chamar a si mesmo. Isto não é usual mas pode ser usado para destacar um método importante.</p>
+        </section>
+        <section>
+          <h2>Condicionais</h2>
+            <img data-src="../img/seq9.jpg" style="height: 350px !important; "
+            alt="o objeto paulo, da classe aluno envia uma mensagem para um objeto da classe professor e esta devolve uma resposta." />
+            <p style="font-size: 80% !important;" >Condicionais ou <i>(gards)</i> são usados para expressar a condição de execução para algumas mensagens. São representados entre colchetes e antes da mensagem.</p>
+        </section>
+        <section>
+          <h2>Condicionais</h2>
+            <img data-src="../img/seq10.jpg" style="height: 350px !important; "
+            alt="o objeto paulo, da classe aluno envia uma mensagem para um objeto da classe professor e esta devolve uma resposta." />
+            <p style="font-size: 80% !important;">Alternativas são utilizadas para representar opções de processamento. Para isso usamos uma combinação de <i>frames</i> e <i>guards</i>.</p>
+        </section>
+        <section>
+          <h2>Opcionais</h2>
+            <img data-src="../img/seq11.jpg" style="height: 350px !important; "
+            alt="o objeto paulo, da classe aluno envia uma mensagem para um objeto da classe professor e esta devolve uma resposta." />
+            <p style="font-size: 80% !important;">Também são representados por uma combinação de <i>frames</i> e <i>guards</i>. Podemos destacar todas as opções possíveis.</p>
+        </section>
+        <section>
+          <h2>Laços</h2>
+            <img data-src="../img/seq12.jpg" style="height: 350px !important; "
+            alt="o objeto paulo, da classe aluno envia uma mensagem para um objeto da classe professor e esta devolve uma resposta." />
+            <p style="font-size: 80% !important;">Laços são representados da mesma forma, excepto que na parte de cima do <i>frame</i> explicitamos a condição de saída.</p>
+        </section>
+        <section>
+          <h2>Outros Diagramas de Sequência</h2>
+          <small >
+            <p class="fragment fade-up">Podemos representar um Diagrama de Sequências completo, dentro de um frame, indicado apenas por um método específico que será chamado no diagrama atual.</p>
+            <p class="fragment fade-up">Assim, é possível que toda a complexidade, já definida, de uma parte do processo, possa ser encapsulada em outro diagrama.</p>
+            <p class="fragment fade-up">também podemos representar outros diagramas com $nome\_diagrama:nome\_objeto:nome\_método$ usando os símbolos de <i>lost</i> e <i>found</i>.</p>
+          </small>
+          <img data-src="../img/seq13.jpg" style="height: 230px !important; "
+          alt="o objeto paulo, da classe aluno envia uma mensagem para um objeto da classe professor e esta devolve uma resposta." />
+          
+        </section>
+        <section>
+          <h2>Parâmetros</h2>
+          <small >
+            <p>Uma representação melhor, e muitas vezes necessária, do uso de um Diagrama de Sequência representado por um <i>frame</i> inclui 
+              o uso da explicitação de parâmetros na descrição do Diagrama que está sendo embarcado. Podemos fazer esta explicitação na etiqueta de identificação do <i>frame</i>.</p>
+            
+          </small>
+          <img data-src="../img/seq14.jpg" style="height: 150px !important; "
+          alt="o objeto paulo, da classe aluno envia uma mensagem para um objeto da classe professor e esta devolve uma resposta." />
+          
+        </section>
+        <section>
+          <h2>Paralelo</h2>
+          <small >
+            <p>Por fim, podemos usar <i>frames</i>, com a etiqueta $paral$ ou $par$ para indicar mensagens que disparam ações que devem ser executadas em paralelo.</p>
+          </small>
+          <img data-src="../img/seq15.jpg" style="height: 290px !important; "
+          alt="Detalhe de diagrama de caso de uso com um frame marcado par e duas áreas de processamento paralelos separadas por uma linha pontilhada vertical." />
+        </section>
+        <section>
+          <h2>Exercício</h2>
+          <small style=" font-size: 50% !important; float: left; width: 50%;;">
+            <p>Considere o diagrama de casos de uso, mostrado na figura, referente ao fragmento de um sistema de registro de usuários em um sistema de bibliotecas online 
+              uma instituição de ensino qualquer. Considere também que você fará o diagrama de sequência apenas para o caso de uso: Criar Conta de Usuário. O caso de uso escolhido
+            será completo após os seguintes passos: </p>
+            <ol style=" font-size: 90%; margin-left: 8%;">
+              <li>O usuário solicita o seu registro.</li>
+              <li>O sistema seleciona o tipo de conta necessário (online ou físico).</li>
+              <li>O usuário digita seus dados: nome, matricula, e-mail.</li>
+              <li>Os dados do usuário são validados usando o Banco de Dados do Registro de Usuários.</li>
+              <li>A nova conta de acesso é criada, se tudo estiver correto.</li>
+              <li>Um resumo dos dados de acesso, sem senha é enviado para o usuário.</li>
+            </ol>
+            <p>Você pode, e deve, criar os métodos necessários para este processo. Lembre-se você é o analista!</p>  
+          </small>
+          <img data-src="../img/seq16.jpg" style="height: 290px !important;" alt="Diagrama de caso de usos com cinco casos mostrando herança, inclusão e extensão." />
+          
+        </section>
+
+      </section>
+    </div>
+  </div>
+  <div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+  <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+      center: false,
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
+
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
+</html>
