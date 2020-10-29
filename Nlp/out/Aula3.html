@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Frank Coelho de Alcantara -2020" />
+  <title>Representação Matemática de Texto</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/interpret.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="title-slide" class="nivel1">
+       <section>
+        <h1 class="title" style="width: 90%; margin-left: 4%; font-size: 340%;">Representação matemática de textos</h1>
+        <p style="text-align: right !important;">Frank Coelho de Alcantara -2020&nbsp;&nbsp;</p>
+       </section>
+       <section>
+          <h2>Vetorização</h2>
+          <small style="font-size: 73% !important; margin-left: 0%; width: 95%;">
+            <p  class="fragment fade-up">Transformamos textos em vetores para permitir o uso de manipulação matemática destes textos.</p>
+            <p  class="fragment fade-up">Vamos utilizar esta representação matemática para encontrar relações geométricas, algébricas e estatísticas no corpus modificado.</p>
+            <p  class="fragment fade-up">Muitas vezes faremos isso de forma supervisionada. O que quer dizer que, teremos uma base, um corpus já modificado, para comparação ou treinamento.</p>
+            <p  class="fragment fade-up">Usamos a palavra treinamento para indicar o processo de adequação das variáveis de um algoritmo de acordo com um conjunto de dados conhecido. 
+              Ou com relação a um conjunto de dados, corpus, onde o ajuste destas variáveis e conhecido e foi bem sucedido.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Preparando o Corpus</h2>
+          <small style="font-size: 73% !important; margin-left: 0%; width: 95%;">
+            <p  class="fragment fade-up"><strong>Corpus</strong>: Pedro comprou bananas e com as bananas compradas, comprou uma bananeira.</p>
+            <p  class="fragment fade-up"><strong>Stopwords</strong>: ao remover temos: Pedro comprou bananas compradas comprou bananeira.</p>
+            <p  class="fragment fade-up"><strong>Lemmatization</strong>: pedro comprar banana comprar comprar banana.</p>
+            <p  class="fragment fade-up">O resultado é um corpus que pode ser usado para a transformação em vetores.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Vetores</h2>
+          <small style="font-size: 73% !important; margin-left: 0%; width: 54%;">
+            <p  class="fragment fade-up">Vetores são, simplificando, representações matemáticas de retas entre a origem e um ponto em um espaço multidimensional.</p>
+            <p  class="fragment fade-up">Normalmente, determinamos estes pontos em um sistema onde a unidade é um valor numérico, o 1, por exemplo.</p>
+            <p  class="fragment fade-up">Então um vetor $[1,2,3]$ representa um ponto que está a uma unidade de distância da origem no eixo $x$. duas unidades de distância 
+              da origem no eixo $y$ e a três unidades de distância da origem no eixo $z$.</p>
+          </small>
+          <img data-src="../img/vec1.jpg" class="fragment fade-up" style="margin-right: 2%; height: 253px !important; float: right;"  alt="gráfico mostrando um vetor entre a origem e o ponto (1,2,3)." />
+        </section>
+        <section>
+          <h2>Corpus e Vetores</h2>
+          <small style="font-size: 73% !important; margin-left: 0%; width: 97%;">
+            <p  class="fragment fade-up">Por que não usar palavras como dimensões?</p>
+            <p  class="fragment fade-up"><strong>Corpus</strong>: pedro comprar banana comprar comprar banana.</p>
+            <p  class="fragment fade-up"> Se cada palavra for uma dimensão podemos contar as palavras para marcar um ponto neste espaço. 
+              Então, para nosso corpus teríamos um pedro, duas banana e três comprar e este seria o ponto $[1,2,3]$.</p>
+            <p  class="fragment fade-up">Se você entendeu o último parágrafo entendeu como é feita a transformação em vetores de um texto.</p>
+            <p  class="fragment fade-up">É óbvio que isso fica mais complexo quanto maior for a riqueza léxica do texto. Podemos ter vetores representando espaços com centenas, milhares, milhões ou bilhões de dimensões. 
+              Tudo depende da sua imaginação, uso, e capacidade de processamento. O modelo <a href="http://https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener noreferrer">GPT-3</a> utiliza vetores de 12288 dimensões.</p>
+          </small>
+         </section>
+         <section>
+          <h2>Técnicas de Vetorização</h2>
+          < <h2>Técnicas de Vetorização</h2>
+          <small style="font-size: 73% !important; margin-left: 0%; width: 97%;">
+            <p  class="fragment fade-up">A Técnica que expliquei é chamada de <i>Count Vector</i> é a técnica mais simples de vetorização de textos. Estas técnicas de vetorização 
+            são chamadas em inglês de <i>Word Embedding</i>.</p>
+            <p  class="fragment fade-up">A pesquisa neste campo se concentra em descobrir novas técnicas de transformar textos em vetores, além de simplesmente contar lexemas diferentes para criar dimensões.</p>
+            <ol style="margin-left:7%;">
+              <li  class="fragment fade-up">Bag of words.</li>
+              <li  class="fragment fade-up">TF-IDF</li>
+              <li  class="fragment fade-up">Word2Vec</li>
+            </ol>
+          </small>
+         </section>
+    </section>
+    <section class="nivel1">
+      <section >
+        <h1 class="title" style="width: 90%; margin-left: 4%; font-size: 340%;">Bag of Words</h1>
+      </section>
+      <section>
+        <h2>Bag of Words</h2>
+        <small style="font-size: 73% !important; margin-left: 0%; width: 97%;">
+          <p  class="fragment fade-up">Chamamos de <i>bag of words</i> ou BOW por que o resultado não leva a sintaxe do corpus em consideração.</p>
+          <p  class="fragment fade-up">Só tem sentido se o corpus tiver várias sentenças.</p>
+          <p  class="fragment fade-up">Usa como base para a vetorização a frequência de ocorrência de lexemas em todo o corpus.</p>
+          <p  class="fragment fade-up">Chamaremos o corpus de lista de BOW e o resultado será uma matriz Termo-Documento.</p>
+          <p  class="fragment fade-up">Usaremos Termo em lugar de lexema e cada sentença do corpus será um documento.</p>
+        </small>
+       </section>
+       <section>
+        <h2>Vocabulário</h2>
+        <small style="font-size: 73% !important; margin-left: 0%; width: 97%;">
+          <p  class="fragment fade-up">Este é o primeiro passo, encontraremos a frequência de ocorrência de todos os termos existentes no corpus.</p>
+          <p  class="fragment fade-up">Faremos isso sem nenhuma técnica de redução de dimensionalidade, nada de stopwords, lemmatization ou stemming.</p>
+          <p  class="fragment fade-up">Considere o corpus:</p>
+          <ol style="margin-left:7%;">
+            <li  class="fragment fade-up">A carteira colocou a carteira na carteira.</li>
+            <li  class="fragment fade-up">O carteiro não tem carteira.</li>
+            <li  class="fragment fade-up">O carteiro comprou uma carteira nova.</li>
+          </ol>
+          <p  class="fragment fade-up">Nosso vocabulário tem 12 termos $\{A, carteira, colocou, na, a, O, carteiro, \\ não, tem, comprou, uma, nova\}$</p>
+        </small>
+       </section>
+       <section>
+       <h2>Criação de Vetores</h2>
+       <small style="font-size: 64% !important; margin-left: 0%; width: 97%;">
+         <p  class="fragment fade-up">Temos um corpus composto de 3 documentos:</p>
+         <ol style="margin-left:7%;">
+          <li  class="fragment fade-up">A carteira colocou a carteira na carteira.</li>
+          <li  class="fragment fade-up">O carteiro não tem carteira.</li>
+          <li  class="fragment fade-up">O carteiro comprou uma carteira nova.</li>
+        </ol>
+         <p  class="fragment fade-up">Nosso vocabulário tem 12 termos $\{A, carteira, colocou, na, a, O, carteiro, \\ não, tem, comprou, uma, nova\}$</p>
+         <p  class="fragment fade-up">Criamos um vetor para cada documento no corpus colocando a quantidade de vezes que uma palavra aparece no documento na posição que ela está no vocabulário.</p>
+         <ol style="margin-left:7%;">
+           <li  class="fragment fade-up">$[1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0]$</li>
+           <li  class="fragment fade-up">$[0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0]$</li>
+           <li  class="fragment fade-up">$[0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1]$</li>
+         </ol>
+       </small>
+      </section>
+      <section>
+        <h2>Exercício 1</h2>
+        <small style="font-size: 64% !important; margin-left: 0%; width: 97%;">
+          <p  class="fragment fade-up">Tente sozinho, no papel, com o corpus:</p>
+          <ol style="margin-left:7%;">
+           <li  class="fragment fade-up">São Paulo não ensinou em São Paulo.</li>
+           <li  class="fragment fade-up">Se tivesse ensinado, São Paulo seria Paulista.</li>
+           <li  class="fragment fade-up">São Paulo é a capital de São Paulo.</li>
+         </ol>
+          <p  class="fragment fade-up">Encontre o vocabulário e defina o vetor para cada sentença.</p>
+        </small>
+       </section>
+       <section>
+        <h2>Matriz Termo-Documento</h2>
+          <p>Trata-se da matriz construída com todos os vetores dos documentos que compõem o corpus.</p>
+          <table style="font-size: 48%;">
+            <tr style="background-color: gray;">
+              <td style="background-color: gray;">Doc</td> 
+              <td style="background-color: gray;">A</td>
+              <td style="background-color: gray;">carteira</td>
+              <td style="background-color: gray;">colocou</td>
+              <td style="background-color: gray;">na</td>
+              <td style="background-color: gray;">a</td>
+              <td style="background-color: gray;">O</td>
+              <td style="background-color: gray;">carteiro</td>
+              <td style="background-color: gray;">não</td>
+              <td style="background-color: gray;">tem</td>
+              <td style="background-color: gray;">comprou</td>
+              <td style="background-color: gray;">uma</td>
+              <td style="background-color: gray;">nova</td>
+            </tr>
+            <tr>
+              <td>$1$</td>
+              <td>$1$</td> 
+              <td>$3$</td>
+              <td>$1$</td>
+              <td>$1$</td>
+              <td>$1$</td>
+              <td>$0$</td>
+              <td>$0$</td>
+              <td>$0$</td>
+              <td>$0$</td>
+              <td>$0$</td>
+              <td>$0$</td>
+              <td>$0$</td>
+            </tr>
+            <tr>
+              <td>$2$</td> 
+              <td>$0$</td>
+              <td>$1$</td>
+              <td>$0$</td>
+              <td>$0$</td>
+              <td>$0$</td>
+              <td>$1$</td>
+              <td>$1$</td>
+              <td>$1$</td>
+              <td>$1$</td>
+              <td>$0$</td>
+              <td>$0$</td>
+              <td>$0$</td>
+            </tr>
+            <tr>
+              <td>$3$</td> 
+              <td>$0$</td> 
+              <td>$1$</td>
+              <td>$0$</td>
+              <td>$0$</td>
+              <td>$0$</td>
+              <td>$1$</td>
+              <td>$1$</td>
+              <td>$0$</td>
+              <td>$0$</td>
+              <td>$1$</td>
+              <td>$1$</td>
+              <td>$1$</td>
+            </tr>
+          </table>
+        <p>A matriz gerada pelos $n$ documentos que compõem o corpus é, geralmente, esparsa e de alta dimensionalidade obedecendo a <i><b>Lei de Zipf</b></i> .</p>
+       </section>
+       <section>
+        <h2>Lei de Zipf</h2>
+        <small style="font-size: 50% !important; margin-left: 0%; width: 97%;">
+          <p  class="fragment fade-up">Um dos fatos mais interessantes no estudo da linguagem natural, e também um dos mais básicos é que os termos ocorrem, nas sentenças, 
+            seguindo uma distribuição de frequências sistemática, simples, de tal forma que existem poucos termos com alta frequência e estes constituem a maior parte dos termos em um corpus.</p>
+          <p  class="fragment fade-up"> George Kingsley Zipf, em seu livro <i>The psycho-biology of language: An introduction to dynamic philology</i>de 1999. percebeu que a enézima palvra mais 
+            frequente de um determinado texto tem uma frequência dada por $$f(n) \approx  \frac{1}{n^\alpha}$$</p>
+            <p  class="fragment fade-up">Nesta equação o $n$ representa a colocação do termo na classificação dos termos em ordem de frequência, as maiores primeiro. Mandelbrot, em 
+              <i>An informational theory of the statistical structure of language</i> revisou esta fórmula e lhe deu a forma que usamos atualmente: $$f(n) \approx  \frac{1}{(n+\beta)^\alpha}$$ </p>
+            <p  class="fragment fade-up">Para $\alpha \approx 1$ e $\beta \approx 2.7$ esta fórmula parece ser verdadeira para todos os idiomas humanos e talvez seja uma característica da comunicação na nossa espécie.</p>
+        </small>
+       </section>
+       <section>
+        <h2>Problemas com <i>Bag of Words</i></h2>
+        <small style="font-size: 80% !important; margin-left: 0%; width: 97%;">
+          <p  class="fragment fade-up"><strong>Vocabulário</strong>: requer cuidado e atenção e frequentemente o uso de eliminação da pontuação, <i>stopwords</i> e adequação ao contexto.</p>
+          <p  class="fragment fade-up"><strong>Matriz Esparsa</strong>: difícil de modelar, pouca informação em muito espaço.</p>
+          <p  class="fragment fade-up"><strong>Significado</strong>: quando ignoramos a ordem das palavras perdemos o sentido do termo <i>(bag of n-grams?)</i></p>
+          <p  class="fragment fade-up">Profissionalmente é raro ver o Bow, implementado com um algoritmo tão simples quanto o que vimos. Muitas vezes ele está agregado do <b>TF-IDF</b></p>
+        </small>
+       </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h1 class="title" style="width: 90%; margin-left: 4%; font-size: 340%;">TF-IDF</h1>
+        </section>
+        <section>
+          <h2>TF-IDF</i></h2>
+          <small style="font-size: 80% !important; margin-left: 0%; width: 97%;">
+            <p  class="fragment fade-up">TF-IDF (<i>Term Frequency – Inverse Document Frequency</i>) é usado para medir a importância de um termo em um documento presente em uma coleção de documentos.  
+              O valor TF-IDF de uma palavra aumenta proporcionalmente à medida que aumenta o número de ocorrências dela em um documento. 
+              Porém, este valor é relativizado pela frequência da palavra no corpus. Resumindo: </p>
+              <blockquote>Quanto mais frequentemente um termo ocorre em um documento, mais representativo ele é para o conteúdo, e em quanto mais documentos o termo ocorre, menos discriminativo ele é. </blockquote>
+          </small>
+        </section>
+        <section>
+          <h2>Corpus</i></h2>
+          <small style="font-size: 80% !important; margin-left: 0%; width: 97%;">
+            <p  class="fragment fade-up">Para entender este algoritmo vamos usar o seguinte corpus:</p>
+            <ol style="margin-left:7%;">
+              <li  class="fragment fade-up">A carteira colocou a carteira na carteira.</li>
+              <li  class="fragment fade-up">O carteiro não tem carteira.</li>
+              <li  class="fragment fade-up">O carteiro comprou uma carteira nova.</li>
+            </ol>
+            <p class="fragment fade-up">Que resulta na seguinte matriz:</p>
+            <table  class="fragment fade-up" style="font-size: 69%;">
+              <tr style="background-color: gray;">
+                <td style="background-color: gray;">Doc</td> 
+                <td style="background-color: gray;">A</td>
+                <td style="background-color: gray;">carteira</td>
+                <td style="background-color: gray;">colocou</td>
+                <td style="background-color: gray;">na</td>
+                
+                <td style="background-color: gray;">a</td>
+                <td style="background-color: gray;">O</td>
+                <td style="background-color: gray;">carteiro</td>
+                <td style="background-color: gray;">não</td>
+                <td style="background-color: gray;">tem</td>
+                <td style="background-color: gray;">comprou</td>
+                <td style="background-color: gray;">uma</td>
+                <td style="background-color: gray;">nova</td>
+              </tr>
+              <tr>
+                <td>$1$</td>
+                <td>$1$</td> 
+                <td>$3$</td>
+                <td>$1$</td>
+                <td>$1$</td>
+               
+                <td>$1$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+              </tr>
+              <tr>
+                <td>$2$</td> 
+                <td>$0$</td>
+                <td>$1$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                
+                <td>$0$</td>
+                <td>$1$</td>
+                <td>$1$</td>
+                <td>$1$</td>
+                <td>$1$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+              </tr>
+              <tr>
+                <td>$3$</td> 
+                <td>$0$</td> 
+                <td>$1$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                
+                <td>$0$</td>
+                <td>$1$</td>
+                <td>$1$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$1$</td>
+                <td>$1$</td>
+                <td>$1$</td>
+              </tr>
+            </table>
+          </small>
+        </section>
+        <section>
+          <h2>TF</i></h2>
+          <small style="font-size: 80% !important; margin-left: 0%; width: 97%;">
+            <p  class="fragment fade-up">A Frequência de um Termo (TF): fornece a frequência de cada termo em um documento do corpus. e pode ser calculada por: 
+              $$tf_{i,j} = \frac{n_{i,j}}{\Sigma_k n_{i,j}}$$
+            </p>
+            <p  class="fragment fade-up">Onde $n_{i,j}$, representa a frequência de um lexema $i$ em um documento $j$. De uma forma mais simples podemos dizer que para um 
+              determinado termo $t$, de um documento $d$ seu $tf$ será dado por: $$tf_{(t,d)} = \frac{quantidade\_de\_t\_em\_d}{numero\_de\_termos\_em\_d}$$</p>
+          </small>
+        </section>
+        <section>
+          <h2>TF - Exemplo</i></h2>
+          <small style="font-size: 80% !important; margin-left: 0%; width: 97%;">
+            <p  class="fragment fade-up">Dado o seguinte corpus:</p>
+            <ol style="margin-left:7%;">
+              <li  class="fragment fade-up">A carteira colocou a carteira na carteira.</li>
+              <li  class="fragment fade-up">O carteiro não tem carteira.</li>
+              <li  class="fragment fade-up">O carteiro comprou uma carteira nova.</li>
+            </ol>
+            <p class="fragment fade-up">Que resulta na seguinte matriz:</p>
+            <table  class="fragment fade-up" style="font-size: 45%;">
+              <tr style="background-color: gray;">
+                <td style="background-color: gray;">Doc</td> 
+                <td style="background-color: gray;">Termos</td> 
+                <td style="background-color: gray;">A</td>
+                <td style="background-color: gray;">carteira</td>
+                <td style="background-color: gray;">colocou</td>   
+                <td style="background-color: gray;">na</td>
+                <td style="background-color: gray;">a</td>
+                <td style="background-color: gray;">O</td>
+                <td style="background-color: gray;">carteiro</td>
+                <td style="background-color: gray;">não</td>
+                <td style="background-color: gray;">tem</td>
+                <td style="background-color: gray;">comprou</td>
+                <td style="background-color: gray;">uma</td>
+                <td style="background-color: gray;">nova</td>
+              </tr>
+              <tr>
+                <td>$1$</td>
+                <td>$7$</td>
+                <td>$1/7 \\ = 0,14$</td> 
+                <td>$3/7 \\  = 0,43$</td>
+                <td>$1/7 \\  = 0,14$</td>
+                <td>$1/7 \\  = 0,14$</td>
+                <td>$1/7 \\  = 0,14$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+              </tr>
+              <tr>
+                <td>$2$</td> 
+                <td>$5$</td>
+                <td>$0$</td>
+                <td>$1/5 \\  = 0,2$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$1/5 \\  = 0,2$</td>
+                <td>$1/5 \\  = 0,2$</td>
+                <td>$1/5 \\  = 0,2$</td>
+                <td>$1/5 \\  = 0,2$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+              </tr><tr>
+                <td>$3$</td> 
+                <td>$6$</td> 
+                <td>$0$</td>
+                <td>$1/6 \\  = 0,17$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$1/6 \\  = 0,17$</td>
+                <td>$1/6 \\  = 0,17$</td>
+                <td>$0$</td>
+                <td>$0$</td>
+                <td>$1/6 \\  = 0,17$</td>
+                <td>$1/6 \\  = 0,17$</td>
+                <td>$1/6 \\  = 0,17$</td>
+              </tr>
+            </table>
+          </small>
+        </section>
+        <section>
+          <h2>IDF</i></h2>
+          <small style="font-size: 80% !important; margin-left: 0%; width: 97%;">
+            <p  class="fragment fade-up">Cálculo do IDF (Inverse Document Frequency): permite computar o peso de 
+              cada palavra na coleção de documentos. Palavras que ocorrem mais raramente tem maior IDF: $$idf_{(t)} = log(\frac{N}{df_t +1})$$
+            </p>
+            <p  class="fragment fade-up">Para o nosso caso teremos:</p>
+            <table  class="fragment fade-up" style="font-size: 39%;">
+              <tr style="background-color: gray;">
+                <td style="background-color: gray;">A</td>
+                <td style="background-color: gray;">carteira</td>
+                <td style="background-color: gray;">colocou</td>   
+                <td style="background-color: gray;">na</td>
+                <td style="background-color: gray;">a</td>
+                <td style="background-color: gray;">O</td>
+              </tr>
+              <tr>
+                <td>$log(3/(1+1)) = 0,18$</td>
+                <td>$log(3/(5+1))) = 1,23$</td> 
+                <td>$log(3/(1+1)) = 0,18$</td>
+                <td>$log(3/(1+1)) = 0,18$</td>
+                <td>$log(3/(2+1)) = 0$</td>
+                <td>$log(3/(2+1)) = 0$</td>
+              </tr>
+              <tr style="background-color: gray;">
+                <td style="background-color: gray;">carteiro</td>
+                <td style="background-color: gray;">não</td>
+                <td style="background-color: gray;">tem</td>
+                <td style="background-color: gray;">comprou</td>
+                <td style="background-color: gray;">uma</td>
+                <td style="background-color: gray;">nova</td>
+              </tr>
+              <tr>
+                <td>$log(3/(1+1)) = 0,18$</td>
+                <td>$log(3/(1+1)) = 0,18$</td>
+                <td>$log(3/(1+1)) = 0,18$</td>
+                <td>$log(3/(1+1)) = 0,18$</td>
+                <td>$log(3/(1+1)) = 0,18$</td>
+                <td>$log(3/(1+1)) = 0,18$</td>
+              </tr>
+            </table>
+          </small>
+        </section>
+        <section>
+          <h2>TF-IDF Finalmente</i></h2>
+          <small style="font-size: 80% !important; margin-left: 0%; width: 97%;">
+            <p  class="fragment fade-up">A fórmula final é o produto das duas fórmulas anteriores $$tfidf_{(i,j)} =\frac{n_{i,j}}{\Sigma_k n_{i,j}} \times log(\frac{N}{df_t +1})$$
+            </p>
+            <p  class="fragment fade-up">Que calculará o TF-IDF o termo $i$ para o documento $j$.</p>
+            <p  class="fragment fade-up">O resultado desta operação, sobre nosso corpus de exemplo pode ser visto no próximo slide.</p>
+           </small>
+        </section>
+        <section>
+          <h2>TF-IDF Resultado</i></h2>
+          <small style="font-size: 80% !important; margin-left: 0%; width: 97%;">
+            <table  class="fragment fade-up" style="font-size: 43%;">
+              <tr style="background-color: gray;">
+                <td style="background-color: gray;">Doc</td> 
+                <td style="background-color: gray;">A</td>
+                <td style="background-color: gray;">carteira</td>
+                <td style="background-color: gray;">colocou</td>   
+                <td style="background-color: gray;">na</td>
+                <td style="background-color: gray;">a</td>
+                <td style="background-color: gray;">O</td>
+              </tr>
+              <tr>
+                <td>$1$</td>
+                <td>$0,14 * 0,18 = 0,03$</td> 
+                <td>$0,43 * 1,23 = 0,53$</td>
+                <td>$0,14 * 0,18 = 0,03$</td>
+                <td>$0,14 * 0,18 = 0,03$</td>
+                <td>$0,14 * 0 = 0$</td>
+                <td>$0 * 0 = 0$</td>
+              </tr>
+              <tr>
+                <td>$2$</td> 
+                <td>$0 * 0,18 = 0$</td>
+                <td>$0,2 * 1,23 = 2,5$</td>
+                <td>$0 * 0,18 = 0$</td>
+                <td>$0 * 0,18 = 0$</td>
+                <td>$0 * 0 = 0$</td>
+                <td>$0,2 * 0 = 0$</td>
+                </tr>
+                <tr>
+                <td>$3$</td> 
+                <td>$0 * 0,18 = 0$</td>
+                <td>$0,17 * 1,23 = 0,21$</td>
+                <td>$0 * 0,18 = 0$</td>
+                <td>$0 * 0,18 = 0$</td>
+                <td>$0 * 0 = 0$</td>
+                <td>$0,17 * 0 = 0$</td>
+              </tr>
+              <tr style="background-color: gray;">
+                <td style="background-color: gray;">Doc</td> 
+                <td style="background-color: gray;">carteiro</td>
+                <td style="background-color: gray;">não</td>
+                <td style="background-color: gray;">tem</td>
+                <td style="background-color: gray;">comprou</td>
+                <td style="background-color: gray;">uma</td>
+                <td style="background-color: gray;">nova</td>
+              </tr>
+              <tr>
+                <td>$1$</td>
+                <td>$0 * 0 = 0$</td>
+                <td>$0 * 0,18 = 0$</td>
+                <td>$0 * 0,18 = 0$</td>
+                <td>$0 * 0,18 = 0$</td>
+                <td>$0 * 0,18 = 0$</td>
+                <td>$0 * 0,18 = 0$</td>
+              </tr>
+              <tr>
+                <td>$2$</td> 
+                <td>$0,2 * 0,18 = 0,04$</td>
+                <td>$0,2 * 0,18 = 0,04$</td>
+                <td>$0,2 * 0,18 = 0,04$</td>
+                <td>$0 * 0,18 = 0$</td>
+                <td>$0 * 0,18 = 0$</td>
+                <td>$0 * 0,18 = 0$</td>
+              </tr><tr>
+                <td>$3$</td> 
+                <td>$0,17 * 0,18 = 0,31$</td>
+                <td>$0 * 0,18 = 0$</td>
+                <td>$0 * 0,18 = 0$</td>
+                <td>$0,17 * 0,18 = 0,31$</td>
+                <td>$0,17 * 0,18 = 0,31$</td>
+                <td>$0,17 * 0,18 = 0,31$</td>
+              </tr>
+              </table>
+           </small>
+        </section>
+      </section>  
+    </section>
+    </div>
+  </div>
+  <div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+      center: false,
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
+
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
+</html>
