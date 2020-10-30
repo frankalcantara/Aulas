@@ -52,6 +52,38 @@
 					</small>	
 				</section>
 				<section>
+					<h2>Transversal - <i>in-order</i></h2>
+					<small style="font-size: 65% !important;">
+						<p class="fragment fade-up">Existem três formas principais e não únicas, de se percorrer uma árvore.</p>
+						<p class="fragment fade-up"><i>In-order</i> é a primeira delas, percorremos os vértices de forma recursiva da esquerda para direita e de baixo 
+							para cima, começando na raiz.</p>
+							
+						<p class="fragment fade-up">Visitaremos: $D, B, E, A, F, C, G$</p>
+					</small>
+					<img data-src="../img/tree2.png" class="fragment fade-up" style="height: 234px !important;"
+							alt="símbolo meramente ilustrativo, sem valor didático" />	
+				</section>
+				<section>
+					<h2>Transversal - <i>pre-order</i></h2>
+					<small style="font-size: 65% !important;">
+						<p class="fragment fade-up">Primeiro a raiz depois o vértice da esquerda, depois o vértice da direita.</p>
+							
+						<p class="fragment fade-up">Visitaremos: $A, B, D, E, C, F, G$</p>
+					</small>
+					<img data-src="../img/tree3.png" class="fragment fade-up" style="height: 234px !important;"
+							alt="símbolo meramente ilustrativo, sem valor didático" />	
+				</section>
+				<section>
+					<h2>Transversal - <i>post-order</i></h2>
+					<small style="font-size: 65% !important;">
+						<p class="fragment fade-up">A raiz é visitada por último, então vemos esquerda, direita, raiz.</p>
+							
+						<p class="fragment fade-up">Visitaremos: $D, E, B, F, G, C, A$</p>
+					</small>
+					<img data-src="../img/tree4.png" class="fragment fade-up" style="height: 234px !important;"
+							alt="símbolo meramente ilustrativo, sem valor didático" />	
+				</section>
+				<section>
 					<h2>Árvores Binárias</h2>
 					<small style="font-size: 65% !important;">
 						<p class="fragment fade-up">Árvores binárias são árvores que cada vértice pode ter apenas duas arestas.</p>
@@ -68,12 +100,11 @@
 						<p class="fragment fade-up">A altura é o número de vértices entre a raíz e a última folha.</p>
 						<p class="fragment fade-up">Se a árvore é binária, dada uma altura $h$ teremos: $$n = 1 +2^1+2^2+2^3+...+2^h$$</p>
 						<p class="fragment fade-up">Que pode ser reduzida a $$n = 2^{h=1}-1$$.</p>
-						<p class="fragment fade-up">E podemos mostrar que $$h = floor(log_2 n$$</p>
+						<p class="fragment fade-up">E podemos mostrar que $$h = floor(log_2 n)$$</p>
 						<p class="fragment fade-up">A busca de um vértice específico irá tomar, no pior caso: $ceiling(log_2 n)$ Como isso também é verdade para a adição de um vértice 
 							temos: $O(log n)$.</p>
 					</small>	
 				</section>
-				
 				<section>
 					<h1>E vamos ao código!</h1>
 					
