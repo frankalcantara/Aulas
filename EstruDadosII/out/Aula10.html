@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Frank Coelho de Alcantara -2020" />
+	<title>Árvores</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta
+		name="apple-mobile-web-app-status-bar-style"
+		content="black-translucent" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	<link rel="stylesheet" href="../../rev/reset.css" />
+	<link rel="stylesheet" href="../../rev/reveal.css" />
+	<link rel="stylesheet" href="../../rev/estrutdados.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section id="title-slide" class="nivel1">
+				<section>
+					<h1>Árvores</h1>
+					<p style="text-align: right !important">Frank Coelho de Alcantara -2020&nbsp;&nbsp;</p>
+				</section>
+			</section>
+			<section class="nivel1">
+				<section>
+					<h2>Definição</h2>
+					<small style="font-size: 80% !important;">
+						<p class="fragment fade-up">Árvores são estruturas de dados não lineares e hierárquicas formadas por vértices e arestas.</p>
+						<p class="fragment fade-up">Árvores são casos especiais de grafos cuja nomenclatura é importada da botânica.</p>
+						<p class="fragment fade-up">As árvores são classificadas de acordo com o número de arestas que cada vértice pode ter e 
+							a forma como os vértices são ordenados.</p>
+						<p class="fragment fade-up">A árvore mais simples é a árvore binária.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Nomenclatura</h2>
+					<img data-src="../img/tree1.png" class="fragment fade-up" style="height: 369px !important;"
+						alt="símbolo meramente ilustrativo, sem valor didático" />
+				</section>
+				<section>
+					<h2>Outras Árvores</h2>
+					<small style="font-size: 65% !important;">
+						<p class="fragment fade-up"><strong>Vazia</strong>: são árvores sém vértices.</p>
+						<p class="fragment fade-up"><strong><i>Root Tree</i></strong>: uma árvore que só tem a raiz.</p>
+						<p class="fragment fade-up"><strong>Heap</strong>: os pais tem valores maiores que os valores dos filhos.</p>
+						<p class="fragment fade-up"><strong>Binary Search Tree</strong>: assim como o <i>heap</i> as <i>BTS</i> têm regras especias de construção. </p>
+					</small>	
+				</section>
+				<section>
+					<h2>Árvores Binárias</h2>
+					<small style="font-size: 65% !important;">
+						<p class="fragment fade-up">Árvores binárias são árvores que cada vértice pode ter apenas duas arestas.</p>
+						<p class="fragment fade-up">Ou, usando a nomenclatura de árvores: cada pai pode ter apenas dois filhos.</p>
+						<p class="fragment fade-up">Dizemos que a árvore binária é completa quanto todos os pais têm dois filhos.</p>
+						<p class="fragment fade-up">Uma árvore binária é composta de um pai e dois filhos. E esta estrutura pode ser repetida recursivamente para cada filho.
+							 Assim, cada galho, será formado por no máximo duas folhas. </p>
+						<p class="fragment fade-up">Usamos árvores como estrutura de dados entre outras coisas por que: $O(nlogn)$.</p>
+					</small>	
+				</section>
+				<section>
+					<h2>Árvores Binárias - Análise</h2>
+					<small style="font-size: 65% !important;">
+						<p class="fragment fade-up">A altura é o número de vértices entre a raíz e a última folha.</p>
+						<p class="fragment fade-up">Se a árvore é binária, dada uma altura $h$ teremos: $$n = 1 +2^1+2^2+2^3+...+2^h$$</p>
+						<p class="fragment fade-up">Que pode ser reduzida a $$n = 2^{h=1}-1$$.</p>
+						<p class="fragment fade-up">E podemos mostrar que $$h = floor(log_2 n$$</p>
+						<p class="fragment fade-up">A busca de um vértice específico irá tomar, no pior caso: $ceiling(log_2 n)$ Como isso também é verdade para a adição de um vértice 
+							temos: $O(log n)$.</p>
+					</small>	
+				</section>
+				
+				<section>
+					<h1>E vamos ao código!</h1>
+					
+				</section>
+				
+			</section>
+		</div>
+	</div>
+	<div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+	<script src="../../rev/reveal.js"></script>
+	<script src="../../rev/plugin/notes/notes.js"></script>
+	<script src="../../rev/plugin/search/search.js"></script>
+	<script src="../../rev/plugin/zoom/zoom.js"></script>
+	<script src="../../rev/plugin/math/math.js"></script>
+	<script src="../../rev/plugin/menu/menu.js"></script>
+	<script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+	<script>
+		// Full list of configuration options available at:
+		// https://revealjs.com/config/
+		Reveal.initialize({
+			// Push each slide change to the browser history
+			history: true,
+			// Transition style
+			transition: "fade", // none/fade/slide/convex/concave/zoom
+			center: false,
+			math: {
+				mathjax:
+					"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+				config: "TeX-AMS_HTML-full",
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: {
+					Macros: {
+						RR: "{\\bf R}",
+					},
+				},
+			},
+			menu: {
+				side: "left",
+				width: "normal",
+				numbers: false,
+				titleSelector: "h1, h2, h3, h4, h5, h6",
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: false,
+				themesPath: "dist/theme/",
+				transitions: false,
+				openButton: true,
+				openSlideNumber: false,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true,
+			},
+
+			// reveal.js plugins
+			plugins: [
+				RevealNotes,
+				RevealMath,
+				RevealMenu,
+				RevealChalkboard,
+				RevealSearch,
+				RevealZoom,
+			],
+		});
+	</script>
+</body>
+
+</html>
