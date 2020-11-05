@@ -4,22 +4,26 @@ Exemplo inicial
 Escreva, na base de conhecimento, o seguinte:
 
 humano(joao).
-Com isso, você está afirmando que joao é humano. humano(joao), nesse contexto, é um fato.
+Com isso, você está afirmando que joao é humano. humano(joao), 
+nesse contexto, é um fato.
 
 Agora, na área de consulta, escreva o seguinte:
 
 humano(joao).
-Você está fazendo uma consulta: joao é humano? Na área de resultados, o interpretador vai responder true..
+Você está fazendo uma consulta: joao é humano? Na área de 
+resultados, o interpretador vai responder true..
 
 Outras consultas para testar:
 
 humano(shrek).
 humano(caetano).
 humano(X).
-false significa “não é possível provar que é verdadeiro” (hipótese do mundo fechado).
+false significa “não é possível provar que é verdadeiro” 
+(hipótese do mundo fechado).
 
 Exemplo mais completo
-Vamos tentar um exemplo mais completo. Digite o seguinte na base de conhecimento:
+Vamos tentar um exemplo mais completo. 
+Digite o seguinte na base de conhecimento:
 
 humano(joao).
 humano(maria).
