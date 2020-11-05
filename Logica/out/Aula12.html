@@ -88,7 +88,7 @@
 				</section>
 				<section>
 					<h2>Exemplo 2</h2>
-					<small style="font-size:75% !important; ">
+					<small style="font-size:70% !important; ">
 						<p class="fragment fade-up">Dada a expressão $\forall x \exists y(P(x, y) ∨ B(x))$ é possível escrever um número indeterminado de modelos:</p>
 						<ol style="margin-left: 7%;">
 							<li class="fragment fade-up">Considerando o universo dos números reais onde $P(x, y)$ representa que $x$ é maior que $y$ e que $B(x)$ 
@@ -101,237 +101,197 @@
 				</section>
 				<section>
 					<h2>Exemplo 3</h2>
-					<small style="font-size:75% !important; ">
+					<small style="font-size:70% !important; ">
 						<p class="fragment fade-up">Dada a expressão $\forall x \exists yL(f(x, 0), y)$ escreva, no mínimo, dois modelos.</p>
 						<ol style="margin-left: 7%;">
-							<li class="fragment fade-up">Let the universe be all real numbers, let P(x, y) represent x is greater than
-								y, and let B(x) represent x is rational. A translation in this model is:
-								For all real numbers x, there is a corresponding real number y where either
-								x is greater than y or x is rational.</li>
-							<li class="fragment fade-up">Let the universe be all people, let P(x, y) represent x is y’s father, and let
-								B(x) represent x is deceased. A translation in this model is:
-								For all people x, there is a corresponding person y where either x is y’s
-								father or x is deceased.</i></li>
+							<li class="fragment fade-up">Considere o conjunto dos números reais, façamos o predicado $P(x, y)$ representar $x$ é maior que $y$,
+								e $B(x)$ representar o predicado é racional. A tradução seria: para todo número real $x$, existe um numero real $y$ de tal forma que: ou 
+								$x$ é maior que $y$ ou Sx$ é racional. 
+							<li class="fragment fade-up">Considere o conjunto de todos so seres humanos, façamos o predicado $P(x, y)$ representa $x$ é pai de $y$, e 
+								$B(x)$ representa $x$ está morto. Teríamos: para toda pessoa $x$ existe uma pessoa $y$ de tal forma que ou $x$ é pai de $y$ ou $x$ está morto.
+								
 						</ol>	
-						<p class="fragment fade-up">Você pode construir qualquer outro modelo que sua imaginação permitir desde que todos os requisitos para a construção de modelos sejam cumpridos.</p>
+						<p class="fragment fade-up">Construa o seu próprio modelo escolhendo predicados para a expressão acima.</p>
 					</small>
 				</section>
 				<section>
-					<h2>Termos</h2>
-					<small style="font-size: 83% !important;">
-					<p class="fragment fade-up">Variáveis, ou constantes, são termos.</p>
-					<p class="fragment fade-up">Se $x_1, x_2, ... , x_n$ são termos e $f$ é um símbolo de uma função <i>n-ária</i>, teremos: 
-						$f(x_1, x_2, ... , x_n)$ como sendo um termo.</p>
-					<ol style="margin-left: 7%;">
-						<li class="fragment fade-up">Variáveis: $x$ e $y$.</li>
-						<li class="fragment fade-up">Constantes: $a$ e $b$ <i>(função zero-ária)</i>.</li>
-						<li class="fragment fade-up">Funções: $f(x, a)$, <i>(função binária)</i>.</li>
-						<li class="fragment fade-up">Funções: $g(y, f(x, a), c)$, <i>função ternária com um termo binário e dois constantes</i> .</li>
-					</ol>
-					<p class="fragment fade-up">Variáveis, constantes e funções são termos.</p>	
-				</small>
-				</section>
-				<section>
-					<h2>Predicados e Termos:</h2>
-					<small style="font-size: 72% !important;">
-					<p  class="fragment fade-up">Usando a aritmética como exemplo:</p>
-						<ol style="margin-left: 7%; font-size: 78%;">
-							<li class="fragment fade-up">Funções: $+, −, \times, \div$.</li>
-							<li class="fragment fade-up">Constantes: $1, 2, . . . , 9, 0$.</li>
-							<li class="fragment fade-up">Termos: $x, 9, y, 8$. $+(5, 8)$ e  $+(−(8, 7), 3)$.</li>
-						</ol>
-						<p  class="fragment fade-up">Funções predicativas diversas:</p>
-						<ol style="margin-left: 7%; font-size: 78%;">
-							<li class="fragment fade-up">$Idade(pessoa)$: $Idade(Márcia)=21$.</li>
-							<li class="fragment fade-up">$População(cidade)$: $População(Curitiba)>2000000$</li>
-							<li class="fragment fade-up">$Irmãs(pessoa, pessoa)$: $Irmãs(Márcia, Jane)$</li>
-							<li class="fragment fade-up">$Gato(animal)$: $Gato(Thor)$</li>
-						</ol>
-						<p  class="fragment fade-up">Os termos têm funções parecidas com as funções de substantivos e pronomes nas linguagens naturais.</p>
-					</small>
-				</section>
-				<section>
-					<h2>Átomos</h2>
-					<p class="fragment fade-up">As verdades, $True, T, \top $ e $False, F, \bot$ são átomos.</p>
-					<p class="fragment fade-up">Se $\{t_1, t_2, ..., t_n\}$ são termos e $P$ é um predicado, com qualquer aridade então: $P(t_1, t_2, ..., t_n)$ é um átomo. Exemplos:</p>
-					<ol style="margin-left: 7%; font-size: 78%;">
-						<li class="fragment fade-up">Verdades: $T$ e $F$.</li>
-						<li class="fragment fade-up">Predicados: $P$ e $Gato$.</li>
-						<li class="fragment fade-up">Função Predicativa: $g(y, f(x, a), c)$.</li>
-						<li class="fragment fade-up">Função: $ =; \geq$.</li>
-						<li class="fragment fade-up">Função Predicativa: $\geq(-(4,2), 3) \Leftrightarrow \bot$ .</li>
-						<li class="fragment fade-up">Função Predicativa: $\neq(\times(4,2), 7) \Leftrightarrow \top$.</li>
-					</ol>
-				</section>
-				<section>
-					<h2>Fórmulas Bem Formadas</h2>
-					<small style="margin-left: 2%; font-size: 74% !important; width: 95%;">
-					<p class="fragment fade-up">Assim como na lógica proposicional, temos um conjunto de regras para a criação de fórmulas:</p>
-					<ol style="margin-left: 8%; font-size: 80%;">
-						<li class="fragment fade-up">Todo átomo é uma Fórmula Bem Formada.</li>
-						<li class="fragment fade-up">Se $P$ é uma Fórmula Bem Formada, então $\neg P$ é uma Fórmula Bem Formada</li>
-						<li class="fragment fade-up">Se $P$ e $Q$ são Fórmulas Bem Formadas, então $P\vee Q; P\wedge Q; P\rightarrow Q$ e $P\leftrightarrow Q$ são Fórmulas Bem Formadas.</li>
-						<li class="fragment fade-up">Se $P$ é uma Fórmula Bem Formada e $x$ uma variável, então $\forall xP$ e $\exists xP$ são Fórmulas Bem Formadas.</li>
-						<li class="fragment fade-up">Não existe nenhuma outra Fórmula Bem Formada.</li>
-					</ol>
-					<p class="fragment fade-up">Toda concatenação de símbolos na lógica de predicados, que seja uma Fórmula Bem Formada, será uma <i>expressão</i>.</p>
-					</small>
-				</section>
-				<section>
-					<h2>Subtermo e subfórmula</h2>
-					<p class="fragment fade-up">São lexemas usados para definir as partes da fórmula:</p>
-					<ol style="margin-left: 6%;	font-size: 68% !important;">
-						<li class="fragment fade-up">Se $P = x$, então $x$ é subtermo de $P$.</li>
-						<li class="fragment fade-up">Se $P = f(t_1, t_2, ..., t_n)$, então $t_i$ e $f(t_1, t_2, ..., t_n)$ são subtermos de $P$.</li>
-						<li class="fragment fade-up">Se $t_1$ é subtermo de $t_2$ e $t_2$ é subtermo de $P$, então $t_1$ é subtermo de $P$.</li>
-						<li class="fragment fade-up">Se $Q$ é uma Fórmula Bem Formada e $P = \neg Q$, então $Q$ e $\neg Q$ são subfórmulas de $P$.</li>
-						<li class="fragment fade-up">Se $Q$ e $R$ são Fórmulas Bem Formadas e $P$ é uma das operação $(Q\vee R; Q\wedge R; Q\rightarrow R; Q\leftrightarrow R)$, 
-							então $Q$, $R$, e $P$ são subfórmulas de $P$.</li>
-						<li class="fragment fade-up">Se $P$ é uma Fórmula Bem Formada, $x$ uma variável, então $\forall xP$ e $\exists xP$ são subfórmulas de $P$.</li>
-						<li class="fragment fade-up">Se $R$ é subfórmula de $Q$ e $Q$ é subfórmula de $P$, então $R$ é subfórmula de $P$;</li>
-					</ol>
-					<p class="fragment fade-up">Todo subtermo e subfórmula são subexpressões.</p>
-				</section>
-				<section>
-					<h2>Exemplo 1</h2>
-					<small style="margin-left: 2%; font-size: 74% !important; width: 95%;">
-						<p class="fragment fade-up">Considerando que o nosso domínio, ou contexto, ou universo, seja formado pelo conjunto dos números reais ${\rm I\!R}$
-							e que os símbolos $\times ; -, 0$ e $1$ tenham o mesmo significado da aritmética; Traduza para o português as seguintes Fórmulas Bem Formadas.</p>
-						<ul style="margin-left: 6%;	font-size: 68% !important;">
-							<li class="fragment fade-up">$\forall x(x \times 0=0)$</li>
-							<li class="fragment fade-up">R. Para todo e qualquer número real $x$, teremos $x$ vezes $0$ igual a $0$.</li>
-							<li class="fragment fade-up">$\forall x(x \times x - x =0 \rightarrow (x = 0 \vee x = 1))$</li>
-							<li class="fragment fade-up">R. Para todo e qualquer número real $x$, se $x$ vezes $x$ menos $x$ igual a $0$ então $x$ igual a zero ou $x$ igual a 1.</li>
-							<li class="fragment fade-up">$\forall x \exists y(x \times y = 1)$</li>
-							<li class="fragment fade-up">R. Para todo e qualquer número real $x$, existe um número real $y$ tal que $x$ vezes $y$ igual a 1.</li>
-						</ul>
-					</small>
-				</section>
-				<section>
-					<h2>Exemplo 2</h2>
-					<small style="margin-left: 2%; font-size: 74% !important; width: 95%;">
-					<p class="fragment fade-up">Considerando que o nosso domínio, ou contexto, ou universo, seja formado pelo conjunto dos números naturais ${\mathbb{N}}$
-						que $f(x)$ signifique  $x + 1$, and $g(x)$ signifique $x = 0$. Traduza para o português as seguintes Fórmulas Bem Formadas.
-						<ul style="margin-left: 6%;	font-size: 68% !important;">
-							<li class="fragment fade-up">$\forall x\neg g(f(x))$</li>
-							<li class="fragment fade-up">R. Para todo e qualquer número natural $x$, não é verdade que $x$ mais $1$ é igual a $0$.</li>
-							<li class="fragment fade-up">R. Ou: para todo e qualquer número natural $x$, $x$ mais $1$ é diferente de $0$.</li>
-							<li class="fragment fade-up">$\exists xg(f(x))$</li>
-							<li class="fragment fade-up">R. Existe um número natural $x$, tal que $x$ mais $1$ é igual $0$.</li>
-							<li class="fragment fade-up">$\exists x\neg g(f(x))$</li>
-							<li class="fragment fade-up">R. Existe um número natural $x$, tal que $x$ mais $1$ é diferente de $0$.</li>
-						</ul>
-					</small>
-				</section>
-				<section>
-					<h2>Exemplo 3</h2>
-					<small style="margin-left: 2%; font-size: 64% !important; width: 95%;">
-					<p class="fragment fade-up"> Considerando que o contexto é composto de todos os seres humanos e que o predicado $L(x,y)$ representa <i>$x$ ama $y$</i>, ou que 
-						$y$ é amado por $x$. Podemos usar os quantificadores universais para representar diversos conceitos:</p>
-						<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em;">
-							<li class="fragment fade-up">$\forall x\forall y L(x,y)$: todo mundo ama todo mundo.</li>
-							<li class="fragment fade-up">$\forall y\forall x L(x,y)$: ou todo mundo é amado por todo mundo.</li>
-							<li class="fragment fade-up">Estas sentenças significam a mesma coisa.</li>
-						</ul>
-						<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em; margin-top:1%;">
-							<li class="fragment fade-up">$\exists x \exists y L(x,y)$: alguém ama alguém.</li>
-							<li class="fragment fade-up">$\exists y \exists x L(x,y)$: alguém é amado por alguém.</li>
-							<li class="fragment fade-up">Estas sentenças significam a mesma coisa.</li>
-						</ul>
-						<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em; margin-top:1%;">
-							<li class="fragment fade-up">$\forall x\exists y L(x,y)$: todo mundo ama alguém.</li>
-							<li class="fragment fade-up">$\forall y\exists x L(x,y)$: todo mundo é amado por alguém.</li>
-							<li class="fragment fade-up">Estas sentenças NÃO significam a mesma coisa. "Todas as pessoas tem alguém que ama"; "Todas as pessoas tem alguém que as amam".</li>
-						</ul>
-						<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em; margin-top:1%;">
-							<li class="fragment fade-up">$\exists x\forall y L(x,y)$: alguém ama todo mundo.</li>
-							<li class="fragment fade-up">$\exists y\forall x L(x,y)$. alguém é amado por todo mundo.</li>
-							<li class="fragment fade-up">Estas sentenças NÃO significam a mesma coisa.</li>
-						</ul>
+					<h2>Verdade e Falsidade</h2>
+						<table style=" font-size: 70%; width: 90%;">
+						<tr>
+							<th>Declaração</th>
+							<th>Quando Verdadeiro</th>
+							<th>Quando Falso</th>
+						</tr>
+						<tr>
+							<td>$\forall xP(x)$</td>
+							<td>$P(x)$ é verdadeiro para todos os $x$.</td>
+							<td>Existe pelo menos um $x$ para o qual $P(x)$ é falso.</td>
+						</tr>
+						<tr>
+							<td>$\exists xP(x)$</td>
+							<td>Existe um $x$ para o qual $P(x)$ é verdadeiro.</td>
+							<td>$P(x)$ é falso para todo $x$.</td>
+						</tr>
+					</table>
+					<small style="font-size: 70% !important;">
+					<p class="fragment fade-up">Claramente, a verdade será descoberta em um domínio. Considere $P(x)$ representando o predicado <i>menor que 2</i> neste caso 
+					considerando o conjunto dos números reais. Qual o valor verdade para $\forall xP(x)$?</p>	
+					<p class="fragment fade-up">$P(x)$ não é verdadeiro para qualquer $x$ pertencente aos reais já que para qualquer instância deste predicado para $x>2$ ele não será verdade.
+						O valor $x=3$ é um contra exemplo que mostra a falsidade deste predicado.
+					</p>	
 					</small>
 				</section>
 				<section>
 					<h2>Exemplo 4</h2>
-					<small style="margin-left: 2%; font-size: 75% !important; width: 95%;">
-						<p class="fragment fade-up"> Traduza para cálculo predicativo as seguintes sentenças:</p>
-							<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em;">
-								<li class="fragment fade-up">Considerando como universo os números naturais traduza: Para todos números naturais $n$, $n$ é menor ou igual a $n$ elevado ao quadrado.</li>
-								<li class="fragment fade-up">Se $f(x) = x^2$ e $P(x,y)$ representar o predicado $x\leq y$ teremos:</li>
-								<li class="fragment fade-up">$\forall xP(x,f(x))$. O que está perfeito no nosso formalismo.</li>
-								<li class="fragment fade-up">Mas, podemos aceitar as regras da álgebra e escrever: $\forall n(n\leq n^2)$. O que é aceitável.</li>
-							</ul>
-							<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em; margin-top:3%;">
-								<li class="fragment fade-up">Considerando como universo os números reais traduza: Para todos números naturais $n$, $n$ é menor ou igual a $n$ elevado ao quadrado.</li>
-								<li class="fragment fade-up">Neste caso, primeiro precisamos indicar que $n$ é um número natural: $N(x)$ então teremos</li>
-								<li class="fragment fade-up">$\forall x(N(x)\rightarrow P(x,f(x)))$. 
-							</ul>
-						
-						</small>
-					
+					<small style="font-size: 72% !important;">
+					<p  class="fragment fade-up">Suponha que $Q(x)$ represente $x^2 > 0$. Prove que a expressão $\forall xQ(X)$ é falsa no universo dos números inteiros.</p>
+					<p  class="fragment fade-up">Para provar que uma expressão utilizando o quantificador universal $\forall$ é falsa basta encontrar um $x$, no universo dos inteiros 
+						para o qual $x^2 > 0$ é falso. Neste caso o contra exemplo é o zero já que $0^2 = 0$.
+					</p>
+					<p  class="fragment fade-up">Observe também que quando os elementos de um determinado universo podem ser contados, $x_1, x-2, x_3, ... x_n$, o quantificador universal 
+						de um $P(x)$ qualquer $\forall xP(x)$ é equivalente à: $P(x_1) \wedge P(x_2) \wedge P(x_3)... \wedge P(x_n)$. Já que esta conjunção só será verdadeira se 
+						$P(x)$ for verdadeiro para todo e qualquer $x$ deste universo.
+					</p>
+					</small>
 				</section>
 				<section>
 					<h2>Exemplo 5</h2>
-					<small style="margin-left: 2%; font-size: 75% !important; width: 95%;">
-						<p class="fragment fade-up">Considerando o domínio sendo formado por todos os seres humanos, traduza para o cálculo predicativo o seguinte silogismo:</p>
-							<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em;">
-								<li class="fragment fade-up">Sócrates é um homem. Todos os homens têm nariz grande. Sócrates tem nariz grande.</li>
-								<li class="fragment fade-up">Vamos representar o predicado ser um homem por $H(x)$.</li>
-								<li class="fragment fade-up">Vamos representar o predicado nariz grande por $N(x)$.</li>
-								<li class="fragment fade-up">Vamos representar Sócrates pela constante $s$.</li>
-								<li class="fragment fade-up">Teremos: $H(s)$; $\forall x(H(x)\rightarrow N(x))$; $N(s)$.</li>
-							</ul>
-							<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em; margin-top:3%;">
-								<li class="fragment fade-up">Considerando como universo os números reais traduza: Para todos números naturais $n$, $n$ é menor ou igual a $n$ elevado ao quadrado.</li>
-								<li class="fragment fade-up">Neste caso, primeiro precisamos indicar que $n$ é um número natural: $N(x)$ então teremos</li>
-								<li class="fragment fade-up">$\forall x(N(x)\rightarrow P(x,f(x)))$. 
-							</ul>
-						
-						</small>
-					
-				</section>
-				<section>
-					<h2>Variáveis Livres</h2>
-					<small style="margin-left: 2%; font-size: 62% !important; width: 95%;">
-						<p class="fragment fade-up">Usamos parênteses para definir a parte da fórmula que é afetada pelos quantificadores. O fragmento entre parênteses 
-							é chamado de <strong>escopo</strong> do quantificador:
-						</p>
-						<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em; margin-top:3%;">
-							<li class="fragment fade-up">$\forall x(P(x)\rightarrow \forall y(R(x) \vee Q(y)))\vee B(x)$</li>
-							<li class="fragment fade-up">O Escopo de $\forall x$ é dado por $(P(x)\rightarrow \forall y(R(x) \vee Q(y)))$</li>
-							<li class="fragment fade-up">O Escopo de $\forall y$ é dado por $(R(x) \vee Q(y))$</li>
-						</ul>
-						<p class="fragment fade-up">Todas as variáveis que ocorrem no escopo de um quantificador é dita <strong>Ligada</strong>  a este quantificador. Todas as variáveis em uma 
-							Fórmula Bem Formada que não está ligada a um quantificador é dita <strong>Livre</strong>.
-						</p>
-						<ul style="margin-left: 6%; font-size: 75% !important;line-height: 1.5em; margin-top:3%;">
-							<li class="fragment fade-up">$\forall x(P(x)\rightarrow \forall y(R(x) \vee Q(y)))\vee B(x)$</li>
-							<li class="fragment fade-up">Apenas  $B(x)$ é livre.</li>
-						</ul>
-						<p class="fragment fade-up">Uma fórmula sem variáveis livres é chamada de <strong>Fórmula Fechada</strong> ou <strong>Sentença</strong> .
-						</p>
+					<small style="font-size: 75% !important;">
+						<p class="fragment fade-up">Considere o domínio dos números naturais não maiores que $4$ e determine o valor verdade de $\forall xR(x)$ onde $R(x)$ representa $x^2 \leq 10$.</p>
+						<p class="fragment fade-up">Neste caso, como o domínio é pequeno, podemos utilizar a equivalência a conjunção.</p>
+						<p class="fragment fade-up">$\forall xR(x)$ será verdade só, e somente só, $P(x_1)\wedge P(x_2)\wedge P(x_3)\wedge P(x_4)$ for verdadeiro.</p>
+						<p class="fragment fade-up">No caso, $P(1)\wedge P(2)\wedge P(3)\wedge P(4)$ então termos $1^2 =1, 2^2 = 4, 3^2=9, 4^2 =16$, claramente a última interpretação é falsa.</p>
+						<p class="fragment fade-up">Logo a expressão $\forall xR(x)$ é falsa no universo determinado se $R(x)$ representa $x^2 \leq 10$.</p>
 					</small>
 				</section>
 				<section>
 					<h2>Exemplo 6</h2>
-					<small style="margin-left: 2%; font-size: 75% !important; width: 95%;">
-						<p class="fragment fade-up">$P(x,y)$ tem duas variáveis livres $x$ e $y$.</p>
-						<p class="fragment fade-up">$\exists yP(x,y)$ tem uma variável livre $x$.</p>
-						<p class="fragment fade-up">$\forall x\exists yP(x,y)$ é fechada.</p>
-						<p class="fragment fade-up">O fechamento universal de $P(x,y)$ é $\forall x\forall yP(x,y)$.</p>
-						<p class="fragment fade-up">O fechamento existencial de $P(x,y)$  é $\exists x\exists yP(x,y)$.</p>
-						<p class="fragment fade-up">Em $\forall xP(x)\wedge Q(x)$, $x$ é ligada em $P(x)$ e é livre em $Q(x)$.</p>
-						
+					<small style="margin-left: 2%; font-size: 72% !important; width: 95%;">
+					<p class="fragment fade-up">Considere o domínio dos números reais e que $P(x)$ representa $x \geq 3$ e determine a verdade de $\exists xP(x)$.</p>
+					<p class="fragment fade-up">Como existem interpretações no domínio dos reais onde $x \geq 3$ é falso, como os valores $3,4,5,...$ esta expressão é verdadeira.</p>
+					<p class="fragment fade-up">Lembre-se $\exists x$ é lido como <i>existe um</i> então basta um caso para que este quantificador indique a verdade. Lembre-se também que 
+					esta expressão só seria falsa se não existisse nenhum $x$ no domínio dos reais que atendesse o predicado $R(x)$ conforme definido neste exemplo.</p>
+					<p class="fragment fade-up">Por fim, existe uma equivalência entre o $\exists xP(x)$ quando estes valores são enumeráveis e a disjunção. De tal forma que: </p>
+					<p class="fragment fade-up">$\exists xP(x) \equiv P(x_1)\vee P(x_2)\vee P(x_3)\vee ... P(x_n)$ </p>
 					</small>
 				</section>
 				<section>
-					<h2>Interpretação</h2>
+					<h2>Exemplo 7</h2>
+					<small style="font-size: 75% !important;">
+						<p class="fragment fade-up">Considere o domínio dos números naturais não maiores que $4$ e determine o valor verdade de $\exists xR(x)$ onde $R(x)$ representa $x^2 \leq 10$</p>
+						<p class="fragment fade-up">Como no domínio composto por $\{1,2,3,4\}$ a expressão $\exists xR(x)$ onde $R(x)$ representa $x^2 \leq 10$ será equivalente a disjunção:</p>
+						<p class="fragment fade-up">$P(x_1)\vee P(x_2)\vee P(x_3)\vee ... P(x_n)$</p>
+						<p class="fragment fade-up">$\exists xR(x)$ onde $R(x)$ representa $x^2 \leq 10$ é verdadeira já que ela será verdade para as interpretações $\{1,2,3\}$ e bastava 
+							que uma fosse verdadeira.
+						</p>
+					</small>
+				</section>
+				<section>
+					<h2>Singularidade</h2>
+					<small style="margin-left: 2%; font-size: 74% !important; width: 95%;">
+						<p class="fragment fade-up">Os quantificadores existencial e universal são muito importantes na matemática e, com ele podemos representar todas 
+							as condições envolvendo quantidades em raciocínio lógico. Contudo, existe uma representação $\exists!$ especial. Este ponto de exclamação não faz 
+						parte da linguagem da lógica predicativa, como definimos anteriormente, mas tem aplicação na prova de teoremas representando expressões: <i>Existe um 
+							único $x$ para o qual $P(x)$ é verdadeiro</i>. E pode ser utilizado para representar expressões diversas como: </p>
+							<ol>
+								<li  class="fragment fade-up">Existe um e somente um; </li>
+								<li class="fragment fade-up">Existe exatamente um; </li>
+							</ol>
+					
+					</small>
+				</section>
+				<section>
+					<h2>Equivalência lógica</h2>
 					<small style="margin-left: 2%; font-size: 75% !important; width: 95%;">
-						<p class="fragment fade-up">No cálculo proposicional vimos que as fórmulas são interpretadas a partir de fórmulas atômicas em busca da verdade da fórmula composta.</p>
-						<p class="fragment fade-up">No cálculo predicativo, uma analogia válida seria partir das fórmulas atômicas até encontrar o valor verdade da fórmula composta.</p>
-						<p class="fragment fade-up">Neste caso, contudo, as fórmulas atômicas contém variáveis e constantes que devem ser avaliadas em um determinado domínio.</p>
-						<p class="fragment fade-up">Uma vez que o domínio é considerado as fórmulas podem ser interpretadas.</p>
-						<p class="fragment fade-up">O fechamento existencial de $P(x,y) é $\exists x\exists yP(x,y).</p>
-						<p class="fragment fade-up">Nós só definiremos validade em fórmulas fechadas.</p>
+						<p class="fragment fade-up">Expressões envolvendo quantificadores e predicados serão equivalentes em um mesmo domínio se, e somente se, 
+							estas expressões tiverem o mesmo valor verdade em todas as interpretações possíveis no domínio dado. Usaremos $\equiv$ para indicar 
+							a equivalência lógica. 
+						</p>
+					</small>
+				</section>
+				<section>
+					<h2>Exemplo 7</h2>
+					<small style="margin-left: 2%; font-size: 56% !important; width: 95%;">
+						<p class="fragment fade-up">Prove que $\forall x(P(x)\wedge Q(x))$ e $\forall xP(x) \wedge \forall xQ(x)$ são equivalentes em um mesmo domínio dado. Esta é a prova da propriedade distributiva do quantificador universal $\forall$. Precisamos provar duas situações:</p>
+						<ol style="font-size: 80%; margin-left: 5%;">
+							<li class="fragment fade-up">$\forall x(P(x)\wedge Q(x)) \equiv \forall xP(x) \wedge \forall xQ(x)$</li>
+							<li class="fragment fade-up">$\forall xP(x) \wedge \forall xQ(x) \equiv \forall x(P(x)\wedge Q(x))$</li>
+						</ol>
+						<p class="fragment fade-up"> Suponha que $\forall x(P(x)\wedge Q(x))$ é verdadeiro. Isto significa que dado um $a$ qualquer, 
+							$P(a) \wedge Q(a)$ é verdadeiro. Então, $P(a)$ e $Q(a)$ é verdadeiro. Como $P(a)$ e $Q(a)$ é verdadeiro para todos os valores no domínio, 
+							Podemos concluir que  $\forall xP(x)$ e $\forall xQ(x)$ são ambos verdadeiros. Ou seja: $\forall x(P(x)\wedge Q(x))$ é verdadeiro.</p>
+						
+						<p class="fragment fade-up"> Suponha que $\forall xP(x) \wedge \forall xQ(x)$ é verdadeiro. Neste caso $\forall xP(x)$ é verdadeiro e $\forall xQ(x)$ também é 
+							verdadeiro. Então, se $a$ está no mesmo domínio, temos $P(a)$ é verdadeiro e $Q(a)$ verdadeiro por que $P(x)$ e $Q(x)$ são ambos verdadeiros para todos 
+							os elementos do domínio. Consequentemente, para todo o  $a$, $P(a) ∧ Q(a)$ é verdadeiro. Ou seja, $forall x(P(x) ∧ Q(x))$ é verdadeiro.</p>	
+						<p class="fragment fade-up"> Logo: $\forall x(P(x)\wedge Q(x)) \equiv \forall xP(x) \wedge \forall xQ(x)$</p>	
+					</small>
+				</section>
+				<section>
+					<h2>Negação de quantificadores</h2>
+					<small style="margin-left: 2%; font-size: 67% !important; width: 95%;">
+						<p class="fragment fade-up"><i>Todos os alunos da turma fizeram cálculo</i> pode ser representado por $\forall xP(x)$.</p>
+						<p class="fragment fade-up">A negação seria: <i>nem todos os estudantes da turma fizeram cálculo. Como representar isso?</i>.</p>
+						<p class="fragment fade-up">A expressão <i>Fez cálculo</i> é o predicado logo: $\exists x \neg(P)$. Formalmente: $$\neg \forall xP(x) \equiv \exists x \neg(P)$$</p>
+						<p class="fragment fade-up">Da mesma forma teremos: $$\neg \exists xP(x) \equiv \forall x \neg(P)$$</p>
+						<p class="fragment fade-up">Escreva o raciocínio que permite garantir que a última expressão é verdadeira.</p>
+					</small>
+				</section>
+				<section>
+					<h2>De Morgan</h2>
+					<small style="margin-left: 2%; font-size: 65% !important; width: 95%;">
+						<p class="fragment fade-up">As regras da negação de quantificadores são chamadas de <strong>Leis de De Morgan para Quantificadores</strong>.</p>
+						<table class="fragment fade-up" style=" font-size: 70%; width: 90%;">
+							<tr>
+								<th>Declaração</th>
+								<th>Negação</th>
+								<th>Quando a Negação é verdadeira</th>
+								<th>Quando a Negação é falsa</th>
+							</tr>
+							<tr>
+								<td>$\neg \exists xP(x)$</td>
+								<td>$\forall x \neg P(x)$</td>
+								<td>Para todo $x$ $P(x)$ é falso.</td>
+								<td>Existe um $x$ para o qual $x$ $P(x)$ é verdadeiro.</td>
+							</tr>
+							<tr>
+								<td>$\neg \forall xP(x)$</td>
+								<td>$\exists x \neg P(x)$</td>
+								<td>Existe um $x$ para o qual $P(x)$ é falso.</td>
+								<td>$P(x)$ é verdadeiro para todo $x$.</td>
+							</tr>
+						</table>
+						<p class="fragment fade-up">Isto acontece porque quando temos um universo enumerável com $n$ elementos onde $n>1$ as regras para a negação de quantificadores 
+							obedecem exatamente as mesmas propriedades que observamos no cálculo proposicional. $\neg \forall xP(x) \equiv \neg (P(x_1) \wedge P(x_2) \equiv (\neg P(x_1) \vee \neg P(x_2))$</p>
+							<p class="fragment fade-up">Escreva no seu caderno a equivalência da negação do quantificador existencial.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Exemplo 8</h2>
+					<small style="font-size: 75% !important;">
+						<p class="fragment fade-up">Represente formalmente a expressão: <i>existe um político honesto</i>, no domínio formado por todos os políticos e a sua negação. Sem esquecer de expressar a negação em português.</p>
+						<p class="fragment fade-up">Considere o predicado $P(x) como: <i>ser honesto</i>. Neste caso a expressão pode ser representada por: $\exists xP(x)$.</p>
+						<p class="fragment fade-up">A negação de $\exists xP(x)$ representada por $\neg \exists xP(x)$ é equivalente a $\forall x \neg P(x)$</p>
+						<p class="fragment fade-up">Que em português é lida por: todos os políticos são desonestos</p>
+					</small>
+				</section>
+				<section>
+					<h2>Exercício 1</h2>
+					<small style="font-size: 75% !important;">
+						<p class="fragment fade-up">Considerando o universo dos números reais, qual a negação das expressões $\forall x(x2 > x)$ e $\exists x(x2 = 2)$.</p>
+						<p class="fragment fade-up">Este é o exercício participativo de hoje. Observe que temos que representar de forma clara e podemos usar as regras da aritmética.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Prolog</h2>
+					<small style="font-size: 75% !important;">
+						<p class="fragment fade-up">Prolog, linguagem criada nos anos 1970 para o estudo de inteligência artificial.</p>
+						<p class="fragment fade-up">Define dois tipos de declaração:</p>
+						<ol>
+							<li class="fragment fade-up">Fatos <i>Prolog Facts</i>: definição de predicados com especificação de elementos.</li>
+							<li class="fragment fade-up">Regras <i>Prolog Rules</i>: define novos predicados usando aqueles que já foram definidos.</li>
+						</ol>
+						<p class="fragment fade-up">:</p>
 					</small>
 				</section>
 			</section>	
