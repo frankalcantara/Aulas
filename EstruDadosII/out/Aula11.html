@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Frank Coelho de Alcantara -2020" />
+	<title>Árvores BST</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta
+		name="apple-mobile-web-app-status-bar-style"
+		content="black-translucent" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	<link rel="stylesheet" href="../../rev/reset.css" />
+	<link rel="stylesheet" href="../../rev/reveal.css" />
+	<link rel="stylesheet" href="../../rev/estrutdados.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section id="title-slide" class="nivel1">
+				<section>
+					<h1>Binary Search Tree</h1>
+					<p style="text-align: right !important">Frank Coelho de Alcantara -2020&nbsp;&nbsp;</p>
+				</section>
+			</section>
+			<section class="nivel1">
+				<section>
+					<h2>Transversal - <i>in-order</i></h2>
+					<small style="font-size: 65% !important;">
+						<p class="fragment fade-up">Existem três formas principais e não únicas, de se percorrer uma árvore.</p>
+						<p class="fragment fade-up"><i>In-order</i> é a primeira delas, percorremos os vértices de forma recursiva da esquerda para direita e de baixo 
+							para cima, começando na raiz.</p>
+							
+						<p class="fragment fade-up">Visitaremos: $D, B, E, A, F, C, G$</p>
+					</small>
+					<img data-src="../img/tree2.png" class="fragment fade-up" style="height: 234px !important;"
+							alt="símbolo meramente ilustrativo, sem valor didático" />	
+				</section>
+				<section>
+					<h2>Transversal - <i>pre-order</i></h2>
+					<small style="font-size: 65% !important;">
+						<p class="fragment fade-up">Primeiro a raiz depois o vértice da esquerda, depois o vértice da direita.</p>
+							
+						<p class="fragment fade-up">Visitaremos: $A, B, D, E, C, F, G$</p>
+					</small>
+					<img data-src="../img/tree3.png" class="fragment fade-up" style="height: 234px !important;"
+							alt="símbolo meramente ilustrativo, sem valor didático" />	
+				</section>
+				<section>
+					<h2>Transversal - <i>post-order</i></h2>
+					<small style="font-size: 65% !important;">
+						<p class="fragment fade-up">A raiz é visitada por último, então vemos esquerda, direita, raiz.</p>
+							
+						<p class="fragment fade-up">Visitaremos: $D, E, B, F, G, C, A$</p>
+					</small>
+					<img data-src="../img/tree4.png" class="fragment fade-up" style="height: 234px !important;"
+							alt="símbolo meramente ilustrativo, sem valor didático" />	
+				</section>
+				<section>
+					<h2>BST - Definição</h2>
+					<small style="font-size: 65% !important; width: 90%;">
+						<p class="fragment fade-up">São árvores binárias com uma estrutura de criação ordenada.</p>
+						<p class="fragment fade-up">A árvore a esquerda contém nós cujo valor é menor que o valor do nó raiz.</p>
+						<p class="fragment fade-up">A árvore da direita contém nós cujo valor é maior que o valor do nó raiz.</p>
+						<p class="fragment fade-up">A árvore mais simples é a árvore binária.</p>
+					</small>
+					<img data-src="../img/bsf1.png" class="fragment fade-up" style="height: 255px !important;"
+						alt="símbolo meramente ilustrativo, sem valor didático" />
+				</section>
+				<section>
+					<h2>BST - Busca</h2>
+					<small style="font-size: 65% !important; width: 90%;">
+						<p class="fragment fade-up">Busca, recursiva, começamos comparando o valor do nó raiz.</p>
+						<p class="fragment fade-up">Se o valor procurado for menor, vamos para o nó da esquerda. E chamamos a busca recursivamente.</p>
+						<p class="fragment fade-up">Se o valor for maior, vamos para o nó da direita. E chamamos a busca recursivamente.</p>
+						<p class="fragment fade-up">Se o valor for igual, encontramos.</p>
+						<p class="fragment fade-up">Se o nó for nulo, chegamos ao final da árvore e não encontramos.</p>
+					</small>
+				</section>
+				<section>
+					<h2>BST - Inserção</h2>
+					<small style="font-size: 65% !important; width: 90%;">
+						<p class="fragment fade-up">Inserção, recursiva, começamos comparando o valor do nó raiz.</p>
+						<p class="fragment fade-up">Se o valor a ser inserido for menor, vamos para o nó da esquerda. E chamamos a inserção recursivamente.</p>
+						<p class="fragment fade-up">Se o valor a ser inserido for maior, vamos para o nó da direita. E chamamos a inserção recursivamente.</p>
+						<p class="fragment fade-up">Se o valor for igual, não inserimos, ou chamamos a busca a direita.</p>
+						<p class="fragment fade-up">Se o nó for nulo, inserimos o nó neste ponto.</p>
+					</small>
+				</section>
+				<section>
+					<h2>BST - Apagar</h2>
+					<small style="font-size: 65% !important; width: 90%;">
+						<p class="fragment fade-up">Função Apagar, recursiva, começamos comparando o valor do nó raiz.</p>
+						<p class="fragment fade-up">Se o valor a ser apagado for menor, vamos para o nó da esquerda. E chamamos a função Apagar recursivamente.</p>
+						<p class="fragment fade-up">Se o valor a ser apagado for maior, vamos para o nó da direita. E chamamos a função Apagar recursivamente.</p>
+						<ol>
+							<li>Se o valor for igual, e for uma folha, simplesmente apagamos.</li>
+							<li>Se o valor for igual e este nó tem apenas um filho. Apagamos e colocamos este filho no pai do nó.</li>
+							<li>Se o valor for igual e este mais de um filho. então: 
+								<ul>
+									<li>Pegue o sucessor deste nó usando a regra <i>In Order</i>.</li>
+									<li>Coloque o sucessor encontrado no lugar do nó.</li>
+									<li>Remova o sucessor da sua posição original.</li>
+								</ul>
+							</li>
+						</ol>
+					</small>
+				</section>
+				<section>
+					<h2>Apagar Graficamente</i></h2>
+					<img data-src="../img/bst2.jpg" class="fragment fade-up" style="height: 455px !important;"
+						alt="símbolo meramente ilustrativo, sem valor didático" />	
+					<img data-src="../img/bst3.jpg" class="fragment fade-up" style="height: 455px !important;"
+						alt="símbolo meramente ilustrativo, sem valor didático" />	
+					<img data-src="../img/bst4.jpg" class="fragment fade-up" style="height: 455px !important;"
+						alt="símbolo meramente ilustrativo, sem valor didático" />	
+						<small style="font-size: 53% !important; width: 97%;">
+							<p class="fragment fade-up">Fonte: <a href="https://www.programiz.com/dsa/binary-search-tree" target="_blank" rel="noopener noreferrer">Binary Search Tree(BST)</a>.</p>
+						</small>
+				</section>
+				<section>
+					<h2>BST - Complexidade</i></h2>
+					<table>
+						<tr>
+							<th>Operação</th>
+							<th>Melhor</th>
+							<th>Médio</th>
+							<th>Pior</th>
+						</tr>
+						<tr>
+							<td>Busca</td>
+							<td>$O(log n)$</td>
+							<td>$O(log n)$</td>
+							<td>$O(n)$</td>
+						</tr>
+						<tr>
+							<td>Inserir</td>
+							<td>$O(log n)$</td>
+							<td>$O(log n)$</td>
+							<td>$O(n)$</td>
+						</tr>
+						<tr>
+							<td>Apagar</td>
+							<td>$O(log n)$</td>
+							<td>$O(log n)$</td>
+							<td>$O(n)$</td>
+						</tr>
+					</table>
+				</section>
+				
+				<section>
+					<h1>E vamos ao código!</h1>
+					
+				</section>
+				
+			</section>
+		</div>
+	</div>
+	<div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+	<script src="../../rev/reveal.js"></script>
+	<script src="../../rev/plugin/notes/notes.js"></script>
+	<script src="../../rev/plugin/search/search.js"></script>
+	<script src="../../rev/plugin/zoom/zoom.js"></script>
+	<script src="../../rev/plugin/math/math.js"></script>
+	<script src="../../rev/plugin/menu/menu.js"></script>
+	<script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+	<script>
+		// Full list of configuration options available at:
+		// https://revealjs.com/config/
+		Reveal.initialize({
+			// Push each slide change to the browser history
+			history: true,
+			// Transition style
+			transition: "fade", // none/fade/slide/convex/concave/zoom
+			center: false,
+			math: {
+				mathjax:
+					"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+				config: "TeX-AMS_HTML-full",
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: {
+					Macros: {
+						RR: "{\\bf R}",
+					},
+				},
+			},
+			menu: {
+				side: "left",
+				width: "normal",
+				numbers: false,
+				titleSelector: "h1, h2, h3, h4, h5, h6",
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: false,
+				themesPath: "dist/theme/",
+				transitions: false,
+				openButton: true,
+				openSlideNumber: false,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true,
+			},
+
+			// reveal.js plugins
+			plugins: [
+				RevealNotes,
+				RevealMath,
+				RevealMenu,
+				RevealChalkboard,
+				RevealSearch,
+				RevealZoom,
+			],
+		});
+	</script>
+</body>
+
+</html>

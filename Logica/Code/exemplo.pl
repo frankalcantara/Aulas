@@ -52,11 +52,18 @@ Agora realize a consulta humano(joao). Qual é o retorno?
 Realize também a consulta humano(X). Qual é o retorno?
 
 Conceitos
-Um programa em Prolog é uma base de conhecimento que contém cláusulas finalizadas por ponto (.). Essas cláusulas representam o que sabemos sobre o mundo.
+Um programa em Prolog é uma base de conhecimento 
+que contém cláusulas finalizadas por ponto (.). 
+Essas cláusulas representam o que sabemos sobre o mundo.
 
-Uma cláusula pode ser um fato ou uma regra. Uma regra possui cabeça e corpo, no formato cabeça :- corpo. A interpretação da regra é “se o corpo é verdadeiro, então a cabeça é verdadeira”.
+Uma cláusula pode ser um fato ou uma regra. 
+Uma regra possui cabeça e corpo, no formato cabeça :- corpo.
+ A interpretação da regra é 
+ “se o corpo é verdadeiro, então a cabeça é verdadeira”.
 
-Identificadores começados por letras minúsculas são átomos, que representam objetos específicos do nosso mundo. Identificadores começados por letras maiúsculas são variáveis.
+Identificadores começados por letras minúsculas são átomos, 
+que representam objetos específicos do nosso mundo. 
+Identificadores começados por letras maiúsculas são variáveis.
 
 Uma variável tem validade apenas dentro da cláusula onde se encontra. Assim, duas ocorrências de X na mesma cláusula correspondem à mesma variável:
 
@@ -78,7 +85,8 @@ amigo(joao, joao).
 % Qual o resultado das consultas a seguir?
 % amigo(X, X).
 % amigo(X, Y).
-O predicado amigo é um predicado binário. Por isso, chamamos ele de amigo/2.
+O predicado amigo é um predicado binário. 
+Por isso, chamamos ele de amigo/2.
 
 Variáveis começadas por _ não são exibidas no resultado da consulta. Exemplos: _X, _Y. Usamos nomes começados por _ para variáveis cujo valor não estamos interessados. Exemplo de código:
 
