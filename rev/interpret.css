@@ -295,7 +295,7 @@ html * {
  * LINKS
  *********************************************/
 .reveal a {
-	color: antiquewhite;
+	color:burlywood;
 	text-decoration: none;
 	transition: color 0.15s ease;
 }
