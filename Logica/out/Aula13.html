@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Frank Coelho de Alcantara -2020" />
+	<title>Propriedades dos Quantificadores</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta
+		name="apple-mobile-web-app-status-bar-style"
+		content="black-translucent" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	<link rel="stylesheet" href="../../rev/reset.css" />
+	<link rel="stylesheet" href="../../rev/reveal.css" />
+	<link rel="stylesheet" href="../../rev/logica.css" />
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="nivel1" id="title-slide">
+				<section>
+				<h1 style="margin-top:5% !important;" class="title">Propriedades dos Quantificadores</h1>
+				<p style="text-align: right !important"> Frank Coelho de Alcantara -2020 &nbsp;&nbsp;</p>
+				</section>
+				<section>
+					<h2>Singularidade</h2>
+					<small style="margin-left: 2%; font-size: 74% !important; width: 95%;">
+						<p class="fragment fade-up">Os quantificadores existencial e universal são muito importantes na matemática e, com ele podemos representar todas 
+							as condições envolvendo quantidades em raciocínio lógico. Contudo, existe uma representação $\exists!$ especial. Este ponto de exclamação não faz 
+						parte da linguagem da lógica predicativa, como definimos anteriormente, mas tem aplicação na prova de teoremas representando expressões: <i>Existe um 
+							único $x$ para o qual $P(x)$ é verdadeiro</i>. E pode ser utilizado para representar expressões diversas como: </p>
+							<ol>
+								<li  class="fragment fade-up">Existe um e somente um; </li>
+								<li class="fragment fade-up">Existe exatamente um; </li>
+							</ol>
+					
+					</small>
+				</section>
+				<section>
+					<h2>Igualdade</h2>
+					<small style="font-size:80% !important; ">
+						<p class="fragment fade-up">A igualdade é um predicado, normalmente representado por $=$. Em alguns textos de lógica a igualdade faz parte da linguagem adotada. Isto é mais evidente em textos voltados para prova matemática.</p>
+						<p class="fragment fade-up">Interpretamos o predicado $x=y$ de tal forma que $x$ e $y$ são variáveis que representam exatamente o mesmo elemento em um determinado domínio.</p>
+						<p class="fragment fade-up">A igualdade pode ser representada por: $$\forall x \forall y (x=y\rightarrow (P(x)\leftrightarrow P(y)))$$</p>
+						<p class="fragment fade-up">De onde é possível afirmar: <strong>$x=y, P(x) \vdash P(y)$</strong> para todo e qualquer predicado $P$.</p>
+						
+					</small>
+				</section>
+				<section>
+					<h2>Quantificadores Aninhados</h2>
+					<small style="font-size: 70% !important;">
+						<p class="fragment fade-up">Considere que as variáveis $x$ e $y$ existem no domínio dos números reais e que $$\forall x \forall y(x + y = y + x)$$</p>
+						<p class="fragment fade-up">Neste caso estamos dizendo que para quaisquer números reais $x$ e $y$ $x+y=y+x$ que vem a ser a definição da propriedade comutativa da adição no domínio dos números reais. Considere: $$\forall x \exists \exists (x + y = 0)$$</p>
+						<p class="fragment fade-up">Neste caso, estamos dizendo que, nos números reais, para qualquer $x$ existe um $y$ que é o seu inverso aditivo. </p>
+						<p class="fragment fade-up">Por fim, considere: $$\forall x \forall y \forall z(x + (y + z) = (x + y) + z)$$</p>
+					</small>
+				</section>
+				<section>
+					<h2>Exemplo 1</h2>
+					<small style="font-size:70% !important; ">
+						<p class="fragment fade-up">No domínio dos números reais, traduza para linguagem natural: $$\forall x\forall y((x > 0)  \wedge (y < 0) → (xy < 0))$$</p>
+						<p class="fragment fade-up"> Para todos os números reais $x$ e para todos os números reais $y$, se $x$ é maior que 0 e $y$ é menor que 0 
+							então o produto entre $x$ e $y$ será menor que zero. Ou, simplificando: no domínio dos reais qualquer produto entre um número negativo e 
+							e um número positivo resultará em um número real negativo.
+						</p>
+					</small>
+				</section>
+				<section>
+					<h2>Organizando o Pensamento</h2>
+					<small style="font-size:70% !important; ">
+						<p class="fragment fade-up">Se a interpretação dos quantificadores estiver difícil, podemos simplificar pensando em forma de laços. Isto é uma metáfora, mas ajuda.</p>
+						<p class="fragment fade-up"> Para verificar se $\forall x \forall yP(x, y)$ é verdadeiro, vamos imaginar dois laços aninhados. No primeiro vemos a primeira instância de $x$ e para esta instância corremos o outro laço para todas as instâncias de $y$. Quando avaliarmos todos os $y$, passamos para o próximo $x$ e voltamos a analisar todos os $y$. Se existir um único par $x$ e $y$ onde $P(x,y)$ seja falso então $\forall x \forall yP(x, y)$ é falso.</p>
+						<p class="fragment fade-up">Igualmente, para verificar se $\forall x \exists yP(x, y)$ repetimos o mesmo laço até encontrar um par $x$, $y$ onde $P(x,y)$ seja verdadeiro. Se não encontrarmos nenhum destes pares então $\forall x \exists yP(x, y)$ é falso.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Exemplo 2</h2>
+						<p>Descreva, com as suas palavras, no seu caderno, o procedimento mental (laço) que devemos utilizar para encontrar a verdade de:</p>
+						<ol style="margin-left: 6%;">
+							<li>$\exists x \forall yP(x, y)$</li>
+							<li>$\exists x \exists yP(x, y)$</li>
+						</ol>
+					<small style="width: 96%; font-size: 52% !important; ">
+						<p class="fragment fade-up"> Resposta 1: fazemos o laço por todos os valores de $x$ e para cada $x$ percorremos todos os valores de $y$ para verificar se existe 
+							um valor de $x$ para o qual, em todos os valores de $y$, $P(x,y)$ é verdadeiro, se sim, $\exists x \forall yP(x, y)$ é verdadeiro e paramos no primeiro $x$ 
+							que satisfaça esta condição. Caso contrário $\exists x \forall yP(x, y)$ é falso.</p>
+						<p class="fragment fade-up"> Resposta 2: fazemos o laço por todos os valores de $x$ e para cada $x$ verificamos todos os valores de $y$ até encontrar uma combinação de $x$ e $y$ onde $P(x,y)$ seja verdadeiro. Neste caso $\exists x \exists yP(x, y)$ será verdadeiro. Caso nunca encontremos um par $x$ e $y$ onde $P(x,y)$ seja verdadeiro então $\exists x \exists yP(x, y)$ será falso.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Exemplo 3</h2>
+					<p>Considere o modelo $M$ onde o universo é o conjunto dos números reais e os predicados $MD$ representando <i>"é múltiplo de dez"</i> e $IP$ representando 
+					<i>"é par"</i>. Traduza para a linguagem natural as sentenças a seguir e indique sua veracidade ou não.</p>
+					<ol style="margin-left: 6%;">
+						<li>$\forall xMD(x)$</li>
+						<li>$\forall xIP(x)$</li>
+						<li>$\exists x(C(x) \wedge L(x))$</li>
+						<li>$\exists x(L(x) \wedge \neg C(x))$</li>
+						<li>$\forall x(L(x) \rightarrow C(x))$</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Exemplo 3 - Resposta</h2>
+					<small style="font-size: 75% !important;"> 
+					<p>Considere o modelo $M$ onde o universo é o conjunto dos números reais e os predicados $MD$ representando <i>"é múltiplo de dez"</i> e $IP$ representando 
+					<i>"é par"</i>. Traduza para a linguagem natural as sentenças a seguir e indique sua veracidade ou não.</p>
+					<ol style="margin-left: 6%;">
+						<li>$\forall xMD(x)$ - todos os números naturais são múltiplos de 10 - Falso.</li>
+						<li>$\forall xIP(x)$ - todos os números naturais são pares - Falso.</li>
+						<li>$\exists x(C(x) \wedge L(x))$ - Existe um número natural que é múltiplo de dez e par - Verdadeiro.</li>
+						<li>$\exists x(L(x) \wedge \neg C(x))$  - Existe um número natural que é não múltiplo de dez e é par - Verdadeiro.</li>
+						<li>$\forall x(L(x) \rightarrow C(x))$ - se for número natural e par será também múltiplo de dez - Falso.</li>
+					</ol>
+				</small>
+				</section>
+				<section>
+					<h2>Validade</h2>
+					<small style="font-size: 72% !important;">
+					<p  class="fragment fade-up">Considere a expressão: $$\forall xP(x) \vee \neg \forall xP(x)$$</p>
+					<p  class="fragment fade-up">Podemos afirmar que esta expressão é verdadeira para qualquer modelo, qualquer predicado e qualquer instância.</p>
+					<p  class="fragment fade-up"><strong>Um dos lados da disjunção sempre será verdadeiro</strong>.</p>
+					<p  class="fragment fade-up">Dizemos que uma expressão é válida se esta expressão for verdadeira em todo, e qualquer modelo.</p>
+					<p  class="fragment fade-up">Dizemos que uma expressão é contraditória se esta expressão for falsa em todo, e qualquer modelo.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Validade e Tautologia</h2>
+					<small style="font-size: 75% !important;">
+						<p class="fragment fade-up">A validade no cálculo de predicados tem a mesma aplicação da tautologia no cálculo proposicional.</p>
+						<p class="fragment fade-up">Contudo há uma diferença importante.</p>
+						<p class="fragment fade-up">Para dizer que uma fórmula proposicional é tautológica basta encontrar a tabela verdade desta fórmula.</p>
+						<p class="fragment fade-up">Para dizer que uma expressão predicativa é válida, temos que avaliar esta expressão em todos os modelos independente do universo 
+							ou do predicado e para todas as interpretações possíveis.</p>
+						<p class="fragment fade-up"><strong>Isso parece um tanto quanto difícil!</strong>.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Exercício 1</h2>
+					<small>
+						<p>Considere as seguintes expressões e determine se são válidas ou contraditórias e justifique, usando a linguagem natural, sua definição.</p>
+						<ol style="margin-left: 6%;">
+							<li>$\exists xP(x) \leftrightarrow \neg \forall x \neg P(x)$</li>
+							<li>$\forall xP(x) \leftrightarrow \neg \exists x \neg P(x)$</li>
+							<li>$\exists x(P(x) \vee B(x)) \leftrightarrow \exists x P(x) \vee \exists x B(x)$</li>
+							<li>$\forall x(P(x) \wedge B(x)) \leftrightarrow \forall x P(x) \vee \forall x B(x)$</li>
+						</ol>
+					</small>
+				</section>
+				<section>
+					<h2>Equivalência e Implicação</h2>
+					<small style="margin-left: 2%; font-size: 80% !important; width: 95%;">
+						<p class="fragment fade-up">Dizemos que a expressão $P$ implica em $Q$ se e somente se a expressão $P\rightarrow Q$ for válida.</p>
+						<p class="fragment fade-up">Dizemos que a expressão $P$ é equivalente em $Q$ se e somente se a expressão $P\leftrightarrow Q$ for válida.</p>
+					
+					</small>
+					<small style="margin-left: 2%; font-size: 75% !important; width: 95%;">
+						<p class="fragment fade-up"> Suponha que $P$ implica em $Q$ e que $Q$ implica em $P$. Então $P\rightarrow Q$ e $Q \rightarrow P$ são válidas. 
+							E isto será verdade para qualquer modelo, predicado, ou variável das expressões $P$ e $Q$.</p>
+						<p class="fragment fade-up"> <strong>Parece que melhorou um pouco!</strong> </p>
+						
+					</small>
+				</section>
+				<section>
+					<h2>Não validade</h2>
+					<small style="margin-left: 2%; font-size: 75% !important; width: 95%;">
+						<p class="fragment fade-up">Para mostrar que uma expressão não é logicamente válida basta provar que existe uma, e somente uma, combinação de universo, 
+							instância e predicado, para aquelas expressões na qual elas não são válidas.
+						</p>
+						<p class="fragment fade-up"><strong>Basta encontrar um modelo onde as expressões não são equivalentes.</strong></p>
+					</small>
+				</section>
+				<section>
+					<h2>Exemplo 4</h2>
+					<small style="margin-left: 2%; font-size: 80% !important; width: 95%;">
+						<p class="fragment fade-up">Mostre que $\forall x(P(x)\vee Q(x))$ não é válida. Escreva no seu caderno</p>
+						<p class="fragment fade-up"> Para tanto, precisamos encontrar um modelo onde $\forall x(P(x)\vee Q(x))$ não seja verdade. 
+							Considere o universo dos números naturais. Considere $P(x)$ como <i>"$x$ é impar"</i> e $Q(x)$ como <i>"$x$ é múltiplo de 10"</i>. 
+							Neste modelo, $\forall x(P(x)\vee Q(x))$, significa: todos os números naturais são ímpares ou múltiplos de 10. Logo, neste modelo 
+							$\forall x(P(x)\vee Q(x))$ é falsa e, consequentemente, não válida.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Instâncias Tautológicas</h2>
+					<small style="margin-left: 2%; font-size: 70% !important; width: 95%;">
+						<p class="fragment fade-up">Dizemos que uma expressão é uma <i>instância tautológica</i> se ela for o resultado da substituição uniform das proposições, em 
+						uma formula bem formada de uma tautologia, por expressões do cálculo de predicados.</p>
+						<p class="fragment fade-up">Determinar que uma expressão é ou não uma instância tautológica depende apenas da sintaxe da expressão. Ignoramos o modelo.</p>
+						<p class="fragment fade-up">No cálculo proposicional a fórmula bem formada $p \rightarrow p$ é uma tautologia. Então, qualquer expressão do cálculo de predicados neste padrão será uma instância tautológica.</p>
+						<p class="fragment fade-up"><strong>Qualquer  instância tautológica é uma expressão válida!</strong></p>
+					</small>
+				</section>
+				<section>
+					<h2>Exemplo 4</h2>
+					<small style="margin-left: 2%; font-size: 80% !important; width: 95%;">
+						<p class="fragment fade-up">São instâncias tautológicas:</p>
+						<p class="fragment fade-up"><strong> Baseadas em $p \rightarrow p$</strong>: $$P(x) \rightarrow P(x)$$ e $$\forall x \exists yQ(x,y) \rightarrow \forall x \exists yQ(x,y)$$  </p>
+						<p class="fragment fade-up"><strong>Baseadas em $p \rightarrow (q \rightarrow p)$</strong>: $$\forall x \exists yQ(x,y) \rightarrow(\exists xP(x) \rightarrow \forall x \exists yQ(x,y) \rightarrow )$$  </p>
+					</small>
+				</section>
+				<section>
+					<h2>Extrapolando os conceitos</h2>
+					<small style="margin-left: 2%; font-size: 70% !important; width: 95%;">
+						<p class="fragment fade-up">Observe que $P(x) \rightarrow P(x)$ é uma instância tautológica e possui uma variável livre (variáveis que não estão no escopo de um 
+							quantificador). </p>
+						<p class="fragment fade-up">Se $P(x) \rightarrow P(x)$ é válida, tem que ser válida em qualquer modelo. Logo $\forall x(P(x) \rightarrow P(x))$ é válido.</p>
+						<p class="fragment fade-up"><strong>$\forall x(P(x) \rightarrow P(x))$ é válida!</strong></p>
+						<p class="fragment fade-up">Assim se $P(x)$ representa uma expressão válida, $\forall xP(x)$,$\forall xP(x)$, $\forall x\forall yP(x)$ também serão válidas.</p>
+						<p class="fragment fade-up"><strong>$P(x) \rightarrow P(x)$ é uma instância tautológica. $\forall x(P(x) \rightarrow P(x))$ não é instância tautológica, mas ambas são expressões válidas</strong>.</p>
+					</small>
+				</section>	
+				<section>
+					<h2>Resumo</h2>
+					<small style="margin-left: 2%; font-size: 80% !important; width: 95%;">
+						<p class="fragment fade-up">Toda instância tautológica é válida.</p>
+						<p class="fragment fade-up">Todas as expressões construídas com quantificadores na frente de uma expressão é válida.</p>
+						<p class="fragment fade-up">Existem expressões válidas que não são instâncias tautológicas.</p>
+						<p class="fragment fade-up">Assim se $P(x)$ representa uma expressão válida, $\forall xP(x)$,$\forall xP(x)$, $\forall x\forall yP(x)$ também serão válidas.</p>
+						<p class="fragment fade-up"><strong>$P(x) \rightarrow P(x)$ é uma instância tautológica. $\forall x(P(x) \rightarrow P(x))$ não é instância tautológica, mas ambas são expressões válidas</strong>.</p>
+					</small>
+				</section>	
+				<section>
+					<h2>Exercício 2</h2>
+					<p class="fragment fade-up">Na figura a seguir existe um conjunto de expressões válidas identifique aquelas que são instâncias tautológicas e justifique.</p>
+					<img class="fragment fade-up" data-src="../img/valid1.jpg" style="height: 260px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />	
+				</section>
+				<section>
+					<h2>Dualidade</h2>
+					<p class="fragment fade-up">Os quantificadores são duais: $$\forall xP(x) \Leftrightarrow \neg \exists x \neg P(x)$$ $$\exists xP(x) \Leftrightarrow \neg \forall x \neg P(x)$$</p>
+					<p class="fragment fade-up">Em alguns trabalhos o alfabeto adotado para a linguagem da lógica de predicados não contem o símbolo $\exists$ é usado apenas $\neg \forall \neg$ em seu lugar.</p>
+				</section>
+				<section>
+					<h2>Comutabilidade</h2>
+					<p class="fragment fade-up">Quantificadores do mesmo tipo são comutáveis: $$\forall x \forall yP(x,y) \Leftrightarrow \forall y \forall xP(x,y)$$ 
+						$$\exists x \exists yP(x,y) \Leftrightarrow \exists y \exists xP(x,y)$$</p>
+					<p class="fragment fade-up">Quantificadores diferentes comutam em apenas uma direção:$$\exists x \forall yP(x,y) \Rightarrow \forall y \exists xP(x,y) $$ </p>
+				</section>	
+				<section>
+					<h2>Distributividade</h2>
+					<small style="margin-left: 2%; font-size: 64% !important; width: 95%;">
+					<p class="fragment fade-up">Quantificadores universais são completamente distributivos sobre a conjunção: $$\forall x(P(x) \wedge Q(x)) \Leftrightarrow \forall xP(x) \wedge \forall xQ(x)$$</p>
+					<p class="fragment fade-up">Quantificadores universais são distributivos sobre a disjunção em uma direção: $$\forall xP(x) \vee \forall xQ(x) \Rightarrow \forall x(O(x) \vee Q(x))$$</p>
+					<p class="fragment fade-up">Quantificadores existenciais são completamente distributivos sobre a disjunção::$$\exists x(P(x) \vee Q(x)) \Leftrightarrow \exists xP(x) \vee \exists xQ(x)$$</p>
+					<p class="fragment fade-up">Quantificadores existenciais são distributivos sobre a conjunção em uma direção: $$\exists x(P(x) \wedge Q(x)) \Rightarrow \exists xP(x) \wedge \exists xQ(x)$$</p>
+				</small>
+				</section>	
+				<section>
+					<h2>Distributividade e variáveis livres</h2>
+					<small style="margin-left: 2%; font-size: 64% !important; width: 95%;">
+					<p class="fragment fade-up">A aplicação de quantificadores a conjunção ou disjunção em expressões que contém variáveis livres permitem a distribuição completa.</p>
+					<table>
+						<tr class="fragment fade-up">
+							<td>$$\exists xP(x) \vee Q  \Leftrightarrow \exists x(P(x) \vee Q)$$</td>
+							<td>$$\forall xP(x) \vee Q  \Leftrightarrow \forall x(P(x) \vee Q)$$</td>
+						</tr>
+						<tr class="fragment fade-up">
+							<td>$$Q \vee \exists xP(x)  \Leftrightarrow \exists x(Q \vee P(x))$$</td>
+							<td>$$Q \vee \forall xP(x)  \Leftrightarrow \forall x(Q \vee P(x))$$</td>
+						</tr>
+						<tr class="fragment fade-up">
+							<td>$$\exists xP(x)  \wedge Q  \Leftrightarrow \exists x(P(x)  \wedge Q)$$</td>
+							<td>$$\forall xP(x)  \wedge Q  \Leftrightarrow \forall x(P(x)  \wedge Q)$$</td>
+						</tr>
+						<tr class="fragment fade-up">
+							<td>$$Q  \wedge \exists xP(x)  \Leftrightarrow \exists x(Q  \wedge P(x))$$</td>
+							<td>$$Q  \wedge \forall xP(x)  \Leftrightarrow \forall x(Q  \wedge P(x))$$</td>
+						</tr>
+					</table>
+				</small>
+				</section>
+				<section>
+					<h2>Quantificação e implicação</h2>
+					<small style="margin-left: 2%; font-size: 64% !important; width: 95%;">
+						<p class="fragment fade-up">O quantificador universal é distributivo sobre a bicondicional em uma direção: 
+							$$\forall x(P(x) \leftrightarrow Q(x)) \Rightarrow (\forall x P(x) \leftrightarrow \forall x Q(x))$$ </p>
+						<p class="fragment fade-up">Se um dos operadores for uma variável livre então: $$  \forall x(P(x)  \rightarrow  Q)  \Leftrightarrow (\exists x P(x)  \rightarrow  Q)$$ $$ \forall x(Q  \rightarrow  P(x))  \Leftrightarrow (Q  \rightarrow  \forall x P(x))$$ </p>
+							
+						<p class="fragment fade-up"> Para o quantificador existencial temos: $$ \forall x(P(x) \leftrightarrow Q(x)) \Rightarrow (\exists xP(x) \leftrightarrow \exists xQ(x))$$</p>
+					</small>
+				</section>
+				<section>
+					<h2>Sobre a implicação</h2>
+					<small style="margin-left: 2%; font-size: 64% !important; width: 95%;">
+						<p class="fragment fade-up">As seguintes expressões são verdadeiras: </p>
+						<table style="font-size: 70%;">
+							<tr  class="fragment fade-up">
+								<td>$$\exists x(P(x) \rightarrow Q(x)) \Leftrightarrow (\forall xP(x) \rightarrow \exists xQ(x))$$</td>
+								<td>$$(\exists xP(x) \rightarrow \forall xQ(x)) \Rightarrow \forall x(P(x) \rightarrow Q(x))$$</td>
+							</tr>
+							<tr class="fragment fade-up">
+								<td>$$\forall x(P(x) \rightarrow Q(x)) \Rightarrow (\exists xP(x) \rightarrow \exists xQ(x))$$</td>
+								<td>$$\forall x(P(x) \rightarrow Q(x)) \Rightarrow (\forall xP(x) \rightarrow \exists xQ(x))$$</td>
+							</tr>
+						</table>
+					</small>
+				</section>
+				<section>
+					<h2>Exemplo 5</h2>
+					<small style="margin-left: 2%; font-size: 80% !important; width: 95%;">
+						<p class="fragment fade-up">Já podemos fazer derivações de expressões predicativas: </p>
+						<table>
+							<tr  class="fragment fade-up">
+								<td style="text-align: left !important; border: 0px !important;">$\exists x(P(x) \rightarrow Q(x))$</td>
+								<td style="text-align: left !important; border: 0px !important;">$\equiv \exists x(\neg P(x) \vee Q(x))$</td>
+							</tr>
+							<tr class="fragment fade-up">
+								<td style="text-align: left !important; border: 0px !important;"></td>
+								<td style="text-align: left !important; border: 0px !important;">$\equiv \exists x \neg P(x) \vee \exists xQ(x)$</td>
+							</tr>
+							<tr class="fragment fade-up">
+								<td style="text-align: left !important; border: 0px !important;"></td>
+								<td style="text-align: left !important; border: 0px !important;">$\equiv \neg \exists x \neg P(x) \rightarrow  \exists xQ(x)$</td>
+							</tr>
+							<tr class="fragment fade-up">
+								<td style="text-align: left !important; border: 0px !important;"></td>
+								<td style="text-align: left !important; border: 0px !important;">$\equiv \forall xP(x) \rightarrow \exists xQ(x)$</td>
+							</tr>
+						</table>
+						<p class="fragment fade-up">Consultando suas anotações e os slides das aulas, justifique, no seu caderno, cada uma destas passagens.</p>
+					</small>
+				</section>
+				<section>
+					<h2>Exercício</h2>
+					<p>Esta questão vale dois pontos na prova do segundo bimestre:</p>
+					<p> A seguinte história foi retirada do livro de Wirth (1976) <i>Algorithms + data structures = programs</i>:
+					<p> Eu casei com uma viúva, vamos chamá-la de W, que tem uma filha adulta, que chamaremos de D. Meu pai (P), 
+						que nos visita com frequência, se apaixonou por minha filha adotiva e casou com ela. Desta forma, meu pai se tornou meu
+						genro e minha filha adotiva se transformou na minha madastra. Alguns meses mais tarde minha esposa deu a luz a um menino, meu filho (F), o qual é
+						cunhado do meu pai e meu tio. A esposa do meu pai, que é minha filha adotiva, também teve um filho (F2). 
+					</p> 
+					<p>Use o cálculo de predicados para criar um conjunto de expressões para representar a situação descrita por Wirth, expressões que definam os relacionamentos 
+						familiares descritos e prove que eu sou meu próprio neto. Valendo 1 ponto na prova do segundo bimestre.	</p>	
+					<p>Implemente todo este problema em Prolog e encontre quem é meu neto.</p>	
+				</section>
+			</section>	
+		</div>
+	</div>
+	<div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+	<script src="../../rev/reveal.js"></script>
+	<script src="../../rev/plugin/notes/notes.js"></script>
+	<script src="../../rev/plugin/search/search.js"></script>
+	<script src="../../rev/plugin/zoom/zoom.js"></script>
+	<script src="../../rev/plugin/math/math.js"></script>
+	<script src="../../rev/plugin/menu/menu.js"></script>
+	<script src="../../rev/plugin/chalkboard/plugin.js"></script>
+	<script>
+		// Full list of configuration options available at:
+		// https://revealjs.com/config/
+		Reveal.initialize({
+			// Push each slide change to the browser history
+			history: true,
+			// Transition style
+			transition: "fade", // none/fade/slide/convex/concave/zoom
+			center: false,
+			math: {
+				mathjax:
+					"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+				config: "TeX-AMS_HTML-full",
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: {
+					Macros: {
+						RR: "{\\bf R}",
+					},
+				},
+			},
+			menu: {
+				side: "left",
+				width: "normal",
+				numbers: false,
+				titleSelector: "h1, h2, h3, h4, h5, h6",
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: false,
+				themesPath: "dist/theme/",
+				transitions: false,
+				openButton: true,
+				openSlideNumber: false,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true,
+			},
+			// reveal.js plugins
+			plugins: [
+				RevealNotes,
+				RevealMath,
+				RevealMenu,
+				RevealChalkboard,
+				RevealSearch,
+				RevealZoom,
+			],
+		});
+	</script>
+</body>
+
+</html>
