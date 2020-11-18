@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Frank Coelho de Alcantara -2020" />
+  <title>ChatBot</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/interpret.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="title-slide" class="nivel1">
+        <section>
+          <h1 class="title" style="width: 90%; margin-left: 4%; font-size: 340%;">ChatBots</h1>
+          <p style="text-align: right !important;">Frank Coelho de Alcantara -2020&nbsp;&nbsp;</p>
+        </section>
+        <section>
+            <h2>Definição</h2>
+              <p  class="fragment fade-up">Um artefato de código que, quando executado, permite a interação entre seres humanos e máquinas usando um conjunto diversificado de canais que podem incluir desde a voz até gestos. Conhecidos como: <i>conversational AI bot, AI assistant, intelligent virtual assistant, virtual customer assistant, digital assistant, conversational agent, virtual agent, conversational
+                Interface, ...</i></p>
+                <p  class="fragment fade-up">Uma máquina que fala com gente!</p>
+        </section>
+        <section>
+            <h2>Processamento de Linguagem Natural</h2>
+              <p  class="fragment fade-up">Recebe um conjunto de informações em linguagem natural, divide essa informação em componentes semânticos, produz um nível de entendimento sobre estas informações e determina uma resposta apropriada.</p>
+        </section>
+        <section>
+            <h2>Geração de Linguagem Natural</h2>
+              <p  class="fragment fade-up">Engloba um conjunto de algoritmos e soluções tecnológicas que permitem que máquinas transformem dados estruturados em linguagem natural, escrita, vocalizada ou sinalizada.</p>
+        </section>
+        <section>
+            <h2>Entendimento de Linguagem Natural</h2>
+              <p  class="fragment fade-up">Subconjunto do processamento de linguagem natural que inclui o processamento de uma informação em linguagem natural e permite a extração de sentido desta informação. Entendimento que irá definir a ação a ser tomada.</p>
+        </section>
+        <section>
+            <h2>História</h2>
+            <small style="float: left; font-size: 61% !important; margin-left: 2%; width: 50%;">
+              <p  class="fragment fade-up">Começa com Turing, no artigo Computer Machinary and Intelligence. Quando Turing propôs o famoso teste de identificação de máquinas.</p>
+              <p  class="fragment fade-up">Um máquina em uma sala, uma pessoa em outra e, finalmente, uma terceira pessoa, conversando, naturalmente com a máquina e a outra pessoa sem conseguir definir quem é quem.</p>
+              <p  class="fragment fade-up">Este teste é irrelevante do ponto de vista do desenvolvimento da tecnologia. Algumas máquina clamam ter passado por este teste mas, isso não teve nenhum impacto no desenvolvimento de novas tecnologias. </p>
+            </small>
+            <img data-src="../img/chat1.jpg" class="fragment fade-up" style="margin-right: 1%; height: 360px !important; float: right;"  alt="diagrama em blocos de uma rede neural apresentando três camadas." />
+        </section>
+        <section>
+          <h2>Timeline</h2>
+            <img data-src="../img/chat2.png" class="fragment fade-up" style="margin-right: 1%; height: 490px !important; float: right;"  alt="diagrama em blocos de uma rede neural apresentando três camadas." />
+        </section>
+        <section>
+            <h2>Diagrama de Blocos</h2>
+            
+            <img data-src="../img/chat3.png" class="fragment fade-up" style="margin-right: 1%; height: 370px !important; float: right;"  alt="diagrama em blocos de uma rede neural apresentando três camadas." />
+        </section>
+        <section>
+            <h2>Tipos</h2>
+            <small style="font-size: 73% !important; margin-left: 0%; width: 97%;">
+              <p  class="fragment fade-up"><strong>Baseado em Regras</strong>: processo básico e histórico, o algoritmo responde apenas no formato definido por um conjunto de regras. Atualmente este modelo é mais interativo, em lugar de respostas, o sistema oferece opções de botões para que o usuário vá reduzindo o escopo do seu problema. Muito comum na web.</p>
+
+              <p  class="fragment fade-up"><strong>Palavras chave</strong>: algum conteúdo de aprendizagem de máquina, analisa a intensão do usuário <i>(intent)</i> por meio de um conjunto de palavras chaves e determina a probabilidade de resposta em relação a estas palavras.</p>
+              <p  class="fragment fade-up"><strong> Contextual</strong>: são os mais avançados, no momento. Trata-se se uma combinação entre as técnicas de regras, o uso de palavras chave e a busca semântica de significado. Google Dialog Flow, Google Assistente, Cortana, Alexa, Siri, Chatterbot</p>
+            </small>
+        </section>
+        <section>
+            <h2>Chatterbot</h2>
+            <small style="font-size: 73% !important; margin-left: 0%; width: 97%;">
+              <p  class="fragment fade-up">Talvez seja a forma mais simples de construir um Chat, usando Python, em inglês.</p>
+              <p  class="fragment fade-up">Em português, em testes realizados em 2018, esta biblioteca teve desempenho mediano. </p>
+              <p  class="fragment fade-up">Este trabalho vale a presença para as aulas de 11 de novembro e 18 de novembro.</p>
+            </small>
+        </section>
+        <section>
+            <h2>Exercício 2</h2>
+            <small style="font-size: 73% !important; margin-left: 0%; width: 97%;">
+              <p  class="fragment fade-up">Seu trabalho será, usando o Google Colab, fazer uma implementação, <i>from scratch</i> do SKIP-GRAM.</p>
+              <p  class="fragment fade-up">O resultado deve ser uma rede neural que, dado um termo indique as quatro palavras mais prováveis de estar 
+                circundando este termo. Treine seu algoritmo com os textos do Machado de Assis disponíveis na NLTK</p>
+              <p  class="fragment fade-up">Este trabalho vale a presença para as aulas de 11 de novembro e 18 de novembro.</p>
+            </small>
+        </section>
+      </section>
+    </div>
+  </div>
+  <div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+      center: false,
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
+
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
+</html>
