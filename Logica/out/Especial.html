@@ -21,7 +21,7 @@
 		<div class="slides">
 			<section class="nivel1" id="title-slide">
 				<section>
-				<h1 style="margin-top:5% !important;" class="title">Máquina de Turing e Computabilidade</h1>
+				<h1 style="margin-top:11% !important;" class="title">Máquina de Turing e Computabilidade</h1>
 				<p style="text-align: right !important"> Frank Coelho de Alcantara -2020 &nbsp;&nbsp;</p>
 				</section>
 				<section>
@@ -48,11 +48,12 @@
 				</section>
 				<section>
 					<h2>Para Pensar</h2>
-					<small style="font-size: 70% !important;">
+					<small style="font-size: 80% !important;">
 						<p class="fragment fade-up">Agora, você precisa se exercitar um pouco. Para isso vamos resolver um exercício interativo.</p>
 						<p class="fragment fade-up">No link a seguir estará uma pergunta para você responder. A resposta correta será enviada imediatamente para o seu e-mail.</p>
 						<p class="fragment fade-up">LEMBRE-SE DE ANOTAR, A PERGUNTA, A SUA RESPOSTA E A RESPOSTA CORRETA NO SEU CADERNO. Você vai precisar desta informação no futuro. </p>
 						<p class="fragment fade-up"><a href="https://forms.gle/YUhURnPgUdXFoosv6" target="_blank" rel="noopener noreferrer">Clique neste link para responder</a></p>
+						<p style="text-align:center !important;" class="fragment fade-up"><strong>Atenção!!! Exercício Formativo e Participativo!</strong></a></p>
 					</small>
 				</section>
 				<section>
@@ -86,12 +87,13 @@
 						<p class="fragment fade-up">Um dispositivo que, com tempo suficiente e memória suficiente pode resolver qualquer problema que seja solucionável. </p>
 						<p class="fragment fade-up">Conjecturando também que um problema que não possa ser solucionado por uma Máquina de Turing não pode ser solucionado por nenhuma máquina
 							e nenhuma pessoa.</p>
+						<p class="fragment fade-up">O artigo original de Touring pode ser encontrado <a href="https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf" target="_blank" rel="noopener noreferrer">aqui!</a> 	</p>
 					</small>
 					<span style="font-size: 11px; float: left;width: 99%;;">THE SPIRIT OF ALAN TURING. File:Alan Turing.jpg. Science Museum; 10 mar. 2006, Disponível em: https://blog.sciencemuseum.org.uk/the-spirit-of-alan-turing/ Acessado em: 1 dez. 2020.</span>
 				</section>
 				<section>
 					<h2>Computabilidade</h2>
-					<small style="font-size: 61% !important;">
+					<small style="font-size: 66% !important;">
 						<p class="fragment fade-up">Computabilidade é a capacidade de resolver um problema de forma efetiva.</p>
 						<p class="fragment fade-up">Formalmente dizemos que uma função é efetivamente computável se existe uma regra definitiva e explicita, a partir da qual é possível computar o valor 
 							desta função dado um determinado conjunto de argumentos.</p>
@@ -105,8 +107,7 @@
 				<section>
 					<h2>A Máquina de Turing</h2>
 					<img data-src="../img/esp6.png" class="fragment fade-up" style="margin-right: 1%; margin-left: 2%; height: 200px !important; float: right;" />
-					<small style="font-size: 56% !important; float: left; margin-left: 2%; width: 61%;"> 
-					<p class="fragment fade-up">Talvez o modelo computacional mais conhecido seja a 	Máquina de Turing, como descrita por Alan Turing em 1936.</p>
+					<small style="font-size: 67% !important; float: left; margin-left: 2%; width: 61%;"> 
 					<ol style="margin-left: 6%;   ">  
 						<li class="fragment fade-up">Um alfabeto finite de símbolos $\Sigma$;</li>
 						<li class="fragment fade-up">Uma fita externa dividida em células, cada célula capaz de armazenar um símbolo de $\Sigma$. As células são identificadas com números inteiros
@@ -123,29 +124,42 @@
 				<section>
 					<h2>Demonstração</h2>
 					<small style="font-size: 72% !important;">
-					<p  class="fragment fade-up">Vamos ver uma demonstração simples: como detectar parênteses.</p>
+					<p  class="fragment fade-up">Vamos ver uma demonstração simples: como detectar parênteses em uma expressão aritmética.</p>
 					<p  class="fragment fade-up" style="text-align:center !important;"><a href="http://morphett.info/turing/" target="_blank" rel="noopener noreferrer">Turing Machine Simulator</a></p>
+					<p  class="fragment fade-up" style="text-align:center !important;">Acompanhe comigo, depois pode usar o link para praticar!</p>
 					</small>
-					<img data-src="../img/esp7.png" style="width: 85%;" />
+					<img data-src="../img/esp7.png" style="width: 65%;" />
 				</section>
 				<section>
 					<h2>Para Pensar</h2>
-					<small style="font-size: 70% !important;">
+					<small style="font-size: 80% !important;">
 						<p class="fragment fade-up">Agora, você precisa se exercitar um pouco. Para isso vamos resolver um exercício interativo.</p>
 						<p class="fragment fade-up">No link a seguir estará uma pergunta para você responder. A sua resposta será comentada na próxima aula.</p>
 						<p class="fragment fade-up">LEMBRE-SE DE ANOTAR, A PERGUNTA, A SUA RESPOSTA E A RESPOSTA CORRETA NO SEU CADERNO. Você vai precisar desta informação no futuro. </p>
 						<p class="fragment fade-up"><a href="https://forms.gle/6kk2ATYdfjgVv12B9" target="_blank" rel="noopener noreferrer">Clique neste link para responder</a></p>
+						<p style="text-align:center !important;" class="fragment fade-up"><strong>Atenção!!! Exercício Somativo Referente a !</strong></a></p>
+					</small>
+				</section>
+				<section>
+					<h2>Desafio</h2>
+					<small style="font-size: 80% !important;">
+						<p class="fragment fade-up">As Máquinas de Touring podem ser implementadas como Autômatos Finitos.</p>
+						<p class="fragment fade-up">Implemente em Python, uma Máquina de Turing, composta de autômatos finitos para identificar <i>strings</i> da linguagem Python.</p>
+						<p class="fragment fade-up">Este é um desafio que você pode fazer em grupo e contar com o professor mas, é apenas formativo. </p>
+						<p class="fragment fade-up">Este desafio vai prepará-lo para uma das mais importantes tarefas anteriores ao uso de algoritmos de inteligência artificial.</p>
+						<p style="text-align:center !important;" class="fragment fade-up"><strong>Atenção!!! Desafio Formativo!</strong></a></p>
 					</small>
 				</section>
 				<section>
 					<h2>Church-Turing</h2>
-					<small style="font-size: 61% !important;">
+					<small style="font-size: 75% !important;">
 						<p class="fragment fade-up">Qualquer algoritmo pode ser implementado em uma máquina de Turing.</p>
 						<p class="fragment fade-up"><strong>Se for impossível projetar uma Máquina de Turing para resolver um determinado problema então, este problema não poderá ser resolvido por
 							qualquer algoritmo.</strong></p>
 						<p class="fragment fade-up">As consequências direta desta tese são: Existe uma Máquina de Turing que pode simular qualquer computador.
 							Qualquer computador que seja capaz de similar uma Máquina de Turing, pode similar qualquer outro computador.</p>
-						<p class="fragment fade-up"><strong>E estes são os conceitos que exploraremos nas próximas aulas.</strong></p>
+						<p style="text-align:center !important;" class="fragment fade-up"><strong>E estes são os conceitos que exploraremos nas próximas aulas.</strong></p>
+						<p style="text-align:center !important;" class="fragment fade-up"><strong>Se Prepare para a próxima aula lendo: <a href="https://dl.acm.org/doi/pdf/10.1145/3198448" target="_blank" rel="noopener noreferrer">Este Artigo</a>.</strong></p>
 					</small>
 				</section>
 				<section>
