@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Frank Coelho de Alcantara -2020" />
+	<title>Máquina de Turing e Computabilidade</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta
+		name="apple-mobile-web-app-status-bar-style"
+		content="black-translucent" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	<link rel="stylesheet" href="../../rev/reset.css" />
+	<link rel="stylesheet" href="../../rev/reveal.css" />
+	<link rel="stylesheet" href="../../rev/logica.css" />
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="nivel1" id="title-slide">
+				<section>
+				<h1 style="margin-top:5% !important;" class="title">Máquina de Turing e Computabilidade</h1>
+				<p style="text-align: right !important"> Frank Coelho de Alcantara -2020 &nbsp;&nbsp;</p>
+				</section>
+				<section>
+					<h2>Leibniz e Boole</h2>
+					<img data-src="../img/esp1.png" class="fragment fade-up" style="margin-right: 1%; margin-left: 2%; height: 341px !important; float: right;"  alt="foto de leibniz." />
+					<small style="font-size: 80% !important; float: left; margin-left: 2%; width: 67%;">
+					<p class="fragment fade-up" ><a href="https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz">Leibniz (1646-1716)</a> desenvolve de forma independente o cálculo, e os números
+						binários, define os conceitos de conjunção, disjunção, negação e identidade, operações fundamentais do Cálculo Proposicional. Enquanto buscava uma forma melhor de 
+					resolver os conflitos humanos.</p>
+					<p class="fragment fade-up" ><a href="https://en.wikipedia.org/wiki/George_Boole">George Boole</a> publica em 1854 <i>The Laws of Thought</i> apresentando o que conhecemos hoje
+						como <strong>Algebra Booleana</strong>. </p>
+					</small>
+					<span style="font-size: 11px; float: left;width: 99%;;">Wikimedia Commons contributors. File: Christoph Bernhard Francke - Bildnis des Philosophen Leibniz (ca. 1695).jpg [Internet]. Wikimedia Commons, the free media repository; 2020 Jun 24, 20:02 UTC [cited 2020 Dec 1]. Disponível em: https://commons.wikimedia.org/w/index.php?title=File:Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_(ca._1695).jpg&oldid=428672169.</span>
+				</section>
+				<section>
+					<h2>Bertrand Russel</h2>
+					<img data-src="../img/esp2.png" class="fragment fade-up" style="margin-right: 1%; margin-left: 2%; height: 341px !important; float: right;"  alt="foto de Russell." />
+					<small style="font-size: 76% !important; float: left; margin-left: 2%; width: 65%;">
+						<p class="fragment fade-up" ><a href="https://en.wikipedia.org/wiki/Bertrand_Russell">Bertrand Russel</a> (1872 – 1970) pretensiosamente tentou reescrever toda a matemática a
+							partir dos conceitos de conjuntos e fracassa ao encontrar um dos mais famosos paradoxos da história da matemática. </p>
+						<p class="fragment fade-up" >Considere $A$ como o conjunto formado por todos os conjuntos que não contém a si mesmos. De tal forma que: A=$\{S|S \notin S\}$. Seria $A$ um elemento de si mesmo? Seria o conjunto $A$ um elemento do conjunto dos conjuntos que não contém a si mesmos? </p>
+					</small>
+					<span style="font-size: 11px; float: left;width: 99%;;">Wikimedia Commons contributors, "File:Bertrand Russell 1957.jpg," Wikimedia Commons, the free media repository, https://commons.wikimedia.org/w/index.php?title=File:Bertrand_Russell_1957.jpg&oldid=462892748; Acessado em: 1 dez. 2020).</span>
+				</section>
+				<section>
+					<h2>Para Pensar</h2>
+					<small style="font-size: 70% !important;">
+						<p class="fragment fade-up">Agora, você precisa se exercitar um pouco. Para isso vamos resolver um exercício interativo.</p>
+						<p class="fragment fade-up">No link a seguir estará uma pergunta para você responder. A resposta correta será enviada imediatamente para o seu e-mail.</p>
+						<p class="fragment fade-up">LEMBRE-SE DE ANOTAR, A PERGUNTA, A SUA RESPOSTA E A RESPOSTA CORRETA NO SEU CADERNO. Você vai precisar desta informação no futuro. </p>
+						<p class="fragment fade-up"><a href="https://forms.gle/YUhURnPgUdXFoosv6" target="_blank" rel="noopener noreferrer">Clique neste link para responder</a></p>
+					</small>
+				</section>
+				<section>
+					<h2>Entscheidungsproblem</h2>
+					<img data-src="../img/esp3.png" class="fragment fade-up" style="margin-right: 1%; margin-left: 2%; height: 341px !important; float: right;"  alt="foto de Hilbert." />
+					<small style="font-size: 76% !important; float: left; margin-left: 2%; width: 61%;">
+						<p class="fragment fade-up">Este é o termo alemão para <i>"problema de decisão"</i>, em tradução livre. Este problema foi proposto por <a href="https://pt.wikipedia.org/wiki/David_Hilbert" target="_blank" rel="noopener noreferrer">David Hilbert</a> e <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Ackermann/" target="_blank" rel="noopener noreferrer">Wilhelm Ackermann</a> 
+							em 1928, indagando se se existe um procedimento mecânico efetivo para determinar se todos os enunciados matemáticos verdadeiros poderiam ser ou não provados. </p>
+						<p class="fragment fade-up">A incompletude matemática, e o problema da decisão foram os catalizadores de uma explosão no desenvolvimento da computação.</p>							
+					</small>
+					<span style="font-size: 11px; float: left;width: 99%;;">Wikimedia Commons contributors, "File:Hilbert.jpg," Wikimedia Commons, the free media repository, https://commons.wikimedia.org/w/index.php?title=File:Hilbert.jpg&oldid=443925234; acessado em: 1 dez. 2020.</span>
+				</section>
+				<section>
+					<h2>Church e Gödel</h2>
+					<img data-src="../img/esp4.png" class="fragment fade-up" style="margin-right: 1%; margin-left: 2%; height: 341px !important; float: right;" />
+					<small style="font-size: 76% !important; float: left; margin-left: 2%; width: 61%;">
+						<p class="fragment fade-up"><a href="https://pt.wikipedia.org/wiki/Alonzo_Church" target="_blank" rel="noopener noreferrer">Alonzo Church (1903 –1995)</a>Método para definir funções chamado de λ-calculus. 
+						Dando origem a um ramo da matemática onde é possível, pelo menos por enquanto, provar toda a matemática.</p>
+						<p class="fragment fade-up"><a href="https://pt.wikipedia.org/wiki/Kurt_G%C3%B6del" target="_blank" rel="noopener noreferrer">Kurt Gödel (1906 –1978)</a> e <a href="https://pt.wikipedia.org/wiki/Jacques_Herbrand" target="_blank" rel="noopener noreferrer">Jacques Herbrand (1908 –1931)</a>, 
+							definiram uma nova classe de funções cujos valores podem ser calculados por Recursão. Funções que suportam, tanto o cálculo lambda quanto a computação moderna.</p>
+					</small>
+					<span style="font-size: 11px; float: left;width: 99%;;">Wikimedia Commons contributors, "File:1925 kurt gödel.png," Wikimedia Commons, the free media repository, https://commons.wikimedia.org/w/index.php?title=File:1925_kurt_g%C3%B6del.png&oldid=310781930. Acessado em: 1 dez. 2020.</span>
+					<span style="font-size: 11px; float: left;width: 99%;;">Wikimedia Commons contributors, "File:Alonzo Church.png," Wikimedia Commons, the free media repository, https://commons.wikimedia.org/w/index.php?title=File:1925_kurt_g%C3%B6del.png&oldid=3107930870. Acessado em: 1 dez. 2020.</span>
+				</section>
+				<section>
+					<h2>Alan Turing</h2>
+					<img data-src="../img/esp5.png" class="fragment fade-up" style="margin-right: 1%; margin-left: 2%; height: 341px !important; float: right;" />
+					<small style="font-size: 61% !important; float: left; margin-left: 2%; width: 61%;">
+						<p class="fragment fade-up">Alan Turing (1912-1954), em 1936 publica <i>On Computable Numbers with application to the Entscheintugsproblem</i>, Apresentando uma máquina
+							teórica que mais tarde ficaria conhecida como Máquina de Turing.</p>
+						<p class="fragment fade-up">Um dispositivo que, com tempo suficiente e memória suficiente pode resolver qualquer problema que seja solucionável. </p>
+						<p class="fragment fade-up">Conjecturando também que um problema que não possa ser solucionado por uma Máquina de Turing não pode ser solucionado por nenhuma máquina
+							e nenhuma pessoa.</p>
+					</small>
+					<span style="font-size: 11px; float: left;width: 99%;;">THE SPIRIT OF ALAN TURING. File:Alan Turing.jpg. Science Museum; 10 mar. 2006, Disponível em: https://blog.sciencemuseum.org.uk/the-spirit-of-alan-turing/ Acessado em: 1 dez. 2020.</span>
+				</section>
+				<section>
+					<h2>Computabilidade</h2>
+					<small style="font-size: 61% !important;">
+						<p class="fragment fade-up">Computabilidade é a capacidade de resolver um problema de forma efetiva.</p>
+						<p class="fragment fade-up">Formalmente dizemos que uma função é efetivamente computável se existe uma regra definitiva e explicita, a partir da qual é possível computar o valor 
+							desta função dado um determinado conjunto de argumentos.</p>
+						<p class="fragment fade-up">A computabilidade foca na distinção entre problemas solucionáveis e não solucionáveis. Provendo ferramentas que possam ser utilizadas para
+							determiner a característica de cada problema na esperança de encontrar aqueles que são não solucionáveis por meios computacionais. Infelizmente este tipo de problema é mais comum do que parece. </p>
+						<p class="fragment fade-up">A teoria da complexidade foca na determinação de o quão difícil é solucionar problemas que são conhecidos como solucionáveis. </p>
+						<p class="fragment fade-up"><strong>Esta distinção determina o que podemos, ou não computar e, se podemos computar, o quão difícil será esta computação.</strong></p>
+					</small>
+				</section>
+
+				<section>
+					<h2>A Máquina de Turing</h2>
+					<img data-src="../img/esp6.png" class="fragment fade-up" style="margin-right: 1%; margin-left: 2%; height: 200px !important; float: right;" />
+					<small style="font-size: 56% !important; float: left; margin-left: 2%; width: 61%;"> 
+					<p class="fragment fade-up">Talvez o modelo computacional mais conhecido seja a 	Máquina de Turing, como descrita por Alan Turing em 1936.</p>
+					<ol style="margin-left: 6%;   ">  
+						<li class="fragment fade-up">Um alfabeto finite de símbolos $\Sigma$;</li>
+						<li class="fragment fade-up">Uma fita externa dividida em células, cada célula capaz de armazenar um símbolo de $\Sigma$. As células são identificadas com números inteiros
+							com o zero sendo exatamente a célula do meio; </li>
+						<li class="fragment fade-up">Uma cabeça de leitura/escrita inicialmente posicionada na célula zero;.</li>
+						<li class="fragment fade-up">Uma unidade de processamento, composta de um número finito de estados, incluído o estado inicial <i>(start)</i> e um ou mais estados de parada
+							<i>(halt)</i> e.</li>
+						<li class="fragment fade-up">Uma função de transição que move a Máquina de Turing de um estado para outro dependendo do estado corrente e do símbolo que está sendo
+							lido da fita.</li>
+					</ol>
+				</small>
+				<span style="font-size: 11px; float: left;width: 99%;;">Wikimedia Commons contributors, "File:Turing Machine Model Davey 2012.jpg," Wikimedia Commons, the free media repository, https://commons.wikimedia.org/w/index.php?title=File:Turing_Machine_Model_Davey_2012.jpg&oldid=488292985. Acessado em: 1 dez. 2020.</span>
+				</section>
+				<section>
+					<h2>Demonstração</h2>
+					<small style="font-size: 72% !important;">
+					<p  class="fragment fade-up">Vamos ver uma demonstração simples: como detectar parênteses.</p>
+					<p  class="fragment fade-up" style="text-align:center !important;"><a href="http://morphett.info/turing/" target="_blank" rel="noopener noreferrer">Turing Machine Simulator</a></p>
+					</small>
+					<img data-src="../img/esp7.png" style="width: 85%;" />
+				</section>
+				<section>
+					<h2>Para Pensar</h2>
+					<small style="font-size: 70% !important;">
+						<p class="fragment fade-up">Agora, você precisa se exercitar um pouco. Para isso vamos resolver um exercício interativo.</p>
+						<p class="fragment fade-up">No link a seguir estará uma pergunta para você responder. A sua resposta será comentada na próxima aula.</p>
+						<p class="fragment fade-up">LEMBRE-SE DE ANOTAR, A PERGUNTA, A SUA RESPOSTA E A RESPOSTA CORRETA NO SEU CADERNO. Você vai precisar desta informação no futuro. </p>
+						<p class="fragment fade-up"><a href="https://forms.gle/6kk2ATYdfjgVv12B9" target="_blank" rel="noopener noreferrer">Clique neste link para responder</a></p>
+					</small>
+				</section>
+				<section>
+					<h2>Church-Turing</h2>
+					<small style="font-size: 61% !important;">
+						<p class="fragment fade-up">Qualquer algoritmo pode ser implementado em uma máquina de Turing.</p>
+						<p class="fragment fade-up"><strong>Se for impossível projetar uma Máquina de Turing para resolver um determinado problema então, este problema não poderá ser resolvido por
+							qualquer algoritmo.</strong></p>
+						<p class="fragment fade-up">As consequências direta desta tese são: Existe uma Máquina de Turing que pode simular qualquer computador.
+							Qualquer computador que seja capaz de similar uma Máquina de Turing, pode similar qualquer outro computador.</p>
+						<p class="fragment fade-up"><strong>E estes são os conceitos que exploraremos nas próximas aulas.</strong></p>
+					</small>
+				</section>
+				<section>
+					<h2>Referências Bibliográficas</h2>
+					<p>MENEZES, Paulo B.; Linguagens Formais e Autômatos, 5a Edição, 2005. Editora Sagra-Luzzato.  </p>
+					<p>DIVERIO, T. A.; Teoria da Computação, 2a Edição. Editora Sagra Luzzatto, 2004.</p>
+					<p>SETHI, R.; Programming Languages Concepts & Constructs, 2a Edição. Editora Addison Wesley, 1997</p>	
+					<p style="text-align:center !important;"><strong>Obrigado!!!</strong> </p>
+					<p style="text-align:center !important;"><strong><a href="https://www.menti.com/yv9c314aug" target="_blank" rel="noopener noreferrer">Por favor, clique aqui e avalie esta aula!</a></strong> </p>
+				</section>
+			</section>	
+		</div>
+	</div>
+	<div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+	<script src="../../rev/reveal.js"></script>
+	<script src="../../rev/plugin/notes/notes.js"></script>
+	<script src="../../rev/plugin/search/search.js"></script>
+	<script src="../../rev/plugin/zoom/zoom.js"></script>
+	<script src="../../rev/plugin/math/math.js"></script>
+	<script src="../../rev/plugin/menu/menu.js"></script>
+	<script src="../../rev/plugin/chalkboard/plugin.js"></script>
+	<script>
+		// Full list of configuration options available at:
+		// https://revealjs.com/config/
+		Reveal.initialize({
+			// Push each slide change to the browser history
+			history: true,
+			// Transition style
+			transition: "fade", // none/fade/slide/convex/concave/zoom
+			center: false,
+			math: {
+				mathjax:
+					"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+				config: "TeX-AMS_HTML-full",
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: {
+					Macros: {
+						RR: "{\\bf R}",
+					},
+				},
+			},
+			menu: {
+				side: "left",
+				width: "normal",
+				numbers: false,
+				titleSelector: "h1, h2, h3, h4, h5, h6",
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: false,
+				themesPath: "dist/theme/",
+				transitions: false,
+				openButton: true,
+				openSlideNumber: false,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true,
+			},
+			// reveal.js plugins
+			plugins: [
+				RevealNotes,
+				RevealMath,
+				RevealMenu,
+				RevealChalkboard,
+				RevealSearch,
+				RevealZoom,
+			],
+		});
+	</script>
+</body>
+
+</html>
