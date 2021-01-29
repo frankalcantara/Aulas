@@ -1,4 +1,15 @@
+/**
+ * @file classes1.cpp
+ * @author Frank de Alcantara
+ * @brief programa para inspecionar o uso das propriedades de visibilidade
+ *        em programação orientada a objetos
+ * @version 0.1
+ * @date 2020-10-29
+ * 
+ */
+
 //atenção, este código está propositalmente cheio de erros.
+//estes erros são para que você entenda as combinações de visibilidades.
 #include <iostream>
 using namespace std; 
 

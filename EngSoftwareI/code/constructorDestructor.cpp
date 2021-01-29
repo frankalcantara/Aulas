@@ -1,4 +1,12 @@
-//com constructor e destructor
+/**
+ * @file classDestructor.cpp
+ * @author Frank de Alcantara
+ * @brief demonstração dos conceitos de constructor e destructor em c++
+ * @version 0.1
+ * @date 2020-08-10
+ *
+ *
+ */
 #include <iostream>
 using namespace std;
 class CRectangle {
@@ -26,4 +34,4 @@ int main() {
     cout << "rect area: " << rect.area() << endl;
     cout << "rectb area: " << rectb.area() << endl;
     return 0;
-}
+} //fim do main
