@@ -21,8 +21,8 @@ using namespace std;
  */
 template <class T>
 void bubbleSort(T conj[], int comp) {
-    for (int i = 0; i < n - 1; i++)
-        for (int j = n - 1; i < j; j--)
+    for (int i = 0; i < comp - 1; i++)
+        for (int j = comp - 1; i < j; j--)
             if (conj[j] < conj[j - 1])
                 swap(conj[j], conj[j - 1]);
 }

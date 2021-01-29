@@ -1,3 +1,13 @@
+/**
+ * @file structs1.cpp
+ * @author Frank de Alcantara 
+ * @brief Exemplos de structs em c++ sem o uso de métodos.
+ * @version 0.1
+ * @date 2020-11-29
+ * 
+ * Copyright: Todos os direitos reservados - Tefway - 2021
+ * 
+ */
 #include <iostream>
 #include <iomanip> //só para a formatação do resultado
 #include <string>
@@ -17,7 +27,6 @@ double calculaSalarioBruto(registroPagamento);
 double calculaSalarioBruto2(registroPagamento *);
 
 int main(){
-
   //Definindo de forma estática o array de empregados
   registroPagamento empregados[NUMRECS] = {
     { 1, "Frank Alcantara", 40.72, 22.3 },
@@ -52,11 +61,11 @@ double calculaSalarioBruto(registroPagamento empregado){
 double calculaSalarioBruto2(registroPagamento * ponteiroEmpregado){
   //acessando os membros da struct apontada
  return ponteiroEmpregado->salHora * ponteiroEmpregado->horasTrabalhadas;
-}
-
-/*
-Descubra como alinhar a apresentação em tela à esquerda;
-Crie uma função para imprimir esta struc na forma correta. 
-Inclusive com os salários e horas arredondados para duas casas decimais.
-Dica: Você terá que passar para essa função um array de structs
-*/
+} //fim do main
+/**
+ * @brief Descubra como alinhar a apresentação em tela à esquerda;
+ *        Crie uma função para imprimir esta struc na forma correta.
+ *        Inclusive com os salários e horas arredondados para duas casas decimais.
+ *        Dica: Você terá que passar para essa função um array de structs
+ * 
+ */

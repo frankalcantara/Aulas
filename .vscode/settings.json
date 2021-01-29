@@ -6,5 +6,8 @@
         "elimin",
         "gercode",
         "nivel"
-    ]
+    ],
+    "files.associations": {
+        "xstring": "cpp"
+    }
 }
