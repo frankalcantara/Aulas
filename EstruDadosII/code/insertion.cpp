@@ -77,6 +77,8 @@ void display(int m[TAMANHO_CONJUNTO], const string s) {
     cout << endl;
 }
 
+
+
 /**
  * @brief faça uma versão deste algoritmo usando templates para ordenar, inteiros, chars, doubles.
  * 
