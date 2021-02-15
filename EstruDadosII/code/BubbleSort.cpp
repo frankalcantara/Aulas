@@ -1,58 +1,58 @@
-/* 
-AUTHOR: Frank de Alcantara (frank.alcantara@gmail.com)
-DATA: 31 jul. 2020
-Programa de demonstração do uso do Bubble Sort.
-*/
+/**
+ * @file BubbleSort.cpp
+ * @author Frank de Alcantara
+ * @brief Bubble Sort. Apenas para demonstração, evite usar este algoritmo.
+ * @version 0.1
+ * @date 2020-07-31
+ *
+ */
 
 #include <iostream>
 #include <ctime>
 
 using namespace std; // usando a biblioteca padrão
 
-int main()
-{
+int main() {
 
     //iniciando o gerador randômicos
     srand((unsigned)time(0));
 
-    int temp = 0, tam = 10, passo = 0;
-    int a[10];
+    int tam = 10, passo = 0;
+    int conjunto[10];
 
-    //preenchendo o conjunto (array a) com números randômicos.
-    for (int i = 0; i < tam; i++)
-    {
-        a[i] = (rand() % 1000) + 1; //randômicos menores que cem
+    //preenchendo o conjunto com números randômicos.
+    for (int i = 0; i < tam; i++) {
+        conjunto[i] = (rand() % 1000) + 1;
     }
 
     //imprime a lista criada que será ordenada
     cout << "\n\nLista original: {";
-    for (int k = 0; k < tam; k++)
-    {
-        cout << a[k] << ",";
+    for (int k = 0; k < tam; k++) {
+        cout << conjunto[k] << ",";
     }
     cout << "}" << endl;
 
-    //O bubble Sort
-    for (int i = 0; i < tam; i++)
-    {
-        for (int j = i + 1; j < tam; j++)
-        {
-            if (a[j] < a[i])
-            {
-                //imprimindo sempre que trocar
-                temp = a[i];
-                a[i] = a[j];
-                a[j] = temp;
+    /**
+     * @brief O algoritmo Bubble Sort.
+     *
+     */
+    int temp = 0;
+    for (int i = 0; i < tam; i++) {
+        for (int j = i + 1; j < tam; j++) {
+            if (conjunto[j] < conjunto[i]) {
+                temp = conjunto[i];
+                conjunto[i] = conjunto[j];
+                conjunto[j] = temp;
             }
         }
         passo++;
     }
+
     //imprimindo a lista ordenada
     cout << "\n\nLista ordenada: {";
-    for (int k = 0; k < tam; k++)
-    {
-        cout << a[k] << ",";
+    for (int k = 0; k < tam; k++) {
+        cout << conjunto[k] << ",";
     }
     //imprimindo o total de passos
     cout << "\nPassos: " << passo << endl;
-}
+}//fim do main

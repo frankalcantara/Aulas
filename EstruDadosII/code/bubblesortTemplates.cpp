@@ -1,3 +1,11 @@
+/**
+ * @file bubblesortTemplates.cpp
+ * @author Frank de Alcantara
+ * @brief  O Bubble Sort usando templates do C++
+ * @version 0.1
+ * @date 2020-08-01
+ *
+ */
 #include <iostream>
 using namespace std;
 
@@ -5,25 +13,42 @@ using namespace std;
 // We can use this for any data type that supports 
 // comparison operator < and swap works for it. 
 template <class T>
-void bubbleSort(T a[], int n) {
-    for (int i = 0; i < n - 1; i++)
-        for (int j = n - 1; i < j; j--)
-            if (a[j] < a[j - 1])
-                swap(a[j], a[j - 1]);
+void bubbleSort(T conjunto[], int comprimento) {
+    for (int i = 0; i < comprimento - 1; i++)
+        for (int j = comprimento - 1; i < j; j--)
+            if (conjunto[j] < conjunto[j - 1])
+                swap(conjunto[j], conjunto[j - 1]);
 }
 
-// Driver Code 
+//apenas para testes
 int main() {
-    int a[5] = { 10, 50, 30, 40, 20 };
-    int n = sizeof(a) / sizeof(a[0]);
 
-    // calls template function  
-    bubbleSort<int>(a, 5);
+    int conjunto[5] = { 10, 50, 30, 40, 20 }; // conjunto de inteiros
+    char letras[10] = { 'z', 'g', 'a', 'p', 'u' }; // conjunto de char
+    int comprimento = sizeof(conjunto) / sizeof(conjunto[0]);
 
-    cout << " Sorted array : ";
-    for (int i = 0; i < n; i++)
-        cout << a[i] << " ";
+    //para ordenar inteiros
+    bubbleSort<int>(conjunto, comprimento);
+
+    cout << "Conjunto de inteiros ordenado: ";
+    for (int i = 0; i < comprimento; i++)
+        cout << conjunto[i] << " ";
     cout << endl;
 
+    //para ordenar char
+    bubbleSort<char>(letras, 5);
+
+    cout << "Conjunto de letras ordenado: ";
+    for (int i = 0; i < 5; i++)
+        cout << letras[i] << " ";
+    cout << endl;
+
+
+
     return 0;
-}
+}//fim do main
+
+/**
+ * @brief Você deve modificar este código para ordenar doubles
+ *
+ */
