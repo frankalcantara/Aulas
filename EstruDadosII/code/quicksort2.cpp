@@ -14,8 +14,8 @@ void display(T[], int);
 
 int main() {
 
-    int conjunto[] = { 1 , 10 , 11 , 9 , 14 , 3 , 2 , 20 , 19, 43, 57, 3, 2 };
-    int n = sizeof(conjunto) / sizeof(int);
+    int conjunto[] = { 11 , 10 , 7 , 19 , 1 , 300 };
+    int n = sizeof(conjunto) / sizeof(int); //type cast automático... evite. 
 
     cout << "Não Ordenado: " << "\n";
     display(conjunto, n);
@@ -38,10 +38,6 @@ int main() {
 
 }//fim do main
 
-
- // template function to find the position of pivo element
-// last element is taken as pivo
-
 /**
  * @brief Função de partição para dividir o conjunto em dois
  *
@@ -53,7 +49,6 @@ int main() {
  */
 template <typename T>
 int Particao(T conjunto[], int comeco, int fim) {
-
     int pivo = fim;
     int j = comeco;
     for (int i = comeco;i < fim;++i) {
@@ -76,7 +71,6 @@ int Particao(T conjunto[], int comeco, int fim) {
  */
 template <typename T>
 void Quicksort(T conjunto[], int comeco, int fim) {
-
     if (comeco < fim) {
         int p = Particao(conjunto, comeco, fim);
         Quicksort(conjunto, comeco, p - 1);
