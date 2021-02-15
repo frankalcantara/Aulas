@@ -9,13 +9,19 @@
  */
 #include <iostream>
 #include <vector>
+using namespace std;
+
+#define COMPRIMENTO_TESTES 10
+
+//protótipo 
+string gen_random(const int);
 
 template<class T>
-void merge(std::vector<T>& conjunto, int p, int q, int r) {
+void merge(vector<T>& conjunto, int p, int q, int r) {
     int size1 = q - p + 1;
     int size2 = r - q;
-    std::vector<T> L(size1);
-    std::vector<T> R(size2);
+    vector<T> L(size1);
+    vector<T> R(size2);
 
     for (int i = 0; i < size1; i++) {
         L[i] = conjunto[p + i];
@@ -50,7 +56,7 @@ void merge(std::vector<T>& conjunto, int p, int q, int r) {
 }
 
 template<class T>
-void merge_sort(std::vector<T>& v, int p, int r)
+void merge_sort(vector<T>& v, int p, int r)
 {
     if (p < r)
     {
@@ -61,73 +67,104 @@ void merge_sort(std::vector<T>& v, int p, int r)
     }
 }
 
-int main()
-{
-    std::vector<int>vec;
-    vec.push_back(13);
-    vec.push_back(5);
-    vec.push_back(7);
-    vec.push_back(7);
-    vec.push_back(4);
-    vec.push_back(2);
-    vec.push_back(10);
-    int sz = vec.size();
-    std::cout << "Conjunto não ordenado : ";
-    for (int n = 0; n < sz; n++) {
-        std::cout << vec[n] << " ";
+int main() {
+
+    //criando um conjunto de dados
+    vector<int> conjunto;
+
+     /**
+     * @brief iniciando um gerador de números randômicos, sem nenhuma preocupação
+     * quanto a qualidade dos números gerados ou com a velocidade de geração.
+     *
+     */
+    srand((unsigned)time(0));
+
+    //testando com inteiros
+    for (int i = 0;i < COMPRIMENTO_TESTES;i++) {
+      //inserindo números inteiros aleatórios no conjunto
+        conjunto.push_back((rand() % 100) + 1);
     }
 
-    std::cout << "\n";
-    std::cout << "Conjunto Ordenado : ";
-    merge_sort(vec, 0, sz - 1);
-    for (int n = 0; n < sz; n++) {
-        std::cout << vec[n] << " ";
-    }
-    std::cout << "\n\n";
+    int comprimento = conjunto.size();
 
-    std::vector<char> c;
-    c.push_back('d');
-    c.push_back('y');
-    c.push_back('h');
-    c.push_back('l');
-    c.push_back('e');
-    c.push_back('a');
-    int sz1 = c.size();
-    std::cout << "Entered array : ";
-    for (int n = 0; n < sz1; n++)
-    {
-        std::cout << c[n] << " ";
+    cout << "Conjunto não ordenado: ";
+    for (int n = 0; n < comprimento; n++) {
+        cout << conjunto[n] << " ";
     }
-    std::cout << "\n";
-    std::cout << "Sorted array : ";
-    merge_sort(c, 0, sz1 - 1);
-    for (int n = 0; n < sz1; n++)
-    {
-        std::cout << c[n] << " ";
-    }
-    std::cout << "\n\n";
+    cout << "\n";
+    cout << "Conjunto ordenado: ";
 
-    std::vector<std::string> str;
-    str.push_back("car");
-    str.push_back("dog");
-    str.push_back("apple");
-    str.push_back("ball");
-    str.push_back("tree");
-    int sz2 = str.size();
+    merge_sort(conjunto, 0, comprimento - 1);
+    for (int n = 0; n < comprimento; n++) {
+        cout << conjunto[n] << " ";
+    }
 
-    std::cout << "Entered array : ";
-    for (int n = 0; n < sz2; n++)
-    {
-        std::cout << str[n] << " ";
+    cout << "\n\n";
+
+    //testando com caracteres
+    vector<char> letras;
+
+    for (int i = 0;i < COMPRIMENTO_TESTES;i++) {
+      //inserindo letras entre a e z de forma randômica no conjunto letras
+        letras.push_back('a' + (rand() % 26));
     }
-    std::cout << "\n";
-    std::cout << "Sorted array : ";
-    merge_sort(str, 0, sz2 - 1);
-    for (int n = 0; n < sz2; n++)
-    {
-        std::cout << str[n] << " ";
+
+    comprimento = letras.size();
+    cout << "Conjunto não ordenado: ";
+    for (int n = 0; n < comprimento; n++) {
+        cout << letras[n] << " ";
     }
-    std::cout << "\n";
+    cout << "\n";
+    cout << "conjunto ordenado: ";
+    merge_sort(letras, 0, comprimento - 1);
+
+    for (int n = 0; n < comprimento; n++) {
+        cout << letras[n] << " ";
+    }
+    cout << "\n\n";
+
+    //testando com strings
+    vector<string> str;
+
+    for (int i = 0;i < COMPRIMENTO_TESTES;i++) {
+        //inserindo strings randomicas de comprimento randomico
+        str.push_back(gen_random((rand() % 10)));
+    }
+
+    int comprimento2 = str.size();
+
+    cout << "Conjunto ordenado: ";
+    for (int n = 0; n < comprimento2; n++)
+    {
+        cout << str[n] << " ";
+    }
+    cout << "\n";
+    cout << "Conjunto não ordenado: ";
+    merge_sort(str, 0, comprimento2 - 1);
+    for (int n = 0; n < comprimento2; n++)
+    {
+        cout << str[n] << " ";
+    }
+    cout << "\n";
 
     return 0;
+}//fim do main
+
+
+/**
+ * @brief Função para gerar strings aleatórios de Ates Goral em
+ * https://stackoverflow.com/questions/440133/how-do-i-create-a-random-alpha-numeric-string-in-c
+ */
+string gen_random(const int len) {
+    string tmp_s;
+    static const char alphanum[] =
+        "0123456789"
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz";
+
+    tmp_s.reserve(len);
+
+    for (int i = 0; i < len; ++i)
+        tmp_s += alphanum[rand() % (sizeof(alphanum) - 1)];
+    return tmp_s;
 }
