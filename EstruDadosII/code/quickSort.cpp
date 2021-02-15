@@ -1,36 +1,36 @@
-/* 
-AUTHOR: Frank de Alcantara (frank.alcantara@gmail.com)
-DATA: 07 ago. 2020
-Programa de demonstração do uso do Quick Sort.
-*/
+/**
+ * @file quickSort.cpp
+ * @author Frank de Alcantara
+ * @brief   Quick Sort em C++ - Demonstração
+ * @version 0.1
+ * @date 2021-02-15
+ */
+
 #include <iostream>
 #include <chrono> //funçoes para medir o tempo de execução.
-
 using namespace std; //define o uso do std
 
 //protótipos
-void troca(int *, int *);
+void troca(int*, int*);
 void display(int[], int);
 //funções para o quick sort
 int particao(int[], int, int, int);
 void quickSort(int[], int, int, int);
 
-int main()
-{
+int main() {
 
     srand((unsigned)clock()); //semente para o gerador de randômicos
 
     int tamanho = 15; //determinar o tamanho do conjunto
 
     //ponteiro para a criação do array_teste dinâmico
-    int *array_teste = NULL;
+    int* array_teste = NULL;
 
-    //gerando o array_teste dinâmcio
+    //gerando o array_teste dinâmico
     array_teste = new int[tamanho];
 
     // preenchendo nosso conjunto com números aleatórios
-    for (int i = 0; i < tamanho; i++)
-    {
+    for (int i = 0; i < tamanho; i++)    {
         array_teste[i] = (rand() % 100) + 1;
     }
 
@@ -62,7 +62,7 @@ int main()
 } //fim do main
 
 // função de troca
-void troca(int *a, int *b)
+void troca(int* a, int* b)
 {
     int t = *a;
     *a = *b;
@@ -70,8 +70,7 @@ void troca(int *a, int *b)
 }
 
 // mostrar o conjunto de inteiros
-void display(int array_teste[], int size)
-{
+void display(int array_teste[], int size) {
     if (size > 20)
         return;
     //coloca na tela
@@ -81,14 +80,13 @@ void display(int array_teste[], int size)
     cout << "\n\n";
 }
 
-// função recursiva para o pivo
-int particao(int array_teste[], int inferior, int superior, int tamanho)
-{
-    // seleção do pivo
-    int pivot = array_teste[superior];
+// função recursiva para o pivô
+int particao(int array_teste[], int inferior, int superior, int tamanho) {
+    // seleção do pivô
+    int pivo = array_teste[superior];
     //cada vez que chamar imprimimos o pivô
     if (tamanho < 20)
-        cout << pivot << endl;
+        cout << pivo << endl;
 
     int i = (inferior - 1);
 
@@ -111,18 +109,19 @@ int particao(int array_teste[], int inferior, int superior, int tamanho)
     return (i + 1);
 }
 
-void quickSort(int array_teste[], int inferior, int superior, int tamanho)
-{
-    if (inferior < superior)
-    {
+void quickSort(int array_teste[], int inferior, int superior, int tamanho){
+    if (inferior < superior){
         // seleciona o pivo e coloca todos os elementos menores a esquerda e
         // todos os maiores a direita do pivot
-        int pi = particao(array_teste, inferior, superior, tamanho);
-
+        int pivo = particao(array_teste, inferior, superior, tamanho);
         // Ordena os elementos a esquerda do pivot
-        quickSort(array_teste, inferior, pi - 1, tamanho);
-
+        quickSort(array_teste, inferior, pivo - 1, tamanho);
         // Ordena os elementos a direita
-        quickSort(array_teste, pi + 1, superior, tamanho);
+        quickSort(array_teste, pivo + 1, superior, tamanho);
     }
 }
+
+/**
+ * @brief crie uma versão do quick sort usando templates para inteiros, chars, doubles.
+ * 
+ */
