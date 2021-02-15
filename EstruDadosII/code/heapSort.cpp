@@ -103,3 +103,8 @@ void display(int conjunto[], int comprimento) {
     cout << "o conjunto não cabe no terminal!!" << endl;
   }
 }
+
+/**
+ * @brief Crie uma versão do heap sort usando templates
+ * 
+ */
