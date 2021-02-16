@@ -168,10 +168,8 @@ void heap_construir(int conj[], int n, int i) {
 
 //Merge
 void merge_sort(int* arr, int Limite_inferior, int Limite_superior) {
-
-    int meio;
     if (Limite_inferior < Limite_superior) {
-        meio = (Limite_inferior + Limite_superior) / 2; //typecasting ....
+        int meio = (Limite_inferior + Limite_superior) / 2; //typecasting ....
         //dividiu o array em dois, usando os limites passados
         //para identificar o array inferior e o superio
         merge_sort(arr, Limite_inferior, meio);
