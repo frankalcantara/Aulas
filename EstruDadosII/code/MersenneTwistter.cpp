@@ -1,23 +1,23 @@
-/* #include <iostream>
-#include <random>
-using namespace std;
-int main() {
-    mt19937 mt(1729);
-    uniform_int_distribution<int> dist(0, 99);
-    for (int i = 0; i < 25; ++i) {
-        std::cout << dist(mt) << " ";
-    }
-    std::cout << std::endl;
-}
-*/
+/**
+ * @file MersenneTwistter.cpp
+ * @author Frank de Alcantara
+ * @brief Geração de números randômicos usando a biblioteca padrão do C++
+ * @version 0.1
+ * @date 2020-10-20
+ */
+
 #include <iostream>
 #include <random>
+using namespace std;
+
+#define QUANTIDADE 16
+
 int main() {
-    std::random_device rd;
-    std::mt19937 mt(rd());
-    std::uniform_int_distribution<int> dist(0, 10000);
-    for (int i = 0; i < 16; ++i) {
-        std::cout << dist(mt) << " ";
+    random_device rd;
+    mt19937 mt(rd());
+    uniform_int_distribution<int> dist(0, 10000);
+    for (int i = 0; i < QUANTIDADE; ++i) {
+        cout << dist(mt) << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 }
