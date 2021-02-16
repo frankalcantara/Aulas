@@ -1,63 +1,92 @@
+/**
+ * @file 3dfsExemplo.cpp
+ * @author desconhecido
+ * @brief  Classe para criar um grafo e demonstrar o dfs
+ * @version 0.1
+ * @date 2020-10-12
+ * @mod Frank de Alcantara - 2020-10-20
+ */
 #include <iostream> 
 #include <list> 
 using namespace std;
-//graph class for DFS travesal  
 
-class grafoDFS {
-    int V;    // No. of vertices 
-    list<int>* adjLista;    // adjacency list 
-    void DFS_util(int v, bool visitado[]);  // A function used by DFS 
+class Grafo {
+    int Vertices;           // Número de Vértices
+    list<int>* adjLista;    // lista de adjacências para o grafo 
+    void DFS_util(int vertice, bool visitado[]);  //o DFS
 public:
-    // class Constructor
-    grafoDFS(int V) {
-        this->V = V;
-        adjLista = new list<int>[V];
+    /**
+     * @brief Constructor para um Objeto da classe Grafo
+     *
+     * @param Vertices  - inteiro, quantidade de vértices
+     */
+    Grafo(int Vertices) {
+        this->Vertices = Vertices;
+        adjLista = new list<int>[Vertices];
     }
-    // function to add an edge to graph 
-    void addEdge(int v, int w) {
-        adjLista[v].push_back(w); // Add w to v’s list.
+    /**
+     * @brief Adiciona uma aresta a um vértice
+     *
+     * @param vertice
+     * @param w
+     */
+    void addAresta(int vertice, int destino) {
+        adjLista[vertice].push_back(destino); // cria a aresta entre vertice e destino
     }
-    void DFS();    // DFS traversal function 
+
+    void DFS();    //função para pesquisa transversal no grafo
 };
-void grafoDFS::DFS_util(int v, bool visitado[])
-{
-    // current node v is visitado 
-    visitado[v] = true;
-    cout << v << " ";
-    // recursively process all the adjacent vertices of the node 
+void Grafo::DFS_util(int vertice, bool visitado[]){
+    // o vertice corrente vai para a lista de visitados
+    visitado[vertice] = true;
+    cout << vertice << " ";
+    /**
+    * @brief De forma recursiva percorremos todos os vértices adjantes a vertice
+    * sempre que encontramos um vértice acrescentamos este vértice a lista de visitados
+    */
     list<int>::iterator i;
-    for (i = adjLista[v].begin(); i != adjLista[v].end(); ++i)
+    for (i = adjLista[vertice].begin(); i != adjLista[vertice].end(); ++i)
         if (!visitado[*i])
             DFS_util(*i, visitado);
 }
 
-// DFS traversal 
-void grafoDFS::DFS()
-{
-    // initially none of the vertices are visitado 
-    bool* visitado = new bool[V];
-    for (int i = 0; i < V; i++)
+/**
+ * @brief Pesquisa transversal em profundidade em Grafo
+ *
+ */
+void Grafo::DFS(){
+    //no começo nenhum vértice foi visitado
+    bool* visitado = new bool[Vertices];
+    for (int i = 0; i < Vertices; i++)
         visitado[i] = false;
 
-    // explore the vertices one by one by recursively calling  DFS_util
-    for (int i = 0; i < V; i++)
+    // percorre todos os vertices recursivamente
+    for (int i = 0; i < Vertices; i++)
         if (visitado[i] == false)
             DFS_util(i, visitado);
 }
 
-int main()
-{
-    // Create a graph
-    grafoDFS grafoteste(5);
-    grafoteste.addEdge(0, 1);
-    grafoteste.addEdge(0, 3);
-    grafoteste.addEdge(1, 2);
-    grafoteste.addEdge(2, 3);
-    grafoteste.addEdge(3, 4);
+#define QUANTOS_VERTICES 5
 
+int main() {
+    //Cria um objeto grafoteste com vertices da classe Grafo
+    Grafo grafoteste(QUANTOS_VERTICES);
+    //preenche o grafo criando arestas para os vértices
+    grafoteste.addAresta(0, 1);
+    grafoteste.addAresta(0, 3);
+    grafoteste.addAresta(1, 2);
+    grafoteste.addAresta(2, 3);
+    grafoteste.addAresta(3, 4);
 
-    cout << "Depth-first traversal for the given graph:" << endl;
+    cout << "Lista de vértices percorridos com o DFS:" << endl;
     grafoteste.DFS();
 
     return 0;
 }
+
+/**
+ * @brief Modifique este código para gerar um número muito maior de vértices, e arestas, 
+ * depois teste o dfs para ver se ele percorre todos os vértices. Lembre-se de contar o tempo
+ * necessário para percorrer todo o gráfico.
+ * 
+ */
