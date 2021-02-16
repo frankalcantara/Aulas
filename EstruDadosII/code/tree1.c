@@ -1,8 +1,18 @@
-//em c para atender a solicitação dos alunos.
+/**
+ * @file tree1.c
+ * @author Frank de Alcantara
+ * @brief  Árvores, pré, post e in-order em C atendendo os alunos
+ * @version 0.1
+ * @date 2020-11-01
+ */
+
 #include<stdlib.h>
 #include<stdio.h>
 
-//definindo um tipo para não ter que usar a palavra struct o tempo todo
+/**
+ * @brief um tipo para armazenar os dados em árvore.
+ * 
+ */
 typedef struct no {
     int dadoQualquer;
     int ordem;
@@ -23,6 +33,7 @@ int busca(vertice *, int );
 int main(){
     vertice *root;
     root = NULL;
+    
     //inserindo nós e colocando um valor em cada um
     inserirVertice(&root, 9, 0);
     inserirVertice(&root, 4, 1);
@@ -122,4 +133,8 @@ void apagarArvore(vertice * tree){
     }
 }
 
-
+/**
+ * @brief criar árvores com mais de um milhão de nós e verificar os tempos para a percorrer toda 
+ * a árvore usando os três algoritmos.
+ * 
+ */
