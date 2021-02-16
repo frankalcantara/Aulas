@@ -1,55 +1,66 @@
+/**
+ * @file embaralha.cpp
+ * @author Frank de Alcantara
+ * @brief  Algoritmo de embaralhamento (Fisher–Yates shuffle)
+ * @version 0.1
+ * @date 2021-02-16
+ */
+
 #include <iostream>
 #include <chrono>
 using namespace std;
 
+//Protótipos
 void embaralha(int[], int);
 void troca(int*, int*);
 void display(int[], int);
 
-
-// Driver Code 
-int main()
-{
-    int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
-    int n = sizeof(arr) / sizeof(arr[0]);
-    embaralha(arr, n);
-    display(arr, n);
+int main() {
+    //define um conjunto de inteiros ordenados
+    int conjunto[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+    int n = sizeof(conjunto) / sizeof(arr[0]);
+    embaralha(conjunto, n);
+    display(conjunto, n);
 
     return 0;
 } //fim do main  
 
-// A utility function to troca to integers  
+/**
+ * @brief Troca dos inteiros usando os ponteiros para estes inteiros
+ *
+ * @param a
+ * @param b
+ */
 void troca(int* a, int* b) {
     int temp = *a;
     *a = *b;
     *b = temp;
 }
 
-// A utility function to print an array  
-void display(int arr[], int n) {
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
+/**
+ * @brief função para mostar no terminal um conjunto de inteiros
+ *
+ * @param conjunto
+ * @param comprimento
+ */
+void display(int conjunto[], int comprimento) {
+    for (int i = 0; i < comprimento; i++)
+        cout << conjunto[i] << " ";
     cout << "\n";
 }
 
-// A function to generate a random  
-// permutation of arr[]  
-void embaralha(int arr[], int n) {
-    // Use a different seed value so that  
-    // we don't get same result each time 
-    // we run this program  
-    srand(clock());
+/**
+ * @brief A função de embaralhamento
+ *
+ * @param conjunto
+ * @param comprimento
+ */
+void embaralha(int conjunto[], int comprimento) {
+   //gerar randomico 
+    srand((unsigned)time(0)); //typecast evite isso
 
-    // Start from the last element and troca  
-    // one by one. We don't need to run for  
-    // the first element that's why i > 0  
-    for (int i = n - 1; i > 0; i--)
-    {
-        // Pick a random index from 0 to i  
+    for (int i = comprimento - 1; i > 0; i--) {
         int j = rand() % (i + 1);
-
-        // troca arr[i] with the element  
-        // at random index  
         troca(&arr[i], &arr[j]);
     }
 }
