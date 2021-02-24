@@ -1,0 +1,16 @@
+{
+  "triggerTaskOnSave.selectedTask": "make-fast",
+  "triggerTaskOnSave.tasks": {
+    "make-fast": ["*.md"]
+  },
+  "cSpell.ignoreWords": [
+    "elim",
+    "imgleft",
+    "nivel",
+    "notav",
+    "oper",
+    "sintatica",
+    "sist",
+    "vtable"
+  ]
+}
