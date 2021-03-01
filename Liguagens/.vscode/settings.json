@@ -1,0 +1,18 @@
+{
+  "triggerTaskOnSave.selectedTask": "make-fast",
+  "triggerTaskOnSave.tasks": {
+    "make-fast": ["*.md"]
+  },
+  "cSpell.ignoreWords": [
+    "attb",
+    "gercode",
+    "l",
+    "nivel",
+    "plankalk",
+    "plankalkül",
+    "textoleft"
+  ],
+  "cSpell.words": [
+    "jacopini"
+  ]
+}

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Frank Coelho de Alcantara -2020">
+  <title>Diagramas de Casos de Uso - Casos de Uso</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/aulas.css" />
+  <link rel="stylesheet" href="../../rev/interpret.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="title-slide" class="nivel1">
+        <h1 class="title">Linguagens Regulares <br /> MEF & Regex</h1>
+        <p class="author" style="text-align: right !important;">Frank Coelho de Alcantara -2020</p>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Definição</h2>
+          <p>
+            O conjunto de itens de uma linguagem regular é um conjunto <strong>finito</strong> pode ser definido por um
+            alfabeto $\Sigma$ contém as <i>strings</i> $\emptyset$, $\{\varepsilon\}$ e $\{a\}$ para todo e qualquer $a \in \Sigma$.
+            E é fechado em relação as operações de <strong>união</strong>, <strong>concatenação</strong> e
+            <strong>fechamento de Kleene</strong>.
+          </p>
+        </section>
+        <section>
+          <h2>Linguagens Formais</h2>
+          <p>
+            Podemos provar, matematicamente que linguagens formais são aquelas
+            que podem ser definidas por máquinas de estado finito, determinísticas ou não, e por expressões regulares.
+          </p>
+          <p>
+            Também podemos criar uma máquina de estado finito (MEF) equivalente a uma expressão regular (Regex) ou uma
+            expressão regular equivalente a uma máquina de estados finitos. De tal forma que: $MEV \equiv Regex$
+          </p>
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Máquinas de Estado Finito</h2>
+          <p> Um máquina de estados finitos é uma abstração matemática definida pela 5-tupla, com apenas cinco
+            conceitos:</p>
+          <ol>
+            <li>$S$: um conjunto finito de estados;</li>
+            <li>$\Sigma$: um alfabeto de entrada finito;</li>
+            <li>$\delta: S\times \Sigma \rightarrow S$: um conjunto finito funções de transição;</li>
+            <li>$s_0$: um estado inicial;</li>
+            <li>$A \subseteq S$: um conjunto finito de estados de aceitação;</li>
+          </ol>
+        </section>
+        <section>
+          <h2>Máquinas de Estado Finito </h2>
+          <h3>$MEF=\{S, \Sigma, \delta, s_0, A\}$</h3>
+        </section>
+        <section>
+          <h2>Conceitos Adicionais</h2>
+          <p>
+            $\Sigma^*$ é o conjunto de todos os <i>strings</i>, de comprimento maior que $0$ que
+            podem ser criadas a partir de $\Sigma$.
+          </p>
+          <p>$L(MEF)=\{w|\delta^*(s_0,w)\in A\}$ é o conjunto de todas as <i>strings</i> aceitas por $MEF$.</p>
+          <p>Camamos o conjunto $L(MEF)$ de Linguagem da $MEF$.</p>
+        </section>
+        <section>
+          <h2>Aceitação</h2>
+
+          <p>
+            Uma <i>string</i> $w$ será aceita por $MEF$ se, e somente se, depois que $MEF$ terminar o
+            processamento de $w$, $MEF$ esteja em um dos estados de aceitação do conjunto $A$.
+          </p>
+
+        </section>
+        <section>
+          <h2>Representação</h2>
+
+          <p> Podemos representar uma $MEF$ com três notações diferentes:</p>
+          <ol>
+            <li>Uma lista de elementos na $5-tupla$.</li>
+            <li>Uma tabela de transição.</li>
+            <li>Um diagrama de transição.</li>
+          </ol>
+
+        </section>
+        <section>
+
+          <p>$MEF=\{S, \Sigma, \delta, s_0, A\}$</p>
+          <p>$MEF=\{\{s_0, s_1, s_2\}, \{0,1\}\\ \{\delta_{(s_0,0)}=s_1, \\ \delta_{(s_0,1)}=s_0, \\
+            \delta_{(s_1,0)}=s_2, \\ \delta_{(s_1,1)}=s_0, \\ \delta_{(s_2,0)}=s_2, \\ \delta_{(s_2,1)}=s_0\}, s_0 =
+            s_0, A=\{s_2\} \}$</p>
+
+        </section>
+        <section>
+          <h2>Tabela de Transição</h2>
+
+          <table class="blueTable">
+            <thead>
+              <tr>
+                <th>$\delta$</th>
+                <th>$0$</th>
+                <th>$1$</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>$s_0$</td>
+                <td>$s_1$</td>
+                <td>$s_0$</td>
+              </tr>
+              <tr>
+                <td>$s_1$</td>
+                <td>$s_2$</td>
+                <td>$s_0$</td>
+              </tr>
+              <tr>
+                <td>$s_2$</td>
+                <td>$s_2$</td>
+                <td>$s_0$</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </section>
+        <section>
+          <h2>Diagrama de Transição</h2>
+
+          <p><img data-src="../img/exemploMEF.jpg" alt="exemplo de máquina de estados finitos" /> </p>
+
+        </section>
+        <section>
+          <h2>Exemplo</h2>
+
+          <p>Uma máquina de estados muito comum em circuitos, e ambientes, de comunicação de dados uma máquina de
+            detecção de
+            paridade. Este tipo de máquina é capaz de detectar a paridade de um conjunto de bits, fornecidos como
+            entrada de forma
+            sequêncial. Lembre-se nenhum 1 é par e vazio não é. Coisas das regras de paridade.</p>
+
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Expressões Regulares</h2>
+
+          <p>O Teorema de <a href="https://en.wikipedia.org/wiki/Stephen_Cole_Kleene" target="_blank" rel="noopener noreferrer">Kleene</a> afirma
+            que, para que uma linguagem seja considerada formal, ela deve ser definida por: expressões
+            regulares e máquinas de estado finitas.</p>
+          <p>Isto significa que, com um pouco de álgebra é possível transformar uma em outra.</p>
+
+        </section>
+        <section>
+          <h2>Expressões Regulares</h2>
+
+          <p>Algebricamente são uma notação algébrica para representar um determinada linguagem $L$ dado um alfabeto
+            $\Sigma$.</p>
+          <p>As Linguagens regulares são fechadas nas operações de união, concatenação e fechamento de Kleene</p>
+
+        </section>
+        <section>
+          <h2>Fechamento - Closure</h2>
+
+          <p>Dizemos que um determinado conjunto $A$ é fechado em relação a uma operação $OP$. Se, e somente se, quando
+            aplicamos a operação $OP$ sobre
+            qualquer item do conjunto $A$ continua sendo parte do conjunto $A$.</p>
+          <p>A operação $OP$ altera o item, como, por exemplo, a multiplicação e conjunto dos inteiros.
+            A multiplicação altera o item, mas, o resultado, ainda faz parte do conjunto dos inteiros.
+
+          </p>
+
+        </section>
+        <section>
+          <h2>Fechamento - Closure</h2>
+
+          <p> O conjunto dos inteiros e fechado em relação soma, subtração e multiplicação. Contudo, não é fechado em
+            relação a divisão.</p>
+          <p> O resultado de algumas divisões executadas entre inteiros, não faz parte do conjunto dos números inteiros.
+          </p>
+
+        </section>
+        <section>
+          <h2>União</h2>
+
+          <p>Dados os conjunto $L_1=\{a,b,c,eg,hf\}$ e $L_2=\{ea,af\}$ definimos a união entre estes conjuntos como:</p>
+          <p style="text-align:center !important;"> $L_1 \cup L_2=\{a,b,c,eg,hf,ea,af\}$</p>
+          <p>Em algumas disciplinas usamos o símbolo $+$ para representar a união, se for o caso, teremos: </p>
+          <p style="text-align:center !important;"> $L_1 + L_2=\{a,b,c,eg,hf,ea,af\}$</p>
+
+        </section>
+        <section>
+          <h2>Concatenação</h2>
+
+          <p>Definimos a concatenação entre dois conjuntos $ L_1 \land L_2 $ como:</p>
+          <p style="text-align:center !important;"> $ L= L_1 \cdot L_2 = \{ xy | x \in L_1, y \in L_2 \}$</p>
+          <p>Não é coincidência o uso do símbolo do produto escalar para representar a concatenação.</p>
+
+        </section>
+        <section>
+          <h2>Concatenação</h2>
+
+          <p>As casas do Tabuleiro de Xadrez são nomeadas usando o conjunto resultado da operação entre $ L_1 \land L_2 $
+            desde que:</p>
+          <p style="text-align:center !important;"> $ L_1 = \{ a, b, c, d, e, f, g, h \} \land L_2 = \{ 1, 2, 3, 4, 5,
+            6, 7, 8 \}$</p>
+          <p>Contudo, as casas já mais são nomeadas usando o conjunto:</p>
+          <p style="text-align:center !important;"> $ L_1 = \{ 1, 2, 3, 4, 5, 6, 7, 8 \} \land L_2 = \{ a, b, c, d, e,
+            f, g, h \}$</p>
+          <p>Você consegue explicar porquê?</p>
+
+        </section>
+        <section>
+          <h2>Fechamento de Kleene</h2>
+
+          <p>Kleene Star, ou Fechamento de Kleene, ou só fechamento (<i>closure</i>) de forma intuitiva, pode ser
+            definida como o
+            conjunto formado pela união de todas as formas possíveis de concatenar qualquer número de cópias das
+            <i>strings</i> na linguagem $L$.</p>
+          <p style="text-align:center !important;"> $ L^* = \{ \varepsilon \} \cup L \cup L \cdot L \cup L \cdot L \cdot
+            L \cup . . . \}$</p>
+          <p>Na prática fica mais claro!</p>
+
+        </section>
+        <section>
+          <h2>Fechamento de Kleene</h2>
+
+          <p>considerando a linguagem $ L=\{ 0,1 \}$</p>
+          <ol style="font-size: 70% !important;">
+            <li>$L^0 = \{ \varepsilon \}$</li>
+            <li>$L^1=\{ 0,1 \}$</li>
+            <li>$L^2=L \cdot L^1 = \{ 00,01,10,11 \}$</li>
+            <li>$L^3= \{ 000,001,010,011,100,101,110,111\}$</li>
+            <li>$L^*=\{ \varepsilon,000,001,010,011,100,101,110,111,1000… \}$</li>
+          </ol>
+
+        </section>
+        <section>
+          <h2>Identidades das expressões regulares</h2>
+
+          <p>considerando a linguagem $ L_1,L_2 e L_3 $</p>
+          <table style="width:100%;">
+            <tr>
+              <td>
+                <ol style="font-size: 70% !important;">
+                  <li>$\emptyset^*=\varepsilon $</li>
+                  <li>$ L_1 \cdot L_1^* = L_1^ * \cdot L_1 $</li>
+                  <li>$ L_1^* \cdot L_1^* = L_1^* $</li>
+                  <li>$ (L_1^*)^* = L_1^* $</li>
+                  <li>$ L_1 \cdot L_1^* = L_1^* \cdot L_1^* $</li>
+                </ol>
+              </td>
+              <td>
+                <ol start="6" style="font-size: 70% !important;">
+                  <li>$ L_1 + \emptyset = \emptyset + L_1 = L_1 $</li>
+                  <li>$ L_1 \cdot \varepsilon = \varepsilon * L_1 = L_1 $</li>
+                  <li>$ L_1 \cdot \emptyset = \emptyset * L_1 = \emptyset $</li>
+                  <li>$ L_1 + L_1 = L_1 \cup L_1 = L_1 $</li>
+                  <li>$ (L_1 + L_2) \cdot L_3 = L_1 \cdot L_3 + L_2 \cdot L_3 $</li>
+                </ol>
+              </td>
+            </tr>
+          </table>
+
+        </section>
+      </section>
+
+      <section class="nivel1">
+        <section>
+          <h1>Material de apoio</h1>
+
+          <p>Você pode baixar o material de apoio <a href="./INTERPRETADORES.pdf">clicando aqui</a> </p>
+
+        </section>
+        <section>
+          <h2>Obras Citadas</h2>
+
+          <small>
+            BAUSOLA, D. <strong>Activity Diagram</strong>. zeroinfluence, 2012. Disponível em: <a
+              href="http:zeroinfluence.wordpress.com/uml" target="_blank" rel="noopener noreferrer"
+              class="uri">http:zeroinfluence.wordpress.com/uml</a>.
+            Acesso em: 04 Ago. 2020. </br>
+            BECK, Kent et. Al. <strong>Manifesto para Desenvolvimento Ágil de Software</strong>. 2001. Disponível em: <a
+              href="https://agilemanifesto.org/iso/ptbr/manifesto.html" target="_blank" rel="noopener noreferrer"
+              class="uri">https://agilemanifesto.org/iso/ptbr/manifesto.html </a>. Acesso em: 10 ago 2020. <br />
+            BECK, Kent e ANDRES, Cynthia. <strong>Extreme Programming Explained</strong>. 2012.Boston, MA. USA. Addison
+            Wesleyt.
+            2º Edição.<br />
+            SOMMERVILLE, I. <strong>Engenharia de software</strong>. São Paulo, SP. Brasil: Pearson , 2012.<br />
+            UNHELKAR, B. <strong>Software Engineering with UML</strong>. Boca Raton, FL. USA: Taylor & Francis Group,
+            LLC, 2018.
+          </small>
+
+        </section>
+      </section>
+    </div>
+  </div>
+  <div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+      center: false,
+      math: {
+        mathjax: "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
+
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
+</html>

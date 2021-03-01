@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Frank Coelho de Alcantara -2020" />
+  <title>Geração de Código Intermediário</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/interpret.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="title-slide" class="nivel1">
+       <section>
+        <h1 class="title">Geração de Código Intermediário</h1>
+        <p style="text-align: right !important;">Frank Coelho de Alcantara -2020&nbsp;&nbsp;</p>
+       </section>
+       <section>
+            <img data-src="../img/gercode1.png" style=" margin-top: 5%; height: 576px !important;"  alt="imagem com a frase, seu código já foi anotado." />
+       </section>
+       <section>
+          <h2>Representações Intermediárias - RIs</h2>
+          <img data-src="../img/gercode2.png" class="fragment fade-up" style="height: 504px !important;"  alt="são representações que estão entre a linguagem de programação e o código de máquina." />
+        </section>
+        <section>
+          <h2>Tarefas da RI</h2>
+          <small style="font-size: 80% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Realiza otimizações de Código independente da máquina trabalhando em partes onde não precisamos nos preocupar com registradores, e posições de memória.</p>
+          <p  class="fragment fade-up">O Código Gerado é uma representação simplificada da árvore gerada pela análise semântica.
+          Uma versão limpa, geralmente linear, mas que contém todas as características do algoritmo criado.</p>
+          <p  class="fragment fade-up">Este código intermediário já contém um nível significativo de otimizações. </p>
+          <p  class="fragment fade-up">O código intermediário é, geralmente, independente da arquitetura alvo.</p>
+        </small>
+        </section>
+        <section>
+          <h2>Independência</h2>
+          <img data-src="../img/gercode3.png" style="height: 504px !important;"  alt="o código intermediário deve ser independente da arquitetura." />
+        </section>
+        <section>
+          <h2>Representação</h2>
+          <img data-src="../img/gercode4.png" style="height: 388px !important; margin-top: 4%;"  alt="a representação deve ser mais simples." />
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <img data-src="../img/gercode5.jpg" style=" height: 504px !important; margin-top: 8%;"  alt="apenas o começo da sessão." />
+        </section>
+        <section>
+          <h2>Características</h2>
+          <img data-src="../img/gercode6.png" style="height: 350px !important;"  alt="deve ser independente da arquitetura ." />
+        </section>
+        <section>
+          <h2>Otimização High-Level</h2>
+          <img data-src="../img/gercode7.png" style="height: 540px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Otimização Mid-Level</h2>
+          <img data-src="../img/gercode8.png" style="height: 546px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Otimização Low-Level</h2>
+          <img data-src="../img/gercode9.png" style="height: 350px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Valores</h2>
+          <img data-src="../img/gercode10.png" style="height: 530px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Tecnologias</h2>
+          <img data-src="../img/gercode11.png" style="height: 530px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Árvore Sintática Abstrata</h2>
+          <img data-src="../img/gercode12.png" style="height: 425px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Direct Acyclic Graphs</h2>
+          <img data-src="../img/gercode13.png" style="height: 530px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Comparação DAG - AST </h2>
+          <img data-src="../img/gercode14.png" style="height: 530px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>DAG - Prática </h2>
+          <p  class="fragment fade-up"> Considere a declaração, $( 𝑎 + 𝑏 )∗ ( 𝑎 + 𝑏 + 𝑐 )$ e construa o DAG equivalente.</p>
+          <img data-src="../img/gercode15.png" class="fragment fade-up" style="height: 315px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Blocos Básicos</h2>
+          <img data-src="../img/gercode16.png" style="height: 450px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Blocos Básicos - Exemplo</h2>
+          <img data-src="../img/gercode17.png" style="height: 450px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Blocos Básicos - Fluxo</h2>
+          <img data-src="../img/gercode18.png" style="height: 450px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Representação Linear</h2>
+          <img data-src="../img/gercode19.png" style="height: 450px !important; margin-left: 4%;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Máquinas de Pilha - LIFO</h2>
+          <small style=" font-size: 72% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">Criadas no final dos anos 1950 pela Burroughs. A única empresa na história que concorreu com a IBM.</p>
+            <p class="fragment fade-up">Não usam registradores, todas as instruções estão armazenadas em uma pilha quando um operador chega a pilha, seus operandos já estão lá e o resultado é armazenado novamente na pilha.</p>
+            <p class="fragment fade-up">Uma das máquinas derivada da arquitetura de Von Neumann. As outras são Máquinas de Acumulador e de Registradores.</p>
+            <p class="fragment fade-up">É a arquitetura mais comum para implementação de interpretadores. O Java, o Python (CPython) e o WebAssembly usam variações desta tecnologia.</p>
+            <p class="fragment fade-up">Também conhecida como <i>one address code</i>.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Three Address Code</h2>
+          <p class="fragment fade-up">O gerador de código intermediário recebe uma <strong>AST</strong> originada no analisador semântico e converte esta árvore em uma representação linear. Esta representação é chamada de 3-Address code, <strong>3AC</strong> e é construída com base nos conceitos de endereços e instruções. Um endereço pode ser um nome, uma constante ou temporário.</p>
+          <p class="fragment fade-up">Seu código começa a ficar parecido com código de máquina.</p>
+        </section>
+        <section>
+          <h2>3AC - Formato</h2>
+          <small style=" font-size: 72% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">Todas as instruções terão a forma: $𝑥 := \text{ }𝑦\text{ } 𝑜𝑝\text{ } 𝑧 $ com no máximo um operador no lado direito do $:=$;</p>
+            <p class="fragment fade-up">Logo são validos: $𝑥 := 𝑦\text{ } 𝑜𝑝\text{ } 𝑧 $ ; $𝑥 := 𝑜𝑝\text{ } 𝑧 $ e $𝑥 := 𝑦 $.</p>
+            <p class="fragment fade-up">Expressões complexas de código serão transformados em sequencias de comandos em 3AC</p>
+            <p class="fragment fade-up">Veremos que em algumas gramáticas existe uma sintaxe com regras de produção na forma de quadruplas: $𝑜𝑝,\text{ } arg1, \text{ }arg2, \text{ }𝑟𝑒𝑠𝑢𝑙𝑡$.</p>
+        </small>
+        </section>
+        <section>
+          <h2>3AC - Otimização 1</h2>
+          <img data-src="../img/gercode21.jpg" style="height: 516px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>3AC - Exemplo</h2>
+          <img data-src="../img/gercode20.png" style="height: 450px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>3AC - Resumo</h2>
+          <img data-src="../img/gercode22.png" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>3AC - Exercício</h2>
+          <p>Considere $( 𝑎 + 𝑏 )∗( 𝑎 + 𝑏 + 𝑐 )$ e construa seu DAG e um conjunto de instruções usando o 3AC.</p>
+          <img data-src="../img/gercode23.png" class="fragment fade-up" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Registradores</h2>
+          <img data-src="../img/gercode24.png" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+          <p class="fragment fade-up">A distribuição de valores em registradores é um problema NP-Complete.</p>
+        </section>
+        <section>
+          <h2>3AC-Quadruplas</h2>
+          <img data-src="../img/gercode25.png" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>3AC-Triplas</h2>
+          <img data-src="../img/gercode26.png" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>3AC-Triplas Indiretas</h2>
+          <img data-src="../img/gercode27.png" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>3AC-Triplas Exemplo</h2>
+          <P>Considere a expressão: $𝑥 = (−𝑏 + 𝑠𝑞𝑟𝑡(𝑏^2 − 4∗𝑎∗𝑐)) / (2∗𝑎)$ e crie o 3AC equivalente.</P>
+          <img data-src="../img/gercode28.png" class="fragment fade-up" style="height: 310px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Na Prática - Java</h2>
+          <img data-src="../img/gercode29.png"  style="height: 435px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Na Prática - Webassembly</h2>
+          <img data-src="../img/gercode30.png" style="height: 435px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+      </section>
+     <!-- Material de Apoio -->
+      <section class="nivel1">
+        <section>
+          <h1>Pequena Revisão</h1>
+          <p>
+            Você pode, e deve, fazer uma revisão dos seus conhecimentos 
+            <a href="https://forms.gle/cbqbcgTc2WQtAz8x5" target="_blank" rel="noopener noreferrer">clicando aqui</a>
+          </p>
+        </section>
+        <section>
+          <h1>Material de apoio</h1>
+          <p>
+            Você pode baixar o material de apoio
+            <a href="./INTERPRETADORES.pdf">clicando aqui</a>
+          </p>
+        </section>
+        <section>
+          <h2>Referências</h2>
+          <small style="font-size:80% !important;">
+          <p>
+            AHO, A. V. et al. <b>Compiladores: princípios, técnicas e ferramentas</b>. 2º. ed. Boston, MA, USA: Pearson Education Inc. , 2007. <br/>
+            Appel, Andrew W. <b>Modern Compiler Implementation in Java</b>, 2nd ed. Cambridge, 2002.  (Editions in ML and C also available; the “tiger books”)<br/>
+            CASS, S. <b>The 2016 Top Programming Languages</b>. IEEE Spectrum, 2016. Disponível em: <http://spectrum.ieee.org/computing/software/the-2016-top-programming-languages>. Acesso em: 22 Set. 2016.<br/>
+            Grune, Dick, Henri E. Bal, Ceriel J.H. Jacobs, and Koen G. Langendoen. <b>Modern Compiler Design</b>.  Wiley, 2000 <br/>
+            Hogg, Jim. <b>CSE-P501 Compilers</b>. Washington University, 2005<br/>
+          </p>
+          </small>
+        </section>
+      </section>
+    </div>
+  </div>
+  <div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+      center: false,
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
+
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
+</html>

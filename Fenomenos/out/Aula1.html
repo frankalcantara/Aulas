@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="author" content="Frank Coelho de Alcantara -2020" />
-	<title>Inferência</title>
+	<title>Apresentação da Disciplina</title>
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta
 		name="apple-mobile-web-app-status-bar-style"
@@ -20,68 +20,79 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
-			<section class="nivel1" id="title-slide">
-				<section>
-				<h1 class="title">Sistemas Dedutivos</h1>
+			<section  id="title-slide">
+				<section class="nivel1">
+				<h1 class="title" style="display: block; margin-top: 14%;">Apresentação da Disciplina</h1>
 				<p style="text-align: right !important">
 					Frank Coelho de Alcantara -2020 &nbsp;&nbsp;
 				</p>
 				</section>
-				<section>
-					<h2>Um pouco de história</h2>
-					<p class="fragment fade-up">
-						O Sistema L foi desenvolvido por <a href="https://en.wikipedia.org/wiki/John_Lemmon" target="_blank" rel="noopener noreferrer">Edward John Lemmon</a>, na primeira metade do Século XX.
-						Como uma alternativa mais simples no método de dedução desenvolvido por <a href="http://https://en.wikipedia.org/wiki/Gerhard_Gentzen" target="_blank" rel="noopener noreferrer" >Gerhard Karl Erich Gentzen</a>,
-						O Sistema G. O L é de Lemmon, assim como o G é de Gentzen. No final dos anos sessenta, <a href="http://https://en.wikipedia.org/wiki/Stephen_Cole_Kleene" target="_blank" rel="noopener noreferrer" >Stephen Cole Kleene</a>
-						publicou uma variação deste sistema dedutivo que tem forte implicação na ciência da linguística computacional.
+				<section class="nivel1">
+					<h2>Quem sou Eu</h2>
+					<img data-src="https://frankalcantara.com/assets/images/Frank.jpg" 
+						style="float: left; margin-right: 5%; margin-left: 5%; height: 327px !important;"
+						alt="Foto Frank de Alcantara" />
+					<p>
+						Pai, marido, professor, engenheiro eletricista especializado em eletrônica, 
+						Mestre em Ciência Gestão e Tecnologia da Informação, CTO da Tefway Tecnologias, consultor e curioso.<br/> 
+						Muito Curioso!<br /> 
+						Estou no Linkedin - 
+						<a href="https://www.linkedin.com/in/frankalcantara/"><i class="fab fa-linkedin-in"></i></a> e gostaria de tê-los na minha rede de relacionamentos.
 					</p>
 				</section>
-				<section>
-					<h2>Formalismo</h2>
-					<small style="font-size: 80% !important;">
-						<p class="fragment fade-up">Alfabeto $\Sigma_L=\{\neg, \rightarrow, \{ P, Q, R, S,...\}, (,)\}$</p>
-						<p class="fragment fade-up">Regras sintáticas.</p>
-						<ol class="fragment fade-up" style="margin-left: 7%; font-size: 80%;">
-							<li>Toda variável proposicional é uma fórmula bem formada.</li>
-							<li>Se $P$ e $Q$ são fórmulas bem formadas, então $\neg P$ e $(P\rightarrow Q)$ também são.</li>
-							<li>Uma fórmula bem formada só pode ser obtida pelas regras acima.</li>
-						</ol>
-						<p class="fragment fade-up">Axiomas:</p>
-						<ol class="fragment fade-up" style="margin-left: 7%; font-size: 80%;">
-							<li>$( P \rightarrow ( Q \rightarrow P ))$</li>
-							<li>$(( P \rightarrow ( Q \rightarrow R )) \rightarrow (( P \rightarrow Q ) \rightarrow ( P \rightarrow R )))$</li>
-							<li>$(( \neg Q \rightarrow \neg P ) \rightarrow ( \neg P \rightarrow Q )\rightarrow P)$</li>
-						</ol>
-					</small>
+				<section class="nivel1">
+					<h2>Ementa</h2>
+						<p style="font-size: 93% !important; text-align: justify !important; width: 95%;">
+						Essa disciplina é ofertada aos estudantes ingressantes no curso de <strong>Bacharelado em Ciência da Computação</strong>. Ao final da
+						disciplina, o estudante será capaz de combinar os temas de <strong>Cálculo, Geometria Analítica e Física</strong> para modelar e resolver
+						problemas de situações reais, tais como movimento e equilíbrio de partículas e transformações de energia. Para a
+						modelagem, ou seja, a <strong>representação simplificada de situações reais</strong>, executará métodos de solução e simulação de
+						fenômenos físicos utilizando <strong>ferramentas computacionais</strong>. </p> 
 				</section>
-				<section>
-					<h2>Só para lembrar</h2>
-					<p class="fragment fade-up">Todo axioma é uma tautologia mas, nem toda tautologia é um axioma.</p>
-					<p class="fragment fade-up">Todo teorema é uma tautologia mas, e toda tautologia é um teorema.</p>
-					<p class="fragment fade-up">Um argumento é válido se, e somente se, existe uma tautologia condicional (implicação) que pode ser associada a ele.</p>
+				<section class="nivel1">
+					<h2>Resultado de Aprendizagem 1 - RA1</h2>
+						<ul style="margin-left: 7%; font-size: 80%;">
+							<li  class="fragment fade-up" style="margin-bottom: 4%;"><strong>Tema - 1:</strong> funções reais de uma variável real: Funções polinomiais, funções recíprocas, exponenciais e logarítmicas; </li>
+							<li class="fragment fade-up" style="margin-bottom: 4%;"><strong>Tema - 2:</strong> trigonometria: Trigonometria do triângulo retângulo, relações e funções trigonométricas;</li>
+							<li class="fragment fade-up" style="margin-bottom: 4%;"><strong>Tema - 3:</strong> representações matemáticas no espaço bi e tridimensional: sistema cartesiano e polar; vetores e operações;</li>
+							<li class="fragment fade-up" style="margin-bottom: 4%;"><strong>Tema - 4:</strong> noção intuitiva e cálculo de limites;</li>
+						</ul>
 				</section>
-				<section>
-					<h2>Provas</h2>
-					<small style="font-size: 80% !important;">
-						<p class="fragment fade-up">Axiomas:</p>
-						<ol class="fragment fade-up" style="margin-left: 7%; font-size: 80%;">
-							<li>$( P \rightarrow ( Q \rightarrow P ))$</li>
-							<li>$(( P \rightarrow ( Q \rightarrow R )) \rightarrow (( P \rightarrow Q ) \rightarrow ( P \rightarrow R )))$</li>
-							<li>$(( \neg Q \rightarrow \neg P ) \rightarrow ( \neg P \rightarrow Q )\rightarrow P)$</li>
-						</ol>
-						<p class="fragment fade-up">No Sistema L podemos usar qualquer um dos axiomas e o <i>Modus Ponens</i> para provar qualquer argumento.</p>
-					</small>
+				<section class="nivel1">
+					<h2>Resultado de Aprendizagem 2 - RA2</h2>
+						<ul style="margin-left: 7%; font-size: 80%;">
+							<li class="fragment fade-up" style="margin-bottom: 4%;"><strong>Tema - 4:</strong> noção intuitiva e cálculo de limites;</li>
+							<li class="fragment fade-up" style="margin-bottom: 4%;"><strong>Tema - 5:</strong> derivadas: definição e interpretação geométrica e física de derivadas; derivada
+								de funções elementares, propriedades
+								e aplicações; </li>
+							<li class="fragment fade-up" style="margin-bottom: 4%;"><strong>Tema - 6:</strong> cálculo Integral: definição, propriedades, integral definida, soma de Riemann,
+								Teorema Fundamental do Cálculo, Área e
+								Volume; </li>
+							<li class="fragment fade-up" style="margin-bottom: 4%;"><strong>Tema - 7: </strong> medidas: Unidades, Grandezas Físicas.</li>
+						</ul>
 				</section>
-				<section>
-					<h2>Para Lembrar: Modus Ponens</h2>
-					<p class="fragment fade-up">De longe a regra mais utilizada em inferência lógica. Permite deduzir uma tese $B$ a partir das premissas $A$ e $A \rightarrow B$.</p>
-					<p class="fragment fade-up">Se estuda é aprovado, estudou logo é aprovado.</p>
-					<img data-src="../img/ponens1.jpg" class="imgleft" style="height: 132px !important;"
-						alt="símbolo meramente ilustrativo, sem valor didático" />
-					<p class="fragment fade-up">Podemos provar a validade do <i>Modus Ponens</i> de três formas diferentes.</p>
+				<section class="nivel1">
+					<h2>Resultado de Aprendizagem 3 - RA3</h2>
+						<ul style="margin-left: 7%; font-size: 80%;">
+							<li class="fragment fade-up" style="margin-bottom: 4%;"><strong>Tema - 8:</strong> movimento da partícula: funções de posição, velocidade e aceleração;</li>
+							<li class="fragment fade-up" style="margin-bottom: 4%;"><strong>Tema - 9:</strong> Leis de Newton, Trabalho e Energia: 1ª, 2ª e 3ª Lei de Newton, Trabalho com
+								força constante e variável;</li>
+							<li class="fragment fade-up" style="margin-bottom: 4%;"><strong>Tema - 10:</strong> estratégias de simulação computacional.</li>
+						</ul>
 				</section>
-				
-				<section>
+				<section class="nivel1"> 
+					<h2>Processo Avaliativo</h2>
+					<img data-src="..\img\avaliacoes.jpg"
+						style="float: left; margin-left: 3%; height: 327px !important;" alt="Mapa de avaliações" />
+				</section>
+				<section class="nivel1">
+					<h2>Presenças</h2>
+					<p class="fragment fade-up">As presenças serão computadas de acordo com avaliações formativas que serão agendadas de acordo com o progresso da turma.</p>
+					<p class="fragment fade-up">Todas a avaliações formativas terão prazo de 7 dias para entrega.</p>
+					<p class="fragment fade-up">Algumas avaliações formativas serão realizadas na aula, mas estas não contam presença.</p>
+					<p class="fragment fade-up">Por exemplo: <a href="https://forms.gle/MLjFrfHsgYyiHH227" target="_blank" rel="noopener noreferrer">clique aqui</a> para realizar sua primeira <strong>Avaliação Formativa</strong>.</p>
+				</section>
+				<section class="nivel1">
 					<h2>Provando o Modus Ponens 1</h2>
 					<p class="fragment fade-up">Usando a tabela verdade do próprio argumento.</p>
 					<img data-src="../img/ponens2.jpg" class="imgleft fragment fade-up" style="height: 130px !important;"
@@ -90,7 +101,7 @@
 					<img data-src="../img/ponens3.jpg" class="imgleft fragment fade-up" style="height: 130px !important;"
 						alt="símbolo meramente ilustrativo, sem valor didático" />
 				</section>
-				<section>
+				<section class="nivel1">
 					<h2>Provando o Modus Ponens 2</h2>
 					<p class="fragment fade-up">Usando a tabela verdade da tautologia equivalente.</p>
 					<img data-src="../img/ponens4.jpg" class="imgleft fragment fade-up" style="height: 190px !important;"
@@ -98,27 +109,27 @@
 						<p class="fragment fade-up">Para representar esta fórmula enfatizando que é uma tautologia usaremos: $$((p \rightarrow q)\wedge p)\Rightarrow q$$</p>
 					
 				</section>
-				<section>
+				<section class="nivel1">
 					<h2>Modus Tollens</h2>
 					<p class="fragment fade-up">Permite deduzir a negação do antecedente $A$ a partir da negação de $B$ e da implicação $A\rightarrow B$.</p>
 					<p class="fragment fade-up">Se chove, não vou a aula. Vou a aula logo não chove.</p>
 					<img data-src="../img/tollens1.jpg" class="imgleft fragment fade-up" style="height: 190px !important;"
 						alt="símbolo meramente ilustrativo, sem valor didático" />
 				</section>
-				<section>
+				<section class="nivel1">
 					<h2>Exercício 1: Modus Tollens</h2>
 					<p class="fragment fade-up">Usando o mesmo processo de dedução que usamos para comprovar o <i>Modus Ponens</i> comprove a validade do <i>Modus Tollens</i>.</p>
 					<img data-src="../img/tollens1.jpg" class="imgleft fragment fade-up" style="height: 190px !important;"
 						alt="símbolo meramente ilustrativo, sem valor didático" />
 				</section>
-				<section>
+				<section class="nivel1">
 					<h2>Prova de Argumentos</h2>
 					<p class="fragment fade-up">Sempre podemos provar um argumento utilizando a sua tabela verdade.</p>
 					<p class="fragment fade-up">O uso de tabelas verdade é tedioso, cansativo e torna mecânico o processo de conclusão.</p>
 					<p class="fragment fade-up">A forma ideal de resolver problemas de inferência, ou dedução, é utilizar as próprias propriedades da lógica.</p>
 					<p class="fragment fade-up">Usamos argumentos cuja consequência já é conhecida, são chamados de <strong>Consequências Notáveis</strong>.</p>
 				</section>
-				<section>
+				<section class="nivel1">
 					<h2>Exemplo 1</h2>
 					<small style="font-size: 67% !important; width: 90%;;">
 						<p class="fragment fade-up">Prove o teorema $\vdash_L ((p \rightarrow q) \rightarrow (p \rightarrow p))$ </p>
@@ -131,7 +142,7 @@
 						<p class="fragment fade-up">Como $[1]$ e $[2]$ são axiomas $(( p \rightarrow q ) \rightarrow ( p \rightarrow p ))$ é válido.</p>
 					</small>
 				</section>
-				<section>
+				<section class="nivel1">
 					<h2>Exemplo 2</h2>
 					<small style="font-size: 62% !important; width: 90%;;">
 						<p class="fragment fade-up">Prove o teorema $\vdash_L (p \rightarrow p)$ </p>
@@ -144,13 +155,13 @@
 						<p class="fragment fade-up">Aplicando o <i>Modus Ponens</i> em $[3]$ e $[4]$ temos $p \rightarrow p$ é válida.</p>
 					</small>
 				</section>
-				<section>
+				<section class="nivel1">
 					<h2>Exercício 2</h2>
 						<p class="fragment fade-up">Provamos que $\vdash_L (p \rightarrow p)$ é um argumento válido, então podemos usar $p \rightarrow p$ a qualquer momento. Neste caso,
 						dizemos que $(p \rightarrow p)$ é um <strong>lema</strong>. Prove $\vdash_L (\neg p\rightarrow p)\rightarrow p$ </p>
 					
 				</section>
-				<section>
+				<section class="nivel1">
 					<h2>Exemplo 3: hipóteses</h2>
 					<small style="font-size: 62% !important; width: 90%;;">
 						<p class="fragment fade-up">Se no problema forem dada hipóteses, não podemos alterar nenhuma destas formulas para provar o argumento. Contudo, ainda 
@@ -162,7 +173,7 @@
 						<p class="fragment fade-up">provando $P → R$ </p>	
 					</small>	
 				</section>
-				<section>
+				<section class="nivel1">
 					<h2>Exercício 3</h2>
 					<p class="fragment fade-up">Prove a validade de $P → ((Q → P) → R) \vdash_L P → R$</p>
 					
@@ -170,10 +181,10 @@
 	
 			</section>
 			<section class="nivel1">
-				<section>
+				<section class="nivel1">
 					<h1>Respostas dos Exercícios</h1>
 				</section>
-				<section>
+				<section class="nivel1">
 					<h2>Exercício 1: Modus Tollens</h2>
 					<img data-src="../img/tollens2.jpg" class="imgleft fragment fade-up" style="height: 167px !important;"
 						alt="símbolo meramente ilustrativo, sem valor didático" />
@@ -182,7 +193,7 @@
 					<img data-src="../img/tollens4.jpg" class="imgleft fragment fade-up" style="height: 190px !important;"
 						alt="símbolo meramente ilustrativo, sem valor didático" />
 				</section>
-				<section>
+				<section class="nivel1">
 					<h2>Exercício 2: </h2>
 					<p>Prove $\vdash_L (\neg p\rightarrow p)\rightarrow p$</p>
 					<p>Nós já temos um Lema descoberto: $P \rightarrow P$ se fizermos $P \equiv \neg P$ teremos $\neg p \rightarrow \neg p$.</p>
@@ -190,7 +201,7 @@
 						$((\neg p \rightarrow \neg p)\rightarrow (\neg p \rightarrow p)\rightarrow p)$</p>
 					<p>Agora, aplicamos <i>Modus Ponens</i> com $P \equiv (\neg p \rightarrow \neg p )$ e $(P\rightarrow Q) \equiv ((\neg p \rightarrow \neg p) \rightarrow ( \neg p \rightarrow p) \rightarrow p)$ e provamos $Q \equiv (\neg p \rightarrow p) \rightarrow p$.</p>	
 				</section>
-				<section>
+				<section class="nivel1">
 					<h2>Exercício 3: </h2>
 					<small style="font-size: 57% !important;">
 					<p>Prove a validade de $P → ((Q \rightarrow P) \rightarrow R) \vdash_L P \rightarrow R$</p>
@@ -207,14 +218,14 @@
 			</section>
 
 			<section class="nivel1">
-				<section>
+				<section class="nivel1">
 					<h1>Material de apoio</h1>
 					<p>
 						Você pode baixar o material de apoio
 						<a href="./logicaProposicional.pdf" target="_blank" rel="noopener noreferrer">clicando aqui</a>
 					</p>
 				</section>
-				<section>
+				<section class="nivel1">
 					<h2>Obras Citadas</h2>
 					<p>
 						AHO, A. V. et al.
@@ -237,6 +248,7 @@
 	<script src="../../rev/plugin/math/math.js"></script>
 	<script src="../../rev/plugin/menu/menu.js"></script>
 	<script src="../../rev/plugin/chalkboard/plugin.js"></script>
+	<script src="../../rev/plugin/countdown\countdown.js"></script>
 	<script>
 		// Full list of configuration options available at:
 		// https://revealjs.com/config/
@@ -244,7 +256,7 @@
 			// Push each slide change to the browser history
 			history: true,
 			// Transition style
-			transition: "fade", // none/fade/slide/convex/concave/zoom
+			transition: "default", // none/fade/slide/convex/concave/zoom
 			center: false,
 			math: {
 				mathjax:
