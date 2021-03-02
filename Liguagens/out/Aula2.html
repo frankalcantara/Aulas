@@ -19,216 +19,210 @@
       <section>
         <section class="nivel1">
           <h1>Compilação, conceitos gerais</h1>
-          <p style="text-align: right !important">Frank Coelho de Alcantara -2020 </p>
+          <p style="text-align: right !important">Frank Coelho de Alcantara -2020 &nbsp;&nbsp;&nbsp;</p>
         </section>
         <section class="nivel1">
           <h2>Tradução em Linguagem de Máquina</h2>
-          <p>
-            Para que uma máquina possa executar este algoritmo o texto que
-            escrevemos deve ser traduzido em linguagem de máquina.
+          <p class="fragment fade-up">
+            Para que uma máquina possa executar um algoritmo, o texto que
+            escrevemos deve ser traduzido em uma linguagem que a máquina entenda. Uma linguagem de máquina.
           </p>
-          <p>
+          <p class="fragment fade-up">
             Esta tradução pode ser realizada por compilação, interpretação ou
-            por processos mistos.
+            por processos mistos. Não há relação entre uma linguagem e a forma como ela é traduzida.
           </p>
         </section>
       </section>
       <section>
         <section class="nivel1">
           <h2>Processo de Compilação</h2>
-
-          <img
-            src="../img/image15.png"
-            alt="processo de compilação em módulos"
-            style="
-								height: 500px !important;
-								margin: 0 auto 4rem auto;
-								background: transparent;
-							" />
-
+          <img src="../img/image15.png" alt="processo de compilação em módulos" style="height: 500px !important; 
+          margin: 0 auto 4rem auto; background: transparent;" />
         </section>
         <section class="nivel1">
-          <h2>Analisadores Léxicos</h2>
-
-          <p>
-            Módulo Responsável pela interpretação dos Lexemas (palavras) da
-            linguagem formal.
+          <h2>Analisador Léxico</h2>
+          <p class="fragment fade-up">
+            Módulo Responsável pela interpretação dos Lexemas (palavras) de uma determinada linguagem.
+            No nosso caso, de uma linguagem formal.
           </p>
-          <p>
+          <p class="fragment fade-up">
             Lexema é um termo mais amplo por que inclui todos os conjuntos de
             símbolos que são possíveis em uma linguagem.
           </p>
-
+          <p class="fragment fade-up">
+            Vamos usar preferencialmente lexema, mas palavra é um bom sinônimo para você entender o conceito.
+          </p>
         </section>
         <section class="nivel1">
           <h2>Analisador Sintático</h2>
-
-          <p>Responsável pela análise da estrutura da linguangem.</p>
-          <p>
+          <p class="fragment fade-up">Responsável pela análise da estrutura da linguagem.</p>
+          <p class="fragment fade-up">
             Cabe ao analisador sintático determinar se uma determinada
-            declaração da linguagem está corretamente formatada.
+            declaração de uma determinada linguagem está corretamente formatada.
           </p>
-
+          <p class="fragment fade-up">
+            A análise sintática se preocupa com a forma das sentenças, não com os lexemas e não com o sentido da sentença.
+          </p>
         </section>
         <section class="nivel1">
           <h2>Analisador Semântico</h2>
-
-          <p>
+          <p class="fragment fade-up">
             O analisador semântico é responsável pela interpretação de cada
-            declaração da linguagem.
+            declaração da linguagem. Análise semântica é análise de sentido.
           </p>
-          <p>
+          <p class="fragment fade-up">
             Erros de tipos, declaração de variáveis, composição de argumentos,
             estão entre os problemas que cabem ao analisador semântico.
           </p>
-
+          <p class="fragment fade-up">
+            A análise semântica se preocupa com o sentido da sentença.
+          </p>
         </section>
         <section class="nivel1">
           <h2>Geração de código intermediário</h2>
-
-          <p>
+          <p class="fragment fade-up">
             Cabe ao gerador de código intermediário, otimizar o código e
             transformá-lo em uma linguagem mais próxima da linguagem da
             máquina.
           </p>
-          <p>
-            Neste módulo encontramos, atualmente, as maiores oportunidades
+          <p class="fragment fade-up">
+            Neste módulo encontramos as maiores oportunidades
             para desenvolvimento de tecnologia. O Java, o Chrome, o LLVM são
             projetos que dependem do código intermediário para o seu sucesso.
           </p>
-
+          <p class="fragment fade-up">
+            A geração de código intermediário é fundamental para o sucesso do processo de interpretação.
+          </p>
         </section>
         <section class="nivel1">
           <h2>Otimização de código</h2>
-
-          <p>
-            Este módulo pode estar dentro ou fora do gerador de código
-            intermediário. E é responsável por fazer com que o código de
+          <p class="fragment fade-up">
+            Este módulo pode estar dentro, fora, ou tanto no gerador de código
+            intermediário quanto após este módulo. É responsável por fazer com que o código de
             máquina gerado seja o mais eficiente e eficaz possível.
           </p>
-          <p>
-            Sistemas como o LLVM, possuem diversos projetos diferentes
+          <p class="fragment fade-up">
+            A otimização de código é a última ação, antes de chegarmos ao Assembly.
+          </p>
+          <p class="fragment fade-up">
+            Sistemas de compilação como o LLVM, possuem diversos projetos diferentes
             competindo pelo código mais eficiênte.
           </p>
-
         </section>
         <section class="nivel1">
           <h2>Linguagens Formais</h2>
-
-          <p>
+          <p class="fragment fade-up">
             Uma linguagem formal é uma linguagem artificial criada pelo homem,
-            para alguma função específica.
+            para atender alguma função específica.
           </p>
-          <p>
-            A música é uma linguagem formal. Pelo menos, existe uma linguagem
-            formal para a escrita, leitura e interpretação de músicas. O
-            cálculo proposicional, que começou com Aristóteles também é uma
-            linguagem formal. Há uma pequena diferença entre linguagens
-            formais e regulares. Todas as regulares são formais mas, o
-            contrário não é verdadeiro.
+          <p class="fragment fade-up">
+            A música é uma linguagem formal. Existe uma linguagem
+            artificial criada para a escrita, leitura e interpretação de músicas. O
+            cálculo proposicional também é uma linguagem formal. 
           </p>
-
+          <p class="fragment fade-up">
+            Há uma pequena diferença entre linguagens
+            formais e regulares. Todas as regulares são formais, mas nem todas as formais são regulares.
+          </p>
         </section>
         <section class="nivel1">
           <h2>Linguagens Naturais</h2>
-
-          <p>
-            Iremos, ao longo desta disciplina, afinando, a definição de
-            linguagem formal.
+          <p class="fragment fade-up">
+            As linguagens naturais são fruto da evolução da especie humana. Ocorrem 
+            de forma natural, ainda não perfeitamente entendida. A base do nosso desenvolvimento como espécie.
           </p>
-          <p>
-            As linguagens naturais são fruto da evolução da especie humana. Um
-            dos passos importantes nesta evolução foi o desenvolvimento de
-            linguagens artificiais.
+          <p class="fragment fade-up">
+            As linguagens naturais não possuem regras estáticas de grafia, sintaxe ou semântica. 
+            Estas definições evoluem com a linguagem.
           </p>
-
+          <p class="fragment fade-up">
+            Iremos, ao longo desta disciplina, melhorando a definição de
+            linguagem formal até incluir todas as nuances deste conceito.
+          </p>
         </section>
       </section>
       <section>
         <section class="nivel1">
           <h2>Alfabetos</h2>
-
-          <p>
-            Um alfabeto é um conjunto finito de símbolos que podem ser
+          <p class="fragment fade-up">
+            Um alfabeto é um conjunto <strong>finito</strong> de símbolos que podem ser
             utilizados em uma determinada linguagem.
           </p>
-          <p>
+          <p class="fragment fade-up">
             Nesta disciplina, vamos usar o caractere $\Sigma$ (Sigma) para
-            representar um alfabeto com um índice para identificar sua
-            linguagem. O $\Sigma_{bin}$ representa a linguagem binária.
+            representar um alfabeto com um índice para identificar sua linguagem. 
+          </p>
+          <p class="fragment fade-up">
+            Considerando esta norma, O $\Sigma_{bin}$ representa o alfabeto da linguagem binária. A definição deste 
+            alfabeto pode ser: $$\Sigma_{bim} = \{0,1\}$$
           </p>
 
         </section>
         <section class="nivel1">
           <h2>Alfabetos - representação</h2>
 
-          <p>
+          <p class="fragment fade-up">
             Se desconsideramos os símbolos de pontuação, e símbolos de outros
-            idiomas como o latim ou o grego. O alfabeto da língua portuguêsa,
-            como falado no Brasil seria representado por: <br />
-            $\Sigma_{pt_br} = \{a..z,A..Z,0..9\}$.
+            idiomas como o latim ou o grego. O alfabeto do português,
+            como falado no Brasil, pode ser representado por: <br />
+            $$\Sigma_{pt_br} = \{a..z,A..Z,0..9\}$$
           </p>
-          <p>
-            Este alfabeto, conjunto de símbolos teria a cardinalidade de 62.
-            <br />Tal que
-            $|\Sigma_{pt_br}| = |\{a..z,A..Z,0..9\}| = 62$.
+          <p class="fragment fade-up">
+            Este alfabeto, conjunto de símbolos, teria a cardinalidade de 62. Tal que:
+            $$|\Sigma_{pt_br}| = |\{a..z,A..Z,0..9\}| = 62$$
           </p>
-
         </section>
         <section class="nivel1">
-          <h2>Strings</h2>
-
-          <p>
+          <h2>Strings 1</h2>
+          <p class="fragment fade-up">
             Vamos chamar de <i>strings</i> a sequências finitas de símbolos de
-            um alfabeto $\Sigma$ específico de uma linguagem.
+            um alfabeto $\Sigma$ específico de uma linguagem determinada.
           </p>
-          <p>
-            A <i>strings</i> podem ter qualquer comprimento, inclusive
-            comprimento nenhum. A esta <i>string</i> que existe, mas não tem
+          <p class="fragment fade-up">
+            <strong>A <i>strings</i> podem ter qualquer comprimento, inclusive
+            comprimento nenhum.</strong>
+          </p>
+          <p class="fragment fade-up">
+            A esta <i>string</i> que existe, mas não tem
             comprimento daremos o nome de <i>string vazia</i> e
             representaremos pelo símbolo $\varepsilon$.
           </p>
-
         </section>
         <section class="nivel1">
-          <h2>Strings</h2>
-
-          <p>
+          <h2>Strings 2</h2>
+          <p class="fragment fade-up">
             Dado o alfabeto $\Sigma=\{a,b\}$, o conjunto de todas as
             <i>strings</i> possíveis com este alfabeto será dado por:
-            $S=\{\varepsilon,a,b,ab,ba,aa,bb,aaa, ...\}$
+            $$S=\{\varepsilon,a,b,ab,ba,aa,bb,aaa, ...\}$$
           </p>
-          <p>
-
-            O conjunto das <i>strings</i> possíveis é infinito, o conjunto
-            das <i>strings</i> de uma linguagem não é infinto.
-
+          <p class="fragment fade-up">
+            O conjunto das <i>strings</i> possíveis é infinito, como não há limites em comprimento, sempre podemos 
+            colocar outro símbolo na <i>string</i>. 
           </p>
-
+          <p class="fragment fade-up">
+            <strong>O conjunto das <i>strings</i> de uma linguagem não é infinto.</strong>
+          </p>
         </section>
         <section class="nivel1">
-          <h2>Strings</h2>
-
-          <p>
+          <h2>Strings 3</h2>
+          <p class="fragment fade-up">
             Formalmente, representaremos <i>strings</i> como os conjuntos que
             são. Então uma <i>string</i> qualquer poderia ser $s=\{a,b,b\}$,
             informalmente teremos $s=\text{"abb"}$.
           </p>
-          <p>
+          <p class="fragment fade-up">
             A <i>string</i> $s$ tem cardinalidade 3. Contudo: $|{a,b,b}|_a =
             1$.
           </p>
-
         </section>
       </section>
       <section>
         <section class="nivel1">
           <h1>Avaliação Participativa</h1>
-          <p>
+          <p class="fragment fade-up">
             Clique <a href="https://forms.gle/8MzA1UzAwdgJ4sAm6">aqui</a> para realizar a atividade participativa referente às aulas 1 e 2.
           </p>
         </section>
-       
       </section>
     </div>
   </div>
