@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Frank Coelho de Alcantara -2020">
-  <title>Interpretadores e compiladores, introdução</title>
+  <title>Linguagem de Programação e Compiladores</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta
     name="apple-mobile-web-app-status-bar-style"
@@ -22,69 +22,106 @@
   <div class="reveal">
     <div class="slides">
       <section id="title-slide" class="nivel1">
-        <h1 class="title">Interpretadores e compiladores, introdução</h1>
-        <p style="text-align: right !important;">Frank Coelho de Alcantara -2020</p>
+        <h1 class="title">Ling. Programação e Compiladores</h1>
+        <p style="text-align: right !important;">Frank Coelho de Alcantara - 2021 &nbsp;&nbsp;&nbsp;</p>
       </section>
-      <section class="nivel1">
-        <section>
-          <h2>Introdução</h2>
-          <blockquote>
-            <p>“The tools we use have a profound (and devious!) influence on our thinking habits, and, therefore, on our thinking abilities.” </br> Edsger
-              Dijkstra </p>
-          </blockquote>
+      <section>
+        <section class="nivel1">
+          <h2>Professor</h2>
+          <img data-src="https://frankalcantara.com/assets/images/Frank.jpg"
+            style="float: left; margin-right: 5%; margin-left: 5%; height: 327px !important;" alt="Foto Frank de Alcantara" />
+          <p class="fragment fade-up">
+            Pai, marido, professor, engenheiro eletricista especializado em eletrônica,
+            Mestre em Ciência Gestão e Tecnologia da Informação, CTO da Tefway Tecnologias, consultor e curioso.<br />
+            Muito Curioso!<br />
+            Estou no Linkedin -
+            <a href="https://www.linkedin.com/in/frankalcantara/"><i class="fab fa-linkedin-in"></i></a> e gostaria de tê-los na
+            minha rede de relacionamentos.
+          </p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Introdução</h2>
-          <p>Veremos um pouco da história da computação, os conceitos de compilação e interpretação e a matemática que suporta a criação de linguagens de
+            <p class="fragment fade-up"><img data-src="../img/djikstra1.jpg"
+              alt="grace hopper e uma equipe de engenheiros trabalhando no univac" /></p>
+        </section>
+        <section class="nivel1">
+          <h2>Introdução</h2>
+          <p class="fragment fade-up">Veremos um pouco da história da computação, os conceitos de compilação e interpretação e a matemática que suporta a criação de linguagens de
             programação. </p>
-          <p>Vamos tratar de máquinas abstratas feitas para entender a linguagem que os programadores usam para criar algoritmos e resolver problemas. </p>
-          <p>Vamos explorar os processos de tradução que são utilizados por compiladores e interpretadores. E, principalmente, entender esta tecnologia. </p>
+          <p class="fragment fade-up">Vamos tratar de algoritmos criados para entender a linguagem que os programadores usam para criar seus algoritmos e resolver problemas. </p>
+          <p class="fragment fade-up">Vamos Principalmente, vamos entender como usar compiladores e interpretadores para criar soluções incríveis. </p>
         </section>
-        <section>
-          <h2>Um pouco de História</h2>
-          <p>Poderíamos dizer que a história da computação começou quando o primeiro homem colocou algumas pedras no chão para saber com quantas ovelhas saiu
-            para o pasto e com quantas voltou. </p>
-          <p>Vamos marcar o começo da computação em algum trabalho científico do começo do Século XX. Talvez, os Trabalhos de Turing sejam o ponto ideal mas,
-            falaremos sobre isso em outro tópico. </p>
+        <section class="nivel1">
+          <h2>Compiladores e Interpretadores</h2>
+          <p class="fragment fade-up">Compiladores são programas que pegam um texto escrito em uma linguagem de programação e o transformam em linguagem de máquina.</p>
+          <p class="fragment fade-up">Interpretadores são programas que "executam", interpretam, um texto escrito em uma linguagem de programação.</p>
+          <p class="fragment fade-up">Interpretadores são compiladores que não entregam um produto persistente.</p>
         </section>
-        <section>
+        <section class="nivel1">
+          <h2>A base matemática</h2>
+          <p class="fragment fade-up"><a href="https://pt.wikipedia.org/wiki/David_Hilbert" target="_blank" rel="noopener noreferrer">David Hilbert</a>, 
+          <a href="https://pt.wikipedia.org/wiki/Wilhelm_Ackermann" target="_blank" rel="noopener noreferrer">Wilhem Ackermann</a> e  <a href="https://en.wikipedia.org/wiki/Entscheidungsproblem" target="_blank" rel="noopener noreferrer">Entscheidungsproblem</a>,
+            O Problema da Decisão (1928): todos os enunciados matemáticos podem ser provados?</p>
+            <p class="fragment fade-up"><a href="https://pt.wikipedia.org/wiki/Alonzo_Church" target="_blank" rel="noopener noreferrer">Alonzo Church</a> e o Cálculo Lambda.</p>
+            <p class="fragment fade-up"><a href="https://pt.wikipedia.org/wiki/Kurt_G%C3%B6del" target="_blank" rel="noopener noreferrer">Kurt Gödel</a>, 
+            <a href="https://pt.wikipedia.org/wiki/Jacques_Herbrand" target="_blank" rel="noopener noreferrer">Jaques Herbrand</a> e o cálculo recursivo.</p>
+            <p class="fragment fade-up"><a href="https://en.wikipedia.org/wiki/Alan_Turing" target="_blank" rel="noopener noreferrer">Alan Turing</a> e 
+            <a href="https://academic.oup.com/plms/article-abstract/s2-42/1/230/1491926?redirectedFrom=PDF" target="_blank" rel="noopener noreferrer">On Computable Numbers, with an Application to the Entscheidungsproblem</a>.</p>
+        </section>
+        <section class="nivel1">
           <h2>Os primeiros anos</h2>
-          <p>O conceito de linguagem de programação começou a ser construído a partir de 1946 com a criação de <strong><em>Plankalkül</em></strong> por
-            <strong>Konrad Suze</strong>, um engenheiro alemão que criou o primeiro computador com relés e com a sua própria linguagem de programação,
+          <img data-src="../img/KonradSuze.jpg" style="float: right; height: 463px !important; margin-right: 2%;"
+            alt="Konrad Suze trabalhando em um sistema eletrônico." />
+           <small style=" font-size: 80% !important; width: 62%;">
+            <p>O conceito de linguagem de programação começou a ser construído a partir de 1946 com a criação de <strong><em>Plankalkül</em></strong> por
+            <a href="https://pt.wikipedia.org/wiki/Konrad_Zuse" target="_blank" rel="noopener noreferrer"><strong>Konrad Suze</strong></a>, um engenheiro alemão que criou o primeiro computador com relés e com a sua própria linguagem de programação,
             <strong><em>Plankalkül</em></strong>. </p>
+            <p>Só a versão 4 das suas máquinas sobreviveu a Segunda Guerra Mundial e seu trabalho só foi publicado em 1972.</p>
+          </small>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Grace Hopper</h2>
-          <p>Podemos correr o risco de afirmar que o compilador, foi criado em 1951 pela equipe liderada por <a
+          <p style="float: left; width: 40%;">Podemos correr o risco de afirmar que o compilador, foi criado em 1951 pela equipe liderada por <a
               href="https://en.wikipedia.org/wiki/Grace_Hopper"><strong>Grace Hopper</strong></a> enquanto trabalhava na Remington Rand, e chamado de
             <strong><em>A-0</em></strong>. </p>
-        </section>
+            <img data-src="../img/Grace_Hopper_and_UNIVAC.jpg" style="float:right;" alt="grace hopper e uma equipe de engenheiros trabalhando no univac" />
+            <p style=" font-size: 40%;float: right;width: 50%;">Source Flickr: <a href="https://www.flickr.com/photos/8212496@N06/493885707" target="_blank" rel="noopener noreferrer">Grace Hopper and UNIVAC</a></p>
+          </section> 
         <section>
-          <h2>Fortran, Algol e Cobol</h2>
-          <p>Poucos anos depois, em 1957 <a href="https://en.wikipedia.org/wiki/John_Backus"><strong>John Backus</strong></a>, trabalhando na IBM, criou o
+          <h2>John Von Neumann</h2>
+          <img data-src="../img/arqui1.jpg" alt="grace hopper e uma equipe de engenheiros trabalhando no univac" />
+        </section>
+        <section class="nivel1">
+          <h2>Lisp, Fortran e Cobol</h2>
+          <p class="fragment fade-up">Em 1956 <a href="https://pt.wikipedia.org/wiki/John_McCarthy" target="_blank"
+              rel="noopener noreferrer">John McCarthy</a> cria o Lisp - <i>LISt Processing</i> graças a uma dúvida de Graham em
+            aula</p>
+          <p class="fragment fade-up">Em 1957 <a href="https://en.wikipedia.org/wiki/John_Backus"><strong>John Backus</strong></a>, trabalhando na IBM, criou o
             <strong><em>Fortran</em></strong> (<strong>FOR</strong>mula <strong>TRAN</strong>slation). </p>
-          <p>Entre os conceitos apresentados por <strong><em>Chomsky</em></strong> estava o conceito de <em>gramáticas livres de contexto</em>, que se mostrou
-            extremamente útil para a descrição da sintaxe de linguagens formais, principalmente para as linguagens de programação. </p>
+          <p class="fragment fade-up">Em 1959 <a href="https://pt.wikipedia.org/wiki/Grace_Hopper" target="_blank" rel="noopener noreferrer">Grace Hopper</a>, apresenta o 
+          Cobol - <i>COmmon Business Oriented Language​</i>.</p>
+          <p class="fragment fade-up"> <a href="https://pt.wikipedia.org/wiki/Ole-Johan_Dahl" target="_blank"
+              rel="noopener noreferrer">Em 1962 Ole-Johan Dahl</a> e <a href="https://pt.wikipedia.org/wiki/Kristen_Nygaard"
+              target="_blank" rel="noopener noreferrer">Kristen Nygaard</a>
+            criam a Simula em Oslo.</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>BNF e Algol</h2>
-          <p><a href="https://en.wikipedia.org/wiki/John_Backus"><strong>John Backus</strong></a>, criou uma linguagem de programação apenas para provar que um
-            processo de descrição, por meio de uma linguagem específica, poderia ser usado para criar uma linguagem de programação, esta meta linguagem recebeu
-            o nome de <strong><em>Backus Normal Form</em></strong>. </p>
-          <p>O <strong><em>ALGOL-60</em></strong>, marca a primeira vez em que uma linguagem baseada em uma notação formal,
-            <strong><em>Backus-Naur-Form</em></strong>¸ foi usada para definir uma linguagem de programação. </p>
-          <p>Em 1959, é publicado o <strong><em>COBOL</em></strong>, por um comitê de pesquisadores liderados por Grace Hopper. A mesma Grace Hopper que alguns
-            anos antes havia trabalhado na criação do primeiro compilador. </p>
-        </section>
-        <section>
+            <p class="fragment fade-up"><a href="https://en.wikipedia.org/wiki/John_Backus"><strong>John Backus</strong></a>, criou uma linguagem de programação apenas para provar que um
+              processo de descrição, por meio de uma linguagem específica, poderia ser usado para criar uma linguagem de programação, esta meta linguagem recebeu
+              o nome de <strong><em>Backus Normal Form</em></strong>. </p>
+            <p class="fragment fade-up">O <strong><em>ALGOL-60</em></strong>, marca a primeira vez em que uma linguagem baseada em uma notação formal,
+              <strong><em>Backus-Naur-Form</em></strong>¸ foi usada para definir uma linguagem de programação. </p>
+          </section>
+        <section class="nivel1">
           <h2>Os anos 1970, o Basic e o C</h2>
-          <p>No dia 1º de Maio de 1964, aproximadamente as 4:00h foi executado o primeiro programa em <em>Basic</em>, fruto do trabalho de John G. Kemeny e
+          <p class="fragment fade-up">No dia 1º de Maio de 1964, aproximadamente as 4:00h foi executado o primeiro programa em <em>Basic</em>, fruto do trabalho de John G. Kemeny e
             Thomas E. Kurtz, no Dartmouth College. </p>
-          <p>O <strong><em>C</em></strong>, criado em 1972 por <a href="https://en.wikipedia.org/wiki/Dennis_Ritchie"><strong>Dennis Ritchie</strong></a> nos
+          <p class="fragment fade-up">O <strong><em>C</em></strong>, criado em 1972 por <a href="https://en.wikipedia.org/wiki/Dennis_Ritchie"><strong>Dennis Ritchie</strong></a> nos
             laboratórios da Bell para ser utilizada no Sistema Operacional Unix desenvolvida sobre outra linguagem a B, que fora desenvolvida por
             <strong><em>Ken Thompson</em></strong> para permitir o porte do Unix para o computador PDP-11. </p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>História da linguagem C</h2>
           <table style="font-size: 60%;">
             <thead>
@@ -143,118 +180,150 @@
             </tbody>
           </table>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>O C++ e o Java</h2>
-          <p>Em 1984 que é publicada a primeira versão do <strong>C++</strong> por <a href="https://en.wikipedia.org/wiki/Bjarne_Stroustrup"><strong>Bjarne
+          <p class="fragment fade-up">Em 1984 que é publicada a primeira versão do <strong>C++</strong> por <a href="https://en.wikipedia.org/wiki/Bjarne_Stroustrup"><strong>Bjarne
                 Stroustrup</strong></a>, a partir da tese desenvolvida em seu doutorado no ano de 1979, dando um impulso significativo as linguagens de
             programação orientadas a objeto. </p>
+          <p class="fragment fade-up">Em 1991 <a href="https://pt.wikipedia.org/wiki/James_Gosling" target="_blank" rel="noopener noreferrer">James Gosling</a> 
+          lidera a equipe da Sun que cria o Java. Um código podendo ser executado em qualquer plataforma.</p>  
         </section>
-        <section>
+        <section class="nivel1">
           <h2>a WeB e a Computação Quântica</h2>
-          <p>E chegamos a era da web, <strong>Rasmus Lerdorf</strong> com o <strong>PHP</strong> (1994), <strong>Guido Van Rossum</strong> com o
+          <p class="fragment fade-up">E chegamos a era da web, <strong>Rasmus Lerdorf</strong> com o <strong>PHP</strong> (1994), <strong>Guido Van Rossum</strong> com o
             <strong>Python</strong> (1989) e <strong>Brendan Eich</strong> com o Javascript (1995) movimentam a Internet permitindo a expansão da web e a
             criação de tecnologias remotas e interativas. </p>
-          <p>Na segunda década do Século XXI, chegamos as linguagens voltadas para a computação quântica: <strong>CIRQ</strong>, do Google; <strong>Q#</strong>
+          <p class="fragment fade-up">Na segunda década do Século XXI, chegamos as linguagens voltadas para a computação quântica: <strong>CIRQ</strong>, do Google; <strong>Q#</strong>
             da Microsoft e <strong>Q</strong> da IBM </p>
         </section>
+        <section style="background-image: url(../img/futuro.jpg);">
+          <h2>Mensagem para você</h2>
+          <small style=" padding: 10px; font-size: 72% !important; width: 61% !important; float: right; margin-right: 5%;
+                          background-color: rgba(0, 0, 0, 0.5); top: 0; left: 0; width: 100%; height: 100%;">
+            <p>Onde você estará em cinco anos? Quem será? O que estará fazendo?</p>
+            <p><a href="https://padlet.com/frankalcantara/ojr78lsz6uvnk0kn" target="_blank" rel="noopener noreferrer">Clique Aqui</a> e deixe uma mensagem para o seu eu futuro.</p>
+            <p>Não se identifique e use interpretadores2021@1. Vocês têm <strong>10 minutos</strong> para isso. A senha vai expirar.</p>
+            <p>Eu vou manter um registro disso até 2026, <i>online</i> a mensagem é sua e para você, mas qualquer um poderá ler.</p>
+            <span style="font-size: 60% !importat">Photo by <a
+                href="https://unsplash.com/@bendavisual?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Benjamin
+                Davies</a> on <a
+                href="https://unsplash.com/s/photos/future?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+          </small>
+        </section>
       </section>
-      <section class="nivel1">
-        <section>
+      <section>
+        <section class="nivel1">
           <h2>Linguagem de Máquina</h2>
-          <p>Usamos máquinas para resolver problemas desde que o primeiro homem utilizou um graveto para pegar uma fruta ou matar um animal. </p>
-          <p>Apenas no Século XX conseguimos nos comunicar com as máquinas e conseguimos dizer o que queremos que elas façam. </p>
+          <p class="fragment fade-up">Usamos máquinas para resolver problemas desde que o primeiro homem utilizou um graveto para pegar uma fruta ou matar um animal. </p>
+          <p class="fragment fade-up">Apenas no Século XX conseguimos nos comunicar com as máquinas e conseguimos dizer o que queremos que elas façam. </p>
+          <p class="fragment fade-up">E ainda precisamos de uma linguagem que só elas entendem.</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Hardware</h2>
-          <p>O conjunto formado pela CPU, memória e dispositivos de entrada e saída é responsável pela execução direta de todas as instruções que desejamos que
-            a máquina execute. Este conjunto de dispositivos entende apenas os símbolos 0 e 1 (zero e um). Esta é uma linguagem, baseada apenas em um conjunto
-            de símbolos, ou alfabeto, definido por: $\Sigma_{b} = \left\{ 0,1 \right\}$. </p>
+          <p class="fragment fade-up">O conjunto formado pela CPU, memória e dispositivos de entrada e saída, responsável pela execução direta de todas as instruções do algoritmo que irá resolver um problema específico.</p>
+          <p class="fragment fade-up">Este conjunto de dispositivos entende apenas os símbolos 0 e 1 (zero e um). Um conjunto de símbolos, ou alfabeto, definido por: $$\Sigma_{bin} = \left\{ 0,1 \right\}$$</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>O formalismo da máquina</h2>
-          <p>A linguagem de máquina é a mais formal e específica linguagem envolvida nos processos de computação. Isso a torna praticamente impossível de usada
+          <p class="fragment fade-up">A linguagem de máquina é a mais formal e específica linguagem envolvida nos processos de computação. Isso a torna praticamente impossível de usada
             por seres humanos. </p>
-          <p>O <strong>Assembly</strong> é apenas uma coleção de mnemônicos organizada sobre uma sintaxe e semânticas simples que representam de forma mais
-            adequada ao ser humano, as instruções em binário que queremos que a máquina execute. </p>
+          <p class="fragment fade-up">A linguagem <strong>Assembly</strong> é apenas uma coleção de mnemônicos organizada sobre uma sintaxe e semânticas simples que representam de forma mais
+            adequada ao ser humano, as instruções em binário que queremos que a máquina execute.</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Linguagem de maquina</h2>
-          <p>O <em>Assembly</em> não é linguagem de máquina. Só para enfatizar, vou repetir: o <em>Assembly</em> não é linguagem de máquina. Sequer a linguagem
-            baseada no alfabeto $\Sigma_{h}$, hexadecimal, pode ser chamada de linguagem de máquina. </p>
+          <p class="fragment fade-up">O <em>Assembly</em> não é linguagem de máquina. Só para enfatizar, vou repetir: o <em>Assembly</em> não é linguagem de máquina. </p> 
+          <p class="fragment fade-up"></p>Sequer o código hexadecimal, baseado no alfabeto <span style="font-size: 80% !important;">$$\Sigma_{hex} = \{0,1,2,3,4,5,6,7,8,9,a,B,C,D,E,F\}$$</span>pode ser chamado de linguagem de máquina.</p>
+          <p class="fragment fade-up">Por enquanto, apenas o binário pode ser chamado de linguagem de máquina.</p>
         </section>
       </section>
-      <section class="nivel1">
-        <section>
-          <h2>Entendendo o Assembler</h2>
-          <p>O <em>Assembler</em> traduz uma linguagem de baixo nível, formal e desenhada para uso humano em código de máquina. Ainda que a linguagem
-            <em>Assembly</em>, objeto o <em>Assembler</em>, seja muito simples, pouco mais que uma linguagem puramente simbólica, e muito próxima do nível da
-            linguagem de máquina, ela tem estrutura léxica, sintática e semântica como qualquer outra linguagem de programação. </p>
+      <section>
+        <section class="nivel1">
+          <h2>O Assembler</h2>
+          <p class="fragment fade-up">O <em>Assembler</em> traduz uma linguagem de baixo nível, formal e desenhada para uso humano em código de máquina. </p> 
+          <p class="fragment fade-up">Ainda que a linguagem <strong>Assembly</strong>, objeto do <em>Assembler</em>, seja muito 
+            simples, e muito próxima do nível da linguagem de máquina, ela tem estrutura léxica, sintática e semântica 
+            como qualquer outra linguagem de programação.</p>
+          <p class="fragment fade-up"> Assembler em tradução livre: <strong>montador</strong>.
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Assembler compila?</h2>
-          <p>Compiladores e interpretadores são estruturas software, ou hardware, que fazem a tradução de uma linguagem formal e regular, criada para uso humano
-            em uma linguagem de máquina. Se você está pensando que um <em>Assembler</em> é uma espécie de compilador, não está muito longe da verdade. </p>
+          <p class="fragment fade-up">Compiladores e interpretadores são estruturas software, ou hardware, que fazem a tradução 
+            de uma <strong>linguagem formal e regular</strong>, criada para uso humano em uma linguagem de máquina. </p>
+          <p class="fragment fade-up">O Assembly é uma <strong>linguagem formal e regular</strong> que precisa ser traduzida em linguagem de máquina.</p>
+          <p class="fragment fade-up">Sim, o <strong>Assembler</strong> é um tipo, muito simples, de <strong>compilador</strong>.</p>
         </section>
-        <section>
-          <h2>Assembler compila?</h2>
-          <p>Cada arquitetura de hardware, <em>x86_64</em>, <em>ARM</em>, <em>RISC-V</em> tem as suas próprias características de forma que um conjunto de zeros
-            e uns pode significar coisas completamente diferente em máquinas diferentes. Isto faz com que o <em>Assembler</em> seja um tradutor altamente
-            especializado. </p>
+        <section class="nivel1">
+          <h2>Por que Compilar Assembly?</h2>
+          <p class="fragment fade-up">Cada arquitetura de hardware, <em>x86_64</em>, <em>ARM</em>, <em>RISC-V</em> tem as suas 
+            próprias características. Desta forma, o mesmo conjunto de zeros e uns pode significar coisas completamente diferentes 
+            em máquinas diferentes. </p>
+          <p class="fragment fade-up">Isto faz com que o <em>Assembler</em> precise entender a arquitetura da máquina para criar os 
+            binários corretos e adequados. </p>
+          <p class="fragment fade-up">Originalmente cada arquitetura possuia seu próprio Assembler</p>
+
         </section>
-        <section>
-          <h2>Assembler um passo</h2>
-          <ul>
-            <li><strong><em>One-pass Assembler</em></strong>: um Assembler que lê o texto contendo o código fonte e transforma em código de máquina varrendo
-              este texto, do começo ao fim, uma única vez. </li>
-          </ul>
+        <section class="nivel1">
+          <h2>Uma passagem</h2>
+          <p class="fragment fade-up">As primeiras versões de Assembler eram pouco mais que uma tradução um a um de mnemônico para binário.</p>
+          <p class="fragment fade-up"><strong><em>One-pass Assembler</em></strong>: um Assembler que lê o texto contendo o código fonte e transforma em código de máquina varrendo
+              este texto, do começo ao fim, uma única vez. </p>
+          <p class="fragment fade-up">Todo o código precisava ser escrito exatamente na 
+            mesma ordem que os binários necessários ao funcionamento da máquina.
+          </p>
         </section>
-        <section>
-          <h2>Assembler dois passos</h2>
-          <ul>
-            <li><strong><em>Two-pass Assembler</em></strong>: como no nome diz, lê o arquivo contendo o código fonte duas vezes. Isso permite o uso de
-              instruções específicas para a criação de código, como as referências a fragmentos de código específico para melhorar o processo de redação de
-              código fonte e diminuir o erro. </li>
-          </ul>
+        <section class="nivel1">
+          <h2>Duas passagens</h2>
+          <p class="fragment fade-up"><strong><em>Two-pass Assembler</em></strong>: como no nome diz, lê o arquivo contendo o código fonte duas vezes.</p>
+          <p class="fragment fade-up">Isso permite o uso de instruções saltos, melhorando o processo de redação de
+              código fonte e diminuindo erros.</p>
+          <p class="fragment fade-up">A primeira passagem traduz tudo, a segunda coloca todos os binários gerados na ordem correta de execução.</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Macro Assembler</h2>
-          <ul>
-            <li><strong><em>Macro-Assembler</em></strong>: o <em>Assembler</em> que permite o uso de macros. Uma macro, neste contexto é equivalente a uma
-              sub-rotina que, por sua vez, representa um fragmento de código que é escrito uma vez e pode ser reutilizado muitas vezes. </li>
-          </ul>
+          <p class="fragment fade-up"><strong><em>Macro-Assembler</em></strong>: um tipo de <em>Assembler</em> que permite o uso 
+            de macros.</p>
+          <p class="fragment fade-up">Uma macro, neste contexto é equivalente a uma
+              sub-rotina que, por sua vez, representa um fragmento de código que é escrito uma vez e pode ser reutilizado muitas vezes.</p>
+
+          <p class="fragment fade-up">Isto permite incluir mais flexibilidade da escrita de código.</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Cross Assembler</h2>
-          <ul>
-            <li><strong><em>Cross-Assembler</em></strong>: um <em>Assembler</em> capaz de rodar em uma arquitetura enquanto gera código de máquina que será
-              utilizado em outra arquitetura. Os <em>Assemblies</em> definidos para este tipo de <em>Assembler</em>, mais tarde, seriam classificados como
-              linguagens de mais alto nível entre os <em>Assembly</em>. </li>
-          </ul>
+          <p class="fragment fade-up"><strong><em>Cross-Assembler</em></strong>: um <em>Assembler</em> capaz de rodar em uma arquitetura enquanto gera código de máquina que será
+              utilizado em outra arquitetura. </p>
+          
+          <p class="fragment fade-up">Esta é a flexibilidade que permite desenvolver programas para qualquer arquitetura a partir da sua própria arquitetura.</p>
+
+          <p class="fragment fade-up">Os <em>Assemblies</em> definidos para este tipo de <em>Assembler</em>, mais tarde, seriam classificados como
+              linguagens de mais alto nível entre os <em>Assembly</em>. </p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Assembler - processo de tradução</h2>
           <ul>
-            <li><strong>Verificar a sintaxe de cada instrução</strong>, parar e emitir uma mensagem de erro todas as vezes que encontrar um erro na formação de
+            <li  class="fragment fade-up"><strong>Verificar a sintaxe de cada instrução</strong>, parar e emitir uma mensagem de erro todas as vezes que encontrar um erro na forma de
               uma instrução;</li>
-            <li><strong>Determinar se o tamanho da instrução</strong> e o dado que ela está manipulando para reservar espaço de memória, ou registrador, para
+            <li class="fragment fade-up"><strong>Determinar se o tamanho da instrução</strong> e do dado que ela está manipulando para reservar espaço de memória, ou registrador, para
               seu uso;</li>
-            <li><strong>Determinar os endereços</strong> de <em>labels</em> ou de seções de código;</li>
-            <li><strong>Criar uma tabela de símbolos</strong> contendo as definições de cada <em>label</em> e seu endereço em memória. </li>
+            <li class="fragment fade-up"><strong>Determinar os endereços</strong> de <em>labels</em> ou de seções de código;</li>
+            <li class="fragment fade-up"><strong>Criar uma tabela de símbolos</strong> contendo as definições de cada <em>label</em> e seu endereço em memória. </li>
           </ul>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>As linguagens de programação</h2>
-          <p>As linguagens de programação são linguagens formais, desenvolvidas para uso humano que foram criadas para explicitar as funcionalidade mínimas
-            necessárias para tornar possível que um pobre ser humano possa escrever um algoritmo, e entender aquilo que está escrevendo, e preservar a esperança
-            que outros seres humanos também sejam capazes de entender o que ele escreveu. </p>
+          <p class="fragment fade-up">As linguagens de programação são linguagens formais, desenvolvidas para uso humano criadas para explicitar 
+            as funcionalidade mínimas para tornar possível que um pobre ser humano possa escrever um algoritmo, entender aquilo que está escrevendo. </p> 
+          <p class="fragment fade-up">São linguagens formais e regulares com características próprias especificamente criadas para tornar possível
+               o processo de tradução em linguagem de máquina. </p>
+          <p class="fragment fade-up">As linguagens de programação são muito simples.</p>
         </section>
       </section>
       <section class="nivel1">
-        <section>
+        <section class="nivel1">
           <h1>Material de apoio</h1>
-          <p>Baixe o material de apoio <a href="./1-Apresenta.pdf">clicando aqui</a> </p>
+          <p class="fragment fade-up">Baixe o material de apoio <a href="./1-Apresenta.pdf">clicando aqui</a> </p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Obras Citadas</h2>
           <small style="width: 95%;">
             BERGIN, T. J. <strong>50 Years of Army Computing from Eniac to MSRC</strong>. Aberdeen, MD. USA: Army Research
@@ -292,7 +361,7 @@
       // Push each slide change to the browser history
       history: true,
       // Transition style
-      transition: "fade", // none/fade/slide/convex/concave/zoom
+      transition: "default", // none/fade/slide/convex/concave/zoom
       center: false,
       math: {
         mathjax:
