@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="author" content="Frank Coelho de Alcantara -2020">
-  <title>Diagramas de Casos de Uso - Casos de Uso</title>
+  <title>Linguagens Formais - MEF e Regex</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta
     name="apple-mobile-web-app-status-bar-style"
@@ -22,88 +22,104 @@
   <div class="reveal">
     <div class="slides">
       <section id="title-slide" class="nivel1">
-        <h1 class="title">Linguagens Regulares <br /> MEF & Regex</h1>
-        <p class="author" style="text-align: right !important;">Frank Coelho de Alcantara -2020</p>
+        <h1 class="title">Linguagens Formais <br /> MEF & Regex</h1>
+        <p class="author" style="text-align: right !important;">Frank Coelho de Alcantara - 2020 &nbsp; &nbsp; &nbsp;</p>
       </section>
-      <section class="nivel1">
-        <section>
+      <section>
+        <section class="nivel1">
           <h2>Definição</h2>
-          <p>
-            O conjunto de itens de uma linguagem regular é um conjunto <strong>finito</strong> pode ser definido por um
-            alfabeto $\Sigma$ contém as <i>strings</i> $\emptyset$, $\{\varepsilon\}$ e $\{a\}$ para todo e qualquer $a \in \Sigma$.
-            E é fechado em relação as operações de <strong>união</strong>, <strong>concatenação</strong> e
-            <strong>fechamento de Kleene</strong>. 
+         <small style="font-size: 93% !important;">
+          <p  class="fragment fade-up">
+            <strong>Linguagem Formal</strong>: um conjunto de itens de uma linguagem regular é uma coleção <strong>finita</strong> de ítens que 
+            podem ser definidos por meio de um
+            alfabeto $\Sigma$ e contém as <i>strings</i> $\emptyset$, $\{\varepsilon\}$ e $\{a\}$ para todo e qualquer $a \in \Sigma$.
+         </p>
+         <p  class="fragment fade-up">
+            <strong>Linguagem Regular</strong>: um conjunto de itens de uma linguagem regular é uma coleção <strong>finita</strong>
+            de ítens que
+            podem ser definidos por meio de um
+            alfabeto $\Sigma$ e contém as <i>strings</i> $\emptyset$, $\{\varepsilon\}$ e $\{a\}$ para todo e qualquer $a \in
+            \Sigma$.
+            Este conjunto é fechado em relação as operações de <strong>união</strong>, <strong>concatenação</strong> e
+            <strong>fechamento de Kleene</strong>.
           </p>
+          </small>
         </section>
-        <section>
-          <h2>Linguagens Formais</h2>
-          <p>
-            Podemos provar, matematicamente que linguagens formais são aquelas
-            que podem ser definidas por máquinas de estado finito, determinísticas ou não, e por expressões regulares.
-          </p>
-          <p>
-            Também podemos criar uma máquina de estado finito (MEF) equivalente a uma expressão regular (Regex) ou uma
-            expressão regular equivalente a uma máquina de estados finitos. De tal forma que: $MEV \equiv Regex$
+        <section class="nivel1">
+          <h2>Linguagens Formais e Regulares </h2>
+          <p  class="fragment fade-up">
+            Linguagens formais são aquelas que podem ser definidas por máquinas de estado finito, determinísticas ou não, e 
+            por expressões regulares. Atendendo ao <strong>Teorema de Kleene</strong> .</br>
+            Isto significa que podemos criar uma máquina de estado finito <strong>(MEF)</strong> equivalente a uma expressão 
+            regular <strong>(Regex)</strong> ou uma expressão regular equivalente a uma máquina de estados finitos. 
+            De tal forma que: $$MEF \equiv Regex$$
           </p>
         </section>
       </section>
-      <section class="nivel1">
-        <section>
+      <section>
+      
+        <section class="nivel1">
           <h2>Máquinas de Estado Finito</h2>
-          <p> Um máquina de estados finitos é uma abstração matemática definida por uma <strong>5-tupla</strong>, contendo apenas cinco
+          <p  class="fragment fade-up"> Um máquina de estados finitos é uma abstração matemática definida pela 5-tupla, com apenas cinco
             conceitos:</p>
-          <ol>
-            <li>$S$: um conjunto finito de estados;</li>
-            <li>$\Sigma$: um alfabeto de entrada finito;</li>
-            <li>$\delta: S\times \Sigma \rightarrow S$: um conjunto finito funções de transição;</li>
-            <li>$s_0$: um estado inicial;</li>
-            <li>$A \subseteq S$: um conjunto finito de estados de aceitação;</li>
+          <ol style=" width: 91%; font-size: 83%; margin-left: 7%; margin-right: 9%;">
+            <li  class="fragment fade-up">$S$: um conjunto finito de estados;</li>
+            <li  class="fragment fade-up">$\Sigma$: um alfabeto de entrada finito;</li>
+            <li  class="fragment fade-up">$\delta: S\times \Sigma \rightarrow S$: um conjunto finito funções de transição;</li>
+            <li  class="fragment fade-up">$s_0$: um estado inicial;</li>
+            <li  class="fragment fade-up">$A \subseteq S$: um conjunto finito de estados de aceitação;</li>
           </ol>
+          <p  class="fragment fade-up">$$MEF=\{S, \Sigma, \delta, s_0, A\}$$</p>
         </section>
-        <section>
-          <h2>Máquinas de Estado Finito </h2>
-          <h3>$MEF=\{S, \Sigma, \delta, s_0, A\}$</h3>
+        <section class="nivel1">
+          <h2>Estados e Transições</h2>
+          <small style=" font-size: 80%!important;">
+          <p class="fragment fade-up"><strong>Estados:</strong> pontos estáveis no processo de computação, representados por círculos.</p>
+          <p class="fragment fade-up"><strong>Estado inicial:</strong> estado onde a máquina inicia o processamento, um estado com uma seta apontada para ele.</p>
+          <p class="fragment fade-up"><strong>Estados intermediários:</strong> todos os estados intermediários no processamento.</p>
+          <p class="fragment fade-up"><strong>Estado final:</strong> se a string for corretamente processada, a máquina deverá assumir este estado.</p>
+          <p class="fragment fade-up"><strong>Transições:</strong> ato de mudar de um estado para outro durante a computação. Representadas por uma seta com origem em um estado e destino no estado seguinte.</p>
+          </small>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Conceitos Adicionais</h2>
-          <p>
+          <p  class="fragment fade-up">
             $\Sigma^*$ é o conjunto de todos os <i>strings</i>, de comprimento maior que $0$ que
             podem ser criadas a partir de $\Sigma$.
           </p>
-          <p>$L(MEF)=\{w|\delta^*(s_0,w)\in A\}$ é o conjunto de todas as <i>strings</i> aceitas por $MEF$.</p>
-          <p>Camamos o conjunto $L(MEF)$ de Linguagem da $MEF$.</p>
+          <p  class="fragment fade-up">$L(MEF)=\{w|\delta^*(s_0,w)\in A\}$ é o conjunto de todas as <i>strings</i> aceitas por $MEF$.</p>
+          <p  class="fragment fade-up">Chamamos o conjunto $L(MEF)$ de Linguagem da $MEF$.</p>
         </section>
-        <section>
-          <h2>Aceitação</h2>
-
-          <p>
-            Uma <i>string</i> $w$ será aceita por $MEF$ se, e somente se, depois que $MEF$ terminar o
-            processamento de $w$, $MEF$ esteja em um dos estados de aceitação do conjunto $A$.
+        <section class="nivel1">
+          <h2>Aceitação ou identificação</h2>
+          <p  class="fragment fade-up">
+            Uma <i>string</i> $w$ será aceita por uma $MEF$ se, e somente se, depois que $MEF$ terminar o
+            processamento de $w$, $MEF$ esteja parada em um dos estados de aceitação do conjunto $A$ que define esta máquina.
           </p>
-
+          <p class="fragment fade-up">
+            Neste caso, dizemos que a $MEF$ aceita a <strong>string</strong> $w$.
+          </p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Representação</h2>
-
-          <p> Podemos representar uma $MEF$ com três notações diferentes:</p>
+          <p  class="fragment fade-up">Podemos representar uma $MEF$ com três notações diferentes:</p>
           <ol>
-            <li>Uma lista de elementos na $5-tupla$.</li>
-            <li>Uma tabela de transição.</li>
-            <li>Um diagrama de transição.</li>
+            <li class="fragment fade-up">Uma lista de elementos na $5-tupla$.</li>
+            <li class="fragment fade-up">Uma tabela de transição.</li>
+            <li class="fragment fade-up">Um diagrama de transição.</li>
           </ol>
-
+          <p class="fragment fade-up">Caberá a você escolher a representação mais adequada para resolver o problema, ou 
+            a representação mais adequada para o seu entendimento do problema.</p>
         </section>
-        <section>
-
-          <p>$MEF=\{S, \Sigma, \delta, s_0, A\}$</p>
-          <p>$MEF=\{\{s_0, s_1, s_2\}, \{0,1\}\\ \{\delta_{(s_0,0)}=s_1, \\ \delta_{(s_0,1)}=s_0, \\
+        <section class="nivel1">
+          <h2>Algebricamente</h2>
+          <p  class="fragment fade-up">$MEF=\{S, \Sigma, \delta, s_0, A\}$</p>
+          <p  class="fragment fade-up">$MEF=\{\{s_0, s_1, s_2\}, \{0,1\}\\ \{\delta_{(s_0,0)}=s_1, \\ \delta_{(s_0,1)}=s_0, \\
             \delta_{(s_1,0)}=s_2, \\ \delta_{(s_1,1)}=s_0, \\ \delta_{(s_2,0)}=s_2, \\ \delta_{(s_2,1)}=s_0\}, s_0 =
             s_0, A=\{s_2\} \}$</p>
-
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Tabela de Transição</h2>
-
           <table class="blueTable">
             <thead>
               <tr>
@@ -130,124 +146,143 @@
               </tr>
             </tbody>
           </table>
-
+          <p  class="fragment fade-up">Existem pelo menos duas formas de se representar uma tabela de transição. <a href="https://forms.gle/hrY7Z7ZWFc7ENYaP9" target="_blank" rel="noopener noreferrer">Clique aqui</a> para explicar que formas são estas e qual a diferença entre elas.</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Diagrama de Transição</h2>
-
-          <p><img data-src="../img/exemploMEF.jpg" alt="exemplo de máquina de estados finitos" /> </p>
-
+          <p>Existem várias formas de se representar o diagrama de transição. Nesta disciplina usaremos:</p>
+          <p  class="fragment fade-up">
+            <img data-src="../img/exemploMEF.jpg" style=" float: left; margin-left: 11%; height: 300px;" alt="exemplo de máquina de estados finitos" /> </p>
         </section>
-        <section>
-          <h2>Exemplo</h2>
-
-          <p>Uma máquina de estados muito comum em circuitos, e ambientes, de comunicação de dados uma máquina de
-            detecção de
-            paridade. Este tipo de máquina é capaz de detectar a paridade de um conjunto de bits, fornecidos como
-            entrada de forma
-            sequêncial. Lembre-se nenhum 1 é par e vazio não é. Coisas das regras de paridade.</p>
-
+        <section class="nivel1">
+          <h2>Exemplo 1</h2>
+          <p  class="fragment fade-up">Uma máquina de estados comum em ambientes de comunicação de 
+          dados é a máquina de detecção de paridade. 
+          Este tipo de máquina é capaz de detectar a paridade de um conjunto de bits, fornecidos como
+          entrada de forma sequêncial.</p>
+          
+          <p class="fragment fade-up">Esta máquina conta o número de símbolos $1$ em uma string do 
+          alfabeto $\Sigma_{bin} =\{0,1\}$. Qualquer número para de $1$ é paridade par. Lembre-se nenhum $1$ é par. 
+          Coisas das regras de paridade.</p>
+          
+          <p class="fragment fade-up"> <a href="https://automatonsimulator.com/" target="_blank" rel="noopener noreferrer">Clique aqui para simular.</a> </p>
+        </section>
+        <section class="nivel1">
+          <h2>Exemplo 2</h2>
+          <p class="fragment fade-up">Cabe a você fazer uma máquina de paridade ímpar. Esta máquina irá receber uma 
+            linguagem definida pelo alfabeto $\Sigma_{bin} =\{0,1\}$ e reconhecer todos os <strong>strings</strong>
+          cuja paridade seja ímpar. Ou seja, que o número de símbolos $1$ em uma determinada <strong>string</strong> seja 
+          ímpar</p>
+          <p class="fragment fade-up">Lembre-se nenhum $1$ é par.</p>
+          <p class="fragment fade-up"> <a href="https://forms.gle/KS6yEmkmvsSfaUtA7" target="_blank" rel="noopener noreferrer">Clique aqui</a> e envie sua simulação para revisão</p>
         </section>
       </section>
-      <section class="nivel1">
-        <section>
-          <h2>Expressões Regulares</h2>
-
-          <p>O Teorema de <a href="https://en.wikipedia.org/wiki/Stephen_Cole_Kleene" target="_blank" rel="noopener noreferrer">Kleene</a> afirma
+      <section>
+          <section class="nivel1">
+            <h2>Pausa para o Gatinho </h2>
+            <img style="display: block; margin-left: auto; margin-right: auto; width: 70%;" data-src="../img/gato1.jpg"
+              alt="grace hopper e uma equipe de engenheiros trabalhando no univac" />
+            <span style=" font-size: 65% !important;">Foto de <a
+                href="https://unsplash.com/@screenwork_ch?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Marcel
+                Friedrich</a> on <a
+                href="https://unsplash.com/s/photos/cat-and-computers?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+          </section>
+        <section class="nivel1">
+          <h2>Teorema de Kleene</h2>
+            <p  class="fragment fade-up">O Teorema de <a href="https://en.wikipedia.org/wiki/Stephen_Cole_Kleene" target="_blank" rel="noopener noreferrer">Kleene</a> afirma
             que, para que uma linguagem seja considerada formal, ela deve ser definida por: expressões
             regulares e máquinas de estado finitas.</p>
-          <p>Isto significa que, com um pouco de álgebra é possível transformar uma em outra.</p>
-
+          <p  class="fragment fade-up">Isto significa que, com um pouco de álgebra é possível transformar uma em outra.</p>
+          <p class="fragment fade-up">Hardware em Software?.</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Expressões Regulares</h2>
-
-          <p>Algebricamente são uma notação algébrica para representar um determinada linguagem $L$ dado um alfabeto
-            $\Sigma$.</p>
-          <p>As Linguagens regulares são fechadas nas operações de união, concatenação e fechamento de Kleene</p>
-
+          <p  class="fragment fade-up">Expressões regulares são uma notação algébrica, criada por Stephen Kleene, 
+            para representar uma determinada linguagem $L$ dado um alfabeto $\Sigma$ qualquer. </p> 
+          <p  class="fragment fade-up"><strong> A nós interessam as linguagens regulares.</strong></p>
+          <p  class="fragment fade-up">As Linguagens regulares são as linguagens formais que são fechadas nas operações de <strong>união</strong>, 
+          <strong>concatenação</strong> e <strong>fechamento de Kleene</strong>.</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Fechamento - Closure</h2>
-
-          <p>Dizemos que um determinado conjunto $A$ é fechado em relação a uma operação $OP$. Se, e somente se, quando
-            aplicamos a operação $OP$ sobre
-            qualquer item do conjunto $A$ continua sendo parte do conjunto $A$.</p>
-          <p>A operação $OP$ altera o item, como, por exemplo, a multiplicação e conjunto dos inteiros.
-            A multiplicação altera o item, mas, o resultado, ainda faz parte do conjunto dos inteiros.
-
-          </p>
-
+          <small style="font-size: 80% !important;">
+          <p  class="fragment fade-up">Dizemos que um determinado conjunto $A$ é fechado em relação a uma operação $OP$. 
+              Se, e somente se, quando aplicamos a operação $OP$ a qualquer item do conjunto $A$ o resultado continua sendo parte do conjunto $A$.</p>
+            <p  class="fragment fade-up">A operação $OP$ altera o item mas o resultado desta alteração ainda é parte do conjunto $A$.
+                A multiplicação altera o item, mas, o resultado, ainda faz parte do conjunto dos inteiros. </p>
+            <p class="fragment fade-up"> O conjunto dos inteiros é <strong>fechado em relação soma, subtração e multiplicação</strong>. Contudo, não
+                é fechado em relação a divisão.</p>
+            <p class="fragment fade-up"> O resultado de algumas divisões executadas entre inteiros, não faz parte do conjunto dos inteiros.</p>
+          </small>
         </section>
-        <section>
-          <h2>Fechamento - Closure</h2>
-
-          <p> O conjunto dos inteiros e fechado em relação soma, subtração e multiplicação. Contudo, não é fechado em
-            relação a divisão.</p>
-          <p> O resultado de algumas divisões executadas entre inteiros, não faz parte do conjunto dos números inteiros.
-          </p>
-
-        </section>
-        <section>
+        <section class="nivel1">
           <h2>União</h2>
-
-          <p>Dados os conjunto $L_1=\{a,b,c,eg,hf\}$ e $L_2=\{ea,af\}$ definimos a união entre estes conjuntos como:</p>
-          <p style="text-align:center !important;"> $L_1 \cup L_2=\{a,b,c,eg,hf,ea,af\}$</p>
-          <p>Em algumas disciplinas usamos o símbolo $+$ para representar a união, se for o caso, teremos: </p>
-          <p style="text-align:center !important;"> $L_1 + L_2=\{a,b,c,eg,hf,ea,af\}$</p>
-
+          <p  class="fragment fade-up">Dados os conjunto $L_1=\{a,b,c,eg,hf\}$ e $L_2=\{ea,af\}$ definimos a união entre estes conjuntos como:</p>
+          <p class="fragment fade-up" style="text-align:center !important;"> $L_1 \cup L_2=\{a,b,c,eg,hf,ea,af\}$</p>
+          <p  class="fragment fade-up">Em algumas disciplinas usamos o símbolo $+$ para representar a união, se for o caso, teremos: </p>
+          <p class="fragment fade-up" style="text-align:center !important;"> $L_1 + L_2=\{a,b,c,eg,hf,ea,af\}$</p>
+          <p class="fragment fade-up">Em outros casos podemos usar uma barra vertical $|$ para representar a união.</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Concatenação</h2>
-
-          <p>Definimos a concatenação entre dois conjuntos $ L_1 \land L_2 $ como:</p>
-          <p style="text-align:center !important;"> $ L= L_1 \cdot L_2 = \{ xy | x \in L_1, y \in L_2 \}$</p>
-          <p>Não é coincidência o uso do símbolo do produto escalar para representar a concatenação.</p>
-
+          <p  class="fragment fade-up">Definimos a concatenação entre dois conjuntos $ L_1 \land L_2 $ como:</p>
+          <p class="fragment fade-up" style="text-align:center !important;"> $ L= L_1 \cdot L_2 = \{ xy | x \in L_1, y \in L_2 \}$</p>
+          <p  class="fragment fade-up">Não é coincidência o uso do símbolo do produto escalar para representar a concatenação.</p>
+          <p class="fragment fade-up">O produto escalar representa perfeitamente a operação de concatenação entre dois conjuntos.</p>
         </section>
-        <section>
-          <h2>Concatenação</h2>
-
-          <p>As casas do Tabuleiro de Xadrez são nomeadas usando o conjunto resultado da operação entre $ L_1 \land L_2 $
+        <section class="nivel1">
+          <h2>Concatenação - Exemplos</h2>
+          <p  class="fragment fade-up">As casas do Tabuleiro de Xadrez são nomeadas usando o conjunto resultado da operação entre $ L_1 \land L_2 $
             desde que:</p>
-          <p style="text-align:center !important;"> $ L_1 = \{ a, b, c, d, e, f, g, h \} \land L_2 = \{ 1, 2, 3, 4, 5,
+          <p class="fragment fade-up" style="font-size:75% !important; text-align:center !important;"> $ L_1 = \{ a, b, c, d, e, f, g, h \} \land L_2 = \{ 1, 2, 3, 4, 5,
             6, 7, 8 \}$</p>
-          <p>Contudo, as casas já mais são nomeadas usando o conjunto:</p>
-          <p style="text-align:center !important;"> $ L_1 = \{ 1, 2, 3, 4, 5, 6, 7, 8 \} \land L_2 = \{ a, b, c, d, e,
+          <p  class="fragment fade-up">Contudo, as casas jámais são nomeadas usando o conjunto:</p>
+          <p class="fragment fade-up" style="font-size:75% !important; text-align:center !important;"> $ L_1 = \{ 1, 2, 3, 4, 5, 6, 7, 8 \} \land L_2 = \{ a, b, c, d, e,
             f, g, h \}$</p>
-          <p>Você consegue explicar porquê?</p>
-
+          <p  class="fragment fade-up">Você consegue explicar porquê?</p>
+          <p class="fragment fade-up">No mundo do Xadrez temos $ L_1 = F \wedge L_2 = R$.</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Fechamento de Kleene</h2>
-
-          <p>Kleene Star, ou Fechamento de Kleene, ou só fechamento (<i>closure</i>) de forma intuitiva, pode ser
-            definida como o
-            conjunto formado pela união de todas as formas possíveis de concatenar qualquer número de cópias das
-            <i>strings</i> na linguagem $L$.</p>
-          <p style="text-align:center !important;"> $ L^* = \{ \varepsilon \} \cup L \cup L \cdot L \cup L \cdot L \cdot
+          <p  class="fragment fade-up">A operação <i>Kleene Star</i>, ou <i>Fechamento de Kleene</i>, ou só fechamento (<strong>closure</strong>),  
+            pode ser definida, de forma intuitiva, como sendo o conjunto formado pela união de todas as formas possíveis de concatenar qualquer número de cópias das
+            <strong>strings</strong> da linguagem $L$. Esta operação é representada por um asterisco $*$, de tal forma que:</p>
+          <p  class="fragment fade-up" style="text-align:center !important;"> $ L^* = \{ \varepsilon \} \cup L \cup L \cdot L \cup L \cdot L \cdot
             L \cup . . . \}$</p>
-          <p>Na prática fica mais claro!</p>
-
+          <p  class="fragment fade-up">Na prática fica mais claro!</p>
         </section>
-        <section>
-          <h2>Fechamento de Kleene</h2>
-
-          <p>considerando a linguagem $ L=\{ 0,1 \}$</p>
-          <ol style="font-size: 70% !important;">
-            <li>$L^0 = \{ \varepsilon \}$</li>
-            <li>$L^1=\{ 0,1 \}$</li>
-            <li>$L^2=L \cdot L^1 = \{ 00,01,10,11 \}$</li>
-            <li>$L^3= \{ 000,001,010,011,100,101,110,111\}$</li>
-            <li>$L^*=\{ \varepsilon,000,001,010,011,100,101,110,111,1000… \}$</li>
+        <section class="nivel1">
+          <h2>Fechamento de Kleene - Exemplo</h2>
+          <p  class="fragment fade-up">Considerando a linguagem $ L=\{ 0,1 \}$ teremos:</p>
+          <ol style="font-size: 80% !important;">
+            <li  class="fragment fade-up">$L^0 = \{ \varepsilon \}$</li>
+            <li  class="fragment fade-up">$L^1=\{ 0,1 \}$</li>
+            <li  class="fragment fade-up">$L^2=L \cdot L^1 = \{ 00,01,10,11 \}$</li>
+            <li  class="fragment fade-up">$L^3= \{ 000,001,010,011,100,101,110,111\}$</li>
+            <li  class="fragment fade-up">$L^*=\{ \varepsilon,000,001,010,011,100,101,110,111,1000… \}$</li>
           </ol>
-
+          <p class="fragment fade-up">Representando a <strong>União</strong> da <strong>Concatenação</strong> de todos os <strong>strings</strong> possíveis</p>
         </section>
-        <section>
-          <h2>Identidades das expressões regulares</h2>
-
-          <p>considerando a linguagem $ L_1,L_2 e L_3 $</p>
-          <table style="width:100%;">
+        <section class="nivel1">
+          <h2>Um pouco de Formalidade</h2>
+          <p class="fragment fade-up">Formalmente uma expressão regular é uma <strong>string</strong> de um alfabeto
+            $\Sigma^* \cup \{\emptyset, +, \cdot, *, (,)\}$ que pode ser construída segundo o seguinte conjunto de regras: </a>
+          <ol start="1" style="margin-left: 7%; font-size: 66% !important; width: 89%;">
+            <li class="fragment fade-up" >$\emptyset$ é uma expressão regular que indica o conjunto vazio. </li>
+            <li class="fragment fade-up" >Se $r$ e $s$ são duas expressões regulares que representam as linguagens $L(r)$ e $L(s)$ então, $r \cdot s$, geralmente 
+              representado por $rs$ será uma expressão regular. </li>
+            <li class="fragment fade-up">Se $r$ e $s$ são duas expressões regulares que representam as linguagens $L(r)$ e $L(s)$
+            então, $r \cup s$, geralmente representado por $r+s$ será uma expressão regular. </li>
+            <li class="fragment fade-up" >Se $r$ é uma expressão regular representando a linguagem $L(r)$ então $r^*$ é uma expressão regular e irá representar a 
+              a operação <strong>Kleene Star</strong>, $L(r)^*$.</li>
+            <li class="fragment fade-up" >Nada mais será uma expressão regular.</li>
+          </ol>
+          </p>
+        </section>
+        <section class="nivel1">
+           <h2>Identidades das Expressões Regulares</h2>
+          <p  class="fragment fade-up">considerando a linguagem $ L_1,L_2 e L_3 $</p>
+          <table  class="fragment fade-up" style="width:100%;">
             <tr>
               <td>
                 <ol style="font-size: 70% !important;">
@@ -269,36 +304,20 @@
               </td>
             </tr>
           </table>
-
+          <p  class="fragment fade-up">O uso destas entidades simplifica a análise das expressões regulares de forma algébrica.</p>
         </section>
       </section>
-
       <section class="nivel1">
-        <section>
+        <h1>Pequena interação</h1>
+        <p class="fragment fade-up"> <a href="https://www.menti.com/yv9c314aug">Clique aqui</a> e responda as perguntas propostas. Se 
+          precisar o código é: 7821 3290.
+        </p>
+      </section>
+      
+      <section>
+        <section class="nivel1">
           <h1>Material de apoio</h1>
-
-          <p>Você pode baixar o material de apoio <a href="./INTERPRETADORES.pdf">clicando aqui</a> </p>
-
-        </section>
-        <section>
-          <h2>Obras Citadas</h2>
-
-          <small>
-            BAUSOLA, D. <strong>Activity Diagram</strong>. zeroinfluence, 2012. Disponível em: <a
-              href="http:zeroinfluence.wordpress.com/uml" target="_blank" rel="noopener noreferrer"
-              class="uri">http:zeroinfluence.wordpress.com/uml</a>.
-            Acesso em: 04 Ago. 2020. </br>
-            BECK, Kent et. Al. <strong>Manifesto para Desenvolvimento Ágil de Software</strong>. 2001. Disponível em: <a
-              href="https://agilemanifesto.org/iso/ptbr/manifesto.html" target="_blank" rel="noopener noreferrer"
-              class="uri">https://agilemanifesto.org/iso/ptbr/manifesto.html </a>. Acesso em: 10 ago 2020. <br />
-            BECK, Kent e ANDRES, Cynthia. <strong>Extreme Programming Explained</strong>. 2012.Boston, MA. USA. Addison
-            Wesleyt.
-            2º Edição.<br />
-            SOMMERVILLE, I. <strong>Engenharia de software</strong>. São Paulo, SP. Brasil: Pearson , 2012.<br />
-            UNHELKAR, B. <strong>Software Engineering with UML</strong>. Boca Raton, FL. USA: Taylor & Francis Group,
-            LLC, 2018.
-          </small>
-
+          <p  class="fragment fade-up">Você pode baixar o material de apoio <a href="./INTERPRETADORES.pdf">clicando aqui</a> </p>
         </section>
       </section>
     </div>
@@ -313,13 +332,9 @@
   <script src="../../rev/plugin/chalkboard/plugin.js"></script>
 
   <script>
-    // Full list of configuration options available at:
-    // https://revealjs.com/config/
     Reveal.initialize({
-      // Push each slide change to the browser history
       history: true,
-      // Transition style
-      transition: "fade", // none/fade/slide/convex/concave/zoom
+      transition: "default", // none/fade/slide/convex/concave/zoom
       center: false,
       math: {
         mathjax: "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
