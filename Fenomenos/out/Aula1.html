@@ -92,150 +92,22 @@
 					<p class="fragment fade-up">Algumas avaliações formativas serão realizadas na aula, mas estas não contam presença.</p>
 					<p class="fragment fade-up">Por exemplo: <a href="https://forms.gle/MLjFrfHsgYyiHH227" target="_blank" rel="noopener noreferrer">clique aqui</a> para realizar sua primeira <strong>Avaliação Formativa</strong>.</p>
 				</section>
-				<section class="nivel1">
-					<h2>Provando o Modus Ponens 1</h2>
-					<p class="fragment fade-up">Usando a tabela verdade do próprio argumento.</p>
-					<img data-src="../img/ponens2.jpg" class="imgleft fragment fade-up" style="height: 130px !important;"
-						alt="símbolo meramente ilustrativo, sem valor didático" />
-						<p class="fragment fade-up">Usando a conjunção das hipóteses.</p>
-					<img data-src="../img/ponens3.jpg" class="imgleft fragment fade-up" style="height: 130px !important;"
-						alt="símbolo meramente ilustrativo, sem valor didático" />
-				</section>
-				<section class="nivel1">
-					<h2>Provando o Modus Ponens 2</h2>
-					<p class="fragment fade-up">Usando a tabela verdade da tautologia equivalente.</p>
-					<img data-src="../img/ponens4.jpg" class="imgleft fragment fade-up" style="height: 190px !important;"
-						alt="símbolo meramente ilustrativo, sem valor didático" />
-						<p class="fragment fade-up">Para representar esta fórmula enfatizando que é uma tautologia usaremos: $$((p \rightarrow q)\wedge p)\Rightarrow q$$</p>
-					
-				</section>
-				<section class="nivel1">
-					<h2>Modus Tollens</h2>
-					<p class="fragment fade-up">Permite deduzir a negação do antecedente $A$ a partir da negação de $B$ e da implicação $A\rightarrow B$.</p>
-					<p class="fragment fade-up">Se chove, não vou a aula. Vou a aula logo não chove.</p>
-					<img data-src="../img/tollens1.jpg" class="imgleft fragment fade-up" style="height: 190px !important;"
-						alt="símbolo meramente ilustrativo, sem valor didático" />
-				</section>
-				<section class="nivel1">
-					<h2>Exercício 1: Modus Tollens</h2>
-					<p class="fragment fade-up">Usando o mesmo processo de dedução que usamos para comprovar o <i>Modus Ponens</i> comprove a validade do <i>Modus Tollens</i>.</p>
-					<img data-src="../img/tollens1.jpg" class="imgleft fragment fade-up" style="height: 190px !important;"
-						alt="símbolo meramente ilustrativo, sem valor didático" />
-				</section>
-				<section class="nivel1">
-					<h2>Prova de Argumentos</h2>
-					<p class="fragment fade-up">Sempre podemos provar um argumento utilizando a sua tabela verdade.</p>
-					<p class="fragment fade-up">O uso de tabelas verdade é tedioso, cansativo e torna mecânico o processo de conclusão.</p>
-					<p class="fragment fade-up">A forma ideal de resolver problemas de inferência, ou dedução, é utilizar as próprias propriedades da lógica.</p>
-					<p class="fragment fade-up">Usamos argumentos cuja consequência já é conhecida, são chamados de <strong>Consequências Notáveis</strong>.</p>
-				</section>
-				<section class="nivel1">
-					<h2>Exemplo 1</h2>
-					<small style="font-size: 67% !important; width: 90%;;">
-						<p class="fragment fade-up">Prove o teorema $\vdash_L ((p \rightarrow q) \rightarrow (p \rightarrow p))$ </p>
-						<p class="fragment fade-up">Lembrando $P, Q, R, S, ...$ podem ser usados de forma irrestrita para representar qualquer fórmula bem formada. </p>
-						<p class="fragment fade-up">Começamos do axioma 1: $( P \rightarrow ( Q \rightarrow P ))$ teremos: $[1] (p\rightarrow (q \rightarrow p))$</p>
-						<p class="fragment fade-up">2. Partimos para o axioma 2:$(( P \rightarrow ( Q \rightarrow R )) \rightarrow (( P \rightarrow Q ) \rightarrow ( P \rightarrow R )))$ 
-							onde $P \equiv p$, $Q \equiv q$ e $R \equiv p$ neste caso teremos $[2] (( p \rightarrow ( q \rightarrow p )) \rightarrow (( p \rightarrow q ) \rightarrow ( p \rightarrow p )))$
-						</p>
-						<p class="fragment fade-up">Agora usamos o <i>Modus Ponens</i> para $P \equiv (p\rightarrow (q \rightarrow p))$ e $Q \equiv (( p \rightarrow q ) \rightarrow ( p \rightarrow p ))$</p>
-						<p class="fragment fade-up">Como $[1]$ e $[2]$ são axiomas $(( p \rightarrow q ) \rightarrow ( p \rightarrow p ))$ é válido.</p>
-					</small>
-				</section>
-				<section class="nivel1">
-					<h2>Exemplo 2</h2>
-					<small style="font-size: 62% !important; width: 90%;;">
-						<p class="fragment fade-up">Prove o teorema $\vdash_L (p \rightarrow p)$ </p>
-						<p class="fragment fade-up">Começamos do axioma 1: $( P \rightarrow ( Q \rightarrow P ))$ para $P \equiv p$ e $Q \equiv (p \rightarrow p)$ teremos: $[1] (p\rightarrow ((p \rightarrow p) \rightarrow p))$</p>
-						<p class="fragment fade-up">2. Partimos para o axioma 2:$(( P \rightarrow ( Q \rightarrow R )) \rightarrow (( P \rightarrow Q ) \rightarrow ( P \rightarrow R )))$ 
-							onde $P \equiv p$, $Q \equiv (p \rightarrow p)$ e $R \equiv p$ neste caso teremos $[2] (( p \rightarrow ( (p \rightarrow p) \rightarrow p )) \rightarrow (( p \rightarrow (p\rightarrow p) ) \rightarrow ( p \rightarrow p )))$
-						</p>
-						<p class="fragment fade-up">Agora usamos o <i>Modus Ponens</i> para $P \equiv (p\rightarrow (p \rightarrow p) \rightarrow p)$ e $Q \equiv (( p \rightarrow (p\rightarrow p) ) \rightarrow ( p \rightarrow p ))$ e temos $[3] (( p \rightarrow (p\rightarrow p) ) \rightarrow ( p \rightarrow p ))$</p>
-						<p class="fragment fade-up">Podemos aplicar o axioma 1 com $P \equiv p$ e $Q \equiv p$ para obter $[4] p \rightarrow (p \rightarrow p)$.</p>
-						<p class="fragment fade-up">Aplicando o <i>Modus Ponens</i> em $[3]$ e $[4]$ temos $p \rightarrow p$ é válida.</p>
-					</small>
-				</section>
-				<section class="nivel1">
-					<h2>Exercício 2</h2>
-						<p class="fragment fade-up">Provamos que $\vdash_L (p \rightarrow p)$ é um argumento válido, então podemos usar $p \rightarrow p$ a qualquer momento. Neste caso,
-						dizemos que $(p \rightarrow p)$ é um <strong>lema</strong>. Prove $\vdash_L (\neg p\rightarrow p)\rightarrow p$ </p>
-					
-				</section>
-				<section class="nivel1">
-					<h2>Exemplo 3: hipóteses</h2>
-					<small style="font-size: 62% !important; width: 90%;;">
-						<p class="fragment fade-up">Se no problema forem dada hipóteses, não podemos alterar nenhuma destas formulas para provar o argumento. Contudo, ainda 
-							poderemos usar os axiomas e eventuais lemas. Prove a validade de $P \rightarrow (Q \rightarrow R), P \rightarrow Q \vdash_L P \rightarrow R$</p>
-						<p class="fragment fade-up">Foram dadas as hipóteses:$[1]P \rightarrow (Q \rightarrow R), [2]P \rightarrow Q$ e precisamos provar $\vdash_L P \rightarrow R$ </p>	
-						<p class="fragment fade-up">Axioma 2:$[3](( P \rightarrow ( Q \rightarrow R )) \rightarrow (( P \rightarrow Q ) \rightarrow ( P \rightarrow R )))$ </p> 
-						<p class="fragment fade-up">Usando o <i>Modus Ponens</i> para $[1]$ e $[3]$ temos $P \equiv P → (Q → R)$ e $Q \equiv (P \rightarrow Q) \rightarrow (P \rightarrow R)$</p>
-						<p class="fragment fade-up">Como $(P \rightarrow Q) \rightarrow (P \rightarrow R)$ é verdade podemos usar <i>Modus Ponens</i> novamente em $[2]$e$[4]$ </p>	
-						<p class="fragment fade-up">provando $P → R$ </p>	
-					</small>	
-				</section>
-				<section class="nivel1">
-					<h2>Exercício 3</h2>
-					<p class="fragment fade-up">Prove a validade de $P → ((Q → P) → R) \vdash_L P → R$</p>
-					
-				</section>
-	
 			</section>
-			<section class="nivel1">
+			<section>
 				<section class="nivel1">
-					<h1>Respostas dos Exercícios</h1>
+					<h2>Onde estarei em 2026?</h2>
+					<p class="fragment fade-up">De todos inimigos, o tempo é o mais cruel.</p>
+					<p class="fragment fade-up">Sonhos são diferentes de planos e estes diferentes de projetos.</p>
+					<p class="fragment fade-up">Para atingir seus objetivos você terá que sair dos sonhos, entrar no mundo dos planos e transformar estes planos em projetos.</p>
+					<p class="fragment fade-up"><a href="https://padlet.com/frankalcantara/ai1gh19fwm0swh4w" target="_blank" rel="noopener noreferrer">Clique Aqui</a> e 
+					comece respondendo a pergunta onde estarei em 2026?</p>
 				</section>
 				<section class="nivel1">
-					<h2>Exercício 1: Modus Tollens</h2>
-					<img data-src="../img/tollens2.jpg" class="imgleft fragment fade-up" style="height: 167px !important;"
-						alt="símbolo meramente ilustrativo, sem valor didático" />
-					<img data-src="../img/tollens3.jpg" class="imgleft fragment fade-up" style="height: 167px !important;"
-						alt="símbolo meramente ilustrativo, sem valor didático" />
-					<img data-src="../img/tollens4.jpg" class="imgleft fragment fade-up" style="height: 190px !important;"
-						alt="símbolo meramente ilustrativo, sem valor didático" />
-				</section>
-				<section class="nivel1">
-					<h2>Exercício 2: </h2>
-					<p>Prove $\vdash_L (\neg p\rightarrow p)\rightarrow p$</p>
-					<p>Nós já temos um Lema descoberto: $P \rightarrow P$ se fizermos $P \equiv \neg P$ teremos $\neg p \rightarrow \neg p$.</p>
-					<p>Pegando axioma 3 $((\neg Q \rightarrow \neg P) \rightarrow (\neg P \rightarrow Q)\rightarrow P)$ e fazendo $P\equiv p$ e $Q \equiv p$ teremos 
-						$((\neg p \rightarrow \neg p)\rightarrow (\neg p \rightarrow p)\rightarrow p)$</p>
-					<p>Agora, aplicamos <i>Modus Ponens</i> com $P \equiv (\neg p \rightarrow \neg p )$ e $(P\rightarrow Q) \equiv ((\neg p \rightarrow \neg p) \rightarrow ( \neg p \rightarrow p) \rightarrow p)$ e provamos $Q \equiv (\neg p \rightarrow p) \rightarrow p$.</p>	
-				</section>
-				<section class="nivel1">
-					<h2>Exercício 3: </h2>
-					<small style="font-size: 57% !important;">
-					<p>Prove a validade de $P → ((Q \rightarrow P) \rightarrow R) \vdash_L P \rightarrow R$</p>
-					<p>Nós já provamos que $P\rightarrow (Q \rightarrow R),P\rightarrow Q \vdash_L P\rightarrow R$</p>
-					<p>Então podemos pegar este lema e fazer uma instância dele com $P\equiv P$, $Q\equiv (Q\rightarrow P)$ e $R\equiv R$. Feito isso teremos: $[1]: P \rightarrow ((Q \rightarrow P) \rightarrow R),P \rightarrow (Q \rightarrow P) \vdash_L  P \rightarrow R$.</p>
-					<p>O que precisamos provar é $P → ((Q \rightarrow P) \rightarrow R) \vdash_L P \rightarrow R$ </p>
-					<p>A hipótese dada é  $P \rightarrow ((Q \rightarrow P) \rightarrow R)$</p>
-					<p>O axioma 1 é $P \rightarrow (Q \rightarrow P)$ que é uma das hipóteses de $[1]$</p>
-					<p>A segunda hipótese de $[1]$ é justamente a hipótese que nos foi dada:$P \rightarrow ((Q \rightarrow P) \rightarrow R)$</p>
-					<p>E em $[1]$ já provamos $P \rightarrow R$</p> 
-					<p>Todas as proposições de $P → ((Q \rightarrow P) \rightarrow R) \vdash_L P \rightarrow R$ são validas, o argumento é válido.</p>
-					</small>
-				</section>
-			</section>
-
-			<section class="nivel1">
-				<section class="nivel1">
-					<h1>Material de apoio</h1>
-					<p>
-						Você pode baixar o material de apoio
-						<a href="./logicaProposicional.pdf" target="_blank" rel="noopener noreferrer">clicando aqui</a>
-					</p>
-				</section>
-				<section class="nivel1">
-					<h2>Obras Citadas</h2>
-					<p>
-						AHO, A. V. et al.
-						<strong>Compiladores: princípios, técnicas e ferramentas</strong>.
-						2º. ed. Boston, MA, USA: Pearson Education Inc. , 2007. <br />
-						CASS, S. <strong>The 2016 Top Programming Languages</strong>. IEEE
-						Spectrum, 2016. Disponível em:
-						http://spectrum.ieee.org/computing/software/the-2016-top-programming-languages.
-						Acesso em: 22 Set. 2016.
-					</p>
+					<h2>Ferramentas que usaremos</h2>
+					<p class="fragment fade-up">Buscas na Internet - Ferramenta nova.</p>
+					<p class="fragment fade-up">Ambiente De Pesquisa e Solução.</p>
+					<p class="fragment fade-up">Ambiente De Desenvolvimento Interativo Online.</p>
+					<p class="fragment fade-up">Ambiente De Desenvolvimento Online.</p>
 				</section>
 			</section>
 		</div>
