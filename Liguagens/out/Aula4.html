@@ -2,9 +2,9 @@
 <html>
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="author" content="Frank Coelho de Alcantara -2020" />
-  <title>Gramáticas - Analisador Léxico</title>
+  <meta charset="utf-8">
+  <meta name="author" content="Frank Coelho de Alcantara -2020">
+  <title>Reconhecendo Lexemas</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta
     name="apple-mobile-web-app-status-bar-style"
@@ -14,6 +14,7 @@
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
   <link rel="stylesheet" href="../../rev/reset.css" />
   <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/aulas.css" />
   <link rel="stylesheet" href="../../rev/interpret.css" />
 </head>
 
@@ -21,412 +22,130 @@
   <div class="reveal">
     <div class="slides">
       <section id="title-slide" class="nivel1">
-        <h1 class="title">
-          Gramáticas <br />
-          Analisadores Léxicos
-        </h1>
-        <p style="text-align: right !important">
-          Frank Coelho de Alcantara -2020
-        </p>
+        <h1 class="title">Reconhecendo Lexemas</h1>
+        <p class="author" style="text-align: right !important;">Frank Coelho de Alcantara - 2020 &nbsp; &nbsp; &nbsp;</p>
       </section>
-      <section class="nivel1">
-        <section class="title-slide slide level1">
-          <h2>Gramáticas</h2>
-          <p>
-            A linguagem das linguagens: Uma gramática é uma lista de regras
-            que determina como podem ser criadas e utilizadas todas as strings
-            de uma linguagem;
-          </p>
+      <section>
+        <section class="nivel1">
+          <h2>Um pouco de liberdade</h2>
+           <p  class="fragment fade-up">
+            Usaremos máquinas de estado finito determinísticas e vamos mostrar 
+            apenas as transições que realmente levam para outros estados.
+         </p>
+          <img class="fragment fade-up" style="display: block; margin-left: auto; margin-right: auto; width: 55%;" data-src="../img/mef1.jpg"
+            alt="modelo de uma máquina de estados finitos para reconhecer not, new e while" />
+
+            <p style="font-size: 40%; text-align: center !important;" class="fragment fade-up">COOPER, K. D.; TORCZON, L. <b>Engineering a Compiler</b>. 2º. ed. London, UK: Elsevier, 2012.</p>
+
         </section>
-        <section>
-          <h2>Classificação de Chomsky</h2>
-          <ul>
-            <li>Gramáticas Irrestritas;</li>
-            <li>Gramáticas Sensíveis ao Contexto;</li>
-            <li>Gramáticas Livres de Contexto;</li>
-            <li>Gramáticas Regulares.</li>
-          </ul>
+        <section class="nivel1">
+          <h2>Com um pouco álgebra</h2>
+          <small style="width: 50%; font-size: 51% !important; float: right; margin-right: 3%;">
+          <p class="fragment fade-up">$MEF=\{S, \Sigma, \delta, s_0, A\}$</p>
+          <p class="fragment fade-up">$MEF=\{\{s_0, s_1, s_2, s_3, s_4, s_5, s_6, s_7, s_8, s_9, s_{10}\}, \\
+             \{e, h, i, l, n, o, t, w\};\\ 
+            \{\delta_{(s_0,n)}=s_1, \delta_{(s_0,w)}=s_6, \\
+            \delta_{(s_1,e)}=s_2, \delta_{(s_1,o)}=s_4, \\ \delta_{(s_2,w)}=s_3, \\ \delta_{(s_4,7)}=s_5, \\ \delta_{(s_6,h)}=s_7, 
+            \\ \delta_{(s_7,i)}=s_8, \\ \delta_{(s_8,l)}=s_9, \\ \delta_{(s_9,e)}=s_{10}\}, s_0 =
+            s_0, A=\{s_2, s_5, s_{10}\} \}$</p>
+          </small>
+          <img class="fragment fade-up" style="margin-left: 3%; float: left; width: 44%;"
+            data-src="../img/mef1.jpg" alt="modelo de uma máquina de estados finitos para reconhecer not, new e while" />
+          <p class="fragment fade-up" style=" font-size: 86%;"> E apontamos todos os símbolos que não interessam para um estado de erro $s_e$ de tal forma que: $\delta_{(s_i,\{x|x \notin \Sigma\})}=s_e$</p>
+          <p class="fragment fade-up" style="font-size: 40%; text-align: center !important;" class="fragment fade-up">COOPER, K. D.; TORCZON, L.
+            <b>Engineering a Compiler</b>. 2º. ed. London, UK: Elsevier, 2012.</p>
         </section>
-        <section>
-          <h2>Linguagens</h2>
-          <table style="font-size: 80% !important">
+        <section class="nivel1">
+          <h2>Transformando em Código</h2>
+          <small style="font-size: 95% !important;">
+            <p class="fragment fade-up"> Sem código, não há progresso. Usando o site
+              <a href="https://replit.com/" target="_blank" rel="noopener noreferrer">repl.it</a> crie um código, na sua
+              linguagem de programação
+              preferida, que seja capaz de implementar a máquina de estados finitos que definimos para <i>not, new e while</i>.
+            </p>
+            <p class="fragment fade-up">Lembre-se que não é qualquer código, para reconhecer <i>not, new e while</i> é um código
+              que implemente
+              a $MEF$ que definimos. Ou seja, todos os estados e transições devem estar presentes e identificados no seu código.
+            </p>
+            <p class="fragment fade-up">Quando terminar, poste o seu código
+              <a href="https://forms.gle/RHnN5MVBgbke3fNg7" target="_blank" rel="noopener noreferrer">Aqui!</a>
+            </p>
+          </small>
+        </section>
+        <section class="nivel1">
+          <h2>Desafio 1</h2>
+          <small style="font-size: 58% !important; float: left; margin-left: 1%; width: 50%;">
+            <p class="fragment fade-up"> Crie uma MEF e o código para identificar nomes de variáveis em C segundo a seguinte regra:</p>
+            <ol>
+              <li class="fragment fade-up"> Um identificador pode conter apenas letras (maiúsculas e minúsculas), dígitos e o sublinhado (<i>underscore</i>);</li>
+              <li class="fragment fade-up"> Um identificador pode começar com uma letra, ou com um <i>underscore</i>;</li>
+              <li class="fragment fade-up"> Não existe limite para o comprimento de um nome em C, mas vamos limitar em 31 caracteres.</li>
+            </ol>
+            <p class="fragment fade-up">Para simplificar a tabela ao lado contém a lista de lexemas reservados do C.</i>.</p>
+            
+            <p class="fragment fade-up">Quando terminar, poste o link para o seu código
+              <a href="https://forms.gle/q6LJLhJdpqfAP7zA7" target="_blank" rel="noopener noreferrer">Aqui!</a>
+            </p>
+          </small>
+          <table style="font-size: 58% !important; float: left; margin-left: 1%;" summary="Lista de lexemas reservados em C">
+            <caption>Lexemas Reservados</caption>
             <tbody>
               <tr>
-                <th><i>Linguagem</i></th>
-                <th><i>Gramática</i></th>
-                <th><i>Identificador</i></th>
+                <td>auto</td>
+                <td>double</td>
+                <td>int</td>
+                <td>struct</td>
               </tr>
               <tr>
-                <td>Recursivamente Enumerárveis</td>
-                <td>Gramáticas Irrestritas</td>
-                <td>Máquina de Touring</td>
+                <td>break</td>
+                <td>else</td>
+                <td>long</td>
+                <td>switch</td>
               </tr>
               <tr>
-                <td>Linguagens sensíveis ao contexto</td>
-                <td>Gramáticas sensíveis ao contexto</td>
-                <td>Maq. Turing com fita limitada</td>
+                <td>case</td>
+                <td>enum</td>
+                <td>register</td>
+                <td>typedef</td>
               </tr>
               <tr>
-                <td>Linguagens livres de contexto</td>
-                <td>Gramáticas livres de contexto</td>
-                <td>Autômato com pilha</td>
+                <td>char</td>
+                <td>extern</td>
+                <td>return</td>
+                <td>union</td>
               </tr>
               <tr>
-                <td>Linguagens Regulares</td>
-                <td>Gramáticas regulares</td>
-                <td>Autômato finito</td>
+                <td>continue</td>
+                <td>for</td>
+                <td>signed</td>
+                <td>void</td>
+              </tr>
+              <tr>
+                <td>do</td>
+                <td>if</td>
+                <td>static</td>
+                <td>while</td>
+              </tr>
+              <tr>
+                <td>default</td>
+                <td>goto</td>
+                <td>sizeof</td>
+                <td>volatile</td>
+              </tr>
+              <tr>
+                <td>const</td>
+                <td>float</td>
+                <td>short</td>
+                <td>unsigned</td>
               </tr>
             </tbody>
           </table>
         </section>
-        <section>
-          <h2>Gramáticas - definição</h2>
-          <p>Uma Gramática Formal: 4-tupla: – $𝑮 := \{𝑵, \Sigma, 𝑷, 𝑺\}$</p>
-          <ul>
-            <li>$S\rightarrow \text{símbolo inicial}$</li>
-            <li>$\Sigma \rightarrow \text{símbolos terminais}$</li>
-            <li>$P \rightarrow \text{regras de produção}$</li>
-            <li>$N \rightarrow \text{símbolos não terminais}$</li>
-          </ul>
-        </section>
-        <section>
-          <h2>Símbolos terminais</h2>
-          <p>
-            Símbolos termais tem esse nome por que não existem regras para
-            substitui-los. Uma vez gerados, os símbolos terminais são
-            permanentes. Consequentemente, os símbolos termais são os símbolos
-            da linguagem.
-          </p>
-        </section>
-        <section>
-          <h2>Livres de Contexto</h2>
-          <blockquote>
-            “uma gramática livre de contexto descreve um conjunto de strings,
-            ou linguagem, por meio da definição da estrutura das strings da
-            linguagem. Esta definição é recursiva, indicando que cada regra
-            produção pode, ou não, ser utilizada para definir novas regras de
-            produção”
-          </blockquote>
-        </section>
       </section>
-      <section class="nivel1">
-        <section>
-          <h2>Regras de Produção</h2>
-          <p>
-            Os símbolos que aparecem à esquerda da seta, são não terminais e
-            representados por letras latinas maiúsculas $(𝐴, 𝐵, 𝑆, …)$.
-          </p>
-          <p>
-            O símbolo inicial é o que aparece do lado esquerdo da primeira
-            regra $𝑆$.
-          </p>
-          <p>Pode ser qualquer símbolo, usarmos o $𝑆$ por convenção.</p>
-        </section>
-        <section>
-          <h2>Regras de Produção</h2>
-          <ol>
-            <li>$𝑆 \rightarrow 𝐴𝐵$</li>
-            <li>$𝑆 \rightarrow 𝐴𝑆𝐵$</li>
-            <li>$𝐴 \rightarrow a$</li>
-            <li>$𝐵 \rightarrow b$</li>
-          </ol>
-          <p>Vamos produzir a string:“aabb”</p>
-        </section>
-        <section>
-          <h2>Produzindo $aabb$</h2>
-          <p class="fragment fade-up">
-            Temos $S \rightarrow \emptyset$ e aplicamos 2 $𝑺 \rightarrow 𝑨𝑺𝑩$
-          </p>
-          <p class="fragment fade-up">
-            Temos de $S \rightarrow ASB$ e aplicamos 3 $A \rightarrow a$
-          </p>
-          <p class="fragment fade-up">
-            Temos de $S \rightarrow aSB$ e aplicamos 4 $B \rightarrow b$
-          </p>
-          <p class="fragment fade-up">
-            Temos de $S \rightarrow aSb$ e aplicamos 1 $𝑺 \rightarrow AB$
-          </p>
-          <p class="fragment fade-up">
-            Temos de $S \rightarrow aABb$ e aplicamos 3 $A \rightarrow a$
-          </p>
-          <p class="fragment fade-up">
-            Temos de $S \rightarrow aaBb$ e aplicamos 4 $B \rightarrow b$
-          </p>
-          <p class="fragment fade-up">Conseguimos: $S \rightarrow aabb$</p>
-        </section>
-        <section>
-          <h2>Exercício 1</h2>
-          <p>Considere a gramática definida por:</p>
-          <ol>
-            <li>$𝑺 \rightarrow 𝑨𝑩$</li>
-            <li>$𝑨 \rightarrow \varepsilon | 𝒂𝑨$</li>
-            <li>$𝑩 \rightarrow \varepsilon | 𝒃𝑩$</li>
-          </ol>
-          <p>Encontre uma sequência de substituições para encontrar: $aab$</p>
-        </section>
-        <section>
-          <h2>Gramáticas Regulares</h2>
-          <p>Duas classes de regras de produção.</p>
-          <p>
-            Lineares à Direita: as regras de produção obedecem: $$𝑨
-            \rightarrow 𝒘𝑩 \vee 𝑨\rightarrow 𝒘 (𝒘 \in \Sigma^*)$$
-          </p>
-          <p>
-            Lineares à esquerda: as regras de produção obedecem: $$𝑨
-            \rightarrow 𝑩𝒘 \vee 𝑨 \rightarrow 𝒘 (𝒘 \in \Sigma^*)$$
-          </p>
-        </section>
-      </section>
-      <section class="nivel1">
-        <section>
-          <h2>Ávores Sintáticas</h2>
-          <ol class="fragment fade-up" style="float: left; margin-left: 10%">
-            <li>$S$</li>
-            <li>$S \rightarrow ASB$</li>
-            <li>$S \rightarrow aSB$</li>
-            <li>$S \rightarrow aSb$</li>
-            <li>$S \rightarrow aABb$</li>
-            <li>$S \rightarrow aaBb$</li>
-            <li>$S \rightarrow aabb$</li>
-          </ol>
-          <p class="fragment fade">
-            <img
-              data-src="../img/as1.png"
-              alt="exemplo de máquina de estados finitos"
-              style="float: right; margin-left: 20%; max-width: 40%" />
-          </p>
-        </section>
-        <section>
-          <h2>Backus-Naur Form - BNF</h2>
-          <p>Representa uma gramática.</p>
-          <p>É mais simples para leitura.</p>
-          <p>É mais simples para escrita.</p>
-          <p>ISO/IEC 14977 : 1996(E).</p>
-        </section>
-        <section>
-          <h2>Backus-Naur Form - BNF</h2>
-          <p>
-            $::= \rightarrow $ “é definido como” ou “pode ser substituído por”
-          </p>
-          <p>$| \rightarrow $ seleção: ou.</p>
-          <p>$<> \rightarrow $ não terminais.</p>
-          <p>Você faz a linguagem, você faz as regras!</p>
-        </section>
-        <section>
-          <h2>BNF - Exemplo</h2>
-          <ol class="fragment fade-up" style="float: left; margin-left: 10%">
-            <li>$\text{<𝑙𝑖𝑠𝑡𝑎> ∷= <𝑒𝑙𝑒𝑚𝑒𝑛𝑡𝑜>;<𝑙𝑖𝑠𝑡𝑎> | <𝑒𝑙𝑒𝑚𝑒𝑛𝑡𝑜>}$</li>
-            <li>$\text{<𝑒𝑙𝑒𝑚𝑒𝑛𝑡𝑜>∷=<𝑙𝑒𝑡𝑟𝑎>
-                  <𝑑𝑖𝑔𝑖𝑡𝑜>}$</li>
-            <li>$\text{<𝑙𝑒𝑡𝑟𝑎>∷=𝐴 | 𝐵 |𝐶}$</li>
-            <li>$\text{<𝑑𝑖𝑔𝑖𝑡𝑜>∷=1|2|3|4}$</li>
-          </ol>
-        </section>
-        <section>
-          <h2>EBNF</h2>
-          <ul>
-            <li>Removeu os $<$$>$ para os símbolos não terminais.</li>
-            <li>Símbolos termais expressos entre aspas.</li>
-            <li>Uso $*$ para fechamento e $\{\}$ para multiplicação.</li>
-            <li>Uso de $+$ para um ou mais.</li>
-            <li>Uso de $?$ para seleção.</li>
-            <li>Parênteses $()$ para agrupamento;</li>
-            <li>Substitui $∷=$ por $=$.</li>
-            <li>O uso da vírgula $,$ para explicitar concatenação.</li>
-            <li>O ponto encerra uma regra.</li>
-          </ul>
-        </section>
-        <section>
-          <h2>BNF - Exemplo</h2>
-          <p>Considere a seguinte gramática definida em BNF</p>
-          <ol style="font-size: 70%">
-            <li>$<𝒑𝒓𝒐𝒈𝒓𝒂𝒎> ::= 𝒃𝒆𝒈𝒊𝒏 <𝒔𝒕𝒎𝒕\_𝒍𝒊𝒔𝒕> 𝒆𝒏𝒅$</li>
-            <li>$<𝒔𝒕𝒎𝒕_𝒍𝒊𝒔𝒕> ::= <𝒔𝒕𝒎𝒕> | <𝒔𝒕𝒎𝒕> ; <𝒔𝒕𝒎𝒕_𝒍𝒊𝒔𝒕>$.</li>
-            <li>$<𝒔𝒕𝒎𝒕> ::= <𝒗𝒂𝒓> = <𝒆𝒙𝒑𝒓>$</li>
-            <li>$<𝒆𝒙𝒑𝒓> ::= <𝒕𝒆𝒓𝒎> + <𝒕𝒆𝒓𝒎> | <𝒕𝒆𝒓𝒎> − <𝒕𝒆𝒓𝒎>$</li>
-            <li>$<𝒕𝒆𝒓𝒎> ::= <𝒗𝒂𝒓> | 𝒄𝒐𝒏𝒔𝒕$</li>
-            <li>$<𝒗𝒂𝒓> ::= 𝒂 | 𝒃 | 𝒄$</li>
-          </ol>
-          <p>Derive o seguinte programa:</p>
-          <p>$\text{begin } a = b + \text{ const } \text{ end}$</p>
-        </section>
-        <section>
-          <h2>BNF - Exemplo</h2>
-          <ul style="font-size: 70%">
-            <li>$ &lt;program&gt; \Rightarrow \emptyset$</li>
-            <li>
-              Regra 1: $ &lt;program&gt; \Rightarrow begin &lt;stmt\_list&gt;
-              \text{ end}$
-            </li>
-            <li>
-              Regra 2: $&lt;program&gt; \Rightarrow \text{begin } &lt;stmt&gt;
-              \text{ end}$
-            </li>
-            <li>
-              Regra 3: $&lt;program&gt; \Rightarrow \text{begin } &lt;var&gt;
-              = &lt;expr&gt; \text{ end}$
-            </li>
-            <li>
-              Regra 6: $&lt;program&gt; \Rightarrow \text{begin } a =
-              &lt;expr&gt; \text{ end}$
-            </li>
-            <li>
-              Regra 4: $&lt;program&gt; \Rightarrow \text{begin } a =
-              &lt;term&gt; + &lt;term&gt; \text{ end}$
-            </li>
-            <li>
-              Regra 5: $&lt;program&gt; \Rightarrow \text{begin } a =
-              &lt;var&gt; + &ltterm&gt; \text{ end}$
-            </li>
-            <li>
-              Regra 6: $&lt;program&gt; \Rightarrow \text{begin } a = b +
-              &lt;term&gt; \text{ end}$
-            </li>
-            <li>
-              Regra 5: $&lt;program&gt; \Rightarrow \text{begin } a = b +
-              const \text{ end}$
-            </li>
-          </ul>
-        </section>
-      </section>
-      <section class="nivel1">
-        <section>
-          <h2>Parsers</h2>
-          <p>
-            Percorrer, varrer. Técnicas de percorrer uma árvore sintática
-            validando a gramática.
-          </p>
-        </section>
-        <section>
-          <h2>Parsers</h2>
-          <p>
-            <img
-              data-src="../img/parsers.png"
-              alt="algoritmos de parser mais comuns" />
-          </p>
-        </section>
-        <section>
-          <h2>Exemplo</h2>
-          <p>
-            Considerando a gramática a seguir, apresente as derivações
-            necessárias para encontrar “abbcde”, usando
-            <strong>Bottom-up</strong> parser.
-          </p>
-          <ol
-            class="fragment fade-up"
-            style="float: left; font-size: 60%; margin-left: 10%">
-            <li>$S \rightarrow aABe$</li>
-            <li>$A \rightarrow Abc | b $</li>
-            <li>$B \rightarrow d$</li>
-          </ol>
-          <p
-            class="fragment fade"
-            style="
-								float: right;
-								font-size: 60%;
-								margin-left: 40%;
-								max-width: 40%;
-							">
-            Regra 2: $abbcde \Rightarrow aAbcde$
-          </p>
-          <p
-            class="fragment fade"
-            style="
-								float: right;
-								font-size: 60%;
-								margin-left: 40%;
-								max-width: 40%;
-							">
-            Regra 2: $abbcde \Rightarrow aAde;$
-          </p>
-          <p
-            class="fragment fade"
-            style="
-								float: right;
-								font-size: 60%;
-								margin-left: 40%;
-								max-width: 40%;
-							">
-            Regra 3: $abbcde \Rightarrow aABe;$
-          </p>
-          <p
-            class="fragment fade"
-            style="
-								float: right;
-								font-size: 60%;
-								margin-left: 40%;
-								max-width: 40%;
-							">
-            Regra 1: $abbcde \Rightarrow S;$
-          </p>
-        </section>
-        <section>
-          <h2>Código</h2>
-          <p>
-            Vamos criar um parser para validar fórmulas de cálculo
-            proposicional.
-          </p>
-          <ol>
-            <li>Negação: $\neg P$</li>
-            <li>Conjunção: $P\land Q$</li>
-            <li>Disjunção: $P\lor Q$</li>
-            <li>Implicação: $P\rightarrow Q$</li>
-            <li>Implicação Dupla: $P\leftrightarrow Q$</li>
-          </ol>
-          <p>
-            Nosso parser deve ser recursivo e usar latex e notação rpn para a
-            digitação das expressões.
-          </p>
-        </section>
-        <section>
-          <h2>EBNF - Exercício</h2>
-          <p>
-            Vamos criar um parser para validar fórmulas de cálculo
-            proposicional.
-          </p>
-          <ol style="font-size: 55%">
-            <li>
-              $Formula = Constante | Proposicao | FormulaUnaria |
-              FormulaBinaria.$
-            </li>
-            <li>$Constante = "T" | "F".$</li>
-            <li>$Proposicao = [a-z0-9]+$</li>
-            <li>
-              $FormulaUnaria = AbreParen\ OperadorUnario\ Formula\ FechaParen$
-            </li>
-            <li>
-              $FormulaBinaria= AbreParen\ OperatorBinario\ Formula\ Formula\
-              FechaParen$
-            </li>
-            <li>$AbreParen = "("$</li>
-            <li>$FechaParen = ")"$</li>
-            <li>$OperatorUnario = "\neg"$</li>
-            <li>
-              $OperatorBinario = "\vee" | "\wedge" | "\rightarrow"
-              |"\leftrightarrow"$
-            </li>
-          </ol>
-        </section>
-      </section>
-      <section class="nivel1">
-        <section>
+      <section>
+        <section class="nivel1">
           <h1>Material de apoio</h1>
-          <p>
-            Você pode baixar o material de apoio
-            <a href="./INTERPRETADORES.pdf">clicando aqui</a>
-          </p>
-        </section>
-        <section>
-          <h2>Obras Citadas</h2>
-          <p>
-            AHO, A. V. et al.
-            <strong>Compiladores: princípios, técnicas e ferramentas</strong>.
-            2º. ed. Boston, MA, USA: Pearson Education Inc. , 2007. <br />
-            CASS, S. <strong>The 2016 Top Programming Languages</strong>. IEEE
-            Spectrum, 2016. Disponível em: <http:
-              //spectrum.ieee.org/computing/software/the-2016-top-programming-languages>.
-              Acesso em: 22 Set. 2016.
-          </p>
+          <p  class="fragment fade-up">Você pode baixar o material de apoio <a href="./INTERPRETADORES.pdf">clicando aqui</a> </p>
         </section>
       </section>
     </div>
@@ -441,17 +160,12 @@
   <script src="../../rev/plugin/chalkboard/plugin.js"></script>
 
   <script>
-    // Full list of configuration options available at:
-    // https://revealjs.com/config/
     Reveal.initialize({
-      // Push each slide change to the browser history
       history: true,
-      // Transition style
-      transition: "fade", // none/fade/slide/convex/concave/zoom
+      transition: "default", // none/fade/slide/convex/concave/zoom
       center: false,
       math: {
-        mathjax:
-          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        mathjax: "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
         config: "TeX-AMS_HTML-full",
         // pass other options into `MathJax.Hub.Config()`
         TeX: {
