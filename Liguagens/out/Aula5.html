@@ -67,493 +67,203 @@
         </section>
         <section class="nivel1">
           <h2>Revisão</h2>
-          <p class="fragment fade-up">$\varepsilon$ é uma expressão regular que identifica o <i>string</i> vazio.</p>
-          <p class="fragment fade-up">Um símbolo qualquer como $a$ é uma expressão regular que identifica a <i>string</i> "a".</p>
-          <p class="fragment fade-up">Se $r$ e $s$ são expressões regulares então $r\cup s = r+s = r|s$ é uma expressão regular.</p>
-          <p class="fragment fade-up">Se $r$ e $s$ são expressões regulares então $r\cdot s = rs$ é uma expressão regular.</p>
-          <p class="fragment fade-up">Se $r$ é uma expressão regular então $r^*$ é uma expressão regular.</p>
-          <p class="fragment fade-up">Se $r$ é uma expressão regular então $(r)$ é uma expressão regular.</p>
+          <small style="font-size: 80% !important;">
+            <p class="fragment fade-up">$\varepsilon$ é uma expressão regular que identifica o <i>string</i> vazio.</p>
+            <p class="fragment fade-up">Um símbolo qualquer como $a$ é uma expressão regular que identifica a <i>string</i> "a".</p>
+            <p class="fragment fade-up">Se $r$ e $s$ são expressões regulares então $r\cup s = r+s = r|s$ é uma expressão regular.</p>
+            <p class="fragment fade-up">Se $r$ e $s$ são expressões regulares então $r\cdot s = rs$ é uma expressão regular.</p>
+            <p class="fragment fade-up">Se $r$ é uma expressão regular então $r^*$ é uma expressão regular.</p>
+            <p class="fragment fade-up">Se $r$ é uma expressão regular então $(r)$ é uma expressão regular.</p>
+          </small>
         </section>
         <section class="nivel1">
-          <h2>Ambiguidade</h2>
-          <p class="fragment fade-up">Uma gramática é ambígua se, para uma string $w$ qualquer, existem duas ou mais árvores de derivação distintas, duas ou
-            mais
-            derivações a esquerda ou duas ou mais derivações a direita.</p>
-          <p class="fragment fade-up">Podemos mostrar que uma gramática é ambígua apenas mostrando que para uma determinada string $w$ existem árvores
-            distintas.</p>
-        </section>
-      </section>
-      <!--/ introdução-->
-      <section class="nivel1">
-        <!-- top-down -->
-        <section class="nivel1">
-          <h2>Top-Down Parser</h2>
-          <img data-src="../img/as1.png" class="imgright"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-          <div class="textoleft">
-            Construiremos a árvore a partir da Raiz (topo) e da esquerda para direita.
-            <strong>Começamos no símbolo inicial</strong>.
-          </div>
-        </section>
-        <section class="nivel1">
-          <h2>Exemplo</h2>
-          <p>Considere a gramática a seguir e encontre a árvore de derivações para $“a + a * a”$:</p>
-          <ul style="font-size: 80%;">
-            <li>$\Sigma = \{ +, *, (, ), a\}$;</li>
-            <li>$𝑵=\{𝑺, 𝑻, 𝑭\}$;</li>
-            <li>$𝑺=\{𝑺\}$ ;</li>
-            <li>$𝑷=\{ $
-              <ol>
-                <li>$𝑺 \rightarrow 𝑺+𝑻$;</li>
-                <li>$𝑺 \rightarrow 𝑻$;</li>
-                <li>$𝑻 \rightarrow 𝑻∗𝑭$;</li>
-                <li>$𝑻 \rightarrow 𝑭$;</li>
-                <li>$𝑭 \rightarrow (𝑺)$;</li>
-                <li>$𝑭 \rightarrow 𝒂\}$;</li>
-              </ol>
-            </li>
-          </ul>
-        </section>
-        <section class="nivel1">
-          <h2>Exemplo</h2>
-          <ol style="font-size:40% !important; float:right; margin-right:1%;">
-            <li>$𝑷=\{𝑺 \rightarrow 𝑺+𝑻$;</li>
-            <li>$𝑺 \rightarrow 𝑻$;</li>
-            <li>$𝑻 \rightarrow 𝑻∗𝑭$;</li>
-            <li>$𝑻 \rightarrow 𝑭$;</li>
-            <li>$𝑭 \rightarrow (𝑺)$;</li>
-            <li>$𝑭 \rightarrow 𝒂\}$;</li>
-          </ol>
-
-          <p class="fragment fade-up">$𝑆 \rightarrow 𝑆+𝑇$
-            <strong><span style="margin-right:23%; display: block; float: right;">$𝑆 \Rightarrow 𝑆+𝑇;$</span></strong>
-          </p>
-          <p class="fragment fade-up">$𝑆→𝑇$<strong><span style="margin-right:23%; display: block; float: right;">$\Rightarrow
-                𝑇+𝑇;$</span></strong></p>
-          <p class="fragment fade-up">$𝑇→𝐹$<strong><span style="margin-right:41%; display: block; float: right;">$\Rightarrow
-                𝐹+𝑇;$</span></strong></p>
-          <p class="fragment fade-up">$𝐹→𝑎$<strong><span style="margin-right:41%; display: block; float: right;">$\Rightarrow
-                𝑎+𝑇;$</span></strong></p>
-          <p class="fragment fade-up">$𝑇→𝑇∗𝐹$<strong><span style="margin-right:33%; display: block; float: right;">$\Rightarrow
-                𝑎+𝑇∗𝐹;$</span></strong></p>
-          <p class="fragment fade-up">$𝑇→𝐹$<strong><span style="margin-right:33%; display: block; float: right;">$\Rightarrow
-                𝑎+𝐹∗𝐹;$</span></strong></p>
-          <p class="fragment fade-up">$𝐹→𝑎$<strong><span style="margin-right:33%; display: block; float: right;">$\Rightarrow
-                𝑎+𝑎∗𝐹;$</span></strong></p>
-          <p class="fragment fade-up">$𝐹→𝑎$<strong><span style="margin-right:33%; display: block; float: right;">$\Rightarrow
-                𝑎+𝑎∗𝑎;$</span></strong></p>
-        </section>
-        <section class="nivel1">
-          <h2>Exemplo</h2>
-          <img data-src="../img/as2.png" class="imgright"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-          <p>$𝑆 \rightarrow 𝑆+𝑇$
-            <strong><span style="margin-right:12%; display: block; float: right;">$𝑆 \Rightarrow 𝑆+𝑇;$</span></strong>
-          </p>
-          <p>$𝑆→𝑇$<strong><span style="margin-right:12%; display: block; float: right;">$\Rightarrow
-                𝑇+𝑇;$</span></strong></p>
-          <p>$𝑇→𝐹$<strong><span style="margin-right:12%; display: block; float: right;">$\Rightarrow
-                𝐹+𝑇;$</span></strong></p>
-          <p>$𝐹→𝑎$<strong><span style="margin-right:12%; display: block; float: right;">$\Rightarrow
-                𝑎+𝑇;$</span></strong></p>
-          <p>$𝑇→𝑇∗𝐹$<strong><span style="margin-right:4%; display: block; float: right;">$\Rightarrow
-                𝑎+𝑇∗𝐹;$</span></strong></p>
-          <p>$𝑇→𝐹$<strong><span style="margin-right:4%; display: block; float: right;">$\Rightarrow
-                𝑎+𝐹∗𝐹;$</span></strong></p>
-          <p>$𝐹→𝑎$<strong><span style="margin-right:40%; display: block; float: right;">$\Rightarrow
-                𝑎+𝑎∗𝐹;$</span></strong></p>
-          <p>$𝐹→𝑎$<strong><span style="margin-right:40%; display: block; float: right;">$\Rightarrow
-                𝑎+𝑎∗𝑎;$</span></strong></p>
-        </section>
-
-        <section class="nivel1">
-          <h2>Leftmost / Rightmost</h2>
-          <ol style="font-size:40% !important; float:right; margin-right:2%;">
-            <li>$𝑷=\{𝑺 \rightarrow 𝑺+𝑻$;</li>
-            <li>$𝑺 \rightarrow 𝑻$;</li>
-            <li>$𝑻 \rightarrow 𝑻∗𝑭$;</li>
-            <li>$𝑻 \rightarrow 𝑭$;</li>
-            <li>$𝑭 \rightarrow (𝑺)$;</li>
-            <li>$𝑭 \rightarrow 𝒂\}$;</li>
-          </ol>
-          <div style="float: left; margin-left: 12%;">
-            <p>Leftmost</p>
-            <small>
-              <p><strong>$𝑆 \Rightarrow 𝑆+𝑇;$</strong></p>
-              <p><strong>$\Rightarrow 𝑇+𝑇;$</strong></p>
-              <p><strong>$\Rightarrow 𝐹+𝑇;$</strong></p>
-              <p><strong>$\Rightarrow 𝑎+𝑇;$</strong></p>
-              <p><strong>$\Rightarrow 𝑎+𝑇∗𝐹;$</strong></p>
-              <p><strong>$\Rightarrow 𝑎+𝐹∗𝐹;$</strong></p>
-              <p><strong>$\Rightarrow 𝑎+𝑎∗𝐹;$</strong></p>
-              <p><strong>$\Rightarrow 𝑎+𝑎∗𝑎;$</span></strong></p>
+          <h2>Exemplos </h2>
+          <small style="font-size: 80% !important;">
+            <p class="fragment fade-up">O símbolo Q, por si só, é uma expressão regular que identifica <i>strings</i> "Q".</p>
+            <p class="fragment fade-up"> Casa | Cachorro é uma expressão regular que identifica o <i>string</i> "Casa" ou o <i>string</i> "Cachorro".</p>
+            <p class="fragment fade-up"> Se Para e Médico são expressões regulares então ParaMédico é uma expressão regular que identifica a <i>string</i> "ParaMédico".</p>
+            <p class="fragment fade-up">Se $a$ é uma expressão regular então $a^*$ é uma expressão regular que identifica qualquer uma 
+              das seguintes <i>strings</i> $a, aa, aaa, aaaa...$.</p>
             </small>
-          </div>
-          <div style="float: right; margin-right: 23%;">
-            <p>Rightmost</p>
-            <small>
-              <p><strong>$𝑆 \Rightarrow 𝑆+𝑇;$</strong></p>
-              <p><strong>$\Rightarrow 𝑆+𝑇∗𝐹;$</strong></p>
-              <p><strong>$\Rightarrow 𝑆+𝑇∗𝑎;$</strong></p>
-              <p><strong>$\Rightarrow 𝑆+𝐹∗𝑎;$</strong></p>
-              <p><strong>$\Rightarrow 𝑆+𝑎∗𝑎;$</strong></p>
-              <p><strong>$\Rightarrow 𝑇+𝑎∗𝑎;$</strong></p>
-              <p><strong>$\Rightarrow 𝐹+𝑎∗𝑎;$</strong></p>
-              <p><strong>$\Rightarrow 𝑎+𝑎∗𝑎;$</span></strong></p>
-            </small>
-          </div>
         </section>
         <section class="nivel1">
-          <h2>Pratica 1</h2>
-          <p>Considere o exemplo anterior e verifique se as duas derivações produzem a mesma árvore.</p>
-          <p>Tente encontrar outra derivação para criar uma árvore diferente.</p>
-          <p>Discuta seus resultados com seus colegas de classe e apresente para o professor.</p>
+           <h2>Associação</h2>
+           <p class="fragment fade-up">As operações <b>união</b>, <b>concatenação</b> e <b>Kleene Star</b> são associativas a esquerda:
+          $$a|b|c = ((a|b)|c)$$</p>
+           <p class="fragment fade-up"> Por exemplo: $a|b^* c \equiv a|(b^*)c$ ou: $$ \{a\} \cup ((\{b\}^*)(\{c\}) = 
+             \{a, c, bc, bbc, bbbc...\} $$ </p>
+             <p class="fragment fade-up">a Expressão regular $$ab^*$ quando aplicada a <i>string</i> $\{aabb\}$ irá identificar $\{a, ab, abb\}</p>
+        </section>
+        <section class="nivel1">
+          <h2>Exemplos 2</h2>
+          <table style="font-size: 73%; width: 95% !important;">
+            <tr><th>Regex</th><th>Identifica</th></tr>
+            <tr><td>$abc$</td><td>$\{abc\}$</td></tr>
+            <tr><td>$ab^*c$</td><td>$\{ac, abc, abbc, abbbc...\}$</td></tr>
+            <tr><td>$c(a|b|c)^*c$</td><td>O conjunto de todas as <i>strings</i> de a's, b's e c's de comprimento maior ou igual a 2 começando e terminando com c. </td></tr>
+            <tr><td>$b^*(ab*ab*)*$</td><td>o conjunto de todas as <i>strings</i> de a's e b's com un número par de a's. $\{\varepsilon, aa, aab, aba, baa, aaaa, aabb, abab, abba...\}$</td></tr>
+          </table>
         </section>
       </section>
-      <!--/ top-down -->
-      <!-- Bottom-up -->
-      <section class="nivel1">
-        <section class="nivel1">
-          <h2>Bottom-up Parser</h2>
-          <img data-src="../img/as1.png" class="imgright"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-          <div class="textoleft">
-            Construiremos a árvore a partir das folhas e da esquerda para direita.
-            <strong>Terminaremos no símbolo inicial</strong>.
-          </div>
-        </section>
-        <section class="nivel1">
-          <h2>Bottom-up Parser</h2>
-          <p>Considere uma string $w$ qualquer: </p>
-          <p>1. Escolha uma substring $\beta $ de tal forma que: $\beta $ seja o fator mais a esquerda de $w$ desde que exista uma regra de produção
-            $𝐴\rightarrow𝛽$.</p>
-          <p>2. Troque $\beta $ por $𝐴$ em $w$.</p>
-          <p>3. Repita até chegar ao símbolo inicial.</p>
-        </section>
-        <section class="nivel1">
-          <h2>Exemplo</h2>
-          <p> Considere a gramática definida a seguir e encontre a derivação que prove que “abbcde” pertence a linguagem definida por esta gramática.</p>
-          <ul style="font-size: 80%;">
-            <li>$\Sigma = \{ a, b, c, d, e\}$;</li>
-            <li>$𝑵=\{𝑺, A, B\}$;</li>
-            <li>$𝑺=\{𝑺\}$ ;</li>
-            <li>$𝑷=\{ $
-              <ol>
-                <li>$𝑺 \rightarrow 𝒂𝑨𝑩𝒆$;</li>
-                <li>$A \rightarrow 𝑨𝒃𝒄$;</li>
-                <li>$A \rightarrow b$;</li>
-                <li>$B \rightarrow d$;</li>
-              </ol>
-            </li>
-          </ul>
-        </section>
-
-        <section class="nivel1">
-          <h2>Exemplo</h2>
-          <ol style="font-size:40% !important; float:right; margin-right:2%;">
-            <li>$𝑺 \rightarrow 𝒂𝑨𝑩𝒆$;</li>
-            <li>$A \rightarrow 𝑨𝒃𝒄$;</li>
-            <li>$A \rightarrow b$;</li>
-            <li>$B \rightarrow d$;</li>
-          </ol>
-          <table style="font-size: 80%;">
-            <tr>
-              <th>Strings</th>
-              <th>Produções</th>
-              <th>Escolha</th>
-            </tr>
-            <tr>
-              <td>$abbcde$</td>
-              <td>$𝑨 \rightarrow 𝒃$</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>$𝑩 \rightarrow 𝒅$</td>
-              <td>$𝑨 \rightarrow 𝒃$</td>
-            </tr>
-            <tr>
-              <td>$aAbcde$</td>
-              <td>$𝑨 \rightarrow 𝑨𝒃𝒄$</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>$𝑨 \rightarrow 𝒃$</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>$𝑩 \rightarrow 𝒅$</td>
-              <td>$𝑨 \rightarrow 𝑨𝒃𝒄$</td>
-            </tr>
-            <tr>
-              <td>$aAde$</td>
-              <td>$𝑩 \rightarrow 𝒅$</td>
-              <td>$𝑩 \rightarrow 𝒅$</td>
-            </tr>
-            <tr>
-              <td>$aABe$</td>
-              <td>$𝑺 \rightarrow 𝒂𝑨𝑩𝒆$</td>
-              <td>$𝑺 \rightarrow 𝒂𝑨𝑩𝒆$</td>
-            </tr>
-            <tr>
-              <td>$S$</td>
-              <td></td>
-              <td></td>
-            </tr>
+      <section>
+       <section class="nivel1">
+          <h2>Especificadores</h2>
+          <table style="font-size: 52%;">
+            <colgroup>
+              <col width="17%">
+              <col width="26%">
+              <col width="57%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>metacaractere</th>
+                <th>conhecido como</th>
+                <th>significado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span>.</span></td>
+                <td>curinga</td>
+                <td>qualquer caractere, exceto a quebra de
+                  linha <span>\n</span></td>
+              </tr>
+              <tr>
+                <td><span>[...]</span></td>
+                <td>conjunto</td>
+                <td>qualquer caractere incluído no conjunto</td>
+              </tr>
+              <tr>
+                <td><span>[^...]</span></td>
+                <td>conjunto negado</td>
+                <td>qualquer caractere não incluído no conjunto</td>
+              </tr>
+              <tr>
+                <td><span>\d</span></td>
+                <td>dígito</td>
+                <td>o mesmo que <span>[0-9]</span></td>
+              </tr>
+              <tr>
+                <td><span>\D</span></td>
+                <td>não-digíto</td>
+                <td>o mesmo que <span>[^0-9]</span></td>
+              </tr>
+              <tr>
+                <td><span>\s</span></td>
+                <td>branco</td>
+                <td>espaço, quebra de linha, tabs etc.;
+                  o mesmo que <span>[</span> <span>\t\n\r\f\v]</span>
+                </td>
+              </tr>
+              <tr>
+                <td><span>\S</span></td>
+                <td>não-branco</td>
+                <td>o mesmo que <span>[^</span> <span>\t\n\r\f\v]</span>
+                </td>
+              </tr>
+              <tr>
+                <td><span>\w</span></td>
+                <td>alfanumérico</td>
+                <td>o mesmo que <span>[a-zA-Z0-9_]</span> (mas pode
+                  incluir caracteres Unicode; ver
+                  <em class="xref std std-ref">flag_unicode</em>)
+                </td>
+              </tr>
+              <tr>
+                <td><span>\W</span></td>
+                <td>não-alfanumérico</td>
+                <td>o complemento de <span>\w</span></td>
+              </tr>
+              <tr>
+                <td><span>\</span></td>
+                <td>escape</td>
+                <td>anula o significado especial do
+                  metacaractere seguinte; por exemplo, <span>\.</span>
+                  representa apenas um ponto, e não o curinga</td>
+              </tr>
+            </tbody>
           </table>
         </section>
         <section class="nivel1">
-          <h2>Shift Reduce</h2>
-          <p class="fragment fade-up">Os parsers desta categoria também são chamados de SR Parsers (Shift-Reduce). Onde: </p>
-          <p class="fragment fade-up"><strong>Shift</strong>: leia o próximo símbolo;</p>
-          <p class="fragment fade-up"><strong>Reduce</strong>: uma substring $w$ correspondente ao lado direito de uma regra será substituída.</p>
-        </section>
-        <section class="nivel1">
-          <h2>Gerando Parsers</h2>
-          <p class="fragment fade-up">
-            Um gerador de parsers, geralmente, converte uma gramática definida em <strong>EBNF</strong> em tabelas. A forma destas
-            tabelas depende da família de parser escolhida (<strong>top-down</strong>,<strong>bottom-up</strong>).
-          </p>
-          <p class="fragment fade-up">Em tempo de compilação os <strong>tokens</strong> originados do analisador léxico são lidos, a tabela consultada e o
-            parser criado.
-          </p>
-        </section>
-
-        <section class="nivel1">
-          <h2>Bottom-up Algoritmo</h2>
-          <p class="fragment fade-up">Vamos colocar símbolos na pilha até que a pilha tenha tantos símbolos quanto necessário para reconhecer o lado
-            direito de uma regra de produção. Assim
-            que isso acontecer faremos a troca destes símbolos pelo não terminal correspondente.</p>
-          <p class="fragment fade-up">A sequência de símbolos na pilha que está pronta para ser reduzida é chamada de <strong>handle</strong>.</p>
-          <p class="fragment fade-up">O <strong>handle</strong> é o lado direito de uma regra de produção segundo determinado pela gramática. </p>
-        </section>
-        <section class="nivel1">
-          <h2>Shift Reduce</h2>
-          <p class="fragment fade-up"><strong>Shift</strong>: o símbolo corrente na pilha e lê o próximo símbolo.</p>
-          <p class="fragment fade-up"><strong>Reduce</strong>: o conteúdo da pilha usando uma regra de produção.</p>
-          <p class="fragment fade-up">O nome desta técnica é <strong>Handle Pruning</strong>.</p>
-        </section>
-        <section class="nivel1">
-          <h2>Handle Prunning</h2>
-          <p class="fragment fade-up"><strong>Pilha</strong>, ou <strong>stack</strong>, armazena os símbolos que serão substituídos.</p>
-          <p class="fragment fade-up"><strong>Buffer</strong>, contendo os outros símbolos. Aqueles que ainda serão avaliados.</p>
-          <p class="fragment fade-up"><strong>Table</strong>, contendo as regras e os passos que estão ocorrendo.</p>
-        </section>
-        <section class="nivel1">
-          <h2>Handle Prunning 2</h2>
-          <p class="fragment fade-up">Dado um string $w$ teremos o seguinte estado inicial:</p>
-          <table class="fragment fade-up" style="font-size: 80%;">
+          <h2>Quantificadores e Âncoras</h2>
+        <table style="font-size: 52%;">
+          <colgroup>
+            <col width="23%">
+            <col width="77%">
+          </colgroup>
+          <thead>
             <tr>
-              <th>Pilha</th>
-              <th>Buffer</th>
+              <th>metacaractere</th>
+              <th>significado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span>{n}</span></td>
+              <td>exatamente <em>n</em> ocorrências</td>
             </tr>
             <tr>
-              <td>$\$$</td>
-              <td>$w\$$</td>
-            </tr>
-          </table>
-          <p class="fragment fade-up">Onde o $\$$ marca o início da pilha e o fim do buffer.</p>
-        </section>
-        <section class="nivel1">
-          <h2>Handle Prunning 3</h2>
-          <p class="fragment fade-up"><strong>Shift</strong>, o próximo símbolo é colocado no topo da pilha.</p>
-          <p class="fragment fade-up"><strong>Reduce</strong>, o parser:</p>
-          <ol class="fragment fade-up" style="font-size:80%; margin-left:2%; width:90%;">
-            <li>Sabe que o extremo direito do handle está na topo da pilha;</li>
-            <li>Localiza o estremo esquerdo do handle na pilha e</li>
-            <li>Decide qual símbolo não terminal irá substituir o handle.</li>
-          </ol>
-          <p class="fragment fade-up"><strong>Accept</strong>, o parser acabou com sucesso.</p>
-          <p class="fragment fade-up"><strong>Error</strong>, o parser encontrou um erro de sintaxe.</p>
-        </section>
-        <section class="nivel1">
-          <h2>Handle Prunning Exemplo</h2>
-          <p class="fragment fade-up">Considere a gramática definida pelo seguinte conjunto de regras de produção e encontre a derivação para “a + a * a”.
-          </p>
-          <ol class="fragment fade-up">
-            <li>$𝑺 \rightarrow 𝑺+𝑺;$</li>
-            <li>$𝑺 \rightarrow 𝑺∗𝑺;$</li>
-            <li>$𝑺 \rightarrow (𝑺)$</li>
-            <li>$𝑺 \rightarrow 𝒂$</li>
-          </ol>
-        </section>
-        <section class="nivel1">
-          <h2>Handle Prunning Exemplo</h2>
-          <ol style="font-size:40% !important; float:right; margin-right:2%;">
-            <li>$𝑺 \rightarrow 𝑺+𝑺;$</li>
-            <li>$𝑺 \rightarrow 𝑺∗𝑺;$</li>
-            <li>$𝑺 \rightarrow (𝑺)$</li>
-            <li>$𝑺 \rightarrow 𝒂$</li>
-          </ol>
-          <table style="font-size: 60%;">
-            <tr>
-              <th>Pilha</th>
-              <th>Buffer</th>
-              <th>Ação</th>
+              <td><span>{n,m}</span></td>
+              <td>no mínimo <em>n</em> ocorrências e no máximo <em>m</em></td>
             </tr>
             <tr>
-              <td>$\$$</td>
-              <td>$ a+a*a\$$</td>
-              <td>Shift</td>
+              <td><span>{n,}</span></td>
+              <td>no mínimo <em>n</em> ocorrências</td>
             </tr>
             <tr>
-              <td>$\$a$</td>
-              <td>$+a*a\$$</td>
-              <td>Reduce $S \rightarrow a$</td>
+              <td><span>{,n}</span></td>
+              <td>no máximo <em>n</em> ocorrências</td>
             </tr>
             <tr>
-              <td>$\$S$</td>
-              <td>$+a*a\$$</td>
-              <td>Shift</td>
+              <td><span>?</span></td>
+              <td>0 ou 1 ocorrência; o mesmo que <span>{,1}</span></td>
             </tr>
             <tr>
-              <td>$\$S+$</td>
-              <td>$a*a\$$</td>
-              <td>Shift</td>
+              <td><span>+</span></td>
+              <td>1 ou mais ocorrência; o mesmo que <span>{1,}</span></td>
             </tr>
             <tr>
-              <td>$\$S+a$</td>
-              <td>$*a\$$</td>
-              <td>Reduce $S \rightarrow a$</td>
+              <td><span>*</span></td>
+              <td>0 ou mais ocorrência</td>
             </tr>
             <tr>
-              <td>$\$S+S$</td>
-              <td>$*a\$$</td>
-              <td>Shift</td>
+                <td><span>^</span></td>
+                <td>início do texto, ou de uma linha com o flag <span>re.MULTILINE</span></td>
             </tr>
             <tr>
-              <td>$\$S+S*$</td>
-              <td>$a\$$</td>
-              <td>Shift</td>
+                <td><span>\A</span></td>
+                <td>início do texto</td>
             </tr>
             <tr>
-              <td>$\$S+S*a$</td>
-              <td>$\$$</td>
-              <td>Reduce $S \rightarrow a$</td>
+                <td><span>$</span></td>
+                <td>fim do texto, ou de uma linha com o flag <span>re.MULTILINE</span>;
+                  não captura o <span>\n</span> no fim do texto ou da linha</td>
             </tr>
             <tr>
-              <td>$\$S+S*S$</td>
-              <td>$\$$</td>
-              <td>Reduce $S \rightarrow S*S$</td>
+                <td><span>\Z</span></td>
+                <td>fim do texto</td>
             </tr>
             <tr>
-              <td>$\$S+S$</td>
-              <td>$\$$</td>
-              <td>Reduce $S \rightarrow S+S$</td>
+                <td><span>\b</span></td>
+                <td>posição de borda, logo antes do início de uma palavra, ou logo
+                  depois do seu término; o mesmo que a posição entre <span>\W</span>
+                  e <span>\w</span> ou vice-versa</td>
             </tr>
             <tr>
-              <td>$\$S$</td>
-              <td>$\$$</td>
-              <td>Accept</td>
+                <td><span>\B</span></td>
+                <td>posição de não-borda</td>
             </tr>
-          </table>
+          </tbody>
+        </table>
         </section>
         <section class="nivel1">
-          <h2>Prática 2 </h2>
-          <p>Refaça este exemplo cuidadosamente veja se é possível encontrar outra sequência de substituição.</p>
-          <p>Se encontrar outra sequência de substituição. As árvores sintáticas serão iguais?</p>
-          <p>Compare seus achados com os achados dos seus colegas de classe.</p>
+          <h2>Na Prática</h2>
+          <p> Usando o site <a href="https://regex101.com" target="_blank" rel="noopener noreferrer">www.regex101.com</a></p>
+          <p>Identificar um número de telefone da forma como a pessoa escrever incluíndo os dados internacionais de ddi e ddd.</p>
+          <p>Identificar um CEP, segundo o padrão brasileiro, da forma como a pessoa escrever, incluíndo espaços, pontos e hífens.</p>
+          <p>Identificar um CPF, segundo o padrão brasileiro, da forma como a pessoa escrever, incluíndo espaços, pontos e hífens.</p>
+          <p>Resolva o exercício participativo <a href="https://forms.gle/5jXx9LfyjaYx1LVT7" target="_blank" rel="noopener noreferrer">clicando aqui</a>.</p>
         </section>
-        <section class="nivel1">
-          <h2>Desafio</h2>
-          <p><a href="./ExercParser1Formativo.pdf">Clique aqui</a> para acessar um exercício. Mais que isso, um desafio a sua capacidade de entender este
-            processo.</p>
-          <p>Se realizar o desafio, me envie. Terei muito prazer em comentar seus achados.</p>
-        </section>
-      </section>
-      <section class="nivel1">
-        <section class="nivel1">
-          <h2>Parsers</h2>
-          <p>
-            <img
-              data-src="../img/parsers.png"
-              alt="algoritmos de parser mais comuns" />
-          </p>
-        </section>
-
-        <section class="nivel1">
-          <h2>Parsers - Top-Down</h2>
-          <img
-            data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 465px;"
-            alt="algoritmos de parser mais comuns" />
-          <div style=" font-size: 80%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
-            <ul>
-              <li>Da raiz para as folhas;</li>
-              <li>Da esquerda para direita;</li>
-              <li>A derivação mais a esquerda;</li>
-              <li>O parse deverá escolher uma regra que atenda esta derivação.</li>
-            </ul>
-            <p>O que acontece quando não existe uma regra adequada?</p>
-          </div>
-        </section>
-        <section class="nivel1">
-          <h2>Parsers - Backtracing</h2>
-          <img
-            data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 465px;"
-            alt="algoritmos de parser mais comuns" />
-          <div style=" font-size: 80%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
-            <p>Se, a qualquer momento, não existir uma regra de produção que permita a derivação, o parser deve voltar e refazer a árvore;
-              A essa operação damos o nome de Backtrack.</p>
-          </div>
-        </section>
-        <section class="nivel1">
-          <h2>Parsers - Backtracing</h2>
-          <img
-            data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 465px;"
-            alt="algoritmos de parser mais comuns" />
-          <div style=" font-size: 80%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
-            <p>Existem dois algoritmos para varrer uma árvore de soluções: <strong>deep-first</strong> e <strong>breadth-first</strong>.</p>
-            <p>No <strong>deep-first</strong> havendo duas opções, armazenamos uma e seguimos com a outra, se algo der errado voltamos neste ponto e seguimos a
-              outra alternativa.
-            </p>
-          </div>
-        </section>
-        <section class="nivel1">
-          <h2>Parsers - Backtracing</h2>
-          <img
-            data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 465px;"
-            alt="algoritmos de parser mais comuns" />
-          <div style=" font-size: 80%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
-            <p>No <strong>breadth-first</strong>, armazenamos um conjunto de soluções parciais e examinamos estas soluções em busca de soluções melhores
-              eventualmente o conjunto
-              irá conter toda a árvore.</p>
-          </div>
-        </section>
-        <section class="nivel1">
-          <h2>Parsers - NonBacktracing</h2>
-          <img
-            data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 465px;"
-            alt="algoritmos de parser mais comuns" />
-          <div style=" font-size: 80%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
-            <p>Classe de parsers que usa um ponteiro apontando para o próximo símbolo na string;</p>
-            <p>Usam uma classe de gramática especial chamada de LL(k);</p>
-            <p>O k representa o número de símbolos previsto.</p>
-          </div>
-        </section>
-        <section class="nivel1">
-          <h2>Gramáticas LL(1)</h2>
-          <img
-            data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 465px;"
-            alt="algoritmos de parser mais comuns" />
-          <div style=" font-size: 60%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
-            <p>De tal forma que:$𝑮=\{𝑵,\Sigma, 𝑷, 𝑺\}$</p>
-            <p>Onde: $𝒘 \in \Sigma^∗, 𝑨\in 𝑵, \alpha, \beta 𝒆 \gamma \in (𝑵\cup \Sigma)^∗$</p>
-            <p>Cujas derivações serão dadas por:$𝑺 \rightarrow 𝒘𝑨 \gamma | 𝒘 \alpha 𝜸 | 𝒘𝒙 \in \Sigma^∗$ </p>
-            <p>$ 𝑺 \rightarrow 𝒘𝑨 \gamma | 𝒘\beta \gamma | 𝒘𝒚 \in \Sigma^∗$
-            </p>
-          </div>
-        </section>
-        <section class="nivel1">
-          <h2>LL(k) - Resumo</h2>
-          <p>
-            <img
-              data-src="../img/llk1.png"
-              alt="algoritmos de parser mais comuns" />
-          </p>
-        </section>
-
       </section>
       <section class="nivel1">
         <section class="nivel1">
@@ -561,18 +271,6 @@
           <p>
             Você pode baixar o material de apoio
             <a href="./INTERPRETADORES.pdf">clicando aqui</a>
-          </p>
-        </section>
-        <section class="nivel1">
-          <h2>Obras Citadas</h2>
-          <p>
-            AHO, A. V. et al.
-            <strong>Compiladores: princípios, técnicas e ferramentas</strong>.
-            2º. ed. Boston, MA, USA: Pearson Education Inc. , 2007. <br />
-            CASS, S. <strong>The 2016 Top Programming Languages</strong>. IEEE
-            Spectrum, 2016. Disponível em: <http:
-              //spectrum.ieee.org/computing/software/the-2016-top-programming-languages>.
-              Acesso em: 22 Set. 2016.
           </p>
         </section>
       </section>
