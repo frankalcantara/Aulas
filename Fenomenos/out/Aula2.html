@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Frank Coelho de Alcantara -2020" />
+	<title>Ambiente de Desenvolvimento</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta
+		name="apple-mobile-web-app-status-bar-style"
+		content="black-translucent" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	<link rel="stylesheet" href="../../rev/reset.css" />
+	<link rel="stylesheet" href="../../rev/reveal.css" />
+	<link rel="stylesheet" href="../../rev/logica.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section  id="title-slide">
+				<section class="nivel1">
+				<h1 class="title" style="display: block; margin-top: 14%;">Ambiente de Desenvolvimento</h1>
+				<p style="text-align: right !important">
+					Frank Coelho de Alcantara -2020 &nbsp;&nbsp;
+				</p>
+				</section>
+				<section class="nivel1">
+					<h2>Código em Python</h2>
+					<img data-src="..\img\desenv1.jpg" style="float: left; margin-left: 3%; height: 327px !important;"
+						alt="Pessoa olhando para uma tela com código" />
+					<p>	Vamos utilizar apenas dois ambientes de desenvolvimento. </p>
+					<ol>
+						<li>O Goolge <a href="https://colab.research.google.com/notebooks/intro.ipynb" target="_blank" rel="noopener noreferrer"></a> Colaboratory</li>
+						<li>O <a href="https://repl.it" target="_blank"
+								rel="noopener noreferrer"></a> Repl.it</li>
+					</ol>
+
+					<span> Foto de 
+						<a href="https://unsplash.com/@charlesdeluvio?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Charles
+						Deluvio</a> on <a
+						href="/s/photos/development?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+					</span>
+				</section>
+				<section class="nivel1">
+					<h2>Conhecendo o Colaboratory</h2>
+						<p style="font-size: 93% !important; text-align: justify !important; width: 95%;">
+						Nossa primeiro contato com o Colaboraty será <a href="https://drive.google.com/file/d/1OEku-BRfYWB-imnMx_g51lVDWHsqU3y2/view?usp=sharing" target="_blank" rel="noopener noreferrer">aqui</a>.
+						</p> 
+				</section>
+			</section>
+		</div>
+	</div>
+	<div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+	<script src="../../rev/reveal.js"></script>
+	<script src="../../rev/plugin/notes/notes.js"></script>
+	<script src="../../rev/plugin/search/search.js"></script>
+	<script src="../../rev/plugin/zoom/zoom.js"></script>
+	<script src="../../rev/plugin/math/math.js"></script>
+	<script src="../../rev/plugin/menu/menu.js"></script>
+	<script src="../../rev/plugin/chalkboard/plugin.js"></script>
+	<script src="../../rev/plugin/countdown\countdown.js"></script>
+	<script>
+		// Full list of configuration options available at:
+		// https://revealjs.com/config/
+		Reveal.initialize({
+			// Push each slide change to the browser history
+			history: true,
+			// Transition style
+			transition: "default", // none/fade/slide/convex/concave/zoom
+			center: false,
+			math: {
+				mathjax:
+					"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+				config: "TeX-AMS_HTML-full",
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: {
+					Macros: {
+						RR: "{\\bf R}",
+					},
+				},
+			},
+			menu: {
+				side: "left",
+				width: "normal",
+				numbers: false,
+				titleSelector: "h1, h2, h3, h4, h5, h6",
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: false,
+				themesPath: "dist/theme/",
+				transitions: false,
+				openButton: true,
+				openSlideNumber: false,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true,
+			},
+			// reveal.js plugins
+			plugins: [
+				RevealNotes,
+				RevealMath,
+				RevealMenu,
+				RevealChalkboard,
+				RevealSearch,
+				RevealZoom,
+			],
+		});
+	</script>
+</body>
+
+</html>
