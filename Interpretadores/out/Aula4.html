@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="author" content="Frank Coelho de Alcantara -2020" />
-  <title>Gramáticas - Analisador Léxico</title>
+  <title>Analisador Léxico e Gramáticas</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta
     name="apple-mobile-web-app-status-bar-style"
@@ -21,24 +21,208 @@
   <div class="reveal">
     <div class="slides">
       <section id="title-slide" class="nivel1">
-        <h1 class="title">
-          Gramáticas <br />
-          Analisadores Léxicos
-        </h1>
+        <h1 class="title">Analisador Léxico e Gramática.</h1>
         <p style="text-align: right !important">
-          Frank Coelho de Alcantara -2020
+          Frank Coelho de Alcantara - 2021 &nbsp;&nbsp;&nbsp;
         </p>
       </section>
-      <section class="nivel1">
-        <section class="title-slide slide level1">
+      <section>
+        <section class="nivel1">
+          <h1 class="title">Voltando um tanto: Regex</h1>
+        </section>
+        <section class="nivel1">
+          <h2>Regex - Especificadores</h2>
+          <table style="font-size: 52%;">
+            <colgroup>
+              <col width="17%">
+              <col width="26%">
+              <col width="57%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>metacaractere</th>
+                <th>conhecido como</th>
+                <th>significado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span>.</span></td>
+                <td>curinga</td>
+                <td>qualquer caractere, exceto a quebra de
+                  linha <span>\n</span></td>
+              </tr>
+              <tr>
+                <td><span>[...]</span></td>
+                <td>conjunto</td>
+                <td>qualquer caractere incluído no conjunto</td>
+              </tr>
+              <tr>
+                <td><span>[^...]</span></td>
+                <td>conjunto negado</td>
+                <td>qualquer caractere não incluído no conjunto</td>
+              </tr>
+              <tr>
+                <td><span>\d</span></td>
+                <td>dígito</td>
+                <td>o mesmo que <span>[0-9]</span></td>
+              </tr>
+              <tr>
+                <td><span>\D</span></td>
+                <td>não-digíto</td>
+                <td>o mesmo que <span>[^0-9]</span></td>
+              </tr>
+              <tr>
+                <td><span>\s</span></td>
+                <td>branco</td>
+                <td>espaço, quebra de linha, tabs etc.;
+                  o mesmo que <span>[</span> <span>\t\n\r\f\v]</span>
+                </td>
+              </tr>
+              <tr>
+                <td><span>\S</span></td>
+                <td>não-branco</td>
+                <td>o mesmo que <span>[^</span> <span>\t\n\r\f\v]</span>
+                </td>
+              </tr>
+              <tr>
+                <td><span>\w</span></td>
+                <td>alfanumérico</td>
+                <td>o mesmo que <span>[a-zA-Z0-9_]</span> (mas pode
+                  incluir caracteres Unicode; ver
+                  <em class="xref std std-ref">flag_unicode</em>)
+                </td>
+              </tr>
+              <tr>
+                <td><span>\W</span></td>
+                <td>não-alfanumérico</td>
+                <td>o complemento de <span>\w</span></td>
+              </tr>
+              <tr>
+                <td><span>\</span></td>
+                <td>escape</td>
+                <td>anula o significado especial do
+                  metacaractere seguinte; por exemplo, <span>\.</span>
+                  representa apenas um ponto, e não o curinga</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="nivel1">
+          <h2>Quantificadores e Âncoras</h2>
+          <table style="font-size: 52%;">
+            <colgroup>
+              <col width="23%">
+              <col width="77%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>metacaractere</th>
+                <th>significado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span>{n}</span></td>
+                <td>exatamente <em>n</em> ocorrências</td>
+              </tr>
+              <tr>
+                <td><span>{n,m}</span></td>
+                <td>no mínimo <em>n</em> ocorrências e no máximo <em>m</em></td>
+              </tr>
+              <tr>
+                <td><span>{n,}</span></td>
+                <td>no mínimo <em>n</em> ocorrências</td>
+              </tr>
+              <tr>
+                <td><span>{,n}</span></td>
+                <td>no máximo <em>n</em> ocorrências</td>
+              </tr>
+              <tr>
+                <td><span>?</span></td>
+                <td>0 ou 1 ocorrência; o mesmo que <span>{,1}</span></td>
+              </tr>
+              <tr>
+                <td><span>+</span></td>
+                <td>1 ou mais ocorrência; o mesmo que <span>{1,}</span></td>
+              </tr>
+              <tr>
+                <td><span>*</span></td>
+                <td>0 ou mais ocorrência</td>
+              </tr>
+              <tr>
+                <td><span>^</span></td>
+                <td>início do texto, ou de uma linha com o flag <span>re.MULTILINE</span></td>
+              </tr>
+              <tr>
+                <td><span>\A</span></td>
+                <td>início do texto</td>
+              </tr>
+              <tr>
+                <td><span>$</span></td>
+                <td>fim do texto, ou de uma linha com o flag <span>re.MULTILINE</span>;
+                  não captura o <span>\n</span> no fim do texto ou da linha</td>
+              </tr>
+              <tr>
+                <td><span>\Z</span></td>
+                <td>fim do texto</td>
+              </tr>
+              <tr>
+                <td><span>\b</span></td>
+                <td>posição de borda, logo antes do início de uma palavra, ou logo
+                  depois do seu término; o mesmo que a posição entre <span>\W</span>
+                  e <span>\w</span> ou vice-versa</td>
+              </tr>
+              <tr>
+                <td><span>\B</span></td>
+                <td>posição de não-borda</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="nivel1">
+          <h2>Regex - Na Prática</h2>
+          <small style="font-size:90% !important">
+            <p class="fragment fade-up"> Usando o site <a href="https://regex101.com" target="_blank" rel="noopener noreferrer">www.regex101.com</a></p>
+            <p class="fragment fade-up">Identificar um número de telefone da forma como a pessoa escrever incluíndo os dados internacionais de ddi e ddd.</p>
+            <p class="fragment fade-up">Identificar um CEP, segundo o padrão brasileiro, da forma como a pessoa escrever, incluíndo espaços, pontos e hífens.</p>
+            <p class="fragment fade-up">Identificar um CPF, segundo o padrão brasileiro, da forma como a pessoa escrever, incluíndo espaços, pontos e hífens.</p>
+          </small>
+        </section>
+      </section>
+      <section>
+        <section class="nivel1">
+          <h2>Analisadores Léxicos</h2>
+          <p class="fragment fade-up">Responsáveis pela identificação e validação dos lexemas da linguagem.</p>
+          <p class="fragment fade-up">Utilizam MEF ou REGEX para identificar estes Lexemas, ou não.</p>
+          <p class="fragment fade-up">A cada lexema identificado é atribuído uma estrutura contendo dados sobre o lexema.</p>
+          <p class="fragment fade-up">A classe de cada lexema, seu tipo e seu valor são dados comuns nesta atribuição.</p>
+        </section>
+        <section class="nivel1">
+          <h2>Estruturas de Lexemas</h2>
+          <small style="width: 50%;font-size: 90% !important;">
+            <p class="fragment fade-up">Cada linguagem usada para criar um interpretador utiliza uma solução diferente.</p>
+            <p class="fragment fade-up">Interpretadores criados em C, por exemplo, podem usar <b>structs</b> ou um conjunto dela para 
+              armazenar os dados relativos a cada lexema.</p>
+          </small>
+          <img style="float: right; margin-right: 3%;" class="fragment fade-up" data-src="../img/structs1.jpg" alt="uma struct contendo dados de linha e coluna e outra contendo os dados do lexema" />
+          <p style="font-size: 90% !important;"class="fragment fade-up">Cada Lexema corretamente identificado é armazenado na tabela de símbolos.</p>
+        </section>
+      </section>
+      <section>
+        <section class="nivel1">
           <h2>Gramáticas</h2>
-          <p>
+          <p class="fragment fade-up">
             A linguagem das linguagens: Uma gramática é uma lista de regras
-            que determina como podem ser criadas e utilizadas todas as strings
+            que determina como podem ser criadas e utilizadas todas as <i>strings</i> 
             de uma linguagem;
           </p>
+          <p class="fragment fade-up">
+            <a href="https://en.wikipedia.org/wiki/Noam_Chomsky" target="_blank" rel="noopener noreferrer">Noam Chomsky</a> é um dos pesquisadores mais importantes nesta área. Devemos ao trabalho de Chomsky a classificação das Gramáticas
+            que usamos hoje. 
+          </p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Classificação de Chomsky</h2>
           <ul>
             <li>Gramáticas Irrestritas;</li>
@@ -47,7 +231,7 @@
             <li>Gramáticas Regulares.</li>
           </ul>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Linguagens</h2>
           <table style="font-size: 80% !important">
             <tbody>
@@ -57,7 +241,7 @@
                 <th><i>Identificador</i></th>
               </tr>
               <tr>
-                <td>Recursivamente Enumerárveis</td>
+                <td>Recursivamente Enumeráreis</td>
                 <td>Gramáticas Irrestritas</td>
                 <td>Máquina de Touring</td>
               </tr>
@@ -79,9 +263,9 @@
             </tbody>
           </table>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Gramáticas - definição</h2>
-          <p>Uma Gramática Formal: 4-tupla: – $𝑮 := \{𝑵, \Sigma, 𝑷, 𝑺\}$</p>
+          <p class="fragment fade-up">Uma Gramática Formal: 4-tupla: – $𝑮 := \{𝑵, \Sigma, 𝑷, 𝑺\}$</p>
           <ul>
             <li>$S\rightarrow \text{símbolo inicial}$</li>
             <li>$\Sigma \rightarrow \text{símbolos terminais}$</li>
@@ -89,16 +273,16 @@
             <li>$N \rightarrow \text{símbolos não terminais}$</li>
           </ul>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Símbolos terminais</h2>
-          <p>
+          <p class="fragment fade-up">
             Símbolos termais tem esse nome por que não existem regras para
             substitui-los. Uma vez gerados, os símbolos terminais são
             permanentes. Consequentemente, os símbolos termais são os símbolos
             da linguagem.
           </p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Livres de Contexto</h2>
           <blockquote>
             “uma gramática livre de contexto descreve um conjunto de strings,
@@ -110,19 +294,19 @@
         </section>
       </section>
       <section class="nivel1">
-        <section>
+        <section class="nivel1">
           <h2>Regras de Produção</h2>
-          <p>
+          <p class="fragment fade-up">
             Os símbolos que aparecem à esquerda da seta, são não terminais e
             representados por letras latinas maiúsculas $(𝐴, 𝐵, 𝑆, …)$.
           </p>
-          <p>
+          <p class="fragment fade-up">
             O símbolo inicial é o que aparece do lado esquerdo da primeira
             regra $𝑆$.
           </p>
-          <p>Pode ser qualquer símbolo, usarmos o $𝑆$ por convenção.</p>
+          <p class="fragment fade-up">Pode ser qualquer símbolo, usarmos o $𝑆$ por convenção.</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Regras de Produção</h2>
           <ol>
             <li>$𝑆 \rightarrow 𝐴𝐵$</li>
@@ -130,9 +314,9 @@
             <li>$𝐴 \rightarrow a$</li>
             <li>$𝐵 \rightarrow b$</li>
           </ol>
-          <p>Vamos produzir a string:“aabb”</p>
+          <p class="fragment fade-up">Vamos produzir a string:“aabb”</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Produzindo $aabb$</h2>
           <p class="fragment fade-up">
             Temos $S \rightarrow \emptyset$ e aplicamos 2 $𝑺 \rightarrow 𝑨𝑺𝑩$
@@ -154,32 +338,32 @@
           </p>
           <p class="fragment fade-up">Conseguimos: $S \rightarrow aabb$</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Exercício 1</h2>
-          <p>Considere a gramática definida por:</p>
+          <p class="fragment fade-up">Considere a gramática definida por:</p>
           <ol>
             <li>$𝑺 \rightarrow 𝑨𝑩$</li>
             <li>$𝑨 \rightarrow \varepsilon | 𝒂𝑨$</li>
             <li>$𝑩 \rightarrow \varepsilon | 𝒃𝑩$</li>
           </ol>
-          <p>Encontre uma sequência de substituições para encontrar: $aab$</p>
+          <p class="fragment fade-up">Encontre uma sequência de substituições para encontrar: $aab$</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Gramáticas Regulares</h2>
-          <p>Duas classes de regras de produção.</p>
-          <p>
+          <p class="fragment fade-up">Duas classes de regras de produção.</p>
+          <p class="fragment fade-up">
             Lineares à Direita: as regras de produção obedecem: $$𝑨
             \rightarrow 𝒘𝑩 \vee 𝑨\rightarrow 𝒘 (𝒘 \in \Sigma^*)$$
           </p>
-          <p>
+          <p class="fragment fade-up">
             Lineares à esquerda: as regras de produção obedecem: $$𝑨
             \rightarrow 𝑩𝒘 \vee 𝑨 \rightarrow 𝒘 (𝒘 \in \Sigma^*)$$
           </p>
         </section>
       </section>
       <section class="nivel1">
-        <section>
-          <h2>Ávores Sintáticas</h2>
+        <section class="nivel1">
+          <h2>Árvores Sintáticas</h2>
           <ol class="fragment fade-up" style="float: left; margin-left: 10%">
             <li>$S$</li>
             <li>$S \rightarrow ASB$</li>
@@ -196,23 +380,23 @@
               style="float: right; margin-left: 20%; max-width: 40%" />
           </p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Backus-Naur Form - BNF</h2>
-          <p>Representa uma gramática.</p>
-          <p>É mais simples para leitura.</p>
-          <p>É mais simples para escrita.</p>
-          <p>ISO/IEC 14977 : 1996(E).</p>
+          <p class="fragment fade-up">Representa uma gramática.</p>
+          <p class="fragment fade-up">É mais simples para leitura.</p>
+          <p class="fragment fade-up">É mais simples para escrita.</p>
+          <p class="fragment fade-up">ISO/IEC 14977 : 1996(E).</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Backus-Naur Form - BNF</h2>
-          <p>
+          <p class="fragment fade-up">
             $::= \rightarrow $ “é definido como” ou “pode ser substituído por”
           </p>
-          <p>$| \rightarrow $ seleção: ou.</p>
-          <p>$<> \rightarrow $ não terminais.</p>
-          <p>Você faz a linguagem, você faz as regras!</p>
+          <p class="fragment fade-up">$| \rightarrow $ seleção: ou.</p>
+          <p class="fragment fade-up">$<> \rightarrow $ não terminais.</p>
+          <p class="fragment fade-up">Você faz a linguagem, você faz as regras!</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>BNF - Exemplo</h2>
           <ol class="fragment fade-up" style="float: left; margin-left: 10%">
             <li>$\text{<𝑙𝑖𝑠𝑡𝑎> ∷= <𝑒𝑙𝑒𝑚𝑒𝑛𝑡𝑜>;<𝑙𝑖𝑠𝑡𝑎> | <𝑒𝑙𝑒𝑚𝑒𝑛𝑡𝑜>}$</li>
@@ -222,7 +406,7 @@
             <li>$\text{<𝑑𝑖𝑔𝑖𝑡𝑜>∷=1|2|3|4}$</li>
           </ol>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>EBNF</h2>
           <ul>
             <li>Removeu os $<$$>$ para os símbolos não terminais.</li>
@@ -236,9 +420,9 @@
             <li>O ponto encerra uma regra.</li>
           </ul>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>BNF - Exemplo</h2>
-          <p>Considere a seguinte gramática definida em BNF</p>
+          <p class="fragment fade-up">Considere a seguinte gramática definida em BNF</p>
           <ol style="font-size: 70%">
             <li>$<𝒑𝒓𝒐𝒈𝒓𝒂𝒎> ::= 𝒃𝒆𝒈𝒊𝒏 <𝒔𝒕𝒎𝒕\_𝒍𝒊𝒔𝒕> 𝒆𝒏𝒅$</li>
             <li>$<𝒔𝒕𝒎𝒕_𝒍𝒊𝒔𝒕> ::= <𝒔𝒕𝒎𝒕> | <𝒔𝒕𝒎𝒕> ; <𝒔𝒕𝒎𝒕_𝒍𝒊𝒔𝒕>$.</li>
@@ -247,10 +431,10 @@
             <li>$<𝒕𝒆𝒓𝒎> ::= <𝒗𝒂𝒓> | 𝒄𝒐𝒏𝒔𝒕$</li>
             <li>$<𝒗𝒂𝒓> ::= 𝒂 | 𝒃 | 𝒄$</li>
           </ol>
-          <p>Derive o seguinte programa:</p>
-          <p>$\text{begin } a = b + \text{ const } \text{ end}$</p>
+          <p class="fragment fade-up">Derive o seguinte programa:</p>
+          <p class="fragment fade-up">$\text{begin } a = b + \text{ const } \text{ end}$</p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>BNF - Exemplo</h2>
           <ul style="font-size: 70%">
             <li>$ &lt;program&gt; \Rightarrow \emptyset$</li>
@@ -290,24 +474,24 @@
         </section>
       </section>
       <section class="nivel1">
-        <section>
+        <section class="nivel1">
           <h2>Parsers</h2>
-          <p>
+          <p class="fragment fade-up">
             Percorrer, varrer. Técnicas de percorrer uma árvore sintática
             validando a gramática.
           </p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Parsers</h2>
-          <p>
+          <p class="fragment fade-up">
             <img
               data-src="../img/parsers.png"
               alt="algoritmos de parser mais comuns" />
           </p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Exemplo</h2>
-          <p>
+          <p class="fragment fade-up">
             Considerando a gramática a seguir, apresente as derivações
             necessárias para encontrar “abbcde”, usando
             <strong>Bottom-up</strong> parser.
@@ -360,9 +544,9 @@
             Regra 1: $abbcde \Rightarrow S;$
           </p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>Código</h2>
-          <p>
+          <p class="fragment fade-up">
             Vamos criar um parser para validar fórmulas de cálculo
             proposicional.
           </p>
@@ -373,14 +557,14 @@
             <li>Implicação: $P\rightarrow Q$</li>
             <li>Implicação Dupla: $P\leftrightarrow Q$</li>
           </ol>
-          <p>
+          <p class="fragment fade-up">
             Nosso parser deve ser recursivo e usar latex e notação rpn para a
             digitação das expressões.
           </p>
         </section>
-        <section>
+        <section class="nivel1">
           <h2>EBNF - Exercício</h2>
-          <p>
+          <p class="fragment fade-up">
             Vamos criar um parser para validar fórmulas de cálculo
             proposicional.
           </p>
@@ -409,25 +593,14 @@
         </section>
       </section>
       <section class="nivel1">
-        <section>
+        <section class="nivel1">
           <h1>Material de apoio</h1>
-          <p>
+          <p class="fragment fade-up">
             Você pode baixar o material de apoio
             <a href="./INTERPRETADORES.pdf">clicando aqui</a>
           </p>
         </section>
-        <section>
-          <h2>Obras Citadas</h2>
-          <p>
-            AHO, A. V. et al.
-            <strong>Compiladores: princípios, técnicas e ferramentas</strong>.
-            2º. ed. Boston, MA, USA: Pearson Education Inc. , 2007. <br />
-            CASS, S. <strong>The 2016 Top Programming Languages</strong>. IEEE
-            Spectrum, 2016. Disponível em: <http:
-              //spectrum.ieee.org/computing/software/the-2016-top-programming-languages>.
-              Acesso em: 22 Set. 2016.
-          </p>
-        </section>
+        
       </section>
     </div>
   </div>
@@ -447,7 +620,7 @@
       // Push each slide change to the browser history
       history: true,
       // Transition style
-      transition: "fade", // none/fade/slide/convex/concave/zoom
+      transition: "default", // none/fade/slide/convex/concave/zoom
       center: false,
       math: {
         mathjax:
