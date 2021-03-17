@@ -213,23 +213,17 @@
         <section class="nivel1">
           <h2>Gramáticas</h2>
           <p class="fragment fade-up">
-            A linguagem das linguagens: Uma gramática é uma lista de regras
+            A <b>linguagem das linguagens</b>: Uma gramática é uma lista de regras
             que determina como podem ser criadas e utilizadas todas as <i>strings</i> 
             de uma linguagem;
           </p>
           <p class="fragment fade-up">
-            <a href="https://en.wikipedia.org/wiki/Noam_Chomsky" target="_blank" rel="noopener noreferrer">Noam Chomsky</a> é um dos pesquisadores mais importantes nesta área. Devemos ao trabalho de Chomsky a classificação das Gramáticas
-            que usamos hoje. 
+            <a href="https://en.wikipedia.org/wiki/Noam_Chomsky" target="_blank" rel="noopener noreferrer">Noam Chomsky</a> 
+            é um dos pesquisadores mais importantes nesta área.</p>
+          <p class="fragment fade-up">
+            Devemos ao trabalho de Chomsky a classificação das Gramáticas
+            que usamos hoje.
           </p>
-        </section>
-        <section class="nivel1">
-          <h2>Classificação de Chomsky</h2>
-          <ul>
-            <li>Gramáticas Irrestritas;</li>
-            <li>Gramáticas Sensíveis ao Contexto;</li>
-            <li>Gramáticas Livres de Contexto;</li>
-            <li>Gramáticas Regulares.</li>
-          </ul>
         </section>
         <section class="nivel1">
           <h2>Linguagens</h2>
@@ -265,22 +259,13 @@
         </section>
         <section class="nivel1">
           <h2>Gramáticas - definição</h2>
-          <p class="fragment fade-up">Uma Gramática Formal: 4-tupla: – $𝑮 := \{𝑵, \Sigma, 𝑷, 𝑺\}$</p>
+          <p class="fragment fade-up">Uma Gramática Formal: 4-tupla: $$𝑮 := \{𝑵, \Sigma, 𝑷, 𝑺\}$$</p>
           <ul>
-            <li>$S\rightarrow \text{símbolo inicial}$</li>
-            <li>$\Sigma \rightarrow \text{símbolos terminais}$</li>
-            <li>$P \rightarrow \text{regras de produção}$</li>
-            <li>$N \rightarrow \text{símbolos não terminais}$</li>
+            <li class="fragment fade-up">$S\rightarrow \text{símbolo inicial}$</li>
+            <li class="fragment fade-up">$\Sigma \rightarrow \text{símbolos terminais}$</li>
+            <li class="fragment fade-up">$P \rightarrow \text{regras de produção}$</li>
+            <li class="fragment fade-up">$N \rightarrow \text{símbolos não terminais}$</li>
           </ul>
-        </section>
-        <section class="nivel1">
-          <h2>Símbolos terminais</h2>
-          <p class="fragment fade-up">
-            Símbolos termais tem esse nome por que não existem regras para
-            substitui-los. Uma vez gerados, os símbolos terminais são
-            permanentes. Consequentemente, os símbolos termais são os símbolos
-            da linguagem.
-          </p>
         </section>
         <section class="nivel1">
           <h2>Livres de Contexto</h2>
@@ -293,7 +278,7 @@
           </blockquote>
         </section>
       </section>
-      <section class="nivel1">
+      <section>
         <section class="nivel1">
           <h2>Regras de Produção</h2>
           <p class="fragment fade-up">
@@ -304,7 +289,7 @@
             O símbolo inicial é o que aparece do lado esquerdo da primeira
             regra $𝑆$.
           </p>
-          <p class="fragment fade-up">Pode ser qualquer símbolo, usarmos o $𝑆$ por convenção.</p>
+          <p class="fragment fade-up">Pode ser qualquer símbolo, usaremos o $𝑆$ por convenção.</p>
         </section>
         <section class="nivel1">
           <h2>Regras de Produção</h2>
@@ -339,14 +324,14 @@
           <p class="fragment fade-up">Conseguimos: $S \rightarrow aabb$</p>
         </section>
         <section class="nivel1">
-          <h2>Exercício 1</h2>
-          <p class="fragment fade-up">Considere a gramática definida por:</p>
+          <h2>Exercício Formativo 1</h2>
+          <p>Considere a gramática definida por:</p>
           <ol>
             <li>$𝑺 \rightarrow 𝑨𝑩$</li>
             <li>$𝑨 \rightarrow \varepsilon | 𝒂𝑨$</li>
             <li>$𝑩 \rightarrow \varepsilon | 𝒃𝑩$</li>
           </ol>
-          <p class="fragment fade-up">Encontre uma sequência de substituições para encontrar: $aab$</p>
+          <p>Encontre uma sequência de substituições para encontrar: $aab$</p>
         </section>
         <section class="nivel1">
           <h2>Gramáticas Regulares</h2>
@@ -361,7 +346,7 @@
           </p>
         </section>
       </section>
-      <section class="nivel1">
+      <section>
         <section class="nivel1">
           <h2>Árvores Sintáticas</h2>
           <ol class="fragment fade-up" style="float: left; margin-left: 10%">
@@ -382,48 +367,58 @@
         </section>
         <section class="nivel1">
           <h2>Backus-Naur Form - BNF</h2>
+          <p class="fragment fade-up">Em 1957 <a href="https://en.wikipedia.org/wiki/John_Backus"><strong>John
+                Backus</strong></a>, trabalhando na IBM, criou uma linguagem para criar linguagens.
+          </p>
           <p class="fragment fade-up">Representa uma gramática.</p>
-          <p class="fragment fade-up">É mais simples para leitura.</p>
-          <p class="fragment fade-up">É mais simples para escrita.</p>
-          <p class="fragment fade-up">ISO/IEC 14977 : 1996(E).</p>
+          <p class="fragment fade-up">É mais simples para leitura que a álgebra.</p>
+          <p class="fragment fade-up">É mais simples para escrita que a álgebra.</p>
+          <p class="fragment fade-up">Finalmente virou um padrão ISO/IEC 14977 em 1996.</p>
+          <p class="fragment fade-up">O criador da linguagem define como, e se usará este padrão.</p>
         </section>
         <section class="nivel1">
-          <h2>Backus-Naur Form - BNF</h2>
-          <p class="fragment fade-up">
-            $::= \rightarrow $ “é definido como” ou “pode ser substituído por”
+          <h2>BNF - Original</h2>
+          <table>
+              <tr><th>Símbolo</th><th>Lêmos como</th></tr>
+              <tr><td>$::=$</td><td>“é definido como” ou “pode ser substituído por”</td></tr>
+              <tr><td>$|$</td><td>seleção / ou</td></tr>
+              <tr><td>$<>$</td><td>não terminais</td></tr>
+          </table>
+          <p class="fragment fade-up">Começou muito simples e com o tempo foi sendo adaptada as necessidades dos 
+            criadores de linguagens.
           </p>
-          <p class="fragment fade-up">$| \rightarrow $ seleção: ou.</p>
-          <p class="fragment fade-up">$<> \rightarrow $ não terminais.</p>
-          <p class="fragment fade-up">Você faz a linguagem, você faz as regras!</p>
         </section>
         <section class="nivel1">
           <h2>BNF - Exemplo</h2>
-          <ol class="fragment fade-up" style="float: left; margin-left: 10%">
+          <ol class="fragment fade-up" style="float: left; margin-left: 10%; width: 90%;font-size: 81%;">
             <li>$\text{<𝑙𝑖𝑠𝑡𝑎> ∷= <𝑒𝑙𝑒𝑚𝑒𝑛𝑡𝑜>;<𝑙𝑖𝑠𝑡𝑎> | <𝑒𝑙𝑒𝑚𝑒𝑛𝑡𝑜>}$</li>
             <li>$\text{<𝑒𝑙𝑒𝑚𝑒𝑛𝑡𝑜>∷=<𝑙𝑒𝑡𝑟𝑎>
                   <𝑑𝑖𝑔𝑖𝑡𝑜>}$</li>
             <li>$\text{<𝑙𝑒𝑡𝑟𝑎>∷=𝐴 | 𝐵 |𝐶}$</li>
             <li>$\text{<𝑑𝑖𝑔𝑖𝑡𝑜>∷=1|2|3|4}$</li>
           </ol>
+          <p class="fragment fade-up">Funciona segundo os princípios das regras de produção. Uma 
+            sequência recursiva de substituição de regras permitindo a criação das sentenças da linguagem.
+          </p>
         </section>
         <section class="nivel1">
           <h2>EBNF</h2>
           <ul>
-            <li>Removeu os $<$$>$ para os símbolos não terminais.</li>
-            <li>Símbolos termais expressos entre aspas.</li>
-            <li>Uso $*$ para fechamento e $\{\}$ para multiplicação.</li>
-            <li>Uso de $+$ para um ou mais.</li>
-            <li>Uso de $?$ para seleção.</li>
-            <li>Parênteses $()$ para agrupamento;</li>
-            <li>Substitui $∷=$ por $=$.</li>
-            <li>O uso da vírgula $,$ para explicitar concatenação.</li>
-            <li>O ponto encerra uma regra.</li>
+            <li class="fragment fade-up" >Removeu os $<$$>$ para os símbolos não terminais.</li>
+            <li class="fragment fade-up" >Símbolos termais expressos entre aspas.</li>
+            <li class="fragment fade-up" >Uso $*$ para fechamento e $\{\}$ para multiplicação.</li>
+            <li class="fragment fade-up" >Uso de $+$ para um ou mais.</li>
+            <li class="fragment fade-up" >Uso de $?$ para seleção.</li>
+            <li class="fragment fade-up" >Parênteses $()$ para agrupamento;</li>
+            <li class="fragment fade-up" >Substitui $∷=$ por $=$.</li>
+            <li class="fragment fade-up" >O uso da vírgula $,$ para explicitar concatenação.</li>
+            <li class="fragment fade-up" >O ponto encerra uma regra.</li>
           </ul>
         </section>
         <section class="nivel1">
           <h2>BNF - Exemplo</h2>
           <p class="fragment fade-up">Considere a seguinte gramática definida em BNF</p>
-          <ol style="font-size: 70%">
+          <ol  class="fragment fade-up" style="font-size: 70%">
             <li>$<𝒑𝒓𝒐𝒈𝒓𝒂𝒎> ::= 𝒃𝒆𝒈𝒊𝒏 <𝒔𝒕𝒎𝒕\_𝒍𝒊𝒔𝒕> 𝒆𝒏𝒅$</li>
             <li>$<𝒔𝒕𝒎𝒕_𝒍𝒊𝒔𝒕> ::= <𝒔𝒕𝒎𝒕> | <𝒔𝒕𝒎𝒕> ; <𝒔𝒕𝒎𝒕_𝒍𝒊𝒔𝒕>$.</li>
             <li>$<𝒔𝒕𝒎𝒕> ::= <𝒗𝒂𝒓> = <𝒆𝒙𝒑𝒓>$</li>
@@ -437,48 +432,54 @@
         <section class="nivel1">
           <h2>BNF - Exemplo</h2>
           <ul style="font-size: 70%">
-            <li>$ &lt;program&gt; \Rightarrow \emptyset$</li>
-            <li>
+            <li class="fragment fade-up" >$ &lt;program&gt; \Rightarrow \emptyset$</li>
+            <li class="fragment fade-up" >
               Regra 1: $ &lt;program&gt; \Rightarrow begin &lt;stmt\_list&gt;
               \text{ end}$
             </li>
-            <li>
+            <li class="fragment fade-up" >
               Regra 2: $&lt;program&gt; \Rightarrow \text{begin } &lt;stmt&gt;
               \text{ end}$
             </li>
-            <li>
+            <li class="fragment fade-up" >
               Regra 3: $&lt;program&gt; \Rightarrow \text{begin } &lt;var&gt;
               = &lt;expr&gt; \text{ end}$
             </li>
-            <li>
+            <li class="fragment fade-up" >
               Regra 6: $&lt;program&gt; \Rightarrow \text{begin } a =
               &lt;expr&gt; \text{ end}$
             </li>
-            <li>
+            <li class="fragment fade-up" >
               Regra 4: $&lt;program&gt; \Rightarrow \text{begin } a =
               &lt;term&gt; + &lt;term&gt; \text{ end}$
             </li>
-            <li>
+            <li class="fragment fade-up" >
               Regra 5: $&lt;program&gt; \Rightarrow \text{begin } a =
               &lt;var&gt; + &ltterm&gt; \text{ end}$
             </li>
-            <li>
+            <li class="fragment fade-up" >
               Regra 6: $&lt;program&gt; \Rightarrow \text{begin } a = b +
               &lt;term&gt; \text{ end}$
             </li>
-            <li>
+            <li class="fragment fade-up" >
               Regra 5: $&lt;program&gt; \Rightarrow \text{begin } a = b +
               const \text{ end}$
             </li>
           </ul>
+          <p class="fragment fade-up">Começamos do símbolo inicial, neste caso $ &lt;program&gt;$ e recorrentemente
+            vamos procurando regras de substituição na grámática definida.
+          </p>
         </section>
       </section>
-      <section class="nivel1">
+      <section>
         <section class="nivel1">
-          <h2>Parsers</h2>
+          <h2>Parsers Semântica</h2>
           <p class="fragment fade-up">
-            Percorrer, varrer. Técnicas de percorrer uma árvore sintática
-            validando a gramática.
+            A palavra <i>parser</i>, que usaremos com frequência, tem o sentido de percorrer, varrer. 
+          </p>
+          <p class="fragment fade-up">Nesta disciplina: técnicas de percorrer uma árvore sintática validando a gramática.</p>
+          <p class="fragment fade-up">Na literatura, o conceito de parser se confunde com o conceitos de análise sintática.
+            Não são raros os parsers que fazem análise léxica, sintática e semântica.
           </p>
         </section>
         <section class="nivel1">
@@ -498,57 +499,30 @@
           </p>
           <ol
             class="fragment fade-up"
-            style="float: left; font-size: 60%; margin-left: 10%">
+            style="float: left; font-size: 85%; margin-left: 10%">
             <li>$S \rightarrow aABe$</li>
             <li>$A \rightarrow Abc | b $</li>
             <li>$B \rightarrow d$</li>
           </ol>
-          <p
-            class="fragment fade"
-            style="
-								float: right;
-								font-size: 60%;
-								margin-left: 40%;
-								max-width: 40%;
-							">
+          <p class="fragment fade" style="font-size: 85%; margin-left: 40%; max-width: 60%;">
             Regra 2: $abbcde \Rightarrow aAbcde$
           </p>
-          <p
-            class="fragment fade"
-            style="
-								float: right;
-								font-size: 60%;
-								margin-left: 40%;
-								max-width: 40%;
-							">
+          <p class="fragment fade" style="font-size: 85%;margin-left: 40%;max-width: 60%;">
             Regra 2: $abbcde \Rightarrow aAde;$
           </p>
-          <p
-            class="fragment fade"
-            style="
-								float: right;
-								font-size: 60%;
-								margin-left: 40%;
-								max-width: 40%;
-							">
+          <p class="fragment fade" style="font-size: 85%;margin-left: 40%;max-width: 60%;">
             Regra 3: $abbcde \Rightarrow aABe;$
           </p>
-          <p
-            class="fragment fade"
-            style="
-								float: right;
-								font-size: 60%;
-								margin-left: 40%;
-								max-width: 40%;
-							">
+          <p class="fragment fade" style="font-size: 85%; margin-left: 40%; max-width: 60%;">
             Regra 1: $abbcde \Rightarrow S;$
           </p>
+          <p class="fragment fade">A <i>string</i> “abbcde” é válida nesta gramática.</p>
         </section>
         <section class="nivel1">
-          <h2>Código</h2>
-          <p class="fragment fade-up">
-            Vamos criar um parser para validar fórmulas de cálculo
-            proposicional.
+          <h2>Exercício de Código</h2>
+          <p>
+            Vamos criar um parser para validar fórmulas de cálculo proposicional. 
+            Na linguagem de programação que você desejar usando o site <a href="http://repl.it" target="_blank" rel="noopener noreferrer">Repl.it</a>
           </p>
           <ol>
             <li>Negação: $\neg P$</li>
@@ -557,14 +531,14 @@
             <li>Implicação: $P\rightarrow Q$</li>
             <li>Implicação Dupla: $P\leftrightarrow Q$</li>
           </ol>
-          <p class="fragment fade-up">
+          <p style="font-size:80% !important;">
             Nosso parser deve ser recursivo e usar latex e notação rpn para a
-            digitação das expressões.
+            digitação das expressões. Segundo a seguinte gramática em EBNF
           </p>
         </section>
         <section class="nivel1">
           <h2>EBNF - Exercício</h2>
-          <p class="fragment fade-up">
+          <p>
             Vamos criar um parser para validar fórmulas de cálculo
             proposicional.
           </p>
