@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta name="author" content="Frank Coelho de Alcantara -2020" />
-  <title>Análise Semântica</title>
+  <title>Analisador Léxico e Gramáticas</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta
     name="apple-mobile-web-app-status-bar-style"
@@ -20,599 +21,561 @@
   <div class="reveal">
     <div class="slides">
       <section id="title-slide" class="nivel1">
-       <section>
-        <h1 class="title">Análise Semântica</h1>
-        <p style="text-align: right !important;">Frank Coelho de Alcantara -2020&nbsp;&nbsp;</p>
+        <h1 class="title">Analisador Léxico e Gramática.</h1>
+        <p style="text-align: right !important">
+          Frank Coelho de Alcantara - 2021 &nbsp;&nbsp;&nbsp;
+        </p>
+      </section>
+      <section>
+        <section class="nivel1">
+          <h1 class="title">Voltando um tanto: Regex</h1>
         </section>
-        <section>
-          <h2>Muito Além da Sintaxe</h2>
-          <small style="font-size: 70% !important; width: 70% !important;">
-            <h3 class="fragment fade-up">Algumas perguntas precisam ser respondidas:</h3>
-            <p class="fragment fade-up">A variável já foi declarada?</p>
-            <p class="fragment fade-up">O tipos são consistentes nesta declaração?</p>
-            <p class="fragment fade-up">O parâmetros chamados estão corretos?</p>
-            <p class="fragment fade-up">Um ponteiro pode estar fora do espaço de memória?</p>
-            <h3 class="fragment fade-up">A resposta não é simples!</h3>
-            <p class="fragment fade-up">As respostas dependem dos valores não da sintaxe;</p>
-            <p class="fragment fade-up">Tanto perguntas quanto respostas não são locais;</p>
-            <p class="fragment fade-up">Respostas podem precisar de computação.</p>
-            </small>
-         <div class="fas fa-question" style="margin-right: 3%; float: right; font-size: 272px; margin-top: 23%;"></div>            
-        </section>
-        <section>
-          <h2>Tarefas importantes</h2>
-          <p class="fragment fade-up"><strong>Para cada expressão</strong>: identificar quais são os tipos;</p>
-          <p class="fragment fade-up"><strong>Para cada declaração</strong>: que informação precisamos para que este artefato possa ser usado em outros lugares.</p>
-          <p class="fragment fade-up"><strong>Para cada artefato de linguagem</strong>: precisamos saber quais são as regras semânticas que precisamos e vamos verificar;</p>
-          <h3 class="fragment fade-up">O código deve estar perfeito antes da tradução!</h3>
-        </section>
-        <section>
-          <h2>Gramática de Atributos</h2>
-          <small style="font-size: 71% !important; width: 96%;">
-            <p class="fragment fade-up">Uma gramática de atributos conecta a sintaxe com a semântica;</p>
-            <p class="fragment fade-up">Cada regra de produção possui uma regra semântica com ações para modificar os valores de símbolos não terminais.</p>
-            <p class="fragment fade-up">Um símbolo não terminal pode ter qualquer numero de atributos e não há limites para estes atributos.</p>
-            <p class="fragment fade-up">Na forma:</p> 
-              <ul class="fragment fade-up" style="margin-left: 7%;">
-                <li>Regras de Produção: $<𝑨> ::= <𝑩> <𝑪>$ </li>
-                <li>Regras Semânticas: $𝑨.𝒂ttb := …; 𝑩.𝒂ttb := …; 𝑪.𝒂ttb := …$</li>
-              </ul>     
-            <p class="fragment fade-up">As regras semânticas são usadas pelo compilador para permitir a análise estática ou para produzir a árvore sintática abstrata ainda durante o parse. A isso chamamos <strong>TRADUÇÃO SINTÁTICA DIRETA</strong></p>
-          </small>
-        </section>
-        <section>
-          <h2>Exemplo Gramática de Atributos</h2>
-          <table style="font-size: 80%">
-            <tr>
-              <th>Regras de Produção</th>
-              <th>Regras Semânticas</th>
-            </tr>
-            <tr>
-              <td>
-                <ol>
-                  <li>$E1 = E2+T$</li>
-                  <li>$E1 = E2-T$</li>
-                  <li>$E = T$</li>
-                  <li>$T1 = T2*F$</li>
-                  <li>$T1 = T2/F$</li>
-                  <li>$T = F$</li>
-                  <li>$F1 = -F2$</li>
-                  <li>$F = (E)$</li>
-                  <li>$F = unsigned\_int$</li>
-                </ol>
-              </td>
-              <td>
-                <ol>
-                  <li>$E1.attb = E2.attb+T.attb$</li>
-                  <li>$E1.attb = E2.attb-T.attb$</li>
-                  <li>$E.attb = T.attb$</li>
-                  <li>$T1.attb = T2.attb*F.attb$</li>
-                  <li>$T1.attb = T2.attb/F.attb$</li>
-                  <li>$T.attb = F.attb$</li>
-                  <li>$F1.attb = -F2.attb$</li>
-                  <li>$F.attb = (E.attb)$</li>
-                  <li>$F.attb = unsigned\_int.attb$</li>
-                </ol>
-              </td>
-            </tr>
+        <section class="nivel1">
+          <h2>Regex - Especificadores</h2>
+          <table style="font-size: 52%;">
+            <colgroup>
+              <col width="17%">
+              <col width="26%">
+              <col width="57%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>metacaractere</th>
+                <th>conhecido como</th>
+                <th>significado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span>.</span></td>
+                <td>curinga</td>
+                <td>qualquer caractere, exceto a quebra de
+                  linha <span>\n</span></td>
+              </tr>
+              <tr>
+                <td><span>[...]</span></td>
+                <td>conjunto</td>
+                <td>qualquer caractere incluído no conjunto</td>
+              </tr>
+              <tr>
+                <td><span>[^...]</span></td>
+                <td>conjunto negado</td>
+                <td>qualquer caractere não incluído no conjunto</td>
+              </tr>
+              <tr>
+                <td><span>\d</span></td>
+                <td>dígito</td>
+                <td>o mesmo que <span>[0-9]</span></td>
+              </tr>
+              <tr>
+                <td><span>\D</span></td>
+                <td>não-digíto</td>
+                <td>o mesmo que <span>[^0-9]</span></td>
+              </tr>
+              <tr>
+                <td><span>\s</span></td>
+                <td>branco</td>
+                <td>espaço, quebra de linha, tabs etc.;
+                  o mesmo que <span>[</span> <span>\t\n\r\f\v]</span>
+                </td>
+              </tr>
+              <tr>
+                <td><span>\S</span></td>
+                <td>não-branco</td>
+                <td>o mesmo que <span>[^</span> <span>\t\n\r\f\v]</span>
+                </td>
+              </tr>
+              <tr>
+                <td><span>\w</span></td>
+                <td>alfanumérico</td>
+                <td>o mesmo que <span>[a-zA-Z0-9_]</span> (mas pode
+                  incluir caracteres Unicode; ver
+                  <em class="xref std std-ref">flag_unicode</em>)
+                </td>
+              </tr>
+              <tr>
+                <td><span>\W</span></td>
+                <td>não-alfanumérico</td>
+                <td>o complemento de <span>\w</span></td>
+              </tr>
+              <tr>
+                <td><span>\</span></td>
+                <td>escape</td>
+                <td>anula o significado especial do
+                  metacaractere seguinte; por exemplo, <span>\.</span>
+                  representa apenas um ponto, e não o curinga</td>
+              </tr>
+            </tbody>
           </table>
         </section>
-        <section>
-          <h2>Atributos Sintetizados</h2>
-          <div class="textoleft">Um atributo é dito <strong>sintetizado</strong>quando é computado a partir do seu valor e do valor dos seus filhos. Um atributo sintetizado $𝑋.𝑎$ 
-            em função de alguma combinação de $𝑌_𝑖.𝑎$ (<strong>bottom-up</strong>).</div>
-           <img data-src="../img/attb1.png" class="imgright" style="height: 340px !important; margin-top: 7%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-          <h2>Atributos Herdados</h2>
-          <div class="textoright">Um atributo é dito <strong>herdado</strong>quando é computado a partir do seu valor e do valor dos seus pais e irmãos. 
-            Um atributo herdado $𝑋.𝑎$ em função de alguma combinação de $𝑋.𝑎$ e algum  $𝑌𝑗.𝑎$ (<strong>top-down</strong>).</div>
-           <img data-src="../img/attb2.png" class="imgleft" style="height: 340px !important; margin-top: 7%; margin-left:3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-          <section>
-          <h2>Gramáticas L&S</h2>
-          <small style="font-size: 71% !important; width: 89%;">
-          <p class="fragment fade-up">Em uma gramática <strong>S-attributed</strong> todos os atributos são sintetizados;</p>
-          <p class="fragment fade-up">Uma gramática é dita <strong>L-attributed</strong> se a árvore de parse for percorrida sempre da esquerda para direita em deep-first:</p>
-          <ul style="margin-left:7%;">
-            <li class="fragment fade-up">valores herdados são passados para os filhos da esquerda para direita;</li>
-            <li class="fragment fade-up">regras semânticas aplicadas imediatamente durante o parse.</li>
-            <li class="fragment fade-up">essencial para compiladores e interpretadores de uma passagem.</li>
-          </ul>    
-          <p class="fragment fade-up">A gramática <strong>S-attributed</strong> é um caso especial das gramáticas <strong>L-attributed</strong> .</p>
-          </small>
-         </section>
-      </section>
-      <section class="nivel1">
-        <section>
-          <h1>Análise Estática e Dinâmica.</h1>
-        </section>
-        <section>
-          <h2>Análise Semântica Dinâmica</h2>
-          <p>O compilador, ou interpretador, gera código para aprimorar a análise sintática durante a execução do código.</p>
-          <ul style="margin-left:7%;">
-            <li class="fragment fade-up">índices de <i>arrays</i> dinâmicos estão dentro dos limites;</li>
-            <li class="fragment fade-up">erros aritméticos (divisão por zero);</li>
-            <li class="fragment fade-up">variável sendo usada antes da declaração.</li>
-          </ul>    
-          <p class="fragment fade-up">Cada vez mais comum em sistemas mistos.</p>
-        </section>
-        <section>
-          <h2>Análise Estática - Fluxo</h2>
-          <p>Verificaçã do fluxo de controle:</p>
-          <ul style="margin-left:7%;">
-            <li class="fragment fade-up">Os comandos que fazem o fluxo de controle deixar uma construção precisam ter algum local para onde transferir o controle;</li>
-            <li class="fragment fade-up">Exemplo: O comando <strong><i>break</i></strong> em C faz com que o fluxo de controle saia do <strong><i>while</i></strong>, <strong><i>for</i></strong> 
-              ou do <strong><i>switch</i></strong> mais interno.</li>
-           </ul>    
-        </section>
-        <section>
-          <h2>Análise Estática - Unicidade</h2>
-          <p>Um artefato de código precisa ser definido exatamente uma vez:</p>
-          <ul style="margin-left:7%;">
-            <li class="fragment fade-up">um identificador precisa ser declarado univocamente no mesmo nível;</li>
-            <li class="fragment fade-up">definição de <strong>escopo</strong> para identificadores;</li>
-            <li class="fragment fade-up">campos de tipos complexos (<strong><i>structs</i></strong>, <strong><i>class</i></strong>) não podem ser repetidos.</li>
-          </ul>    
-        </section>
-        <section>
-          <h2>Análise Estática - Identificadores</h2>
-          <p>Algumas vezes, precisamos repetir os identificadores:</p>
-          <ul style="margin-left:7%;">
-            <li class="fragment fade-up">em <strong>ADA</strong> o nome do bloco deve aparecer no começo e no fim do bloco;</li>
-            <li class="fragment fade-up">em <strong>C++</strong> os <strong><i>constructors</i></strong> devem ter o mesmo nome da classe;</li>
-          </ul>    
-        </section>
-        <section>
-          <h2>Análise Estática - Tipos</h2>
-          <p>Compatibilidade entre operador e operando:</p>
-          <ul style="margin-left:7%;">
-            <li class="fragment fade-up">um <strong><i>array</i></strong> sendo somado a um inteiro;</li>
-            <li class="fragment fade-up">um <strong><i>double</i></strong> sendo usado como índice em um array;</li>
-            <li class="fragment fade-up">um <strong><i>string</i></strong> sendo usado no lugar de um <strong><i>char</i></strong>.</li>
-          </ul>    
-          <p  class="fragment fade-up"> A verificação de tipos é o coração da análise semântica.</p>
-        </section>
-      </section>
-      <section class="nivel1">
-        <section>
-          <h1>Verificando Tipos</h1>
-        </section>
-        <section>
-          <h2>Verificação de tipos</h2>
-            <p  class="fragment fade-up">Segurança para execução.</p>
-            <p  class="fragment fade-up">Detecção de erros em tempo de compilação.</p>
-            <p  class="fragment fade-up">Metáforas mas expressivas: <strong><i>overload</i></strong>, por exemplo.</p>
-            <p  class="fragment fade-up">Fornecer informações para o otimizador de código.</p>
-        </section>
-        <section>
-          <h2>Identificação de tipos</h2>
-            <img data-src="../img/tipo1.png" class="fragment fade-up" style="height: 231px !important; margin-left:3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-            <img data-src="../img/tipo2.png" class="fragment fade-up" style="height: 231px !important; margin-top: 5%; margin-left:3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Classificação dos tipos</h2>
-          <small style="font-size: 76% !important; width: 97%;">
-            <p  class="fragment fade-up"><strong>Estáticos</strong>: sua definição é realizada em tempo de codificação e a verificação em tempo de compilação;</p>
-            <p  class="fragment fade-up"><strong>Dinâmicos</strong>: sua definição pode, ou não, ser realizada em tempo de codificação mas, sua verificação é realizada em tempo de execução.</p>
-            <p  class="fragment fade-up"><strong>Primitivos</strong>: não possuem estrutura interna. Ex.: inteiro, real, booleano, carácter, string, intervalo e enumeração.</p>
-            <p  class="fragment fade-up"><strong>Compostos</strong>: possuem uma estrutura interna composta por tipos básicos e outros tipos compostos. Ex.: ponteiros, estruturas, registros, vetores e matrizes.</p>
-            <p  class="fragment fade-up"><strong>Construídos</strong>: são tipos, geralmente compostos, definidos pelo programador. Ex.: typedef.</p>
-          </small>    
-        </section>
-        <section>
-          <h2>Estáticamente Tipadas</h2>
-          <div class="textoleft" style="font-size:80%;">Linguagens estáticamente tipadas são aquelas em que o tipo da variável é conhecido durante o tempo de compilação: C, C++, Fortran, Pascal, Scala.<br/> 
-            Uma vez que a variável tenha sido declarada com um determinado tipo, não é possível utilizar este identificador com qualquer outro tipo. 
-            Deve ser emitido um erro, ou <strong>warning</strong>, caso isso ocorra.
-          </div>
-          <img data-src="../img/tipo3.png" class="imgright" style="    height: 324px !important; margin-top: 24%;margin-left: 3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Dinâmicamente Tipadas</h2>
-          <div class="textoleft" style="font-size:80%;">Linguagens dinâmicamente tipadas são aquelas em que o tipo de um identificador é verificado durante o tempo de execução: Javascript, PHP, Phyton, Ruby e Lisp.<br/> 
-            Os tipos são atribuídos aos identificadores em tempo de execução o que resulta em código mais difícil de otimizar. E força a verificação do tipo a cada uso do identificador.
-          </div>
-          <img data-src="../img/tipo3.png" class="imgright" style="    height: 324px !important; margin-top: 24%;margin-left: 3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Fortemente Tipadas</h2>
-          <div class="textoleft" style="font-size:80%;">Uma linguagem fortemente tipada é aquela em que o identificador está preso a um determinado tipo de dado: Python, Java;
-            <br/>Uma vez que um tipo seja atribuído a um determinado identificador, este identificador não poderá ser usado com tipos diferentes.
-          </div>
-          <img data-src="../img/tipo3.png" class="imgright" style="    height: 324px !important; margin-top: 24%;margin-left: 3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Fracamente Tipadas</h2>
-          <div class="textoleft" style="font-size:80%;">Uma linguagem fracamente tipada é aquela em que os identificadores não estão presos a um determinado tipo de dado. Por exemplo, o PHP;
-              <br/>A cada uso do identificador é possível atribuir um tipo diferente de acordo com as necessidades do programador.
-          </div>
-          <img data-src="../img/tipo3.png" class="imgright" style="    height: 324px !important; margin-top: 24%;margin-left: 3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Informações Semânticas</h2>
-          <table style="font-size: 61%;">
-            <tr>
-              <th>Informação</th>
-              <th>Forma</th>
-              <th>Uso</th>
-            </tr>
-            <tr>
-              <td>Tabelas de Símbolos</td>
-              <td>Declarações</td>
-              <td>Expressões e declarações</td>
-            </tr>
-            <tr>
-              <td>Informação de tipo</td>
-              <td>Expressões e declarações</td>
-              <td>Operações</td>
-            </tr>
-            <tr>
-              <td>Constantes e variáveis</td>
-              <td>Expressões e declarações</td>
-              <td>Expressões e declarações</td>
-            </tr>
-            <tr>
-              <td>Registradores e Memórias</td>
-              <td>Compilador/interpretador</td>
-              <td>Geração de código</td>
-            </tr>
-            <tr>
-              <td>Valores literais</td>
-              <td>Constantes e variáveis</td>
-              <td>Expressões e declarações</td>
-            </tr>
+        <section class="nivel1">
+          <h2>Quantificadores e Âncoras</h2>
+          <table style="font-size: 52%;">
+            <colgroup>
+              <col width="23%">
+              <col width="77%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>metacaractere</th>
+                <th>significado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span>{n}</span></td>
+                <td>exatamente <em>n</em> ocorrências</td>
+              </tr>
+              <tr>
+                <td><span>{n,m}</span></td>
+                <td>no mínimo <em>n</em> ocorrências e no máximo <em>m</em></td>
+              </tr>
+              <tr>
+                <td><span>{n,}</span></td>
+                <td>no mínimo <em>n</em> ocorrências</td>
+              </tr>
+              <tr>
+                <td><span>{,n}</span></td>
+                <td>no máximo <em>n</em> ocorrências</td>
+              </tr>
+              <tr>
+                <td><span>?</span></td>
+                <td>0 ou 1 ocorrência; o mesmo que <span>{,1}</span></td>
+              </tr>
+              <tr>
+                <td><span>+</span></td>
+                <td>1 ou mais ocorrência; o mesmo que <span>{1,}</span></td>
+              </tr>
+              <tr>
+                <td><span>*</span></td>
+                <td>0 ou mais ocorrência</td>
+              </tr>
+              <tr>
+                <td><span>^</span></td>
+                <td>início do texto, ou de uma linha com o flag <span>re.MULTILINE</span></td>
+              </tr>
+              <tr>
+                <td><span>\A</span></td>
+                <td>início do texto</td>
+              </tr>
+              <tr>
+                <td><span>$</span></td>
+                <td>fim do texto, ou de uma linha com o flag <span>re.MULTILINE</span>;
+                  não captura o <span>\n</span> no fim do texto ou da linha</td>
+              </tr>
+              <tr>
+                <td><span>\Z</span></td>
+                <td>fim do texto</td>
+              </tr>
+              <tr>
+                <td><span>\b</span></td>
+                <td>posição de borda, logo antes do início de uma palavra, ou logo
+                  depois do seu término; o mesmo que a posição entre <span>\W</span>
+                  e <span>\w</span> ou vice-versa</td>
+              </tr>
+              <tr>
+                <td><span>\B</span></td>
+                <td>posição de não-borda</td>
+              </tr>
+            </tbody>
           </table>
-         </section>
-         <section>
-           <h2>Verificação de Tipos</h2>
-           <img data-src="../img/tipo4.png" class="imgright" style="height: 574px !important; margin-left: 3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Exemplo</h2>
-            <p>Vamos determinar os atributos para uma linguagem aritmética simples com as regras de produção e atributos explicitados a seguir.</p>
-            <ol style="float: left; margin-left: 7%;font-size: 60%;width: 40%;">
-              <li>$PROGRAM \rightarrow DECL$ $STMT$</li>
-              <li>$DECL \rightarrow 𝑖𝑛𝑡$ $𝑖𝑑$</li>
-              <li>$STMT \rightarrow  EXP⁡ = EXP$</li>
-              <li>$EXP \rightarrow 𝑖𝑑 | EXP + EXP | 1$</li>
-            </ol>
-
-            <ol style="float: left;margin-left: 7%;font-size: 60%; width: 40%;">
-              <li>$env$ (ambiente, e.g. tabela de símbolos): sintetizada por $DECL$ e herdado por $STMT$;</li>
-              <li>$type$ (tipo da expressão); sempre sintetizado;</li>
-              <li>$cat$ ( categoria variável $[var, lvalue] \times valor [val, rvalue])$: sempre sintetizado.</li>
-              <li>$error$ para destacar possíveis erros.</li>
-            </ol>
-          </section>
-           <section>
-            <h2>Exemplo: atribuição</h2>
-            <p>Vamos determinar os atributos para uma linguagem aritmética simples com as regras de produção e atributos explicitados a seguir.</p>
-            <ol style="float: left; margin-left: 7%; font-size: 51%;width: 90%;">
-              <li class="fragment fade-up">$PROGRAM \rightarrow DECL$ $STMT \Rightarrow PROGRAM.env = DECL.env STMT.env$</li>
-              <li class="fragment fade-up" style="margin-top: 2%;">$DECL \rightarrow 𝑖𝑛𝑡$ $𝑖𝑑$ $\Rightarrow DECL.env = \{identifier, int, var\}$</li>
-              <li class="fragment fade-up" style="margin-top: 2%;">$EXP⁡ \rightarrow 1 \Rightarrow EXP.cat = val \wedge EXT.type=int$</li>
-              <li class="fragment fade-up" style="margin-top: 2%;">$EXP \rightarrow 𝑖𝑑 \Rightarrow id.type = EXP.env.lookup(id) \wedge$<br/> $ EXP.type = id.type \wedge EXP.cat = id.cat$ </li>
-              <li class="fragment fade-up" style="margin-top: 2%;">$EXP \rightarrow EXP1 + EXP2 \Rightarrow EXP.cat = val \wedge EXP1.env = EXP.env \wedge $<br/> $
-                EXP1.env = EXP.env \wedge$<br/>$EXP.type = EXP1.type = EXP1.type 
-                \wedge$&nbsp;$error=\text{"Tipos diferentes"}$</li>
-              <li class="fragment fade-up" style="margin-top: 2%;">$STMT \rightarrow  EXP⁡1 = EXP2 \Rightarrow EXP2.env = STMT.env \wedge EXP1.env = STMT.env$<br/> $\wedge$&nbsp;$error=\text{"Tipos diferentes"} \wedge$&nbsp;$ error=\text{"Se"} cat = val"$</li>
-            </ol>
-          </section>
-          <section>
-            <h2>Exemplo: observações</h2>
-            <p class="fragment fade-up">Gramáticas de atributo são excelentes para estruturação da verificação semântica.</p>
-            <p class="fragment fade-up">Estas regras podem ser estendidas para atender operações e declarações mais complexas.</p>
-            <p class="fragment fade-up">Acrescente mais campos aos nós da AST para incluir mais atributos.</p>
-            <p class="fragment fade-up">Isto é só um exemplo.</p>
-          </section>
-          <section>
-            <h2>Problemas da Análise Semântica</h2>
-              <p class="fragment fade-up">Manter a informação necessária (criar, acessar e atualizar): tabelas de símbolos.</p>
-              <p class="fragment fade-up">Integrar a análise semântica no parser: AST - <strong><i>Abstract Sintatic Tree</i></strong>.</p>
-              <p class="fragment fade-up">Computação das expressões semânticas: análise de tipos.</i></strong>.</p>
-              <p class="fragment fade-up">Fazer com que todo o processo seja rápido, muito rápido.</i></strong>.</p>
-          </section>
-      </section>
-      <section class="nivel1">
-          <section>
-            <h1>Tabelas de Símbolos</h1> 
-          </section>
-          <section>
-            <h2>Principais Funções</h2>
-               <small style="font-size:80% !important;">
-               <p class="fragment fade-up">Mapeia identificadores para:$\text{𝑡𝑦𝑝𝑒, 𝑐𝑎𝑡, 𝑙𝑜𝑐𝑎𝑙𝑖𝑧𝑎çã𝑜, 𝑜𝑢𝑡𝑟𝑎𝑠 𝑝𝑟𝑜𝑝𝑖𝑒𝑑𝑎𝑑𝑒𝑠}$</p>
-               <p class="fragment fade-up">Mantém as operações necessárias para abertura e fechamento de escopos e localização de itens.</p>
-               <p class="fragment fade-up">Queremos as complexidade $O(1)$ para encontrar qualquer atributo.</p>
-               <p class="fragment fade-up">Usamos informações adicionais para manter o fluxo de código: operações de entrada e saída de escopo, por exemplo.</p>
-               <p class="fragment fade-up">Em compiladores de múltiplos passos, a tabela de símbolos deve persistir durante todos os ciclos.</p>
-               <p class="fragment fade-up"><strong><i>Linked Lists</i></strong> ou <strong><i>Hash Tables</i></strong></p>
-               </small>
-          </section>
-          <section>
-            <h2>Tabela de Símbolos - item</h2>
-            <img data-src="../img/TabSimb1.png" class="imgright" style="height: 530px !important; margin-left: 3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-          </section>
-          <section>
-            <h2>Tabela de Símbolos - itens</h2>
-            <img data-src="../img/TabSimb2.png" class="imgright" style="margin-top: 9%; height: 358px !important;margin-left: 3%;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-          </section>
-          <section>
-            <h2>Tabela de Símbolos - Implementação</h2>
-               <p class="fragment fade-up">Para cada novo escopo: push uma tabela de símbolos novas no item (<strong><i>stack</i></strong>).</p>
-               <p class="fragment fade-up">Crie a tabela de símbolos como a uma pilha feita com linked lists de tabelas de símbolos.</p>
-               <p class="fragment fade-up">Os identificadores mais novos ficam no topo da pilha.</p> 
-               <p class="fragment fade-up">Busca: procure na pilha de tabelas de símbolos de cima para baixo.</p>
-          </section>
-      </section>
-      <section class="nivel1">
-          <section>
-            <h1>Integrando a verificação semântica no parser</h1>
-          </section>
-          <section>
-            <h2>Só para lembrar</h2>
-            <p class="fragment fade-up">Árvores sintáticas são representações internas do compilador, criadas pelo parser e usadas para geração de código.</p>
-            <p class="fragment fade-up">Cada pai representa uma operação, cada filho representa um operando.</p>
-            <img data-src="../img/parser10.png" class="fragment fade-up" style="height: 232px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-          </section>
-          <section>
-            <h2>Construindo a Árvore</h2>
-             <img data-src="../img/parser11.png" style="height: 480px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-          </section>
-      </section>
-      <section class="nivel1">
-        <section>
-          <h1>Tipos, e mais tipos</h1>
         </section>
-        <section>
-          <h2>Definição de Tipos</h2>
-          <h1 style="font-size: 199% !important;">Um tipo é uma classificação que representa um conjunto específico de dados. Esta classificação define as operações que podem ser realizadas com estes dados.</h1>
-        </section>
-        <section>
-          <h2>Definição de Sistema de Tipos</h2>
-          <h1 style="font-size: 199% !important;">Um conjunto de regras para garantir a aplicação e verificação de tipos em artefatos de uma linguagem de programação.</h1>
-        </section>
-        <section>
-          <h2>Anotação de Tipos</h2>
-             <img data-src="../img/anot1.png" style="height: 480px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-              <section>
-          <h2>Tipos de Tipos</h2>
-             <img data-src="../img/anot2.png" style="height: 480px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Inferência</h2>
-             <img data-src="../img/anot3.png" style="height: 480px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Exemplos: Sistemas de Tipos</h2>
-             <img data-src="../img/anot4.png" style="height: 320px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Tipos são conjuntos</h2>
-             <img data-src="../img/anot5.png" style="height: 440px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Por que tipos?</h2>
-             <img data-src="../img/anot6.png" style="height: 440px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Só de Curiosidade</h2>
-             <img data-src="../img/anot7.png" style="height: 455px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-            <div><a href="https://www.binaryconvert.com/result_float.html?hexadecimal=00000042" target="_blank" rel="noopener noreferrer">Clique aqui para calcular.</a></div>
-         </section>
-         <section>
-            <h2>Exemplo de anotação</h2>
-             <img data-src="../img/anot8.png" style="height: 455px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Só para lembrar 2!</h2>
-             <img data-src="../img/anot9.png" style="height: 455px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Estáticos versus Dinâmicos</h2>
-             <img data-src="../img/anot10.png" style="height: 455px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Exemplo: "a" + 1</h2>
-             <img data-src="../img/anot12.png" style="height: 400px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-         <section>
-            <h2>Propriedades do Sistema de Tipos</h2>
-             <img data-src="../img/anot11.png" style="height: 530px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-          <section>
-            <h2>Fluxo de Verificação</h2>
-             <img data-src="../img/anot13.png" style="height: 530px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-         </section>
-      </section>
-      <section class="nivel1">
-        <section>
-          <h1>Matemática, sempre acaba na Matemática.</h1>
-        </section>
-        <section>
-          <h2>Para Pensar</h2>
-            <img data-src="../img/anot14.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-         <section>
-          <h2>Enumeração</h2>
-            <img data-src="../img/anot15.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Tuplas</h2>
-            <img data-src="../img/anot16.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-         <section>
-          <h2>Tuplas - Considerações</h2>
-            <img data-src="../img/anot17.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-         <section>
-          <h2>Vetores</h2>
-            <img data-src="../img/anot18.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>União</h2>
-            <img data-src="../img/anot19.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Coproduto</h2>
-            <img data-src="../img/anot20.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Funções</h2>
-            <img data-src="../img/anot21.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Variant, Union</h2>
-            <img data-src="../img/anot22.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-        </section>
-        <section>
-          <h2>Variant, Union - Considerações</h2>
-          <small style="font-size:88% !important; width:93%;">
-              <p class="fragment fade-up">Cada campo usa o mesmo espaço de memória então o tamanho da union é o tamanho do maior campo definido.</p> 
-              <p class="fragment fade-up">Só Podemos usar um campo de cada vez. Se atribuirmos valores, ainda que corretos, para cada um dos campos em sequencia, apenas a última atribuição terá sentido. </p>
-              <p class="fragment fade-up">Uma herança dos tempos que a memória era muito cara e reduzida.</p> 
-              <p class="fragment fade-up">Nestes tempos a uninion era uma forma bem razoável de manter uma metáfora consistente nos seus programas.</p>
+        <section class="nivel1">
+          <h2>Regex - Na Prática</h2>
+          <small style="font-size:90% !important">
+            <p class="fragment fade-up"> Usando o site <a href="https://regex101.com" target="_blank" rel="noopener noreferrer">www.regex101.com</a></p>
+            <p class="fragment fade-up">Identificar um número de telefone da forma como a pessoa escrever incluíndo os dados internacionais de ddi e ddd.</p>
+            <p class="fragment fade-up">Identificar um CEP, segundo o padrão brasileiro, da forma como a pessoa escrever, incluíndo espaços, pontos e hífens.</p>
+            <p class="fragment fade-up">Identificar um CPF, segundo o padrão brasileiro, da forma como a pessoa escrever, incluíndo espaços, pontos e hífens.</p>
           </small>
         </section>
-        <section>
-          <h2>Structs</h2>
-            <img data-src="../img/anot23.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
+      </section>
+      <section>
+        <section class="nivel1">
+          <h2>Analisadores Léxicos</h2>
+          <p class="fragment fade-up">Responsáveis pela identificação e validação dos lexemas da linguagem.</p>
+          <p class="fragment fade-up">Utilizam MEF ou REGEX para identificar estes Lexemas, ou não.</p>
+          <p class="fragment fade-up">A cada lexema identificado é atribuído uma estrutura contendo dados sobre o lexema.</p>
+          <p class="fragment fade-up">A classe de cada lexema, seu tipo e seu valor são dados comuns nesta atribuição.</p>
         </section>
-         <section>
-          <h2>Structs - Considerações</h2>
-          <small style="font-size:88% !important; width:93%;">
-              <p class="fragment fade-up">As <strong>structs</strong> são representadas como um bloco de memória, grande o suficiente para armazenar todos os campos.</p> 
-              <p class="fragment fade-up">O campos são ordenados de acordo com a a ordem de declaração. </p>
-              <p class="fragment fade-up">O compilador irá determiner o tamanho total e a posição dos campos em memória. Durante a execução o programa não entende a estrutura da <strong>struct</strong>.</p> 
-              <p class="fragment fade-up">Ou seja, a <strong>struct</strong>, como a definimos só existe em forma de artefato de Código e metáfora.</p>
+        <section class="nivel1">
+          <h2>Estruturas de Lexemas</h2>
+          <small style="width: 50%;font-size: 90% !important;">
+            <p class="fragment fade-up">Cada linguagem usada para criar um interpretador utiliza uma solução diferente.</p>
+            <p class="fragment fade-up">Interpretadores criados em C, por exemplo, podem usar <b>structs</b> ou um conjunto dela para 
+              armazenar os dados relativos a cada lexema.</p>
           </small>
-        </section>
-          <section>
-          <h2>Vantagem das Structs</h2>
-            <img data-src="../img/anot24.png" style="height: 490px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
+          <img style="float: right; margin-right: 3%;" class="fragment fade-up" data-src="../img/structs1.jpg" alt="uma struct contendo dados de linha e coluna e outra contendo os dados do lexema" />
+          <p style="font-size: 90% !important;"class="fragment fade-up">Cada Lexema corretamente identificado é armazenado na tabela de símbolos.</p>
         </section>
       </section>
-      <section class="nivel1">
-        <section>
-        <h1>Sistema de Tipos: Definição.</h1>
+      <section>
+        <section class="nivel1">
+          <h2>Gramáticas</h2>
+          <p class="fragment fade-up">
+            A <b>linguagem das linguagens</b>: Uma gramática é uma lista de regras
+            que determina como podem ser criadas e utilizadas todas as <i>strings</i> 
+            de uma linguagem;
+          </p>
+          <p class="fragment fade-up">
+            <a href="https://en.wikipedia.org/wiki/Noam_Chomsky" target="_blank" rel="noopener noreferrer">Noam Chomsky</a> 
+            é um dos pesquisadores mais importantes nesta área.</p>
+          <p class="fragment fade-up">
+            Devemos ao trabalho de Chomsky a classificação das Gramáticas
+            que usamos hoje.
+          </p>
         </section>
-        <section>
-          <h2>Como fazer isso?</h2>
-            <img data-src="../img/anot25.png" style="height: 290px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
+        <section class="nivel1">
+          <h2>Linguagens</h2>
+          <table style="font-size: 80% !important">
+            <tbody>
+              <tr>
+                <th><i>Linguagem</i></th>
+                <th><i>Gramática</i></th>
+                <th><i>Identificador</i></th>
+              </tr>
+              <tr>
+                <td>Recursivamente Enumeráreis</td>
+                <td>Gramáticas Irrestritas</td>
+                <td>Máquina de Touring</td>
+              </tr>
+              <tr>
+                <td>Linguagens sensíveis ao contexto</td>
+                <td>Gramáticas sensíveis ao contexto</td>
+                <td>Maq. Turing com fita limitada</td>
+              </tr>
+              <tr>
+                <td>Linguagens livres de contexto</td>
+                <td>Gramáticas livres de contexto</td>
+                <td>Autômato com pilha</td>
+              </tr>
+              <tr>
+                <td>Linguagens Regulares</td>
+                <td>Gramáticas regulares</td>
+                <td>Autômato finito</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
-         <section>
-          <h2>Em Linguagem Natural</h2>
-            <img data-src="../img/anot26.png" style="height: 420px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
+        <section class="nivel1">
+          <h2>Gramáticas - definição</h2>
+          <p class="fragment fade-up">Uma Gramática Formal: 4-tupla: $$𝑮 := \{𝑵, \Sigma, 𝑷, 𝑺\}$$</p>
+          <ul>
+            <li class="fragment fade-up">$S\rightarrow \text{símbolo inicial}$</li>
+            <li class="fragment fade-up">$\Sigma \rightarrow \text{símbolos terminais}$</li>
+            <li class="fragment fade-up">$P \rightarrow \text{regras de produção}$</li>
+            <li class="fragment fade-up">$N \rightarrow \text{símbolos não terminais}$</li>
+          </ul>
         </section>
-         <section>
-          <h2>Em Linguagem Natural - Exemplo</h2>
-            <small style="font-size:88% !important; width:93%;">
-              <p class="fragment fade-up">Uma declaração é bem formatada se:</p> 
-              <p class="fragment fade-up">Sua variável alvo está bem formatada;</p>
-              <p class="fragment fade-up">Sua expressão fonte está bem formatada, e os tipos declarados da fonte e do alvo coincidem;</p> 
-              <p class="fragment fade-up">Uma condicional é bem formatada se sua expressão de teste for do tipo bool e tanto a opção then quanto a opção else estão bem formatadas.</p>
-              <p class="fragment fade-up">O Python (CPython) é definido desta forma.</p>
-          </small>
+        <section class="nivel1">
+          <h2>Livres de Contexto</h2>
+          <blockquote>
+            “uma gramática livre de contexto descreve um conjunto de strings,
+            ou linguagem, por meio da definição da estrutura das strings da
+            linguagem. Esta definição é recursiva, indicando que cada regra
+            produção pode, ou não, ser utilizada para definir novas regras de
+            produção”
+          </blockquote>
         </section>
-          <section>
-            <h2>Cálculo de Sequentes</h2>
-            <img data-src="../img/anot27.png" style="height: 420px !important;"
-            alt="símbolo meramente ilustrativo, sem valor didático" />
-          </section>
-          <section>
-            <h2>Cálculo de Sequentes - Exemplo</h2>
-              <p class="fragment fade-up">Como podemos verificar os tipos nas seguintes declarações em cálculo de sequentes?</p> 
-              <p class="fragment fade-up">$\text{𝑓𝑙𝑜𝑎𝑡 𝑓(𝑓𝑙𝑜𝑎𝑡 𝑥, 𝑓𝑙𝑜𝑎𝑡 𝑦) \{ 𝑟𝑒𝑡𝑢𝑟𝑛 𝑥+𝑦; \}}$</p> 
-              <p class="fragment fade-up">$𝑥 : 𝑓𝑙𝑜𝑎𝑡,  𝑦 : 𝑓𝑙𝑜𝑎𝑡  ⊢  𝑥+𝑦 : 𝑓𝑙𝑜𝑎𝑡$</p> 
-              <p class="fragment fade-up">$\text{𝑖𝑛𝑡 𝑔(𝑖𝑛𝑡 𝑥, 𝑖𝑛𝑡 𝑦) \{ 𝑟𝑒𝑡𝑢𝑟𝑛 𝑥+𝑦; \}}$</p> 
-              <p class="fragment fade-up">$𝑥 : 𝑖𝑛𝑡,  𝑦 : 𝑖𝑛𝑡  ⊢  𝑥+𝑦 : 𝑖𝑛𝑡$</p> 
-          </section>
-          <section>
-            <h2>Regras de Atribuição</h2>
-              <p class="fragment fade-up">Usamos o cálculo de sequentes para definir as regras de atribuição, verificação e checagem  de tipos.</p> 
-              <img data-src="../img/anot28.png" style="height: 180px !important;" class="fragment fade-up"
-            alt="regra de equivalência entre tipos de dois operadores inteiros em uma soma." />
-              <p class="fragment fade-up">Lemos: se 𝐸1 tem tipo int e 𝐸2 tem tipo int então E1+E2 tem tipo int</p> 
-          </section>
-          <section>
-            <h2>Cálculo de Sequentes - Exemplo</h2>
-            <img data-src="../img/anot29.png" style="height: 570px !important;"
-            alt="enunciado do exemplo" />
-          </section>
-          <section>
-            <h2>Construíndo a AST</h2>
-            <img data-src="../img/anot30.png" style="height: 570px !important;"
-            alt="AST montada com as regras de produção escritas em cálculo de sequentes" />
-          </section>
-          <section>
-            <h2>Equivalência</h2>
-            <img data-src="../img/anot31.png" style="height: 500px !important;"
-            alt="regras de equivalência de tipos" />
-          </section>
-        </section>
-
       </section>
-      <!-- Material de Apoio -->
-      <section class="nivel1">
-        <section>
-          <h1>Material de apoio</h1>
+      <section>
+        <section class="nivel1">
+          <h2>Regras de Produção</h2>
+          <p class="fragment fade-up">
+            Os símbolos que aparecem à esquerda da seta, são não terminais e
+            representados por letras latinas maiúsculas $(𝐴, 𝐵, 𝑆, …)$.
+          </p>
+          <p class="fragment fade-up">
+            O símbolo inicial é o que aparece do lado esquerdo da primeira
+            regra $𝑆$.
+          </p>
+          <p class="fragment fade-up">Pode ser qualquer símbolo, usaremos o $𝑆$ por convenção.</p>
+        </section>
+        <section class="nivel1">
+          <h2>Regras de Produção</h2>
+          <ol>
+            <li>$𝑆 \rightarrow 𝐴𝐵$</li>
+            <li>$𝑆 \rightarrow 𝐴𝑆𝐵$</li>
+            <li>$𝐴 \rightarrow a$</li>
+            <li>$𝐵 \rightarrow b$</li>
+          </ol>
+          <p class="fragment fade-up">Vamos produzir a string:“aabb”</p>
+        </section>
+        <section class="nivel1">
+          <h2>Produzindo $aabb$</h2>
+          <p class="fragment fade-up">
+            Temos $S \rightarrow \emptyset$ e aplicamos 2 $𝑺 \rightarrow 𝑨𝑺𝑩$
+          </p>
+          <p class="fragment fade-up">
+            Temos de $S \rightarrow ASB$ e aplicamos 3 $A \rightarrow a$
+          </p>
+          <p class="fragment fade-up">
+            Temos de $S \rightarrow aSB$ e aplicamos 4 $B \rightarrow b$
+          </p>
+          <p class="fragment fade-up">
+            Temos de $S \rightarrow aSb$ e aplicamos 1 $𝑺 \rightarrow AB$
+          </p>
+          <p class="fragment fade-up">
+            Temos de $S \rightarrow aABb$ e aplicamos 3 $A \rightarrow a$
+          </p>
+          <p class="fragment fade-up">
+            Temos de $S \rightarrow aaBb$ e aplicamos 4 $B \rightarrow b$
+          </p>
+          <p class="fragment fade-up">Conseguimos: $S \rightarrow aabb$</p>
+        </section>
+        <section class="nivel1">
+          <h2>Exercício Formativo 1</h2>
+          <p>Considere a gramática definida por:</p>
+          <ol>
+            <li>$𝑺 \rightarrow 𝑨𝑩$</li>
+            <li>$𝑨 \rightarrow \varepsilon | 𝒂𝑨$</li>
+            <li>$𝑩 \rightarrow \varepsilon | 𝒃𝑩$</li>
+          </ol>
+          <p>Encontre uma sequência de substituições para encontrar: $aab$</p>
+        </section>
+        <section class="nivel1">
+          <h2>Gramáticas Regulares</h2>
+          <p class="fragment fade-up">Duas classes de regras de produção.</p>
+          <p class="fragment fade-up">
+            Lineares à Direita: as regras de produção obedecem: $$𝑨
+            \rightarrow 𝒘𝑩 \vee 𝑨\rightarrow 𝒘 (𝒘 \in \Sigma^*)$$
+          </p>
+          <p class="fragment fade-up">
+            Lineares à esquerda: as regras de produção obedecem: $$𝑨
+            \rightarrow 𝑩𝒘 \vee 𝑨 \rightarrow 𝒘 (𝒘 \in \Sigma^*)$$
+          </p>
+        </section>
+      </section>
+      <section>
+        <section class="nivel1">
+          <h2>Árvores Sintáticas</h2>
+          <ol class="fragment fade-up" style="float: left; margin-left: 10%">
+            <li>$S$</li>
+            <li>$S \rightarrow ASB$</li>
+            <li>$S \rightarrow aSB$</li>
+            <li>$S \rightarrow aSb$</li>
+            <li>$S \rightarrow aABb$</li>
+            <li>$S \rightarrow aaBb$</li>
+            <li>$S \rightarrow aabb$</li>
+          </ol>
+          <p class="fragment fade">
+            <img
+              data-src="../img/as1.png"
+              alt="exemplo de máquina de estados finitos"
+              style="float: right; margin-left: 20%; max-width: 40%" />
+          </p>
+        </section>
+        <section class="nivel1">
+          <h2>Backus-Naur Form - BNF</h2>
+          <p class="fragment fade-up">Em 1957 <a href="https://en.wikipedia.org/wiki/John_Backus"><strong>John
+                Backus</strong></a>, trabalhando na IBM, criou uma linguagem para criar linguagens.
+          </p>
+          <p class="fragment fade-up">Representa uma gramática.</p>
+          <p class="fragment fade-up">É mais simples para leitura que a álgebra.</p>
+          <p class="fragment fade-up">É mais simples para escrita que a álgebra.</p>
+          <p class="fragment fade-up">Finalmente virou um padrão ISO/IEC 14977 em 1996.</p>
+          <p class="fragment fade-up">O criador da linguagem define como, e se usará este padrão.</p>
+        </section>
+        <section class="nivel1">
+          <h2>BNF - Original</h2>
+          <table>
+              <tr><th>Símbolo</th><th>Lêmos como</th></tr>
+              <tr><td>$::=$</td><td>“é definido como” ou “pode ser substituído por”</td></tr>
+              <tr><td>$|$</td><td>seleção / ou</td></tr>
+              <tr><td>$<>$</td><td>não terminais</td></tr>
+          </table>
+          <p class="fragment fade-up">Começou muito simples e com o tempo foi sendo adaptada as necessidades dos 
+            criadores de linguagens.
+          </p>
+        </section>
+        <section class="nivel1">
+          <h2>BNF - Exemplo</h2>
+          <ol class="fragment fade-up" style="float: left; margin-left: 10%; width: 90%;font-size: 81%;">
+            <li>$\text{<𝑙𝑖𝑠𝑡𝑎> ∷= <𝑒𝑙𝑒𝑚𝑒𝑛𝑡𝑜>;<𝑙𝑖𝑠𝑡𝑎> | <𝑒𝑙𝑒𝑚𝑒𝑛𝑡𝑜>}$</li>
+            <li>$\text{<𝑒𝑙𝑒𝑚𝑒𝑛𝑡𝑜>∷=<𝑙𝑒𝑡𝑟𝑎>
+                  <𝑑𝑖𝑔𝑖𝑡𝑜>}$</li>
+            <li>$\text{<𝑙𝑒𝑡𝑟𝑎>∷=𝐴 | 𝐵 |𝐶}$</li>
+            <li>$\text{<𝑑𝑖𝑔𝑖𝑡𝑜>∷=1|2|3|4}$</li>
+          </ol>
+          <p class="fragment fade-up">Funciona segundo os princípios das regras de produção. Uma 
+            sequência recursiva de substituição de regras permitindo a criação das sentenças da linguagem.
+          </p>
+        </section>
+        <section class="nivel1">
+          <h2>EBNF</h2>
+          <ul>
+            <li class="fragment fade-up" >Removeu os $<$$>$ para os símbolos não terminais.</li>
+            <li class="fragment fade-up" >Símbolos termais expressos entre aspas.</li>
+            <li class="fragment fade-up" >Uso $*$ para fechamento e $\{\}$ para multiplicação.</li>
+            <li class="fragment fade-up" >Uso de $+$ para um ou mais.</li>
+            <li class="fragment fade-up" >Uso de $?$ para seleção.</li>
+            <li class="fragment fade-up" >Parênteses $()$ para agrupamento;</li>
+            <li class="fragment fade-up" >Substitui $∷=$ por $=$.</li>
+            <li class="fragment fade-up" >O uso da vírgula $,$ para explicitar concatenação.</li>
+            <li class="fragment fade-up" >O ponto encerra uma regra.</li>
+          </ul>
+        </section>
+        <section class="nivel1">
+          <h2>BNF - Exemplo</h2>
+          <p class="fragment fade-up">Considere a seguinte gramática definida em BNF</p>
+          <ol  class="fragment fade-up" style="font-size: 70%">
+            <li>$<𝒑𝒓𝒐𝒈𝒓𝒂𝒎> ::= 𝒃𝒆𝒈𝒊𝒏 <𝒔𝒕𝒎𝒕\_𝒍𝒊𝒔𝒕> 𝒆𝒏𝒅$</li>
+            <li>$<𝒔𝒕𝒎𝒕_𝒍𝒊𝒔𝒕> ::= <𝒔𝒕𝒎𝒕> | <𝒔𝒕𝒎𝒕> ; <𝒔𝒕𝒎𝒕_𝒍𝒊𝒔𝒕>$.</li>
+            <li>$<𝒔𝒕𝒎𝒕> ::= <𝒗𝒂𝒓> = <𝒆𝒙𝒑𝒓>$</li>
+            <li>$<𝒆𝒙𝒑𝒓> ::= <𝒕𝒆𝒓𝒎> + <𝒕𝒆𝒓𝒎> | <𝒕𝒆𝒓𝒎> − <𝒕𝒆𝒓𝒎>$</li>
+            <li>$<𝒕𝒆𝒓𝒎> ::= <𝒗𝒂𝒓> | 𝒄𝒐𝒏𝒔𝒕$</li>
+            <li>$<𝒗𝒂𝒓> ::= 𝒂 | 𝒃 | 𝒄$</li>
+          </ol>
+          <p class="fragment fade-up">Derive o seguinte programa:</p>
+          <p class="fragment fade-up">$\text{begin } a = b + \text{ const } \text{ end}$</p>
+        </section>
+        <section class="nivel1">
+          <h2>BNF - Exemplo</h2>
+          <ul style="font-size: 70%">
+            <li class="fragment fade-up" >$ &lt;program&gt; \Rightarrow \emptyset$</li>
+            <li class="fragment fade-up" >
+              Regra 1: $ &lt;program&gt; \Rightarrow begin &lt;stmt\_list&gt;
+              \text{ end}$
+            </li>
+            <li class="fragment fade-up" >
+              Regra 2: $&lt;program&gt; \Rightarrow \text{begin } &lt;stmt&gt;
+              \text{ end}$
+            </li>
+            <li class="fragment fade-up" >
+              Regra 3: $&lt;program&gt; \Rightarrow \text{begin } &lt;var&gt;
+              = &lt;expr&gt; \text{ end}$
+            </li>
+            <li class="fragment fade-up" >
+              Regra 6: $&lt;program&gt; \Rightarrow \text{begin } a =
+              &lt;expr&gt; \text{ end}$
+            </li>
+            <li class="fragment fade-up" >
+              Regra 4: $&lt;program&gt; \Rightarrow \text{begin } a =
+              &lt;term&gt; + &lt;term&gt; \text{ end}$
+            </li>
+            <li class="fragment fade-up" >
+              Regra 5: $&lt;program&gt; \Rightarrow \text{begin } a =
+              &lt;var&gt; + &ltterm&gt; \text{ end}$
+            </li>
+            <li class="fragment fade-up" >
+              Regra 6: $&lt;program&gt; \Rightarrow \text{begin } a = b +
+              &lt;term&gt; \text{ end}$
+            </li>
+            <li class="fragment fade-up" >
+              Regra 5: $&lt;program&gt; \Rightarrow \text{begin } a = b +
+              const \text{ end}$
+            </li>
+          </ul>
+          <p class="fragment fade-up">Começamos do símbolo inicial, neste caso $ &lt;program&gt;$ e recorrentemente
+            vamos procurando regras de substituição na grámática definida.
+          </p>
+        </section>
+      </section>
+      <section>
+        <section class="nivel1">
+          <h2>Parsers Semântica</h2>
+          <p class="fragment fade-up">
+            A palavra <i>parser</i>, que usaremos com frequência, tem o sentido de percorrer, varrer. 
+          </p>
+          <p class="fragment fade-up">Nesta disciplina: técnicas de percorrer uma árvore sintática validando a gramática.</p>
+          <p class="fragment fade-up">Na literatura, o conceito de parser se confunde com o conceitos de análise sintática.
+            Não são raros os parsers que fazem análise léxica, sintática e semântica.
+          </p>
+        </section>
+        <section class="nivel1">
+          <h2>Parsers</h2>
+          <p class="fragment fade-up">
+            <img
+              data-src="../img/parsers.png"
+              alt="algoritmos de parser mais comuns" />
+          </p>
+        </section>
+        <section class="nivel1">
+          <h2>Exemplo</h2>
+          <p class="fragment fade-up">
+            Considerando a gramática a seguir, apresente as derivações
+            necessárias para encontrar “abbcde”, usando
+            <strong>Bottom-up</strong> parser.
+          </p>
+          <ol
+            class="fragment fade-up"
+            style="float: left; font-size: 85%; margin-left: 10%">
+            <li>$S \rightarrow aABe$</li>
+            <li>$A \rightarrow Abc | b $</li>
+            <li>$B \rightarrow d$</li>
+          </ol>
+          <p class="fragment fade" style="font-size: 85%; margin-left: 40%; max-width: 60%;">
+            Regra 2: $abbcde \Rightarrow aAbcde$
+          </p>
+          <p class="fragment fade" style="font-size: 85%;margin-left: 40%;max-width: 60%;">
+            Regra 2: $abbcde \Rightarrow aAde;$
+          </p>
+          <p class="fragment fade" style="font-size: 85%;margin-left: 40%;max-width: 60%;">
+            Regra 3: $abbcde \Rightarrow aABe;$
+          </p>
+          <p class="fragment fade" style="font-size: 85%; margin-left: 40%; max-width: 60%;">
+            Regra 1: $abbcde \Rightarrow S;$
+          </p>
+          <p class="fragment fade">A <i>string</i> “abbcde” é válida nesta gramática.</p>
+        </section>
+        <section class="nivel1">
+          <h2>Exercício de Código</h2>
           <p>
+            Vamos criar um parser para validar fórmulas de cálculo proposicional. 
+            Na linguagem de programação que você desejar usando o site <a href="http://repl.it" target="_blank" rel="noopener noreferrer">Repl.it</a>
+          </p>
+          <ol>
+            <li>Negação: $\neg P$</li>
+            <li>Conjunção: $P\land Q$</li>
+            <li>Disjunção: $P\lor Q$</li>
+            <li>Implicação: $P\rightarrow Q$</li>
+            <li>Implicação Dupla: $P\leftrightarrow Q$</li>
+          </ol>
+          <p style="font-size:80% !important;">
+            Nosso parser deve ser recursivo e usar latex e notação rpn para a
+            digitação das expressões. Segundo a seguinte gramática em EBNF
+          </p>
+        </section>
+        <section class="nivel1">
+          <h2>EBNF - Exercício</h2>
+          <p>
+            Vamos criar um parser para validar fórmulas de cálculo
+            proposicional.
+          </p>
+          <ol style="font-size: 55%">
+            <li>
+              $Formula = Constante | Proposicao | FormulaUnaria |
+              FormulaBinaria.$
+            </li>
+            <li>$Constante = "T" | "F".$</li>
+            <li>$Proposicao = [a-z0-9]+$</li>
+            <li>
+              $FormulaUnaria = AbreParen\ OperadorUnario\ Formula\ FechaParen$
+            </li>
+            <li>
+              $FormulaBinaria= AbreParen\ OperatorBinario\ Formula\ Formula\
+              FechaParen$
+            </li>
+            <li>$AbreParen = "("$</li>
+            <li>$FechaParen = ")"$</li>
+            <li>$OperatorUnario = "\neg"$</li>
+            <li>
+              $OperatorBinario = "\vee" | "\wedge" | "\rightarrow"
+              |"\leftrightarrow"$
+            </li>
+          </ol>
+          <p>Poste o link com a sua solução <a href="https://forms.gle/vhCEKNr4URwtf4RM9" target="_blank" rel="noopener noreferrer">aqui</a>.</p>
+        </section>
+      </section>
+      <section class="nivel1">
+        <section class="nivel1">
+          <h1>Material de apoio</h1>
+          <p class="fragment fade-up">
             Você pode baixar o material de apoio
             <a href="./INTERPRETADORES.pdf">clicando aqui</a>
           </p>
         </section>
-        <section>
-          <h2>Referências</h2>
-          <small style="font-size:80% !important;">
-          <p>
-            AHO, A. V. et al. <b>Compiladores: princípios, técnicas e ferramentas</b>. 2º. ed. Boston, MA, USA: Pearson Education Inc. , 2007. <br/>
-            Appel, Andrew W. <b>Modern Compiler Implementation in Java</b>, 2nd ed. Cambridge, 2002.  (Editions in ML and C also available; the “tiger books”)<br/>
-            CASS, S. <b>The 2016 Top Programming Languages</b>. IEEE Spectrum, 2016. Disponível em: <http://spectrum.ieee.org/computing/software/the-2016-top-programming-languages>. Acesso em: 22 Set. 2016.<br/>
-            Grune, Dick, Henri E. Bal, Ceriel J.H. Jacobs, and Koen G. Langendoen. <b>Modern Compiler Design</b>.  Wiley, 2000 <br/>
-            Hogg, Jim. <b>CSE-P501 Compilers</b>. Washington University, 2005<br/>
-          </p>
-          </small>
-        </section>
+        
       </section>
     </div>
   </div>
@@ -632,8 +595,8 @@
       // Push each slide change to the browser history
       history: true,
       // Transition style
-      transition: "fade", // none/fade/slide/convex/concave/zoom
-
+      transition: "default", // none/fade/slide/convex/concave/zoom
+      center: false,
       math: {
         mathjax:
           "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
