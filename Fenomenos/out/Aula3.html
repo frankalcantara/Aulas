@@ -38,14 +38,81 @@
 				</section>
 				<section class="nivel1">
 					<h2>Formalmente</h2>
-						<p> Apenas em duas dimensões podemos dizer que uma <b>função</b> é a relação entre dois conjuntos, onde o primeiro 
-							será chamado de <b>domínio - D</b> e o segundo de <b>imagem - I</b>, ou <i>range</i> de tal forma que a cada elemento 
+						<p class="fragment fade-up"> Apenas em duas dimensões podemos dizer que uma <b>função</b> é a relação entre dois conjuntos, onde o primeiro 
+							será chamado de <b>domínio - D - ou variável independente</b> e o segundo de <b>imagem - I - ou variável independente</b>. A cada elemento 
 							do <b>domínio</b> corresponde um, e somente um, elemento da <b>imagem</b>.
 							$$f= D \rightarrow I$$
 							$$f=\{(1,2),(2,3),(3,5),(5,7)\}$$
-						</p> 
+						</p class="fragment fade-up"> 
 
 				</section>
+				<section class="nivel1">
+					<h2>Representação Algébrica</h2>
+					<p> Representamos as funções por $$f_{(x)}$$ </p>
+					<p> Se a função tiver mais de uma variável independente representaremos por  $$f_{(x,y,z,...)}$$ </p>
+					<p> Em duas dimensões, no plano cartesiano, $f_{(x)}$ representa a variável dependente, geralmente $y$.</p>
+				</section>
+				<section class="nivel1">
+					<h2>Exemplo 1 </h2>
+					<small style="font-size: 80% !important;float: left;margin-left: 3%; width: 50%;">
+						<p class="fragment fade-up">Tomemos, por exemplo: $$f_{(x)}= -2+3x^2$$ </p>
+						<p class="fragment fade-up">Podemos sortear alguns valores no conjunto dos números inteiros para criar uma tabela e um conjunto de pares ordenados 
+							para representar esta função.</p>
+						<p class="fragment fade-up">Poderíamos escolher qualquer valor para $x$ no universo dos números reais.</p>
+					</small>
+					<table  class="fragment fade-up" style="margin-top: 7%; font-size: 79% !important; float: right; margin-right: 3%; width: 39%;">
+						<tr><th>$x$</th><th>$f_{(x)}$</th><th>$Par$</th></tr>
+						<tr><td>$-3$</td><td>$25$</td><td>$(-3,25)$</td></tr>
+						<tr><td>$-2$</td><td>$10$</td><td>$(-2,10)$</td></tr>
+						<tr><td>$-1$</td><td>$1$</td><td>$(-1,1)$</td></tr>
+						<tr><td>$0$</td><td>$-2$</td><td>$(0,-2)$</td></tr>
+						<tr><td>$1$</td><td>$1$</td><td>$(1,1)$</td></tr>
+						<tr><td>$2$</td><td>$10$</td><td>$(2,10)$</td></tr>
+						<tr><td>$3$</td><td>$25$</td><td>$(3,25)$</td></tr>
+					</table>
+				</section>
+				<section class="nivel1">
+					<h2>Exemplo 1 - Gráfico</h2>
+					<iframe height="540px" width="100%" 
+						src="https://replit.com/@frankalcantara/funcao1?lite=true" scrolling="no"
+						frameborder="no" allowtransparency="true" allowfullscreen="true"
+						sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin 
+							allow-scripts allow-modals">
+					</iframe>
+				</section>
+				<section class="nivel1">
+					<h2>Para Pensar 1 </h2>
+					<small style="font-size: 80% !important;float: left;margin-left: 3%; width: 93%;">
+						<p class="fragment fade-up">Considere $X=Y$ como sendo o conjunto de todas as pessoas que já viveram. Neste caso, podemos criar uma 
+							função $f:X \rightarrow Y$ de tal forma que $f_{(x)}$ determina que $x$ é <b>pai</b> de $y$. Neste caso teremos uma função 
+							bem definida. 
+						</p>
+						<p class="fragment fade-up">Considere, novamente, $X=Y$ como sendo o conjunto de todas as pessoas que já viveram. Podemos criar uma
+						função $f:X \rightarrow Y$ de tal forma que $f_{(x)}$ determina que $x$ é <b>filho</b> de $y$. Neste caso NÃO teremos uma função
+						bem definida. $y$ pode ter nenhum, um ou vários filhos.</p>
+						<p class="fragment fade-up">Sendo assim, $f_{(x)} = \sqrt{x}$ é, ou não é uma função?</p>
+					</small>
+				</section>
+				<section class="nivel1">
+					<h2>Observação 1 </h2>
+					<small style="font-size: 80% !important;float: left;margin-left: 3%; width: 93%;">
+						<p class="fragment fade-up">Para definir uma função corretamente você precisa:</p>
+						<ol style="margin-left: 9%;">
+							<li class="fragment fade-up;">
+								especificar o domínio desta função. Por exemplo, o conjunto dos números reais $\mathbb{R}$.
+							</li>
+							<li class="fragment fade-up;">
+								especificar a imagem desta função. Por exemplo, o conjunto dos números reais $\mathbb{R}$.
+							</li>
+							<li class="fragment fade-up;">
+								especificar a relação entre domínio e imagem. No caso $f_{(x)} = \sqrt{x}$.
+							</li>
+						</ol>
+						<p class="fragment fade-up;">Como $f_{(x)} = \sqrt{x}$ não está definida no domínio dos reais $\mathbb{R}$, ela <b>não é uma função</b>. Além disso,
+							mesmo que ela estivesse definida em $\mathbb{R}$, ainda assim, não seria uma função por ter mais de uma imagem para um dado elemento do domínio. </p>
+					</small>
+				</section>
+
 			</section>
 		</div>
 	</div>
