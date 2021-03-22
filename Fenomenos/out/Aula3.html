@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="author" content="Frank Coelho de Alcantara -2020" />
-	<title>Funções Exponenciais e Logarítmicas</title>
+	<title>Funções Exponenciais</title>
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta
 		name="apple-mobile-web-app-status-bar-style"
@@ -22,7 +22,7 @@
 		<div class="slides">
 			<section  id="title-slide">
 				<section class="nivel1">
-				<h1 class="title" style="display: block; margin-top: 2%;">Funções Exponenciais e Logarítmicas</h1>
+				<h1 class="title" style="display: block; margin-top: 2%;">Funções Exponenciais</h1>
 				<p style="text-align: right !important">
 					Frank Coelho de Alcantara -2020 &nbsp;&nbsp;
 				</p>
@@ -112,7 +112,63 @@
 							mesmo que ela estivesse definida em $\mathbb{R}$, ainda assim, não seria uma função por ter mais de uma imagem para um dado elemento do domínio. </p>
 					</small>
 				</section>
-
+			</section>
+			<section>
+				<section class="nivel1">
+					<h1>Funções Exponenciais</h1>
+				</section>
+				<section class="nivel1">
+					<h2>Funções Exponenciais </h2>
+					<small style="font-size: 80% !important;">
+						<p class="fragment fade-up;">Se $b$ representa qualquer número de forma que $b > 0$ e $b \neq 1$ então 
+							podemos expressar as funções exponenciais por: $$f_{(x)} = b^x$$</p>
+						<p class="fragment fade-up;">Onde $b$ será chamado de base e $x$ de expoente. Observe a diferença em relação 
+							as funções polinomiais. 
+						<p class="fragment fade-up;">$$f_{(x)} = 0^x = 0 \space \space  e \space \space $f_{(x)} = 1^x = 1$$</p>
+						<p class="fragment fade-up;">Também vamos evitar qualquer número negativo na base para evitar cair no domínio dos números imaginários.</p>
+					</small>
+				</section>
+				<section class="nivel1">
+					<h2>Exemplo 2</h2>
+						<p class="fragment fade-up;">Considerando o apresentado anteriormente, plote os gráficos de: 
+							$$f_{(x)} = 2^x = 0 \space \space e \space \space $g_{(x)} = (\frac{1}{2})^x = 1$$
+						</p>
+				</section>
+				<section class="nivel1">
+					<h2>Propriedades</h2>
+					<small style="font-size: 80% !important;">
+						<p class="fragment fade-up;">O gráfico de $f_{(x)}$ sempre irá conter o ponto (0,1). Ou, se preferir, 
+							$f_{(0)} = 1$ independente do valor de $b$.	</p>
+						<p class="fragment fade-up;">Para todos $b$ teremos $b^x > 0$ o que implica em $b^x \neq 0$. </p>
+						<p class="fragment fade-up;">Se $0 &lt; b &lt; 1$ o gráfico de $b^x$ irá decrescer da esquerda para a direita. </p>
+						<p class="fragment fade-up;">Se $b &gt; 1$ o gráfico de $b^x$ irá crescer da esquerda para a direita.</p>
+						<p class="fragment fade-up;">Se $b^x = b^y \therefore x = y$.</p>
+						<p class="fragment fade-up;">Existe um $b$ especial quando $b = e = 2.718281828...</p>
+					</small>
+				</section>
+				<section class="nivel1">
+ 					<h2>Número de Euler</h2>
+ 					<p class="fragment fade-up;">$$e = \mathop {\lim }\limits_{n \to \infty } \left( {1 + \frac{1}{n}} \right)^n$$</p>
+ 					<p class="fragment fade-up;">A curva traçada quando a base é o Número de Euler é chamada de <b>Exponencial
+ 						Natural</b> e tem como característica
+ 					mais relevante o fato de ser igual a sua primeira derivada.</p>
+ 					<p class="fragment fade-up;">Este número irracional aparece em diversos trabalhos matemáticos, desde os logaritmos
+ 					de Napier em 1618.
+ 					como foi Euler que estudou com mais profundidade as características deste número coube a ele a hora de nomeá-lo.
+ 					<a href="https://mathshistory.st-andrews.ac.uk/HistTopics/e/" target="_blank" rel="noopener noreferrer">Aqui</a>
+ 					você vai encontrar um pouco da história deste número.</p>.
+				</section>
+				<section class="nivel1">
+					<h2>Desafio</h2>
+					<small style="font-size:80% !important;">
+					<p class="fragment fade-up;">Na aula passada, no Colaboratory, vimos como carregar algumas constantes matemáticas importantes.
+						 Cabe a você modificar o código apresentado nesta aula para plotar o gráfico das seguintes funções: 
+						 $$f_{(x)}= e^x$$ $$f_{(x)}= 5e_{1-x}-4$$
+					</p>
+					<p class="fragment fade-up;">Só para lembrar, você pode fazer qualquer trabalho em grupo. E este, não precisa enviar para mim.</p>
+					<p class="fragment fade-up;">Para ficar mais difícil, tente plotar as duas curvas no mesmo gráfico.</p>
+					</small>
+				</section>
 			</section>
 		</div>
 	</div>

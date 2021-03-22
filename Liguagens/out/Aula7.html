@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="author" content="Frank Coelho de Alcantara -2020" />
-  <title>Analisador Léxico e Gramáticas</title>
+  <title>Gramáticas</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta
     name="apple-mobile-web-app-status-bar-style"
@@ -21,192 +21,18 @@
   <div class="reveal">
     <div class="slides">
       <section id="title-slide" class="nivel1">
-        <h1 class="title">Analisador Léxico e Gramática.</h1>
+        <h1 class="title">Gramáticas</h1>
         <p style="text-align: right !important">
           Frank Coelho de Alcantara - 2021 &nbsp;&nbsp;&nbsp;
         </p>
       </section>
       <section>
         <section class="nivel1">
-          <h1 class="title">Voltando um tanto: Regex</h1>
-        </section>
-        <section class="nivel1">
-          <h2>Regex - Especificadores</h2>
-          <table style="font-size: 52%;">
-            <colgroup>
-              <col width="17%">
-              <col width="26%">
-              <col width="57%">
-            </colgroup>
-            <thead>
-              <tr>
-                <th>metacaractere</th>
-                <th>conhecido como</th>
-                <th>significado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span>.</span></td>
-                <td>curinga</td>
-                <td>qualquer caractere, exceto a quebra de
-                  linha <span>\n</span></td>
-              </tr>
-              <tr>
-                <td><span>[...]</span></td>
-                <td>conjunto</td>
-                <td>qualquer caractere incluído no conjunto</td>
-              </tr>
-              <tr>
-                <td><span>[^...]</span></td>
-                <td>conjunto negado</td>
-                <td>qualquer caractere não incluído no conjunto</td>
-              </tr>
-              <tr>
-                <td><span>\d</span></td>
-                <td>dígito</td>
-                <td>o mesmo que <span>[0-9]</span></td>
-              </tr>
-              <tr>
-                <td><span>\D</span></td>
-                <td>não-digíto</td>
-                <td>o mesmo que <span>[^0-9]</span></td>
-              </tr>
-              <tr>
-                <td><span>\s</span></td>
-                <td>branco</td>
-                <td>espaço, quebra de linha, tabs etc.;
-                  o mesmo que <span>[</span> <span>\t\n\r\f\v]</span>
-                </td>
-              </tr>
-              <tr>
-                <td><span>\S</span></td>
-                <td>não-branco</td>
-                <td>o mesmo que <span>[^</span> <span>\t\n\r\f\v]</span>
-                </td>
-              </tr>
-              <tr>
-                <td><span>\w</span></td>
-                <td>alfanumérico</td>
-                <td>o mesmo que <span>[a-zA-Z0-9_]</span> (mas pode
-                  incluir caracteres Unicode; ver
-                  <em class="xref std std-ref">flag_unicode</em>)
-                </td>
-              </tr>
-              <tr>
-                <td><span>\W</span></td>
-                <td>não-alfanumérico</td>
-                <td>o complemento de <span>\w</span></td>
-              </tr>
-              <tr>
-                <td><span>\</span></td>
-                <td>escape</td>
-                <td>anula o significado especial do
-                  metacaractere seguinte; por exemplo, <span>\.</span>
-                  representa apenas um ponto, e não o curinga</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section class="nivel1">
-          <h2>Quantificadores e Âncoras</h2>
-          <table style="font-size: 52%;">
-            <colgroup>
-              <col width="23%">
-              <col width="77%">
-            </colgroup>
-            <thead>
-              <tr>
-                <th>metacaractere</th>
-                <th>significado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span>{n}</span></td>
-                <td>exatamente <em>n</em> ocorrências</td>
-              </tr>
-              <tr>
-                <td><span>{n,m}</span></td>
-                <td>no mínimo <em>n</em> ocorrências e no máximo <em>m</em></td>
-              </tr>
-              <tr>
-                <td><span>{n,}</span></td>
-                <td>no mínimo <em>n</em> ocorrências</td>
-              </tr>
-              <tr>
-                <td><span>{,n}</span></td>
-                <td>no máximo <em>n</em> ocorrências</td>
-              </tr>
-              <tr>
-                <td><span>?</span></td>
-                <td>0 ou 1 ocorrência; o mesmo que <span>{,1}</span></td>
-              </tr>
-              <tr>
-                <td><span>+</span></td>
-                <td>1 ou mais ocorrência; o mesmo que <span>{1,}</span></td>
-              </tr>
-              <tr>
-                <td><span>*</span></td>
-                <td>0 ou mais ocorrência</td>
-              </tr>
-              <tr>
-                <td><span>^</span></td>
-                <td>início do texto, ou de uma linha com o flag <span>re.MULTILINE</span></td>
-              </tr>
-              <tr>
-                <td><span>\A</span></td>
-                <td>início do texto</td>
-              </tr>
-              <tr>
-                <td><span>$</span></td>
-                <td>fim do texto, ou de uma linha com o flag <span>re.MULTILINE</span>;
-                  não captura o <span>\n</span> no fim do texto ou da linha</td>
-              </tr>
-              <tr>
-                <td><span>\Z</span></td>
-                <td>fim do texto</td>
-              </tr>
-              <tr>
-                <td><span>\b</span></td>
-                <td>posição de borda, logo antes do início de uma palavra, ou logo
-                  depois do seu término; o mesmo que a posição entre <span>\W</span>
-                  e <span>\w</span> ou vice-versa</td>
-              </tr>
-              <tr>
-                <td><span>\B</span></td>
-                <td>posição de não-borda</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section class="nivel1">
-          <h2>Regex - Na Prática</h2>
-          <small style="font-size:90% !important">
-            <p class="fragment fade-up"> Usando o site <a href="https://regex101.com" target="_blank" rel="noopener noreferrer">www.regex101.com</a></p>
-            <p class="fragment fade-up">Identificar um número de telefone da forma como a pessoa escrever incluíndo os dados internacionais de ddi e ddd.</p>
-            <p class="fragment fade-up">Identificar um CEP, segundo o padrão brasileiro, da forma como a pessoa escrever, incluíndo espaços, pontos e hífens.</p>
-            <p class="fragment fade-up">Identificar um CPF, segundo o padrão brasileiro, da forma como a pessoa escrever, incluíndo espaços, pontos e hífens.</p>
-          </small>
-        </section>
-      </section>
-      <section>
-        <section class="nivel1">
-          <h2>Analisadores Léxicos</h2>
-          <p class="fragment fade-up">Responsáveis pela identificação e validação dos lexemas da linguagem.</p>
-          <p class="fragment fade-up">Utilizam MEF ou REGEX para identificar estes Lexemas, ou não.</p>
-          <p class="fragment fade-up">A cada lexema identificado é atribuído uma estrutura contendo dados sobre o lexema.</p>
-          <p class="fragment fade-up">A classe de cada lexema, seu tipo e seu valor são dados comuns nesta atribuição.</p>
-        </section>
-        <section class="nivel1">
-          <h2>Estruturas de Lexemas</h2>
-          <small style="width: 50%;font-size: 90% !important;">
-            <p class="fragment fade-up">Cada linguagem usada para criar um interpretador utiliza uma solução diferente.</p>
-            <p class="fragment fade-up">Interpretadores criados em C, por exemplo, podem usar <b>structs</b> ou um conjunto dela para 
-              armazenar os dados relativos a cada lexema.</p>
-          </small>
-          <img style="float: right; margin-right: 3%;" class="fragment fade-up" data-src="../img/structs1.jpg" alt="uma struct contendo dados de linha e coluna e outra contendo os dados do lexema" />
-          <p style="font-size: 90% !important;"class="fragment fade-up">Cada Lexema corretamente identificado é armazenado na tabela de símbolos.</p>
+          <h2>Regex?</h2>
+            <p class="fragment fade-up">Infelizmente Expressões Regulares apresentam algumas limitações para a definição de uma linguagem de programação.</p>
+            <p class="fragment fade-up">As Regex são excelentes, ainda que lentas, para identificação de lexemas.</p>
+            <p class="fragment fade-up">Muito difícil fazer uma expressão regular para garantir os pares de parênteses.</p>
+            <p class="fragment fade-up">Muito difícil fazer uma expressão regular para funções e objetos garantindo os escopos.</p>
         </section>
       </section>
       <section>
@@ -221,12 +47,12 @@
             <a href="https://en.wikipedia.org/wiki/Noam_Chomsky" target="_blank" rel="noopener noreferrer">Noam Chomsky</a> 
             é um dos pesquisadores mais importantes nesta área.</p>
           <p class="fragment fade-up">
-            Devemos ao trabalho de Chomsky a classificação das Gramáticas
-            que usamos hoje.
+            A nós, nesta disciplina, interessam apenas as gramáticas livres de contexto e as regulares. As gramáticas 
+            livres de contextos são um superconjunto das gramáticas regulares.
           </p>
         </section>
         <section class="nivel1">
-          <h2>Linguagens</h2>
+          <h2>Linguagens e Chomsky</h2>
           <table style="font-size: 80% !important">
             <tbody>
               <tr>
@@ -269,13 +95,12 @@
         </section>
         <section class="nivel1">
           <h2>Livres de Contexto</h2>
-          <blockquote>
-            “uma gramática livre de contexto descreve um conjunto de strings,
-            ou linguagem, por meio da definição da estrutura das strings da
-            linguagem. Esta definição é recursiva, indicando que cada regra
-            produção pode, ou não, ser utilizada para definir novas regras de
-            produção”
-          </blockquote>
+          <p class="fragment fade-up">
+            Uma gramática livre de contexto é uma álgebra que descreve um conjunto de strings 
+            por meio da definição da estrutura das strings que formarão a linguagem.</p>
+          <p class="fragment fade-up">Esta definição é recursiva, indicando que cada regra
+          produção pode, ou não, ser utilizada para definir novas regras de produção</p>
+          <p class="fragment fade-up">$$ STMT \rightarrow \space if \space EXPRESS \space STMT \space else \space STMT$$</p>
         </section>
       </section>
       <section>
@@ -287,12 +112,12 @@
           </p>
           <p class="fragment fade-up">
             O símbolo inicial é o que aparece do lado esquerdo da primeira
-            regra $𝑆$.
+            regra, no nosso caso, na maior parte das vezes: $𝑆$.
           </p>
           <p class="fragment fade-up">Pode ser qualquer símbolo, usaremos o $𝑆$ por convenção.</p>
         </section>
         <section class="nivel1">
-          <h2>Regras de Produção</h2>
+          <h2>Exemplo 1</h2>
           <ol>
             <li>$𝑆 \rightarrow 𝐴𝐵$</li>
             <li>$𝑆 \rightarrow 𝐴𝑆𝐵$</li>
@@ -302,8 +127,15 @@
           <p class="fragment fade-up">Vamos produzir a string:“aabb”</p>
         </section>
         <section class="nivel1">
-          <h2>Produzindo $aabb$</h2>
-          <p class="fragment fade-up">
+          <h2>Exemplo 1 - Derivando $aabb$</h2>
+          <ol style="float: right; width: 15%; font-size: 58%; margin-right: 1%;">
+            <li>$𝑆 \rightarrow 𝐴𝐵$</li>
+            <li>$𝑆 \rightarrow 𝐴𝑆𝐵$</li>
+            <li>$𝐴 \rightarrow a$</li>
+            <li>$𝐵 \rightarrow b$</li>
+          </ol>
+          <small style="float: left; width: 68%; margin-left: 2%; font-size: 80%!important;"> 
+            <p class="fragment fade-up">
             Temos $S \rightarrow \emptyset$ e aplicamos 2 $𝑺 \rightarrow 𝑨𝑺𝑩$
           </p>
           <p class="fragment fade-up">
@@ -322,6 +154,20 @@
             Temos de $S \rightarrow aaBb$ e aplicamos 4 $B \rightarrow b$
           </p>
           <p class="fragment fade-up">Conseguimos: $S \rightarrow aabb$</p>
+          </small>
+        </section>
+        <section class="nivel1">
+          <h2>Exemplo 2</h2>
+          <ol style="font-size: 80% !important;">
+            <li>$𝑆TMT \space \rightarrow IFSTMT \space | \space outracoisa$</li>
+            <li>$IFSTMT \rightarrow if \space (EXP) \space STMT \space ELSESTMT$</li>
+            <li>$ELSESTMT \rightarrow else \space STMT \space | \space \varepsilon$</li>
+            <li>$EXP \rightarrow 0|1$</li>
+          </ol>
+          <p class="fragment fade-up">Que pode gerar / identificar: </p>
+          <p class="fragment fade-up"><i>outracoisa</i> </p>
+          <p class="fragment fade-up"><i>if (0) outracoisa</i> </p>
+          <p class="fragment fade-up"><i>if (1) outracoisa else if (0) outracoisa else outracoisa</i> </p>
         </section>
         <section class="nivel1">
           <h2>Exercício Formativo 1</h2>
@@ -544,24 +390,23 @@
           </p>
           <ol style="font-size: 55%">
             <li>
-              $Formula = Constante | Proposicao | FormulaUnaria |
-              FormulaBinaria.$
+              Formula = Constante | Proposicao | FormulaUnaria |
+              FormulaBinaria
             </li>
-            <li>$Constante = "T" | "F".$</li>
-            <li>$Proposicao = [a-z0-9]+$</li>
+            <li>Constante = "T" | "F"</li>
+            <li>Proposicao = [a-z0-9]+</li>
             <li>
-              $FormulaUnaria = AbreParen\ OperadorUnario\ Formula\ FechaParen$
+              FormulaUnaria = AbreParen\ OperadorUnario\ Formula\ FechaParen
             </li>
             <li>
-              $FormulaBinaria= AbreParen\ OperatorBinario\ Formula\ Formula\
-              FechaParen$
+              FormulaBinaria = AbreParen\ OperatorBinario\ Formula\ Formula\
+              FechaParen
             </li>
-            <li>$AbreParen = "("$</li>
-            <li>$FechaParen = ")"$</li>
-            <li>$OperatorUnario = "\neg"$</li>
+            <li>AbreParen = "("</li>
+            <li>FechaParen = ")"</li>
+            <li>OperatorUnario = "\neg"</li>
             <li>
-              $OperatorBinario = "\vee" | "\wedge" | "\rightarrow"
-              |"\leftrightarrow"$
+              OperatorBinario = "\vee" | "\wedge" | "\rightarrow" |"\leftrightarrow"
             </li>
           </ol>
           <p>Poste o link com a sua solução <a href="https://forms.gle/vhCEKNr4URwtf4RM9" target="_blank" rel="noopener noreferrer">aqui</a>.</p>
