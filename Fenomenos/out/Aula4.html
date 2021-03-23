@@ -22,7 +22,7 @@
 		<div class="slides">
 			<section  id="title-slide">
 				<section class="nivel1">
-				<h1 class="title" style="display: block; margin-top: 2%;">Funções Exponenciais</h1>
+				<h1 class="title" style="display: block; margin-top: 2%;">Funções Logarítmicas</h1>
 				<p style="text-align: right !important">
 					Frank Coelho de Alcantara -2020 &nbsp;&nbsp;
 				</p>
@@ -33,52 +33,88 @@
 					<h2>Funções Logarítmicas</h2>
 					<small style="font-size: 80% !important;">
 						<p class="fragment fade-up;">Se $b$ representa qualquer número de forma que $b > 0$ e $b \neq 1$ então 
-							podemos expressar as funções exponenciais por: $$f_{(x)} = \log_b x \equiv x = b^{f_{(x)}}$$</p>
+							podemos expressar as funções exponenciais por: $$f_{(x)} = \log_b x \equiv x = b^{f_{(x)}} = b^y$$</p>
 						<p class="fragment fade-up;">Onde $b$ será chamado de base. 
-						<p class="fragment fade-up;">Existem duas funções logarítmicas especiais $f_{(x)} = \log_{10} x$ normalmente representada 
-							por $f_{(x)} = \log x$  e $f_{(x)} = \log_{e} x$  normalmente representada por $f_{(x)} = \ln x$</p>
-						<p class="fragment fade-up;">Também vamos evitar qualquer número negativo na base para evitar cair no domínio dos números imaginários.</p>
+						<p class="fragment fade-up;">Existem duas funções logarítmicas especiais:</p>
+							<ol style="width: 98%;margin-left: 9%;">
+								<li>$f_{(x)} = \log_{10} x$ normalmente representada por $f_{(x)} = \log x$</li>
+								<li>$f_{(x)} = \log_{e} x$ normalmente representada por $f_{(x)} = \ln x$</li>
+							</ol>
+						<p class="fragment fade-up;">Também vamos evitar qualquer número negativo na base para evitar o domínio dos números imaginários.</p>
 					</small>
-				</section>
-				<section class="nivel1">
-					<h2>Exemplo 2</h2>
-						<p class="fragment fade-up;">Considerando o apresentado anteriormente, plote os gráficos de: 
-							$$f_{(x)} = 2^x = 0 \space \space e \space \space $g_{(x)} = (\frac{1}{2})^x = 1$$
-						</p>
 				</section>
 				<section class="nivel1">
 					<h2>Propriedades</h2>
-					<small style="font-size: 80% !important;">
-						<p class="fragment fade-up;">O gráfico de $f_{(x)}$ sempre irá conter o ponto (0,1). Ou, se preferir, 
-							$f_{(0)} = 1$ independente do valor de $b$.	</p>
-						<p class="fragment fade-up;">Para todos $b$ teremos $b^x > 0$ o que implica em $b^x \neq 0$. </p>
-						<p class="fragment fade-up;">Se $0 &lt; b &lt; 1$ o gráfico de $b^x$ irá decrescer da esquerda para a direita. </p>
-						<p class="fragment fade-up;">Se $b &gt; 1$ o gráfico de $b^x$ irá crescer da esquerda para a direita.</p>
-						<p class="fragment fade-up;">Se $b^x = b^y \therefore x = y$.</p>
-						<p class="fragment fade-up;">Existe um $b$ especial quando $b = e = 2.718281828...</p>
+					<p class="fragment fade-up;">Para $b >0$, $b \neq 1$ e $x,y > 0$.</p>
+					<ol style="font-size: 80% !important;">
+						<li class="fragment fade-up;">$\log_b 1 = 0 \equiv b^0 = 1$.</li>
+						<li class="fragment fade-up;">$\log_b b = 1 \equiv b^1 = b$.</li>
+						<li class="fragment fade-up;">$\log_b (xy) = \log_b x + \log_b y$.</li>
+						<li class="fragment fade-up;">$\log_b (\frac{x}{y}) = \log_b x - \log_b y$.</li>
+						<li class="fragment fade-up;">$\log_b x^r = r \log_b x$</li>
+						<li class="fragment fade-up;">$\log_b b^x = x $.</li>
+						<li class="fragment fade-up;">$\log_b x^{\log_b x} = x $.</li>
+						<li class="fragment fade-up;">$\log_a b = \frac{\log_c b}{\log_c a}$.</li>
+					</ol>
+				</section>
+				<section class="nivel1">
+ 					<h2>Função Logarítmica Natural</h2>
+					<iframe height="500px" width="100%" src="https://replit.com/@frankalcantara/logaritmicas1?lite=true" scrolling="no"
+						frameborder="no" allowtransparency="true" allowfullscreen="true"
+						sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+				</section>
+				<section class="nivel1">
+					<h2>Muito Importante</h2>
+					<small style="font-size:80% !important;">
+					<p class="fragment fade-up;">Observando os gráficos que geramos podemos inferir que $\ln x \rightarrow \infty$ quando $x \rightarrow \infty$ e  
+						que $\ln x \rightarrow -\infty$ quando $x \rightarrow 0, x>0$.
+					</p>
+					<p class="fragment fade-up;">Se evitarmos os números imaginários, o domínio da função logarítmica é $(0,\infty)$ e sua imagem $(-\infty, \infty)$.</p>
+					<p class="fragment fade-up;">A função logarítmica é a função inversa da função exponencial. $$f_{(x)} = b^x$$ $$g_{(x)}=\log_b x$$</p>
 					</small>
 				</section>
 				<section class="nivel1">
- 					<h2>Número de Euler</h2>
- 					<p class="fragment fade-up;">$$e = \mathop {\lim }\limits_{n \to \infty } \left( {1 + \frac{1}{n}} \right)^n$$</p>
- 					<p class="fragment fade-up;">A curva traçada quando a base é o Número de Euler é chamada de <b>Exponencial
- 						Natural</b> e tem como característica
- 					mais relevante o fato de ser igual a sua primeira derivada.</p>
- 					<p class="fragment fade-up;">Este número irracional aparece em diversos trabalhos matemáticos, desde os logaritmos
- 					de Napier em 1618.
- 					como foi Euler que estudou com mais profundidade as características deste número coube a ele a hora de nomeá-lo.
- 					<a href="https://mathshistory.st-andrews.ac.uk/HistTopics/e/" target="_blank" rel="noopener noreferrer">Aqui</a>
- 					você vai encontrar um pouco da história deste número.</p>.
+					<h2>Função Inversa</h2>
+					<small style="font-size:69% !important;">
+						<p class="fragment fade-up;">Se $f_{(x)} : X \rightarrow Y$, uma função com Domínio $X$ e Imagem $Y$, podemos ter uma função $g_{(y)} : Y \rightarrow X$ que seja 
+							com Domínio $Y$ e Imagem $X$ de tal forma que: $$g_{(f_{(x)})} = x$$ para todo e qualquer $x$ no Domínio $X$ e $$f_{(g_{(y)})} = y$$ para todo 
+							e qualquer $y$ no Domínio $Y$.
+						</p>
+						<p class="fragment fade-up;">Existirá uma função $g_{(x)}$, inversa de $f_{(x)}$, para a função $f_{(x)}: X \rightarrow Y$ se para cada 
+							$y \in Y$ exite no máximo um $x \in X$ e se para cada $y \in Y$ existe no mínimo um $x \in X$ tal que $f_{(x)}=y$.</p>
+					</small>
 				</section>
 				<section class="nivel1">
-					<h2>Desafio</h2>
-					<small style="font-size:80% !important;">
-					<p class="fragment fade-up;">Na aula passada, no Colaboratory, vimos como carregar algumas constantes matemáticas importantes.
-						 Cabe a você modificar o código apresentado nesta aula para plotar o gráfico das seguintes funções: 
-						 $$f_{(x)}= e^x$$ $$f_{(x)}= 5e_{1-x}-4$$
-					</p>
-					<p class="fragment fade-up;">Só para lembrar, você pode fazer qualquer trabalho em grupo. E este, não precisa enviar para mim.</p>
-					<p class="fragment fade-up;">Para ficar mais difícil, tente plotar as duas curvas no mesmo gráfico.</p>
+					<h2>Exemplo 1 - Bactérias</h2>
+					<small style="font-size:69% !important;">
+						<p class="fragment fade-up;" style="margin-left: 2%; float: left;font-size: 140%; width: 55%;">Sabendo que a bactéria B se reproduz a cada 2 minutos, criando uma nova bactéria. Quantas bactérias 
+							existirão em uma colônia saudável depois de 12 minutos? Sabendo que inicialmente havia 5 bactérias nesta colônia. <b>Em Python! Com Gráfico!</b>
+						</p>
+						<table style="margin-right: 2%;float: right;font-size: 80%;">
+							<tr class="fragment fade-up;"><th>Tempo (min.)</th><th>Bactérias</th></tr>
+							<tr class="fragment fade-up;"><td>$0$</td><td>$5$</td></tr>
+							<tr class="fragment fade-up;"><td>$1$</td><td>$5$</td></tr>
+							<tr class="fragment fade-up;"><td>$2$</td><td>$5*2$</td></tr>
+							<tr class="fragment fade-up;"><td>$3$</td><td>$5*2$</td></tr>
+							<tr class="fragment fade-up;"><td>$4$</td><td>$5*2*2$</td></tr>
+							<tr class="fragment fade-up;"><td>$5$</td><td>$5*2*2$</td></tr>
+							<tr class="fragment fade-up;"><td>$6$</td><td>$5*2*2*2$</td></tr>
+							<tr class="fragment fade-up;"><td>$7$</td><td>$5*2*2*2$</td></tr>
+							<tr class="fragment fade-up;"><td>$8$</td><td>$5*2*2*2*2$</td></tr>
+						</table>
+					</small>
+				</section>
+				<section class="nivel1">
+					<h2>Desafio 1 - Bactérias</h2>
+					<small style="font-size:69% !important;">
+						<p class="fragment fade-up;" style="margin-left: 2%; float: left;font-size: 140%;">Sabendo que a
+							bactéria B se reproduz a cada 2 minutos, criando uma nova bactéria. Sabendo que a cada geração apenas 80% das bactérias sobrevivem 
+							para se reproduzir, responda: quantas bactérias
+							existirão nesta colônia depois de 14 minutos? Sabendo que inicialmente havia apenas 10 bactérias nesta
+							colônia. <b>Em Python! Com Gráfico!</b>
+						</p>
+						
+						<p class="fragment fade-up;">Se quiser que eu veja, poste seu código <a href="https://forms.gle/mBAdcNqFLbsWnTYy7" target="_blank" rel="noopener noreferrer">aqui</a>.</p>
 					</small>
 				</section>
 			</section>
