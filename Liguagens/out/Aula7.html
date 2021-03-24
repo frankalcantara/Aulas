@@ -396,11 +396,10 @@
             <li>Constante = "T" | "F"</li>
             <li>Proposicao = [a-z0-9]+</li>
             <li>
-              FormulaUnaria = AbreParen\ OperadorUnario\ Formula\ FechaParen
+              FormulaUnaria = AbreParen OperadorUnario | Formula FechaParen
             </li>
             <li>
-              FormulaBinaria = AbreParen\ OperatorBinario\ Formula\ Formula\
-              FechaParen
+              FormulaBinaria = AbreParen  OperatorBinario| Formula FechaParen
             </li>
             <li>AbreParen = "("</li>
             <li>FechaParen = ")"</li>
