@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Frank Coelho de Alcantara -2020" />
+  <title>Parsers</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/interpret.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="title-slide" class="nivel1">
+        <section>
+          <h1 class="title">Parsers</h1>
+          <p style="text-align: right !important; margin-top:30%; margin-right:2% !important;">
+            Frank Coelho de Alcantara -2021 &nbsp;&nbsp;&nbsp;
+          </p>
+        </section>
+        <section class="title-slide">
+          <h2>Exercício 1 - Regex</h2>
+          <p style="font-size: 90%">
+            Usando o site regex101.com, escreva uma expressão regular capaz de identificar expressões aritméticas
+            contendo apenas as quatro operações $+, - , \times, \div$ com precedência definida por parenteses utilizando
+            identificadores definidos por $[a-z]+$ segundo os seguintes exemplos: $$a + (b - C)$$ $$a \times (b \div c)$$
+            $$(a \times (b-c))$$
+          </p>
+        </section>
+        <section class="title-slide">
+          <h2>Exercício 2 - Gramática</h2>
+          <p style="font-size: 85%">
+            Considerando o conjunto de regras de produção explicitados a seguir, faça a derivação da árvore sintática capaz de
+            identificar a
+            <i>string</i> $(a+b)\times c)$. Para completar este exercício você precisa produzir a estrutura de derivação e a árvore
+            sintática correspondente.
+          </p>
+          <ol>
+            <li>$EXP = (EXP) | EXP \space\space OP\space\space IDENT$</li>
+            <li>$OP = + | - | \times | \div$</li>
+            <li>$IDENT = a | b | c$</li>
+          </ol>
+        </section>
+        <section class="title-slide">
+          <h2>Exercício 2 - Gramática</h2>
+          <ol class="fragment fade-up" style="font-size: 50%;">
+            <li>$EXP = (EXP) | EXP \space\space OP\space\space IDENT$</li>
+            <li>$OP = + | - | \times | \div$</li>
+            <li>$IDENT = a | b | c$</li>
+          </ol>
+          <ol class="fragment fade-up" style="font-size: 50%; width: 60%; margin-left: 5%;">
+            <li>$EXP$</li>
+            <li>$EXP\space\space OP\space\space IDENT$</li>
+            <li>$EXP \times IDENT$</li>
+            <li>$(EXP) \times IDENT$</li>
+            <li>$(EXP\space\space OP \space\space IDENT) \times IDENT$</li>
+            <li>$(EXP + IDENT) \times IDENT$$</li>
+            <li>$(IDENT + IDENT) \times IDENT$$</li>
+            <li>$(a + IDENT) \times IDENT$$</li>
+            <li>$(a + b) \times IDENT$$</li>
+            <li>$(a + b) \times c$$</li>
+          </ol>
+          <img class="fragment fade-up" style="height:368px" data-src="../img/ArvoreSintatica1.png"
+            alt="algoritmos de parser mais comuns" />
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Gramáticas Livres de Contexto 1</h2>
+          <p class="fragment fade-up">Símbolos à esquerda são os <strong>símbolos não terminais</strong>, representados por letras latinas maiúsculas $(𝑆, 𝐴,
+            𝐵, …)$.</p>
+          <p class="fragment fade-up">Símbolos à direita podem ser terminais, ou não. <strong>Símbolos terminais</strong> são representados por letras latinas
+            minúsculas ou outros
+            símbolos $(a, b, c,
+            ...)$.</p>
+          <p class="fragment fade-up">Várias regras $(𝐴\rightarrow \beta_1, 𝐴\rightarrow \beta_2, …, 𝐴\rightarrow \beta_n)$, com um mesmo não terminal do
+            lado esquerdo podem ser
+            reunidas: $𝐴 \rightarrow \beta_1 | \beta_2 | … |\beta_n$.
+          </p>
+        </section>
+        <section>
+          <h2>Gramáticas Livres de Contexto 2</h2>
+          <small style="font-size: 90% !important;">
+          <p class="fragment fade-up">Strings com terminais e não terminais, quando existirem, são representadas por letras gregas minúsculas $(\Gamma, \Delta, \Phi,...)$.</p>
+          <p class="fragment fade-up">Strings só de não terminais são representadas por letras latinas mínúsculas $(S, A, B, C, ...)$.
+          </p>
+          <p class="fragment fade-up">Strings só de terminais são representadas por letras latinas mínúsculas $(w, x, y, z, ...)$.</p>
+          <p class="fragment fade-up">Um símbolo qualquer, indefinido, que pode ser terminal ou não terminal, será representado por uma letra latina maiúscula
+            $(𝑋, 𝑌, …)$.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Gramáticas Livres de Contexto 3</h2>
+          <img data-src="../img/img1.png" class="imgleft"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+          <div class="textoright">
+            <p class="fragment fade-up">A árvore gerada por derivação pode ser usada para caracterizar as gramáticas livres de contexto. </p>
+            <p class="fragment fade-up">Consideramos equivalentes todas as derivações que correspondem a mesma árvore.</p>
+          </div>
+        </section>
+        <section>
+          <h2>Derivação</h2>
+          <p class="fragment fade-up">Derivação à esquerda <strong>(leftmost derivation)</strong>: uma regra é sempre aplicada ao primeiro não terminal
+            da cadeia, o que fica mais à esquerda.</p>
+          <p class="fragment fade-up">Derivação à direita <strong>(rightmost derivation)</strong>: uma regra é sempre aplicada ao último não terminal da
+            cadeia, o que fica mais à direita.</p>
+          <p class="fragment fade-up">O algoritmo de parser definirá a forma como faremos a derivação. Esta forma define quais tipo de derivação vamos utilizar 
+            para substituir símbolos terminais por não terminais, ou vice-versa.</p>
+        </section>
+        <section>
+          <h2>Ambiguidade</h2>
+          <p class="fragment fade-up">Uma gramática é <b>ambígua</b> se, para uma string $w$ qualquer, existem duas ou mais árvores de derivação distintas, duas ou
+            mais derivações a esquerda ou duas ou mais derivações a direita.</p>
+          <p class="fragment fade-up">Podemos mostrar que uma gramática é ambígua mostrando que para uma determinada string $w$ existem árvores sintáticas
+            distintas.</p>
+            <p class="fragment fade-up">A ambiguidade e o comportamento indefinido são dois problemas sérios em computação.</p>
+        </section>
+        <section>
+          <h2>Ambiguidade - Exemplo 1 </h2>
+          <p class="fragment fade-up">Um exemplo clássico de ambiguidade, com derivação a direita, pode ser tirado da gramática das linguagens derivadas do Algol.</p>
+          <img  class="fragment fade-up" data-src="../img/amb1.jpg">
+          <p style="font-size: 67%;" class="fragment fade-up">Podemos mostrar que esta gramática é ambígua para <i>strings</i> 
+            $if\space\space Expr1 \space\space then \space\space if \space\space Expr2 \space\space then \space\space Assignment1 \space\space else \space\space Assignment2$.</p>
+        </section>
+        <section>
+          <h2>Ambiguidade - Exemplo 1a </h2>
+          <p style="font-size: 67%;" class="fragment fade-up">$if\space\space Expr1 \space\space then \space\space if \space\space Expr2 \space\space then \space\space
+            Assignment1 \space\space else \space\space Assignment2$.</p>
+          <img class="fragment fade-up" style="height: 200px;" data-src="../img/amb2.jpg">
+          <img class="fragment fade-up" style="height: 200px;" data-src="../img/amb3.jpg">
+        </section>
+        <section>
+          <h2>Exercício 3</h2>
+          <p>Considerando o fragmento de grámatica apresentado, referente ao $if-else$ do exemplo anterior, refaça as derivações à direita, para o exemplo anterior e comprove 
+            a ambiguidade deste fragmento gramatical.</p>
+            <img class="fragment fade-up" data-src="../img/amb1.jpg">
+          <p style="font-size: 67%;" class="fragment fade-up">Para:
+          $if\space\space Expr1 \space\space then \space\space if \space\space Expr2 \space\space then \space\space Assignment1
+          \space\space else \space\space Assignment2$.</p>
+        </section>
+        <section>
+          <h2>Gramáticas Restritivas</h2>
+            <p class="fragment fade-up">Uma forma interessante de restringir as possibilidades de encontrarmos ambiguidades é a criação de gramáticas livres de contexto com regras restritivas.</p>
+            <p class="fragment fade-up">Podemos classificar as gramáticas de acordo com a dificuldade que será encontrada na criação do parser.</p>
+            <p class="fragment fade-up">No universo das linguagens de programação imperativas teremos:</p>
+            <p class="fragment fade-up" style="font-size:69%;">$Gramáticas LR(1)\rightarrow Gramáticas LL(1) \rightarrow Gramáticas Regulares$</p>
+        </section>
+        <section>
+          <h2>Gramáticas LR(1)</h2>
+            <p class="fragment fade-up">Sob a classificação de LR(1) está uma quantidade significativa de gramáticas livres de contexto.</p>
+            <p class="fragment fade-up">O parser em textos gerados segundo as regras de gramáticas LR(1) operam em <b>bottom-up</b> e da esquerda para direita 
+              olhando, no mínimo, um símbolo a frente do símbolo que está sendo processado.</p>
+            <p class="fragment fade-up">Por ser uma gramática simples, e ter muitos <b>parsers</b> disponíveis, é uma das gramáticas mais utilizadas para linguagens de 
+              programação imperativas. </p>
+        </section>
+        <section>
+          <h2>Gramáticas LL(1)</h2>
+            <p class="fragment fade-up">Um subconjunto das gramáticas LR(1).</p>
+            <p class="fragment fade-up">O parser em textos gerados segundo as regras de gramáticas LL(1) operam em <b>top-down</b> e da esquerda para
+              direita olhando, no mínimo, um <i>string</i> a frente do símbolo que está sendo processado.</p>
+            <p class="fragment fade-up">Neste caso, não é raro encontrarmos <b>parsers</b> personalizados, desenvolvidos de forma manual (fácil). </p>
+        </section>
+        <section>
+          <h2>Gramáticas Regulares</h2>
+          <p class="fragment fade-up">Um subconjunto das gramáticas LL(1).</p>
+          <p class="fragment fade-up">São gramáticas cujas regras de produção são limitadas a duas formas: $A \rightarrow a$ ou $A \rightarrow aB$ onde 
+            $ \{A,B\} \in N$ e $a \in \Sigma$.</p>
+          <p class="fragment fade-up">Estas são as gramáticas que geram linguagens que podem ser reconhecidas por uma <b>MEF</b> e que usamos para definir, a 
+            criação de lexemas da nossa linguagem.</p>
+          <p class="fragment fade-up">Não esqueça <b>$MEF \leftrightarrow Regex$</b></p>
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Para Lembrar: Parsers</h2>
+          <p>
+            <img data-src="../img/parsers.png"
+              alt="algoritmos de parser mais comuns. destacando as famílias top-down e bottom-up" />
+          </p>
+        </section>
+        <section class="title-slide">
+          <h2>Parsers - Formalmente</h2>
+          <p class="fragment fade-up">
+            <strong>Parser</strong> é o artefato de software responsável por validar, ou produzir, uma determinada string de uma
+            linguagem $𝐿$ Segundo a
+            gramática $𝐺$ sobre o alfabeto $\Sigma$.
+          </p>
+          <p class="fragment fade-up">Para fins didáticos, algoritmos de <i>parser</i> estão divididos em duas grande famílias
+            <strong>top-down</strong> e <strong>bottom-up</strong>.</p>
+          <p class="fragment fade-up">Percorremos da raíz até as folhas, no caso do <b>top-Down</b>, ou das folhas até a raíz no
+            caso do <b>bottom-up</b>.</p>
+        </section>
+        <section>
+          <h2>Parsers - Top-Down</h2>
+          <img data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 465px;"
+            alt="algoritmos de parser mais comuns" />
+          <div style=" font-size: 80%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
+            <ol>
+              <li  class="fragment fade-up" style="margin-bottom: 3%;">Da raiz para as folhas;</li>
+              <li  class="fragment fade-up" style="margin-bottom: 3%;">Da esquerda para direita;</li>
+              <li  class="fragment fade-up" style="margin-bottom: 3%;">A derivação mais a esquerda;</li>
+              <li  class="fragment fade-up" style="margin-bottom: 3%;">O parse deverá escolher uma regra que atenda esta derivação.</li>
+              <li  class="fragment fade-up" style="margin-bottom: 3%;">O processo termina quando na fronteira da árvore temos apenas folhas e não há mais símbolos.</li>
+            </ol>
+          </div>
+        </section>
+        <section>
+          <h2>Parsers - Backtracking</h2>
+          <img data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 465px;"
+            alt="algoritmos de parser mais comuns" />
+          <div style=" font-size: 80%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
+            <p  class="fragment fade-up">Se, a qualquer momento, não existir uma regra de produção que permita a derivação, e ainda existirem símbolos não terminais, 
+              o parser deve voltar e refazer a árvore; talvez uma das escolhas de regras possa ser alterada.</p>
+            <p class="fragment fade-up">A essa operação damos o nome de <b>Backtrack</b>.</p>
+          </div>
+        </section>
+        <section>
+          <h2>Explicando o Backtrack</h2>
+          <p class="fragment fade-up">Se terminamos a <i>string</i> sob análise e ainda existem símbolos não terminais. Ou se, não encontramos uma regra adequada. O 
+            algoritmo de <b>parser</b> deve voltar a árvore e refazer as opções que fez para as regras anteriores. </p>
+          <p class="fragment fade-up">Neste caso, existem duas opções: ou as regras adotadas alternativamente levam a uma árvore perfeita.</p>
+          <p class="fragment fade-up" > Ou o <i>string</i> não é faz parte da linguagem e <b>um erro de sintaxe 
+          deve ser emitido</b></p>
+        </section>
+        <section>
+          <h2>Backtracking Alternativas</h2>
+          <div  class="fragment fade-up" style=" font-size: 80%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
+            <p class="fragment fade-up" >Existem dois algoritmos para varrer uma árvore sintáticas conhecidos por sua eficiência:
+              <strong>deep-first</strong> e <strong>breadth-first</strong>.</p>
+            <p class="fragment fade-up" >No <strong>deep-first</strong> havendo duas opções, armazenamos uma e seguimos com a outra, se algo der errado
+              voltamos neste ponto e seguimos a outra alternativa.
+            </p>
+          </div>
+          <div style=" font-size: 80%; float: right; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
+            <p class="fragment fade-up" >No <strong>breadth-first</strong>, armazenamos um conjunto de soluções parciais e examinamos estas soluções em
+              busca de soluções melhores
+              eventualmente o conjunto
+              irá conter toda a árvore. Criamos um conjunto para cada opção e vamos eliminando opções ruins.</p>
+          </div>
+        </section>
+        <section>
+          <h1>Não queremos backtrack!</h1>
+        </section>
+        <section>
+          <h2>Parsers - NonBacktrack</h2>
+          <img data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 465px;"
+            alt="algoritmos de parser mais comuns" />
+          <div style=" font-size: 80%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
+            <p>Classe de parsers que usa um ponteiro apontando para o próximo símbolo na string;</p>
+            <p>Usam uma classe de gramática especial chamada de LL(k);</p>
+            <p>O k representa o número de símbolos analisados em cada passo (previstos???).</p>
+          </div>
+        </section>
+        <section>
+          <h2>Gramáticas LL(1)</h2>
+          <img data-src="../img/tpdn1.png" style="float: left; margin-left: 2%; max-width: 410px;"
+            alt="algoritmos de parser mais comuns" />
+          <div style=" font-size: 60%; float: left; margin-right: 1%; margin-left: 4%; max-width: 44%; padding-top: 3%;">
+            <p>Definimos gramáticas LL(1) de tal forma que:$$𝑮=\{𝑵,\Sigma, 𝑷, 𝑺\}$$</p>
+            <p>Onde: $$𝒘 \in \Sigma^∗; 𝑨\in 𝑵; \space\space \alpha, \beta \space\space 𝒆 \space\space \gamma \in (𝑵\cup \Sigma)^∗$$</p>
+            <p>Cujas derivações serão dadas por:$$𝑺 \rightarrow 𝒘𝑨 \gamma \space\space| \space\space 𝒘 \alpha 𝜸 \space\space| \space\space 𝒘𝒙 \in \Sigma^∗$$ </p>
+            <p>$$ 𝑺 \rightarrow 𝒘𝑨 \gamma \space\space | \space\space 𝒘 \beta \gamma \space\space | \space\space 𝒘𝒚 \in \Sigma^∗$$
+            </p>
+          </div>
+        </section>
+        <section>
+          <h2>LL(1) - Resumo</h2>
+          <p>
+            <img data-src="../img/llk1.png"
+              alt="o primeiro l é para varrer a esquerda, left. O segundo l é para fazer a primeira derivação a esquerda." />
+          </p>
+        </section>
+        <section>
+          <h2>Exemplo 1</h2>
+          <p>Considere a gramática a seguir e encontre a árvore de derivações para $“a + a * a”$:</p>
+          <ul style="font-size: 80%;float: left; margin-left: 8%; list-style-type: none;">
+            <li>$G= \{\Sigma = \{ +, *, (, ), a\}$,</li>
+            <li>$\space\space\space 𝑵=\{𝑺, 𝑻, 𝑭\}$,</li>
+            <li>$\space\space\space𝑺=\{𝑺\}$,</li>
+            <li>$\space\space\space𝑷=\{ $
+            <li>$\space\space\space\space\space\space𝑺 \rightarrow 𝑺+𝑻$;</li>
+            <li>$\space\space\space\space\space\space𝑺 \rightarrow 𝑻$;</li>
+            <li>$\space\space\space\space\space\space𝑻 \rightarrow 𝑻∗𝑭$;</li>
+            <li>$\space\space\space\space\space\space𝑻 \rightarrow 𝑭$;</li>
+            <li>$\space\space\space\space\space\space𝑭 \rightarrow (𝑺)$;</li>
+            <li>$\space\space\space\space\space\space𝑭 \rightarrow 𝒂\}\}$;</li>
+            </ol>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Exemplo 1 - Derivação</h2>
+          <ol style="font-size:40% !important; float:right; margin-right:1%;">
+            <li>$𝑺 \rightarrow 𝑺+𝑻$;</li>
+            <li>$𝑺 \rightarrow 𝑻$;</li>
+            <li>$𝑻 \rightarrow 𝑻∗𝑭$;</li>
+            <li>$𝑻 \rightarrow 𝑭$;</li>
+            <li>$𝑭 \rightarrow (𝑺)$;</li>
+            <li>$𝑭 \rightarrow 𝒂\}$;</li>
+          </ol>
+          <p class="fragment fade-up">$𝑆 \rightarrow 𝑆+𝑇$<span style="margin-right:23%; display: block; float: right;">$𝑆 \Rightarrow 𝑆+𝑇;$</span></p>
+          <p class="fragment fade-up">$𝑆→𝑇$<span style="margin-right:23%; display: block; float: right;">$\Rightarrow 𝑇+𝑇;$</span></p>
+          <p class="fragment fade-up">$𝑇→𝐹$<span style="margin-right:41%; display: block; float: right;">$\Rightarrow 𝐹+𝑇;$</span></p>
+          <p class="fragment fade-up">$𝐹→𝑎$<span style="margin-right:41%; display: block; float: right;">$\Rightarrow 𝑎+𝑇;$</span></p>
+          <p class="fragment fade-up">$𝑇→𝑇∗𝐹$<span style="margin-right:33%; display: block; float: right;">$\Rightarrow 𝑎+𝑇∗𝐹;$</span></p>
+          <p class="fragment fade-up">$𝑇→𝐹$<span style="margin-right:33%; display: block; float: right;">$\Rightarrow 𝑎+𝐹∗𝐹;$</span></p>
+          <p class="fragment fade-up">$𝐹→𝑎$<span style="margin-right:33%; display: block; float: right;">$\Rightarrow 𝑎+𝑎∗𝐹;$</span></p>
+          <p class="fragment fade-up">$𝐹→𝑎$<span style="margin-right:33%; display: block; float: right;">$\Rightarrow 𝑎+𝑎∗𝑎;$</span></p>
+        </section>
+        <section>
+          <h2>Exemplo 1 - Árvore </h2>
+          <img data-src="../img/as2.png" class="imgright" alt="símbolo meramente ilustrativo, sem valor didático" />
+          <p>$𝑆 \rightarrow 𝑆+𝑇$
+            <strong><span style="margin-right:12%; display: block; float: right;">$𝑆 \Rightarrow 𝑆+𝑇;$</span></strong>
+          </p>
+          <p>$𝑆→𝑇$<strong><span style="margin-right:12%; display: block; float: right;">$\Rightarrow
+                𝑇+𝑇;$</span></strong></p>
+          <p>$𝑇→𝐹$<strong><span style="margin-right:12%; display: block; float: right;">$\Rightarrow
+                𝐹+𝑇;$</span></strong></p>
+          <p>$𝐹→𝑎$<strong><span style="margin-right:12%; display: block; float: right;">$\Rightarrow
+                𝑎+𝑇;$</span></strong></p>
+          <p>$𝑇→𝑇∗𝐹$<strong><span style="margin-right:4%; display: block; float: right;">$\Rightarrow
+                𝑎+𝑇∗𝐹;$</span></strong></p>
+          <p>$𝑇→𝐹$<strong><span style="margin-right:4%; display: block; float: right;">$\Rightarrow
+                𝑎+𝐹∗𝐹;$</span></strong></p>
+          <p>$𝐹→𝑎$<strong><span style="margin-right:40%; display: block; float: right;">$\Rightarrow
+                𝑎+𝑎∗𝐹;$</span></strong></p>
+          <p>$𝐹→𝑎$<strong><span style="margin-right:40%; display: block; float: right;">$\Rightarrow
+                𝑎+𝑎∗𝑎;$</span></strong></p>
+        </section>
+        <section>
+          <h2>Exemplo 1 - Derivações </h2>
+          <ol style="font-size:40% !important; float:right; margin-right:2%;">
+            <li>$𝑷=\{𝑺 \rightarrow 𝑺+𝑻$;</li>
+            <li>$𝑺 \rightarrow 𝑻$;</li>
+            <li>$𝑻 \rightarrow 𝑻∗𝑭$;</li>
+            <li>$𝑻 \rightarrow 𝑭$;</li>
+            <li>$𝑭 \rightarrow (𝑺)$;</li>
+            <li>$𝑭 \rightarrow 𝒂\}$;</li>
+          </ol>
+          <div style="float: left; margin-left: 12%;">
+            <p>Leftmost</p>
+            <small>
+              <p><strong>$𝑆 \Rightarrow 𝑆+𝑇;$</strong></p>
+              <p><strong>$\Rightarrow 𝑇+𝑇;$</strong></p>
+              <p><strong>$\Rightarrow 𝐹+𝑇;$</strong></p>
+              <p><strong>$\Rightarrow 𝑎+𝑇;$</strong></p>
+              <p><strong>$\Rightarrow 𝑎+𝑇∗𝐹;$</strong></p>
+              <p><strong>$\Rightarrow 𝑎+𝐹∗𝐹;$</strong></p>
+              <p><strong>$\Rightarrow 𝑎+𝑎∗𝐹;$</strong></p>
+              <p><strong>$\Rightarrow 𝑎+𝑎∗𝑎;$</span></strong></p>
+            </small>
+          </div>
+          <div style="float: right; margin-right: 23%;">
+            <p>Rightmost</p>
+            <small>
+              <p><strong>$𝑆 \Rightarrow 𝑆+𝑇;$</strong></p>
+              <p><strong>$\Rightarrow 𝑆+𝑇∗𝐹;$</strong></p>
+              <p><strong>$\Rightarrow 𝑆+𝑇∗𝑎;$</strong></p>
+              <p><strong>$\Rightarrow 𝑆+𝐹∗𝑎;$</strong></p>
+              <p><strong>$\Rightarrow 𝑆+𝑎∗𝑎;$</strong></p>
+              <p><strong>$\Rightarrow 𝑇+𝑎∗𝑎;$</strong></p>
+              <p><strong>$\Rightarrow 𝐹+𝑎∗𝑎;$</strong></p>
+              <p><strong>$\Rightarrow 𝑎+𝑎∗𝑎;$</span></strong></p>
+            </small>
+          </div>
+        </section>
+        <section>
+          <h2>Discussão 1</h2>
+          <p>Considere o Exemplo 1 e verifique se as duas derivações produzem a mesma árvore.</p>
+          <p>Tente encontrar outra derivação para criar uma árvore diferente.</p>
+          <p>Discuta seus resultados com seus colegas de classe. Este é um processo mecânico de observar a regra
+            e fazer a substituição. Ainda assim, merece ser discutido e praticado. </p>
+            <p>Lembre-se: <b>ou derivamos à direita ou à esquerda.</b></p>
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>Bottom-up Parser</h2>
+          <img data-src="../img/as1.png" class="imgright"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+          <div class="textoleft">
+            Construiremos a árvore a partir das folhas e da esquerda para direita.
+            Nesta árvore nós são símbolos não terminais e folhas são símbolos terminais.
+            <strong>Terminaremos no símbolo inicial</strong> S.
+          </div>
+        </section>
+        <section class="title-slide">
+          <h2>Parsers LL(k)</h2>
+          <p class="fragment fade-up">
+            O <strong>Parser</strong> precisa encontrar a <strong>Regra de Produção</strong> para um símbolo não terminal $N$
+            qualquer olhando apenas um símbolo terminal $t$ qualquer.
+          </p>
+          <p class="fragment fade-up">Para encontrar esta regra, podemos usar uma tabela com uma chave que indicará a regra de
+            produção para uma função de derivação a ser definida por $D(N,t)$.</p>
+          <p class="fragment fade-up">Se usarmos a tabela, o trabalho do parser fica reduzido a análise desta tabela. Isso irá
+            diminuir a complexidade computacional envolvida.
+          </p>
+        </section>
+        <section>
+          <h2>Exemplo 2 LL(1)</h2>
+          <p class="fragment fade-up">Considere o alfabeto $\Sigma = \{n, +, *, (, )\}$, o seguinte conjunto de Regras de
+            produção e a Tabela D a seguir:</p>
+          <ol class="fragment fade-up" style="float: left; margin-left: 17%; font-size: 70%;">
+            <li>$S \rightarrow TR$</li>
+            <li>$R \rightarrow \varepsilon$</li>
+            <li>$R \rightarrow +S$</li>
+            <li>$T \rightarrow FG$</li>
+            <li>$G \rightarrow \varepsilon$</li>
+            <li>$G \rightarrow *T$</li>
+            <li>$F \rightarrow n$</li>
+            <li>$F \rightarrow (S)$</li>
+          </ol>
+          <table class="fragment fade-up" style="font-size: 67%;" style="float:right; margin-right:2%;">
+            <tr>
+              <th></th>
+              <th>$n$</th>
+              <th>$+$</th>
+              <th>$*$</th>
+              <th>$($</th>
+              <th>$)$</th>
+              <th>$\$$</th>
+            </tr>
+            <tr>
+              <td>$S$</td>
+              <td>$1$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+              <td>$1$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+            </tr>
+            <tr>
+              <td>$R$</td>
+              <td>$ $</td>
+              <td>$3$</td>
+              <td>$2$</td>
+              <td>$ $</td>
+              <td>$2$</td>
+              <td>$2$</td>
+            </tr>
+            <tr>
+              <td>$T$</td>
+              <td>$4$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+              <td>$4$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+            </tr>
+            <tr>
+              <td>$G$</td>
+              <td>$ $</td>
+              <td>$5$</td>
+              <td>$6$</td>
+              <td>$ $</td>
+              <td>$5$</td>
+              <td>$5$</td>
+            </tr>
+            <tr>
+              <td>$F$</td>
+              <td>$7$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+              <td>$8$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+            </tr>
+          </table>
+          <p class="fragment fade-up"> Vamos usar a Tabela D para gerar a árvore sintática abstrata da <i>string</i> <i>"n*n"
+              sem as aspas.</i></p>
+        </section>
+        <section>
+          <h2>Exemplo 2 - Buffer e Pilha</h2>
+          <ol style="float: right; margin-right: 3%; font-size: 30%;">
+            <li>$S \rightarrow TR$</li>
+            <li>$R \rightarrow \varepsilon$</li>
+            <li>$R \rightarrow +S$</li>
+            <li>$T \rightarrow FG$</li>
+            <li>$G \rightarrow \varepsilon$</li>
+            <li>$G \rightarrow *T$</li>
+            <li>$F \rightarrow n$</li>
+            <li>$F \rightarrow (S)$</li>
+          </ol>
+          <table style="font-size: 30%; float:right; margin-right:2%;">
+            <tr>
+              <th></th>
+              <th>$n$</th>
+              <th>$+$</th>
+              <th>$*$</th>
+              <th>$($</th>
+              <th>$)$</th>
+              <th>$\$$</th>
+            </tr>
+            <tr>
+              <td>$S$</td>
+              <td>$1$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+              <td>$1$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+            </tr>
+            <tr>
+              <td>$R$</td>
+              <td>$ $</td>
+              <td>$3$</td>
+              <td>$2$</td>
+              <td>$ $</td>
+              <td>$2$</td>
+              <td>$2$</td>
+            </tr>
+            <tr>
+              <td>$T$</td>
+              <td>$4$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+              <td>$4$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+            </tr>
+            <tr>
+              <td>$G$</td>
+              <td>$ $</td>
+              <td>$5$</td>
+              <td>$6$</td>
+              <td>$ $</td>
+              <td>$5$</td>
+              <td>$5$</td>
+            </tr>
+            <tr>
+              <td>$F$</td>
+              <td>$7$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+              <td>$8$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+            </tr>
+          </table>
+          <table style="font-size: 50%; float:left; margin-left:2%;">
+            <tr>
+              <th>$Localizado$</th>
+              <th>$Pilha$</th>
+              <th>$Buffer$</th>
+              <th>$Ação$</th>
+            </tr>
+            <tr class="fragment fade-up">
+              <td></td>
+              <td>$S\$$</td>
+              <td>$n*n\$$</td>
+              <td>Reduce $S \rightarrow TR$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td></td>
+              <td>$TR\$$</td>
+              <td>$n*n\$$</td>
+              <td>Reduce $T \rightarrow FG$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td></td>
+              <td>$FGR\$$</td>
+              <td>$n*n\$$</td>
+              <td>Reduce $F \rightarrow n $</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td></td>
+              <td>$nGR\$$</td>
+              <td>$n*n\$$</td>
+              <td>Encontrei $n$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$n$</td>
+              <td>$GR\$$</td>
+              <td>$*n\$$</td>
+              <td>Reduce $G \rightarrow *T$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$n$</td>
+              <td>$*TR\$$</td>
+              <td>$*n\$$</td>
+              <td>Encontrei $*$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$n*$</td>
+              <td>$TR\$$</td>
+              <td>$n\$$</td>
+              <td>Reduce $T \rightarrow FG$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$n*$</td>
+              <td>$FGR\$$</td>
+              <td>$n\$$</td>
+              <td>Reduce $F \rightarrow n$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$n*$</td>
+              <td>$nGR\$$</td>
+              <td>$n\$$</td>
+              <td>Encontrei $n$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$n*n$</td>
+              <td>$GR\$$</td>
+              <td>$\$$</td>
+              <td>Reduce $G \rightarrow \varepsilon $</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$n*n$</td>
+              <td>$R\$$</td>
+              <td>$\$$</td>
+              <td>Reduce $R \rightarrow \varepsilon $</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$n*n$</td>
+              <td>$\$$</td>
+              <td>$\$$</td>
+              <td>Fim</td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <h2>Exemplo 2 - Discussão</h2>
+          <ol style="float: right; margin-right: 3%; font-size: 30%;">
+            <li>$S \rightarrow TR$</li>
+            <li>$R \rightarrow \varepsilon$</li>
+            <li>$R \rightarrow +S$</li>
+            <li>$T \rightarrow FG$</li>
+            <li>$G \rightarrow \varepsilon$</li>
+            <li>$G \rightarrow *T$</li>
+            <li>$F \rightarrow n$</li>
+            <li>$F \rightarrow (S)$</li>
+          </ol>
+          <table style="font-size: 30%; float:right; margin-right:2%;">
+            <tr>
+              <th></th>
+              <th>$n$</th>
+              <th>$+$</th>
+              <th>$*$</th>
+              <th>$($</th>
+              <th>$)$</th>
+              <th>$\$$</th>
+            </tr>
+            <tr>
+              <td>$S$</td>
+              <td>$1$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+              <td>$1$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+            </tr>
+            <tr>
+              <td>$R$</td>
+              <td>$ $</td>
+              <td>$3$</td>
+              <td>$2$</td>
+              <td>$ $</td>
+              <td>$2$</td>
+              <td>$2$</td>
+            </tr>
+            <tr>
+              <td>$T$</td>
+              <td>$4$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+              <td>$4$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+            </tr>
+            <tr>
+              <td>$G$</td>
+              <td>$ $</td>
+              <td>$5$</td>
+              <td>$6$</td>
+              <td>$ $</td>
+              <td>$5$</td>
+              <td>$5$</td>
+            </tr>
+            <tr>
+              <td>$F$</td>
+              <td>$7$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+              <td>$8$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+            </tr>
+          </table>
+          <div style="float: left; margin-left: 2%; font-size: 49%; width: 70%; line-height: 17px;">
+            <p class="fragment fade-up"> Começamos com $S$, temos $D(S,n)=1$, expandimos $S$ usando $S \rightarrow TR$; </p>
+            <p class="fragment fade-up"> Temos $D(T,n)=4$, expandimos $T \rightarrow FG$;</p>
+            <p class="fragment fade-up"> Temos $D(F,n)=7$, expandimos $F \rightarrow n$;</p>
+            <p class="fragment fade-up"> Chegamos no $n$ mudamos o <i>lookahead</i> para $*$;</p>
+            <p class="fragment fade-up"> Temos $D(G,*)=6$, expandimos $G \rightarrow *T$;</p>
+            <p class="fragment fade-up"> Chegamos no $*$ mudamos o <i>lookahead</i> para $n$;</p>
+            <p class="fragment fade-up"> Temos $D(T,n)=4$, expandimos $T \rightarrow FG$;</p>
+            <p class="fragment fade-up"> Temos $D(F,n)=7$, expandimos $F \rightarrow n$;</p>
+            <p class="fragment fade-up"> Chegamos no $n$ mudamos o <i>lookahead</i> para $\$$;</p>
+            <p class="fragment fade-up"> Temos $D(G,\$)=5$, expandimos $G \rightarrow \varepsilon$;</p>
+            <p class="fragment fade-up"> Temos $D(R,\$)=2$, expandimos $R \rightarrow \varepsilon$;</p>
+          </div>
+        </section>
+        <section>
+          <h2>Exemplo 2 - Árvore</h2>
+          <div style="float: left; margin-left: 2%; font-size: 49%; width: 70%; line-height: 17px;">
+            <p class="fragment fade-up"> Começamos com $S$, temos $D(S,n)=1$, expandimos $S$ usando $S \rightarrow TR$; </p>
+            <p class="fragment fade-up"> Temos $D(T,n)=4$, expandimos $T \rightarrow FG$;</p>
+            <p class="fragment fade-up"> Temos $D(F,n)=7$, expandimos $F \rightarrow n$;</p>
+            <p class="fragment fade-up"> Chegamos no $n$ mudamos o <i>lookahead</i> para $*$;</p>
+            <p class="fragment fade-up"> Temos $D(G,*)=6$, expandimos $G \rightarrow *T$;</p>
+            <p class="fragment fade-up"> Chegamos no $*$ mudamos o <i>lookahead</i> para $n$;</p>
+            <p class="fragment fade-up"> Temos $D(T,n)=4$, expandimos $T \rightarrow FG$;</p>
+            <p class="fragment fade-up"> Temos $D(F,n)=7$, expandimos $F \rightarrow n$;</p>
+            <p class="fragment fade-up"> Chegamos no $n$ mudamos o <i>lookahead</i> para $\$$;</p>
+            <p class="fragment fade-up"> Temos $D(G,\$)=5$, expandimos $G \rightarrow \varepsilon$;</p>
+            <p class="fragment fade-up"> Temos $D(R,\$)=2$, expandimos $R \rightarrow \varepsilon$;</p>
+          </div>
+          <img data-src="../img/parser1.png" class="imgleft" style="height: 485px !important;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+        <section>
+          <h2>Exercício LL(1)</h2>
+          <p class="fragment fade-up">Considere o alfabeto $\Sigma = \{n, +, *, (, )\}$, o seguinte conjunto de Regras de
+            produção e a Tabela D a seguir:</p>
+          <ol class="fragment fade-up" style="float: left; margin-left: 17%; font-size: 70%;">
+            <li>$S \rightarrow TR$</li>
+            <li>$R \rightarrow \varepsilon$</li>
+            <li>$R \rightarrow +S$</li>
+            <li>$T \rightarrow FG$</li>
+            <li>$G \rightarrow \varepsilon$</li>
+            <li>$G \rightarrow *T$</li>
+            <li>$F \rightarrow n$</li>
+            <li>$F \rightarrow (S)$</li>
+          </ol>
+          <table class="fragment fade-up" style="font-size: 67%;" style="float:right; margin-right:2%;">
+            <tr>
+              <th></th>
+              <th>$n$</th>
+              <th>$+$</th>
+              <th>$*$</th>
+              <th>$($</th>
+              <th>$)$</th>
+              <th>$\$$</th>
+            </tr>
+            <tr>
+              <td>$S$</td>
+              <td>$1$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+              <td>$1$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+            </tr>
+            <tr>
+              <td>$R$</td>
+              <td>$ $</td>
+              <td>$3$</td>
+              <td>$2$</td>
+              <td>$ $</td>
+              <td>$2$</td>
+              <td>$2$</td>
+            </tr>
+            <tr>
+              <td>$T$</td>
+              <td>$4$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+              <td>$4$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+            </tr>
+            <tr>
+              <td>$G$</td>
+              <td>$ $</td>
+              <td>$5$</td>
+              <td>$6$</td>
+              <td>$ $</td>
+              <td>$5$</td>
+              <td>$5$</td>
+            </tr>
+            <tr>
+              <td>$F$</td>
+              <td>$7$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+              <td>$8$</td>
+              <td>$ $</td>
+              <td>$ $</td>
+            </tr>
+          </table>
+          <p class="fragment fade-up"> use para gerar a árvore sintática abstrata da <i>string</i>
+            <i>"n+n*n" sem as aspas. Entregue <a href="https://forms.gle/hopZhwLZU7VvUx938" target="_blank" rel="noopener noreferrer">Aqui</a></i>
+          </p>
+        </section>
+      </section>
+    </div>
+  </div>
+  <div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+      center: false,
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
+
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
+</html>
