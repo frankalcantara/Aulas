@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Frank Coelho de Alcantara -2020" />
+  <title>Parsers - LL(1)</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/interpret.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="title-slide" class="nivel1">
+        <section>
+          <h1 class="title">Parsers- LL(1)</h1>
+          <p style="text-align: right !important; margin-top:30%; margin-right:2% !important;">
+            Frank Coelho de Alcantara -2021 &nbsp;&nbsp;&nbsp;
+          </p>
+        </section>
+          <section>
+            <h2>Exercício LL(1)</h2>
+            <p class="fragment fade-up">Considere o alfabeto $\Sigma = \{n, +, *, (, )\}$, o seguinte conjunto de Regras de
+              produção e a Tabela D a seguir:</p>
+            <ol class="fragment fade-up" style="float: left; margin-left: 17%; font-size: 70%;">
+              <li>$S \rightarrow TR$</li>
+              <li>$R \rightarrow \varepsilon$</li>
+              <li>$R \rightarrow +S$</li>
+              <li>$T \rightarrow FG$</li>
+              <li>$G \rightarrow \varepsilon$</li>
+              <li>$G \rightarrow *T$</li>
+              <li>$F \rightarrow n$</li>
+              <li>$F \rightarrow (S)$</li>
+            </ol>
+            <table class="fragment fade-up" style="font-size: 67%;" style="float:right; margin-right:2%;">
+              <tr>
+                <th></th>
+                <th>$n$</th>
+                <th>$+$</th>
+                <th>$*$</th>
+                <th>$($</th>
+                <th>$)$</th>
+                <th>$\$$</th>
+              </tr>
+              <tr>
+                <td>$S$</td>
+                <td>$1$</td>
+                <td>$ $</td>
+                <td>$ $</td>
+                <td>$1$</td>
+                <td>$ $</td>
+                <td>$ $</td>
+              </tr>
+              <tr>
+                <td>$R$</td>
+                <td>$ $</td>
+                <td>$3$</td>
+                <td>$2$</td>
+                <td>$ $</td>
+                <td>$2$</td>
+                <td>$2$</td>
+              </tr>
+              <tr>
+                <td>$T$</td>
+                <td>$4$</td>
+                <td>$ $</td>
+                <td>$ $</td>
+                <td>$4$</td>
+                <td>$ $</td>
+                <td>$ $</td>
+              </tr>
+              <tr>
+                <td>$G$</td>
+                <td>$ $</td>
+                <td>$5$</td>
+                <td>$6$</td>
+                <td>$ $</td>
+                <td>$5$</td>
+                <td>$5$</td>
+              </tr>
+              <tr>
+                <td>$F$</td>
+                <td>$7$</td>
+                <td>$ $</td>
+                <td>$ $</td>
+                <td>$8$</td>
+                <td>$ $</td>
+                <td>$ $</td>
+              </tr>
+            </table>
+            <p class="fragment fade-up"> use para gerar a árvore sintática abstrata da <i>string</i>
+              <i>"n+n*n" sem as aspas. Entregue <a href="https://forms.gle/hopZhwLZU7VvUx938" target="_blank"
+                  rel="noopener noreferrer">Aqui</a></i>
+            </p>
+          </section>
+              <section>
+                <h2>Exercício LL(1) - Solução</h2>
+                <ol style="float: left; margin-left: 5%;font-size: 46%;">
+                  <li>$S \rightarrow TR$</li>
+                  <li>$R \rightarrow \varepsilon$</li>
+                  <li>$R \rightarrow +S$</li>
+                  <li>$T \rightarrow FG$</li>
+                  <li>$G \rightarrow \varepsilon$</li>
+                  <li>$G \rightarrow *T$</li>
+                  <li>$F \rightarrow n$</li>
+                  <li>$F \rightarrow (S)$</li>
+                </ol>
+                <table style="font-size: 44%;float: left;margin-left: 2%;">
+                  <tr>
+                    <th></th>
+                    <th>$n$</th>
+                    <th>$+$</th>
+                    <th>$*$</th>
+                    <th>$($</th>
+                    <th>$)$</th>
+                    <th>$\$$</th>
+                  </tr>
+                  <tr>
+                    <td>$S$</td>
+                    <td>$1$</td>
+                    <td>$ $</td>
+                    <td>$ $</td>
+                    <td>$1$</td>
+                    <td>$ $</td>
+                    <td>$ $</td>
+                  </tr>
+                  <tr>
+                    <td>$R$</td>
+                    <td>$ $</td>
+                    <td>$3$</td>
+                    <td>$2$</td>
+                    <td>$ $</td>
+                    <td>$2$</td>
+                    <td>$2$</td>
+                  </tr>
+                  <tr>
+                    <td>$T$</td>
+                    <td>$4$</td>
+                    <td>$ $</td>
+                    <td>$ $</td>
+                    <td>$4$</td>
+                    <td>$ $</td>
+                    <td>$ $</td>
+                  </tr>
+                  <tr>
+                    <td>$G$</td>
+                    <td>$ $</td>
+                    <td>$5$</td>
+                    <td>$6$</td>
+                    <td>$ $</td>
+                    <td>$5$</td>
+                    <td>$5$</td>
+                  </tr>
+                  <tr>
+                    <td>$F$</td>
+                    <td>$7$</td>
+                    <td>$ $</td>
+                    <td>$ $</td>
+                    <td>$8$</td>
+                    <td>$ $</td>
+                    <td>$ $</td>
+                  </tr>
+                </table>
+              <table style="font-size: 38%;">
+                <tbody>
+                  <tr class="fragment fade-up">
+                    <th>Localizado</th>
+                    <th>Pilha</th>
+                    <th>Buffer</th>
+                    <th>Ação</th>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td>&nbsp;&nbsp;</td>
+                    <td><i>S</i> <b>$</b></td>
+                    <td><b>n + n * n</b></td>
+                    <td>Reduce <i>S</i> → <i>T</i> <i>R</td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td>&nbsp;&nbsp;</td>
+                    <td><i>T</i> <i>R</i> <b>$</b></td>
+                    <td><b>n + n * n $</b></td>
+                    <td>Reduce <i>T</i> → <i>F</i> <i>G</i></td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td>&nbsp;&nbsp;</td>
+                    <td><i>F</i> <i>G</i> <i>R</i> <b>$</b></td>
+                    <td><b>n + n * n $</b></td>
+                    <td>Reduce <i>F</i> → <b>n</b></td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td>&nbsp;&nbsp;</td>
+                    <td><b>n</b> <i>G</i> <i>R</i> <b>$</b></td>
+                    <td><b>n + n * n $</b></td>
+                    <td>Encontrei <b>n</b></td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td><b>n</b></td>
+                    <td><i>G</i> <i>R</i> <b>$</b></td>
+                    <td><b>+ n * n $</b></td>
+                    <td>Reduce <i>G</i> → ε</td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td><b>n</b></td>
+                    <td><i>R</i> <b>$</b></td>
+                    <td><b>+ n * n $</b></td>
+                    <td>Reduce <i>R</i> → <b>+</b> <i>S</i></td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td><b>n</b></td>
+                    <td><b>+</b> <i>S</i> <b>$</b></td>
+                    <td><b>+ n * n $</b></td>
+                    <td>Encontrei <b>+</b></td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td><b>n +</b></td>
+                    <td><i>S</i> <b>$</b></td>
+                    <td><b>n * n $</b></td>
+                    <td>Reduce <i>S</i> → <i>T</i> <i>R</i></td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td><b>n +</b></td>
+                    <td><i>T</i> <i>R</i> <b>$</b></td>
+                    <td><b>n * n $</b></td>
+                    <td>Reduce <i>T</i> → <i>F</i> <i>G</i></td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td><b>n +</b></td>
+                    <td><i>F</i> <i>G</i> <i>R</i> <b>$</b></td>
+                    <td><b>n * n $</b></td>
+                    <td>Reduce <i>F</i> → <b>n</b></td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td><b>n +</b></td>
+                    <td><b>n</b> <i>G</i> <i>R</i> <b>$</b></td>
+                    <td><b>n * n $</b></td>
+                    <td>Encontrei <b>n</b></td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td><b>n + n</b></td>
+                    <td><i>G</i> <i>R</i> <b>$</b></td>
+                    <td><b>* n $</b></td>
+                    <td>Reduce <i>G</i> → <b>*</b> <i>T</i></td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td><b>n + n</b></td>
+                    <td><b>*</b><i>T</i> <i>R</i> <b>$</b></td>
+                    <td><b>* n $</b></td>
+                    <td>Encontrei <b>*</b></td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td><b>n + n *</b></td>
+                    <td><i>T</i> <i>R</i> <b>$</b></td>
+                    <td><b>n $</b></td>
+                    <td>Reduce <i>T</i> → <i>F</i> <i>G</i></b></td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td><b>n + n *</b></td>
+                    <td><i>F</i> <i>G</i> <i>R</i> <b>$</b></td>
+                    <td><b>n $</b></td>
+                    <td>Reduce <i>F</i> → <b>n</b></td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td><b>n + n *</b></td>
+                    <td><b>n</b> <i>G</i> <i>R</i> <b>$</b></td>
+                    <td><b>n $</b></td>
+                    <td>Encontre <b>n</b></td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td><b>n + n * n</b></td>
+                    <td><i>G</i> <i>R</i> <b>$</b></td>
+                    <td><b>$</b></td>
+                    <td>Reduce <i>G</i> → ε</td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td><b>n + n * n</b></td>
+                    <td><i>R</i> <b>$</b></td>
+                    <td><b>$</b></td>
+                    <td>Reduce <i>R</i> → ε</td>
+                  </tr>
+                  <tr class="fragment fade-up">
+                    <td><b>n + n * n</b></td>
+                    <td><b>$</b></td>
+                    <td><b>$</b></td>
+                    <td>Fim</td>
+                  </tr>
+                </tbody>
+              </table>
+              </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>First</h2>
+          <p>Considere a seguinte gramática:</p>
+          <ol style="float: left; font-size: 65%; top: 82% !important; left: 2%; position: absolute;">
+            <li>$E \rightarrow TE'$</li>
+            <li>$E' \rightarrow +TE' | \varepsilon$</li>
+            <li>$T \rightarrow FT'$</li>
+            <li>$T \rightarrow *FT'\space | \space \varepsilon $</li>
+            <li>$F \rightarrow (E) \space | \space id$</li>
+          </ol>
+          <table style="float: left; font-size: 58%; top: 82% !important; left: 33%; position: absolute;">
+            <tr class="fragment fade-up" >
+              <th>Símbolo</th>
+              <th>First()</th>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$E$</td>
+              <td>$First(E)=\{\}$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$E'$</td>
+              <td>$First(E')=\{+,\varepsilon\}$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$T$</td>
+              <td>$First(T)=\{\}$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$T'$</td>
+              <td>$First(T')=\{*, \varepsilon\}$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$F$</td>
+              <td>$First(F)=\{(,id\}$</td>
+            </tr>
+          </table>
+          <table style="float: left; font-size: 58%; top: 82% !important; left: 72%; position: absolute;">
+            <tr>
+              <th class="fragment fade-up">First()</th>
+            </tr>
+            <tr>
+              <td  class="fragment fade-up">$First(E)=\{(,id)\}$</td>
+            </tr>
+            <tr>
+              <td  class="fragment fade-up">$First(E')=\{+,\varepsilon\}$</td>
+            </tr>
+            <tr>
+              <td class="fragment fade-up">$First(T)=\{(,id\}$</td>
+            </tr>
+            <tr>
+              <td class="fragment fade-up">$First(T')=\{*, \varepsilon\}$</td>
+            </tr>
+            <tr>
+              <td class="fragment fade-up">$First(F)=\{(,id\}$</td>
+            </tr>
+          </table>
+        </section>
+        
+        <section>
+          <h2>Regras para Follow</h2>
+          <small style="font-size: 90% !important;">
+          <p class="fragment fade-up">Considerando que $N={A,B}$ e que $\alpha, \beta$ representam conjuntos de 
+            símbolos terminais, não terminais ou uma combinação de ambos, temos as seguintes regras para encontrar as funções $Follow()$ :</p>
+          <ol style="width: 95%; font-size: 90%; margin-left: 7%;">
+            <li class="fragment fade-up" style="line-height: 48px;">se $A$ é o símbolo inicial, então $Follow(A)=\{$\}$</li>
+            <li class="fragment fade-up" style="line-height: 48px;">regras de produção na forma $B \rightarrow \alpha A \beta$ então: $Follow(A) = First(\beta)$</li>
+            <li class="fragment fade-up" style="line-height: 48px;">regras de produção na forma $B \rightarrow \alpha A$ ou $B \rightarrow \alpha A \beta$ 
+              onde $\beta = \varepsilon$ então $Follow(A) = Follow(B)$</li>
+              <li class="fragment fade-up" style="line-height: 48px;">$\varepsilon \notin Follow(A)$</li>
+          </ol>
+          </small>
+        </section>
+        <section>
+          <h2>Follow()</h2>
+          <ol style="float: left; font-size: 65%; top: 82% !important; left: 2%; position: absolute;">
+            <li>$E \rightarrow TE'$</li>
+            <li>$E' \rightarrow +TE' | \varepsilon$</li>
+            <li>$T \rightarrow FT'$</li>
+            <li>$T \rightarrow *FT'\space | \space \varepsilon $</li>
+            <li>$F \rightarrow (E) \space | \space id$</li>
+          </ol>
+          <table style="float: left; font-size: 58%; top: 82% !important; left: 33%; position: absolute;">
+            <tr>
+              <th>Símbolo</th>
+              <th>First()</th>
+            </tr>
+            <tr>
+              <td>$E$</td>
+              <td>$First(E)=\{(,id)\}$</td>
+            </tr>
+            <tr>
+              <td>$E'$</td>
+              <td>$First(E')=\{+,\varepsilon\}$</td>
+            </tr>
+            <tr>
+              <td>$T$</td>
+              <td>$First(T)=\{(,id\}$</td>
+            </tr>
+            <tr>
+              <td>$T'$</td>
+              <td>$First(T')=\{*, \varepsilon\}$</td>
+            </tr>
+            <tr>
+              <td>$F$</td>
+              <td>$First(F)=\{(,id\}$</td>
+            </tr>
+          </table>
+          <table style="float: left; font-size: 58%; top: 251% !important; left: 3%; position: absolute;">
+            <tr class="fragment fade-up">
+              <th>Símbolo</th>
+              <th>Follow()</th>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$E$</td>
+              <td>$Follow(E)=\{\$\} \cup \{)\} = \{\$,)\}$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$E'$</td>
+              <td>$Follow(E')=Follow(E) = \{\$, )\}$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$T$</td>
+              <td>$Follow(T)=\{+\} \cup Follow(E') = \{+, \$, )\}$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$T'$</td>
+              <td>$Follow(T')=Follow(T) = \{+, \$, )\}$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$F$</td>
+              <td>$Follow(F)=\{*\} \cup Follow(T') = \{*, +, \$, )\}$</td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <h2>Exercício First-Follow</h2>
+          <p>Considerando a gramática a seguir, compute as funções $First()$ e $Follow()$:</p>
+          <ol style="float: left; font-size: 65%; top: 89% !important; left: 2%; position: absolute;">
+            <li>$S \rightarrow (A) | \varepsilon$</li>
+            <li>$A \rightarrow TE$</li>
+            <li>$E \rightarrow \&TE | \varepsilon$</li>
+            <li>$T \rightarrow (A) | a|b|c$</li>  
+          </ol>
+
+          <table  class="fragment fade-up" style="float: left; font-size: 58%; top: 89% !important; left: 33%; position: absolute;">
+            <tr>
+              <th>Símbolo</th>
+              <th>First()</th>
+            </tr>
+            <tr>
+              <td>$S$</td>
+              <td>$\{(, \varepsilon \}$</td>
+            </tr>
+            <tr>
+              <td>$A$</td>
+              <td>$\{(, a, b, c\}$</td>
+            </tr>
+            <tr>
+              <td>$E$</td>
+              <td>$\{\&,\varepsilon\}$</td>
+            </tr>
+            <tr>
+              <td>$T$</td>
+              <td>$\{(, a, b, c\}$</td>
+            </tr>
+          </table>
+          <table style="float: left; font-size: 58%; top: 167% !important; left: 3%; position: absolute;">
+            <tr class="fragment fade-up">
+              <th>Símbolo</th>
+              <th>Follow()</th>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$S$</td>
+              <td>$Follow(S)=\{\$\} = \{\$\}$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$A$</td>
+              <td>$Follow(A)=\{)\}$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$E$</td>
+              <td>$Follow(E)= Follow(A) = \{)\}$</td>
+            </tr>
+            <tr class="fragment fade-up">
+              <td>$T$</td>
+              <td>$Follow(T)=\{\&\} \cup Follow(E) = \{\&, )\}$</td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <h2>Exemplo Tabela</h2>
+          <ol style="float: left; font-size: 65%; top: 82% !important; left: 2%; position: absolute;">
+            <li>$E \rightarrow TE'$</li>
+            <li>$E' \rightarrow +TE' | \varepsilon$</li>
+            <li>$T \rightarrow FT'$</li>
+            <li>$T' \rightarrow *FT'\space | \space \varepsilon $</li>
+            <li>$F \rightarrow (E) \space | \space id$</li>
+          </ol>
+          <table style="float: left; font-size: 58%; top: 82% !important; left: 33%; position: absolute;">
+            <tr> <th>First()</th> </tr>
+            <tr>
+              
+              <td>$First(E)=\{(,id)\}$</td>
+            </tr>
+            <tr>
+              
+              <td>$First(E')=\{+,\varepsilon\}$</td>
+            </tr>
+            <tr>
+              
+              <td>$First(T)=\{(,id\}$</td>
+            </tr>
+            <tr>
+              
+              <td>$First(T')=\{*, \varepsilon\}$</td>
+            </tr>
+            <tr>
+              
+              <td>$First(F)=\{(,id\}$</td>
+            </tr>
+          </table>
+          <table style="float: left; font-size: 58%; top: 81% !important; left: 66%; position: absolute;">
+            <tr>
+               <th>Follow()</th>
+            </tr>
+            <tr>
+              <td>$Follow(E)= \{\$,)\}$</td>
+            </tr>
+            <tr>
+              <td>$Follow(E')= \{\$, )\}$</td>
+            </tr>
+            <tr>
+              <td>$Follow(T)== \{+, \$, )\}$</td>
+            </tr>
+            <tr>
+              <td>$Follow(T')= \{+, \$, )\}$</td>
+            </tr>
+            <tr>
+              <td>$Follow(F)= \{*, +, \$, )\}$</td>
+            </tr>
+          </table>
+          <table style="font-size: 59%;float: left;position: absolute;top: 244%;left: 3%;">
+               <tr><th></th><th>$id$</th><th>$+$</th><th>$*$</th><th>$($</th><th>$)$</th><th>$\$$</th></tr>
+            <tr><td>$E$</td><td>$E \rightarrow TE'$</td><td></td><td></td><td>$E \rightarrow TE'$</td><td></td><td></td></tr>
+            <tr><td>$E'$</td><td></td><td>$E' \rightarrow +TE'$</td><td></td><td></td><td>$E' \rightarrow \varepsilon$</td><td>$E' \rightarrow \varepsilon$</td></tr>
+            <tr><td>$T$</td><td>$T \rightarrow FT'$</td><td></td><td></td><td>$T \rightarrow FT'$</td><td></td><td></td></tr>
+            <tr><td>$T'$</td><td></td><td>$T' \rightarrow \varepsilon$</td><td>$T' \rightarrow *FT'$</td><td></td><td>$T' \rightarrow \varepsilon$</td><td>$T' \rightarrow \varepsilon$</td></tr>
+            <tr><td>$F$</td><td>$F \rightarrow id$</td><td></td><td></td><td>$F \rightarrow (E)$</td><td></td><td></td></tr>
+            
+          </table>
+        </section>
+      </section>
+      
+    </div>
+  </div>
+  <div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+      center: false,
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
+
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
+</html>
