@@ -495,59 +495,42 @@
           </ol>
           <table style="float: left; font-size: 58%; top: 82% !important; left: 33%; position: absolute;">
             <tr> <th>First()</th> </tr>
-            <tr>
-              
-              <td>$First(E)=\{(,id)\}$</td>
-            </tr>
-            <tr>
-              
-              <td>$First(E')=\{+,\varepsilon\}$</td>
-            </tr>
-            <tr>
-              
-              <td>$First(T)=\{(,id\}$</td>
-            </tr>
-            <tr>
-              
-              <td>$First(T')=\{*, \varepsilon\}$</td>
-            </tr>
-            <tr>
-              
-              <td>$First(F)=\{(,id\}$</td>
-            </tr>
+            <tr> <td>$First(E)=\{(,id)\}$</td></tr>
+            <tr><td>$First(E')=\{+,\varepsilon\}$</td></tr>
+            <tr><td>$First(T)=\{(,id\}$</td></tr>
+            <tr><td>$First(T')=\{*, \varepsilon\}$</td></tr>
+            <tr><td>$First(F)=\{(,id\}$</td></tr>
           </table>
           <table style="float: left; font-size: 58%; top: 81% !important; left: 66%; position: absolute;">
-            <tr>
-               <th>Follow()</th>
-            </tr>
-            <tr>
-              <td>$Follow(E)= \{\$,)\}$</td>
-            </tr>
-            <tr>
-              <td>$Follow(E')= \{\$, )\}$</td>
-            </tr>
-            <tr>
-              <td>$Follow(T)== \{+, \$, )\}$</td>
-            </tr>
-            <tr>
-              <td>$Follow(T')= \{+, \$, )\}$</td>
-            </tr>
-            <tr>
-              <td>$Follow(F)= \{*, +, \$, )\}$</td>
-            </tr>
+            <tr><th>Follow()</th></tr>
+            <tr><td>$Follow(E)= \{\$,)\}$</td></tr>
+            <tr><td>$Follow(E')= \{\$, )\}$</td></tr>
+            <tr><td>$Follow(T)== \{+, \$, )\}$</td></tr>
+            <tr><td>$Follow(T')= \{+, \$, )\}$</td></tr>
+            <tr><td>$Follow(F)= \{*, +, \$, )\}$</td></tr>
           </table>
-          <table style="font-size: 59%;float: left;position: absolute;top: 244%;left: 3%;">
-               <tr><th></th><th>$id$</th><th>$+$</th><th>$*$</th><th>$($</th><th>$)$</th><th>$\$$</th></tr>
+          <table  class="fragment fade-up" style="font-size: 59%;float: left;position: absolute;top: 244%;left: 3%;">
+            <tr><th></th><th>$id$</th><th>$+$</th><th>$*$</th><th>$($</th><th>$)$</th><th>$\$$</th></tr>
             <tr><td>$E$</td><td>$E \rightarrow TE'$</td><td></td><td></td><td>$E \rightarrow TE'$</td><td></td><td></td></tr>
             <tr><td>$E'$</td><td></td><td>$E' \rightarrow +TE'$</td><td></td><td></td><td>$E' \rightarrow \varepsilon$</td><td>$E' \rightarrow \varepsilon$</td></tr>
             <tr><td>$T$</td><td>$T \rightarrow FT'$</td><td></td><td></td><td>$T \rightarrow FT'$</td><td></td><td></td></tr>
             <tr><td>$T'$</td><td></td><td>$T' \rightarrow \varepsilon$</td><td>$T' \rightarrow *FT'$</td><td></td><td>$T' \rightarrow \varepsilon$</td><td>$T' \rightarrow \varepsilon$</td></tr>
             <tr><td>$F$</td><td>$F \rightarrow id$</td><td></td><td></td><td>$F \rightarrow (E)$</td><td></td><td></td></tr>
-            
           </table>
         </section>
+        <section>
+          <h2>Exercício</h2>
+          <p>Considerando os dados apresentados no Exercício First-Follow, crie a tabela referente ao seguinte 
+            conjunto de regras de produção.
+          </p>
+          <ol style="float: left; font-size: 85%; margin-left: 6%;">
+            <li>$S \rightarrow (A) | \varepsilon$</li>
+            <li>$A \rightarrow TE$</li>
+            <li>$E \rightarrow \&TE | \varepsilon$</li>
+            <li>$T \rightarrow (A) | a|b|c$</li>
+          </ol>
+        </section>
       </section>
-      
     </div>
   </div>
   <div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
