@@ -360,7 +360,7 @@
             símbolos terminais, não terminais ou uma combinação de ambos, temos as seguintes regras para encontrar as funções $Follow()$ :</p>
           <ol style="width: 95%; font-size: 90%; margin-left: 7%;">
             <li class="fragment fade-up" style="line-height: 48px;">se $A$ é o símbolo inicial, então $Follow(A)=\{\$\}$</li>
-            <li class="fragment fade-up" style="line-height: 48px;">regras de produção na forma $B \rightarrow \alpha A \beta$ então: $Follow(A) = First(\beta)$</li>
+            <li class="fragment fade-up" style="line-height: 48px;">regras de produção na forma $B \rightarrow \alpha A \beta$ então: $Follow(A) = First(B)$</li>
             <li class="fragment fade-up" style="line-height: 48px;">regras de produção na forma $B \rightarrow \alpha A$ ou $B \rightarrow \alpha A \beta$ 
               onde $\beta = \varepsilon$ então $Follow(A) = Follow(B)$</li>
               <li class="fragment fade-up" style="line-height: 48px;">$\varepsilon \notin Follow(A)$</li>
