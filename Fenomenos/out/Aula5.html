@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8" />
 	<meta name="author" content="Frank Coelho de Alcantara -2020" />
-	<title>Cálculo e Limites</title>
+	<title>Refinando o Modelo</title>
 	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta
-		name="apple-mobile-web-app-status-bar-style"
-		content="black-translucent" />
-	<meta
-		name="viewport"
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="viewport"
 		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
 	<link rel="stylesheet" href="../../rev/reset.css" />
 	<link rel="stylesheet" href="../../rev/reveal.css" />
@@ -19,70 +17,109 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
-			<section  id="title-slide">
+			<section id="title-slide">
 				<section class="nivel1">
-				<h1 class="title" style="display: block; margin-top: 2%;">Cálculo e Limites</h1>
-				<p style="text-align: right !important">
-					Frank Coelho de Alcantara -2020 &nbsp;&nbsp;
-				</p>
+					<h1 class="title" style="display: block; margin-top: 2%;">Refinando o Modelo</h1>
+					<p style="text-align: right !important">
+						Frank Coelho de Alcantara -2020 &nbsp;&nbsp;
+					</p>
 				</section>
 			</section>
 			<section>
 				<section class="nivel1">
-					<h2>Por que Estudar Cálculo?</h2>
+					<h2>Só para Lembrar</h2>
 					<small style="font-size: 80% !important;">
-						<p class="fragment fade-up;">O cálculo, originalmente chamado de cálculo infinitesimal é uma das 
-							ideias mais importantes para o desenvolvimento da humanidade.</p>
-						<p class="fragment fade-up;">Alguns atribuem a <a href="https://pt.wikipedia.org/wiki/Isaac_Newton" target="_blank" rel="noopener noreferrer">Newton</a> e a 
-							<a href="https://pt.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz" target="_blank" rel="noopener noreferrer">Leibniz</a> sua criação.
-						<p class="fragment fade-up;">Sem o cálculo, não teríamos espaçonaves, Computação Quântica ou Inteligência Artificial.</p>
-						<p class="fragment fade-up;">Estudamos cálculo para entender os fenômenos da natureza e extrapolar este conhecimento além do que pode ser visto.</p>
+						<p class="fragment fade-up;">Se $b$ representa qualquer número de forma que $b > 0$ e $b \neq 1$
+							então
+							podemos expressar as funções exponenciais por: $$f_{(x)} = b^x$$</p>
+						<p class="fragment fade-up;">Onde $b$ será chamado de base e $x$ de expoente. Observe a
+							diferença em relação
+							as funções polinomiais.
+						<p class="fragment fade-up;">$$f_{(x)} = 0^x = 0 \space \space e \space \space f_{(x)} = 1^x =
+							1$$</p>
+						<p class="fragment fade-up;">Também vamos evitar qualquer número negativo na base para evitar
+							cair no domínio
+							dos números imaginários.</p>
 					</small>
 				</section>
 				<section class="nivel1">
-					<h2>Dois Problemas Simples</h2>
-					<p class="fragment fade-up;">Como calcular o coeficiente angular de uma reta tangente a um ponto $P$ de uma curva qualquer?</p>
-					<p class="fragment fade-up;">Como calcular a área abaixo de uma curva qualquer entre os pontos $A$ e $B$?</p>
+					<h1>Nosso Modelo tem que Obedecer estas limitações</h1>
 				</section>
-				</section>
-				<section class="nivel1">
-					<h2>Exemplo 1 - Bactérias</h2>
-					<small style="font-size:69% !important;">
-						<p class="fragment fade-up;" style="margin-left: 2%; float: left;font-size: 140%; width: 55%;">Sabendo que a bactéria B se reproduz a cada 2 minutos, criando uma nova bactéria. Quantas bactérias 
-							existirão em uma colônia saudável depois de 12 minutos? Sabendo que inicialmente havia 5 bactérias nesta colônia. <b>Em Python! Com Gráfico!</b>
-						</p>
-						<table style="margin-right: 2%;float: right;font-size: 80%;">
-							<tr class="fragment fade-up;"><th>Tempo (min.)</th><th>Bactérias</th></tr>
-							<tr class="fragment fade-up;"><td>$0$</td><td>$5$</td></tr>
-							<tr class="fragment fade-up;"><td>$1$</td><td>$5$</td></tr>
-							<tr class="fragment fade-up;"><td>$2$</td><td>$5*2$</td></tr>
-							<tr class="fragment fade-up;"><td>$3$</td><td>$5*2$</td></tr>
-							<tr class="fragment fade-up;"><td>$4$</td><td>$5*2*2$</td></tr>
-							<tr class="fragment fade-up;"><td>$5$</td><td>$5*2*2$</td></tr>
-							<tr class="fragment fade-up;"><td>$6$</td><td>$5*2*2*2$</td></tr>
-							<tr class="fragment fade-up;"><td>$7$</td><td>$5*2*2*2$</td></tr>
-							<tr class="fragment fade-up;"><td>$8$</td><td>$5*2*2*2*2$</td></tr>
-						</table>
-					</small>
-				</section>
-				<section class="nivel1">
-					<h2>Exemplo - Resposta</h2>
-					<iframe height="400px" width="100%" src="https://replit.com/@frankalcantara/bacterias1-ModeloRefinado?lite=true"
-						scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true"
-						sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-				</section>
-				<section class="nivel1">
-					<h2>Exercício</h2>
-					<p>Cabe a você refinar o Modelo dos outros exemplos que fizemos.</p>
-					<p>Não precisa me entregar, mas é importante que o código do TDE esteja refinado.</p>
-				</section>
-				<section class="nivel1">
-					<h2>Trabalhando com Arrays</h2>
-					<p class="fragment fade-up;">Nesta disciplina 
-						só usaremos os <i>arrays</i> da biblioteca <b>Numpy</b>.</p>
-					<p class="fragment fade-up;">Vamos conhecer um pouco mais neste <a href="https://colab.research.google.com/drive/1S_B7evC-4aTQrI3GLsQX8MYLUoGXdTEh?usp=sharing" target="_blank" rel="noopener noreferrer">link</a>
-				</section>
-				
+			</section>
+			<section class="nivel1">
+				<h2>Exemplo 1 - Bactérias</h2>
+				<small style="font-size:69% !important;">
+					<p class="fragment fade-up;" style="margin-left: 2%; float: left;font-size: 140%; width: 55%;">
+						Sabendo que a bactéria B se reproduz a cada 2 minutos, criando uma nova bactéria. Quantas
+						bactérias
+						existirão em uma colônia saudável depois de 12 minutos? Sabendo que inicialmente havia 5
+						bactérias nesta colônia. <b>Em Python! Com Gráfico!</b>
+					</p>
+					<table style="margin-right: 2%;float: right;font-size: 80%;">
+						<tr class="fragment fade-up;">
+							<th>Tempo (min.)</th>
+							<th>Bactérias</th>
+						</tr>
+						<tr class="fragment fade-up;">
+							<td>$0$</td>
+							<td>$5$</td>
+						</tr>
+						<tr class="fragment fade-up;">
+							<td>$1$</td>
+							<td>$5$</td>
+						</tr>
+						<tr class="fragment fade-up;">
+							<td>$2$</td>
+							<td>$5*2$</td>
+						</tr>
+						<tr class="fragment fade-up;">
+							<td>$3$</td>
+							<td>$5*2$</td>
+						</tr>
+						<tr class="fragment fade-up;">
+							<td>$4$</td>
+							<td>$5*2*2$</td>
+						</tr>
+						<tr class="fragment fade-up;">
+							<td>$5$</td>
+							<td>$5*2*2$</td>
+						</tr>
+						<tr class="fragment fade-up;">
+							<td>$6$</td>
+							<td>$5*2*2*2$</td>
+						</tr>
+						<tr class="fragment fade-up;">
+							<td>$7$</td>
+							<td>$5*2*2*2$</td>
+						</tr>
+						<tr class="fragment fade-up;">
+							<td>$8$</td>
+							<td>$5*2*2*2*2$</td>
+						</tr>
+					</table>
+				</small>
+			</section>
+			<section class="nivel1">
+				<h2>Exemplo - Resposta</h2>
+				<iframe height="400px" width="100%"
+					src="https://replit.com/@frankalcantara/bacterias1-ModeloRefinado?lite=true" scrolling="no"
+					frameborder="no" allowtransparency="true" allowfullscreen="true"
+					sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+			</section>
+			<section class="nivel1">
+				<h2>Exercício</h2>
+				<p>Cabe a você refinar o Modelo dos outros exemplos que fizemos.</p>
+				<p>Não precisa me entregar, mas é importante que o código do TDE esteja refinado.</p>
+			</section>
+			<section class="nivel1">
+				<h2>Trabalhando com Arrays</h2>
+				<p class="fragment fade-up;">Nesta disciplina
+					só usaremos os <i>arrays</i> da biblioteca <b>Numpy</b>.</p>
+				<p class="fragment fade-up;">Vamos conhecer um pouco mais neste <a
+						href="https://colab.research.google.com/drive/1S_B7evC-4aTQrI3GLsQX8MYLUoGXdTEh?usp=sharing"
+						target="_blank" rel="noopener noreferrer">link</a>
+			</section>
+
 			</section>
 		</div>
 	</div>
