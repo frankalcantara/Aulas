@@ -28,42 +28,128 @@
 			</section>
 			<section>
 				<section class="nivel1">
-					<h2>Cálculo</h2>
+					<h2>O Cálculo</h2>
 					<small style="font-size: 80% !important;">
-						<p class="fragment fade-up;">O Cálculo infinitesimal, ou simplesmente cálculo, é uma das 
-							mais importantes ferramentas matemáticas já desenvolvidas. Sem ele, não teríamos as 
-							viagens espaciais, a computação quântica, a inteligência artificial ou a fórmula 1.
+						<p class="fragment fade-up;">O Cáculo Infinitesimal, ou simplesmente Cálculo, representa um 
+							dos mais importantes avanços da humanidade. Sem ele não teríamos a Fórmula 1, as viagens 
+							espaciais, a computação quântica, a inteligência artificial, ou a vacina da Pfizer. 
 						</p>
-						<p class="fragment fade-up;"> Trata-se do trabalho acumulado de gerações de matemáticos que foi 
-							formalizado, quase ao mesmo tempo, e de forma independente por <a href="https://pt.wikipedia.org/wiki/Isaac_Newton">Newton</a>
-							 e <a href="https://pt.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz">Leibniz</a>.
-					</small>
-				</section>
-				</section>
-				<section class="nivel1">
-					<h2>O Problema do Cálculo</h2>
-					<small style="font-size:69% !important;">
-						<p class="fragment fade-up;">Qual a inclinação, coeficiente angular de uma reta tangente a um ponto em uma 
-							curva qualquer?</p>
-						<p class="fragment fade-up;">Qual a área que existe sob uma curva qualquer considerando dois pontos?</p>
-					
+						<p class="fragment fade-up;">Trata-se do resultado do trabalho de gerações de matemáticos que foi formalizado, 
+							praticamente ao mesmo tempo, e de forma independente por <a href="https://pt.wikipedia.org/wiki/Isaac_Newton" target="_blank" rel="noopener noreferrer">Newton</a>
+							e <a href="https://pt.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz">Leibniz</a>.
+						<p class="fragment fade-up;">Ambos estavam preocupados em resolver apenas dois problemas. Um relacionado a tangentes e outro relacionado a áreas.</p>
 					</small>
 				</section>
 				<section class="nivel1">
-					<h2>Exemplo - Resposta</h2>
-					
+					<h2>Os problemas do Cálculo</h2>
+					<small style="font-size: 91% !important; width: 40%;">
+						<p class="fragment fade-up;">Qual a inclinação de uma reta tangente a um ponto específico de uma curva qualquer?
+						</p>
+						<p class="fragment fade-up;">Qual a área sob uma determinada curva?</p>
+					</small>
+					<img data-src="..\img\calculo1.png"
+						style="float: left; margin-right: 5%; margin-left: 5%; height: 327px !important;"
+						alt="Gráfico mostrando a área entre dois pontos de uma curva e a reta tangente a outro ponto." />
+					<p class="fragment fade-up;">Nenhum destes problemas é de solução trivial. Veremos nesta aula o problema da
+						tangente.</p>
 				</section>
 				<section class="nivel1">
-					<h2>Exercício</h2>
-					<p>Cabe a você refinar o Modelo dos outros exemplos que fizemos.</p>
-					<p>Não precisa me entregar, mas é importante que o código do TDE esteja refinado.</p>
+					<h2>Entendendo a Tangente</h2>
+					<small style="font-size: 69% !important; width: 50%;">
+						<p class="fragment fade-up;">No caso da circunferência, definimos a tangente como sendo uma reta que intercepta
+							uma circunferência em apenas um ponto, que chamaremos de ponto de tangência; as retas não-tangentes ou
+							interceptam a
+							circunferência em dois pontos ou não a interceptam.</p>
+						<p class="fragment fade-up;">Esta definição não é adequada a qualquer curva. A definição precisa de tangente foi
+							determinada por <a href="https://pt.wikipedia.org/wiki/Pierre_de_Fermat" target="_blank"
+								rel="noopener noreferrer">Fermat</a>
+							em 1630. Poucos anos antes de Newton e Leibnitz se debruçarem sobre o problemas do cálculo.</p>
+					</small>
+					<img data-src="..\img\calculo2.png"
+						style="float: left; margin-right: 5%; margin-left: 5%; height: 251px !important;"
+						alt="Gráfico mostrando uma circunferência, com uma reta tangente, uma reta secante e uma reta qualquer." />
 				</section>
 				<section class="nivel1">
-					<h2>Trabalhando com Arrays</h2>
-					<p class="fragment fade-up;">Nesta disciplina 
-						só usaremos os <i>arrays</i> da biblioteca <b>Numpy</b>.</p>
-					<p class="fragment fade-up;">Vamos conhecer um pouco mais neste <a href="https://colab.research.google.com/drive/1S_B7evC-4aTQrI3GLsQX8MYLUoGXdTEh?usp=sharing" target="_blank" rel="noopener noreferrer">link</a>
+					<h2>A Tangente de Fermat</h2>
+					<small style="font-size: 78% !important; width: 42%;">
+						<p class="fragment fade-up;">Considere um curva $y$ para uma dada $f_{(x)}$ e um ponto $P$ fixo sobre esta
+							curva.</p>
+						<p class="fragment fade-up;">Considere um segundo ponto $Q$ próximo a $P$, também sobre a curva e trace a reta
+							que liga estes pontos.</p>
+						<p class="fragment fade-up;">Se aproximarmos $Q$ de $P$ a inclinação da secante irá se aproximar da inclinação
+							da tangente.</p>
+					</small>
+					<img data-src="..\img\calculo3.png"
+						style="float: left; margin-right: 5%; margin-left: 5%; height: 310px !important;"
+						alt="Gráfico mostrando uma circunferência, com uma reta tangente, uma reta secante e uma reta qualquer." />
 				</section>
+				<section class="nivel1">
+					<h2>O Cálculo de Fermat</h2>
+					<img data-src="..\img\limite1.jpg" style="float: left; margin-right: 5%; margin-left: 5%; height: 285px !important;"
+						alt="Gráfico mostrando a curva da função x ao quadrado a secante e a tangente em um dado ponto." />
+					<small style="font-size: 78% !important; width: 42%;">
+						<p style="font-size: 61%;" class="fragment fade-up;">$coefAngularSec = m = PQ= \frac{y_1-y_0}{x_1-x_0}$
+						</p>
+						<p class="fragment fade-up;">$x_1 \rightarrow x_2$</p>
+						<p class="fragment fade-up;">Podemos intuir que o coeficiente angular da tangente é o valor limite do
+							coeficiente angular da secante.</p>
+					</small>
+					<p style="font-size: 90%;" class="fragment fade-up;">$$coefAngularTang = \lim_{Q\to P} m = \lim_{x_1\to x_2}
+						\frac{y_1-y_0}{x_1-x_0}$$</p>
+				</section>
+				<section class="nivel1" >
+					<h1>$x_1$ tende a $x_0$ mas permanece distinto de $x_0$</h1>
+				</section>
+				<section class="nivel1">
+					<h2>A Solução de Fermat</h1>
+						<p class="fragment fade-up;">Como nosso $f_{(x)}=X^2$, podemos substituir a função no ponto e teremos</p>
+						<p class="fragment fade-up;">$m=\frac{y_1-y_0}{x_1-x_0}=\frac{x^2_1 - x^2_0}{x_1-x_0}$</p>
+						<p class="fragment fade-up;">$m=\frac{(x_1 - x_0)(x_1 + x_0)}{(x_1-x_0)}$</p>
+						<p class="fragment fade-up;">$$m= \lim_{x_1 \to x_2}\frac{y_1-y_0}{x_1-x_0}=\lim_{x_1 \to x_0}(x_1+x_0)=2x_0$$</p>
+				</section>
+				<section class="nivel1">
+					<h2>Exercício 1</h1>
+						<p>Considerando $f_{(x)}=X^2$, a) calcule o coeficiente angular da tangente que passa pelo ponto $(1,1)$; b: calcule o coeficiente 
+							angular da tangente que passa pelo ponto $(-\frac{1}{2},\frac{1}{4})$. </p>
+						<p class="fragment fade-up;">R: a)2 e b)-1</p>
+				</section>
+				<section class="nivel1">
+					<h2>Delta x</h1>
+						<small style=" font-size: 51% !important; width: 98%;">
+						<p class="fragment fade-up;">Formalmente usamos representar o ponto $x_1$ em função de $x_0$ utilizando para isso um $\Delta_x$
+							assim: $$x_1 = x_0 +\Delta_x$$
+						</p>
+						<p class="fragment fade-up;">Este $\Delta_x$, pode ser tanto negativo quanto positivo e representa apenas a $x_1-x_0$, Sendo assim:
+							$$m= \frac{x_1^2 - x_0^2}{x_1-x_0} = \frac{(x_0+\Delta_x)^2-x_0^2}{\Delta_x}$$
+						</p>
+						<p class="fragment fade-up;">Um pouco de álgebra no numerador leva a:
+							$$(x_0+\Delta_x)^2-x_0^2 = x_0^2+2x_0\Delta_x+(\Delta_x)^2 -x_0^2 = 2x_0\Delta_x+(\Delta_x)^2=\Delta_x(2x_0+\Delta_x)$$
+						</p>
+						<p class="fragment fade-up;">Ou seja: $$m=\frac{\Delta_x(2x_0+\Delta_x)}{\Delta_x}= 2x_0+\Delta_x $$</p>
+						<p class="fragment fade-up;">Sendo assim: $$m = \lim_{\Delta_x \to 0} 2x_0+\Delta_x = 2x_0$$</p>
+						</small>
+				</section>
+				<section class="nivel1">
+					<h2>Formalmente</h1>
+						<small style=" font-size: 79% !important; width: 98%;">
+							<p class="fragment fade-up;">Seja $f_{(x)}$ uma função definida em um intervalo que contenha $x=a$, exceto em $x=a$,
+								 dizemos que: $$\lim_{x \to a} = L$$
+							</p>
+							<p class="fragment fade-up;">Se para cada número $\varepsilon >0$ existe um número $\delta >0$ de forma que: 
+								$$|f_{(x)} - L| < \varepsilon$$ para todo $$0< |x-a| < \delta$$
+							</p>
+						</small>
+				</section>
+				<section class="nivel1">
+					<h2>Um pouco de código</h1>
+						<small style=" font-size: 79% !important; width: 98%;">
+							<p class="fragment fade-up;">Voltaremos a formalidade do cálculo de limites na próxima aula.</p>
+							<p class="fragment fade-up;">Por enquanto vamos ver um pouco de código: <a href="https://colab.research.google.com/drive/1mablR6TLzcZiLewcWnHSh8knStQZOkMU?usp=sharing" target="_blank" rel="noopener noreferrer">clique aqui</a></p>
+						</small>
+				</section>
+				
+			</section>
+				
 				
 			</section>
 		</div>
