@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Frank Coelho de Alcantara -2020" />
+  <title>Verificação de Tipos</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/interpret.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="title-slide">
+        <section class="nivel1">
+            <h1 class="title">Verificação de Tipos</h1>
+            <p style="text-align: right !important;">Frank Coelho de Alcantara -2021&nbsp;&nbsp;</p>
+        </section>
+      </section>  
+      <section>
+        <section class="nivel1">
+          <h2>Motivos</h2>
+            <p class="fragment fade-up">Segurança para execução.</p>
+            <p class="fragment fade-up">Detecção de erros em tempo de compilação.</p>
+            <p class="fragment fade-up">Metáforas mas expressivas: <strong><i>overload</i></strong>, por exemplo.</p>
+            <p class="fragment fade-up">Fornecer informações para o otimizador de código.</p>
+        </section>
+        <section class="nivel1">
+          <h2>Identificação de tipos</h2>
+            <img data-src="../img/tipo1.png" class="fragment fade-up" style="height: 231px !important; margin-left:3%;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+            <img data-src="../img/tipo2.png" class="fragment fade-up" style="height: 231px !important; margin-top: 5%; margin-left:3%;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+        <section class="nivel1">
+           <h2>Verificação de Tipos</h2>
+           <img data-src="../img/tipo4.png" class="imgright" style="height: 574px !important; margin-left: 3%;"
+            alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+      </section>
+      <section>
+        <section class="nivel1">
+          <h1>Tipos, e mais tipos</h1>
+        </section>
+        <section class="nivel1">
+          <h2>Definição de Tipos</h2>
+          <h1 style="font-size: 199% !important;">Um tipo é uma classificação que representa um conjunto específico de dados. Esta classificação define as operações que podem ser realizadas com estes dados.</h1>
+        </section>
+        <section class="nivel1">
+          <h2>Definição de Sistema de Tipos</h2>
+          <h1 style="font-size: 199% !important;">Um conjunto de regras para garantir a aplicação e verificação de tipos em artefatos de uma linguagem de programação.</h1>
+        </section>
+        <section class="nivel1">
+          <h2>Anotação de Tipos</h2>
+          <img data-src="../img/anot1.png" style="height: 480px !important;"
+            alt="Anotação de tipos é útil como documentação, e para a segurança do programa em execução." />
+         </section>
+         <section class="nivel1">
+            <h2>Minha Preferência</h2>
+             <img data-src="../img/anot2.png" style="height: 480px !important;" alt="definição de fortemente e estáticamente tipado." />
+         </section>
+         <section class="nivel1">
+            <h2>Inferência</h2>
+             <img data-src="../img/anot3.png" style="height: 480px !important;" alt="O compilador, ou o interpretador, deduz o tipo de uma estrutura de dados a partir do dados que alocamos nesta estrutura."/>
+         </section>
+         <section class="nivel1">
+            <h2>Tipos são conjuntos</h2>
+             <img data-src="../img/anot5.png" style="height: 440px !important;" alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+         <section class="nivel1">
+            <h2>Por que tipos?</h2>
+             <img data-src="../img/anot6.png" style="height: 440px !important;" alt="símbolo meramente ilustrativo, sem valor didático" />
+         </section>
+         <section class="nivel1">
+            <h2>Exemplo de anotação</h2>
+             <img data-src="../img/anot8.png" style="height: 455px !important;" alt="Exemplo de anotação de várias estruturas de dados diferentes, em escopos diferentes, todas chamadas de i." />
+         </section>
+         <section class="nivel1">
+            <h2>Exemplo: "a" + 1</h2>
+             <img data-src="../img/anot12.png" style="height: 400px !important;" alt="mostra que o javascript concatena inteiros e strings" />
+         </section>
+         <section class="nivel1">
+            <h2>Propriedades do Sistema de Tipos</h2>
+             <img data-src="../img/anot11.png" style="height: 530px !important;" alt="Progresso: quando uma expressão está corretamente tipada, 
+             ou é um valor, ou uma regra de expansão pode ser aplicada e preservação: se uma expressão está corretamente tipada, sua redução não muda o seu tipo." />
+         </section>
+          <section class="nivel1">
+            <h2>Fluxo de Verificação</h2>
+             <img data-src="../img/anot13.png" style="height: 530px !important;" alt="verificamos primeiro os tipos primitivos, depois os compostos" />
+         </section>
+      </section>
+      <section>
+        <section class="nivel1">
+          <h1>Matemática, sempre acaba na Matemática.</h1>
+        </section>
+        <section class="nivel1">
+          <h2>Enumeração</h2>
+            <img data-src="../img/anot15.png" style="height: 490px !important;" alt="os tipos enum são estrutura de dados que representam conjuntos." />
+        </section>
+        <section class="nivel1">
+          <h2>Tuplas</h2>
+            <img data-src="../img/anot16.png" style="height: 490px !important;" alt="Tuplas são estruturas de dados que representam um produto cartesiano" />
+        </section>
+        <section class="nivel1">
+          <h2>Tuplas - Considerações</h2>
+            <img data-src="../img/anot17.png" style="height: 490px !important;" alt="Em qual ordem colocamos os dados de uma struct na memória" />
+        </section>
+        <section class="nivel1">
+          <h2>Vetores</h2>
+            <img data-src="../img/anot18.png" style="height: 490px !important;" alt="Vetores são conjuntos indexados de dados." />
+        </section>
+        <section class="nivel1">
+          <h2>União</h2>
+            <img data-src="../img/anot19.png" style="height: 490px !important;" alt="A união de conjuntos e representada por estruturas de dados como a union do C." />
+        </section>
+        <section class="nivel1">
+          <h2>Variant ou Union</h2>
+          <img data-src="../img/anot22.png" style="height: 490px !important;"
+            alt="No caso de estruturas do tipo union, apenas um dado é disponível a cada uso." />
+        </section>
+        <section class="nivel1">
+          <h2>Variant ou Union - Considerações</h2>
+          <small style="font-size:88% !important; width:93%;">
+            <p class="fragment fade-up">Cada campo usa o mesmo espaço de memória então o tamanho da union é o tamanho do maior
+              campo definido.</p>
+            <p class="fragment fade-up">Só Podemos usar um campo de cada vez. Se atribuirmos valores, ainda que corretos, para
+              cada um dos campos em sequencia, apenas a última atribuição terá sentido. </p>
+            <p class="fragment fade-up">Uma herança dos tempos que a memória era muito cara e reduzida.</p>
+            <p class="fragment fade-up">Nestes tempos a uninion era uma forma bem razoável de manter uma metáfora consistente
+              nos seus programas.</p>
+          </small>
+        </section>
+        <section class="nivel1">
+          <h2>Coproduto</h2>
+            <img data-src="../img/anot20.png" style="height: 490px !important;" alt="O CoProduto do ML é uma união com a origem dos elementos identificada." />
+        </section>
+        <section class="nivel1">
+          <h2>Funções</h2>
+            <img data-src="../img/anot21.png" style="height: 490px !important;" alt="Função é o mapeamento de um domínio em uma imagem" />
+        </section>
+        <section class="nivel1">
+          <h2>Structs</h2>
+            <img data-src="../img/anot23.png" style="height: 490px !important;" alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+         <section class="nivel1">
+          <h2>Structs - Considerações</h2>
+          <small style="font-size:88% !important; width:93%;">
+              <p class="fragment fade-up">As <strong>structs</strong> são representadas como um bloco de memória, grande o suficiente para armazenar todos os campos.</p> 
+              <p class="fragment fade-up">O campos são ordenados de acordo com a a ordem de declaração. </p>
+              <p class="fragment fade-up">O compilador irá determiner o tamanho total e a posição dos campos em memória. Durante a execução o programa não entende a estrutura da <strong>struct</strong>.</p> 
+              <p class="fragment fade-up">Ou seja, a <strong>struct</strong>, como a definimos só existe em forma de artefato de Código e metáfora.</p>
+          </small>
+        </section>
+        <section class="nivel1">
+          <h2>Vantagem das Structs</h2>
+            <img data-src="../img/anot24.png" style="height: 490px !important;" alt="símbolo meramente ilustrativo, sem valor didático" />
+        </section>
+      </section>
+      <section>
+        <section class="nivel1">
+        <h1>Sistema de Tipos: Definição.</h1>
+        </section>
+        <section class="nivel1">
+          <h2>Em Linguagem Natural</h2>
+            <img data-src="../img/anot26.png" style="height: 420px !important;" alt="Podemos criar um sistema de tipos usando linguagem natural" />
+        </section>
+         <section class="nivel1">
+          <h2>Em Linguagem Natural - Exemplo</h2>
+            <small style="font-size:88% !important; width:93%;">
+              <p class="fragment fade-up">Uma declaração é bem formatada se:</p> 
+              <p class="fragment fade-up">Sua variável alvo está bem formatada;</p>
+              <p class="fragment fade-up">Sua expressão fonte está bem formatada, e os tipos declarados da fonte e do alvo coincidem;</p> 
+              <p class="fragment fade-up">Uma condicional é bem formatada se sua expressão de teste for do tipo bool e tanto a opção then quanto a opção else estão bem formatadas.</p>
+          </small>
+        </section>
+        <section class="nivel1">
+            <h2>Definição de tipo</h2>
+            <p class="fragment fade-up">Com a sentença: a expressão $\lambda$ é do tipo $T$, pretendemos mostrar, 
+              sem ter que avaliar a expressão que, quando a expressão for avaliada, irá gerar um tipo de dados $\lambda'$ que, sem dúvida, 
+              será do tipo $T$.
+            </p>
+            <p class="fragment fade-up">As seguintes declarações são equivalentes: </p>
+            <ol>
+              <li>$\lambda$ é do tipo $T$</li>
+              <li>$\lambda$ tem o tipo $T$</li>
+              <li>$\lambda$ pertence ao tipo $T$</li>
+              <li>O tipo de $\lambda$ é $T$</li>
+            </ol>
+          </section>
+          <section class="nivel1">
+            <h2>Cálculo de Sequentes</h2>
+            <small style="font-size: 80% !important;">
+              <p class="fragment fade-up">O cálculo de Sequentes é uma parte da lógica de primeiro grau que permite a automação do processo de 
+                inferência de uma expressão lógica.  </p>
+              <p class="fragment fade-up">Parte de um conjunto condicional de proposições tautológicas, chamada de antecedente, onde cada linha 
+                de prova, também é uma tautologia condicional, chamada de sequente.</p>
+              <p class="fragment fade-up">Estas inferências são expressas na forma: $\Gamma \vdash \Delta$. Onde $\Gamma$ representa um 
+                conjunto de fórmulas, ou contexto e $\Delta$ outro conjunto de fórmulas, ou sequente. 
+                <p class="fragment fade-up">Formalmente definiremos um tipo por: $\Gamma \vdash \lambda: T$. </p>
+                <p class="fragment fade-up">Que leremos dado o contexto $\Gamma$ existe um $\lambda$ do tipo $T$.</p>
+              </p>
+            </small>
+          </section>
+          <section class="nivel1">
+            <h2>Cálculo de Sequentes - Exemplo</h2>
+              <p class="fragment fade-up">Como podemos verificar os tipos nas seguintes declarações em cálculo de sequentes?</p> 
+              <p class="fragment fade-up">$\text{𝑓𝑙𝑜𝑎𝑡 𝑓(𝑓𝑙𝑜𝑎𝑡 𝑥, 𝑓𝑙𝑜𝑎𝑡 𝑦) \{ 𝑟𝑒𝑡𝑢𝑟𝑛 𝑥+𝑦; \}}$</p> 
+              <p class="fragment fade-up">$𝑥 : 𝑓𝑙𝑜𝑎𝑡,  𝑦 : 𝑓𝑙𝑜𝑎𝑡  ⊢  𝑥+𝑦 : 𝑓𝑙𝑜𝑎𝑡$</p> 
+              <p class="fragment fade-up">$\text{𝑖𝑛𝑡 𝑔(𝑖𝑛𝑡 𝑥, 𝑖𝑛𝑡 𝑦) \{ 𝑟𝑒𝑡𝑢𝑟𝑛 𝑥+𝑦; \}}$</p> 
+              <p class="fragment fade-up">$𝑥 : 𝑖𝑛𝑡,  𝑦 : 𝑖𝑛𝑡  ⊢  𝑥+𝑦 : 𝑖𝑛𝑡$</p> 
+          </section>
+          <section class="nivel1">
+            <h2>Regras de Atribuição</h2>
+              <p class="fragment fade-up">Usamos o cálculo de sequentes para definir as regras de atribuição, verificação e checagem  de tipos. Em um formato mais conveniente.</p> 
+              <img data-src="../img/anot28.png" style="height: 180px !important;" class="fragment fade-up"
+            alt="regra de equivalência entre tipos de dois operadores inteiros em uma soma." />
+              <p class="fragment fade-up">Lemos: se 𝐸1 tem tipo int e 𝐸2 tem tipo int então E1+E2 tem tipo int</p> 
+          </section>
+          <section class="nivel1">
+            <h2>Cálculo de Sequentes - Exemplo</h2>
+            <img data-src="../img/anot29.png" style="height: 570px !important;" alt="enunciado do exemplo" />
+          </section>
+          <section class="nivel1">
+            <h2>Construíndo a AST</h2>
+            <img data-src="../img/anot30.png" style="height: 570px !important;" alt="AST montada com as regras de produção escritas em cálculo de sequentes" />
+          </section>
+       </section>
+      </section>
+    </div>
+  </div>
+  <div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+  <script>
+    Reveal.initialize({
+      history: true,
+      transition: "default", // none/fade/slide/convex/concave/zoom
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
+
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
+</html>
