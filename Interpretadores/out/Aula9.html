@@ -22,7 +22,7 @@
       <section id="title-slide" class="nivel1">
        <section>
         <h1 class="title" style="width: 90%; margin-left: 4%;">Otimização de Código</h1>
-        <p style="text-align: right !important;">Frank Coelho de Alcantara -2020&nbsp;&nbsp;</p>
+        <p style="text-align: right !important;">Frank Coelho de Alcantara -2021&nbsp;&nbsp;</p>
        </section>
        <section>
           <h2>Objetivos</h2>
@@ -38,14 +38,15 @@
           <small style="font-size: 90% !important; margin-left:2%;">
           <p  class="fragment fade-up">Sempre que existir uma operação entre dois literais, execute esta operação.</p>
           <p  class="fragment fade-up">Com esta otimização seu código pode ser mais claro.</p>
-          <p  class="fragment fade-up">Você pode usar $$tempo = 30 * MINUTOS\_POR\_DIA; $$</p>
-          <p  class="fragment fade-up">Em vez de: $$tempo = 43200;$$</p>
+          <p  class="fragment fade-up">O programador usa: $$tempo = 30 * MINUTOS\_POR\_DIA; $$</p>
+          <p  class="fragment fade-up">O interpretador vê: $$tempo = 43200;$$</p>
         </small>
         </section>
         <section>
           <h2>Constant Propagation</h2>
           <small style="font-size: 90% !important; margin-left:2%;">
-          <p  class="fragment fade-up">Se sabemos que, em um determinado ponto do programa, uma variável tem um valor constante, substitua a referência a variável por este valor.</p>
+          <p  class="fragment fade-up">Se sabemos que, em um determinado ponto do programa, uma variável tem um valor constante, substituímos 
+            a referência à variável por este valor constante.</p>
           <p  class="fragment fade-up">Não é uma otimização simples, precisamos conhecer o fluxo de dado e encontrar o valor da variável em todos os cenários possíveis.</p>
           <p  class="fragment fade-up">Fica mais simples se o código estiver na forma de SSA</p>
         </small>
@@ -53,7 +54,7 @@
         <section>
           <h2>Copy Propagation</h2>
           <small style="font-size: 70% !important; margin-left: 2%;;">
-          <p  class="fragment fade-up">Depois de atribuirmos o valor de $A$ a $B$, a referencia de $A$ em $B$ pode ser substituída pelo valor de $A$, até que uma nova atribuição ocorra em $A$ ou $B$.</p>
+          <p  class="fragment fade-up">Depois de atribuirmos o valor de $A$ a $B$, a referência de $A$ em $B$ pode ser substituída pelo valor de $A$, até que uma nova atribuição ocorra em $A$ ou $B$.</p>
           <p  class="fragment fade-up">Não é uma otimização simples, precisamos conhecer o fluxo de dado e encontrar o valor da variável em todos os cenários possíveis.</p>
           <p  class="fragment fade-up">Fica mais simples se o código estiver na forma de SSA</p>
         </small>
