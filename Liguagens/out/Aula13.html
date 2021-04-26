@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Frank Coelho de Alcantara -2020" />
+  <title>Alocação de Memória</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/interpret.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="title-slide" class="nivel1">
+       <section>
+        <h1 class="title" style="width: 90%; margin-left: 4%;">Alocação de Memória</h1>
+        <p style="text-align: right !important;">Frank Coelho de Alcantara -2021&nbsp;&nbsp;</p>
+       </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <p style="text-align: center !important; margin: 0 auto; font-size: 200%; font-weight: bolder;width: 80%;">
+            NA ARQUITETURA DE VON NEWMANN DADOS E COMANDOS UTILIZAM A MESMA MEMÓRIA. </p>
+        </section>
+        <section>
+          <h2>Gestão de Memória - Considerações</h2>
+          <img data-src="../img/opt9.png" style="height: 520px !important; margin-top: 2%;"  alt="exemplo de código substituindo multiplicação por somas." />
+        </section>
+        <section>
+          <h2>Layout Básico</h2>
+          <img data-src="../img/opt10.png" style="height: 520px !important; margin-top: 2%; margin-left: 4%;"  alt="exemplo de código substituindo multiplicação por somas." />
+        </section>
+        <section>
+          <h2>Static Allocation</h2>
+          <small style=" font-size: 80% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">Na maior parte das linguagens imperativas <b>o código é alocado estaticamente</b>.</p>
+            <p class="fragment fade-up">O compilador define, em tempo de compilação o endereço de cada artefato e este endereço é imutável durante o tempo de execução.</p>
+            <p class="fragment fade-up">Variáveis estáticas dependem de seu tempo de vida:</p>
+            <ul>
+              <li class="fragment fade-up"><b>Globais</b> existem durante todo o tempo de execução;</li>
+              <li class="fragment fade-up"><b>Locais</b> existem durante o tempo de uma função, ou método, ou procedure;</li>
+              <li class="fragment fade-up"><b>Dados compartilhados</b> entre objetos existem durante todo o de execução.</li>
+            </ul>
+        </small>
+        </section>
+        <section>
+          <h2>Stack Allocation</h2>
+          <small style=" font-size: 80% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">Método simples e eficiente de alocar memória para sub-rotinas.</p>
+            <p class="fragment fade-up">Quando uma sub-rotina é chamada toda a memória necessária é alocada em um bloco chamado de <b>Activation Record</b> ou <b>Stack Frame</b>.</p>
+            <p class="fragment fade-up">O layout destes frames varia de linguagem para linguagem e de arquitetura para arquitetura</p>
+          </small>
+        </section>
+        <section>
+          <h2>Stack Allocation - Erro</h2>
+          <img data-src="../img/opt11.png" style="height: 520px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Stack Frame</h2>
+          <img data-src="../img/opt12.png" style="height: 520px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Stack Frames - Considerações</h2>
+          <img data-src="../img/opt13.png" style="height: 495px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Heap Allocation</h2>
+          <img data-src="../img/opt14.png" style="height: 495px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Heap Allocation - Detalhes</h2>
+          <img data-src="../img/opt15.png" style="height: 540px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Algoritmos de Alocação no Heap</h2>
+          <img data-src="../img/opt16.png" style="height: 540px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Exemplo em C</h2>
+          <img data-src="../img/opt17.png" style="height: 540px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Considerações sobre Alocação</h2>
+          <img data-src="../img/opt18.png" style="height: 540px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Como Acompanhar os Blocos?</h2>
+          <small style=" font-size: 76% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up"><b>Manter</b> uma linked-list do blocos livres no heap.</p>
+            <p class="fragment fade-up">Para <b>alocar</b>, buscamos na lista um bloco cujo tamanho seja igual ou maior que o necessário.</p>
+            <p class="fragment fade-up">Se o tamanho for igual <b>removemos</b> o bloco da lista de blocos livres.</p>
+            <p class="fragment fade-up">Se o tamanho for maior, <b>modificamos</b> o tamanho para o tamanho necessário.</p>
+            <p class="fragment fade-up">Quando um artefato é <b>deletado</b>, o bloco é devolvido a lista de blocos livres.</p>
+            <p class="fragment fade-up">E verificamos se esse bloco não pode ser <b>unido</b> a um dos seus vizinhos para criar um bloco maior.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Como Encontrar os Blocos?</h2>
+
+            <p class="fragment fade-up"><b>Quatro algoritmos</b> dominam este cenário.</p>
+            <p class="fragment fade-up"><b>First-fit</b>: seleciona o primeiro bloco da lista de blocos livres que seja maior ou igual ao necessário.</p>
+            <p class="fragment fade-up"><b>Best-fit</b>: busca em toda a lista o melhor bloco para alocar o espaço necessário, o de tamanho igual é melhor.</p>
+            <p class="fragment fade-up"><b>Buddy system</b>: usa blocos de tamanho padrão $2^𝑘$. Se não existir nenhum espaço disponível. Se nenhum bloco de tamanho entre $2^{(𝑘−1)}$ e $2^𝑘$ atende então vamos encontrar 
+                um bloco de $2^{(𝑘+1)}$ e dividi-lo ao meio adicionando as metades a lista de blocos livres</p>
+            <p class="fragment fade-up"><b>Fibonacci heap</b>: blocos de tamanho padrão seguindo a sequência de Fibonacci.</p>
+          </small>
+        </section>
+      </section>
+      <section class="nivel1">
+        <section>
+          <h2>O Programador Controla Tudo</h2>
+          <small style=" font-size: 78% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up"><b>Malloc / new</b>: aloca a <b>memória necessária</b> para um determinado artefato.</p>
+            <p class="fragment fade-up"><b>Free / delete</b>: libera a <b>memória usada</b> por um determinado artefato.</p>
+            <p class="fragment fade-up">Este modelo permite que o programador tenha controle da eficiência do seu executável.</p>
+            <p class="fragment fade-up">Este modelo permite que erros de desalocação afetem a segurança do programa.</p>
+            <p class="fragment fade-up">Solução clássica, dos anos 1950, <b>Garbage Collector</b>. Vamos investigar a memória e remover todos 
+            os artefatos inúteis ainda na memória.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Garbage Collector - Considerações</h2>
+          <small style=" font-size: 80% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">A linguagem define o <b>tempo de vida</b> de um artefato.</p>
+            <p class="fragment fade-up">Em tempo de execução mantém controle de todos o <b>bindings</b> de cada artefato, incrementando a lista sempre que uma referência é criada e decrementando sempre que a referência é destruída.</p>
+            <p class="fragment fade-up">Se um objeto nunca é desalocado teremos um vazamento de memória (<b>memory leak</b>).</p>
+            <p class="fragment fade-up">É necessário determinar se o artefato está vivo, ou não, de acordo com a especificação da própria linguagem.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Garbage Collector - Desvantagens</h2>
+          <small style=" font-size: 72% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up">Um processo adicional precisa ser incluído no seu executável.</p>
+            <p class="fragment fade-up">Degrada os algoritmos de <b>cache</b>.</p>
+            <p class="fragment fade-up">Aumenta o consumo de memória.</p>
+            <p class="fragment fade-up">Em alguns casos, consome 10% do tempo de uso de um programa.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Garbage Collector - Algoritmos</h2>
+          <small style=" font-size: 67% !important; width: 93%; margin-left: 2%;">
+            <p class="fragment fade-up"><b>Reference Counting</b>: neste algoritmo, uma estrutura de dados extra mantém uma contagem de todos os ponteiros, ou referências, para 
+              um determinado objeto. Este contador é incrementado sempre que uma referência é criada e decrementado sempre que uma referência é destruida. Quando 
+            o contador chega a zero, o artefato pode ser removido da memória.</p>
+            <ol>
+              <li style="margin-bottom: 1%;" class="fragment fade-up" >Simples e fácil de implementar. Porém, a memória necessária para manter o contador pode ser muito grande.</li>
+              <li style="margin-bottom: 1%;" class="fragment fade-up">O controle pode ser feito pelo próprio uso dos artefatos. Contudo, se os artefatos tem vida muito curta, o custo de manter o contador não faz sentido.</li>
+              <li style="margin-bottom: 1%;" class="fragment fade-up">A liberação da memória é instantânea. Se a referência é feita por um grupo de artefatos, a memória pode não ser liberada.</li>
+            </ol>
+          </small>
+        </section>
+        <section>
+          <h2>Garbage Collector - Pesquisa</h2>
+            <p>Explique o funcionamento dos seguintes algoritmos de Garbage Collector:</p>
+              <ol>
+                <li style="margin-bottom: 1%;" class="fragment fade-up">Mark-Sweep;</li>
+                <li style="margin-bottom: 1%;" class="fragment fade-up">Mark-Compact;</li>
+                <li style="margin-bottom: 1%;" class="fragment fade-up">Semispace;</li>
+              </ol>
+            <p>Sua pesquisa deve conter uma breve descrição de cada algoritmo, destacando prós e contras, possíveis aplicações.</p>
+        </section>
+      </section>
+    </div>
+  </div>
+  <div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+      center: false,
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
+
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
+</html>

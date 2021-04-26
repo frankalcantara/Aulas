@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="Frank Coelho de Alcantara -2020" />
+	<title>Derivadas</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta
+		name="apple-mobile-web-app-status-bar-style"
+		content="black-translucent" />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	<link rel="stylesheet" href="../../rev/reset.css" />
+	<link rel="stylesheet" href="../../rev/reveal.css" />
+	<link rel="stylesheet" href="../../rev/logica.css" />
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section  id="title-slide">
+				<section class="nivel1">
+				<h1 class="title" style="display: block; margin-top: 2%;">Derivadas</h1>
+				<p style="text-align: right !important">
+					Frank Coelho de Alcantara -2020 &nbsp;&nbsp;
+				</p>
+				</section>
+			</section>
+			<section>
+				<section class="nivel1">
+					<h2>Limites</h2>
+					<img data-src="..\img\derivadas1.png" style="float: left; margin-left: 5%; height: 237px !important;"
+						alt="Gráfico mostrando a reta tangente um determinado ponto de uma curva." />
+					<small style="float:right;width: 58%;margin-right: 1%; font-size: 61% !important;">
+						<p class="fragment fade-up;">Vamos voltar um pouco. </p>
+						<p class="fragment fade-up;">$$\alpha = \frac{f_{(x+\Delta x)} - f_{(x)}}{(x+\Delta x) - x } = 
+							\frac{f_{(x+\Delta x)} - f_{(x)}}{\Delta x}$$</p>
+						<p class="fragment fade-up;">Podemos encontrar a inclinação da tangente em $P$ fazendo $\Delta x \to 0$. </p>
+						<p class="fragment fade-up;">$$\lim_{\Delta x \to 0} \frac{f_{(x+\Delta x)} - f_{(x)}}{\Delta x}$$</p>
+						<p class="fragment fade-up;">Este é um limite tão especial que tem um nome próprio: <b>derivada</b></p>
+						<p class="fragment fade-up;">$$f'_{(x)}=\lim_{\Delta x \to 0} \frac{f_{(x+\Delta x)} - f_{(x)}}{\Delta x}$$</p>
+					</small>
+					
+				</section>
+				<section class="nivel1">
+					<h2>Usando a Definição</h2>
+					<small style="font-size: 48% !important; width: 40%; float: left; margin-left: 2%;">
+						<p class="fragment fade-up;">Calcule a derivada da função $f_{(x)} = x^2$
+							$$f'_{(x)}=\lim_{\Delta x \to 0} \frac{f_{(x+\Delta x)} - f_{(x)}}{\Delta x}$$	
+							$$f'_{(x)}=\lim_{\Delta x \to 0} \frac{(x+\Delta x)^2 - x^2}{\Delta x}$$
+							$$f'_{(x)}=\lim_{\Delta x \to 0} \frac{x^2+2(\Delta x)x+\Delta x^2 - x^2 }{\Delta x}$$
+							$$f'_{(x)}=\lim_{\Delta x \to 0} \frac{2(\Delta x)x+\Delta x^2 }{\Delta x}$$
+							$$f'_{(x)}=\lim_{\Delta x \to 0} \frac{\Delta x(2x+\Delta x)}{\Delta x}$$
+							$$f'_{(x)}=\lim_{\Delta x \to 0} (2x+\Delta x)$$
+							$$f'_{(x)}=2x$$
+						</p>
+						
+					</small>
+					<small class="fragment fade-up;" style="padding-left: 72px; border-left: 2px solid white; font-size: 48% !important; 
+    							width: 40%; float: left; margin-left: 9%;">
+						<p class="fragment fade-up;">Calcule a derivada da função $f_{(x)} = \frac{1}{x}$
+							$$f'_{(x)}=\lim_{\Delta x \to 0} \frac{f_{(x+\Delta x)} - f_{(x)}}{\Delta x}$$
+							$$f'_{(x)}=\lim_{\Delta x \to 0} \frac{\frac{1}{x+\Delta x}- \frac{1}{x}}{\Delta x}$$
+							$$f'_{(x)}=\lim_{\Delta x \to 0} \frac{\frac{x-(x+\Delta x)}{(x+\Delta x)x}}{\Delta x}$$
+							$$f'_{(x)}=\lim_{\Delta x \to 0} \frac{\frac{-\Delta x}{(x+\Delta x)x}}{\Delta x}$$
+							$$f'_{(x)}=\lim_{\Delta x \to 0} \frac{-1}{(x+\Delta x)x}$$
+							$$f'_{(x)}=\frac{-1}{x^2}$$
+						</p>
+					
+					</small>
+				</section>
+				<section class="nivel1">
+					<h2>Regras de Derivação</h2>
+					<small style="font-size: 69% !important;">
+					<p class="fragment fade-up;">Usando a definição podemos encontrar a derivada de qualquer função. Também usando a 
+						definição podemos criar regras de derivação que sejam aplicadas as funções mais comuns. Por exemplo: 
+						$$\frac{d}{dx}(x) = 1$$
+						$$\frac{d}{dx}(\sin{x}) = \cos{x}$$
+						$$\frac{d}{dx}(x^n) = nx^{n-1}$$
+					</p>
+					<p class="fragment fade-up;">Cabe a você provar estas identidades e procurar uma tabela de regras de derivação.</p>
+					</small>
+				</section>
+				<section class="nivel1">
+					<h2>Importante</h2>
+					<small style="font-size: 80% !important;">
+						<p class="fragment fade-up;">Se a função $f_{(x)}$ é diferenciável em um ponto $x_0$ qualquer então
+							 a função $f_{(x)}$ é contínua em $x_0$. Ou seja, a derivada de $f_{(x)}$ em $x_0$ existe.</p>
+						<p class="fragment fade-up;">Se $y = f_{(x)}$ então podemos usar: 
+							$$f'_{(x)} = y' = \frac{df}{dx} = \frac{dy}{dx} = \frac{d}{dx}(f_{(x)}) = Df_{(x)}$$
+						</p>
+						<p class="fragment fade-up;">Para representar a derivada em um ponto específico $a$:
+							$$f'_{(a)} = y' \bigg{|}_{x=a} =\frac{df}{dx} \bigg{|}_{x=a} = \frac{dy}{dx} \bigg{|}_{x=a} = Df_{(a)}$$
+						</p>
+						</small>
+				</section>
+				<section class="nivel1">
+					<h2>Interpretação</h2>
+						<p class="fragment fade-up;">Se $y = f_{(x)}$ então teremos:  </p>
+						<ol style="width: 87%; font-size: 69% !important; margin-left: 9%;">
+							<li class="fragment fade-up;" style="margin-bottom: 3%;">$f'_(a)$ é a inclinação da tangente a função $y = f_{(x)}$ no ponto $x = a$. E a equação da reta tangente em $x = a$
+								será dada por $y=f_(a)+ f'_(a)(x-a)$ </li>
+							<li class="fragment fade-up;" style="margin-bottom: 3%;">$f'_(a)$ é a taxa instantânea de variação da função $y = f_{(x)}$ no ponto $a$. Ou seja, se $y = f_{(x)}$ é representa 
+								a posição de um objeto em um determinado tempo $x$ então $f'_(a)$ é a velocidade deste objeto em $x=a$. </li>
+							<li class="fragment fade-up;" style="margin-bottom: 3%;">A derivada mede a taxa de variação em um ponto específico da curva. 
+							variação é mudança, então a derivada indica como as coisas mudam em um determinado ponto, dada uma função. </li>
+						</ol>
+				</section>
+				<section class="nivel1">
+					<h2>Na Pratica 1</h2>
+						<p style="font-size: 80%;">O volume de combustível armazenado no tanque de um SR-71, em um minuto $t$ qualquer é dado por: 
+							$$V_{(t)} = 2t^2-16t+35$$
+						</p>
+						<ol style="font-size: 80%; width: 81%; margin-right: 5%;list-style-type: lower-latin;">
+							<li>No instante $t=1$ minutos este volume está aumentando, diminuído ou estável?</li>
+							<li>No instante $t=5$ minutos este volume está aumentando, diminuído ou estável?</li>
+							<li>Considerando $t=1$ e $t=5$, em que instante o volume do tanque está mudando mais rapidamente?</li>
+							<li>Em algum instante $t$, o volume deste tanque estará constante? Se sim, que instante é este?</li>
+						</ol>
+				</section>
+				<section class="nivel1">
+					<h2>Na Pratica 1 - Solução</h2>
+					<p style="font-size: 80%;">Todas as perguntas deste exemplo dizem respeito a análise da taxa de varição da função que determina
+						o volume do tanque. Só para lembrar:
+						$$V_{(t)} = 2t^2-16t+35$$
+					</p>
+					<p style="font-size: 80%;">Nosso primeiro passo será encontrar a função que nos indica esta taxa de variação ou: 
+					$$\frac{d}{dt}V_{(t)} =\frac{d}{dt} (2t^2-16t+35)$$
+				</p>
+
+				</section>
+				<section class="nivel1" >
+					<h1>$x_1$ tende a $x_0$ mas permanece distinto de $x_0$</h1>
+				</section>
+				<section class="nivel1">
+					<h2>A Solução de Fermat</h1>
+						<p class="fragment fade-up;">Como nosso $f_{(x)}=X^2$, podemos substituir a função no ponto e teremos</p>
+						<p class="fragment fade-up;">$m=\frac{y_1-y_0}{x_1-x_0}=\frac{x^2_1 - x^2_0}{x_1-x_0}$</p>
+						<p class="fragment fade-up;">$m=\frac{(x_1 - x_0)(x_1 + x_0)}{(x_1-x_0)}$</p>
+						<p class="fragment fade-up;">$$m= \lim_{x_1 \to x_0}\frac{y_1-y_0}{x_1-x_0}=\lim_{x_1 \to x_0}(x_1+x_0)=2x_0$$</p>
+				</section>
+				<section class="nivel1">
+					<h2>Exercício 1</h1>
+						<p>Considerando $f_{(x)}=X^2$, a) calcule o coeficiente angular da tangente que passa pelo ponto $(1,1)$; b: calcule o coeficiente 
+							angular da tangente que passa pelo ponto $(-\frac{1}{2},\frac{1}{4})$. </p>
+						<p class="fragment fade-up;">R: a)2 e b)-1</p>
+				</section>
+				<section class="nivel1">
+					<h2>Delta x</h1>
+						<small style=" font-size: 51% !important; width: 98%;">
+						<p class="fragment fade-up;">Formalmente usamos representar o ponto $x_1$ em função de $x_0$ utilizando para isso um $\Delta_x$
+							assim: $$x_1 = x_0 +\Delta_x$$
+						</p>
+						<p class="fragment fade-up;">Este $\Delta_x$, pode ser tanto negativo quanto positivo e representa apenas a $x_1-x_0$, Sendo assim:
+							$$m= \frac{x_1^2 - x_0^2}{x_1-x_0} = \frac{(x_0+\Delta_x)^2-x_0^2}{\Delta_x}$$
+						</p>
+						<p class="fragment fade-up;">Um pouco de álgebra no numerador leva a:
+							$$(x_0+\Delta_x)^2-x_0^2 = x_0^2+2x_0\Delta_x+(\Delta_x)^2 -x_0^2 = 2x_0\Delta_x+(\Delta_x)^2=\Delta_x(2x_0+\Delta_x)$$
+						</p>
+						<p class="fragment fade-up;">Ou seja: $$m=\frac{\Delta_x(2x_0+\Delta_x)}{\Delta_x}= 2x_0+\Delta_x $$</p>
+						<p class="fragment fade-up;">Sendo assim: $$m = \lim_{\Delta_x \to 0} 2x_0+\Delta_x = 2x_0$$</p>
+						</small>
+				</section>
+				<section class="nivel1">
+					<h2>Formalmente</h1>
+						<small style=" font-size: 79% !important; width: 98%;">
+							<p class="fragment fade-up;">Seja $f_{(x)}$ uma função definida em um intervalo que contenha $x=a$, exceto em $x=a$,
+								 dizemos que: $$\lim_{x \to a} = L$$
+							</p>
+							<p class="fragment fade-up;">Se para cada número $\varepsilon >0$ existe um número $\delta >0$ de forma que: 
+								$$|f_{(x)} - L| < \varepsilon$$ para todo $$0< |x-a| < \delta$$
+							</p>
+						</small>
+				</section>
+				<section class="nivel1">
+					<h2>Um pouco de código</h1>
+						<small style=" font-size: 79% !important; width: 98%;">
+							<p class="fragment fade-up;">Voltaremos a formalidade do cálculo de limites na próxima aula.</p>
+							<p class="fragment fade-up;">Por enquanto vamos ver um pouco de código: <a href="https://colab.research.google.com/drive/1mablR6TLzcZiLewcWnHSh8knStQZOkMU?usp=sharing" target="_blank" rel="noopener noreferrer">clique aqui</a></p>
+						</small>
+				</section>
+				
+			</section>
+				
+				
+			</section>
+		</div>
+	</div>
+	<div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+	<script src="../../rev/reveal.js"></script>
+	<script src="../../rev/plugin/notes/notes.js"></script>
+	<script src="../../rev/plugin/search/search.js"></script>
+	<script src="../../rev/plugin/zoom/zoom.js"></script>
+	<script src="../../rev/plugin/math/math.js"></script>
+	<script src="../../rev/plugin/menu/menu.js"></script>
+	<script src="../../rev/plugin/chalkboard/plugin.js"></script>
+	<script src="../../rev/plugin/countdown\countdown.js"></script>
+	<script>
+		// Full list of configuration options available at:
+		// https://revealjs.com/config/
+		Reveal.initialize({
+			// Push each slide change to the browser history
+			history: true,
+			// Transition style
+			transition: "default", // none/fade/slide/convex/concave/zoom
+			center: false,
+			math: {
+				mathjax:
+					"https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+				config: "TeX-AMS_HTML-full",
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: {
+					Macros: {
+						RR: "{\\bf R}",
+					},
+				},
+			},
+			menu: {
+				side: "left",
+				width: "normal",
+				numbers: false,
+				titleSelector: "h1, h2, h3, h4, h5, h6",
+				useTextContentForMissingTitles: false,
+				hideMissingTitles: false,
+				markers: true,
+				custom: false,
+				themes: false,
+				themesPath: "dist/theme/",
+				transitions: false,
+				openButton: true,
+				openSlideNumber: false,
+				keyboard: true,
+				sticky: false,
+				autoOpen: true,
+				delayInit: false,
+				openOnInit: false,
+				loadIcons: true,
+			},
+			// reveal.js plugins
+			plugins: [
+				RevealNotes,
+				RevealMath,
+				RevealMenu,
+				RevealChalkboard,
+				RevealSearch,
+				RevealZoom,
+			],
+		});
+	</script>
+</body>
+
+</html>
