@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Frank Coelho de Alcantara -2020" />
+  <title>Otimização de Código</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <link rel="stylesheet" href="../../rev/reset.css" />
+  <link rel="stylesheet" href="../../rev/reveal.css" />
+  <link rel="stylesheet" href="../../rev/interpret.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="title-slide" class="nivel1">
+       <section>
+        <h1 class="title" style="width: 90%; margin-left: 4%;">Otimização de Código</h1>
+        <p style="text-align: right !important;">Frank Coelho de Alcantara -2021&nbsp;&nbsp;</p>
+       </section>
+       <section>
+          <h2>Objetivos</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Reduzir o custo computacional de rotinas repetidas (DAG).</p>
+          <p  class="fragment fade-up">Reduzir o número de variáveis utilizadas (registradores).</p>
+          <p  class="fragment fade-up">Utilizar melhor as características únicas de cada hardware.</p>
+          <p  class="fragment fade-up">Centenas, talvez milhares de otimizações diferentes (qual?).</p>
+        </small>
+        </section>
+        <section>
+          <h2>Constant Folding</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Sempre que existir uma operação entre dois literais, execute esta operação.</p>
+          <p  class="fragment fade-up">Com esta otimização seu código pode ser mais claro.</p>
+          <p  class="fragment fade-up">O programador usa: $$tempo = 30 * MINUTOS\_POR\_DIA; $$</p>
+          <p  class="fragment fade-up">O interpretador vê: $$tempo = 43200;$$</p>
+        </small>
+        </section>
+        <section>
+          <h2>Constant Propagation</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Se sabemos que, em um determinado ponto do programa, uma variável tem um valor constante, substituímos 
+            a referência à variável por este valor constante.</p>
+          <p  class="fragment fade-up">Não é uma otimização simples, precisamos conhecer o fluxo de dado e encontrar o valor da variável em todos os cenários possíveis.</p>
+          <p  class="fragment fade-up">Fica mais simples se o código estiver na forma de SSA</p>
+        </small>
+        </section>
+        <section>
+          <h2>Copy Propagation</h2>
+          <small style="font-size: 70% !important; margin-left: 2%;;">
+          <p  class="fragment fade-up">Depois de atribuirmos o valor de $A$ a $B$, a referência de $A$ em $B$ pode ser substituída pelo valor de $A$, até que uma nova atribuição ocorra em $A$ ou $B$.</p>
+          <p  class="fragment fade-up">Não é uma otimização simples, precisamos conhecer o fluxo de dado e encontrar o valor da variável em todos os cenários possíveis.</p>
+          <p  class="fragment fade-up">Fica mais simples se o código estiver na forma de SSA</p>
+        </small>
+        <img data-src="../img/opt4.png" class="fragment fade-up" style="height: 262px !important; float: right; margin-top: 3%;"  alt="exemplo de código substituindo multiplicação por somas." />
+        </section>
+        <section>
+          <h2>Def. Use Chain</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+            <p class="fragment fade-up">Outro grafo relacionando cada definição de variável a todos os usos desta variável.</p>
+            <p class="fragment fade-up">Computacionalmente muito caro: uma variável com $d$ definições e $u$ usos terá
+              complexidade $O(d\times u)$.</p>
+            <p class="fragment fade-up">Vamos simplificar este processo definindo cada variável apenas uma vez?</p>
+            <p class="fragment fade-up">E assim nasceu o SSA dentro da IBM.</p>
+          </small>
+        </section>
+        <section>
+          <h2>Static Single Assignment - SSA</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Método para estruturar o código intermediário de forma que cada variável seja atribuída apenas uma vez.</p>     
+          <p  class="fragment fade-up">A ideia é remover possíveis redundâncias no uso de variáveis.</p>
+          <p  class="fragment fade-up">Precisamos encontrar todos os pontos onde uma variável é usada.</p>     
+          <p  class="fragment fade-up">Outra estrutura de dados: Cadeias de definição de uso <i>def. use chain</i>.</p>     
+        </small>
+        </section>
+        <section>
+          <h2>SSA Em Blocos Básicos</h2>
+          <img data-src="../img/opt1.png" style="height: 450px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>SSA Fluxo</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Quando voltamos de um $if$, por exemplo, como podemos saber que variável usar?</p>     
+          <p  class="fragment fade-up">Infelizmente este é um problema insolúvel. Não há como determinar isso de forma autônoma.</p>
+          <p  class="fragment fade-up">Então, vamos usar uma função alternativa $a3 := \Phi (a1, a2)$ que indica que $a3$ pode receber $a1$ ou $a2$ dependendo do fluxo do programa.</p>     
+          <p  class="fragment fade-up">E assim nasceu o SSA dentro da IBM.</i>.</p> 
+        </small>
+        </section>
+        <section>
+          <h2>SSA Fluxo Exemplo</h2>
+          <img data-src="../img/opt2.png" style="height: 510px !important;"  alt="permite otimização utilizando as características da linguagem." />
+        </section>
+        <section>
+          <h2>Simplificação Algébrica</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Usamos as regras da álgebra.</p>     
+          <p  class="fragment fade-up">Não otimizado: $((4*(a + b))/ (4*a))*c$.</p>
+          <ol style="font-size: 70%; margin-left:17%;">
+            <li  class="fragment fade-up">$((4*a + 4*b)/ (4*a)) * c $</li>
+            <li  class="fragment fade-up">$((4*a)/(4*a) + (4*b)/(4*a)) * c$</li>
+            <li  class="fragment fade-up">$(1 + b/a) * c$</li>
+            <li  class="fragment fade-up">$(1*c) + (b/a)*c$</li>
+            <li  class="fragment fade-up">$c + (b*c)/a$</li>
+          </ol>
+          <p  class="fragment fade-up">Otimizado: $c + (b*c)/a$. A grande pergunta é: você vai deixar o interpretador fazer isso?</p>
+        </small>
+        </section>
+        <section>
+          <h2>Simplificação Algébrica - Cuidados</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Divisão por zero? Overflow?</p>
+          <p  class="fragment fade-up">Verificação de overflow tem impacto direto na interpretação. </p>
+          <table   class="fragment fade-up">
+            <tbody>
+            <tr>
+            <th></th>
+            <th>GCC 9</th>
+            <th>clang 9</th>
+            </tr>
+            <tr>
+            <td>no trapping</td>
+            <td>0.17 ns/int</td>
+            <td>0.11 ns/int</td>
+            </tr>
+            <tr>
+            <td>trapping</td>
+            <td>2.1 ns/int</td>
+            <td>0.32 ns/int</td>
+            </tr>
+            <tr>
+            <td>slowdown</td>
+            <td>12 x</td>
+            <td>3 x</td>
+            </tr>
+            </tbody>
+            </table>
+            <p  class="fragment fade-up">Fonte: <a href="https://lemire.me/blog/2020/09/23/how-expensive-is-integer-overflow-trapping-in-c/">Daniel Lemire (2020)</a>  </p>
+          </small>
+        </section>
+        <section>
+          <h2>Strength Reduction</h2>
+          <small style="font-size: 90% !important; margin-left:2%; float:left; width: 59%;">
+          <p  class="fragment fade-up">Algumas operações são computacionalmente mais caras em arquiteturas diferentes.</p>     
+          <p  class="fragment fade-up">Infelizmente este é um problema insolúvel. Não há como determinar isso de forma autônoma.</p>
+          <p  class="fragment fade-up">A otimização mais comum é substituir multiplicações por somas.</p>     
+        </small>
+        <img data-src="../img/opt3.png" class="fragment fade-up" style="height: 360px !important; float:right; margin-top:20%;"  alt="exemplo de código substituindo multiplicação por somas." />
+        </section>
+        <section>
+          <h2>Strength Reduction - shift</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">$a = b/16 \Rightarrow a = b >> 4$</p>     
+          <p  class="fragment fade-up">$a = b*64 \Rightarrow a = b << 6$</p>
+          <p  class="fragment fade-up">$a = b*15 \Rightarrow a = (b<<4) – b$</p>
+          <p  class="fragment fade-up">Dependem do processador e do número que está sendo operado.</p>   
+          <p  class="fragment fade-up">Por outro lado, o processo de substituição é simples e direto.</p>     
+        </small>
+        <img data-src="../img/opt3.png" class="fragment fade-up" style="height: 360px !important; float:right; margin-top:20%;"  alt="exemplo de código substituindo multiplicação por somas." />
+        </section>
+        <section>
+          <h2>Loop Invariant</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Remover dos laços todo o código que não está sendo alterado dentro do código.</p>     
+          <p  class="fragment fade-up">No exemplo há outra otimização: strength reduction.</p>
+        </small>
+        <img data-src="../img/opt5.png" class="fragment fade-up" style="height: 293px !important; float: right; margin-top: 5%;"  alt="exemplo de código substituindo multiplicação por somas." />
+        </section>
+        <section>
+          <h2>Lifetime</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+          <p  class="fragment fade-up">Verificar e ajustar o uso de variáveis de acordo com seu tempo de vida, ou referências.</p>     
+          <p  class="fragment fade-up">Em C++ isso não é fácil.</p>
+         </small>
+        <img data-src="../img/opt6.png" class="fragment fade-up" style="height: 293px !important; float: right; margin-top: 5%;"  alt="exemplo de código substituindo multiplicação por somas." />
+        </section>
+        <section>
+          <h2>Function inlining</h2>
+          <small style="font-size: 90% !important; margin-left:2%;">
+            <p  class="fragment fade-up">Economiza todo o custo de chamar a função e voltar.</p>     
+            <p  class="fragment fade-up">Algumas linguagens possuem indicadores para provocar isso: inline in C++.</p>
+            <p  class="fragment fade-up">Economiza memória no <i>stack</i>, abre espaço para outras otimizações locais.</p>
+            <p  class="fragment fade-up">Precisa tomar cuidado com o excesso de uso.</p>
+         </small>
+        </section>
+        <section>
+          <h2>Unswitching</h2>
+          <small style="font-size: 88% !important; margin-left: 2%; width: 61%;;">
+            <p  class="fragment fade-up">Não é raro que o processo interno de um laço não seja relacionado ao laço.</p>     
+            <p  class="fragment fade-up">Também não é raro que isso possa ser modificado se o laço for modificado..</p>
+            <p  class="fragment fade-up">Economiza memória no <i>stack</i>, abre espaço para outras otimizações locais.</p>
+            <p  class="fragment fade-up">Precisa tomar cuidado com o excesso de uso.</p>
+         </small>
+         <img data-src="../img/opt7.png" class="fragment fade-up" style="height: 373px !important; float: right; margin-top: 5%;"  alt="exemplo de código substituindo multiplicação por somas." />
+        </section>
+    </div>
+  </div>
+  <div class="home-button"><a href="https://frankalcantara.com"><i class="fas fa-home"></i></a></div>
+  <script src="../../rev/reveal.js"></script>
+  <script src="../../rev/plugin/notes/notes.js"></script>
+  <script src="../../rev/plugin/search/search.js"></script>
+  <script src="../../rev/plugin/zoom/zoom.js"></script>
+  <script src="../../rev/plugin/math/math.js"></script>
+  <script src="../../rev/plugin/menu/menu.js"></script>
+  <script src="../../rev/plugin/chalkboard/plugin.js"></script>
+
+  <script>
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      // Push each slide change to the browser history
+      history: true,
+      // Transition style
+      transition: "fade", // none/fade/slide/convex/concave/zoom
+      center: false,
+      math: {
+        mathjax:
+          "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+        config: "TeX-AMS_HTML-full",
+        // pass other options into `MathJax.Hub.Config()`
+        TeX: {
+          Macros: {
+            RR: "{\\bf R}",
+          },
+        },
+      },
+      menu: {
+        side: "left",
+        width: "normal",
+        numbers: false,
+        titleSelector: "h1, h2, h3, h4, h5, h6",
+        useTextContentForMissingTitles: false,
+        hideMissingTitles: false,
+        markers: true,
+        custom: false,
+        themes: false,
+        themesPath: "dist/theme/",
+        transitions: false,
+        openButton: true,
+        openSlideNumber: false,
+        keyboard: true,
+        sticky: false,
+        autoOpen: true,
+        delayInit: false,
+        openOnInit: false,
+        loadIcons: true,
+      },
+
+      // reveal.js plugins
+      plugins: [
+        RevealNotes,
+        RevealMath,
+        RevealMenu,
+        RevealChalkboard,
+        RevealSearch,
+        RevealZoom,
+      ],
+    });
+  </script>
+</body>
+
+</html>
