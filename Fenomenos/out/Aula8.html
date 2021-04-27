@@ -20,19 +20,16 @@
 		<div class="slides">
 			<section  id="title-slide">
 				<section class="nivel1">
-				<h1 class="title" style="display: block; margin-top: 2%;">Derivadas</h1>
-				<p style="text-align: right !important">
-					Frank Coelho de Alcantara -2020 &nbsp;&nbsp;
-				</p>
+				<h1 class="title" style="display: block; margin-top: 2%;">Introdução: Derivadas</h1>
+				<p style="text-align: right !important"> Frank Coelho de Alcantara -2021 &nbsp;&nbsp;</p>
 				</section>
 			</section>
 			<section>
 				<section class="nivel1">
-					<h2>Limites</h2>
+					<h2>Voltando um pouco: limites</h2>
 					<img data-src="..\img\derivadas1.png" style="float: left; margin-left: 5%; height: 237px !important;"
 						alt="Gráfico mostrando a reta tangente um determinado ponto de uma curva." />
 					<small style="float:right;width: 58%;margin-right: 1%; font-size: 61% !important;">
-						<p class="fragment fade-up;">Vamos voltar um pouco. </p>
 						<p class="fragment fade-up;">$$\alpha = \frac{f_{(x+\Delta x)} - f_{(x)}}{(x+\Delta x) - x } = 
 							\frac{f_{(x+\Delta x)} - f_{(x)}}{\Delta x}$$</p>
 						<p class="fragment fade-up;">Podemos encontrar a inclinação da tangente em $P$ fazendo $\Delta x \to 0$. </p>
@@ -119,67 +116,110 @@
 						</ol>
 				</section>
 				<section class="nivel1">
-					<h2>Na Pratica 1 - Solução</h2>
-					<p style="font-size: 80%;">Todas as perguntas deste exemplo dizem respeito a análise da taxa de varição da função que determina
-						o volume do tanque. Só para lembrar:
+					<h2>Na Pratica 1 - Solução (1)</h2>
+					<p  class="fragment fade-up;" style="font-size: 80%;">Todas as perguntas deste exemplo dizem respeito a análise da taxa de varição da função que determina
+						o volume do tanque. Só para lembrar, nossa função é:
 						$$V_{(t)} = 2t^2-16t+35$$
 					</p>
-					<p style="font-size: 80%;">Nosso primeiro passo será encontrar a função que nos indica esta taxa de variação ou: 
+					<p class="fragment fade-up;" style="font-size: 80%;">Nosso primeiro passo será encontrar a função que nos indica esta taxa de variação ou: 
 					$$\frac{d}{dt}V_{(t)} =\frac{d}{dt} (2t^2-16t+35)$$
 				</p>
-
-				</section>
-				<section class="nivel1" >
-					<h1>$x_1$ tende a $x_0$ mas permanece distinto de $x_0$</h1>
+					<p class="fragment fade-up;" style="font-size: 80%;">$V_{(t)}$ é uma soma de funções.</p>
 				</section>
 				<section class="nivel1">
-					<h2>A Solução de Fermat</h1>
-						<p class="fragment fade-up;">Como nosso $f_{(x)}=X^2$, podemos substituir a função no ponto e teremos</p>
-						<p class="fragment fade-up;">$m=\frac{y_1-y_0}{x_1-x_0}=\frac{x^2_1 - x^2_0}{x_1-x_0}$</p>
-						<p class="fragment fade-up;">$m=\frac{(x_1 - x_0)(x_1 + x_0)}{(x_1-x_0)}$</p>
-						<p class="fragment fade-up;">$$m= \lim_{x_1 \to x_0}\frac{y_1-y_0}{x_1-x_0}=\lim_{x_1 \to x_0}(x_1+x_0)=2x_0$$</p>
+					<h2>Na Pratica 1 - Solução (2)</h2>
+					<p  class="fragment fade-up;" style="font-size: 80%;">Usando a definição de limites é possível provar que a derivada da soma é a soma das derivadas.
+						$$\frac{d}{dx}(f_{(x)}+g_{(x)}) =\frac{d}{dx} f_{(x)}+ \frac{d}{dx} g_{(x)}$$
+					</p>
+					<p  class="fragment fade-up;"style="font-size: 80%;">Então: 
+					$$\frac{d}{dt}V_{(t)} =\frac{d}{dt} (2t^2-16t+35)$$ $$\frac{d}{dt}V_{(t)} = \frac{d}{dt} (2t^2) - \frac{d}{dt}(16t)+ \frac{d}{dt}(35)$$
+					</p>
 				</section>
 				<section class="nivel1">
-					<h2>Exercício 1</h1>
-						<p>Considerando $f_{(x)}=X^2$, a) calcule o coeficiente angular da tangente que passa pelo ponto $(1,1)$; b: calcule o coeficiente 
-							angular da tangente que passa pelo ponto $(-\frac{1}{2},\frac{1}{4})$. </p>
-						<p class="fragment fade-up;">R: a)2 e b)-1</p>
+					<h2>Na Pratica 1 - Solução (3)</h2>
+					<p class="fragment fade-up;" style="font-size: 55%;">
+						$$\frac{d}{dt}V_{(t)} = \frac{d}{dt} (2t^2) -
+						\frac{d}{dt}(16t)+ \frac{d}{dt}(35)$$</p>
+					<p class="fragment fade-up;" style="font-size: 65%;">Calcularemos usando a regra $\frac{d}{dx}(x^n) = nx^{n-1}$:
+						$$\frac{d}{dt} (2t^2) = 2\times 2t^{(2-1)} = 4t $$</p>
+					<p  class="fragment fade-up;" style="font-size: 65%;">
+						$$\frac{d}{dt}(16t)= 1 \times 16t^{(1-1)} = 16$$</p>
+					<p class="fragment fade-up;" style="font-size: 65%;">
+						$$\frac{d}{dt}(35) = 0 $$ Ou seja:</p>
+					<p class="fragment fade-up;" style="font-size: 65%;">
+						$$\frac{d}{dt}V_{(t)} = \frac{d}{dt} (2t^2) -
+					\frac{d}{dt}(16t)+ \frac{d}{dt}(35) = 4t-16$$</p> 
 				</section>
 				<section class="nivel1">
-					<h2>Delta x</h1>
-						<small style=" font-size: 51% !important; width: 98%;">
-						<p class="fragment fade-up;">Formalmente usamos representar o ponto $x_1$ em função de $x_0$ utilizando para isso um $\Delta_x$
-							assim: $$x_1 = x_0 +\Delta_x$$
+					<h2>Derivada da Função Constante</h2>
+					<div style="float: left; margin-left: 3%; width: 39%;">
+					<p class="fragment fade-up;" style="font-size: 70%;"> Voltando a definição:
+						$$f'_{(x)}=\lim_{\Delta x \to 0} \frac{f_{(x+\Delta x)} - f_{(x)}}{\Delta x}$$
+					<p class="fragment fade-up;" style="font-size: 70%;">Se a função é constante ela tem o mesmo valor em todos os 
+					pontos $x$. Vamos chamar este valor de $c$. Sendo assim, se para qualquer ponto $f_{(x)} = c$ teremos: 
+						$$f'_{(x)}=\lim_{\Delta x \to 0} \frac{c - c}{\Delta x} = 0 $$</p>
+					</div>
+					<img data-src="..\img\derivadas2.png" style="margin-right: 3%; float:right; height: 310px !important;"
+						alt="Gráfico de uma função constante." />
+				</section>
+				<section class="nivel1">
+					<h2>Na Pratica 1 - Solução (a)</h2>
+					<p class="fragment fade-up;" style="font-size: 55%;">No instante $t=1$ minutos este volume está aumentando, diminuído ou estável?</p>
+					<p class="fragment fade-up;" style="font-size: 65%;">Já sabemos que: 
+						$$\frac{d}{dt}V_{(t)} = \frac{d}{dt} (2t^2) -
+						\frac{d}{dt}(16t)+ \frac{d}{dt}(35) = 4t-16$$</p>
+					<p class="fragment fade-up;" style="font-size: 65%;">Tudo que temos que fazer é substituir o ponto na derivada logo:
+						$$\frac{d}{dt}V_{(t)} = 4t+16 \therefore \frac{d}{dt}V_{(1)} = 4(1)-16 = -12$$ ou $$\frac{d}{dt} V_{(t)} \bigg{|}_{t=1} = -12 $$</p></p>
+					<p class="fragment fade-up;" style="font-size: 65%;"> Se o valor da derivada no ponto é negativo, a função está decrescendo. Por quê?
 						</p>
-						<p class="fragment fade-up;">Este $\Delta_x$, pode ser tanto negativo quanto positivo e representa apenas a $x_1-x_0$, Sendo assim:
-							$$m= \frac{x_1^2 - x_0^2}{x_1-x_0} = \frac{(x_0+\Delta_x)^2-x_0^2}{\Delta_x}$$
-						</p>
-						<p class="fragment fade-up;">Um pouco de álgebra no numerador leva a:
-							$$(x_0+\Delta_x)^2-x_0^2 = x_0^2+2x_0\Delta_x+(\Delta_x)^2 -x_0^2 = 2x_0\Delta_x+(\Delta_x)^2=\Delta_x(2x_0+\Delta_x)$$
-						</p>
-						<p class="fragment fade-up;">Ou seja: $$m=\frac{\Delta_x(2x_0+\Delta_x)}{\Delta_x}= 2x_0+\Delta_x $$</p>
-						<p class="fragment fade-up;">Sendo assim: $$m = \lim_{\Delta_x \to 0} 2x_0+\Delta_x = 2x_0$$</p>
-						</small>
 				</section>
 				<section class="nivel1">
-					<h2>Formalmente</h1>
-						<small style=" font-size: 79% !important; width: 98%;">
-							<p class="fragment fade-up;">Seja $f_{(x)}$ uma função definida em um intervalo que contenha $x=a$, exceto em $x=a$,
-								 dizemos que: $$\lim_{x \to a} = L$$
-							</p>
-							<p class="fragment fade-up;">Se para cada número $\varepsilon >0$ existe um número $\delta >0$ de forma que: 
-								$$|f_{(x)} - L| < \varepsilon$$ para todo $$0< |x-a| < \delta$$
-							</p>
-						</small>
+					<h2>Na Pratica 1 - Solução (b)</h2>
+					<p class="fragment fade-up;" style="font-size: 55%;">No instante $t=5$ minutos este volume está aumentando, diminuído ou estável?</p>
+					<p class="fragment fade-up;" style="font-size: 65%;">Já sabemos que:
+						$$\frac{d}{dt}V_{(t)} = \frac{d}{dt} (2t^2) -
+						\frac{d}{dt}(16t)+ \frac{d}{dt}(35) = 4t-16$$</p>
+					<p class="fragment fade-up;" style="font-size: 65%;">Tudo que temos que fazer é substituir o ponto na derivada logo:
+						$$\frac{d}{dt}V_{(t)} = 4t+16 \therefore \frac{d}{dt}V_{(5)} = 4(5)-16 = 4$$ ou $$\frac{d}{dt} V_{(t)}
+						\bigg{|}_{t=5} = 4 $$</p>
+					</p>
+					<p class="fragment fade-up;" style="font-size: 65%;"> Se o valor da derivada no ponto é positivo, a função está
+						crescendo. Por quê?
+					</p>
 				</section>
 				<section class="nivel1">
-					<h2>Um pouco de código</h1>
-						<small style=" font-size: 79% !important; width: 98%;">
-							<p class="fragment fade-up;">Voltaremos a formalidade do cálculo de limites na próxima aula.</p>
-							<p class="fragment fade-up;">Por enquanto vamos ver um pouco de código: <a href="https://colab.research.google.com/drive/1mablR6TLzcZiLewcWnHSh8knStQZOkMU?usp=sharing" target="_blank" rel="noopener noreferrer">clique aqui</a></p>
-						</small>
+					<h2>Na Pratica 1 - Solução (c)</h2>
+					<p class="fragment fade-up;" style="font-size: 55%;">Considerando $t=1$ e $t=5$, em que instante o volume do tanque está mudando mais rapidamente?</p>
+					<p class="fragment fade-up;" style="font-size: 65%;">Já sabemos que:
+						$$\frac{d}{dt} V_{(t)} \bigg{|}_{t=1} = -12 $$ e que
+						$$\frac{d}{dt} V_{(t)} \bigg{|}_{t=5} = 4 $$
+						</p>
+					<p class="fragment fade-up;" style="font-size: 65%;">O valor absoluto de uma função $\frac{d}{dt}$ em um 
+						determinado ponto indica a taxa de crescimento de uma determinada função. Logo, quanto maior este valor absoluto, 
+						maior a taxa de variação da função em um ponto determinado. </p>
+					</p>
+					<p class="fragment fade-up;" style="font-size: 65%;"> Neste caso, a taxa de variação é maior em $t=1$. </p>
 				</section>
-				
+				<section class="nivel1">
+					<h2>Na Pratica 1 - Solução (d)</h2>
+					<p class="fragment fade-up;" style="font-size: 55%;">Em algum instante $t$, o volume deste tanque estará constante? Se sim, que instante é este?</p>
+					<p class="fragment fade-up;" style="font-size: 65%;">Volume constante é sinônimo de função constante. Função contante implica em derivada zero. 
+						logo: $$\frac{d}{dt}V_{(t)} = 0 \therefore  4t-16 = 0 \therefore t =4$$</p>
+					<div style="float: left;margin-left: 4%;width: 40%;">
+					<p class="fragment fade-up;" style="font-size: 65%;"> Observe que dizer que uma função é constante em um ponto 
+						não quer dizer que ela será constante a partir deste ponto.</p>
+					</div>
+					<img data-src="..\img\derivadas3.jpg" style="float: right; margin-right:3%; height: 260px !important;"
+						alt="Gráfico da função usada em Na Prática"/>
+				</section>
+				<section class="nivel1">
+					<h2>Fixação</h2>
+					<p class="fragment fade-up;">Considerando uma função $f_{(x)}$ responda:</p>
+					<p class="fragment fade-up;">O que é ponto de máximo?</p>
+					<p class="fragment fade-up;">O que é ponto de mínimo?</p>
+					<p class="fragment fade-up;">Como podemos diferenciar um ponto de máximo de um ponto de mínimo?</p>
+					<p class="fragment fade-up;">Poste suas respostas, clicando neste <a href="https://forms.gle/UFhNA5Eucbuf7G8d8" target="_blank" rel="noopener noreferrer">link</a> . </p>
+				</section>
 			</section>
 				
 				
