@@ -24,7 +24,7 @@
       <section id="title-slide" class="nivel1">
         <section>
           <h1 class="title">NLP, Conceitos Básicos</h1>
-          <p style="text-align: right !important;">Frank Coelho de Alcantara -2020&nbsp;&nbsp;&nbsp;</p>
+          <p style="text-align: right !important;">Frank Coelho de Alcantara -2021&nbsp;&nbsp;&nbsp;</p>
         </section>
       </section>
       <section class="nivel1">
@@ -77,9 +77,6 @@
       </section> 
       <section class="nivel1">
         <section>
-          <h1 class="title">Colocando a mão na Massa!</h1>
-        </section>
-        <section>
           <h2>Usando o Python</h2>
           <p  class="fragment fade-up">O Python é inevitável para desenvolver os modelos de processamento de linguagem natural.</p>
           <p class="fragment fade-up">Dezenas de milhares de usuários e pesquisas ao longo do mundo.</p>
@@ -116,133 +113,12 @@
           <h2>Tokenization</h2>
           <p class="fragment fade-up">O primeiro passo no processo de processamento de linguagem natural será transformar um corpus em um conjunto de <i>tokens</i>.
             O analisador léxico transforma o código em <i>tokens</i> usando MEF ou REGEX. Geralmente usamos algoritmos para identificar palavras (espaços) e sentenças (pontuação).</p>
-          
-          <img data-src="../img/nlp1.jpg" class="fragment fade-up" style=" height: 137px !important;"  alt="código em python usando split." />
+            <img data-src="../img/nlp1.jpg" class="fragment fade-up" style=" height: 137px !important;"  alt="código em python usando split." />
         </section>
         <section>
           <h2>Normalização</h2>
           <p class="fragment fade-up"><strong>Stemming</strong>: reduzir o léxico a sua raíz - <i>meninos e meninas viram menin</i>.</p>
           <p class="fragment fade-up"><strong>Lemmatization</strong>: um stemming com sentido, não apenas removendo algumas letras. Aqui vamos reduzir a palavra a um <i>lemma</i>. O lema é um morfema que faz sentido no idioma.</p>
-        </section>
-      </section>
-      <section class="nivel1">
-        <section>
-          <h1>A Grande Ideia!</h1>
-        </section>
-        <section>
-          <h2>Projeto</h2>
-          <small style="font-size:65% !important; width:95%; margin-left:3%;">
-          <p class="fragment fade-up">Criar um site, e uma API, para produzir um modelo em Português, como falado no Brasil.</p>
-          <p class="fragment fade-up">Neste site, as pessoas se registram usando o nome, e-mail, cpf e o link do Lattes.</p>
-          <p class="fragment fade-up">E podem classificar morfemas em português. Nós vamos salvando as classificações em um banco e a cada 3 classificações idênticas, consideramos correto.</p>
-          <p class="fragment fade-up">A estrutura seria a mesma do Spacy. Teríamos um modelo excelente para Português do Brasil.</p>
-          <p class="fragment fade-up">O banco de frases virá da Wikipédia em Português.</p>
-          <p class="fragment fade-up">A API é para integrar no Login da Universidade.</p>
-          <p class="fragment fade-up" style="text-align: center !important;"><strong> Vale um artigo e nota máxima na disciplina.</strong></p>
-        </small>
-        </section>
-        <section>
-          <h2>O formalismo da máquina</h2>
-          <p>A linguagem de máquina é a mais formal e específica linguagem envolvida nos processos de computação. Isso a torna praticamente impossível de usada
-            por seres humanos. </p>
-          <p>O <strong>Assembly</strong> é apenas uma coleção de mnemônicos organizada sobre uma sintaxe e semânticas simples que representam de forma mais
-            adequada ao ser humano, as instruções em binário que queremos que a máquina execute. </p>
-        </section>
-        <section>
-          <h2>Linguagem de maquina</h2>
-          <p>O <em>Assembly</em> não é linguagem de máquina. Só para enfatizar, vou repetir: o <em>Assembly</em> não é linguagem de máquina. Sequer a linguagem
-            baseada no alfabeto $\Sigma_{h}$, hexadecimal, pode ser chamada de linguagem de máquina. </p>
-        </section>
-      </section>
-      <section class="nivel1">
-        <section>
-          <h2>Entendendo o Assembler</h2>
-          <p>O <em>Assembler</em> traduz uma linguagem de baixo nível, formal e desenhada para uso humano em código de máquina. Ainda que a linguagem
-            <em>Assembly</em>, objeto o <em>Assembler</em>, seja muito simples, pouco mais que uma linguagem puramente simbólica, e muito próxima do nível da
-            linguagem de máquina, ela tem estrutura léxica, sintática e semântica como qualquer outra linguagem de programação. </p>
-        </section>
-        <section>
-          <h2>Assembler compila?</h2>
-          <p>Compiladores e interpretadores são estruturas software, ou hardware, que fazem a tradução de uma linguagem formal e regular, criada para uso humano
-            em uma linguagem de máquina. Se você está pensando que um <em>Assembler</em> é uma espécie de compilador, não está muito longe da verdade. </p>
-        </section>
-        <section>
-          <h2>Assembler compila?</h2>
-          <p>Cada arquitetura de hardware, <em>x86_64</em>, <em>ARM</em>, <em>RISC-V</em> tem as suas próprias características de forma que um conjunto de zeros
-            e uns pode significar coisas completamente diferente em máquinas diferentes. Isto faz com que o <em>Assembler</em> seja um tradutor altamente
-            especializado. </p>
-        </section>
-        <section>
-          <h2>Assembler um passo</h2>
-          <ul>
-            <li><strong><em>One-pass Assembler</em></strong>: um Assembler que lê o texto contendo o código fonte e transforma em código de máquina varrendo
-              este texto, do começo ao fim, uma única vez. </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Assembler dois passos</h2>
-          <ul>
-            <li><strong><em>Two-pass Assembler</em></strong>: como no nome diz, lê o arquivo contendo o código fonte duas vezes. Isso permite o uso de
-              instruções específicas para a criação de código, como as referências a fragmentos de código específico para melhorar o processo de redação de
-              código fonte e diminuir o erro. </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Macro Assembler</h2>
-          <ul>
-            <li><strong><em>Macro-Assembler</em></strong>: o <em>Assembler</em> que permite o uso de macros. Uma macro, neste contexto é equivalente a uma
-              sub-rotina que, por sua vez, representa um fragmento de código que é escrito uma vez e pode ser reutilizado muitas vezes. </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Cross Assembler</h2>
-          <ul>
-            <li><strong><em>Cross-Assembler</em></strong>: um <em>Assembler</em> capaz de rodar em uma arquitetura enquanto gera código de máquina que será
-              utilizado em outra arquitetura. Os <em>Assemblies</em> definidos para este tipo de <em>Assembler</em>, mais tarde, seriam classificados como
-              linguagens de mais alto nível entre os <em>Assembly</em>. </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Assembler - processo de tradução</h2>
-          <ul>
-            <li><strong>Verificar a sintaxe de cada instrução</strong>, parar e emitir uma mensagem de erro todas as vezes que encontrar um erro na formação de
-              uma instrução;</li>
-            <li><strong>Determinar se o tamanho da instrução</strong> e o dado que ela está manipulando para reservar espaço de memória, ou registrador, para
-              seu uso;</li>
-            <li><strong>Determinar os endereços</strong> de <em>labels</em> ou de seções de código;</li>
-            <li><strong>Criar uma tabela de símbolos</strong> contendo as definições de cada <em>label</em> e seu endereço em memória. </li>
-          </ul>
-        </section>
-        <section>
-          <h2>As linguagens de programação</h2>
-          <p>As linguagens de programação são linguagens formais, desenvolvidas para uso humano que foram criadas para explicitar as funcionalidade mínimas
-            necessárias para tornar possível que um pobre ser humano possa escrever um algoritmo, e entender aquilo que está escrevendo, e preservar a esperança
-            que outros seres humanos também sejam capazes de entender o que ele escreveu. </p>
-        </section>
-      </section>
-      <section class="nivel1">
-        <section>
-          <h1>Material de apoio</h1>
-          <p>Baixe o material de apoio <a href="./1-Apresenta.pdf">clicando aqui</a> </p>
-        </section>
-        <section>
-          <h2>Obras Citadas</h2>
-          <small style="width: 95%;">
-            BERGIN, T. J. <strong>50 Years of Army Computing from Eniac to MSRC</strong>. Aberdeen, MD. USA: Army Research
-            Laboratory, 1996. <br />
-            BÖHM, C.; JACOPINI, G. <strong>Flow diagrams, turing machines and languages with only two formation
-              rules</strong>. Communications of the ACM, v. 9, n. 5, p. 366-371, 1966. <br />
-            DAVIS, J. S. <strong>File:Commodore Grace M. Hopper, USN (covered).jpg</strong>. Wikipedia, 1984. Disponível em:
-            DIJKSTRA, E. W. <strong>A Case against the GO TO Statement</strong>. Commun. ACM , v. 3, n. 1, p. 147-148,
-            Mar. 1968.
-            KNUTH, D. E. <strong>Structured programming with go to statements</strong>. ACM Computing Surveys (CSUR), v. 6,
-            n. 4, p. 261-301, 1974. <br />
-            MENABREA, L. F. <strong>The Analitical Engine Invented by Charles Babbage</strong>. Fourmilab, 1842. Disponível
-            em: <a href="http://www.fourmilab.ch/babbage/sketch.html#NoteG"
-              class="uri">http://www.fourmilab.ch/babbage/sketch.html#NoteG</a>. Acesso em: 20 Fev. 2020. <br />
-            NAUR, P. et al. <strong>Revised report on the algorithmic language Algol 60</strong>. Communications of the ACM,
-            v. 6, n. 1, p. 1-17, 1963.
-          </small>
         </section>
       </section>
     </div>
