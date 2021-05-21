@@ -24,13 +24,44 @@
         <h1 class="title" style="width: 90%; margin-left: 4%;">Stopwords - Na Prática</h1>
         <p style="text-align: right !important;">Frank Coelho de Alcantara -2020&nbsp;&nbsp;</p>
        </section>
+      <section>
+        <h2>Racional</h2>
+        <small style="font-size: 93% !important; margin-left: 0%; width: 95%;">
+          <p class="fragment fade-up">O preprocessamento de textos, antes da aplicação de algoritmos de processamento de linguagem natural.
+            É indispensável para a redução do custo computacional envolvido e, muitas vezes, o fator responsável pelo sucesso ou fracasso.
+          </p>
+          <p class="fragment fade-up">Na aula passada, usando as bibliotecas Spacy e NLTK, vimos stemming, tokenização, capitalização e remoção de stopwords. Como passos básicos destas técnicas.</p>
+          <p class="fragment fade-up">Hoje vamos fugir um pouco das bibliotecas.</p>
+        </small>
+      </section>
        <section>
-          <h2>Objetivos</h2>
+          <h2>Atividade Prática</h2>
+          <small style="font-size: 77% !important; margin-left: 0%; width: 95%;">
+            <p  class="fragment fade-up">Você deverá fazer uma função para a identificação de stopwords em português.</p>
+          <p class="fragment fade-up">Para isso irá usar o algoritmo de subamostragem definido por <a
+              href="http://https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf"
+              target="_blank" rel="noopener noreferrer">Mikolov et. al</a>.$$P(w_i) = \sqrt{\frac{t}{f(w_i)}}$$</p>
+          <p class="fragment fade-up">Use um texto longo e interessante, como a constituição, por exemplo. E observe o item 2.3 do
+            trabalho de Mikolov</p>
+          <p class="fragment fade-up">O link da sua implementação no Google Colab ou no Repl.it deve ser enviado 
+            <a href="https://forms.gle/vtzBjYHJN1KwtgR78" target="_blank" rel="noopener noreferrer">aqui</a></p>
+
+          </small>
+        </section>
+        <section>
+          <h2>Dicas</h2>
           <small style="font-size: 73% !important; margin-left: 0%; width: 95%;">
-            <p  class="fragment fade-up">Você deverá fazer uma função para a remoção de stopwords em português.</p>
-            <p  class="fragment fade-up">Para isso irá usar o algoritmo de subamostragem definido por <a href="http://https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank" rel="noopener noreferrer">Milokov et. al</a>.$$P(w_i) = \sqrt{\frac{t}{f(w_i)}}$$</p>
-            <p  class="fragment fade-up">Testará este algoritmo comparando o resultado da sua função com as ferramentas de stopwords do Spacy e do NLTK.</p>
-            <p  class="fragment fade-up">Seu trabalho deve ser postado, ainda hoje, em local indicado do seu Ambiente Virtual de Aprendizagem.</p>
+            <p class="fragment fade-up">Você precisará fazer a tokenização do corpus. Pode usar uma lib para isso.</p>
+            <p class="fragment fade-up">Beautiful Soup é uma excelente opção para fazer o parser de uma página web. E 
+              você pode ver um exemplo de uso <a href="https://www.dataquest.io/blog/web-scraping-python-using-beautiful-soup/" target="_blank" rel="noopener noreferrer">Aqui</a></p>
+            <p class="fragment fade-up">O uso de textos grandes e relevantes, torna o trabalho mais interessante.</p>
+            <p class="fragment fade-up">A decisão de tornar este exercício intrigante é sua. Por exemplo, Todas as denúncias 
+              referentes a Operação Lava Jato estão disponíveis <a href="http://www.mpf.mp.br/grandes-casos/lava-jato/acoes" target="_blank" rel="noopener noreferrer">aqui</a>.
+            </p>
+            <p class="fragment fade-up">Lembre-se o Stopwords é uma técnica para localizar tokens comuns. Geralmente o 
+              conhecimento novo e surpreendente se encontra nas palavras raras.
+            </p>
+        
           </small>
         </section>
      </section>
@@ -46,19 +77,14 @@
   <script src="../../rev/plugin/chalkboard/plugin.js"></script>
 
   <script>
-    // Full list of configuration options available at:
-    // https://revealjs.com/config/
     Reveal.initialize({
-      // Push each slide change to the browser history
       history: true,
-      // Transition style
       transition: "fade", // none/fade/slide/convex/concave/zoom
       center: false,
       math: {
         mathjax:
           "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
         config: "TeX-AMS_HTML-full",
-        // pass other options into `MathJax.Hub.Config()`
         TeX: {
           Macros: {
             RR: "{\\bf R}",
