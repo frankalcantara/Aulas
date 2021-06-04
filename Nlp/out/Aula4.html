@@ -22,7 +22,7 @@
       <section id="title-slide" class="nivel1">
         <section>
           <h1 class="title" style="width: 90%; margin-left: 4%; font-size: 340%;">Word2Vector</h1>
-          <p style="text-align: right !important;">Frank Coelho de Alcantara -2020&nbsp;&nbsp;</p>
+          <p style="text-align: right !important;">Frank Coelho de Alcantara -2021&nbsp;&nbsp;&nbsp;&nbsp;</p>
         </section>
         <section>
             <h2>Vetorização</h2>
@@ -30,15 +30,15 @@
               <p  class="fragment fade-up">Algoritmo de aprendizagem supervisionada para a vetorização criado em 2013.</p>
               <p  class="fragment fade-up">Mikolov, Tomas; et al. (2013). "Efficient Estimation of Word Representations in Vector Space". <a href="https://arxiv.org/archive/cs.CL" target="_blank" rel="noopener noreferrer">arXiv:1301.3781</a>.</p>
               <p  class="fragment fade-up">Mikolov, Tomas (2013). "Distributed representations of words and phrases and their compositionality". Advances in Neural Information Processing Systems. <a href="https://arxiv.org/abs/1310.4546" target="_blank" rel="noopener noreferrer">arXiv:1310.4546</a>.</p>
-              <p  class="fragment fade-up">O objetivo é criar vetores menos esparsos e mais uteis para descobrir a relação entre termos em documentos.</p>
+              <p  class="fragment fade-up">O objetivo é criar conjuntos de vetores menos esparsos e mais uteis para descobrir a relação entre termos em documentos.</p>
             </small>
         </section>
         <section>
             <h2>Matriz Esparsa</h2>
             <small style="font-size: 73% !important; margin-left: 0%; width: 95%;">
-              <p  class="fragment fade-up">Já vimos que a vetorização cria matrizes que relacionam termos e documentos de uma forma esparsa.</p>
-              <p  class="fragment fade-up">Ainda que exista informação nesta representação, perdemos semântica e criamos grandes matrizes cheias de zeros.</p>
-              <p  class="fragment fade-up">Por outro lado, criamos vetores que representam documentos em um espaço multidimensional onde cada termo é uma dimensão.</p>
+              <p  class="fragment fade-up">Já vimos que a vetorização cria matrizes que relacionam termos e documentos de uma forma esparsa (muitos zeros).</p>
+              <p  class="fragment fade-up">Existe informação nesta representação, mas perdemos semântica e criamos grandes matrizes cheias de zeros. Matrizes caras.</p>
+              <p  class="fragment fade-up">Ainda assim, criamos vetores que representam documentos em um espaço multidimensional onde cada termo é uma dimensão.</p>
               <p  class="fragment fade-up">Podemos ver a relação entre os vetores de cada documento usando a distância entre eles.</p>
               <p  class="fragment fade-up">Dois documentos exatamente iguais terão o mesmo comprimento e o ângulo entre eles será zero. O ângulo é importante. Muito importante.</p>
             </small>
@@ -48,11 +48,11 @@
             <small style="font-size: 54% !important; margin-left: -2%; width: 49%;">
               <p  class="fragment fade-up">Métrica utilizada para determinar o grau de similaridade entre dois documentos independente dos seus tamanhos.</p>
               <p  class="fragment fade-up">Mediremos o cosseno do ângulo entre dois vetores em um espaço multidimensional.</p>
-              <p  class="fragment fade-up">No nosso caso, dois vetores são estruturas de dados contendo informações sobre os dois documentos.</p>
+              <p  class="fragment fade-up">Nossos dois vetores são estruturas de dados contendo informações sobre os dois documentos (frase, parágrafo...).</p>
               <p  class="fragment fade-up">Cada termo corresponde a uma dimensão e a quantidade destes termos indica o escalar da dimensão. E podemos determinar a orientação do vetor que representa o texto.</p>
               <p  class="fragment fade-up">Usando o cosseno entre os ângulos podemos criar uma medida de similaridade entre os vetores criados independente do comprimento destes vetores.</p>
             </small>
-            <img data-src="../img/w2v1.jpg" class="fragment fade-up" style="margin-right: 1%; height: 360px !important; float: right;"  alt="gráfico mostrando um vetor entre a origem e o ponto (1,2,3)." />
+            <img data-src="../img/w2v1.jpg" class="fragment fade-up" style="margin-right: 1%; height: 390px !important; float: right;"  alt="gráfico mostrando um vetor entre a origem e o ponto (1,2,3)." />
         </section>
         <section>
             <h2>Cossine Similarity - Matemática</h2>
@@ -83,7 +83,7 @@
               <p  class="fragment fade-up">Trata-se de um algoritmo de aprendizagem supervisionada consistindo de uma rede neural com três camadas com apenas uma camada oculta.</p>
               <p  class="fragment fade-up">Você pode ver uma implementação deste algoritmo em python <a href="https://www.geeksforgeeks.org/implement-your-own-word2vecskip-gram-model-in-python/" target="_blank" rel="noopener noreferrer">aqui!</a></p>
             </small>
-            <img data-src="../img/w2v3.jpg" class="fragment fade-up" style="margin-right: 1%; height: 360px !important; float: right;"  alt="diagrama em blocos de uma rede neural apresentando três camadas." />
+            <img data-src="../img/w2v3.jpg" class="fragment fade-up" style="margin-right: 1%; height: 329px !important; float: right;"  alt="diagrama em blocos de uma rede neural apresentando três camadas." />
         </section>
         <section>
             <h2>Word2Vector - Completo</h2>
@@ -99,29 +99,12 @@
         <section>
             <h2>Exercício 1</h2>
             <small style="font-size: 73% !important; margin-left: 0%; width: 97%;">
-              <p  class="fragment fade-up">Seu trabalho será, usando o Google Colab, determinar a similaridade, usando <i>Cossine Similarity</i> entre todos os  documentos formados por um corpus de dois arquivos científicos, quaisquer, com mais de 15 páginas em PDF, escritos em inglês e convertidos para txt com a ferramenta que você desejar.</p>
+              <p  class="fragment fade-up">Seu trabalho será, usando o Google Colaboratory, ou no Repl.it determinar a similaridade, usando <i>Cossine Similarity</i> entre todos os  documentos formados por um corpus de dois arquivos científicos, quaisquer, com mais de 15 páginas em PDF, escritos em inglês e convertidos para txt com a ferramenta que você desejar.</p>
               <p  class="fragment fade-up">O resultado deve ser uma matriz relacionando estes parágrafos e a sua similaridade.</p>
-              <p  class="fragment fade-up">Este trabalho vale a presença para as aulas de 11 de novembro e 18 de novembro.</p>
+              <p  class="fragment fade-up">Este trabalho vale a presença. Poste se link <a href="https://forms.gle/vvd8LYpNgKX6DzrW8" target="_blank" rel="noopener noreferrer">Aqui</a></p>
             </small>
         </section>
-        <section>
-            <h2>Exercício 2</h2>
-            <small style="font-size: 73% !important; margin-left: 0%; width: 97%;">
-              <p  class="fragment fade-up">Seu trabalho será, usando o Google Colab, fazer uma implementação, <i>from scratch</i> do CBOW.</p>
-              <p  class="fragment fade-up">O resultado deve ser uma rede neural que, dado um conjunto de 4 palavras indique a palavra mais provável de estar 
-                exatamente no meio. Treine seu algoritmo com os textos do Machado de Assis disponíveis na NLTK</p>
-              <p  class="fragment fade-up">Este trabalho vale a presença para as aulas de 11 de novembro e 18 de novembro.</p>
-            </small>
-        </section>
-        <section>
-            <h2>Exercício 2</h2>
-            <small style="font-size: 73% !important; margin-left: 0%; width: 97%;">
-              <p  class="fragment fade-up">Seu trabalho será, usando o Google Colab, fazer uma implementação, <i>from scratch</i> do SKIP-GRAM.</p>
-              <p  class="fragment fade-up">O resultado deve ser uma rede neural que, dado um termo indique as quatro palavras mais prováveis de estar 
-                circundando este termo. Treine seu algoritmo com os textos do Machado de Assis disponíveis na NLTK</p>
-              <p  class="fragment fade-up">Este trabalho vale a presença para as aulas de 11 de novembro e 18 de novembro.</p>
-            </small>
-        </section>
+        
       </section>
     </div>
   </div>
