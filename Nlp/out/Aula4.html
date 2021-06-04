@@ -59,7 +59,7 @@
             <small style="font-size: 61% !important; margin-left: 0%; width: 97%;">
               <p  class="fragment fade-up">A Similaridade entre dois vetores, $A$ e $B$ será dada por: 
                 $$cos(\theta) = \frac{A\cdot B}{|A||B|} $$ </p>
-              <p  class="fragment fade-up">Ou, considerando as múltiplas dimensões teremos: $$cos(\theta)= \frac{\sum_{i=1}^{n}A_i B_i}{\sqrt{\sum_{i=1}^{n}A_i} \sqrt{\sum_{i=1}^{n}A_i}}$$</p>
+              <p  class="fragment fade-up">Ou, considerando as múltiplas dimensões teremos: $$cos(\theta)= \frac{\sum_{i=1}^{n}A_i B_i}{\sqrt{\sum_{i=1}^{n}A_i} \sqrt{\sum_{i=1}^{n}B_i}}$$</p>
               <p  class="fragment fade-up">O qué bastante simples usando o <i>Numpy</i> $$cos\_sim = np.dot(a, b)/(np.linalg.norm(a)*np.linalg.norm(b))$$</p>
             </small>
         </section>
